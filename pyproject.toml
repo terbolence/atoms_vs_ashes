@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atoms-vs-ashes"
+version = "0.1.0"
+description = "SMR Siting Assessment — Automated Site Evaluation System"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy>=2.0",
+    "psycopg2-binary>=2.9",
+    "geoalchemy2>=0.15",
+    "alembic>=1.13",
+    "click>=8.1",
+    "pandas>=2.2",
+    "openpyxl>=3.1",
+    "pyyaml>=6.0",
+    "pydantic>=2.6",
+    "pydantic-settings>=2.2",
+    "python-dotenv>=1.0",
+    "structlog>=24.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "testcontainers[postgres]>=4.0",
+]
+
+[project.scripts]
+atoms-vs-ashes = "atoms_vs_ashes.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

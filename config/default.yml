@@ -1,0 +1,82 @@
+ingestion:
+  # ISO 3166-1 alpha-2 codes for in-scope countries
+  in_scope_countries:
+    - PL   # Poland
+    - CZ   # Czech Republic
+    - SK   # Slovakia
+    - HU   # Hungary
+    - AT   # Austria
+    - SI   # Slovenia
+    - HR   # Croatia
+    - BA   # Bosnia and Herzegovina
+    - RS   # Serbia
+    - ME   # Montenegro
+    - XK   # Kosovo
+    - AL   # Albania
+    - MK   # North Macedonia
+    - RO   # Romania
+    - BG   # Bulgaria
+    - MD   # Moldova
+    - UA   # Ukraine
+    - BY   # Belarus
+    - EE   # Estonia
+    - LV   # Latvia
+    - LT   # Lithuania
+    - AM   # Armenia
+    - TR   # Turkey
+
+  source_files:
+    coal_tracker: "sources/global_coal_plant_tracker/Global-Coal-Plant-Tracker-January-2026.xlsx"
+    coal_tracker_sheet: "Units"
+    ownership_tracker: "sources/global_coal_plant_tracker/Global-Energy-Ownership-Tracker-February-2026-V1.xlsx"
+    ownership_tracker_sheet: "Coal Plant Ownership"
+
+  supplementary_sites:
+    - name: "Brăila-Chișcani Thermal Power Plant"
+      country_code: "RO"
+      country_name: "Romania"
+      latitude: 45.2744
+      longitude: 27.9291
+      plant_type: "thermal"
+      status: "operating"
+      subnational_unit: "Brăila"
+      location: "Chișcani, Brăila County"
+    - name: "FPCU Feldioara"
+      country_code: "RO"
+      country_name: "Romania"
+      latitude: 45.7917
+      longitude: 25.5889
+      plant_type: "thermal"
+      status: "operating"
+      subnational_unit: "Brașov"
+      location: "Feldioara, Brașov County"
+
+screening:
+  # Placeholder — populated when screening engine is implemented
+  exclusionary: {}
+  avoidance: {}
+
+scoring:
+  weights:
+    natural_hazards: 0.25
+    human_induced_hazards: 0.10
+    radiological_impact: 0.15
+    emergency_planning: 0.10
+    infrastructure_grid: 0.15
+    site_characteristics: 0.10
+    socioeconomic_synergies: 0.15
+
+cache:
+  default_ttl_days: 30
+
+retry:
+  max_retries: 3
+  base_delay_s: 2
+  max_delay_s: 60
+
+observability:
+  alert_thresholds:
+    overall_error_rate: 0.05
+    connector_error_rate: 0.10
+    site_coverage: 0.95
+    criteria_coverage_per_site: 0.80
