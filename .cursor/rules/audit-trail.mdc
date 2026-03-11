@@ -1,0 +1,49 @@
+---
+description: Enforce audit trail logging for every conversation and plan per IAEA QA 13.1.6
+alwaysApply: true
+---
+
+# Audit Trail Rule
+
+This project requires a full audit trail of all AI-assisted work per IAEA QA requirement 13.1.6.
+
+## Conversation Logging
+
+At the **end of every conversation that produces changes**, create a log file:
+
+- Path: `audit/conversations/YYYY-MM-DD_<short-slug>.md`
+- Use today's date and a concise slug describing the session topic
+- If a file with that name already exists, append `_02`, `_03`, etc.
+
+Required sections in the log:
+
+```
+# <Title>
+
+**Date:** YYYY-MM-DD
+**Session ID:** <conversation identifier if available>
+
+## Objective
+<What the user requested>
+
+## Key Decisions
+- <Decision 1>
+- <Decision 2>
+
+## Files Changed
+- `path/to/file.md` — <one-line description>
+
+## Outcome
+<Completed | Partial | Deferred> — <any follow-up items>
+```
+
+## Plan Logging
+
+When a **plan is created or implemented**, copy the full plan content to `audit/plans/` preserving the original filename.
+
+## Rules
+
+- Never skip audit logging, even for small changes.
+- The audit log should be written as the final action before the conversation ends.
+- Include the audit log file in the same commit as the changes it documents.
+- See `audit/README.md` for full conventions.

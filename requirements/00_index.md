@@ -42,4 +42,33 @@
 | **Phase 4** | Report Development  | 02_deliverables, 09_business_case, 11_quality_assurance                                                         |
 | **Always**  | Reference material  | 00_index, 12_references                                                                                         |
 
-In here I need a diagram of the full process that we are undertaking with the main steps, including
+---
+
+## End-to-End Siting Process (At-a-Glance)
+
+```mermaid
+flowchart TD
+    A["Phase 0: Preparation<br/>Set governance, standards mapping, and baseline weighting"] --> B["Phase 1: Regional Analysis<br/>Build full inventory (coal sites + designated additions)<br/>Output: N0 potential sites"]
+    B --> C["Selection Round 1: Exclusionary Screening (E1-E9)<br/>Pass/Fail: any fail eliminates site"]
+    C --> D["Selection Round 2: Avoidance Screening (A1-A15)<br/>Threshold filtering to form candidate pool (N1)"]
+    D --> E["Selection Round 3: Detailed Evaluation and Ranking<br/>Scoring 1-5, weighted composite score, sensitivity analysis"]
+    E --> F["Final Selection<br/>Shortlist 12-20 viable sites (target: 15)"]
+    F --> G["Phase 4: Report Development and QA<br/>Deliverable 1: shortlist<br/>Deliverable 2: full siting + business case report"]
+
+    C --- C1["Main criteria: capable fault proximity, liquefaction, slope instability, volcanism, karst/subsidence, protected areas, emergency plan infeasibility, cooling water infeasibility"]
+    D --- D1["Main criteria: airports/flight paths, military and hazardous facilities, hazardous clouds, tsunami/flood exposure, seismic envelope, population density, grid capacity, heavy transport access, minimum site area"]
+    E --- E1["Main weighted categories: natural hazards (25%), human-induced hazards (10%), radiological impact (15%), emergency planning (10%), infrastructure and grid (15%), site characteristics (10%), socioeconomic and synergies (15%)"]
+```
+
+---
+
+## Audit Trail
+
+Per IAEA QA requirement 13.1.6 (see [11_quality_assurance.md](11_quality_assurance.md)), all correspondence and decision records are preserved in the project repository:
+
+| Folder | Contents |
+|---|---|
+| [`audit/conversations/`](../audit/conversations/) | Structured log of every AI-assisted work session (objective, decisions, files changed, outcome) |
+| [`audit/plans/`](../audit/plans/) | Copy of every plan created and implemented for this project |
+
+Conventions are documented in [`audit/README.md`](../audit/README.md).
