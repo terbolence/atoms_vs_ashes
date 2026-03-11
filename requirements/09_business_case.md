@@ -6,30 +6,30 @@ The business case chapter of the report (Deliverable 2, Chapter 10) shall argue 
 
 ### 11.2 Economic Analysis Components
 
-| Component | Scope |
-|---|---|
-| **Capital Cost Comparison** | Greenfield vs. coal-to-nuclear overnight capital cost, quantifying the 15–35% cost reduction from infrastructure reuse per DOE/INL analysis |
-| **Levelized Cost of Electricity (LCOE)** | LCOE estimate for NuScale-6 at representative shortlisted sites, benchmarked against regional alternatives (gas CCGT, onshore wind, solar PV) |
-| **Revenue Projections** | Electricity market price forecasts for each national market, capacity payment mechanisms, clean energy premiums |
-| **Employment Impact** | Direct construction and permanent operations jobs, indirect supply chain employment, comparison with lost coal employment |
-| **Tax Revenue** | National and local tax contributions from construction and operation |
-| **Avoided Costs** | Avoided carbon costs (ETS), avoided air pollution health costs (PM2.5, SOx, NOx), avoided grid reinforcement costs |
-| **Financing Considerations** | EU funding instruments (Modernisation Fund, Just Transition Fund, EURATOM loans), national investment incentives, export credit agency support |
+| Component                                | Scope                                                                                                                                          |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Capital Cost Comparison**              | Greenfield vs. coal-to-nuclear overnight capital cost, quantifying the 15–35% cost reduction from infrastructure reuse per DOE/INL analysis    |
+| **Levelized Cost of Electricity (LCOE)** | LCOE estimate for NuScale-6 at representative shortlisted sites, benchmarked against regional alternatives (gas CCGT, onshore wind, solar PV)  |
+| **Revenue Projections**                  | Electricity market price forecasts for each national market, capacity payment mechanisms, clean energy premiums                                |
+| **Employment Impact**                    | Direct construction and permanent operations jobs, indirect supply chain employment, comparison with lost coal employment                      |
+| **Tax Revenue**                          | National and local tax contributions from construction and operation                                                                           |
+| **Avoided Costs**                        | Avoided carbon costs (ETS), avoided air pollution health costs (PM2.5, SOx, NOx), avoided grid reinforcement costs                             |
+| **Financing Considerations**             | EU funding instruments (Modernisation Fund, Just Transition Fund, EURATOM loans), national investment incentives, export credit agency support |
 
 ### 11.3 Benefits Map
 
 A structured benefits map shall be developed identifying all direct, indirect, and strategic benefits of NuScale-6 deployment for Nuclearelectrica and Romania. At minimum:
 
-| Benefit Category | Specific Benefits |
-|---|---|
-| **Energy Security** | Fuel diversification, reduced gas import dependence, baseload stability, grid resilience |
-| **Decarbonisation** | Zero operational CO₂ emissions, coal phase-out compliance, EU Green Deal alignment, NDC contribution |
-| **Economic Development** | Regional economic multiplier effects, industrial supply chain development, workforce upskilling |
-| **Technology Leadership** | FOAK operational experience, intellectual property development, regulatory precedent |
-| **Export Opportunities** | Consulting and project management services to countries in the region (Serbia, Armenia, Bulgaria, etc.), workforce training export, supply chain supplier qualification services, regulatory harmonisation advisory |
-| **Just Transition** | Reemployment of coal workforce, community economic continuity, social licence enhancement |
-| **Grid Services** | Flexible operation capability, frequency regulation, grid inertia contribution, hydrogen co-production potential |
-| **National Security** | Energy sovereignty, reduced vulnerability to fossil fuel supply disruptions, diversified energy mix |
+| Benefit Category          | Specific Benefits                                                                                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Energy Security**       | Fuel diversification, reduced gas import dependence, baseload stability, grid resilience                                                                                                                            |
+| **Decarbonisation**       | Zero operational CO₂ emissions, coal phase-out compliance, EU Green Deal alignment, NDC contribution                                                                                                                |
+| **Economic Development**  | Regional economic multiplier effects, industrial supply chain development, workforce upskilling                                                                                                                     |
+| **Technology Leadership** | FOAK operational experience, intellectual property development, regulatory precedent                                                                                                                                |
+| **Export Opportunities**  | Consulting and project management services to countries in the region (Serbia, Armenia, Bulgaria, etc.), workforce training export, supply chain supplier qualification services, regulatory harmonisation advisory |
+| **Just Transition**       | Reemployment of coal workforce, community economic continuity, social licence enhancement                                                                                                                           |
+| **Grid Services**         | Flexible operation capability, frequency regulation, grid inertia contribution, hydrogen co-production potential                                                                                                    |
+| **National Security**     | Energy sovereignty, reduced vulnerability to fossil fuel supply disruptions, diversified energy mix                                                                                                                 |
 
 ### 11.4 FOAK Export Strategy
 
