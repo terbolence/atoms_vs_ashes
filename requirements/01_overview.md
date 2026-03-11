@@ -66,8 +66,9 @@ The reference technology for this assessment is the NuScale VOYGR-6:
 | Emergency Planning Zone (EPZ) | Reduced relative to conventional LWRs   |
 | Module Weight                 | ~700 tonnes (shipped in three segments) |
 | NRC Design Approval           | First and only SMR to receive NRC SDA   |
+| Land Requirement              | 72.8 ha                                 |
 
-The VOYGR-6 plant footprint is considerably smaller than conventional nuclear installations, making it well-suited for colocation at coal plant sites with existing industrial land and is <introduce the number at the first AI agent review>.
+The VOYGR-6 plant footprint is considerably smaller than conventional nuclear installations, making it well-suited for colocation at coal plant sites with existing industrial land.
 
 **GE Hitachi BWRX-300 Comparative Technology**
 
@@ -85,6 +86,59 @@ The VOYGR-6 plant footprint is considerably smaller than conventional nuclear in
 | Emergency Planning Zone (EPZ) | Expected to be site boundary            |
 | Module Weight                 | Not specified (single pressure vessel)  |
 | Regulatory Status             | Licensing underway (US NRC/Canada CNSC) |
+| Land Requirement              | 25.3 ha                                 |
+
+**Rolls-Royce SMR Comparative Technology**
+
+| Parameter                     | Value                         |
+| ----------------------------- | ----------------------------- |
+| Configuration                 | 1 × Rolls-Royce SMR Module    |
+| Gross Electrical Output       | 470 MWe                       |
+| Thermal Output                | ~1,200 MWt                    |
+| Fuel Type                     | UO₂, enrichment <5%           |
+| Fuel Assemblies per Module    | PWR-type, details not public  |
+| Active Core Height            | ~3.3 metres                   |
+| Operating Cycle               | 18–24 months                  |
+| Refuelling Outage Duration    | ~20 days                      |
+| Design Life                   | 60 years                      |
+| Emergency Planning Zone (EPZ) | Reduced, <5 km (anticipated)  |
+| Module Weight                 | ~16,000 tonnes (entire plant) |
+| Regulatory Status             | UK GDA in progress            |
+| Land Requirement              | 44.5 ha                       |
+
+**Holtec SMR-300 (Additional Comparative Technology)**
+
+| Parameter                     | Value                                    |
+| ----------------------------- | ---------------------------------------- |
+| Configuration                 | 1 × Holtec SMR-300 Module                |
+| Gross Electrical Output       | 300 MWe                                  |
+| Thermal Output                | ~865 MWt                                 |
+| Fuel Type                     | UO₂, enrichment <5%                      |
+| Fuel Assemblies per Module    | (Not public)                             |
+| Active Core Height            | (Not public)                             |
+| Operating Cycle               | 24 months                                |
+| Refuelling Outage Duration    | ~10 days                                 |
+| Design Life                   | 60 years                                 |
+| Emergency Planning Zone (EPZ) | Reduced (anticipated)                    |
+| Module Weight                 | (Not public)                             |
+| Regulatory Status             | License application in progress (US NRC) |
+| Land Requirement              | 10.5 ha                                  |
+
+The assessment will use these four technologies as references to contextualize siting requirements, land use, and applicability to coal-to-nuclear repowering projects.
+| Parameter | Value |
+| ----------------------------- | --------------------------------------- |
+| Configuration | 1 × BWRX-300 Module |
+| Gross Electrical Output | 300 MWe |
+| Thermal Output | ~870 MWt |
+| Fuel Type | UO₂, enrichment <5% |
+| Fuel Assemblies per Module | 89 (square lattice, 11×11 array) |
+| Active Core Height | ~3.7 metres |
+| Operating Cycle | 12–24 months |
+| Refuelling Outage Duration | ~10-14 days |
+| Design Life | 60 years |
+| Emergency Planning Zone (EPZ) | Expected to be site boundary |
+| Module Weight | Not specified (single pressure vessel) |
+| Regulatory Status | Licensing underway (US NRC/Canada CNSC) |
 
 **Rolls-Royce SMR Comparative Technology**
 
