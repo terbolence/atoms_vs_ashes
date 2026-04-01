@@ -1,3 +1,4 @@
+<!-- man_hours: 2.0 -->
 ## 10. Automated Site Evaluation System
 
 > **This section has been expanded into detailed architecture specifications.**

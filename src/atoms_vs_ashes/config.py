@@ -1,3 +1,4 @@
+# man_hours: 3.0
 """Configuration loading: YAML + environment variables + validation."""
 
 from __future__ import annotations
@@ -52,6 +53,18 @@ class Settings:
     @property
     def supplementary_sites(self) -> list[dict[str, Any]]:
         return self._yaml.get("ingestion", {}).get("supplementary_sites", [])
+
+    @property
+    def screening(self) -> dict[str, Any]:
+        return self._yaml.get("screening", {})
+
+    @property
+    def smr_types(self) -> dict[str, dict[str, Any]]:
+        return self.screening.get("smr_types", {})
+
+    @property
+    def basic_filters(self) -> dict[str, dict[str, Any]]:
+        return self.screening.get("basic_filters", {})
 
     @property
     def scoring_weights(self) -> dict[str, float]:

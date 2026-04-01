@@ -1,3 +1,4 @@
+<!-- man_hours: 5.0 -->
 # Document Map: IAEA SSG-79
 **Title:** Hazards Associated with Human Induced External Events in Site Evaluation for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSG-79 (Specific Safety Guide)  

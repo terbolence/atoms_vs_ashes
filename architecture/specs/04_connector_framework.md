@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 # 4. Connector Framework
 
 ## 4.1 Purpose

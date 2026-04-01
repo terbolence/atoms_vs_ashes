@@ -1,3 +1,4 @@
+<!-- man_hours: 12.0 -->
 # 2. Data Model — PostgreSQL
 
 ## 2.1 Purpose

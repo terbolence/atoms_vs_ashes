@@ -1,3 +1,4 @@
+# man_hours: 4.0
 """CLI entry point — ``python -m atoms_vs_ashes`` or ``atoms-vs-ashes``."""
 
 from __future__ import annotations
@@ -94,10 +95,25 @@ def enrich(ctx: click.Context) -> None:
 
 
 @main.command()
+@click.option(
+    "--criteria", "criteria_ids", multiple=True,
+    help="Run only specific criteria (e.g. --criteria BF-01). Omit for all.",
+)
 @click.pass_context
-def screen(ctx: click.Context) -> None:
-    """Run exclusionary and avoidance screening. [NOT YET IMPLEMENTED]"""
-    click.echo("screen: not yet implemented")
+def screen(ctx: click.Context, criteria_ids: tuple[str, ...]) -> None:
+    """Run screening checks (basic filters, exclusionary, avoidance)."""
+    from atoms_vs_ashes.pipeline.runner import run_screening
+
+    settings: Settings = ctx.obj["settings"]
+    rid: str = ctx.obj["run_id"]
+
+    if not check_connection(settings):
+        click.echo("ERROR: Cannot connect to database. Is PostgreSQL running?", err=True)
+        sys.exit(1)
+
+    cids = list(criteria_ids) if criteria_ids else None
+    summary = run_screening(settings, run_id=rid, criteria=cids)
+    click.echo(json.dumps(summary, indent=2, default=str))
 
 
 @main.command()

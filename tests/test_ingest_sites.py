@@ -1,3 +1,4 @@
+# man_hours: 3.0
 """Unit tests for site ingestion helpers (no DB required)."""
 
 from atoms_vs_ashes.ingest.sites import (

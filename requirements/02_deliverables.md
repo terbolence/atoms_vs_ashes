@@ -1,3 +1,4 @@
+<!-- man_hours: 4.0 -->
 ## 4. Deliverables
 
 ### 4.1 Deliverable 1: Viable Site Shortlist

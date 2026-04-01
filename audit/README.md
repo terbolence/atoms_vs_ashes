@@ -1,3 +1,4 @@
+<!-- man_hours: 2.0 -->
 # Audit Trail
 
 **Project:** SMR Siting Assessment — Automated Site Evaluation System

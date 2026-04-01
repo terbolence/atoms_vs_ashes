@@ -1,3 +1,4 @@
+# man_hours: 2.0
 """Database engine and session management."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 # Document Map: IAEA GSG-10
 **Title:** Prospective Radiological Environmental Impact Assessment for Facilities and Activities  
 **Series:** IAEA Safety Standards Series No. GSG-10 (General Safety Guide)  

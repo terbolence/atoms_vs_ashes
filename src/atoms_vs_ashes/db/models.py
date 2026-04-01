@@ -1,3 +1,4 @@
+# man_hours: 16.0
 """SQLAlchemy ORM models — mirrors architecture/specs/02_data_model_postgres.md."""
 
 from __future__ import annotations

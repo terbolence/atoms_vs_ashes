@@ -1,3 +1,4 @@
+<!-- man_hours: 0.5 -->
 # Architecture Split and Ownership Table
 
 **Date:** 2026-03-11

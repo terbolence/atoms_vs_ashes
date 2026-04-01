@@ -1,3 +1,4 @@
+<!-- man_hours: 5.0 -->
 # Document Map: IAEA NS-G-3.6
 **Title:** Geotechnical Aspects of Site Evaluation and Foundations for Nuclear Power Plants  
 **Series:** IAEA Safety Standards Series No. NS-G-3.6 (Safety Guide)  

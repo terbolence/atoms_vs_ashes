@@ -1,3 +1,4 @@
+<!-- man_hours: 3.0 -->
 # SMR Siting Assessment — Requirements Index
 
 **Project Title:** Assessment of Coal Power Plant Sites for Small Modular Reactor (SMR) Deployment in Central, Eastern, and Southern Europe

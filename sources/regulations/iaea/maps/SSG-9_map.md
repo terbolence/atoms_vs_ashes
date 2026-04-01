@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 # Document Map: IAEA SSG-9 (Rev. 1)
 **Title:** Seismic Hazards in Site Evaluation for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSG-9 (Rev. 1) (Specific Safety Guide)  

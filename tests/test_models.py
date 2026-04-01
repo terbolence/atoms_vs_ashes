@@ -1,3 +1,4 @@
+# man_hours: 2.0
 """Tests for SQLAlchemy model definitions (no DB required)."""
 
 from atoms_vs_ashes.db.models import (

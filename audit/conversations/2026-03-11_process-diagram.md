@@ -1,3 +1,4 @@
+<!-- man_hours: 0.25 -->
 # Requirements Process Diagram
 
 **Date:** 2026-03-11

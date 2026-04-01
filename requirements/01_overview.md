@@ -1,3 +1,4 @@
+<!-- man_hours: 32.0 -->
 # SMR Siting Assessment for Coal Power Plant Conversion in Central, Eastern, and Southern Europe
 
 ## Project Requirements Specification
@@ -90,76 +91,111 @@ The VOYGR-6 plant footprint is considerably smaller than conventional nuclear in
 
 **Rolls-Royce SMR Comparative Technology**
 
-| Parameter                     | Value                         |
-| ----------------------------- | ----------------------------- |
-| Configuration                 | 1 × Rolls-Royce SMR Module    |
-| Gross Electrical Output       | 470 MWe                       |
-| Thermal Output                | ~1,200 MWt                    |
-| Fuel Type                     | UO₂, enrichment <5%           |
-| Fuel Assemblies per Module    | PWR-type, details not public  |
-| Active Core Height            | ~3.3 metres                   |
-| Operating Cycle               | 18–24 months                  |
-| Refuelling Outage Duration    | ~20 days                      |
-| Design Life                   | 60 years                      |
-| Emergency Planning Zone (EPZ) | Reduced, <5 km (anticipated)  |
-| Module Weight                 | ~16,000 tonnes (entire plant) |
-| Regulatory Status             | UK GDA in progress            |
-| Land Requirement              | 44.5 ha                       |
+| Parameter                     | Value                                   |
+| ----------------------------- | --------------------------------------- |
+| Configuration                 | 1 × Rolls-Royce SMR module              |
+| Gross Electrical Output       | 470 MWe                                 |
+| Thermal Output per Module     | 1,358 MWt                               |
+| Fuel Type                     | UO₂, enrichment ≤4.95%                  |
+| Fuel Assemblies per Module    | 121, 17 × 17 pin array                  |
+| Active Core Height            | 2.8 metres active fuelled length        |
+| Operating Cycle               | 18–24 months                            |
+| Refuelling Outage Duration    | 18 days                                 |
+| Design Life                   | 60 years                                |
+| Emergency Planning Zone (EPZ) | Reduced relative to conventional LWRs   |
+| Module Weight                 | Not public                              |
+| NRC Design Approval           | Not applicable; UK GDA Step 2 completed |
+| Land Requirement              | 44.5 ha                                 |
 
 **Holtec SMR-300 (Additional Comparative Technology)**
 
-| Parameter                     | Value                                    |
-| ----------------------------- | ---------------------------------------- |
-| Configuration                 | 1 × Holtec SMR-300 Module                |
-| Gross Electrical Output       | 300 MWe                                  |
-| Thermal Output                | ~865 MWt                                 |
-| Fuel Type                     | UO₂, enrichment <5%                      |
-| Fuel Assemblies per Module    | (Not public)                             |
-| Active Core Height            | (Not public)                             |
-| Operating Cycle               | 24 months                                |
-| Refuelling Outage Duration    | ~10 days                                 |
-| Design Life                   | 60 years                                 |
-| Emergency Planning Zone (EPZ) | Reduced (anticipated)                    |
-| Module Weight                 | (Not public)                             |
-| Regulatory Status             | License application in progress (US NRC) |
-| Land Requirement              | 10.5 ha                                  |
+| Parameter                     | Value                                            |
+| ----------------------------- | ------------------------------------------------ |
+| Configuration                 | 1 × Holtec SMR-300 module                        |
+| Gross Electrical Output       | 300 MWe                                          |
+| Thermal Output per Module     | 865 MWt                                          |
+| Fuel Type                     | UO₂, enrichment <5%                              |
+| Fuel Assemblies per Module    | 69, 17 × 17 pin array                            |
+| Active Core Height            | Not public                                       |
+| Operating Cycle               | 24 months                                        |
+| Refuelling Outage Duration    | Up to 7 days                                     |
+| Design Life                   | 80 years                                         |
+| Emergency Planning Zone (EPZ) | Reduced relative to conventional LWRs            |
+| Module Weight                 | Not public                                       |
+| NRC Design Approval           | No; licensing/pre-application activities ongoing |
+| Land Requirement              | 38 ha                                            |
 
-The assessment will use these four technologies as references to contextualize siting requirements, land use, and applicability to coal-to-nuclear repowering projects.
-| Parameter | Value |
-| ----------------------------- | --------------------------------------- |
-| Configuration | 1 × BWRX-300 Module |
-| Gross Electrical Output | 300 MWe |
-| Thermal Output | ~870 MWt |
-| Fuel Type | UO₂, enrichment <5% |
-| Fuel Assemblies per Module | 89 (square lattice, 11×11 array) |
-| Active Core Height | ~3.7 metres |
-| Operating Cycle | 12–24 months |
-| Refuelling Outage Duration | ~10-14 days |
-| Design Life | 60 years |
-| Emergency Planning Zone (EPZ) | Expected to be site boundary |
-| Module Weight | Not specified (single pressure vessel) |
-| Regulatory Status | Licensing underway (US NRC/Canada CNSC) |
+**Kairos Power / KP-FHR (Hermes) Comparative Technology**
 
-**Rolls-Royce SMR Comparative Technology**
+| Parameter                     | Value                                                |
+| ----------------------------- | ---------------------------------------------------- |
+| Configuration                 | 1 × Hermes test reactor module                       |
+| Gross Electrical Output       | 0 MWe                                                |
+| Thermal Output per Module     | 35 MWt                                               |
+| Fuel Type                     | TRISO pebble fuel, HALEU                             |
+| Fuel Assemblies per Module    | Not directly applicable; pebble-fueled core          |
+| Active Core Height            | Not public                                           |
+| Operating Cycle               | Not public                                           |
+| Refuelling Outage Duration    | Not public                                           |
+| Design Life                   | Not public                                           |
+| Emergency Planning Zone (EPZ) | Not public                                           |
+| Module Weight                 | Not public                                           |
+| NRC Design Approval           | No; NRC construction permit issued December 14, 2023 |
+| Land Requirement              | 30 ha                                                |
 
-| Parameter                     | Value                         |
-| ----------------------------- | ----------------------------- |
-| Configuration                 | 1 × Rolls-Royce SMR Module    |
-| Gross Electrical Output       | 470 MWe                       |
-| Thermal Output                | ~1,200 MWt                    |
-| Fuel Type                     | UO₂, enrichment <5%           |
-| Fuel Assemblies per Module    | PWR-type, details not public  |
-| Active Core Height            | ~3.3 metres                   |
-| Operating Cycle               | 18–24 months                  |
-| Refuelling Outage Duration    | ~20 days                      |
-| Design Life                   | 60 years                      |
-| Emergency Planning Zone (EPZ) | Reduced, <5 km (anticipated)  |
-| Module Weight                 | ~16,000 tonnes (entire plant) |
-| Regulatory Status             | UK GDA in progress            |
+**X-energy / Xe-100 Comparative Technology**
 
-Conclusions for each report will be done for all three technologies.
+| Parameter                     | Value                                          |
+| ----------------------------- | ---------------------------------------------- |
+| Configuration                 | 1 × Xe-100 module                              |
+| Gross Electrical Output       | 80 MWe                                         |
+| Thermal Output per Module     | 200 MWt                                        |
+| Fuel Type                     | TRISO particle fuel, graphite moderated        |
+| Fuel Assemblies per Module    | Not directly applicable; pebble-fueled core    |
+| Active Core Height            | Not public                                     |
+| Operating Cycle               | Online refuelling                              |
+| Refuelling Outage Duration    | Not directly applicable; continuous refuelling |
+| Design Life                   | 60 years                                       |
+| Emergency Planning Zone (EPZ) | Reduced relative to conventional LWRs          |
+| Module Weight                 | Not public                                     |
+| NRC Design Approval           | No; NRC pre-application activities ongoing     |
+| Land Requirement              | 31 ha                                          |
 
-Conclusions for each report will be done for all three technologies.
+**Oklo / Aurora Comparative Technology**
+
+| Parameter                     | Value                                                  |
+| ----------------------------- | ------------------------------------------------------ |
+| Configuration                 | 1 × Aurora powerhouse module                           |
+| Gross Electrical Output       | Up to 75 MWe                                           |
+| Thermal Output per Module     | Not public                                             |
+| Fuel Type                     | Metal fuel, fast-spectrum reactor fuel                 |
+| Fuel Assemblies per Module    | Not public                                             |
+| Active Core Height            | Not public                                             |
+| Operating Cycle               | 10 years or longer between refuelling                  |
+| Refuelling Outage Duration    | Not public; long-life core concept                     |
+| Design Life                   | Not public                                             |
+| Emergency Planning Zone (EPZ) | Not public                                             |
+| Module Weight                 | Not public                                             |
+| NRC Design Approval           | No; NRC pre-application / licensing activities ongoing |
+| Land Requirement              | 22 ha                                                  |
+
+**TerraPower / Natrium Comparative Technology**
+
+| Parameter                     | Value                                                |
+| ----------------------------- | ---------------------------------------------------- |
+| Configuration                 | 1 × Natrium module                                   |
+| Gross Electrical Output       | 345 MWe nominal, 500 MWe peak                        |
+| Thermal Output per Module     | 840 MWt                                              |
+| Fuel Type                     | Metallic uranium fuel, fast-spectrum reactor         |
+| Fuel Assemblies per Module    | Not public                                           |
+| Active Core Height            | Not public                                           |
+| Operating Cycle               | Not public                                           |
+| Refuelling Outage Duration    | Not public                                           |
+| Design Life                   | Up to 80 years                                       |
+| Emergency Planning Zone (EPZ) | Not public                                           |
+| Module Weight                 | Not public                                           |
+| NRC Design Approval           | No; NRC construction permit authorized March 4, 2026 |
+| Land Requirement              | 51 ha                                                |
 
 ### 2.4 Romania's Strategic Position
 

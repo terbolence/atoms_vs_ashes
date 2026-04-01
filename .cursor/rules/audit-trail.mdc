@@ -1,3 +1,4 @@
+<!-- man_hours: 2.0 -->
 ---
 description: Enforce audit trail logging for every conversation and plan per IAEA QA 13.1.6
 alwaysApply: true

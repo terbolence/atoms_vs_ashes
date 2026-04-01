@@ -1,3 +1,4 @@
+<!-- man_hours: 0.75 -->
 # Database + Backend Foundation
 
 **Date:** 2026-03-11

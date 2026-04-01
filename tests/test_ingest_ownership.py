@@ -1,3 +1,4 @@
+# man_hours: 1.0
 """Unit tests for ownership ingestion helpers (no DB required)."""
 
 from atoms_vs_ashes.ingest.ownership import _safe_float, _str_or_none

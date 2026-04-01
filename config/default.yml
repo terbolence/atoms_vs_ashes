@@ -1,3 +1,4 @@
+# man_hours: 4.0
 ingestion:
   # ISO 3166-1 alpha-2 codes for in-scope countries
   in_scope_countries:
@@ -52,9 +53,73 @@ ingestion:
       location: "Feldioara, Brașov County"
 
 screening:
-  # Placeholder — populated when screening engine is implemented
+  smr_types:
+    oklo_aurora:
+      name: "Oklo Aurora"
+      capacity_mwe: 75
+      land_ha: 22
+    xe_100:
+      name: "X-energy Xe-100"
+      capacity_mwe: 80
+      land_ha: 31
+    bwrx_300:
+      name: "GE Hitachi BWRX-300"
+      capacity_mwe: 300
+      land_ha: 25.3
+    holtec_smr300:
+      name: "Holtec SMR-300"
+      capacity_mwe: 300
+      land_ha: 38
+    natrium_nominal:
+      name: "TerraPower Natrium (nominal)"
+      capacity_mwe: 345
+      land_ha: 51
+    nuscale_voygr6:
+      name: "NuScale VOYGR-6"
+      capacity_mwe: 462
+      land_ha: 72.8
+      reference: true
+    rolls_royce_smr:
+      name: "Rolls-Royce SMR"
+      capacity_mwe: 470
+      land_ha: 44.5
+    natrium_peak:
+      name: "TerraPower Natrium (peak)"
+      capacity_mwe: 500
+      land_ha: 51
+  basic_filters:
+    bf_01_grid_capacity:
+      criterion_id: "BF-01"
+      reference_smr: "nuscale_voygr6"
+      pass_if: "any"
+    bf_02_land_area:
+      criterion_id: "BF-02"
+      reference_smr: "nuscale_voygr6"
+      pass_if: "any"
+      nuclear_island_min_ha: 14
   exclusionary: {}
   avoidance: {}
+
+  epz:
+    radii_km: [5, 16, 25, 80]
+    population_density_avoidance_threshold: 1000  # persons/km² within 5 km
+    city_population_threshold: 50000
+    ep01_fail_threshold: 30  # composite score 0–100
+
+connectors:
+  corine:
+    wfs_url: "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WFSServer"
+    layer_name: "Corine:CLC2018_CLC2018_V2018_20"
+    timeout_s: 30
+  population:
+    geonames_username: null  # optional; set for richer data
+    overpass_url: "https://overpass-api.de/api/interpreter"
+  osm:
+    overpass_url: "https://overpass-api.de/api/interpreter"
+  protected_areas:
+    wfs_url: "https://bio.discomap.eea.europa.eu/arcgis/services/ProtectedSites/Natura2000Sites/MapServer/WFSServer"
+    layer_name: "Natura2000Sites:Natura2000polygon"
+    wdpa_token: null  # optional; set for WDPA data
 
 scoring:
   weights:

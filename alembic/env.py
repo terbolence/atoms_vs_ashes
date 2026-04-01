@@ -1,3 +1,4 @@
+# man_hours: 1.0
 from logging.config import fileConfig
 
 from alembic import context

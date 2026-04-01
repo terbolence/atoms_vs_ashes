@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 # Document Map: IAEA SSG-18
 **Title:** Meteorological and Hydrological Hazards in Site Evaluation for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSG-18 (Specific Safety Guide)  

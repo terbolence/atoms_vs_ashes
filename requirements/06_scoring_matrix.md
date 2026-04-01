@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 ## 8. Scoring Matrix Design
 
 ### 8.1 Scoring Methodology

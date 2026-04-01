@@ -1,3 +1,4 @@
+<!-- man_hours: 1.0 -->
 ---
 name: Project Audit Trail Setup
 overview: Create an in-repo audit trail with `audit/conversations/` and `audit/plans/` folders, a Cursor rule to enforce logging of every session, and seed both folders with existing history.

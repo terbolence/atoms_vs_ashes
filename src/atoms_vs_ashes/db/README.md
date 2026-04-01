@@ -1,3 +1,4 @@
+<!-- man_hours: 0.1 -->
 Setting Value
 Host localhost
 Port 5432

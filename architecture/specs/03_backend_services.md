@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 # 3. Backend Services
 
 ## 3.1 Purpose

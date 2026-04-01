@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 ## 11. Business Case Framework
 
 ### 11.1 Objective

@@ -1,3 +1,4 @@
+# man_hours: 4.0
 """Integration tests: verify DB state after ingestion (requires live DB)."""
 
 import pytest

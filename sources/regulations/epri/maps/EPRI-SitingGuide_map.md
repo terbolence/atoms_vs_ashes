@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 # Document Map: EPRI 3002023910
 **Title:** Advanced Nuclear Technology: Site Selection and Evaluation Criteria for New Nuclear Energy Generation Facilities (Siting Guide) — 2022 Revision  
 **Series:** EPRI Technical Report No. 3002023910  

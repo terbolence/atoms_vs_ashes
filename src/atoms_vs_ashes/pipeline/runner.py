@@ -1,8 +1,10 @@
+# man_hours: 4.0
 """Pipeline orchestration — ties ingestion stages together."""
 
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.db.engine import session_scope
@@ -55,3 +57,40 @@ def run_validate(settings: Settings, *, run_id: str) -> dict:
         report = generate_quality_report(session, run_id=run_id)
     log.info("validation_complete", report=report)
     return report
+
+
+def run_screening(
+    settings: Settings,
+    *,
+    run_id: str,
+    criteria: list[str] | None = None,
+) -> dict[str, Any]:
+    """Execute screening checks and return a summary per criterion.
+
+    Args:
+        settings: Application settings.
+        run_id: Unique identifier for this pipeline run.
+        criteria: If given, only run checks whose ``criterion_id`` is in
+            this list.  If *None*, run all registered checks.
+    """
+    from atoms_vs_ashes.screening import all_checks, get_check
+
+    if criteria:
+        checks = [get_check(cid) for cid in criteria]
+    else:
+        checks = all_checks()
+
+    summaries: dict[str, Any] = {"run_id": run_id, "checks": {}}
+
+    for check in checks:
+        with session_scope() as session:
+            result = check.run(session, settings, run_id)
+            summaries["checks"][result.criterion_id] = {
+                "total": result.total,
+                "passed": result.passed,
+                "failed": result.failed,
+                "inconclusive": result.inconclusive,
+            }
+
+    log.info("screening_complete", summaries=summaries)
+    return summaries

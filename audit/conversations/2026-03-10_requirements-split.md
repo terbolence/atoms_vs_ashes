@@ -1,3 +1,4 @@
+<!-- man_hours: 0.5 -->
 # Split Requirements into Phase-Based Files
 
 **Date:** 2026-03-10

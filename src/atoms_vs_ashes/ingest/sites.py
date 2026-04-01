@@ -1,3 +1,4 @@
+# man_hours: 14.0
 """Ingest coal plant sites from the GEM Global Coal Plant Tracker XLSX."""
 
 from __future__ import annotations

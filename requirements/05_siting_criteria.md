@@ -1,3 +1,4 @@
+<!-- man_hours: 16.0 -->
 ## 7. Siting Criteria Specification
 
 ### 7.1 Criteria Master Table

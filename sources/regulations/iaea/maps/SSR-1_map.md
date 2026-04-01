@@ -1,3 +1,4 @@
+<!-- man_hours: 5.0 -->
 # Document Map: IAEA SSR-1
 **Title:** Site Evaluation for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSR-1 (Specific Safety Requirements)  

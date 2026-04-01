@@ -1,3 +1,4 @@
+<!-- man_hours: 10.0 -->
 ## 9. Data Requirements and Databases
 
 ### 9.1 Data Categories

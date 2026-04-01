@@ -1,3 +1,4 @@
+<!-- man_hours: 3.0 -->
 ## 13. Quality Assurance and Management System
 
 ### 13.1 Compliance with IAEA Management System Requirements

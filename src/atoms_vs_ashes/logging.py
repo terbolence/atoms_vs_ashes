@@ -1,3 +1,4 @@
+# man_hours: 1.5
 """Structured JSON logging with run_id propagation."""
 
 from __future__ import annotations

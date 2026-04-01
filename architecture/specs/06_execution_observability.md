@@ -1,3 +1,4 @@
+<!-- man_hours: 6.0 -->
 # 6. Execution and Observability
 
 ## 6.1 Purpose

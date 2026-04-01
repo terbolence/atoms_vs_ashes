@@ -1,3 +1,4 @@
+<!-- man_hours: 1.5 -->
 # Architecture Specifications — Index
 
 **Project:** SMR Siting Assessment — Automated Site Evaluation System

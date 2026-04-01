@@ -1,3 +1,4 @@
+<!-- man_hours: 5.0 -->
 # Document Map: IAEA SSG-21
 **Title:** Volcanic Hazards in Site Evaluation for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSG-21 (Specific Safety Guide)  

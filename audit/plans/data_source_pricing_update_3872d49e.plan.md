@@ -1,3 +1,4 @@
+<!-- man_hours: 1.5 -->
 ---
 name: Data Source Pricing Update
 overview: Research published pricing/access costs for all listed and country-specific data sources, then update the data requirements document with cost fields and add a standalone budget markdown file with assumptions and totals.

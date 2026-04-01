@@ -1,3 +1,4 @@
+<!-- man_hours: 1.5 -->
 ---
 name: Automated System Architecture Split
 overview: Restructure the automated system requirement into a dedicated architecture specification set under `architecture/specs`, while preserving requirements traceability via a lightweight pointer file in `requirements`.

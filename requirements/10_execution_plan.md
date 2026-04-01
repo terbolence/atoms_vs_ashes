@@ -1,3 +1,4 @@
+<!-- man_hours: 4.0 -->
 ## 12. Project Execution Plan
 
 ### 12.1 Phased Approach

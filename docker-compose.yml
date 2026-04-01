@@ -1,3 +1,4 @@
+# man_hours: 0.5
 services:
   db:
     image: postgis/postgis:16-3.4

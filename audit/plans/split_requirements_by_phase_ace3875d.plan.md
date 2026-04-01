@@ -1,3 +1,4 @@
+<!-- man_hours: 1.5 -->
 ---
 name: Split requirements by phase
 overview: Split the monolithic `requirements.md` (1021 lines) into separate files within the `requirements/` folder, organized by document section, with a master index that maps each project execution phase to the files it needs.

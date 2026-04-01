@@ -1,3 +1,4 @@
+# man_hours: 1.0
 """Tests for configuration loading."""
 
 from atoms_vs_ashes.config import DatabaseSettings, Settings

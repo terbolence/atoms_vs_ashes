@@ -1,3 +1,4 @@
+<!-- man_hours: 1.0 -->
 Task: Create a siting report which assesses the potential of coal power plants to host SMRs in the future within the region.
 The region is defined as: Central, Eastern, Southern Europe, including Romania, Serbia, Armenia. For Romania, on top of the coal power plants sites other two sites should be evaluated: 1. Braila - Chiscani (thermal power plant) and 2. FPCU Feldioara
 

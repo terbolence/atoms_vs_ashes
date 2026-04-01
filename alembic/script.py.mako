@@ -1,3 +1,4 @@
+# man_hours: 0.25
 """${message}
 
 Revision ID: ${up_revision}

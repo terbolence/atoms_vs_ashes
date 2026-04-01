@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 ## 5. Regulatory and Standards Framework
 
 ### 5.1 IAEA Safety Standards (Primary)

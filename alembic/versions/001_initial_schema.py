@@ -1,3 +1,4 @@
+# man_hours: 10.0
 """Initial schema — all core, reference, and audit tables.
 
 Revision ID: 001

@@ -1,0 +1,433 @@
+# man_hours: 2.0
+# Man-hours registry — auto-maintained per .cursor/rules/man-hours.mdc
+# Each entry: file path -> { hours (cumulative total), category }
+
+files:
+
+  # ── Configuration & DevOps ──────────────────────────────────────
+
+  .cursor/rules/audit-trail.mdc:
+    hours: 2.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/man-hours.mdc:
+    hours: 3.0
+    category: "Configuration & DevOps"
+
+  config/default.yml:
+    hours: 4.0
+    category: "Configuration & DevOps"
+
+  docker-compose.yml:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
+  pyproject.toml:
+    hours: 1.5
+    category: "Configuration & DevOps"
+
+  # ── Database & Migrations ───────────────────────────────────────
+
+  alembic/env.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/script.py.mako:
+    hours: 0.25
+    category: "Database & Migrations"
+
+  alembic/versions/001_initial_schema.py:
+    hours: 10.0
+    category: "Database & Migrations"
+
+  alembic/versions/002_seed_screening_criteria.py:
+    hours: 1.5
+    category: "Database & Migrations"
+
+  alembic/versions/003_seed_bf02_criterion.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/004_seed_epz_emergency_criteria.py:
+    hours: 2.5
+    category: "Database & Migrations"
+
+  # ── Architecture & Design ───────────────────────────────────────
+
+  architecture/specs/00_index.md:
+    hours: 1.5
+    category: "Architecture & Design"
+
+  architecture/specs/01_system_overview.md:
+    hours: 8.0
+    category: "Architecture & Design"
+
+  architecture/specs/02_data_model_postgres.md:
+    hours: 12.0
+    category: "Architecture & Design"
+
+  architecture/specs/03_backend_services.md:
+    hours: 6.0
+    category: "Architecture & Design"
+
+  architecture/specs/04_connector_framework.md:
+    hours: 8.0
+    category: "Architecture & Design"
+
+  architecture/specs/05_screening_scoring_engine.md:
+    hours: 10.0
+    category: "Architecture & Design"
+
+  architecture/specs/06_execution_observability.md:
+    hours: 6.0
+    category: "Architecture & Design"
+
+  architecture/specs/07_test_validation_strategy.md:
+    hours: 5.0
+    category: "Architecture & Design"
+
+  # ── Requirements & Analysis ─────────────────────────────────────
+
+  requirements/00_index.md:
+    hours: 3.0
+    category: "Requirements & Analysis"
+
+  requirements/01_overview.md:
+    hours: 32.0
+    category: "Requirements & Analysis"
+
+  requirements/02_deliverables.md:
+    hours: 4.0
+    category: "Requirements & Analysis"
+
+  requirements/03_regulatory_framework.md:
+    hours: 8.0
+    category: "Requirements & Analysis"
+
+  requirements/04_siting_methodology.md:
+    hours: 12.0
+    category: "Requirements & Analysis"
+
+  requirements/05_siting_criteria.md:
+    hours: 16.0
+    category: "Requirements & Analysis"
+
+  requirements/06_scoring_matrix.md:
+    hours: 6.0
+    category: "Requirements & Analysis"
+
+  requirements/07_data_requirements.md:
+    hours: 10.0
+    category: "Requirements & Analysis"
+
+  requirements/08_automated_system.md:
+    hours: 2.0
+    category: "Requirements & Analysis"
+
+  requirements/09_business_case.md:
+    hours: 6.0
+    category: "Requirements & Analysis"
+
+  requirements/10_execution_plan.md:
+    hours: 4.0
+    category: "Requirements & Analysis"
+
+  requirements/11_quality_assurance.md:
+    hours: 3.0
+    category: "Requirements & Analysis"
+
+  requirements/12_references.md:
+    hours: 2.0
+    category: "Requirements & Analysis"
+
+  requirements/draft_requirements.md:
+    hours: 1.0
+    category: "Requirements & Analysis"
+
+  # ── Implementation ──────────────────────────────────────────────
+
+  src/atoms_vs_ashes/__init__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/__main__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/__init__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/emergency_plan.py:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/epz_population.py:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/proximity_land.py:
+    hours: 14.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/cli.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/config.py:
+    hours: 3.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/__init__.py:
+    hours: 0.25
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/corine.py:
+    hours: 14.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/osm.py:
+    hours: 10.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/population.py:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/README.md:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/__init__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/engine.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/models.py:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/geo.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/ingest/__init__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/ingest/osm_area.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/ingest/ownership.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/ingest/sites.py:
+    hours: 14.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/logging.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/pipeline/__init__.py:
+    hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/pipeline/quality_report.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/pipeline/runner.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/screening/__init__.py:
+    hours: 0.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/screening/base.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/screening/grid_capacity.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/screening/land_area.py:
+    hours: 6.0
+    category: "Implementation"
+
+  # ── Testing ─────────────────────────────────────────────────────
+
+  tests/__init__.py:
+    hours: 0.1
+    category: "Testing"
+
+  tests/conftest.py:
+    hours: 4.0
+    category: "Testing"
+
+  tests/test_config.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/test_connectors_osm.py:
+    hours: 6.0
+    category: "Testing"
+
+  tests/test_ingest_ownership.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/test_ingest_sites.py:
+    hours: 3.0
+    category: "Testing"
+
+  tests/test_integration_db.py:
+    hours: 4.0
+    category: "Testing"
+
+  tests/test_models.py:
+    hours: 2.0
+    category: "Testing"
+
+  tests/test_screening_grid_capacity.py:
+    hours: 5.0
+    category: "Testing"
+
+  tests/test_screening_land_area.py:
+    hours: 5.0
+    category: "Testing"
+
+  # ── Research & Data Sources ─────────────────────────────────────
+
+  sources/atoms_vs_ashes_data_source_inventory.md:
+    hours: 40.0
+    category: "Research & Data Sources"
+
+  sources/regulations/epri/maps/EPRI-SitingGuide_map.md:
+    hours: 8.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/GSG-10_map.md:
+    hours: 6.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/NS-G-3.6_map.md:
+    hours: 5.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSG-18_map.md:
+    hours: 6.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSG-21_map.md:
+    hours: 5.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSG-35_map.md:
+    hours: 8.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSG-79_map.md:
+    hours: 5.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSG-9_map.md:
+    hours: 6.0
+    category: "Research & Data Sources"
+
+  sources/regulations/iaea/maps/SSR-1_map.md:
+    hours: 5.0
+    category: "Research & Data Sources"
+
+  # ── Scripts ──────────────────────────────────────────────────────
+
+  scripts/man_hours_report.py:
+    hours: 3.0
+    category: "Configuration & DevOps"
+
+  # ── AI Prompts & Tooling ────────────────────────────────────────
+
+  gpt/expert_system_data_sources_and_integrations.md:
+    hours: 8.0
+    category: "AI Prompts & Tooling"
+
+  # ── Project Management & QA ─────────────────────────────────────
+
+  audit/README.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-10_methodology-and-data-pricing.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-10_requirements-expansion.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-10_requirements-split.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-11_architecture-split-and-ownership.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-11_bf01-grid-capacity-screening.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-11_database-backend-foundation.md:
+    hours: 0.75
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-11_process-diagram.md:
+    hours: 0.25
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-24_aggregated-architecture.md:
+    hours: 0.25
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-24_aggregated-requirements.md:
+    hours: 0.25
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-24_gpt-pro-expert-prompt-data-sources.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/plans/SMR_land_area_estimations.md:
+    hours: 4.0
+    category: "Project Management & QA"
+
+  audit/plans/automated_system_architecture_split_e8922903.plan.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/plans/data_source_pricing_update_3872d49e.plan.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/plans/grid_capacity_screening_check_1fb3af4b.plan.md:
+    hours: 3.0
+    category: "Project Management & QA"
+
+  audit/plans/project_audit_trail_setup_3b3c0d91.plan.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/plans/split_requirements_by_phase_ace3875d.plan.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-03-24_man-hours-tracking-system.md:
+    hours: 0.5
+    category: "Project Management & QA"

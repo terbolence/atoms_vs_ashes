@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 # Document Map: IAEA SSG-35
 **Title:** Site Survey and Site Selection for Nuclear Installations  
 **Series:** IAEA Safety Standards Series No. SSG-35 (Specific Safety Guide)  

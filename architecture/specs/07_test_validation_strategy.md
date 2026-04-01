@@ -1,3 +1,4 @@
+<!-- man_hours: 5.0 -->
 # 7. Test and Validation Strategy
 
 ## 7.1 Purpose

@@ -1,3 +1,4 @@
+<!-- man_hours: 0.5 -->
 # Requirements Expansion and Source Document Maps
 
 **Date:** 2026-03-10

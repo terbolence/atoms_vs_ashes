@@ -1,3 +1,4 @@
+<!-- man_hours: 0.5 -->
 # Methodology Discussion and Data Source Pricing
 
 **Date:** 2026-03-10 to 2026-03-11

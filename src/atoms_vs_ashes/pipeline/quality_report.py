@@ -1,3 +1,4 @@
+# man_hours: 4.0
 """Data quality report generation per spec §2.7.2 step 7 and §2.8."""
 
 from __future__ import annotations

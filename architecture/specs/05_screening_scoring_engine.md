@@ -1,3 +1,4 @@
+<!-- man_hours: 10.0 -->
 # 5. Screening and Scoring Engine
 
 ## 5.1 Purpose

@@ -1,3 +1,4 @@
+<!-- man_hours: 12.0 -->
 ## 6. Siting Methodology
 
 ### 6.1 Process Overview

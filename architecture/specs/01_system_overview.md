@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 # 1. System Overview
 
 ## 1.1 Purpose

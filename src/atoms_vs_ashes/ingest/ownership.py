@@ -1,3 +1,4 @@
+# man_hours: 8.0
 """Ingest ownership data from the GEM Global Energy Ownership Tracker XLSX."""
 
 from __future__ import annotations

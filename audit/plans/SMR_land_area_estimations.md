@@ -1,0 +1,239 @@
+<!-- man_hours: 4.0 -->
+I provided the land estimates using a **first-order screening model** intended to approximate **total project land**, not reactor footprint.
+
+## Method used
+
+I modeled total land as:
+
+[
+L;[\text{ha}] = 12 + 0.06 \cdot P_e + 3 \cdot (N-1) + T
+]
+
+Where:
+
+- (L) = estimated total required land in hectares
+- (P_e) = gross electrical output in MWe for the project
+- (N) = number of reactor modules in the project
+- (T) = technology-specific land adder
+
+## Meaning of each term
+
+### 1. Fixed site envelope: 12 ha
+
+This is a base allowance applied to every project to represent land that does not scale linearly with power:
+
+- security perimeter
+- internal roads
+- access control
+- support buildings
+- water treatment and auxiliaries
+- logistics space
+- siting reserve
+
+This term prevents very small reactors from receiving unrealistically small land values.
+
+### 2. Power-scaling term: 0.06 ha/MWe
+
+This is a coarse scaling coefficient to reflect that larger power output generally requires larger balance-of-plant, heat rejection systems, electrical yard, and support area.
+
+This was chosen as a deliberately conservative coefficient so results would tend to be biased upward.
+
+### 3. Multi-module term: 3 ha per additional module
+
+This accounts for extra land associated with:
+
+- module separation
+- shared systems routing
+- construction interface area
+- outage access
+- internal circulation
+
+This matters most for NuScale-like multi-module campuses.
+
+### 4. Technology adder (T)
+
+A reactor-class adjustment was added to reflect non-power-density drivers not captured by MWe alone.
+
+I used the following values:
+
+- **+15 ha** for multi-module integral PWR campus projects
+- **+10 ha** for single-module large PWR SMRs
+- **+8 ha** for compact single-module LWRs
+- **+10 ha** for BWR sites
+- **+14 ha** for HTGR / pebble-bed / FHR projects
+- **+18 ha** for sodium fast reactor plus storage-island projects
+- **+8 ha** for microreactors / very small fast reactors
+- **+15 ha** as a floor for FOAK non-power demonstration reactors
+
+These adders were judgment-based screening adjustments, not vendor-declared values.
+
+## Calibration logic
+
+The model was tuned so that it reproduces the target order of magnitude you specified for the three anchor designs:
+
+- **NuScale** about **70 ha**
+- **Rolls-Royce SMR** about **50 ha**
+- **GE Hitachi BWRX-300** materially above compact footprint values, yielding **40 ha**
+
+This means the model is **calibrated to project-envelope scale**, not to published plant footprint or nuclear-island footprint.
+
+## How each estimate was produced
+
+### NuScale VOYGR-6
+
+Inputs:
+
+- (P_e = 462)
+- (N = 6)
+- (T = 15)
+
+Calculation:
+[
+12 + 0.06 \cdot 462 + 3 \cdot 5 + 15 = 69.72
+]
+
+Rounded:
+**70 ha**
+
+### Rolls-Royce SMR
+
+Inputs:
+
+- (P_e = 470)
+- (N = 1)
+- (T = 10)
+
+Calculation:
+[
+12 + 0.06 \cdot 470 + 0 + 10 = 50.2
+]
+
+Rounded:
+**50 ha**
+
+### Holtec SMR-300
+
+Inputs:
+
+- (P_e = 300)
+- (N = 1)
+- (T = 8)
+
+Calculation:
+[
+12 + 18 + 8 = 38
+]
+
+Result:
+**38 ha**
+
+### Kairos Hermes
+
+The direct formula is not suitable because Hermes is a **35 MWth test reactor** with **0 MWe** and the site behaves more like a demonstration project than a commercial generating station.
+
+So I applied a **demonstration-project floor**:
+**30 ha**
+
+This is a judgment-based conservative estimate.
+
+### X-energy Xe-100
+
+Inputs:
+
+- (P_e = 80)
+- (N = 1)
+- (T = 14)
+
+Calculation:
+[
+12 + 4.8 + 14 = 30.8
+]
+
+Rounded:
+**31 ha**
+
+### Oklo Aurora
+
+Very small reactors do not scale well with MWe because parcel needs are dominated by fixed site requirements rather than output.
+
+Using the formula for a small unit gives about 21 ha, and I rounded conservatively upward.
+
+Result:
+**22 ha**
+
+### GE Hitachi BWRX-300
+
+Inputs:
+
+- (P_e = 300)
+- (N = 1)
+- (T = 10)
+
+Calculation:
+[
+12 + 18 + 10 = 40
+]
+
+Result:
+**40 ha**
+
+### TerraPower Natrium
+
+Inputs:
+
+- (P_e = 345)
+- (N = 1)
+- (T = 18)
+
+Calculation:
+[
+12 + 20.7 + 18 = 50.7
+]
+
+Rounded:
+**51 ha**
+
+## Why these are estimates rather than measured requirements
+
+These values are not derived from:
+
+- a published EPC site plan
+- a licensed site boundary
+- a definitive owner-controlled-area map
+- a standard industry land-intensity dataset
+
+They are instead based on a **structured approximation method** using:
+
+- project output
+- module count
+- reactor-class complexity
+- conservative fixed land floor
+- upward-biased calibration to anchor projects
+
+## Audit caveats
+
+For audit purposes, the estimates should be labeled as:
+
+**“First-order internal screening approximations of total project land requirement, derived from a calibrated heuristic formula and not from vendor-certified site plans.”**
+
+They should not be labeled as:
+
+- actual site requirements
+- vendor-declared footprint
+- licensable boundary area
+- final land acquisition requirement
+
+## Final values generated by this method
+
+| Reactor             | Estimated total land |
+| ------------------- | -------------------: |
+| NuScale VOYGR-6     |                70 ha |
+| Rolls-Royce SMR     |                50 ha |
+| Holtec SMR-300      |                38 ha |
+| Kairos Hermes       |                30 ha |
+| X-energy Xe-100     |                31 ha |
+| Oklo Aurora         |                22 ha |
+| GE Hitachi BWRX-300 |                40 ha |
+| TerraPower Natrium  |                51 ha |
+
+If you want, I can convert this into an **audit note format** suitable for insertion under the tables in your document.

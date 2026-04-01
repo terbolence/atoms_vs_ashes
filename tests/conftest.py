@@ -1,3 +1,4 @@
+# man_hours: 4.0
 """Shared test fixtures."""
 
 from __future__ import annotations
