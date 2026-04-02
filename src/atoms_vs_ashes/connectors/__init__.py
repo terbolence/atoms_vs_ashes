@@ -1,4 +1,4 @@
-# man_hours: 0.25
+# man_hours: 0.5
 """Connector framework — API clients for external geospatial data sources."""
 
 from atoms_vs_ashes.connectors.corine import CorineConnector

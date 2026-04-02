@@ -7,12 +7,22 @@ and computes area statistics in concentric rings around a site.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+import time
 from typing import Any
 
 import httpx
 from shapely.geometry import shape
 
+from atoms_vs_ashes.connectors.corine.models import (
+    CLC_LABELS,
+    DEVELOPABLE_CODES,
+    DEFAULT_RINGS,
+    DEFAULT_WFS_URL,
+    DEFAULT_LAYER,
+    RingClassification,
+    SiteClassification,
+    _CLC_CODE_KEYS,
+)
 from atoms_vs_ashes.geo import (
     bbox_around,
     buffer_ring_wgs84,
@@ -22,139 +32,6 @@ from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
 
-# ---------------------------------------------------------------------------
-# CLC taxonomy
-# ---------------------------------------------------------------------------
-
-CLC_LABELS: dict[str, str] = {
-    "111": "Continuous urban fabric",
-    "112": "Discontinuous urban fabric",
-    "121": "Industrial or commercial units",
-    "122": "Road and rail networks",
-    "123": "Port areas",
-    "124": "Airports",
-    "131": "Mineral extraction sites",
-    "132": "Dump sites",
-    "133": "Construction sites",
-    "141": "Green urban areas",
-    "142": "Sport and leisure facilities",
-    "211": "Non-irrigated arable land",
-    "212": "Permanently irrigated land",
-    "213": "Rice fields",
-    "221": "Vineyards",
-    "222": "Fruit trees and berry plantations",
-    "223": "Olive groves",
-    "231": "Pastures",
-    "241": "Annual crops with permanent crops",
-    "242": "Complex cultivation patterns",
-    "243": "Agriculture with natural vegetation",
-    "244": "Agro-forestry areas",
-    "311": "Broad-leaved forest",
-    "312": "Coniferous forest",
-    "313": "Mixed forest",
-    "321": "Natural grasslands",
-    "322": "Moors and heathland",
-    "323": "Sclerophyllous vegetation",
-    "324": "Transitional woodland-shrub",
-    "331": "Beaches, dunes, sands",
-    "332": "Bare rocks",
-    "333": "Sparsely vegetated areas",
-    "334": "Burnt areas",
-    "335": "Glaciers and perpetual snow",
-    "411": "Inland marshes",
-    "412": "Peat bogs",
-    "421": "Salt marshes",
-    "422": "Salines",
-    "423": "Intertidal flats",
-    "511": "Water courses",
-    "512": "Water bodies",
-    "521": "Coastal lagoons",
-    "522": "Estuaries",
-    "523": "Sea and ocean",
-}
-
-DEVELOPABLE_CODES: frozenset[str] = frozenset({
-    "121",  # Industrial / commercial
-    "131",  # Mineral extraction
-    "132",  # Dump sites
-    "133",  # Construction sites
-    "211",  # Non-irrigated arable
-    "231",  # Pastures
-    "242",  # Complex cultivation
-    "243",  # Agriculture with natural vegetation
-    "321",  # Natural grasslands
-    "331",  # Beaches, dunes, sands
-    "333",  # Sparsely vegetated
-})
-
-# Rings for proximity land assessment (inner_m, outer_m, label)
-DEFAULT_RINGS: list[tuple[float, float, str]] = [
-    (0, 500, "0-500m"),
-    (500, 1_000, "500m-1km"),
-    (1_000, 2_000, "1-2km"),
-]
-
-DEFAULT_WFS_URL = (
-    "https://image.discomap.eea.europa.eu/arcgis/services/"
-    "Corine/CLC2018_WM/MapServer/WFSServer"
-)
-DEFAULT_LAYER = "Corine:CLC2018_CLC2018_V2018_20"
-
-# Known property keys that hold the CLC code across different WFS providers
-_CLC_CODE_KEYS = ("code_18", "Code_18", "CODE_18", "clc_code", "CLC_CODE")
-
-
-# ---------------------------------------------------------------------------
-# Data classes
-# ---------------------------------------------------------------------------
-
-@dataclass
-class RingClassification:
-    """Land cover area breakdown for a single ring."""
-
-    label: str
-    inner_m: float
-    outer_m: float
-    total_area_ha: float
-    by_class: dict[str, float] = field(default_factory=dict)
-    developable_ha: float = 0.0
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "label": self.label,
-            "inner_m": self.inner_m,
-            "outer_m": self.outer_m,
-            "total_area_ha": round(self.total_area_ha, 2),
-            "by_class": {k: round(v, 3) for k, v in self.by_class.items()},
-            "developable_ha": round(self.developable_ha, 3),
-        }
-
-
-@dataclass
-class SiteClassification:
-    """Full CORINE classification result for a site."""
-
-    lat: float
-    lon: float
-    rings: list[RingClassification] = field(default_factory=list)
-    total_developable_ha: float = 0.0
-    source: str = "corine_wfs"
-    error: str | None = None
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "lat": self.lat,
-            "lon": self.lon,
-            "rings": [r.to_dict() for r in self.rings],
-            "total_developable_ha": round(self.total_developable_ha, 3),
-            "source": self.source,
-            "error": self.error,
-        }
-
-
-# ---------------------------------------------------------------------------
-# Connector
-# ---------------------------------------------------------------------------
 
 class CorineConnector:
     """Fetches CORINE Land Cover data via WFS and classifies land in rings."""
@@ -169,10 +46,6 @@ class CorineConnector:
         self._timeout: int = cfg.get("timeout_s", 30)
         self._client = httpx.Client(timeout=self._timeout)
 
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
-
     def health_check(self) -> bool:
         """Verify WFS endpoint is reachable."""
         try:
@@ -180,16 +53,29 @@ class CorineConnector:
                 self._wfs_url,
                 params={"service": "WFS", "request": "GetCapabilities"},
             )
-            return resp.status_code == 200
-        except httpx.HTTPError:
+            ok = resp.status_code == 200
+            if ok:
+                log.info("corine_health_ok")
+            return ok
+        except httpx.HTTPError as exc:
+            log.warning("corine_health_error", error=str(exc))
             return False
 
     def fetch(
         self, lat: float, lon: float, radius_m: float = 2_500,
     ) -> list[dict[str, Any]]:
-        """Fetch CLC features within a bounding box around *(lat, lon)*."""
+        """Fetch CLC features within a bounding box around *(lat, lon)*.
+
+        Parameters
+        ----------
+        lat, lon
+            Site coordinates (WGS84).
+        radius_m
+            Search radius in metres.
+        """
         bbox = bbox_around(lat, lon, radius_m)
         bbox_str = f"{bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]},EPSG:4326"
+        t0 = time.monotonic()
 
         try:
             resp = self._client.get(
@@ -208,14 +94,26 @@ class CorineConnector:
             resp.raise_for_status()
             data = resp.json()
             features = data.get("features", [])
+            elapsed_ms = int((time.monotonic() - t0) * 1000)
             log.info(
                 "corine_fetch_ok",
                 lat=lat, lon=lon,
                 feature_count=len(features),
+                elapsed_ms=elapsed_ms,
             )
             return features
+        except httpx.TimeoutException as exc:
+            log.warning("corine_fetch_error", error=f"Timeout: {exc}", lat=lat, lon=lon)
+            return []
+        except httpx.HTTPStatusError as exc:
+            status = exc.response.status_code
+            if status in (401, 403):
+                log.error("corine_auth_error", status=status)
+                raise
+            log.warning("corine_fetch_error", error=str(exc), lat=lat, lon=lon, status=status)
+            return []
         except httpx.HTTPError as exc:
-            log.warning("corine_wfs_error", error=str(exc), lat=lat, lon=lon)
+            log.warning("corine_fetch_error", error=str(exc), lat=lat, lon=lon)
             return []
         except (ValueError, KeyError) as exc:
             log.warning("corine_parse_error", error=str(exc), lat=lat, lon=lon)
@@ -235,7 +133,7 @@ class CorineConnector:
             Site coordinates (WGS84).
         ring_defs
             Concentric ring definitions as *(inner_m, outer_m, label)*.
-            Defaults to 0-500 m, 500 m–1 km, 1–2 km.
+            Defaults to 0-500 m, 500 m-1 km, 1-2 km.
         """
         if ring_defs is None:
             ring_defs = DEFAULT_RINGS
@@ -251,10 +149,6 @@ class CorineConnector:
 
         return self._analyze_rings(lat, lon, features, ring_defs)
 
-    # ------------------------------------------------------------------
-    # Pure-logic helpers (testable without network)
-    # ------------------------------------------------------------------
-
     @staticmethod
     def analyze_rings_from_features(
         lat: float,
@@ -262,14 +156,10 @@ class CorineConnector:
         features: list[dict[str, Any]],
         ring_defs: list[tuple[float, float, str]] | None = None,
     ) -> SiteClassification:
-        """Classify pre-fetched features — useful for testing / cached data."""
+        """Classify pre-fetched features -- useful for testing / cached data."""
         if ring_defs is None:
             ring_defs = DEFAULT_RINGS
         return CorineConnector._do_analyze(lat, lon, features, ring_defs)
-
-    # ------------------------------------------------------------------
-    # Internals
-    # ------------------------------------------------------------------
 
     def _analyze_rings(
         self,
@@ -297,7 +187,7 @@ class CorineConnector:
             for inner, outer, label in ring_defs
         ]
 
-        parsed = _parse_clc_features(features)
+        parsed = parse_clc_features(features)
         if not parsed:
             result.error = "No valid CLC polygons parsed from features"
             return result
@@ -344,11 +234,7 @@ class CorineConnector:
         self.close()
 
 
-# ---------------------------------------------------------------------------
-# Module-level helpers
-# ---------------------------------------------------------------------------
-
-def _parse_clc_features(
+def parse_clc_features(
     features: list[dict[str, Any]],
 ) -> list[tuple[Any, str]]:
     """Extract *(shapely_geometry, clc_code)* pairs from GeoJSON features."""
@@ -356,8 +242,12 @@ def _parse_clc_features(
     for feat in features:
         try:
             geom = shape(feat["geometry"])
+            if not geom.is_valid:
+                geom = geom.buffer(0)
+            if geom.is_empty:
+                continue
             props = feat.get("properties", {})
-            clc_code = _extract_clc_code(props)
+            clc_code = extract_clc_code(props)
             if clc_code:
                 parsed.append((geom, clc_code))
         except Exception:
@@ -365,7 +255,8 @@ def _parse_clc_features(
     return parsed
 
 
-def _extract_clc_code(props: dict[str, Any]) -> str:
+def extract_clc_code(props: dict[str, Any]) -> str:
+    """Extract CLC code from feature properties."""
     for key in _CLC_CODE_KEYS:
         val = props.get(key)
         if val:

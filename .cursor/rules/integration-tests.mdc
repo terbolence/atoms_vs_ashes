@@ -1,0 +1,43 @@
+<!-- man_hours: 0.5 -->
+---
+description: Require full-cycle integration tests and snapshot documentation for all controller implementations and changes
+globs: src/atoms_vs_ashes/connectors/**/*.py, src/atoms_vs_ashes/analysis/**/*.py, src/atoms_vs_ashes/ingest/**/*.py, tests/test_integration_*.py
+alwaysApply: false
+---
+
+# Full-Cycle Integration Tests
+
+Every connector, analysis module, or ingest controller **must** have corresponding full-cycle integration tests that verify the complete logic pipeline.
+
+## When Tests Are Required
+
+- New connector or analysis module is created
+- Existing connector or analysis module is modified (logic changes, not just formatting)
+- CRITERION_IDS are added or changed
+- Data models consumed by a controller change
+
+## What "Full Cycle" Means
+
+Each test must exercise the **pure logic path** end-to-end without external dependencies:
+
+1. **Import** — verify the module imports cleanly and exposes expected symbols
+2. **Instantiate** — construct the object with mock/test configuration
+3. **Execute** — call the core analysis/fetch function with synthetic input data
+4. **Validate** — assert output structure, value ranges, criterion IDs, and edge cases
+
+Do **not** require network or database access in integration tests. Use mocks, fixtures, and synthetic data to isolate pure logic.
+
+## Test File Location
+
+- `tests/test_integration_full_cycle.py` — primary integration test file
+- Additional `tests/test_integration_<topic>.py` files for large features
+
+## Integration Snapshots
+
+After running integration tests, save a Markdown snapshot documenting the results:
+
+- **Path:** `src/dataAcquisition/integrationSnapshots/<SPEC-ID>_integration_snapshot.md`
+- **Contents:** test counts, per-controller results table, CRITERION_IDS verified, fix/expansion checklist, regression summary
+- **Update** the snapshot whenever the corresponding spec is re-implemented or tests change
+
+Example path: `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md`

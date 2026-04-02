@@ -14,8 +14,12 @@ files:
     hours: 3.0
     category: "Configuration & DevOps"
 
+  .cursor/rules/integration-tests.mdc:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
   config/default.yml:
-    hours: 4.0
+    hours: 5.0
     category: "Configuration & DevOps"
 
   docker-compose.yml:
@@ -158,16 +162,64 @@ files:
     hours: 0.1
     category: "Implementation"
 
+  src/atoms_vs_ashes/analysis/_provenance.py:
+    hours: 2.0
+    category: "Implementation"
+
   src/atoms_vs_ashes/analysis/emergency_plan.py:
-    hours: 16.0
+    hours: 18.0
     category: "Implementation"
 
   src/atoms_vs_ashes/analysis/epz_population.py:
-    hours: 12.0
+    hours: 14.0
     category: "Implementation"
 
   src/atoms_vs_ashes/analysis/proximity_land.py:
-    hours: 14.0
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/wildfire_context.py:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/ecological_sensitivity.py:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/site_topography.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/laydown_area.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/aviation_hazard.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/military_proximity.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/transmitter_proximity.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/grid_proximity.py:
+    hours: 5.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/population_projection.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/coal_site_analysis.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/land_availability.py:
+    hours: 5.0
     category: "Implementation"
 
   src/atoms_vs_ashes/cli.py:
@@ -179,19 +231,43 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/__init__.py:
+    hours: 0.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/corine/__init__.py:
     hours: 0.25
     category: "Implementation"
 
-  src/atoms_vs_ashes/connectors/corine.py:
+  src/atoms_vs_ashes/connectors/corine/client.py:
     hours: 14.0
     category: "Implementation"
 
-  src/atoms_vs_ashes/connectors/osm.py:
-    hours: 10.0
+  src/atoms_vs_ashes/connectors/corine/models.py:
+    hours: 3.0
     category: "Implementation"
 
-  src/atoms_vs_ashes/connectors/population.py:
+  src/atoms_vs_ashes/connectors/osm/__init__.py:
+    hours: 0.25
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/osm/client.py:
     hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/osm/models.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/population/__init__.py:
+    hours: 0.25
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/population/client.py:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/population/models.py:
+    hours: 2.0
     category: "Implementation"
 
   src/atoms_vs_ashes/db/README.md:
@@ -216,6 +292,10 @@ files:
 
   src/atoms_vs_ashes/ingest/__init__.py:
     hours: 0.1
+    category: "Implementation"
+
+  src/atoms_vs_ashes/ingest/models.py:
+    hours: 1.0
     category: "Implementation"
 
   src/atoms_vs_ashes/ingest/osm_area.py:
@@ -298,6 +378,14 @@ files:
 
   tests/test_screening_grid_capacity.py:
     hours: 5.0
+    category: "Testing"
+
+  tests/test_connector_db_compatibility.py:
+    hours: 4.0
+    category: "Testing"
+
+  tests/test_integration_full_cycle.py:
+    hours: 8.0
     category: "Testing"
 
   tests/test_screening_land_area.py:
@@ -431,3 +519,13 @@ files:
   audit/conversations/2026-03-24_man-hours-tracking-system.md:
     hours: 0.5
     category: "Project Management & QA"
+
+  audit/conversations/2026-04-02_fix-01-controller-fixes-expansions.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  # ── Data Acquisition ──────────────────────────────────────────────
+
+  src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md:
+    hours: 1.0
+    category: "Implementation"

@@ -4,110 +4,32 @@
 Provides population estimates within concentric rings and locates nearby
 cities above a configurable threshold.  Two back-ends are supported:
 
-1. **OSM Overpass** (default, no registration needed) — queries populated
+1. **OSM Overpass** (default, no registration needed) -- queries populated
    places carrying a ``population`` tag.
-2. **GeoNames REST API** (optional) — requires a free username.
-
-Results are first-order estimates based on discrete settlement data.
-For production accuracy, upgrade to raster-based analysis (WorldPop /
-Eurostat GISCO 1 km grid) by implementing the ``RasterPopulationBackend``
-stub in this module.
+2. **GeoNames REST API** (optional) -- requires a free username.
 """
 
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+import time
 from typing import Any
 
 import httpx
 
 from atoms_vs_ashes.connectors.osm import OverpassClient, _parse_population
+from atoms_vs_ashes.connectors.population.models import (
+    DEFAULT_CITY_THRESHOLD,
+    DEFAULT_RADII_KM,
+    PopulatedPlace,
+    PopulationResult,
+    RingPopulation,
+)
 from atoms_vs_ashes.geo import haversine_km
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
 
-DEFAULT_RADII_KM = [5, 16, 25, 80]
-DEFAULT_CITY_THRESHOLD = 50_000
-
-
-# ---------------------------------------------------------------------------
-# Data classes
-# ---------------------------------------------------------------------------
-
-@dataclass
-class PopulatedPlace:
-    """A settlement with known or estimated population."""
-
-    name: str
-    lat: float
-    lon: float
-    population: int
-    place_type: str = "unknown"
-    distance_km: float = 0.0
-    source: str = "osm"
-
-
-@dataclass
-class RingPopulation:
-    """Population estimate for a single ring."""
-
-    inner_km: float
-    outer_km: float
-    population: int = 0
-    area_km2: float = 0.0
-    density_per_km2: float = 0.0
-    place_count: int = 0
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "inner_km": self.inner_km,
-            "outer_km": self.outer_km,
-            "population": self.population,
-            "area_km2": round(self.area_km2, 2),
-            "density_per_km2": round(self.density_per_km2, 1),
-            "place_count": self.place_count,
-        }
-
-
-@dataclass
-class PopulationResult:
-    """Complete population analysis for a site."""
-
-    lat: float
-    lon: float
-    rings: list[RingPopulation] = field(default_factory=list)
-    nearest_large_cities: list[PopulatedPlace] = field(default_factory=list)
-    total_population_80km: int = 0
-    source: str = "osm_overpass"
-    quality: str = "estimated"
-    error: str | None = None
-
-    def to_dict(self) -> dict[str, Any]:
-        cities = [
-            {
-                "name": c.name,
-                "population": c.population,
-                "distance_km": round(c.distance_km, 1),
-            }
-            for c in self.nearest_large_cities
-        ]
-        return {
-            "lat": self.lat,
-            "lon": self.lon,
-            "rings": [r.to_dict() for r in self.rings],
-            "nearest_large_cities": cities,
-            "total_population_80km": self.total_population_80km,
-            "source": self.source,
-            "quality": self.quality,
-            "error": self.error,
-        }
-
-
-# ---------------------------------------------------------------------------
-# Connector
-# ---------------------------------------------------------------------------
 
 class PopulationConnector:
     """Fetches population data and computes ring-based zonal statistics."""
@@ -119,17 +41,16 @@ class PopulationConnector:
 
         self._geonames_username: str | None = cfg.get("geonames_username")
         self._overpass = OverpassClient(
-            overpass_url=cfg.get(
-                "overpass_url", "https://overpass-api.de/api/interpreter"
-            ),
+            settings=settings,
+            overpass_url=cfg.get("overpass_url"),
         )
 
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
-
     def health_check(self) -> bool:
-        return self._overpass.health_check()
+        """Check population data availability via Overpass status."""
+        ok = self._overpass.health_check()
+        if ok:
+            log.info("population_health_ok")
+        return ok
 
     def fetch(
         self,
@@ -143,6 +64,7 @@ class PopulationConnector:
             radii_km = list(DEFAULT_RADII_KM)
 
         max_radius_m = max(radii_km) * 1_000
+        t0 = time.monotonic()
         places = self._fetch_places(lat, lon, max_radius_m)
 
         for p in places:
@@ -152,6 +74,15 @@ class PopulationConnector:
         cities = self._find_large_cities(places, city_threshold)
 
         total_pop = sum(r.population for r in rings)
+        elapsed_ms = int((time.monotonic() - t0) * 1000)
+
+        log.info(
+            "population_fetch_ok",
+            lat=lat, lon=lon,
+            place_count=len(places),
+            total_population=total_pop,
+            elapsed_ms=elapsed_ms,
+        )
 
         return PopulationResult(
             lat=lat,
@@ -168,10 +99,6 @@ class PopulationConnector:
     ) -> list[PopulatedPlace]:
         """Fetch populated places without ring assignment."""
         return self._fetch_places(lat, lon, radius_m)
-
-    # ------------------------------------------------------------------
-    # Internals
-    # ------------------------------------------------------------------
 
     def _fetch_places(
         self, lat: float, lon: float, radius_m: float,
@@ -203,11 +130,6 @@ class PopulationConnector:
             gn_places = self._fetch_geonames(lat, lon, radius_m)
             places = _merge_places(places, gn_places)
 
-        log.info(
-            "population_fetch_ok",
-            lat=lat, lon=lon,
-            place_count=len(places),
-        )
         return places
 
     def _fetch_geonames(
@@ -231,7 +153,8 @@ class PopulationConnector:
             )
             resp.raise_for_status()
             data = resp.json()
-        except (httpx.HTTPError, ValueError):
+        except (httpx.HTTPError, ValueError) as exc:
+            log.warning("population_fetch_error", error=str(exc), lat=lat, lon=lon)
             return []
 
         places: list[PopulatedPlace] = []
@@ -303,10 +226,6 @@ class PopulationConnector:
     def __exit__(self, *exc):
         self.close()
 
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 
 def _merge_places(
     primary: list[PopulatedPlace],

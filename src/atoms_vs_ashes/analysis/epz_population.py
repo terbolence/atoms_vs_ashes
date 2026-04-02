@@ -1,4 +1,4 @@
-# man_hours: 12.0
+# man_hours: 14.0
 """Emergency Planning Zone population analysis (RI-04, RI-05).
 
 RI-04 — Population density screening at EPZ radii (5 / 16 / 25 / 80 km).
@@ -12,13 +12,13 @@ RI-05 — Distance to nearest city > 50 000.  Rank-only metric (no pass/fail).
 from __future__ import annotations
 
 import json
-import math
-from dataclasses import dataclass, field
+import time
 from typing import Any
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.connectors.population import (
     PopulatedPlace,
@@ -27,7 +27,6 @@ from atoms_vs_ashes.connectors.population import (
     RingPopulation,
 )
 from atoms_vs_ashes.db.models import (
-    DataQualityFlag,
     ScreeningResult,
     Site,
     SiteAttribute,
@@ -81,11 +80,25 @@ def evaluate_ri04(
             f"No ring data for {inner_radius_km} km radius",
         )
 
+    # Compute ring densities for all rings
+    ring_densities = {}
+    max_ring_density = 0.0
+    max_ring_label = ""
+    for r in rings:
+        label = f"{r.inner_km}-{r.outer_km}km"
+        ring_densities[label] = round(r.density_per_km2, 1)
+        if r.density_per_km2 > max_ring_density:
+            max_ring_density = r.density_per_km2
+            max_ring_label = label
+
     value_dict: dict[str, Any] = {
         "rings": ring_data,
         "inner_density_per_km2": round(inner_ring.density_per_km2, 1),
         "density_threshold": density_threshold,
         "exceeds_threshold": inner_ring.density_per_km2 > density_threshold,
+        "ring_densities": ring_densities,
+        "max_density_ring": max_ring_label,
+        "max_density_value": round(max_ring_density, 1),
     }
 
     if inner_ring.density_per_km2 > density_threshold:
@@ -174,11 +187,20 @@ class PopulationDensityCheck(ScreeningCheck):
         )
 
         connector = PopulationConnector(settings)
+
+        source_id = ensure_data_source(
+            session,
+            name="osm_overpass_population",
+            url=connector._overpass._url,
+            description="OSM Overpass API for population density screening",
+        )
+
         sites = session.execute(select(Site)).scalars().all()
         results: list[ScreeningResult] = []
 
         for site in sites:
             lat, lon = float(site.latitude), float(site.longitude)
+            t0 = time.monotonic()
 
             try:
                 pop_result = connector.fetch(
@@ -188,8 +210,9 @@ class PopulationDensityCheck(ScreeningCheck):
                 )
             except Exception as exc:
                 log.warning(
-                    "ri04_fetch_error",
+                    "epz_population_screen_error",
                     site_id=str(site.site_id), error=str(exc),
+                    criterion_id=RI04_CRITERION_ID, run_id=run_id,
                 )
                 pop_result = PopulationResult(lat=lat, lon=lon, error=str(exc))
 
@@ -198,16 +221,28 @@ class PopulationDensityCheck(ScreeningCheck):
                 pop_result.rings, density_threshold,
             )
 
+            elapsed_ms = int((time.monotonic() - t0) * 1000)
+
             if verdict == "inconclusive":
-                session.add(
-                    DataQualityFlag(
-                        site_id=site.site_id,
-                        dataset="population",
-                        dimension="epz_density",
-                        level="low",
-                        detail="Population data unavailable for RI-04 screening",
-                        run_id=run_id,
-                    )
+                write_quality_flag(
+                    session,
+                    site_id=site.site_id,
+                    dataset="population",
+                    dimension="epz_density",
+                    level="low",
+                    detail="Population data unavailable for RI-04 screening",
+                    run_id=run_id,
+                )
+
+            if pop_result.rings and all(r.place_count == 0 for r in pop_result.rings):
+                write_quality_flag(
+                    session,
+                    site_id=site.site_id,
+                    dataset="population",
+                    dimension="epz_density",
+                    level="medium",
+                    detail="Zero populated places found; density may be underestimated",
+                    run_id=run_id,
                 )
 
             threshold_text = (
@@ -228,6 +263,35 @@ class PopulationDensityCheck(ScreeningCheck):
                 )
             )
 
+            # FIX-01-E: RI-04 dual persistence — also as SiteAttribute
+            max_ring_density = 0.0
+            max_ring_label = ""
+            density_by_ring = {}
+            for r in pop_result.rings:
+                label = f"{r.inner_km}-{r.outer_km}km"
+                density_by_ring[label] = round(r.density_per_km2, 1)
+                if r.density_per_km2 > max_ring_density:
+                    max_ring_density = r.density_per_km2
+                    max_ring_label = label
+
+            session.merge(
+                SiteAttribute(
+                    site_id=site.site_id,
+                    criterion_id=RI04_CRITERION_ID,
+                    value_numeric=max_ring_density,
+                    value_json={
+                        "ring_densities": density_by_ring,
+                        "max_density_ring": max_ring_label,
+                        "max_density_value": round(max_ring_density, 1),
+                        "verdict": verdict,
+                        "threshold_persons_per_km2": density_threshold,
+                    },
+                    source_id=source_id,
+                    run_id=run_id,
+                    cache_status="fresh",
+                )
+            )
+
             # RI-05: city distance (ranking — stored as SiteAttribute)
             ri05_data = evaluate_ri05(
                 pop_result.nearest_large_cities, city_threshold,
@@ -239,12 +303,23 @@ class PopulationDensityCheck(ScreeningCheck):
                     criterion_id=RI05_CRITERION_ID,
                     value_numeric=ri05_distance,
                     value_json=ri05_data,
+                    source_id=source_id,
                     run_id=run_id,
                     cache_status="fresh",
                 )
             )
 
+            log.info(
+                "epz_population_screen_ok",
+                site_id=str(site.site_id),
+                criterion_id=RI04_CRITERION_ID,
+                run_id=run_id,
+                verdict=verdict,
+                elapsed_ms=elapsed_ms,
+            )
+
         connector.close()
+        log.info("epz_population_persist_ok", run_id=run_id, site_count=len(results))
         return results
 
 

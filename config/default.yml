@@ -178,10 +178,33 @@ connectors:
     overpass_url: "https://overpass-api.de/api/interpreter"
   osm:
     overpass_url: "https://overpass-api.de/api/interpreter"
+    timeout_s: 120
+    inter_request_delay_s: 1.0
+    max_retries: 3
   protected_areas:
     wfs_url: "https://bio.discomap.eea.europa.eu/arcgis/services/ProtectedSites/Natura2000Sites/MapServer/WFSServer"
     layer_name: "Natura2000Sites:Natura2000polygon"
     wdpa_token: null  # optional; set for WDPA data
+
+analysis:
+  wildfire_context:
+    buffer_radii_km: [5, 16, 25]
+    high_combustibility_clc: ["311", "312", "313", "322", "324"]
+    medium_combustibility_clc: ["321", "323", "243"]
+  aviation_hazard:
+    search_radius_km: 80
+  military_proximity:
+    search_radius_km: 25
+  transmitter_proximity:
+    search_radius_km: 25
+  grid_proximity:
+    search_radius_km: 50
+    min_voltage_kv: 110
+  population_projection:
+    projection_horizon_years: 60
+  coal_site_analysis:
+    min_status: ["retired", "mothballed", "planned_closure"]
+    smr_reference: "voygr6"
 
 scoring:
   weights:

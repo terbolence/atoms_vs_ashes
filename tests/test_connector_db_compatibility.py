@@ -48,42 +48,63 @@ _CONNECTORS_DIR = (
 )
 
 
+_INGEST_DIR = (
+    Path(__file__).resolve().parents[1]
+    / "src"
+    / "atoms_vs_ashes"
+    / "ingest"
+)
+
+
+def _scan_models_file(path: Path, name: str) -> tuple[str, ...] | None:
+    """Extract CRITERION_IDS from a models.py file."""
+    spec = importlib.util.spec_from_file_location(
+        f"_tmp_{name}_models", path,
+    )
+    if spec is None or spec.loader is None:
+        return None
+    mod = types.ModuleType(spec.name)
+    try:
+        exec(compile(path.read_text(), path, "exec"), mod.__dict__)
+    except Exception:
+        text = path.read_text(encoding="utf-8")
+        m = re.search(
+            r'CRITERION_IDS\s*=\s*\(([^)]+)\)', text,
+        )
+        if m:
+            return tuple(
+                s.strip().strip('"').strip("'")
+                for s in m.group(1).split(",")
+                if s.strip()
+            )
+        return None
+
+    cids = getattr(mod, "CRITERION_IDS", None)
+    if cids is not None:
+        return tuple(cids)
+    return None
+
+
 def _connector_criterion_ids() -> dict[str, tuple[str, ...]]:
     """Return {connector_name: CRITERION_IDS} for every connector that
-    declares a CRITERION_IDS constant in its models module."""
+    declares a CRITERION_IDS constant in its models module.
+    Also scans ingest/models.py for non-connector persistence modules."""
     result: dict[str, tuple[str, ...]] = {}
+
     for subdir in sorted(_CONNECTORS_DIR.iterdir()):
         models_path = subdir / "models.py"
         if not models_path.is_file():
             continue
-        spec = importlib.util.spec_from_file_location(
-            f"_tmp_{subdir.name}_models", models_path,
-        )
-        if spec is None or spec.loader is None:
-            continue
-        mod = types.ModuleType(spec.name)
-        try:
-            # We only need the CRITERION_IDS constant, not a full import.
-            # Run the file; dataclass imports may fail so fall back to regex.
-            exec(compile(models_path.read_text(), models_path, "exec"), mod.__dict__)
-        except Exception:
-            # Fallback: scan the source for a plain assignment
-            text = models_path.read_text(encoding="utf-8")
-            m = re.search(
-                r'CRITERION_IDS\s*=\s*\(([^)]+)\)', text,
-            )
-            if m:
-                ids = tuple(
-                    s.strip().strip('"').strip("'")
-                    for s in m.group(1).split(",")
-                    if s.strip()
-                )
-                result[subdir.name] = ids
-            continue
-
-        cids = getattr(mod, "CRITERION_IDS", None)
+        cids = _scan_models_file(models_path, subdir.name)
         if cids is not None:
-            result[subdir.name] = tuple(cids)
+            result[subdir.name] = cids
+
+    ingest_models = _INGEST_DIR / "models.py"
+    if ingest_models.is_file():
+        cids = _scan_models_file(ingest_models, "ingest")
+        if cids is not None:
+            result["ingest"] = cids
+
     return result
 
 
@@ -99,8 +120,8 @@ class TestCriteriaSeedCompleteness:
     _connectors = _connector_criterion_ids()
 
     def test_at_least_one_connector_found(self):
-        assert len(self._connectors) >= 2, (
-            f"Expected at least 2 connectors with CRITERION_IDS, found: "
+        assert len(self._connectors) >= 5, (
+            f"Expected at least 5 modules with CRITERION_IDS, found: "
             f"{list(self._connectors.keys())}"
         )
 
