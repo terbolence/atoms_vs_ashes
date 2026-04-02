@@ -839,6 +839,9 @@ Before presenting any implementation as complete, verify every item:
 - [ ] Configuration added to `config/default.yml`
 - [ ] Logging uses structured events: `<source>_fetch_ok`, `<source>_<action>_error`
 - [ ] Criterion IDs in `SiteAttribute` rows match the project criteria table
+- [ ] `CRITERION_IDS` constant defined in `models.py` listing all criterion IDs used in persistence
+- [ ] All criterion IDs are seeded in Alembic migrations (`alembic/versions/005_seed_all_siting_criteria.py` or later)
+- [ ] `pytest tests/test_connector_db_compatibility.py -v` passes (static DB-compatibility check)
 
 ---
 

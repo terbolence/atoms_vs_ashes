@@ -243,10 +243,11 @@ Produce complete, working code:
    - Include rate limiting and retry logic consistent with `config/default.yml` retry settings
    - Include cache key generation logic
 
-2. **Result dataclasses** in the same module
+2. **Result dataclasses** in the same module (or `models.py` for multi-file connectors)
    - Typed representations of the source's output
    - `.to_dict()` method for serialization
    - Clear field names matching project domain terminology
+   - **`CRITERION_IDS` constant** — a tuple of all `criterion_id` values the connector writes to `site_attributes`, e.g. `CRITERION_IDS = ("NH-01", "NH-03", "NH-04")`. This constant is required for static DB-compatibility testing
 
 3. **Configuration** additions to `config/default.yml`
    - Under `connectors.<source_slug>`
@@ -256,11 +257,12 @@ Produce complete, working code:
 4. **Registration** in `connectors/__init__.py`
    - Import and add to `__all__`
 
-5. **Persistence logic** (in connector or separate module)
+5. **Persistence logic** (in connector or separate `batch.py` module)
    - Map results to `SiteAttribute` rows with correct `criterion_id`
    - Set `source_id`, `run_id`, `fetched_at`, `cache_status`
    - Write `DataQualityFlag` when data is missing or low quality
    - Write `DataSource` provenance record
+   - **Criteria seed verification** — every `criterion_id` used in `session.merge(SiteAttribute(..., criterion_id="XX-NN"))` must be present in an Alembic seed migration. The `criteria` table has a foreign key constraint; missing seeds cause `IntegrityError` at runtime. If the needed criteria are already seeded (check `alembic/versions/005_seed_all_siting_criteria.py`), no action is needed. If new criteria are introduced, create a new Alembic migration to seed them
 
 6. **Tests** in `tests/test_connectors_<source_slug>.py`
    - Unit tests for parsing/transformation logic (no network)
@@ -281,6 +283,9 @@ After implementation, verify:
 - [ ] The connector can be instantiated with `settings=None` (uses defaults)
 - [ ] Context manager protocol (`__enter__`/`__exit__`) is implemented
 - [ ] Structured logging uses consistent event names: `<source>_fetch_ok`, `<source>_fetch_error`, `<source>_parse_error`
+- [ ] `CRITERION_IDS` constant is defined in `models.py` and matches the IDs used in persistence
+- [ ] All `criterion_id` values are present in Alembic seed migrations (run `pytest tests/test_connector_db_compatibility.py -v` to verify)
+- [ ] Static DB compatibility test passes: `TestCriteriaSeedCompleteness`
 
 ---
 
@@ -460,6 +465,7 @@ A correct implementation:
 8. Documents all configurable parameters
 9. Correctly maps outputs to project criterion IDs
 10. Distinguishes screening-grade from ranking-grade evidence
+11. All `criterion_id` values used in persistence are seeded in Alembic migrations (verified by `tests/test_connector_db_compatibility.py`)
 
 ---
 

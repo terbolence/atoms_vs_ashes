@@ -597,6 +597,22 @@ Flag any of the following unless explicitly accepted as a prototype compromise.
 - tests that do not match the claimed guarantees
 - connector that does not implement the full interface contract (`health_check`, `fetch`, `validate`, `persist`, `close`, context manager)
 - `session.add()` on rows with unique constraints instead of `session.merge()`
+- connector writes to `SiteAttribute` or `SiteScore` using `criterion_id` values that are not seeded in the `criteria` table (FK violation at runtime)
+
+## N4. Criteria seed data audit (mandatory for every connector review)
+
+Every connector that writes to tables with a `criteria.criterion_id` foreign key (`site_attributes`, `site_scores`, `screening_results`) **must** have its criterion IDs present in the Alembic seed migrations. This is a **Critical** severity finding if missing, because:
+
+- All `session.merge(SiteAttribute(..., criterion_id="XX-NN"))` calls will fail with an `IntegrityError` at runtime
+- The failure is silent in unit tests that mock the database
+
+**Audit procedure:**
+
+1. Identify all `criterion_id` string literals used by the connector (in `batch.py`, `client.py`, or `persist()` methods)
+2. Check the connector's `models.py` for a `CRITERION_IDS` constant — if missing, flag as Medium finding (testability gap)
+3. Verify every referenced `criterion_id` appears in an Alembic seed migration under `alembic/versions/`
+4. Verify the static test `tests/test_connector_db_compatibility.py::TestCriteriaSeedCompleteness` passes
+5. If any criterion_id is missing from the seeds, classify as **Critical** and require an Alembic migration before acceptance
 
 ---
 
@@ -756,6 +772,7 @@ You must explicitly track conformance back to these architect sections:
 7. Operational Rules (architect §K) — retry, rate limiting, timeouts, idempotency
 8. Success Criteria (architect §P) — the 10 conditions for a correct implementation
 9. Anti-Patterns (architect §M / engineer §N) — explicitly rejected approaches
+10. Criteria Seed Data (auditor §N4) — every `criterion_id` written by the connector must be present in Alembic seed migrations; the connector's `models.py` must export a `CRITERION_IDS` constant
 
 ---
 

@@ -33,7 +33,7 @@ This document inventories every external data source required by the 46 siting c
 | **Criteria**    | NH-01 (PGA, spectral acceleration, return period), NH-03 (PGA interaction), NH-04 (seismic amplification)                           |
 | **Est. Hours**  | 20 h                                                                                                                                |
 
-#### S-02: EGDI (European Geological Data Infrastructure)
+#### S-02: EGDI (European Geological Data Infrastructure) — ✅ IMPLEMENTED (2026-04-02)
 
 | Field           | Value                                                                                                                                                                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,6 +44,7 @@ This document inventories every external data source required by the 46 siting c
 | **Rate Limits** | No formal API limit; some layers are slow                                                                                                                                                                                                |
 | **Criteria**    | NH-02 (fault activity, slip rate), NH-03 (soil type, groundwater depth), NH-04 (soil/rock type), NH-05 (mining history), NH-06 (bearing capacity, depth to bedrock, groundwater regime), RI-03 (aquifer characteristics, flow direction) |
 | **Est. Hours**  | 16 h                                                                                                                                                                                                                                     |
+| **Module**      | `connectors/egdi_geology/` (models, parsers, client, batch) — 83 unit tests                                                                                                                                                              |
 
 #### S-03: OneGeology
 
@@ -495,7 +496,7 @@ These sources require identification and integration for each of the 23 in-scope
 | I-4 GEM Coal Plant Tracker       | Existing (base)   | 0 (done)   |
 | I-4 GEM Enhanced synergy         | Phase 3 extension | 8          |
 | S-01 GEM/SHARE Seismic           | New               | 20         |
-| S-02 EGDI                        | New               | 16         |
+| S-02 EGDI                        | ✅ Implemented    | 16 (done)  |
 | S-03 OneGeology                  | New               | 8          |
 | S-04 Copernicus CDS / ERA5       | New               | 32         |
 | S-05 Copernicus Sentinel Hub     | New               | 24         |

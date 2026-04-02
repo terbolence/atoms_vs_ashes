@@ -1,5 +1,7 @@
 # S-02: EGDI (European Geological Data Infrastructure) — Integration Specification
 
+> **STATUS: IMPLEMENTED** — Connector merged 2026-04-02. Module: `connectors/egdi_geology/` (models, parsers, client, batch). 83 unit tests passing. Configuration in `config/default.yml` under `connectors.egdi_geology`.
+
 **Source ID:** S-02
 **Phase:** 1 — Exclusionary Screening
 **Estimated effort:** 16 h

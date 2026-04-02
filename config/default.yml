@@ -129,6 +129,46 @@ connectors:
       - "0.50s"
       - "1.00s"
       - "2.00s"
+  egdi_geology:
+    wfs_base_url: "https://maps.europe-geology.eu/wfs/"
+    wms_base_url: "https://maps.europe-geology.eu/wms/"
+    wfs_version: "2.0.0"
+    whoami: "atoms_vs_ashes@project.eu"
+    timeout_s: 60
+    inter_request_delay_s: 1.0
+    cache_ttl_days: 180
+    max_features_per_request: 1000
+    layer_registry:
+      faults:
+        layer_name: "ms:hike_all_faults_layer"
+        criteria: ["NH-02"]
+        buffer_km: 8
+      lithology:
+        layer_name: "ms:egdi_surface_lithology_sandstone"
+        criteria: ["NH-03", "NH-04"]
+        buffer_km: 2
+      mines:
+        layer_names:
+          - "ms:egdi_mines"
+          - "ms:coalheritage"
+        criteria: ["NH-05"]
+        buffer_km: 10
+      karst:
+        layer_names:
+          - "ms:pp05_cgs_karstified_zones"
+          - "ms:pp07_gsi_karstifiedzones"
+        criteria: ["NH-05"]
+        buffer_km: 5
+      hydrogeology:
+        layer_names:
+          - "ms:hydrogeologic_map_bgr_2019"
+          - "ms:groundwater_bodies"
+        criteria: ["NH-06", "RI-03"]
+        buffer_km: 5
+      boreholes:
+        layer_name: "ms:egdi_geotech_boreholes"
+        criteria: ["NH-06"]
+        buffer_km: 5
   corine:
     wfs_url: "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WFSServer"
     layer_name: "Corine:CLC2018_CLC2018_V2018_20"
