@@ -1,7 +1,14 @@
 <!-- man_hours: 16.0 -->
+
 ## 7. Siting Criteria Specification
 
 ### 7.1 Criteria Master Table
+
+1. Natural hazards
+2. Human-induced hazards
+3. Radiological impact
+4. Emergency planning
+5. Non-safety criteria
 
 The following table consolidates all criteria used across screening and ranking phases, mapped to both IAEA and EPRI frameworks:
 

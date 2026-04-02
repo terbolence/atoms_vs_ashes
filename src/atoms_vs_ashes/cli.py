@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 6.0
 """CLI entry point — ``python -m atoms_vs_ashes`` or ``atoms-vs-ashes``."""
 
 from __future__ import annotations
@@ -86,12 +86,68 @@ def run(ctx: click.Context) -> None:
     ctx.invoke(validate)
 
 
-# Placeholders for later pipeline stages
-@main.command()
+@main.group()
 @click.pass_context
 def enrich(ctx: click.Context) -> None:
-    """Run connector framework for all or selected sites. [NOT YET IMPLEMENTED]"""
-    click.echo("enrich: not yet implemented")
+    """Run data-enrichment connectors for sites."""
+
+
+@enrich.command("seismic-hazard")
+@click.option("--site-id", "site_ids", multiple=True, type=click.UUID,
+              help="Enrich specific site(s) by UUID. Repeatable.")
+@click.option("--country", "country_codes", multiple=True,
+              help="Enrich all sites in country (ISO 3166-1 alpha-2). Repeatable.")
+@click.option("--all", "enrich_all_flag", is_flag=True, default=False,
+              help="Enrich every site in the database.")
+@click.option("--dry-run", is_flag=True, default=False,
+              help="Validate connectivity with one sample fetch, don't persist.")
+@click.pass_context
+def enrich_seismic_hazard(
+    ctx: click.Context,
+    site_ids: tuple[str, ...],
+    country_codes: tuple[str, ...],
+    enrich_all_flag: bool,
+    dry_run: bool,
+) -> None:
+    """Fetch seismic hazard data (S-01: EFEHR/GEM) for sites."""
+    from atoms_vs_ashes.connectors.seismic_hazard import SeismicHazardConnector
+    from atoms_vs_ashes.db.engine import session_scope
+
+    settings: Settings = ctx.obj["settings"]
+    rid: str = ctx.obj["run_id"]
+
+    if not check_connection(settings):
+        click.echo("ERROR: Cannot connect to database. Is PostgreSQL running?", err=True)
+        sys.exit(1)
+
+    with SeismicHazardConnector(settings) as connector:
+        if dry_run:
+            click.echo("Dry run — checking EFEHR connectivity…")
+            ok = connector.health_check()
+            click.echo(f"EFEHR health check: {'OK' if ok else 'FAILED'}")
+            if ok:
+                result = connector.fetch_all(lat=44.15, lon=23.12)
+                click.echo(json.dumps(result.to_dict(), indent=2, default=str))
+            return
+
+        with session_scope() as session:
+            ids = list(site_ids) if site_ids else None
+            codes = list(country_codes) if country_codes else None
+
+            if enrich_all_flag:
+                batch = connector.enrich_all(session, rid)
+            elif ids:
+                batch = connector.enrich_batch(session, rid, site_ids=ids)
+            elif codes:
+                batch = connector.enrich_batch(session, rid, country_codes=codes)
+            else:
+                click.echo(
+                    "ERROR: Specify --site-id, --country, or --all.", err=True
+                )
+                sys.exit(1)
+
+        click.echo(batch.summary_line())
+        click.echo(json.dumps(batch.to_dict(), indent=2, default=str))
 
 
 @main.command()

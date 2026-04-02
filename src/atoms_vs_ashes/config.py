@@ -1,4 +1,4 @@
-# man_hours: 3.0
+# man_hours: 4.0
 """Configuration loading: YAML + environment variables + validation."""
 
 from __future__ import annotations
@@ -65,6 +65,22 @@ class Settings:
     @property
     def basic_filters(self) -> dict[str, dict[str, Any]]:
         return self.screening.get("basic_filters", {})
+
+    @property
+    def connectors(self) -> dict[str, Any]:
+        return self._yaml.get("connectors", {})
+
+    def connector_config(self, slug: str) -> dict[str, Any]:
+        """Return config dict for a specific connector by slug."""
+        return self.connectors.get(slug, {})
+
+    @property
+    def retry(self) -> dict[str, Any]:
+        return self._yaml.get("retry", {})
+
+    @property
+    def cache(self) -> dict[str, Any]:
+        return self._yaml.get("cache", {})
 
     @property
     def scoring_weights(self) -> dict[str, float]:

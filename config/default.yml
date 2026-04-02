@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 5.0
 ingestion:
   # ISO 3166-1 alpha-2 codes for in-scope countries
   in_scope_countries:
@@ -107,6 +107,28 @@ screening:
     ep01_fail_threshold: 30  # composite score 0–100
 
 connectors:
+  seismic_hazard:
+    efehr_base_url: "http://appsrvr.share-eu.org:8080/share"
+    efehr_model_name: "ESHM20"
+    efehr_model_id: null              # auto-discovered if null; set to override
+    gem_raster_dir: "sources/seismic/gem_global"
+    timeout_s: 30
+    inter_request_delay_s: 0.5
+    cache_ttl_days: 365
+    default_imt: "PGA"
+    default_soil: "rock_vs30_800ms-1"
+    return_periods:
+      - poe: 0.1
+        label: "475yr"
+      - poe: 0.02
+        label: "2475yr"
+    spectral_periods:
+      - "0.10s"
+      - "0.20s"
+      - "0.30s"
+      - "0.50s"
+      - "1.00s"
+      - "2.00s"
   corine:
     wfs_url: "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WFSServer"
     layer_name: "Corine:CLC2018_CLC2018_V2018_20"
