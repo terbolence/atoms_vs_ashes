@@ -112,11 +112,18 @@ UNFAVOURABLE_FOOTPRINT_CLC: frozenset[str] = frozenset({
 
 _CLC_CODE_KEYS = ("code_18", "Code_18", "CODE_18", "clc_code", "CLC_CODE")
 
+# Legacy WFS endpoint (broken as of April 2026, EEA returns 400)
 DEFAULT_WFS_URL = (
     "https://image.discomap.eea.europa.eu/arcgis/services/"
     "Corine/CLC2018_WM/MapServer/WFSServer"
 )
 DEFAULT_LAYER = "Corine:CLC2018_CLC2018_V2018_20"
+
+DEFAULT_REST_URL = (
+    "https://image.discomap.eea.europa.eu/arcgis/rest/services/"
+    "Corine/CLC2018_WM/MapServer"
+)
+DEFAULT_REST_LAYER_ID = 0
 
 # EU/EEA countries covered by CORINE
 CORINE_COVERED_COUNTRIES: frozenset[str] = frozenset({

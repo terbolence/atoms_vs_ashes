@@ -25,6 +25,7 @@ dependencies = [
     "pyproj>=3.6",
     "shapely>=2.0",
     "rasterio>=1.3",
+    "rich>=13.7",
 ]
 
 [project.optional-dependencies]
@@ -36,6 +37,7 @@ dev = [
 
 [project.scripts]
 atoms-vs-ashes = "atoms_vs_ashes.cli:main"
+ava-client = "ava_client.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

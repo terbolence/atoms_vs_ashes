@@ -59,10 +59,19 @@ def classify_airport(tags: dict[str, str]) -> str:
 
 def assess_aviation_hazard(
     lat: float, lon: float,
-    overpass: OverpassClient,
+    overpass: OverpassClient | None = None,
     radius_km: float = DEFAULT_SEARCH_RADIUS_KM,
+    *,
+    elements: list[Any] | None = None,
 ) -> AirportResult:
-    elements = overpass.fetch_airports(lat, lon, radius_km=radius_km)
+    """Assess airport proximity.
+
+    Pass *overpass* to fetch on demand, or *elements* for pre-fetched data.
+    """
+    if elements is None:
+        if overpass is None:
+            return AirportResult(lat=lat, lon=lon, error="No Overpass client or pre-fetched elements provided")
+        elements = overpass.fetch_airports(lat, lon, radius_km=radius_km)
     if not elements:
         return AirportResult(lat=lat, lon=lon, airport_count=0)
 

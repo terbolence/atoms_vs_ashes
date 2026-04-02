@@ -235,6 +235,7 @@ class OverpassClient:
             f"(\n"
             f'  node["aeroway"~"aerodrome|helipad"](around:{radius_m},{lat},{lon});\n'
             f'  way["aeroway"="aerodrome"](around:{radius_m},{lat},{lon});\n'
+            f'  relation["aeroway"="aerodrome"](around:{radius_m},{lat},{lon});\n'
             f");\n"
             f"out center;\n"
         )

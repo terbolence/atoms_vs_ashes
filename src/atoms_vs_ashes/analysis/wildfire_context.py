@@ -58,15 +58,24 @@ class WildfireResult:
 def assess_wildfire_context(
     lat: float,
     lon: float,
-    corine: CorineConnector,
+    corine: CorineConnector | None = None,
     buffer_radii_km: list[float] | None = None,
+    *,
+    features: list[dict[str, Any]] | None = None,
 ) -> WildfireResult:
-    """Compute combustible vegetation percentages at EPZ radii."""
+    """Compute combustible vegetation percentages at EPZ radii.
+
+    Pass *corine* to fetch data on demand, or *features* to use
+    pre-fetched GeoJSON features (avoids redundant API calls).
+    """
     if buffer_radii_km is None:
         buffer_radii_km = DEFAULT_BUFFER_RADII_KM
 
     max_radius_m = max(buffer_radii_km) * 1000
-    features = corine.fetch(lat, lon, radius_m=max_radius_m + 500)
+    if features is None:
+        if corine is None:
+            return WildfireResult(lat=lat, lon=lon, error="No CORINE connector or pre-fetched features provided")
+        features = corine.fetch(lat, lon, radius_m=max_radius_m + 500)
 
     if not features:
         return WildfireResult(lat=lat, lon=lon, error="No CLC features returned")

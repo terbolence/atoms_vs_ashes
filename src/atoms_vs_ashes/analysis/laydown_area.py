@@ -56,11 +56,20 @@ class LaydownResult:
 def assess_laydown_area(
     lat: float,
     lon: float,
-    corine: CorineConnector,
+    corine: CorineConnector | None = None,
     radius_m: float = 5_000,
+    *,
+    features: list[dict[str, Any]] | None = None,
 ) -> LaydownResult:
-    """Identify suitable laydown areas within radius_m."""
-    features = corine.fetch(lat, lon, radius_m=radius_m + 500)
+    """Identify suitable laydown areas within radius_m.
+
+    Pass *corine* to fetch data on demand, or *features* to use
+    pre-fetched GeoJSON features.
+    """
+    if features is None:
+        if corine is None:
+            return LaydownResult(lat=lat, lon=lon, error="No CORINE connector or pre-fetched features provided")
+        features = corine.fetch(lat, lon, radius_m=radius_m + 500)
     if not features:
         return LaydownResult(lat=lat, lon=lon, error="No CLC features returned")
 

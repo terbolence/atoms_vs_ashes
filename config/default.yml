@@ -170,6 +170,8 @@ connectors:
         criteria: ["NH-06"]
         buffer_km: 5
   corine:
+    rest_url: "https://image.discomap.eea.europa.eu/arcgis/rest/services/Corine/CLC2018_WM/MapServer"
+    rest_layer_id: 0
     wfs_url: "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WFSServer"
     layer_name: "Corine:CLC2018_CLC2018_V2018_20"
     timeout_s: 30

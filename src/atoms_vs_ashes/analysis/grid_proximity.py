@@ -65,11 +65,20 @@ class GridResult:
 
 def assess_grid_proximity(
     lat: float, lon: float,
-    overpass: OverpassClient,
+    overpass: OverpassClient | None = None,
     radius_km: float = DEFAULT_SEARCH_RADIUS_KM,
     min_voltage_kv: float = MIN_HV_VOLTAGE_KV,
+    *,
+    elements: list[Any] | None = None,
 ) -> GridResult:
-    elements = overpass.fetch_power_infrastructure(lat, lon, radius_km=radius_km)
+    """Assess HV power grid proximity.
+
+    Pass *overpass* to fetch on demand, or *elements* for pre-fetched data.
+    """
+    if elements is None:
+        if overpass is None:
+            return GridResult(lat=lat, lon=lon, error="No Overpass client or pre-fetched elements provided")
+        elements = overpass.fetch_power_infrastructure(lat, lon, radius_km=radius_km)
     if not elements:
         return GridResult(lat=lat, lon=lon)
 

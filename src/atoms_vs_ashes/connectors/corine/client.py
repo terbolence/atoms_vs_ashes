@@ -1,8 +1,11 @@
 # man_hours: 14.0
-"""CORINE Land Cover WFS connector.
+"""CORINE Land Cover connector.
 
-Fetches CLC classification data from the Copernicus / EEA WFS endpoint
-and computes area statistics in concentric rings around a site.
+Fetches CLC classification data from the Copernicus / EEA ArcGIS REST
+endpoint and computes area statistics in concentric rings around a site.
+
+Uses the ArcGIS MapServer REST query API (layer 0 = CLC2018 vector).
+The legacy WFS endpoint has been unreliable since early 2026.
 """
 
 from __future__ import annotations
@@ -17,6 +20,8 @@ from atoms_vs_ashes.connectors.corine.models import (
     CLC_LABELS,
     DEVELOPABLE_CODES,
     DEFAULT_RINGS,
+    DEFAULT_REST_URL,
+    DEFAULT_REST_LAYER_ID,
     DEFAULT_WFS_URL,
     DEFAULT_LAYER,
     RingClassification,
@@ -34,28 +39,43 @@ log = get_logger(__name__)
 
 
 class CorineConnector:
-    """Fetches CORINE Land Cover data via WFS and classifies land in rings."""
+    """Fetches CORINE Land Cover data via ArcGIS REST and classifies land in rings."""
 
     def __init__(self, settings: Any | None = None) -> None:
         cfg: dict[str, Any] = {}
         if settings and hasattr(settings, "_yaml"):
             cfg = settings._yaml.get("connectors", {}).get("corine", {})
 
+        self._rest_url: str = cfg.get("rest_url", DEFAULT_REST_URL)
+        self._layer_id: int = int(cfg.get("rest_layer_id", DEFAULT_REST_LAYER_ID))
+        self._timeout: int = cfg.get("timeout_s", 30)
+        self._client = httpx.Client(timeout=self._timeout, follow_redirects=True)
+
+        # Keep legacy WFS fields for backward compat with assess_and_persist provenance
         self._wfs_url: str = cfg.get("wfs_url", DEFAULT_WFS_URL)
         self._layer: str = cfg.get("layer_name", DEFAULT_LAYER)
-        self._timeout: int = cfg.get("timeout_s", 30)
-        self._client = httpx.Client(timeout=self._timeout)
+
+    @property
+    def _query_url(self) -> str:
+        return f"{self._rest_url}/{self._layer_id}/query"
 
     def health_check(self) -> bool:
-        """Verify WFS endpoint is reachable."""
+        """Verify ArcGIS REST endpoint is reachable."""
         try:
             resp = self._client.get(
-                self._wfs_url,
-                params={"service": "WFS", "request": "GetCapabilities"},
+                self._rest_url,
+                params={"f": "json"},
             )
-            ok = resp.status_code == 200
+            if resp.status_code != 200:
+                log.warning("corine_health_fail", status=resp.status_code)
+                return False
+            data = resp.json()
+            layers = data.get("layers", [])
+            ok = any(l.get("id") == self._layer_id for l in layers)
             if ok:
-                log.info("corine_health_ok")
+                log.info("corine_health_ok", layers=len(layers))
+            else:
+                log.warning("corine_health_fail", detail="target layer not found")
             return ok
         except httpx.HTTPError as exc:
             log.warning("corine_health_error", error=str(exc))
@@ -74,21 +94,21 @@ class CorineConnector:
             Search radius in metres.
         """
         bbox = bbox_around(lat, lon, radius_m)
-        bbox_str = f"{bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]},EPSG:4326"
+        bbox_str = f"{bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]}"
         t0 = time.monotonic()
 
         try:
             resp = self._client.get(
-                self._wfs_url,
+                self._query_url,
                 params={
-                    "service": "WFS",
-                    "version": "2.0.0",
-                    "request": "GetFeature",
-                    "typeNames": self._layer,
-                    "outputFormat": "GEOJSON",
-                    "srsName": "EPSG:4326",
-                    "bbox": bbox_str,
-                    "count": "5000",
+                    "f": "geojson",
+                    "geometry": bbox_str,
+                    "geometryType": "esriGeometryEnvelope",
+                    "spatialRel": "esriSpatialRelIntersects",
+                    "inSR": "4326",
+                    "outSR": "4326",
+                    "outFields": "*",
+                    "resultRecordCount": "5000",
                 },
             )
             resp.raise_for_status()
@@ -144,7 +164,7 @@ class CorineConnector:
         if not features:
             return SiteClassification(
                 lat=lat, lon=lon,
-                error="No CLC features returned from WFS",
+                error="No CLC features returned from endpoint",
             )
 
         return self._analyze_rings(lat, lon, features, ring_defs)

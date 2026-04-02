@@ -47,10 +47,19 @@ class MilitaryResult:
 
 def assess_military_proximity(
     lat: float, lon: float,
-    overpass: OverpassClient,
+    overpass: OverpassClient | None = None,
     radius_km: float = DEFAULT_SEARCH_RADIUS_KM,
+    *,
+    elements: list[Any] | None = None,
 ) -> MilitaryResult:
-    elements = overpass.fetch_military_areas(lat, lon, radius_km=radius_km)
+    """Assess military installation proximity.
+
+    Pass *overpass* to fetch on demand, or *elements* for pre-fetched data.
+    """
+    if elements is None:
+        if overpass is None:
+            return MilitaryResult(lat=lat, lon=lon, error="No Overpass client or pre-fetched elements provided")
+        elements = overpass.fetch_military_areas(lat, lon, radius_km=radius_km)
     if not elements:
         return MilitaryResult(lat=lat, lon=lon, installation_count=0)
 

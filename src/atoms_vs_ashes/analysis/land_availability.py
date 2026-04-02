@@ -54,10 +54,19 @@ class LandAvailabilityResult:
 
 def assess_land_availability(
     lat: float, lon: float,
-    overpass: OverpassClient,
+    overpass: OverpassClient | None = None,
     radius_km: float = 5,
+    *,
+    elements: list[Any] | None = None,
 ) -> LandAvailabilityResult:
-    elements = overpass.fetch_land_use(lat, lon, radius_km=radius_km)
+    """Assess contiguous buildable land availability.
+
+    Pass *overpass* to fetch on demand, or *elements* for pre-fetched data.
+    """
+    if elements is None:
+        if overpass is None:
+            return LandAvailabilityResult(lat=lat, lon=lon, error="No Overpass client or pre-fetched elements provided")
+        elements = overpass.fetch_land_use(lat, lon, radius_km=radius_km)
     if not elements:
         return LandAvailabilityResult(lat=lat, lon=lon, patch_count=0)
 

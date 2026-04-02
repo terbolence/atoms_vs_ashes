@@ -61,11 +61,20 @@ class FragmentationResult:
 def assess_ecological_sensitivity(
     lat: float,
     lon: float,
-    corine: CorineConnector,
+    corine: CorineConnector | None = None,
     buffer_radius_m: float = 25_000,
+    *,
+    features: list[dict[str, Any]] | None = None,
 ) -> FragmentationResult:
-    """Compute landscape fragmentation metrics from CORINE."""
-    features = corine.fetch(lat, lon, radius_m=buffer_radius_m + 500)
+    """Compute landscape fragmentation metrics from CORINE.
+
+    Pass *corine* to fetch data on demand, or *features* to use
+    pre-fetched GeoJSON features.
+    """
+    if features is None:
+        if corine is None:
+            return FragmentationResult(lat=lat, lon=lon, error="No CORINE connector or pre-fetched features provided")
+        features = corine.fetch(lat, lon, radius_m=buffer_radius_m + 500)
 
     if not features:
         return FragmentationResult(lat=lat, lon=lon, error="No CLC features returned")

@@ -440,6 +440,10 @@ files:
     hours: 3.0
     category: "Configuration & DevOps"
 
+  scripts/live_integration_snapshots.py:
+    hours: 12.0
+    category: "Testing"
+
   # ── AI Prompts & Tooling ────────────────────────────────────────
 
   gpt/expert_system_data_sources_and_integrations.md:

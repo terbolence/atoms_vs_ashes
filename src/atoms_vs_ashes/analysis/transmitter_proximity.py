@@ -63,10 +63,19 @@ def classify_transmitter(tags: dict[str, str]) -> str:
 
 def assess_transmitter_proximity(
     lat: float, lon: float,
-    overpass: OverpassClient,
+    overpass: OverpassClient | None = None,
     radius_km: float = DEFAULT_SEARCH_RADIUS_KM,
+    *,
+    elements: list[Any] | None = None,
 ) -> TransmitterResult:
-    elements = overpass.fetch_transmitters(lat, lon, radius_km=radius_km)
+    """Assess high-power transmitter proximity.
+
+    Pass *overpass* to fetch on demand, or *elements* for pre-fetched data.
+    """
+    if elements is None:
+        if overpass is None:
+            return TransmitterResult(lat=lat, lon=lon, error="No Overpass client or pre-fetched elements provided")
+        elements = overpass.fetch_transmitters(lat, lon, radius_km=radius_km)
     if not elements:
         return TransmitterResult(lat=lat, lon=lon, transmitter_count=0)
 

@@ -62,16 +62,25 @@ class FootprintResult:
 def assess_site_topography(
     lat: float,
     lon: float,
-    corine: CorineConnector,
+    corine: CorineConnector | None = None,
     site_area_ha: float | None = None,
+    *,
+    features: list[dict[str, Any]] | None = None,
 ) -> FootprintResult:
-    """Classify land cover within the site footprint."""
+    """Classify land cover within the site footprint.
+
+    Pass *corine* to fetch data on demand, or *features* to use
+    pre-fetched GeoJSON features.
+    """
     radius_m = max(
         math.sqrt((site_area_ha or 0) * 10_000 / math.pi),
         500,
     )
 
-    features = corine.fetch(lat, lon, radius_m=radius_m + 200)
+    if features is None:
+        if corine is None:
+            return FootprintResult(lat=lat, lon=lon, error="No CORINE connector or pre-fetched features provided")
+        features = corine.fetch(lat, lon, radius_m=radius_m + 200)
     if not features:
         return FootprintResult(lat=lat, lon=lon, error="No CLC features returned")
 
