@@ -103,7 +103,7 @@ Development shall follow established software engineering practices:
 | Producer                | Consumer                                        | Data Contract                                       |
 | ----------------------- | ----------------------------------------------- | --------------------------------------------------- |
 | Data ingestion pipeline | PostgreSQL `sites` table                        | Normalised site records with audit trail            |
-| Connector framework     | PostgreSQL `site_attributes`, `site_scores`     | Typed attribute values with provenance metadata     |
-| Screening engine        | PostgreSQL `screening_results`                  | Pass/fail per criterion per site with justification |
-| Scoring engine          | PostgreSQL `ranking_results`                    | Composite scores per site                           |
+| Connector framework     | PostgreSQL domain tables (natural/human/radio/EP/infra) | Typed attribute values with provenance metadata     |
+| Screening engine        | PostgreSQL `screening_verdicts`                 | Pass/fail/caution per criterion per site per SMR design |
+| Scoring engine          | PostgreSQL `ranking_scores`, `composite_rankings` | Per-criterion and composite scores per site per SMR |
 | Output generators       | Filesystem (CSV, JSON, MD, XLSX, GeoJSON, HTML) | Reproducible report artifacts per run               |

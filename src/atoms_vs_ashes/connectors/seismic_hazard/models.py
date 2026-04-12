@@ -18,8 +18,8 @@ INSCOPE_LON_MIN, INSCOPE_LON_MAX = 12.0, 46.0
 
 NRML_NS = "http://openquake.org/xmlns/nrml/0.4"
 
-# Criteria served by this connector
-CRITERION_IDS = ("NH-01", "NH-03", "NH-04")
+
+
 
 
 @dataclass

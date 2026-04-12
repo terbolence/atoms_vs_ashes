@@ -9,15 +9,16 @@ and analysis modules against a given set of power-plant sites.
 From the project root:
 
 ```bash
-pip install -e .
+.venv/bin/python -m pip install -e .
 ```
 
-This installs both the `atoms-vs-ashes` server package and the `ava-client` CLI.
+This installs both the `atoms-vs-ashes` server package and the `ava-client` CLI
+into the project's `.venv`.
 
 Verify installation:
 
 ```bash
-ava-client --version
+.venv/bin/ava-client --version
 ```
 
 ## Quick Start — Built-in Test Sites
@@ -27,16 +28,16 @@ The fastest way to run the client uses three hardcoded test sites
 
 ```bash
 # Full run with 3 test sites (all connectors + analysis)
-ava-client run --test-sites
+.venv/bin/ava-client run --test-sites
 
 # Skip slow connectors for a faster test
-ava-client run --test-sites --skip egdi --skip seismic
+.venv/bin/ava-client run --test-sites --skip egdi --skip seismic
 
 # Health checks only (no data fetching)
-ava-client run --test-sites --dry-run
+.venv/bin/ava-client run --test-sites --dry-run
 
 # Verbose logging
-ava-client run --test-sites -v
+.venv/bin/ava-client run --test-sites -v
 ```
 
 ## Ad-hoc Coordinates
@@ -44,7 +45,7 @@ ava-client run --test-sites -v
 Provide one or more sites as `LAT,LON[:NAME]`:
 
 ```bash
-ava-client run --coords 44.15,23.12:Rovinari --coords 51.26,19.33:Belchatow
+.venv/bin/ava-client run --coords 44.15,23.12:Rovinari --coords 51.26,19.33:Belchatow
 ```
 
 If no name is given after the colon, one is generated from the coordinates.
@@ -53,26 +54,26 @@ If no name is given after the colon, one is generated from the coordinates.
 
 ### `ava-client run`
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `--config PATH` | `config/default.yml` | YAML config file |
-| `--coords LAT,LON[:NAME]` | — | Ad-hoc site (repeatable) |
-| `--test-sites` | `False` | Use 3 built-in test sites |
-| `-v` / `--verbose` | `False` | DEBUG-level logging |
-| `--run-id TEXT` | auto | Explicit run ID |
-| `--output-dir PATH` | `tests/integrationSnapshots` | Snapshot directory |
-| `--skip PHASE` | none | Skip: `corine`, `osm`, `population`, `egdi`, `seismic`, `analysis` |
-| `--max-sites N` | 0 (all) | Limit sites processed |
-| `--dry-run` | `False` | Health checks only |
-| `--no-snapshots` | `False` | Disable snapshot file writing |
+| Option                    | Default                      | Description                                                        |
+| ------------------------- | ---------------------------- | ------------------------------------------------------------------ |
+| `--config PATH`           | `config/default.yml`         | YAML config file                                                   |
+| `--coords LAT,LON[:NAME]` | —                            | Ad-hoc site (repeatable)                                           |
+| `--test-sites`            | `False`                      | Use 3 built-in test sites                                          |
+| `-v` / `--verbose`        | `False`                      | DEBUG-level logging                                                |
+| `--run-id TEXT`           | auto                         | Explicit run ID                                                    |
+| `--output-dir PATH`       | `tests/integrationSnapshots` | Snapshot directory                                                 |
+| `--skip PHASE`            | none                         | Skip: `corine`, `osm`, `population`, `egdi`, `seismic`, `analysis` |
+| `--max-sites N`           | 0 (all)                      | Limit sites processed                                              |
+| `--dry-run`               | `False`                      | Health checks only                                                 |
+| `--no-snapshots`          | `False`                      | Disable snapshot file writing                                      |
 
 ### `ava-client health`
 
 Run health checks for all upstream APIs:
 
 ```bash
-ava-client health
-ava-client health --skip egdi --skip seismic
+.venv/bin/ava-client health
+.venv/bin/ava-client health --skip egdi --skip seismic
 ```
 
 ### `ava-client show-config`
@@ -80,19 +81,19 @@ ava-client health --skip egdi --skip seismic
 Dump the resolved YAML configuration:
 
 ```bash
-ava-client show-config
+.venv/bin/ava-client show-config
 ```
 
 ## Parallel Processing
 
 Phase 2 (connector fetch) runs four API worker threads in parallel:
 
-| Worker | API | Rate Limit |
-|--------|-----|------------|
+| Worker   | API                                | Rate Limit                         |
+| -------- | ---------------------------------- | ---------------------------------- |
 | Overpass | OSM + Population (overpass-api.de) | 1 req at a time, 5 s between sites |
-| CORINE | EEA ArcGIS REST | 2 s between sites |
-| EGDI | EGDI WFS | 1 s between requests |
-| Seismic | EFEHR REST | 0.5 s between requests |
+| CORINE   | EEA ArcGIS REST                    | 2 s between sites                  |
+| EGDI     | EGDI WFS                           | 1 s between requests               |
+| Seismic  | EFEHR REST                         | 0.5 s between requests             |
 
 Each worker respects its API's rate limit independently. No API blocks another.
 
@@ -107,5 +108,5 @@ is generated for each run.
 The client can also be run as a Python module:
 
 ```bash
-python -m ava_client run --test-sites
+.venv/bin/python -m ava_client run --test-sites
 ```

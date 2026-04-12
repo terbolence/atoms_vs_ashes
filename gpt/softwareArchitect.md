@@ -27,7 +27,7 @@ For each source assigned, you deliver:
 1. **Implementation plan** — brief analysis of the source, extraction strategy, and integration design before writing code
 2. **Connector module** — Python code under `src/atoms_vs_ashes/connectors/` following established project patterns
 3. **Configuration** — YAML additions to `config/default.yml` under `connectors.<name>`
-4. **Database integration** — persistence logic targeting the existing ORM models (`SiteAttribute`, `SiteInfrastructure`, `ScreeningResult`, `DataQualityFlag`, etc.)
+4. **Database integration** — persistence logic targeting the domain tables (`SiteNaturalHazards`, `SiteHumanHazards`, `SiteRadiological`, `SiteEmergencyPlanning`, `SiteInfrastructureV2`) and `SiteObservation` for quality remarks
 5. **Tests** — unit and integration tests under `tests/`
 6. **Registration** — updates to `connectors/__init__.py` and any pipeline wiring
 
@@ -98,11 +98,16 @@ class XxxConnector:
 
 | Table | ORM class | Purpose |
 |-------|-----------|---------|
-| `site_attributes` | `SiteAttribute` | Per-site, per-criterion values (numeric, text, or JSONB), with `source_id`, `run_id`, `cache_status` |
-| `site_infrastructure` | `SiteInfrastructure` | Grid, cooling, transport attributes per site |
-| `screening_results` | `ScreeningResult` | Pass/fail/inconclusive verdicts with threshold and justification |
-| `site_scores` | `SiteScore` | Integer scores per criterion with justification |
-| `data_quality_flags` | `DataQualityFlag` | Quality flags (high/medium/low/insufficient) per dataset dimension |
+| `site_natural_hazards` | `SiteNaturalHazards` | One row per site: seismic, geological, flood, volcano, wildfire, etc. (NH-01..NH-14) with inline `*_quality` columns |
+| `site_human_hazards` | `SiteHumanHazards` | One row per site: aviation, military, industrial, transmitter hazards (HI-01..HI-08) |
+| `site_radiological` | `SiteRadiological` | One row per site: population density, disposal geology (RI-01..RI-06) |
+| `site_emergency_planning` | `SiteEmergencyPlanning` | One row per site: road access, amenities, waterways (EP-01..EP-05) |
+| `site_infrastructure_v2` | `SiteInfrastructureV2` | One row per site: grid, cooling, land, transport (NS-01..NS-13) |
+| `smr_designs` | `SmrDesign` | SMR reactor designs with capacity, land requirement, EPZ radii |
+| `screening_verdicts` | `ScreeningVerdict` | Pass/fail/caution/inconclusive per site × criterion × SMR design |
+| `ranking_scores` | `RankingScore` | 1–5 score per site × criterion × SMR design with score_low/score_high |
+| `composite_rankings` | `CompositeRanking` | Weighted composite score and rank per site × SMR design |
+| `site_observations` | `SiteObservation` | Structured comments per site × criterion with impact and confidence |
 | `data_sources` | `DataSource` | Provenance: source name, URL, last_fetched |
 | `audit_log` | `AuditLog` | Operation audit trail |
 
@@ -167,9 +172,9 @@ Do not overstate what a source supports.
 
 PL, CZ, SK, HU, AT, SI, HR, BA, RS, ME, XK, AL, MK, RO, BG, MD, UA, BY, EE, LV, LT, AM, TR
 
-## E2. SMR reference design
+## E2. SMR reference designs
 
-NuScale VOYGR-6: 462 MWe, ~72.8 ha land envelope, nuclear island ~14 ha.
+Multiple SMR designs are supported via the `smr_designs` table. The reference design is NuScale VOYGR-6 (462 MWe, ~72.8 ha). Other designs include BWRX-300, Xe-100, Natrium, IMSR-400, KP-FHR, ARC-100, and Rolls-Royce SMR. All screening and scoring is performed per-SMR-design.
 
 ## E3. EPZ radii
 
@@ -247,7 +252,6 @@ Produce complete, working code:
    - Typed representations of the source's output
    - `.to_dict()` method for serialization
    - Clear field names matching project domain terminology
-   - **`CRITERION_IDS` constant** — a tuple of all `criterion_id` values the connector writes to `site_attributes`, e.g. `CRITERION_IDS = ("NH-01", "NH-03", "NH-04")`. This constant is required for static DB-compatibility testing
 
 3. **Configuration** additions to `config/default.yml`
    - Under `connectors.<source_slug>`
@@ -258,11 +262,12 @@ Produce complete, working code:
    - Import and add to `__all__`
 
 5. **Persistence logic** (in connector or separate `batch.py` module)
-   - Map results to `SiteAttribute` rows with correct `criterion_id`
-   - Set `source_id`, `run_id`, `fetched_at`, `cache_status`
-   - Write `DataQualityFlag` when data is missing or low quality
+   - Get-or-create the relevant domain table row (e.g. `SiteNaturalHazards`) using `session.get(cls, site_id)`
+   - Set specific typed columns on the domain row (e.g. `row.pga_475yr_g = result.pga_475yr`)
+   - Set inline quality columns (e.g. `row.nh01_quality = result.quality`)
+   - Set `run_id`, `fetched_at`, and `source_id`/source name on the domain row
+   - Write `SiteObservation` records when data is missing, low quality, or noteworthy
    - Write `DataSource` provenance record
-   - **Criteria seed verification** — every `criterion_id` used in `session.merge(SiteAttribute(..., criterion_id="XX-NN"))` must be present in an Alembic seed migration. The `criteria` table has a foreign key constraint; missing seeds cause `IntegrityError` at runtime. If the needed criteria are already seeded (check `alembic/versions/005_seed_all_siting_criteria.py`), no action is needed. If new criteria are introduced, create a new Alembic migration to seed them
 
 6. **Tests** in `tests/test_connectors_<source_slug>.py`
    - Unit tests for parsing/transformation logic (no network)
@@ -279,12 +284,12 @@ After implementation, verify:
 - [ ] `health_check()` works without auth if possible
 - [ ] CRS is explicit (EPSG:4326 canonical, reprojection where needed)
 - [ ] Provenance metadata is captured (source name, URL, fetch timestamp, run_id)
-- [ ] Quality flags are written for missing/low-quality data
+- [ ] `SiteObservation` records are written for missing/low-quality data
 - [ ] The connector can be instantiated with `settings=None` (uses defaults)
 - [ ] Context manager protocol (`__enter__`/`__exit__`) is implemented
 - [ ] Structured logging uses consistent event names: `<source>_fetch_ok`, `<source>_fetch_error`, `<source>_parse_error`
-- [ ] `CRITERION_IDS` constant is defined in `models.py` and matches the IDs used in persistence
-- [ ] All `criterion_id` values are present in Alembic seed migrations (run `pytest tests/test_connector_db_compatibility.py -v` to verify)
+- [ ] Persistence writes to the correct domain table columns (not generic key-value rows)
+- [ ] All `criterion_id` values referenced in `SiteObservation` or `ScreeningVerdict` are present in Alembic seed migrations
 - [ ] Static DB compatibility test passes: `TestCriteriaSeedCompleteness`
 
 ---
@@ -323,9 +328,9 @@ Every connector must validate:
 1. **Schema:** response matches expected structure (keys, types)
 2. **Spatial:** coordinates are within expected bounds (the 23-country bounding box roughly: lat 35–60, lon 12–45)
 3. **Semantic:** values are within physically plausible ranges (e.g., PGA 0–5g, temperature -60°C to +60°C, population density ≥ 0)
-4. **Null handling:** missing data → `DataQualityFlag` with level `insufficient` or `low`, never silent drop
+4. **Null handling:** missing data → `SiteObservation` with impact `negative` and confidence `low`, never silent drop
 5. **Freshness:** warn if source data is older than expected (e.g., seismic model >5 years old)
-6. **Deduplication:** when fetching for the same site+criterion+run_id, use upsert logic (existing `uq_site_criterion_run` constraint)
+6. **Deduplication:** domain table rows use site_id as PK — use get-or-create pattern to update in place
 
 ---
 
@@ -404,7 +409,7 @@ Do not produce code that:
 3. Embeds source-specific parsing in screening or scoring logic
 4. Makes silent CRS assumptions (every CRS must be explicit)
 5. Persists derived values without raw-source traceability
-6. Drops missing data silently instead of writing quality flags
+6. Drops missing data silently instead of writing `SiteObservation` records
 7. Has no idempotency strategy (duplicate runs must not corrupt data)
 8. Cannot survive source schema or version changes (use defensive parsing)
 9. Uses `requests` instead of `httpx`
@@ -463,9 +468,9 @@ A correct implementation:
 6. Is idempotent and resilient to partial failures
 7. Has tests that verify parsing logic without requiring network access
 8. Documents all configurable parameters
-9. Correctly maps outputs to project criterion IDs
+9. Correctly maps outputs to typed domain table columns
 10. Distinguishes screening-grade from ranking-grade evidence
-11. All `criterion_id` values used in persistence are seeded in Alembic migrations (verified by `tests/test_connector_db_compatibility.py`)
+11. All `criterion_id` values referenced in `SiteObservation` or `ScreeningVerdict` are seeded in Alembic migrations (verified by `tests/test_connector_db_compatibility.py`)
 
 ---
 

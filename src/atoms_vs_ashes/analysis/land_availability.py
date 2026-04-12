@@ -10,13 +10,14 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.osm import OverpassClient
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteInfrastructureV2
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -94,23 +95,27 @@ def assess_and_persist(
     t0 = time.monotonic()
     result = assess_land_availability(lat, lon, overpass)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name=SOURCE_NAME,
         url=overpass._url, description="OSM Overpass for NS-05 land availability",
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=float(result.patch_count),
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteInfrastructureV2, site_id)
+    if row is None:
+        row = SiteInfrastructureV2(site_id=site_id)
+        session.add(row)
+    row.buildable_area_ha = result.total_buildable_ha
+    row.largest_contiguous_ha = result.largest_patch_ha
+    row.patch_count = result.patch_count
+    row.ns05_quality = "medium" if result.patch_count > 0 else "low"
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.patch_count == 0:
-        write_quality_flag(
-            session, site_id=site_id, dataset="osm", dimension="land_availability",
-            level="medium", detail="No buildable land use patches found in OSM within search radius",
-            run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation="No buildable land use patches found in OSM within search radius",
+            run_id=run_id, confidence="medium", impact="negative",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

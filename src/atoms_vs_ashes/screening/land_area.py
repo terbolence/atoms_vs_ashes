@@ -1,9 +1,9 @@
 # man_hours: 6.0
 """BF-02 Land Area Basic Filter.
 
-For each site, determine which of the deployable SMR designs can be
-accommodated based on the site's available land area (hectares), and record
-a pass / fail / inconclusive verdict in ``screening_results``.
+For each site × SMR design, determine whether the site's available land
+area (hectares) can accommodate the SMR and record a pass/fail/inconclusive
+verdict in ``screening_verdicts``.
 
 Site area is expected to have been populated by the OSM area ingestion
 pipeline (``ingest.osm_area``) before this check runs.
@@ -18,7 +18,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.config import Settings
-from atoms_vs_ashes.db.models import DataQualityFlag, ScreeningResult, Site
+from atoms_vs_ashes.db.models import ScreeningVerdict, Site, SiteObservation
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.screening.base import ScreeningCheck, register_check
 
@@ -37,77 +37,34 @@ def _smr_land_thresholds(settings: Settings) -> list[tuple[str, str, float]]:
     return entries
 
 
-def _build_threshold_text(smrs: list[tuple[str, str, float]]) -> str:
-    """Compact human-readable threshold summary."""
-    if not smrs:
-        return ""
-    parts = [f"{smrs[0][2]:.1f} ha (min: {smrs[0][1]})"]
-    ref = [s for s in smrs if s[0] == "nuscale_voygr6"]
-    if ref:
-        parts.append(f"{ref[0][2]:.1f} ha (ref: {ref[0][1]})")
-    parts.append(f"{smrs[-1][2]:.1f} ha (max: {smrs[-1][1]})")
-    return " / ".join(parts)
-
-
-def evaluate_site(
+def evaluate_site_for_smr(
     site_area_ha: float | None,
-    smrs: list[tuple[str, str, float]],
-) -> tuple[str, dict[str, Any], str]:
-    """Pure-logic evaluation returning ``(verdict, value_dict, justification)``.
-
-    Separated from DB concerns for easy unit testing.
-    """
+    smr_key: str,
+    smr_name: str,
+    smr_land_ha: float,
+) -> tuple[str, str, str]:
+    """Pure-logic evaluation returning ``(verdict, measured_value, justification)``."""
     if site_area_ha is None:
         return (
             "inconclusive",
-            {"site_area_ha": None, "compatible": [], "incompatible": []},
+            json.dumps({"site_area_ha": None}),
             "No site area data available; OSM boundary not found or not yet queried",
         )
 
-    compatible: list[str] = []
-    incompatible: list[str] = []
-    compatible_names: list[str] = []
-    incompatible_names: list[str] = []
-
-    for key, name, land_ha in smrs:
-        if site_area_ha >= land_ha:
-            compatible.append(key)
-            compatible_names.append(f"{name} ({land_ha:.1f} ha)")
-        else:
-            incompatible.append(key)
-            incompatible_names.append(f"{name} ({land_ha:.1f} ha)")
-
-    verdict = "pass" if compatible else "fail"
-
-    value_dict: dict[str, Any] = {
-        "site_area_ha": site_area_ha,
-        "compatible": compatible,
-        "incompatible": incompatible,
-    }
-
-    n_compat = len(compatible)
-    n_total = len(smrs)
-
-    if verdict == "fail":
-        justification = (
-            f"Site area {site_area_ha:.1f} ha is below the minimum "
-            f"SMR land requirement ({smrs[0][2]:.1f} ha for {smrs[0][1]})"
+    if site_area_ha >= smr_land_ha:
+        return (
+            "pass",
+            json.dumps({"site_area_ha": site_area_ha}),
+            f"Site area {site_area_ha:.1f} ha >= "
+            f"{smr_name} requirement ({smr_land_ha:.1f} ha)",
         )
-    elif n_compat == n_total:
-        justification = (
-            f"Site area {site_area_ha:.1f} ha accommodates all "
-            f"{n_total} SMR configurations"
-        )
-    else:
-        justification = (
-            f"Site area {site_area_ha:.1f} ha accommodates "
-            f"{n_compat} of {n_total} SMR configurations "
-            f"({', '.join(compatible_names)})"
-        )
-        if incompatible_names:
-            justification += f" but not {', '.join(incompatible_names)}"
 
-    return verdict, value_dict, justification
+    return (
+        "fail",
+        json.dumps({"site_area_ha": site_area_ha}),
+        f"Site area {site_area_ha:.1f} ha < "
+        f"{smr_name} requirement ({smr_land_ha:.1f} ha)",
+    )
 
 
 @register_check
@@ -122,47 +79,58 @@ class LandAreaCheck(ScreeningCheck):
         session: Session,
         settings: Settings,
         run_id: str,
-    ) -> list[ScreeningResult]:
+    ) -> list[ScreeningVerdict]:
         smrs = _smr_land_thresholds(settings)
         if not smrs:
             log.warning("no_smr_types_configured")
             return []
 
-        threshold_text = _build_threshold_text(smrs)
         sites = session.execute(select(Site)).scalars().all()
-        results: list[ScreeningResult] = []
+        verdicts: list[ScreeningVerdict] = []
+        inconclusive_logged: set = set()
 
         for site in sites:
             area = float(site.site_area_ha) if site.site_area_ha is not None else None
-            verdict, value_dict, justification = evaluate_site(area, smrs)
 
-            if verdict == "inconclusive":
-                session.add(
-                    DataQualityFlag(
+            for smr_key, smr_name, smr_land_ha in smrs:
+                verdict, measured_value, justification = evaluate_site_for_smr(
+                    area, smr_key, smr_name, smr_land_ha,
+                )
+
+                confidence = "high" if area is not None else "low"
+
+                verdicts.append(
+                    ScreeningVerdict(
                         site_id=site.site_id,
-                        dataset="sites",
-                        dimension="site_area",
-                        level="low",
-                        detail=(
-                            "site_area_ha is not set; "
-                            "BF-02 land area screening inconclusive"
-                        ),
+                        smr_key=smr_key,
+                        criterion_id=self.criterion_id,
+                        phase=self.phase,
+                        verdict=verdict,
+                        measured_value=measured_value,
+                        threshold=f"{smr_land_ha:.1f} ha",
+                        justification=justification,
+                        confidence=confidence,
+                        data_sources=["sites.site_area_ha (from OSM Overpass)"],
                         run_id=run_id,
                     )
                 )
 
-            results.append(
-                ScreeningResult(
-                    site_id=site.site_id,
-                    criterion_id=self.criterion_id,
-                    phase=self.phase,
-                    verdict=verdict,
-                    value=json.dumps(value_dict),
-                    threshold=threshold_text,
-                    justification=justification,
-                    source_refs="sites.site_area_ha (from OSM Overpass)",
-                    run_id=run_id,
-                )
-            )
+                if verdict == "inconclusive" and site.site_id not in inconclusive_logged:
+                    inconclusive_logged.add(site.site_id)
+                    session.add(
+                        SiteObservation(
+                            site_id=site.site_id,
+                            criterion_id=self.criterion_id,
+                            smr_key=smr_key,
+                            source_type="api",
+                            observation=(
+                                "site_area_ha is not set; "
+                                "BF-02 land area screening inconclusive"
+                            ),
+                            impact="blocking",
+                            confidence="low",
+                            run_id=run_id,
+                        )
+                    )
 
-        return results
+        return verdicts

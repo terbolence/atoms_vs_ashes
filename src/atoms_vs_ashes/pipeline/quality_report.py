@@ -9,7 +9,6 @@ from sqlalchemy.orm import Session
 from atoms_vs_ashes.db.models import (
     AuditLog,
     Country,
-    DataQualityFlag,
     Site,
     SiteOwnership,
     StagingUnmatchedOwnership,
@@ -71,22 +70,15 @@ def generate_quality_report(session: Session, *, run_id: str) -> dict:
     )
     report["audit_entries_this_run"] = audit_count
 
-    # Persist summary-level flags
+    # Surface quality warnings in the report (no longer persisted to DB;
+    # the old DataQualityFlag table has been removed).
+    warnings: list[str] = []
     if missing_coords and missing_coords > 0:
-        session.add(DataQualityFlag(
-            dataset="sites",
-            dimension="completeness",
-            level="low",
-            detail=f"{missing_coords} site(s) missing coordinates",
-            run_id=run_id,
-        ))
+        warnings.append(f"{missing_coords} site(s) missing coordinates")
     if countries_without:
-        session.add(DataQualityFlag(
-            dataset="sites",
-            dimension="completeness",
-            level="medium",
-            detail=f"Countries with no sites: {', '.join(sorted(countries_without))}",
-            run_id=run_id,
-        ))
+        warnings.append(
+            f"Countries with no sites: {', '.join(sorted(countries_without))}"
+        )
+    report["quality_warnings"] = warnings
 
     return report

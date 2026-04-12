@@ -10,11 +10,12 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.corine import (
     CorineConnector,
     HIGH_COMBUSTIBILITY_CLC,
@@ -22,7 +23,7 @@ from atoms_vs_ashes.connectors.corine import (
     NON_EU_COUNTRIES,
     parse_clc_features,
 )
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteNaturalHazards
 from atoms_vs_ashes.geo import buffer_ring_wgs84, geodesic_area_ha
 from atoms_vs_ashes.logging import get_logger
 
@@ -96,7 +97,6 @@ def assess_wildfire_context(
 
         high_ha = 0.0
         medium_ha = 0.0
-        residential_ha = 0.0
 
         for geom, clc_code in parsed:
             try:
@@ -108,8 +108,6 @@ def assess_wildfire_context(
                     high_ha += area_ha
                 elif clc_code in MEDIUM_COMBUSTIBILITY_CLC:
                     medium_ha += area_ha
-                if clc_code in RESIDENTIAL_CLC:
-                    residential_ha += area_ha
             except Exception:
                 continue
 
@@ -154,51 +152,40 @@ def assess_and_persist(
     run_id: str,
     corine: CorineConnector,
 ) -> WildfireResult:
-    """Assess wildfire context and persist as SiteAttribute NH-13."""
+    """Assess wildfire context and persist to SiteNaturalHazards NH-13."""
     t0 = time.monotonic()
 
     if country_code in NON_EU_COUNTRIES:
-        write_quality_flag(
-            session,
-            site_id=site_id,
-            dataset="corine",
-            dimension="wildfire_context",
-            level="insufficient",
-            detail=f"CORINE does not cover {country_code}; NH-13 requires S-36 ESA WorldCover",
-            run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation=f"CORINE does not cover {country_code}; NH-13 requires S-36 ESA WorldCover",
+            run_id=run_id, confidence="low", impact="blocking",
         )
         result = WildfireResult(lat=lat, lon=lon, error=f"No CORINE coverage for {country_code}")
     else:
         result = assess_wildfire_context(lat, lon, corine)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session,
         name="corine_clc2018_wfs",
         url=corine._wfs_url,
         description="CORINE Land Cover 2018 WFS for wildfire context",
     )
 
-    session.merge(
-        SiteAttribute(
-            site_id=site_id,
-            criterion_id=CRITERION_ID,
-            value_numeric=result.max_combustible_pct,
-            value_json=result.to_dict(),
-            source_id=source_id,
-            run_id=run_id,
-            cache_status="fresh",
-        )
-    )
+    row = session.get(SiteNaturalHazards, site_id)
+    if row is None:
+        row = SiteNaturalHazards(site_id=site_id)
+        session.add(row)
+    row.wildfire_combustible_pct = result.max_combustible_pct
+    row.wildfire_wui_ha = result.wui_proxy_ha
+    row.nh13_quality = "low" if result.error else "medium"
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.error:
-        write_quality_flag(
-            session,
-            site_id=site_id,
-            dataset="corine",
-            dimension="wildfire_context",
-            level="low",
-            detail=result.error,
-            run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation=result.error, run_id=run_id, confidence="low", impact="negative",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

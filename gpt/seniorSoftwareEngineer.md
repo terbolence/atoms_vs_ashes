@@ -57,11 +57,11 @@ External data sources will change schemas, return unexpected types, omit fields,
 - Access dict keys with `.get()`, never bare `[]` on untrusted data
 - Wrap geometry parsing in try/except — invalid geometries are common
 - Validate numeric ranges before persisting (PGA 0–5g, temperatures -60 to +60°C, population ≥ 0)
-- Treat missing data as a first-class outcome, not an error — write a `DataQualityFlag`, not an exception
+- Treat missing data as a first-class outcome, not an error — write a `SiteObservation`, not an exception
 
 ## B5. Idempotency
 
-Re-running the same connector for the same site with the same run_id must produce identical results. The database enforces this via `UniqueConstraint("site_id", "criterion_id", "run_id")` on `site_attributes` and `screening_results`. Use `session.merge()` for upsert behavior.
+Re-running the same connector for the same site with the same run_id must produce identical results. Domain tables use `site_id` as PK — use get-or-create pattern to update in place. Decision tables (`screening_verdicts`, `ranking_scores`) use composite PKs including `smr_key` and `criterion_id`.
 
 ## B6. Modular file structure — no monoliths
 
@@ -111,7 +111,7 @@ atoms_vs_ashes/
 │   │   └── population.py       # Population data connector (OSM + GeoNames)
 │   ├── db/
 │   │   ├── engine.py           # Engine init, session_scope context manager
-│   │   └── models.py           # Full ORM: Site, SiteAttribute, ScreeningResult, etc.
+│   │   └── models.py           # Full ORM: Site, domain tables, ScreeningVerdict, etc.
 │   ├── ingest/
 │   │   ├── sites.py            # GEM Coal Plant Tracker XLSX ingestion
 │   │   ├── ownership.py        # Ownership tracker ingestion
@@ -224,19 +224,27 @@ Use these. Do not reimplement distance or area calculations.
 
 Key fields: `site_id` (UUID PK), `name`, `country_code`, `latitude`, `longitude`, `geom` (PostGIS POINT), `installed_capacity_mw`, `grid_capacity_mw`, `site_area_ha`, `cooling_water_source`, `status`, `extended_data` (JSONB).
 
-### `SiteAttribute` — per-site, per-criterion enrichment values
+### Domain tables — per-site enrichment values (one row per site each)
 
-Fields: `attribute_id` (UUID PK), `site_id` (FK), `criterion_id` (FK, e.g., "NH-01"), `value_numeric`, `value_text`, `value_json` (JSONB), `source_id` (FK to DataSource), `fetched_at`, `run_id`, `cache_status`.
+- `SiteNaturalHazards` — NH-01..NH-14: seismic, geological, flood, volcano, wildfire, etc.
+- `SiteHumanHazards` — HI-01..HI-08: aviation, military, industrial, transmitter hazards
+- `SiteRadiological` — RI-01..RI-06: population density, disposal geology
+- `SiteEmergencyPlanning` — EP-01..EP-05: road access, amenities, waterways
+- `SiteInfrastructureV2` — NS-01..NS-13: grid, cooling, land, transport
 
-Unique constraint: `(site_id, criterion_id, run_id)`.
+Each domain table has typed columns for specific metrics (e.g. `pga_475yr_g`, `nearest_airport_km`), inline `*_quality` columns, `run_id`, and `fetched_at`. PK is `site_id`.
 
-### `ScreeningResult` — pass/fail/inconclusive verdicts
+### `SmrDesign` — reactor design parameters
 
-Fields: `result_id`, `site_id`, `criterion_id`, `phase`, `verdict` (enum: pass/fail/inconclusive), `value` (text), `threshold`, `justification`, `source_refs`, `run_id`.
+Fields: `smr_key` (PK), `name`, `capacity_mwe`, `thermal_output_mwt`, `land_requirement_ha`, `epz_radius_km`, `cooling_type`, `notes`.
 
-### `DataQualityFlag` — quality tracking
+### `ScreeningVerdict` — per-site per-criterion per-SMR verdicts
 
-Fields: `flag_id`, `site_id`, `dataset`, `dimension`, `level` (enum: high/medium/low/insufficient), `detail`, `run_id`.
+Fields: `verdict_id` (UUID PK), `site_id` (FK), `criterion_id` (FK), `smr_key` (FK), `phase`, `verdict` (enum: pass/fail/caution/inconclusive), `value`, `threshold`, `justification`, `confidence`, `source_refs`, `run_id`.
+
+### `SiteObservation` — structured quality tracking and comments
+
+Fields: `observation_id` (UUID PK), `site_id` (FK), `criterion_id` (FK), `smr_key` (FK, optional), `source_type`, `observation` (text), `impact`, `confidence`, `author`, `run_id`.
 
 ### `DataSource` — provenance
 
@@ -256,12 +264,12 @@ class MyCheck(ScreeningCheck):
     criterion_id = "NH-01"
     phase = "screening"
 
-    def evaluate(self, session, settings, run_id) -> list[ScreeningResult]:
-        # 1. Query sites
-        # 2. For each site, call pure evaluation logic
-        # 3. Build ScreeningResult objects
-        # 4. Add DataQualityFlag for missing data
-        # 5. Return results (base class handles merge + audit log)
+    def evaluate(self, session, settings, run_id) -> list[ScreeningVerdict]:
+        # 1. Query sites and SMR designs
+        # 2. For each site × SMR design, call pure evaluation logic
+        # 3. Build ScreeningVerdict objects (one per site per SMR)
+        # 4. Add SiteObservation for missing data
+        # 5. Return verdicts (base class handles merge + audit log)
         ...
 ```
 
@@ -405,7 +413,7 @@ Rules:
 When the connector is used in the enrichment pipeline:
 
 ```python
-from atoms_vs_ashes.db.models import SiteAttribute, DataQualityFlag, DataSource
+from atoms_vs_ashes.db.models import SiteNaturalHazards, SiteObservation, DataSource
 
 def persist_result(
     session: Session,
@@ -422,26 +430,28 @@ def persist_result(
         session.add(ds)
         session.flush()
 
-    # Write attribute
-    session.merge(SiteAttribute(
-        site_id=site_id,
-        criterion_id="NH-01",
-        value_numeric=result.pga_475,
-        value_json=result.to_dict(),
-        source_id=ds.source_id,
-        fetched_at=datetime.now(timezone.utc),
-        run_id=run_id,
-        cache_status="fresh",
-    ))
+    # Get-or-create domain table row
+    row = session.get(SiteNaturalHazards, site_id)
+    if row is None:
+        row = SiteNaturalHazards(site_id=site_id)
+        session.add(row)
 
-    # Write quality flag if data is missing or low-quality
+    # Set typed columns
+    row.pga_475yr_g = result.pga_475
+    row.nh01_source = source_name
+    row.nh01_quality = result.quality
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
+
+    # Write observation if data is missing or low-quality
     if result.error or result.pga_475 is None:
-        session.add(DataQualityFlag(
+        session.add(SiteObservation(
             site_id=site_id,
-            dataset=source_name,
-            dimension="pga_475",
-            level="insufficient" if result.error else "low",
-            detail=result.error or "No PGA value available at site coordinates",
+            criterion_id="NH-01",
+            source_type="api",
+            observation=result.error or "No PGA value available at site coordinates",
+            impact="negative",
+            confidence="low",
             run_id=run_id,
         ))
 ```
@@ -811,8 +821,8 @@ Before presenting any implementation as complete, verify every item:
 - [ ] HTTP calls have explicit timeouts (configured, not hard-coded)
 - [ ] Transient errors trigger retry; auth errors abort
 - [ ] Rate limits documented and respected
-- [ ] `DataQualityFlag` written for missing or low-quality data
-- [ ] `session.merge()` used for upsert on rows with unique constraints
+- [ ] `SiteObservation` written for missing or low-quality data
+- [ ] Get-or-create pattern used for domain table rows (site_id as PK)
 - [ ] Context manager protocol implemented (`__enter__`/`__exit__`)
 
 ### Configuration
@@ -824,8 +834,8 @@ Before presenting any implementation as complete, verify every item:
 
 ### Provenance
 - [ ] `DataSource` record created with source name, URL, description
-- [ ] `SiteAttribute` rows include `source_id`, `run_id`, `fetched_at`
-- [ ] Raw response preserved in `value_json`; derived values in `value_numeric`/`value_text`
+- [ ] Domain table rows include `run_id`, `fetched_at`, and source name in `*_source` columns
+- [ ] Raw response data preserved where appropriate (e.g. `spectral_accel_json`); derived values in typed columns
 
 ### Testing
 - [ ] Unit tests for parsing/transformation (no network, no DB)
@@ -838,9 +848,8 @@ Before presenting any implementation as complete, verify every item:
 - [ ] Module imported and registered in `connectors/__init__.py`
 - [ ] Configuration added to `config/default.yml`
 - [ ] Logging uses structured events: `<source>_fetch_ok`, `<source>_<action>_error`
-- [ ] Criterion IDs in `SiteAttribute` rows match the project criteria table
-- [ ] `CRITERION_IDS` constant defined in `models.py` listing all criterion IDs used in persistence
-- [ ] All criterion IDs are seeded in Alembic migrations (`alembic/versions/005_seed_all_siting_criteria.py` or later)
+- [ ] Persistence writes to correct domain table columns (not generic key-value rows)
+- [ ] All `criterion_id` values used in `SiteObservation` or `ScreeningVerdict` are seeded in Alembic migrations
 - [ ] `pytest tests/test_connector_db_compatibility.py -v` passes (static DB-compatibility check)
 
 ---
@@ -872,7 +881,7 @@ If no architect assessment exists, you are responsible for both the design and t
 9. Do not write a connector that only works for one country when the source covers multiple.
 10. Do not persist derived values without also persisting (or referencing) the raw source data.
 11. Do not add comments that narrate code. Comments explain *why*, not *what*.
-12. Do not skip the `DataQualityFlag`. Missing data is expected and must be tracked.
+12. Do not skip the `SiteObservation`. Missing data is expected and must be tracked.
 
 ---
 
@@ -882,8 +891,8 @@ Your implementation is correct when:
 
 1. `pytest` passes with zero failures and zero warnings
 2. The connector can fetch data for any site in the 23-country scope (or explicitly flags coverage gaps)
-3. Results persist correctly to `SiteAttribute` with full provenance
-4. Quality flags are written for every site where data is missing or uncertain
+3. Results persist correctly to domain tables with full provenance
+4. `SiteObservation` records are written for every site where data is missing or uncertain
 5. The connector works with both `settings=None` (defaults) and a real `Settings` instance
 6. Another engineer can read the code and understand it without asking you questions
 7. The self-review checklist in Section L has no unchecked items

@@ -9,14 +9,15 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.osm import OverpassClient
 from atoms_vs_ashes.geo import haversine_km
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteInfrastructureV2
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -130,23 +131,30 @@ def assess_and_persist(
     t0 = time.monotonic()
     result = assess_grid_proximity(lat, lon, overpass)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name="osm_overpass_grid",
         url=overpass._url, description="OSM Overpass for NS-02 grid proximity",
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=result.nearest_substation_km,
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteInfrastructureV2, site_id)
+    if row is None:
+        row = SiteInfrastructureV2(site_id=site_id)
+        session.add(row)
+    row.nearest_substation_km = result.nearest_substation_km
+    row.substation_name = result.nearest_substation_name
+    row.nearest_hv_line_km = result.nearest_hv_line_km
+    row.hv_line_voltage_kv = int(result.nearest_hv_line_voltage_kv) if result.nearest_hv_line_voltage_kv else None
+    row.hv_line_count = result.hv_line_count
+    row.substation_count = result.substation_count
+    row.ns02_quality = "medium" if (result.hv_line_count + result.substation_count) > 0 else "low"
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.hv_line_count == 0 and result.substation_count == 0:
-        write_quality_flag(
-            session, site_id=site_id, dataset="osm", dimension="grid_proximity",
-            level="low", detail="No HV power infrastructure found in OSM within search radius",
-            run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation="No HV power infrastructure found in OSM within search radius",
+            run_id=run_id, confidence="low", impact="negative",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

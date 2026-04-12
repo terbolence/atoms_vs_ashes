@@ -1,14 +1,16 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # Aviation Hazard (HI-01)
 
-**Generated:** 2026-04-02 18:26 UTC
+**Generated:** 2026-04-03 10:30 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Airport proximity from OSM
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
+- **Coordinates:** 44.1456, 23.1234
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -17,63 +19,13 @@
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
-  "nearest_distance_km": 25.02,
-  "nearest_name": "Aeroporti Ndërkombëtar i Tiranës Nënë Tereza",
-  "nearest_type": "international",
-  "airport_count": 7,
-  "airports": [
-    {
-      "name": "Aeroporti Ndërkombëtar i Tiranës Nënë Tereza",
-      "type": "international",
-      "distance_km": 25.02,
-      "iata": "TIA",
-      "icao": "LATI"
-    },
-    {
-      "name": "unnamed",
-      "type": "helipad",
-      "distance_km": 31.23,
-      "iata": null,
-      "icao": null
-    },
-    {
-      "name": "unnamed",
-      "type": "helipad",
-      "distance_km": 33.03,
-      "iata": null,
-      "icao": null
-    },
-    {
-      "name": "Baza Ajrore Gjadër",
-      "type": "regional",
-      "distance_km": 60.14,
-      "iata": null,
-      "icao": "LAGJ"
-    },
-    {
-      "name": "unnamed",
-      "type": "helipad",
-      "distance_km": 74.51,
-      "iata": null,
-      "icao": null
-    },
-    {
-      "name": "Baza Ajrore Kuçovë",
-      "type": "regional",
-      "distance_km": 78.08,
-      "iata": null,
-      "icao": "LAKV"
-    },
-    {
-      "name": "unnamed",
-      "type": "helipad",
-      "distance_km": 79.11,
-      "iata": null,
-      "icao": null
-    }
-  ],
+  "lat": 44.1456,
+  "lon": 23.1234,
+  "nearest_distance_km": null,
+  "nearest_name": null,
+  "nearest_type": "unknown",
+  "airport_count": 0,
+  "airports": [],
   "error": null
 }
 ```
@@ -82,9 +34,9 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
+- **Coordinates:** 51.2644, 19.3278
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -93,8 +45,34 @@
 
 ```json
 {
-  "lat": 48.32611,
-  "lon": 15.923333,
+  "lat": 51.2644,
+  "lon": 19.3278,
+  "nearest_distance_km": null,
+  "nearest_name": null,
+  "nearest_type": "unknown",
+  "airport_count": 0,
+  "airports": [],
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (0 ms)
+- **Summary:** OK
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 50.3928,
+  "lon": 13.3278,
   "nearest_distance_km": null,
   "nearest_name": null,
   "nearest_type": "unknown",

@@ -1,15 +1,17 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # Wildfire Context (NH-13)
 
-**Generated:** 2026-04-02 18:26 UTC
-**Description:** Combustibility classification from CORINE land cover
+**Generated:** 2026-04-03 10:30 UTC
+**Run ID:** 20260403T102652_8572b44b
+**Description:** Combustibility classification from CORINE
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
-- **Status:** PASS (166 ms)
+- **Coordinates:** 44.1456, 23.1234
+- **Status:** PASS (70 ms)
 - **Summary:** OK
 
 <details>
@@ -17,24 +19,24 @@
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
+  "lat": 44.1456,
+  "lon": 23.1234,
   "ring_combustibility": [
     {
       "ring": "0.0-5km",
-      "high_combustibility_ha": 364.64,
-      "medium_combustibility_ha": 184.6,
-      "total_combustible_ha": 549.24,
+      "high_combustibility_ha": 0.0,
+      "medium_combustibility_ha": 0.0,
+      "total_combustible_ha": 0.0,
       "ring_area_ha": 7853.19,
-      "combustible_pct": 7.0
+      "combustible_pct": 0.0
     },
     {
       "ring": "5-16km",
-      "high_combustibility_ha": 122.98,
+      "high_combustibility_ha": 0.0,
       "medium_combustibility_ha": 0.0,
-      "total_combustible_ha": 122.98,
+      "total_combustible_ha": 0.0,
       "ring_area_ha": 72563.46,
-      "combustible_pct": 0.2
+      "combustible_pct": 0.0
     },
     {
       "ring": "16-25km",
@@ -45,8 +47,8 @@
       "combustible_pct": 0.0
     }
   ],
-  "max_combustible_pct": 7.0,
-  "wui_proxy_ha": 93.19,
+  "max_combustible_pct": 0.0,
+  "wui_proxy_ha": 0.0,
   "error": null
 }
 ```
@@ -55,10 +57,10 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
-- **Status:** PASS (43 ms)
+- **Coordinates:** 51.2644, 19.3278
+- **Status:** PASS (38 ms)
 - **Summary:** OK
 
 <details>
@@ -66,24 +68,73 @@
 
 ```json
 {
-  "lat": 48.32611,
-  "lon": 15.923333,
+  "lat": 51.2644,
+  "lon": 19.3278,
   "ring_combustibility": [
     {
       "ring": "0.0-5km",
-      "high_combustibility_ha": 1844.82,
-      "medium_combustibility_ha": 241.44,
-      "total_combustible_ha": 2086.26,
+      "high_combustibility_ha": 3271.63,
+      "medium_combustibility_ha": 2.26,
+      "total_combustible_ha": 3273.9,
       "ring_area_ha": 7853.19,
-      "combustible_pct": 26.6
+      "combustible_pct": 41.7
     },
     {
       "ring": "5-16km",
-      "high_combustibility_ha": 3164.07,
-      "medium_combustibility_ha": 433.77,
-      "total_combustible_ha": 3597.84,
+      "high_combustibility_ha": 12124.52,
+      "medium_combustibility_ha": 26.26,
+      "total_combustible_ha": 12150.77,
       "ring_area_ha": 72563.46,
-      "combustible_pct": 5.0
+      "combustible_pct": 16.7
+    },
+    {
+      "ring": "16-25km",
+      "high_combustibility_ha": 453.78,
+      "medium_combustibility_ha": 0.0,
+      "total_combustible_ha": 453.78,
+      "ring_area_ha": 115912.92,
+      "combustible_pct": 0.4
+    }
+  ],
+  "max_combustible_pct": 41.7,
+  "wui_proxy_ha": 44.0,
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (62 ms)
+- **Summary:** OK
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 50.3928,
+  "lon": 13.3278,
+  "ring_combustibility": [
+    {
+      "ring": "0.0-5km",
+      "high_combustibility_ha": 1000.4,
+      "medium_combustibility_ha": 481.97,
+      "total_combustible_ha": 1482.38,
+      "ring_area_ha": 7853.19,
+      "combustible_pct": 18.9
+    },
+    {
+      "ring": "5-16km",
+      "high_combustibility_ha": 1609.86,
+      "medium_combustibility_ha": 623.45,
+      "total_combustible_ha": 2233.31,
+      "ring_area_ha": 72563.46,
+      "combustible_pct": 3.1
     },
     {
       "ring": "16-25km",
@@ -94,8 +145,8 @@
       "combustible_pct": 0.0
     }
   ],
-  "max_combustible_pct": 26.6,
-  "wui_proxy_ha": 0.02,
+  "max_combustible_pct": 18.9,
+  "wui_proxy_ha": 144.36,
   "error": null
 }
 ```

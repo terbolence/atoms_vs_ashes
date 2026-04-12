@@ -20,14 +20,14 @@ import httpx
 from shapely.geometry import shape
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.connectors.corine import (
     DEVELOPABLE_CODES,
     CorineConnector,
     SiteClassification,
 )
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteInfrastructureV2
 from atoms_vs_ashes.geo import buffer_circle_wgs84, geodesic_area_ha
 from atoms_vs_ashes.logging import get_logger
 
@@ -158,59 +158,48 @@ class ProximityLandAnalysis:
         session: Session,
         run_id: str,
     ) -> ProximityResult:
-        """Assess and store the result as a ``SiteAttribute`` for NS-05."""
+        """Assess and store the result in SiteInfrastructureV2 for NS-05."""
+        from datetime import datetime, timezone
+
         t0 = time.monotonic()
         result = self.assess(lat, lon, site_area_ha)
         elapsed_ms = int((time.monotonic() - t0) * 1000)
 
-        source_id = ensure_data_source(
+        ensure_data_source(
             session,
             name="corine_clc2018_wfs",
             url=self._corine._wfs_url,
             description="CORINE Land Cover 2018 WFS for proximity land analysis",
         )
 
-        attr = SiteAttribute(
-            site_id=site_id,
-            criterion_id=CRITERION_ID,
-            value_numeric=result.available_adjacent_ha,
-            value_json=result.to_dict(),
-            source_id=source_id,
-            run_id=run_id,
-            cache_status="fresh",
-        )
-        session.merge(attr)
+        row = session.get(SiteInfrastructureV2, site_id)
+        if row is None:
+            row = SiteInfrastructureV2(site_id=site_id)
+            session.add(row)
+        row.buildable_area_ha = result.available_adjacent_ha + (site_area_ha or 0.0)
+        row.largest_contiguous_ha = result.available_adjacent_ha
+        row.ns05_quality = "low" if result.error or result.quality == "insufficient" else "medium"
+        row.fetched_at = datetime.now(timezone.utc)
+        row.run_id = run_id
 
         if result.error:
-            write_quality_flag(
-                session,
-                site_id=site_id,
-                dataset="corine",
-                dimension="land_cover",
-                level="insufficient",
-                detail=result.error,
-                run_id=run_id,
+            write_observation(
+                session, site_id=site_id, criterion_id=CRITERION_ID,
+                observation=result.error,
+                run_id=run_id, confidence="low", impact="blocking",
             )
         elif result.quality == "insufficient":
-            write_quality_flag(
-                session,
-                site_id=site_id,
-                dataset="corine",
-                dimension="land_cover",
-                level="low",
-                detail="Proximity data quality is estimated with limited coverage",
-                run_id=run_id,
+            write_observation(
+                session, site_id=site_id, criterion_id=CRITERION_ID,
+                observation="Proximity data quality is estimated with limited coverage",
+                run_id=run_id, confidence="low", impact="negative",
             )
 
         if not result.protected_areas:
-            write_quality_flag(
-                session,
-                site_id=site_id,
-                dataset="natura2000",
-                dimension="protected_areas",
-                level="medium",
-                detail="No Natura 2000 / WDPA data available; protected area check incomplete",
-                run_id=run_id,
+            write_observation(
+                session, site_id=site_id, criterion_id=CRITERION_ID,
+                observation="No Natura 2000 / WDPA data available; protected area check incomplete",
+                run_id=run_id, confidence="medium", impact="neutral",
             )
 
         log.info(

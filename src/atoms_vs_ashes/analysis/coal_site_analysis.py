@@ -9,12 +9,13 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
+from atoms_vs_ashes.db.models import SiteInfrastructureV2
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -77,24 +78,30 @@ def assess_and_persist(
     t0 = time.monotonic()
     result = evaluate_coal_site(site_area_ha, status, smr_land_ha)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name=SOURCE_NAME,
         url="https://globalenergymonitor.org/projects/global-coal-plant-tracker/",
         description="GEM Coal Plant Tracker site footprint for NS-05 reuse assessment",
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=result.sufficiency_ratio,
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteInfrastructureV2, site_id)
+    if row is None:
+        row = SiteInfrastructureV2(site_id=site_id)
+        session.add(row)
+    row.buildable_area_ha = site_area_ha
+    row.ns05_quality = "low" if result.error else "medium"
+    row.ns05_comment = (
+        f"Sufficiency ratio {result.sufficiency_ratio:.2f} "
+        f"(site {site_area_ha or 0:.1f} ha / SMR {smr_land_ha:.1f} ha)"
+        if not result.error else result.error
+    )
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.error:
-        write_quality_flag(
-            session, site_id=site_id, dataset="gem_coal_tracker",
-            dimension="coal_site_reuse", level="low",
-            detail=result.error, run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation=result.error, run_id=run_id, confidence="low", impact="negative",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

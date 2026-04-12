@@ -1,15 +1,17 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # OSM Road Density - fetch_road_density()
 
-**Generated:** 2026-04-02 18:23 UTC
+**Generated:** 2026-04-03 10:27 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Road network density within 25 km
+**Sites:** 0 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
-- **Status:** PASS (5587 ms)
+- **Coordinates:** 44.1456, 23.1234
+- **Status:** PASS (5023 ms)
 - **Summary:** total_road_km=0.0, density_km_per_km2=0.0, area_km2=1963.5
 
 <details>
@@ -28,10 +30,32 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
-- **Status:** PASS (5956 ms)
+- **Coordinates:** 51.2644, 19.3278
+- **Status:** PASS (5357 ms)
+- **Summary:** total_road_km=0.0, density_km_per_km2=0.0, area_km2=1963.5
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "total_road_km": 0.0,
+  "by_class_km": {},
+  "density_km_per_km2": 0.0,
+  "area_km2": 1963.5
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (5473 ms)
 - **Summary:** total_road_km=0.0, density_km_per_km2=0.0, area_km2=1963.5
 
 <details>

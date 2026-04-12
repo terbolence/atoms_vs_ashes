@@ -10,13 +10,14 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.population import PopulationConnector, PopulationResult
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteRadiological
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -24,7 +25,6 @@ log = get_logger(__name__)
 CRITERION_ID = "RI-06"
 PROJECTION_HORIZON_YEARS = 60
 
-# UN WPP 2024 medium-variant annual growth rates (approximate)
 COUNTRY_GROWTH_RATES: dict[str, float] = {
     "PL": -0.0045, "CZ": -0.0020, "SK": -0.0030, "HU": -0.0040,
     "AT": 0.0010, "SI": -0.0015, "HR": -0.0060, "BA": -0.0070,
@@ -73,17 +73,21 @@ def project_population(
 
     ring_projections = []
     current_5km = 0.0
+    projected_pop_25km = 0
     for ring in pop_result.rings:
         projected_density = ring.density_per_km2 * multiplier
+        projected_pop = int(ring.population * multiplier)
         ring_projections.append({
             "ring": f"{ring.inner_km}-{ring.outer_km}km",
             "current_density": round(ring.density_per_km2, 1),
             "projected_density": round(projected_density, 1),
             "current_population": ring.population,
-            "projected_population": int(ring.population * multiplier),
+            "projected_population": projected_pop,
         })
         if ring.outer_km <= 5.5:
             current_5km = ring.density_per_km2
+        if ring.outer_km <= 25.5:
+            projected_pop_25km += projected_pop
 
     return ProjectionResult(
         lat=pop_result.lat,
@@ -113,24 +117,29 @@ def assess_and_persist(
 
     result = project_population(pop_result, country_code)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name="un_wpp_2024_proxy",
         url="https://population.un.org/wpp/",
         description="UN WPP 2024 medium-variant country-level growth rates (proxy)",
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=result.projected_density_5km,
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteRadiological, site_id)
+    if row is None:
+        row = SiteRadiological(site_id=site_id)
+        session.add(row)
+    row.pop_growth_rate_pct = result.growth_rate * 100
+    row.ri06_quality = "low"
+    row.ri06_comment = (
+        f"Proxy: {country_code} country-level growth rate "
+        f"({result.growth_rate:+.3%}/yr) applied to current OSM data"
+    )
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
-    write_quality_flag(
-        session, site_id=site_id, dataset="population_projection",
-        dimension="ri06_projection", level="low",
-        detail="Proxy projection from country-level growth rate, not spatial model",
-        run_id=run_id,
+    write_observation(
+        session, site_id=site_id, criterion_id=CRITERION_ID,
+        observation="Proxy projection from country-level growth rate, not spatial model",
+        run_id=run_id, confidence="low", impact="neutral",
     )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

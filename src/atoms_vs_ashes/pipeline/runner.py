@@ -89,6 +89,7 @@ def run_screening(
                 "total": result.total,
                 "passed": result.passed,
                 "failed": result.failed,
+                "caution": result.caution,
                 "inconclusive": result.inconclusive,
             }
 

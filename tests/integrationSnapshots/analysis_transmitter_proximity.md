@@ -1,14 +1,16 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # Transmitter Proximity (HI-07)
 
-**Generated:** 2026-04-02 18:26 UTC
+**Generated:** 2026-04-03 10:30 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** High-power transmitter proximity from OSM
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
+- **Coordinates:** 44.1456, 23.1234
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -17,113 +19,12 @@
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
-  "nearest_distance_km": 4.49,
-  "nearest_type": "communication_tower",
-  "transmitter_count": 66,
-  "transmitters": [
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 4.49
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.23
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.23
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.33
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.33
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.44
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.44
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.54
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.54
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.88
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.92
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.95
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 6.99
-    },
-    {
-      "name": "unnamed",
-      "type": "unknown",
-      "distance_km": 7.01
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.49
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.52
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.58
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.61
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.66
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 7.67
-    }
-  ],
+  "lat": 44.1456,
+  "lon": 23.1234,
+  "nearest_distance_km": null,
+  "nearest_type": null,
+  "transmitter_count": 0,
+  "transmitters": [],
   "error": null
 }
 ```
@@ -132,9 +33,9 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
+- **Coordinates:** 51.2644, 19.3278
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -143,113 +44,37 @@
 
 ```json
 {
-  "lat": 48.32611,
-  "lon": 15.923333,
-  "nearest_distance_km": 0.2,
-  "nearest_type": "transmission_substation",
-  "transmitter_count": 312,
-  "transmitters": [
-    {
-      "name": "unnamed",
-      "type": "transmission_substation",
-      "distance_km": 0.2
-    },
-    {
-      "name": "Umspannwerk Pischelsdorf",
-      "type": "transmission_substation",
-      "distance_km": 1.41
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 1.63
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 2.09
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 2.37
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 2.4
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 2.44
-    },
-    {
-      "name": "Umspannwerk Dürnrohr",
-      "type": "transmission_substation",
-      "distance_km": 2.81
-    },
-    {
-      "name": "Richtfunkturm Umspannwerk Dürnrohr",
-      "type": "communication_tower",
-      "distance_km": 2.97
-    },
-    {
-      "name": "Umspannwerk Dürnrohr",
-      "type": "transmission_substation",
-      "distance_km": 3.23
-    },
-    {
-      "name": "unnamed",
-      "type": "mast_tower",
-      "distance_km": 3.48
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 3.66
-    },
-    {
-      "name": "Umspannwerk Zwentendorf",
-      "type": "transmission_substation",
-      "distance_km": 4.2
-    },
-    {
-      "name": "unnamed",
-      "type": "antenna",
-      "distance_km": 4.7
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 4.97
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 4.97
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 5.97
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 6.1
-    },
-    {
-      "name": "Sendemast Mobilkom",
-      "type": "antenna",
-      "distance_km": 6.23
-    },
-    {
-      "name": "unnamed",
-      "type": "communication_tower",
-      "distance_km": 6.5
-    }
-  ],
+  "lat": 51.2644,
+  "lon": 19.3278,
+  "nearest_distance_km": null,
+  "nearest_type": null,
+  "transmitter_count": 0,
+  "transmitters": [],
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (0 ms)
+- **Summary:** OK
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 50.3928,
+  "lon": 13.3278,
+  "nearest_distance_km": null,
+  "nearest_type": null,
+  "transmitter_count": 0,
+  "transmitters": [],
   "error": null
 }
 ```

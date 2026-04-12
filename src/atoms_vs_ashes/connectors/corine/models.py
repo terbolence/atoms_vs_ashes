@@ -6,7 +6,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-CRITERION_IDS = ("NH-13", "NS-04", "NS-05", "NS-07", "NS-08", "EP-03", "NS-13")
+
 
 CLC_LABELS: dict[str, str] = {
     "111": "Continuous urban fabric",

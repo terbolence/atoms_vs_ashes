@@ -9,7 +9,6 @@ from atoms_vs_ashes.connectors.corine.client import (
 from atoms_vs_ashes.connectors.corine.models import (
     CLC_LABELS,
     CORINE_COVERED_COUNTRIES,
-    CRITERION_IDS,
     DEFAULT_LAYER,
     DEFAULT_REST_LAYER_ID,
     DEFAULT_REST_URL,
@@ -31,7 +30,6 @@ from atoms_vs_ashes.connectors.corine.models import (
 __all__ = [
     "CLC_LABELS",
     "CORINE_COVERED_COUNTRIES",
-    "CRITERION_IDS",
     "CorineConnector",
     "DEFAULT_LAYER",
     "DEFAULT_REST_LAYER_ID",

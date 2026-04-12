@@ -1,0 +1,1085 @@
+{
+  "results": {
+    "overpass:populated_places:AL": {
+      "status": "data_ok",
+      "element_count": 170,
+      "elapsed_ms": 3194,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:19.153546+00:00"
+    },
+    "corine:classify:AL": {
+      "status": "data_ok",
+      "element_count": 28,
+      "elapsed_ms": 6486,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:22.445200+00:00"
+    },
+    "corine:classify:AT": {
+      "status": "data_ok",
+      "element_count": 57,
+      "elapsed_ms": 741,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:24.692155+00:00"
+    },
+    "corine:classify:BA": {
+      "status": "data_ok",
+      "element_count": 45,
+      "elapsed_ms": 4170,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:30.367779+00:00"
+    },
+    "corine:classify:BG": {
+      "status": "data_ok",
+      "element_count": 87,
+      "elapsed_ms": 507,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:32.381164+00:00"
+    },
+    "corine:classify:BY": {
+      "status": "empty",
+      "element_count": 0,
+      "elapsed_ms": 79,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:33.965120+00:00"
+    },
+    "corine:classify:CZ": {
+      "status": "data_ok",
+      "element_count": 76,
+      "elapsed_ms": 1261,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:36.727478+00:00"
+    },
+    "corine:classify:HR": {
+      "status": "data_ok",
+      "element_count": 48,
+      "elapsed_ms": 5317,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:43.550440+00:00"
+    },
+    "corine:classify:HU": {
+      "status": "data_ok",
+      "element_count": 72,
+      "elapsed_ms": 1571,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:46.624183+00:00"
+    },
+    "corine:classify:LV": {
+      "status": "data_ok",
+      "element_count": 75,
+      "elapsed_ms": 4257,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:52.387486+00:00"
+    },
+    "overpass:populated_places:BA": {
+      "status": "data_ok",
+      "element_count": 626,
+      "elapsed_ms": 4270,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:53.796257+00:00"
+    },
+    "corine:classify:MD": {
+      "status": "empty",
+      "element_count": 0,
+      "elapsed_ms": 67,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:45:53.961058+00:00"
+    },
+    "corine:classify:ME": {
+      "status": "data_ok",
+      "element_count": 52,
+      "elapsed_ms": 5482,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:00.944446+00:00"
+    },
+    "corine:classify:MK": {
+      "status": "data_ok",
+      "element_count": 36,
+      "elapsed_ms": 1203,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:03.653902+00:00"
+    },
+    "corine:classify:PL": {
+      "status": "data_ok",
+      "element_count": 69,
+      "elapsed_ms": 868,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:06.027937+00:00"
+    },
+    "corine:classify:RO": {
+      "status": "data_ok",
+      "element_count": 50,
+      "elapsed_ms": 6140,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:13.674072+00:00"
+    },
+    "corine:classify:RS": {
+      "status": "data_ok",
+      "element_count": 88,
+      "elapsed_ms": 6003,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:21.180946+00:00"
+    },
+    "corine:classify:SI": {
+      "status": "data_ok",
+      "element_count": 114,
+      "elapsed_ms": 980,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:23.666685+00:00"
+    },
+    "corine:classify:SK": {
+      "status": "data_ok",
+      "element_count": 51,
+      "elapsed_ms": 972,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:26.145249+00:00"
+    },
+    "overpass:populated_places:AT": {
+      "status": "data_ok",
+      "element_count": 3228,
+      "elapsed_ms": 6242,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:34.787628+00:00"
+    },
+    "corine:classify:TR": {
+      "status": "data_ok",
+      "element_count": 11,
+      "elapsed_ms": 7551,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:35.202887+00:00"
+    },
+    "corine:classify:UA": {
+      "status": "empty",
+      "element_count": 0,
+      "elapsed_ms": 68,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:36.776459+00:00"
+    },
+    "corine:classify:XK": {
+      "status": "data_ok",
+      "element_count": 52,
+      "elapsed_ms": 1346,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:46:39.626399+00:00"
+    },
+    "overpass:populated_places:BY": {
+      "status": "data_ok",
+      "element_count": 445,
+      "elapsed_ms": 4293,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:47:59.012631+00:00"
+    },
+    "overpass:populated_places:CZ": {
+      "status": "data_ok",
+      "element_count": 4777,
+      "elapsed_ms": 7001,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:48:18.017541+00:00"
+    },
+    "overpass:populated_places:HR": {
+      "status": "data_ok",
+      "element_count": 477,
+      "elapsed_ms": 2759,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:48:32.782530+00:00"
+    },
+    "overpass:populated_places:BG": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4801,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 429)",
+      "timestamp": "2026-04-03T08:48:49.589499+00:00"
+    },
+    "overpass:populated_places:LV": {
+      "status": "data_ok",
+      "element_count": 20,
+      "elapsed_ms": 2835,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:49:22.159318+00:00"
+    },
+    "overpass:populated_places:HU": {
+      "status": "data_ok",
+      "element_count": 955,
+      "elapsed_ms": 4467,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:49:56.096015+00:00"
+    },
+    "overpass:populated_places:MD": {
+      "status": "data_ok",
+      "element_count": 671,
+      "elapsed_ms": 6742,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:50:33.453765+00:00"
+    },
+    "overpass:populated_places:ME": {
+      "status": "data_ok",
+      "element_count": 292,
+      "elapsed_ms": 3524,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:50:48.982649+00:00"
+    },
+    "overpass:populated_places:MK": {
+      "status": "data_ok",
+      "element_count": 423,
+      "elapsed_ms": 3061,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:51:04.050169+00:00"
+    },
+    "overpass:populated_places:RS": {
+      "status": "data_ok",
+      "element_count": 1294,
+      "elapsed_ms": 4033,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:51:56.571465+00:00"
+    },
+    "overpass:populated_places:RO": {
+      "status": "data_ok",
+      "element_count": 596,
+      "elapsed_ms": 2875,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:52:28.264822+00:00"
+    },
+    "overpass:populated_places:SK": {
+      "status": "data_ok",
+      "element_count": 1307,
+      "elapsed_ms": 3787,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:53:01.222231+00:00"
+    },
+    "overpass:populated_places:TR": {
+      "status": "data_ok",
+      "element_count": 128,
+      "elapsed_ms": 9222,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:53:22.449138+00:00"
+    },
+    "overpass:populated_places:SI": {
+      "status": "data_ok",
+      "element_count": 2944,
+      "elapsed_ms": 5667,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:53:40.119146+00:00"
+    },
+    "overpass:populated_places:PL": {
+      "status": "data_ok",
+      "element_count": 781,
+      "elapsed_ms": 5295,
+      "attempts": 3,
+      "error": null,
+      "timestamp": "2026-04-03T08:53:57.418058+00:00"
+    },
+    "overpass:populated_places:XK": {
+      "status": "data_ok",
+      "element_count": 742,
+      "elapsed_ms": 3201,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:54:30.696800+00:00"
+    },
+    "overpass:populated_places:UA": {
+      "status": "data_ok",
+      "element_count": 1629,
+      "elapsed_ms": 3283,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:55:02.739075+00:00"
+    },
+    "overpass:amenities:AL": {
+      "status": "data_ok",
+      "element_count": 23,
+      "elapsed_ms": 10721,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:55:42.258560+00:00"
+    },
+    "overpass:amenities:AT": {
+      "status": "data_ok",
+      "element_count": 31,
+      "elapsed_ms": 7133,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:56:01.398387+00:00"
+    },
+    "overpass:amenities:BA": {
+      "status": "data_ok",
+      "element_count": 9,
+      "elapsed_ms": 9346,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:56:22.749933+00:00"
+    },
+    "overpass:amenities:BY": {
+      "status": "data_ok",
+      "element_count": 3,
+      "elapsed_ms": 7868,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:56:59.527034+00:00"
+    },
+    "overpass:amenities:BG": {
+      "status": "data_ok",
+      "element_count": 17,
+      "elapsed_ms": 8425,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:57:19.960611+00:00"
+    },
+    "overpass:amenities:CZ": {
+      "status": "data_ok",
+      "element_count": 16,
+      "elapsed_ms": 8095,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:57:40.069888+00:00"
+    },
+    "overpass:amenities:HR": {
+      "status": "data_ok",
+      "element_count": 3,
+      "elapsed_ms": 6244,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:57:58.321701+00:00"
+    },
+    "overpass:amenities:HU": {
+      "status": "data_ok",
+      "element_count": 18,
+      "elapsed_ms": 9180,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:58:19.509120+00:00"
+    },
+    "overpass:amenities:MD": {
+      "status": "data_ok",
+      "element_count": 18,
+      "elapsed_ms": 7642,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:58:56.214753+00:00"
+    },
+    "overpass:amenities:LV": {
+      "status": "data_ok",
+      "element_count": 2,
+      "elapsed_ms": 7553,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T08:59:15.773627+00:00"
+    },
+    "overpass:amenities:ME": {
+      "status": "data_ok",
+      "element_count": 6,
+      "elapsed_ms": 7695,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:59:35.475045+00:00"
+    },
+    "overpass:amenities:MK": {
+      "status": "data_ok",
+      "element_count": 6,
+      "elapsed_ms": 7129,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T08:59:54.608693+00:00"
+    },
+    "overpass:amenities:PL": {
+      "status": "data_ok",
+      "element_count": 5,
+      "elapsed_ms": 13717,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:00:20.332624+00:00"
+    },
+    "overpass:amenities:SI": {
+      "status": "data_ok",
+      "element_count": 6,
+      "elapsed_ms": 14993,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:01:21.398219+00:00"
+    },
+    "overpass:amenities:RS": {
+      "status": "data_ok",
+      "element_count": 17,
+      "elapsed_ms": 8352,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:01:41.756841+00:00"
+    },
+    "overpass:amenities:RO": {
+      "status": "data_ok",
+      "element_count": 20,
+      "elapsed_ms": 9314,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:02:03.076045+00:00"
+    },
+    "overpass:amenities:TR": {
+      "status": "data_ok",
+      "element_count": 5,
+      "elapsed_ms": 6607,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:02:39.091040+00:00"
+    },
+    "overpass:amenities:UA": {
+      "status": "data_ok",
+      "element_count": 14,
+      "elapsed_ms": 8032,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:03:16.587045+00:00"
+    },
+    "overpass:amenities:XK": {
+      "status": "data_ok",
+      "element_count": 14,
+      "elapsed_ms": 6223,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:03:34.818273+00:00"
+    },
+    "overpass:road_density:AL": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 8842,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:03:55.668977+00:00"
+    },
+    "overpass:amenities:SK": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4862,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 429)",
+      "timestamp": "2026-04-03T09:04:12.533316+00:00"
+    },
+    "overpass:road_density:BA": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 6088,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:04:49.594142+00:00"
+    },
+    "overpass:road_density:AT": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 10823,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:05:12.424794+00:00"
+    },
+    "overpass:road_density:BY": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 8713,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:05:50.307982+00:00"
+    },
+    "overpass:road_density:HR": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 7280,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:06:43.956726+00:00"
+    },
+    "overpass:road_density:CZ": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 14787,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:07:10.746912+00:00"
+    },
+    "overpass:road_density:BG": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 12328,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 429)",
+      "timestamp": "2026-04-03T09:07:35.079803+00:00"
+    },
+    "overpass:road_density:LV": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 7264,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:08:11.812273+00:00"
+    },
+    "overpass:road_density:HU": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 11094,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:08:34.911723+00:00"
+    },
+    "overpass:road_density:MD": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 9919,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:08:56.837315+00:00"
+    },
+    "overpass:road_density:MK": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 13060,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:09:39.615219+00:00"
+    },
+    "overpass:road_density:ME": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 6688,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:09:58.306846+00:00"
+    },
+    "overpass:road_density:PL": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 11763,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:10:22.072341+00:00"
+    },
+    "overpass:road_density:RS": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 8309,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:11:02.398055+00:00"
+    },
+    "overpass:road_density:RO": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 7696,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:11:22.098969+00:00"
+    },
+    "overpass:road_density:SI": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 13924,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:11:48.027297+00:00"
+    },
+    "overpass:road_density:TR": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 8576,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:12:26.676347+00:00"
+    },
+    "overpass:road_density:SK": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 7902,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:12:46.585152+00:00"
+    },
+    "overpass:road_density:UA": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 7366,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:13:05.957513+00:00"
+    },
+    "overpass:road_density:XK": {
+      "status": "data_ok",
+      "element_count": 1,
+      "elapsed_ms": 8416,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:14:03.968307+00:00"
+    },
+    "overpass:waterways:AT": {
+      "status": "data_ok",
+      "element_count": 166,
+      "elapsed_ms": 12828,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:14:46.273509+00:00"
+    },
+    "overpass:waterways:BA": {
+      "status": "data_ok",
+      "element_count": 119,
+      "elapsed_ms": 2077,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:15:00.357666+00:00"
+    },
+    "overpass:waterways:AL": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 5104,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:15:34.615275+00:00"
+    },
+    "overpass:waterways:BY": {
+      "status": "data_ok",
+      "element_count": 93,
+      "elapsed_ms": 2561,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:15:49.179061+00:00"
+    },
+    "overpass:waterways:BG": {
+      "status": "data_ok",
+      "element_count": 66,
+      "elapsed_ms": 2981,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:16:04.161254+00:00"
+    },
+    "overpass:waterways:HU": {
+      "status": "data_ok",
+      "element_count": 2,
+      "elapsed_ms": 1907,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:16:52.249405+00:00"
+    },
+    "overpass:waterways:LV": {
+      "status": "data_ok",
+      "element_count": 68,
+      "elapsed_ms": 2706,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:17:41.033181+00:00"
+    },
+    "overpass:waterways:CZ": {
+      "status": "data_ok",
+      "element_count": 82,
+      "elapsed_ms": 2809,
+      "attempts": 3,
+      "error": null,
+      "timestamp": "2026-04-03T09:18:14.173999+00:00"
+    },
+    "overpass:waterways:MD": {
+      "status": "data_ok",
+      "element_count": 272,
+      "elapsed_ms": 3806,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:18:47.126853+00:00"
+    },
+    "overpass:waterways:HR": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 5428,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:19:04.560123+00:00"
+    },
+    "overpass:waterways:ME": {
+      "status": "data_ok",
+      "element_count": 59,
+      "elapsed_ms": 5062,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:19:21.631315+00:00"
+    },
+    "overpass:waterways:RO": {
+      "status": "data_ok",
+      "element_count": 37,
+      "elapsed_ms": 3724,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:20:31.365318+00:00"
+    },
+    "overpass:waterways:RS": {
+      "status": "data_ok",
+      "element_count": 49,
+      "elapsed_ms": 4912,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:21:05.490196+00:00"
+    },
+    "overpass:waterways:MK": {
+      "status": "data_ok",
+      "element_count": 196,
+      "elapsed_ms": 3769,
+      "attempts": 3,
+      "error": null,
+      "timestamp": "2026-04-03T09:21:21.264958+00:00"
+    },
+    "overpass:waterways:SI": {
+      "status": "data_ok",
+      "element_count": 130,
+      "elapsed_ms": 4290,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:21:37.566356+00:00"
+    },
+    "overpass:waterways:PL": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4805,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 429)",
+      "timestamp": "2026-04-03T09:21:54.381873+00:00"
+    },
+    "overpass:waterways:SK": {
+      "status": "data_ok",
+      "element_count": 66,
+      "elapsed_ms": 4376,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:22:10.768453+00:00"
+    },
+    "overpass:waterways:TR": {
+      "status": "data_ok",
+      "element_count": 7,
+      "elapsed_ms": 2355,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:22:25.135617+00:00"
+    },
+    "overpass:waterways:XK": {
+      "status": "data_ok",
+      "element_count": 70,
+      "elapsed_ms": 1946,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:23:00.579480+00:00"
+    },
+    "overpass:waterways:UA": {
+      "status": "data_ok",
+      "element_count": 82,
+      "elapsed_ms": 2319,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:23:32.951693+00:00"
+    },
+    "overpass:airports:AL": {
+      "status": "data_ok",
+      "element_count": 7,
+      "elapsed_ms": 5560,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:24:11.154065+00:00"
+    },
+    "overpass:airports:AT": {
+      "status": "data_ok",
+      "element_count": 35,
+      "elapsed_ms": 3230,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:24:43.807176+00:00"
+    },
+    "overpass:airports:BG": {
+      "status": "data_ok",
+      "element_count": 12,
+      "elapsed_ms": 2654,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:24:58.473715+00:00"
+    },
+    "overpass:airports:BA": {
+      "status": "data_ok",
+      "element_count": 21,
+      "elapsed_ms": 2735,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:25:13.220688+00:00"
+    },
+    "overpass:airports:BY": {
+      "status": "data_ok",
+      "element_count": 6,
+      "elapsed_ms": 1372,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:26:17.915174+00:00"
+    },
+    "overpass:airports:CZ": {
+      "status": "data_ok",
+      "element_count": 92,
+      "elapsed_ms": 7391,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:26:37.318679+00:00"
+    },
+    "overpass:airports:MD": {
+      "status": "data_ok",
+      "element_count": 14,
+      "elapsed_ms": 3218,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:27:47.642052+00:00"
+    },
+    "overpass:airports:HR": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4870,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:28:37.374752+00:00"
+    },
+    "overpass:airports:HU": {
+      "status": "data_ok",
+      "element_count": 33,
+      "elapsed_ms": 2130,
+      "attempts": 3,
+      "error": null,
+      "timestamp": "2026-04-03T09:29:11.704433+00:00"
+    },
+    "overpass:airports:LV": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4821,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:29:28.536693+00:00"
+    },
+    "overpass:airports:ME": {
+      "status": "data_ok",
+      "element_count": 9,
+      "elapsed_ms": 2759,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:29:43.307416+00:00"
+    },
+    "overpass:airports:PL": {
+      "status": "data_ok",
+      "element_count": 14,
+      "elapsed_ms": 3173,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:30:22.763700+00:00"
+    },
+    "overpass:airports:RO": {
+      "status": "data_ok",
+      "element_count": 17,
+      "elapsed_ms": 3062,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:30:37.836874+00:00"
+    },
+    "overpass:airports:RS": {
+      "status": "data_ok",
+      "element_count": 13,
+      "elapsed_ms": 2792,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:31:16.486064+00:00"
+    },
+    "overpass:airports:SI": {
+      "status": "data_ok",
+      "element_count": 48,
+      "elapsed_ms": 5959,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:31:34.450314+00:00"
+    },
+    "overpass:airports:MK": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 5955,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 429)",
+      "timestamp": "2026-04-03T09:32:09.327662+00:00"
+    },
+    "overpass:airports:SK": {
+      "status": "data_ok",
+      "element_count": 47,
+      "elapsed_ms": 3149,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:32:42.560037+00:00"
+    },
+    "overpass:airports:UA": {
+      "status": "data_ok",
+      "element_count": 9,
+      "elapsed_ms": 3558,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:32:58.122545+00:00"
+    },
+    "overpass:military_areas:AL": {
+      "status": "data_ok",
+      "element_count": 42,
+      "elapsed_ms": 3945,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:33:48.612928+00:00"
+    },
+    "overpass:airports:XK": {
+      "status": "data_ok",
+      "element_count": 8,
+      "elapsed_ms": 4678,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:34:26.040197+00:00"
+    },
+    "overpass:airports:TR": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 5469,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:34:43.516880+00:00"
+    },
+    "overpass:military_areas:BA": {
+      "status": "data_ok",
+      "element_count": 5,
+      "elapsed_ms": 829,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:36:09.200690+00:00"
+    },
+    "overpass:military_areas:BY": {
+      "status": "data_ok",
+      "element_count": 2,
+      "elapsed_ms": 1085,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:36:38.538450+00:00"
+    },
+    "overpass:military_areas:AT": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4913,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:36:55.463544+00:00"
+    },
+    "overpass:military_areas:BG": {
+      "status": "data_ok",
+      "element_count": 4,
+      "elapsed_ms": 484,
+      "attempts": 3,
+      "error": null,
+      "timestamp": "2026-04-03T09:37:28.122072+00:00"
+    },
+    "overpass:military_areas:HR": {
+      "status": "data_ok",
+      "element_count": 9,
+      "elapsed_ms": 1813,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:38:34.407308+00:00"
+    },
+    "overpass:military_areas:HU": {
+      "status": "data_ok",
+      "element_count": 36,
+      "elapsed_ms": 1258,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:39:04.625293+00:00"
+    },
+    "overpass:military_areas:CZ": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 5623,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:39:22.257538+00:00"
+    },
+    "overpass:military_areas:LV": {
+      "status": "data_ok",
+      "element_count": 19,
+      "elapsed_ms": 1489,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:39:35.757044+00:00"
+    },
+    "overpass:military_areas:MD": {
+      "status": "data_ok",
+      "element_count": 12,
+      "elapsed_ms": 3752,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:39:51.517941+00:00"
+    },
+    "overpass:military_areas:ME": {
+      "status": "data_ok",
+      "element_count": 8,
+      "elapsed_ms": 2419,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:40:05.949738+00:00"
+    },
+    "overpass:military_areas:RO": {
+      "status": "data_ok",
+      "element_count": 74,
+      "elapsed_ms": 526,
+      "attempts": 1,
+      "error": null,
+      "timestamp": "2026-04-03T09:40:55.057155+00:00"
+    },
+    "overpass:military_areas:PL": {
+      "status": "data_ok",
+      "element_count": 28,
+      "elapsed_ms": 4895,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:41:34.734967+00:00"
+    },
+    "overpass:military_areas:MK": {
+      "status": "failed",
+      "element_count": 0,
+      "elapsed_ms": 4786,
+      "attempts": 3,
+      "error": "rate_limited (HTTP 504)",
+      "timestamp": "2026-04-03T09:42:50.410694+00:00"
+    },
+    "overpass:military_areas:SI": {
+      "status": "data_ok",
+      "element_count": 7,
+      "elapsed_ms": 1091,
+      "attempts": 2,
+      "error": null,
+      "timestamp": "2026-04-03T09:43:03.503352+00:00"
+    }
+  },
+  "last_run": "2026-04-03T08:45:15.855714+00:00"
+}

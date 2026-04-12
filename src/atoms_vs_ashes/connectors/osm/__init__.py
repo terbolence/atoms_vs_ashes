@@ -13,10 +13,9 @@ from atoms_vs_ashes.connectors.osm.client import (
     find_best_plant_boundary,
     health_check,
 )
-from atoms_vs_ashes.connectors.osm.models import CRITERION_IDS, OsmElement, PlantBoundary
+from atoms_vs_ashes.connectors.osm.models import OsmElement, PlantBoundary
 
 __all__ = [
-    "CRITERION_IDS",
     "DEFAULT_OVERPASS_URL",
     "OsmElement",
     "OverpassClient",

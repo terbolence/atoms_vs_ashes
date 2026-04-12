@@ -8,14 +8,15 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.osm import OverpassClient
 from atoms_vs_ashes.geo import haversine_km
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteHumanHazards
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -110,23 +111,27 @@ def assess_and_persist(
     t0 = time.monotonic()
     result = assess_transmitter_proximity(lat, lon, overpass)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name="osm_overpass_transmitters",
         url=overpass._url, description="OSM Overpass for HI-07 transmitter proximity",
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=result.nearest_distance_km,
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteHumanHazards, site_id)
+    if row is None:
+        row = SiteHumanHazards(site_id=site_id)
+        session.add(row)
+    row.nearest_transmitter_km = result.nearest_distance_km
+    row.transmitter_type = result.nearest_type
+    row.transmitter_count = result.transmitter_count
+    row.hi07_quality = "medium" if result.transmitter_count > 0 else "low"
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.transmitter_count == 0:
-        write_quality_flag(
-            session, site_id=site_id, dataset="osm", dimension="transmitter_proximity",
-            level="medium", detail="No transmitters found; OSM coverage may be incomplete",
-            run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation="No transmitters found; OSM coverage may be incomplete",
+            run_id=run_id, confidence="medium", impact="neutral",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

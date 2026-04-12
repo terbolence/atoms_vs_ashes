@@ -304,9 +304,9 @@ Check whether the implementation preserved:
 - separation of concerns
 - source adapter design (connector interface: `__init__`, `health_check`, `fetch`, `validate`, `persist`, `close`, context manager)
 - normalized representation
-- provenance design (raw → extracted → normalized → derived; DataSource, SiteAttribute, DataQualityFlag records)
-- validation gates (schema, spatial, semantic, null, freshness, dedup per architect §J)
-- idempotency strategy (`session.merge()` with unique constraint `(site_id, criterion_id, run_id)`)
+- provenance design (raw → extracted → normalized → derived; DataSource, domain table rows, SiteObservation records)
+- validation gates (schema, spatial, semantic, null, freshness per architect §J)
+- idempotency strategy (get-or-create pattern on domain tables with site_id as PK)
 - configuration-driven behavior (all URLs, credentials, layer names, thresholds from YAML config; connector works with `settings=None`)
 - operational controls (retry with exponential backoff + jitter, rate limiting, structured logging with event names `<source>_<action>`)
 
@@ -584,7 +584,7 @@ Flag any of the following unless explicitly accepted as a prototype compromise.
 - connector that only works for one country when the source covers multiple
 - adding dependencies without justification when the stack already provides the capability
 - comments that narrate code instead of explaining *why*
-- missing `DataQualityFlag` for absent or uncertain data
+- missing `SiteObservation` for absent or uncertain data
 
 ## N3. Workflow anti-patterns (auditor-specific)
 
@@ -596,14 +596,13 @@ Flag any of the following unless explicitly accepted as a prototype compromise.
 - missing acceptance criteria traceability
 - tests that do not match the claimed guarantees
 - connector that does not implement the full interface contract (`health_check`, `fetch`, `validate`, `persist`, `close`, context manager)
-- `session.add()` on rows with unique constraints instead of `session.merge()`
-- connector writes to `SiteAttribute` or `SiteScore` using `criterion_id` values that are not seeded in the `criteria` table (FK violation at runtime)
+- connector writes `SiteObservation` or `ScreeningVerdict` using `criterion_id` values that are not seeded in the `criteria` table (FK violation at runtime)
 
 ## N4. Criteria seed data audit (mandatory for every connector review)
 
-Every connector that writes to tables with a `criteria.criterion_id` foreign key (`site_attributes`, `site_scores`, `screening_results`) **must** have its criterion IDs present in the Alembic seed migrations. This is a **Critical** severity finding if missing, because:
+Every connector that writes `SiteObservation` or `ScreeningVerdict` rows with a `criteria.criterion_id` foreign key **must** have its criterion IDs present in the Alembic seed migrations. This is a **Critical** severity finding if missing, because:
 
-- All `session.merge(SiteAttribute(..., criterion_id="XX-NN"))` calls will fail with an `IntegrityError` at runtime
+- All writes referencing unseeded criterion IDs will fail with an `IntegrityError` at runtime
 - The failure is silent in unit tests that mock the database
 
 **Audit procedure:**

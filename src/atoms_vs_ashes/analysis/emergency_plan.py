@@ -33,14 +33,15 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.connectors.osm import OverpassClient
 from atoms_vs_ashes.connectors.population import PopulationConnector, PopulationResult
 from atoms_vs_ashes.db.models import (
-    ScreeningResult,
+    ScreeningVerdict as ScreeningVerdictModel,
     Site,
-    SiteAttribute,
+    SiteEmergencyPlanning,
+    SmrDesign,
 )
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.screening.base import ScreeningCheck, register_check
@@ -322,7 +323,9 @@ class EmergencyPlanCheck(ScreeningCheck):
         session: Session,
         settings: Settings,
         run_id: str,
-    ) -> list[ScreeningResult]:
+    ) -> list[ScreeningVerdictModel]:
+        from datetime import datetime, timezone
+
         epz_cfg = settings._yaml.get("screening", {}).get("epz", {})
         radii_km = epz_cfg.get("radii_km", DEFAULT_EPZ_RADIUS_KM)
         density_threshold = epz_cfg.get(
@@ -337,15 +340,16 @@ class EmergencyPlanCheck(ScreeningCheck):
         overpass = OverpassClient(settings=settings)
         pop_connector = PopulationConnector(settings)
 
-        source_id = ensure_data_source(
+        ensure_data_source(
             session,
             name="osm_overpass_emergency",
             url=overpass._url,
             description="OSM Overpass API for EP-01 emergency planning assessment",
         )
 
+        smr_designs = session.execute(select(SmrDesign)).scalars().all()
         sites = session.execute(select(Site)).scalars().all()
-        results: list[ScreeningResult] = []
+        verdicts: list[ScreeningVerdictModel] = []
 
         for site in sites:
             lat, lon = float(site.latitude), float(site.longitude)
@@ -369,41 +373,42 @@ class EmergencyPlanCheck(ScreeningCheck):
             elapsed_ms = int((time.monotonic() - t0) * 1000)
 
             if ep01_result.verdict == "inconclusive":
-                write_quality_flag(
-                    session,
-                    site_id=site.site_id,
-                    dataset="emergency_planning",
-                    dimension="ep01_composite",
-                    level="low",
-                    detail="Insufficient data for EP-01 assessment",
-                    run_id=run_id,
+                write_observation(
+                    session, site_id=site.site_id, criterion_id=self.criterion_id,
+                    observation="Insufficient data for EP-01 assessment",
+                    run_id=run_id, confidence="low", impact="blocking",
                 )
 
-            session.merge(
-                SiteAttribute(
-                    site_id=site.site_id,
-                    criterion_id=self.criterion_id,
-                    value_numeric=ep01_result.composite_score,
-                    value_json=ep01_result.to_dict(),
-                    source_id=source_id,
-                    run_id=run_id,
-                    cache_status="fresh",
-                )
-            )
+            ep_row = session.get(SiteEmergencyPlanning, site.site_id)
+            if ep_row is None:
+                ep_row = SiteEmergencyPlanning(site_id=site.site_id)
+                session.add(ep_row)
+            ep_row.ep01_composite_score = ep01_result.composite_score
+            sub_map = {s.sub_criterion: s.score for s in ep01_result.sub_scores}
+            ep_row.ep01_road_score = sub_map.get("ep01_roads")
+            ep_row.ep01_special_pop_score = sub_map.get("ep01_special_pop")
+            ep_row.ep01_geography_score = sub_map.get("ep01_geography")
+            ep_row.ep01_population_score = sub_map.get("ep01_population")
+            ep_row.ep01_quality = "low" if ep01_result.verdict == "inconclusive" else "medium"
+            ep_row.fetched_at = datetime.now(timezone.utc)
+            ep_row.run_id = run_id
 
-            results.append(
-                ScreeningResult(
-                    site_id=site.site_id,
-                    criterion_id=self.criterion_id,
-                    phase=self.phase,
-                    verdict=ep01_result.verdict,
-                    value=json.dumps(ep01_result.to_dict()),
-                    threshold=f"Composite >= {fail_threshold}/100",
-                    justification=ep01_result.justification,
-                    source_refs="osm_overpass (roads, amenities, waterways), population_connector",
-                    run_id=run_id,
+            for smr in smr_designs:
+                verdicts.append(
+                    ScreeningVerdictModel(
+                        site_id=site.site_id,
+                        smr_key=smr.smr_key,
+                        criterion_id=self.criterion_id,
+                        phase=self.phase,
+                        verdict=ep01_result.verdict,
+                        measured_value=json.dumps({"composite_score": ep01_result.composite_score}),
+                        threshold=f"Composite >= {fail_threshold}/100",
+                        justification=ep01_result.justification,
+                        confidence="medium" if ep01_result.verdict != "inconclusive" else "low",
+                        data_sources=["osm_overpass (roads, amenities, waterways)", "population_connector"],
+                        run_id=run_id,
+                    )
                 )
-            )
 
             log.info(
                 "emergency_plan_assess_ok",
@@ -417,8 +422,8 @@ class EmergencyPlanCheck(ScreeningCheck):
 
         overpass.close()
         pop_connector.close()
-        log.info("emergency_plan_persist_ok", run_id=run_id, site_count=len(results))
-        return results
+        log.info("emergency_plan_persist_ok", run_id=run_id, site_count=len(verdicts))
+        return verdicts
 
     @staticmethod
     def _assess_site(

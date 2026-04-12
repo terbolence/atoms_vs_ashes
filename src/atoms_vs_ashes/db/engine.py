@@ -53,3 +53,46 @@ def check_connection(settings: Settings | None = None) -> bool:
         return True
     except Exception:
         return False
+
+
+# ---------------------------------------------------------------------------
+# LLM database support
+# ---------------------------------------------------------------------------
+
+_llm_engine = None
+_LlmSessionFactory: sessionmaker[Session] | None = None
+
+
+def init_llm_engine(settings: Settings | None = None) -> None:
+    """Initialise the engine for the LLM-populated database (atoms_vs_ashes_llm)."""
+    global _llm_engine, _LlmSessionFactory
+    if settings is None:
+        settings = Settings()
+    url = settings.database.url.replace(
+        f"/{settings.database.db}",
+        f"/{settings.database.db}_llm",
+    )
+    _llm_engine = create_engine(url, echo=False, pool_pre_ping=True)
+    _LlmSessionFactory = sessionmaker(bind=_llm_engine)
+
+
+def get_llm_engine():
+    if _llm_engine is None:
+        init_llm_engine()
+    return _llm_engine
+
+
+@contextmanager
+def llm_session_scope() -> Generator[Session, None, None]:
+    """Session scope for the LLM database."""
+    if _LlmSessionFactory is None:
+        init_llm_engine()
+    session = _LlmSessionFactory()
+    try:
+        yield session
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()

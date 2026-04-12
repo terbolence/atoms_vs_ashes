@@ -4,17 +4,21 @@
 from atoms_vs_ashes.db.models import (
     AuditLog,
     Base,
+    CompositeRanking,
     Country,
     Criterion,
-    DataQualityFlag,
     DataSource,
-    RankingResult,
-    ScreeningResult,
+    RankingScore,
+    ScreeningVerdict,
     Site,
-    SiteAttribute,
-    SiteInfrastructure,
+    SiteEmergencyPlanning,
+    SiteHumanHazards,
+    SiteInfrastructureV2,
+    SiteNaturalHazards,
+    SiteObservation,
     SiteOwnership,
-    SiteScore,
+    SiteRadiological,
+    SmrDesign,
     StagingUnmatchedOwnership,
 )
 
@@ -25,15 +29,19 @@ def test_all_tables_registered():
         "sites",
         "site_ownership",
         "_staging_unmatched_ownership",
-        "site_attributes",
-        "site_infrastructure",
-        "site_scores",
+        "site_natural_hazards",
+        "site_human_hazards",
+        "site_radiological",
+        "site_emergency_planning",
+        "site_infrastructure_v2",
+        "smr_designs",
+        "screening_verdicts",
+        "ranking_scores",
+        "composite_rankings",
+        "site_observations",
         "criteria",
-        "screening_results",
-        "ranking_results",
         "countries",
         "data_sources",
-        "data_quality_flags",
         "audit_log",
     }
     assert expected.issubset(table_names), f"Missing: {expected - table_names}"
@@ -51,4 +59,22 @@ def test_site_columns_match_spec():
 
 def test_ownership_fk():
     fks = {fk.target_fullname for fk in SiteOwnership.__table__.foreign_keys}
+    assert "sites.site_id" in fks
+
+
+def test_domain_tables_have_site_fk():
+    for cls in (
+        SiteNaturalHazards,
+        SiteHumanHazards,
+        SiteRadiological,
+        SiteEmergencyPlanning,
+        SiteInfrastructureV2,
+    ):
+        fks = {fk.target_fullname for fk in cls.__table__.foreign_keys}
+        assert "sites.site_id" in fks, f"{cls.__tablename__} missing sites FK"
+
+
+def test_screening_verdict_has_smr_fk():
+    fks = {fk.target_fullname for fk in ScreeningVerdict.__table__.foreign_keys}
+    assert "smr_designs.smr_key" in fks
     assert "sites.site_id" in fks

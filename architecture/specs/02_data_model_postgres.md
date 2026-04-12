@@ -15,17 +15,25 @@ This document specifies the PostgreSQL database schema, field definitions, data 
 -- Core tables
 sites                  -- Primary site records
 site_ownership         -- Ownership stakes per site (from GEM ownership CSV)
-site_attributes        -- Key-value attribute storage per site
-site_infrastructure    -- Grid, cooling, transport details
-site_scores            -- Criterion scores per site
 criteria               -- Criterion definitions and weights
-screening_results      -- Exclusionary/avoidance pass/fail records
-ranking_results        -- Final composite scores and ranks
+smr_designs            -- SMR reactor designs (NuScale, BWRX-300, etc.)
 
--- Reference tables
+-- Domain tables (one row per site, typed columns per criterion)
+site_natural_hazards   -- NH-01..NH-14: seismic, geological, flood, volcano, etc.
+site_human_hazards     -- HI-01..HI-08: aviation, military, industrial, etc.
+site_radiological      -- RI-01..RI-06: population density, geology for disposal
+site_emergency_planning-- EP-01..EP-05: road access, amenities, waterways
+site_infrastructure_v2 -- NS-01..NS-13: grid, cooling, land, transport
+
+-- Decision tables (per site × per SMR design)
+screening_verdicts     -- Pass/fail/caution/inconclusive per criterion per SMR
+ranking_scores         -- 1–5 score per criterion per SMR with score_low/score_high
+composite_rankings     -- Weighted composite score and rank per SMR
+
+-- Observations and audit
+site_observations      -- Structured comments per site per criterion
 countries              -- Country metadata and regulatory info
 data_sources           -- Data provenance tracking
-data_quality_flags     -- Quality assessment per dataset per site
 audit_log              -- Change tracking for all updates
 ```
 
@@ -149,7 +157,7 @@ A separate ownership table captures the corporate ownership structure for each p
 
 | Source                       | Format                                                                                 | Target Table(s)                    |
 | ---------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------- |
-| Global Coal Plant Tracker    | XLSX (`sources/global_coal_plant_tracker/Global-Coal-Plant-Tracker-January-2026.xlsx`) | `sites`, `site_attributes`         |
+| Global Coal Plant Tracker    | XLSX (`sources/global_coal_plant_tracker/Global-Coal-Plant-Tracker-January-2026.xlsx`) | `sites`, domain tables             |
 | GEM Ownership Dataset        | CSV                                                                                    | `site_ownership`                   |
 | Beyond Fossil Fuels Database | CSV                                                                                    | `sites` (supplementary attributes) |
 

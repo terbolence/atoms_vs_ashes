@@ -17,8 +17,8 @@ from typing import Any
 EGDI_LAT_MIN, EGDI_LAT_MAX = 35.0, 72.0
 EGDI_LON_MIN, EGDI_LON_MAX = -25.0, 45.0
 
-# Criteria served by this connector
-CRITERION_IDS = ("NH-02", "NH-03", "NH-04", "NH-05", "NH-06", "RI-03")
+
+
 
 # Countries with known karst data in EGDI (CZ and IE only)
 KARST_COVERAGE_COUNTRIES = frozenset({"CZ", "IE"})

@@ -16,7 +16,7 @@
 | Scoring matrix                    | `requirements/06_scoring_matrix.md`                 | Category weights, sensitivity expectations, ranking inputs                                                              |
 | Data categories and source matrix | `requirements/07_data_requirements.md`              | Authoritative list of required data and candidate primary databases                                                     |
 | System overview and stack         | `architecture/specs/01_system_overview.md`          | Layers, PostgreSQL/PostGIS, Python stack intent                                                                         |
-| Data model                        | `architecture/specs/02_data_model_postgres.md`      | Where persisted facts attach (`sites`, `site_attributes`, `screening_results`, etc.)                                    |
+| Data model                        | `architecture/specs/02_data_model_postgres.md`      | Where persisted facts attach (`sites`, domain tables, `screening_verdicts`, etc.)                                       |
 | Backend orchestration             | `architecture/specs/03_backend_services.md`         | Pipeline stages, CLI intent, configuration rules, outputs                                                               |
 | Connector framework contract      | `architecture/specs/04_connector_framework.md`      | Interface (`fetch` / `validate` / `persist` / `health_check`), caching, retries, validation, provenance, error taxonomy |
 | Screening and scoring engine      | `architecture/specs/05_screening_scoring_engine.md` | Screening result structure, score handling, ranking expectations                                                        |
@@ -208,11 +208,11 @@ Screening and data categories trace to **IAEA SSG-35** and **EPRI** siting guida
 
 When GPT PRO finishes, the implementation agent should be able to:
 
-1. Create or extend a Python module under `src/atoms_vs_ashes/connectors/` matching **`fetch` / `validate` / `persist` / `health_check`** semantics (even if `persist` is initially a stub writing to `site_attributes` / JSONB).
+1. Create or extend a Python module under `src/atoms_vs_ashes/connectors/` matching **`fetch` / `validate` / `persist` / `health_check`** semantics, with persist writing to the typed domain tables (`SiteNaturalHazards`, `SiteHumanHazards`, etc.).
 2. Register configuration under `connectors.<name>` in YAML and read it via `Settings._yaml` (pattern used by `CorineConnector`, `PopulationConnector`).
 3. Wire **CLI `enrich`** (once implemented) to iterate `Site` rows with rate limits, retries, and audit logging consistent with `architecture/specs/03_backend_services.md` and `06_execution_observability.md`.
 4. Add **tests** under `tests/` mirroring `test_connectors_osm.py`, `test_screening_*.py` patterns.
-5. Document **data quality flags** (`DataQualityFlag`) when data is missing or low quality — screening already does this for BF-01/BF-02.
+5. Write **`SiteObservation`** records when data is missing or low quality — screening already does this for BF-01/BF-02.
 
 ---
 
@@ -255,7 +255,7 @@ consumers:
   pipeline_stages: [ingest, enrich, screen, score, report]
   criteria_or_features: [BF-01, BF-02, RI-04, seismic, ...]
 persistence:
-  tables: [sites, site_attributes, ...]
+  tables: [sites, site_natural_hazards, site_human_hazards, ...]
   provenance: [data_sources, audit_log, run_id]
 quality_and_fallback:
   completeness_risks: <string>

@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This document inventories every external data source required by the 46 siting criteria (NH-01 through NS-13), maps each source to the criteria it serves, and lays out a phased implementation plan with work estimates. Three connectors and one data ingestion module already exist; this plan covers the original 17 programmable API connectors (S-01 through S-17), newly identified global/pan-European programmable sources (S-18 through S-44), Phase 3 extensions to existing connectors, internal derived layers, and the national-level data that requires per-country research.
+This document inventories every external data source required by the 46 siting criteria (NH-01 through NS-13), maps each source to the criteria it serves, and lays out a phased implementation plan with work estimates. Three connectors and one data ingestion module already exist; this plan covers the original 17 programmable API connectors (S-01 through S-17), newly identified global/pan-European programmable sources (S-18 through S-45), Phase 3 extensions to existing connectors, fix/orchestration specifications (FIX-01, FIX-02), internal derived layers, and the national-level data that requires per-country research.
 
 **Scope:** 23 in-scope countries (PL, CZ, SK, HU, AT, SI, HR, BA, RS, ME, XK, AL, MK, RO, BG, MD, UA, BY, EE, LV, LT, AM, TR) as defined in `config/default.yml`.
 
@@ -12,7 +12,8 @@ This document inventories every external data source required by the 46 siting c
 | --------------------------------------- | ----- | --------- | ----------- | ------------------------- |
 | Existing connectors (I-1 to I-4)        | 4     | —         | 4           | 0                         |
 | Original API connectors (S-01 to S-17)  | 17    | 17        | 1 (S-02)    | 16 to implement           |
-| Newly identified sources (S-18 to S-44) | 27    | 0         | 0           | 27 (spec + implement)     |
+| Newly identified sources (S-18 to S-45) | 28    | 0         | 0           | 28 (spec + implement)     |
+| Fix/orchestration specs (FIX-01, FIX-02)| 2     | 2         | 0           | 2 to implement            |
 | Phase 3 extensions (I-2, I-4 enhanced)  | 2     | 0         | 0           | 2 (spec + implement)      |
 | Internal derived layers                 | 3     | 0         | 0           | 3 (spec + implement)      |
 | National sources (N-01 to N-21)         | 21    | 0         | 0           | 21 (research + implement) |
@@ -594,6 +595,19 @@ The following sources were identified through a comprehensive sub-criterion-leve
 | **Est. Hours**  | 4 h                                                                                                                                 |
 | **Rationale**   | EU-wide public opinion surveys including nuclear energy questions. EU-only coverage; no harmonised equivalent for non-EU countries. |
 
+#### S-45: PyPSA-Eur Grid Topology — ⏳ Spec pending · ⏳ Implementation pending
+
+| Field           | Value                                                                                                                                                                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **URL**         | Data bundle: `https://zenodo.org/records/15143557` (v0.6.0); Code: `https://github.com/PyPSA/pypsa-eur`                                                                                                                                                                |
+| **Protocol**    | Static download (Zenodo ZIP); Snakemake-generated CSV                                                                                                                                                                                                                   |
+| **Account**     | None required (open data)                                                                                                                                                                                                                                               |
+| **Format**      | CSV (`buses.csv`, `lines.csv`)                                                                                                                                                                                                                                          |
+| **Rate Limits** | Download-based; no API rate limit                                                                                                                                                                                                                                       |
+| **Criteria**    | NS-02 (line thermal rating as site-level grid export capacity proxy; substation cross-check)                                                                                                                                                                            |
+| **Est. Hours**  | 8 h                                                                                                                                                                                                                                                                     |
+| **Rationale**   | Topological network model derived from OSM + ENTSO-E GridKit with cleaned electrical parameters, bus aggregation, and thermal line ratings (MVA). Provides site-level grid export capacity that ENTSO-E's zonal data cannot resolve. Covers 35 European countries, ≥220 kV. |
+
 ### 2.5 Phase 3 Extensions to Existing Connectors — ⏳ Spec pending · ⏳ Implementation pending
 
 These represent significant enhancements to already-implemented connectors, requiring their own specifications.
@@ -801,9 +815,10 @@ These sources require identification and integration for each of the 23 in-scope
 |                                     | Water availability proxy (discharge)      | **S-30 GloFAS v4**             | **S-33 WRI Aqueduct**       | —                       | Phase 2 |
 |                                     | Water stress / competing demand           | **S-33 WRI Aqueduct**          | S-04 CDS (drought proxy)    | —                       | Phase 2 |
 |                                     | Water quality proxy (upstream industrial) | **S-37 EEA Industrial**        | **S-29 HydroSHEDS**         | —                       | Phase 3 |
-| **NS-02** Grid Connection           | HV line/substation distance               | I-2 OSM power (existing)       | S-13 ENTSO-E (context)      | N-13 TSO                | Phase 2 |
-|                                     | Grid capacity proxy                       | S-13 ENTSO-E                   | I-2 OSM (inferred topology) | N-13 TSO                | Phase 2 |
-|                                     | Interconnection/congestion proxy          | S-13 ENTSO-E                   | —                           | —                       | Phase 2 |
+| **NS-02** Grid Connection           | HV line/substation distance               | I-2 OSM power (existing)       | S-45 PyPSA-Eur (cross-check) | N-13 TSO                | Phase 2 |
+|                                     | Grid export capacity (site-level)         | S-45 PyPSA-Eur (thermal rating)| S-13 ENTSO-E (per-unit match) | I-4 GEM (nameplate MW)  | Phase 2 |
+|                                     | Grid capacity proxy (zone-level)          | S-13 ENTSO-E                   | I-2 OSM (inferred topology)   | N-13 TSO                | Phase 2 |
+|                                     | Interconnection/congestion proxy          | S-13 ENTSO-E                   | —                             | —                       | Phase 2 |
 | **NS-03** Transport Access          | Heavy-haul road access                    | I-2 OSM (enhanced)             | S-16 Eurostat GISCO         | N-10 road auth          | Phase 3 |
 |                                     | Rail access (nearest op point)            | I-2 OSM rail                   | **S-41 ERA RINF**           | N-11 rail               | Phase 3 |
 |                                     | Navigable waterway/port access            | S-16 Eurostat GISCO            | I-2 OSM waterways           | N-12 waterways          | Phase 3 |
@@ -922,7 +937,9 @@ These fill in remaining ranking sub-criteria, provide coverage depth, and suppor
 | **33** | **S-24** USGS VS30              | ⏳      | 4 h    | NH-04c (seismic slope amplification proxy)                                                      | **E/S**   | 1        | 354      | Global VS30 for site response classification. Combined with S-01 PGA for amplification proxy. 4 h, good ROI.                                                                       |
 | **34** | **S-27** GEM Fossil Trackers    | ⏳      | 8 h    | NH-05d (oil/gas prox), HI-04a (pipeline prox), HI-04b (LNG prox)                                | **A/S**   | 3        | 362      | Fossil fuel infrastructure database. HI-04 is avoidance/suitability. Supplements I-4 GEM Coal Tracker with broader energy infrastructure.                                          |
 | **35** | **S-13** ENTSO-E                | 📋 done | 16 h   | NS-02b (grid capacity proxy), NS-02c (congestion proxy)                                         | **S+R**   | 2        | 378      | Grid connection has 15% NS-infra weight and Screen + Rank classification. ENTSO-E provides system-level electricity data for EU/ENTSO-E members.                                   |
-| **36** | **S-42** World Bank WDI         | ⏳      | 8 h    | NS-09a/b (employment/GDP — non-EU), NS-10a/b (workforce/education — non-EU), NS-13a (logistics) | **R**     | 5        | 386      | Country-level socioeconomic indicators for non-EU countries. Critical fallback for UA, BY, MD, AM, TR and Balkan candidates.                                                       |
+| **35b** | **S-45** PyPSA-Eur Grid Topology | ⏳     | 8 h    | NS-02a (site-level grid export capacity via thermal line rating)                                 | **S+R**   | 1        | 386      | Topological network model with thermal ratings (MVA). Site-level resolution that ENTSO-E zonal data cannot provide. Static download from Zenodo; 8 h effort. |
+| **35c** | **FIX-02** NS-02 Grid Pipeline  | 📋 done | 30 h   | NS-02 (all sub-fields: GEM fallback + ENTSO-E + OSM fixes + PyPSA-Eur)                          | **S+R**   | 4        | 416      | Orchestration spec tying S-13, S-45, I-2 OSM fixes, and I-4 GEM fallback into a complete NS-02 pipeline. Includes FIX-02-A (2 h), FIX-02-B/S-13 (16 h), FIX-02-C (4 h), FIX-02-D/S-45 (8 h). |
+| **36** | **S-42** World Bank WDI         | ⏳      | 8 h    | NS-09a/b (employment/GDP — non-EU), NS-10a/b (workforce/education — non-EU), NS-13a (logistics) | **R**     | 5        | 424      | Country-level socioeconomic indicators for non-EU countries. Critical fallback for UA, BY, MD, AM, TR and Balkan candidates.                                                       |
 | **37** | **S-05** Sentinel Hub           | 📋 done | 24 h   | NH-04 (slope supp.), NH-05 (settlement InSAR supp.), NS-04, NS-06, NS-07                        | **R**     | 5+       | 410      | Versatile satellite imagery connector. Largely supplementary now that S-19 DEM, S-26 EGMS, and S-35 FIRMS handle dedicated products. Remains valuable for custom imagery analysis. |
 | **38** | **S-09** GFMS                   | 📋 done | 8 h    | NH-08/09 (flood fallback)                                                                       | **A/S**   | 2        | 418      | Global flood monitoring fallback for non-EU countries. Supplements S-08 + S-10 where EU Flood Directive coverage is absent.                                                        |
 | **39** | **S-06** Google Earth Engine    | 📋 done | 24 h   | NH-13 (fire history supp.), NS-04 (terrain supp.), NS-06 (demolition)                           | **R**     | 3+       | 442      | Powerful cloud-compute platform. Largely supplementary now that dedicated connectors (S-19, S-35, S-36) handle specific products. Valuable for custom analysis and fallback.       |

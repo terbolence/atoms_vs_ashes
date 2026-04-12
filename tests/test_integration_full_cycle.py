@@ -64,10 +64,7 @@ class TestCorineFullCycle:
         from atoms_vs_ashes.connectors.corine import (
             CorineConnector,
             SiteClassification,
-            CRITERION_IDS,
         )
-        assert "NS-05" in CRITERION_IDS
-        assert "NH-13" in CRITERION_IDS
 
         result = CorineConnector.analyze_rings_from_features(
             lat=44.15, lon=23.11, features=self.SAMPLE_FEATURES,
@@ -98,7 +95,6 @@ class TestCorineFullCycle:
 
     def test_models_constants(self):
         from atoms_vs_ashes.connectors.corine.models import (
-            CRITERION_IDS,
             HIGH_COMBUSTIBILITY_CLC,
             MEDIUM_COMBUSTIBILITY_CLC,
             NATURAL_SEMINATURAL_CLC,
@@ -128,12 +124,7 @@ class TestOsmFullCycle:
         from atoms_vs_ashes.connectors.osm import (
             OverpassClient,
             OsmElement,
-            CRITERION_IDS,
         )
-        assert "EP-01" in CRITERION_IDS
-        assert "HI-01" in CRITERION_IDS
-        assert "HI-06" in CRITERION_IDS
-        assert "NS-02" in CRITERION_IDS
 
         client = OverpassClient()
         assert client._url == "https://overpass-api.de/api/interpreter"
@@ -187,17 +178,14 @@ class TestOsmFullCycle:
 class TestPopulationFullCycle:
     """Verify Population connector: import → assign_to_rings → result."""
 
-    def test_import_and_criterion_ids(self):
+    def test_import_and_classes(self):
         from atoms_vs_ashes.connectors.population import (
             PopulationConnector,
             PopulationResult,
             RingPopulation,
             PopulatedPlace,
-            CRITERION_IDS,
         )
-        assert "RI-04" in CRITERION_IDS
-        assert "RI-05" in CRITERION_IDS
-        assert "RI-06" in CRITERION_IDS
+        assert PopulationConnector is not None
 
     def test_assign_to_rings(self):
         from atoms_vs_ashes.connectors.population import (
@@ -668,38 +656,6 @@ class TestRI05FullCycle:
 
 
 # ===================================================================
-# DB compatibility — CRITERION_IDS discovery
-# ===================================================================
-
-
-class TestCriterionIdsDiscovery:
-    """All connectors and ingest expose CRITERION_IDS."""
-
-    def test_corine_criterion_ids(self):
-        from atoms_vs_ashes.connectors.corine.models import CRITERION_IDS
-        assert isinstance(CRITERION_IDS, tuple)
-        assert "NS-05" in CRITERION_IDS
-        assert "NH-13" in CRITERION_IDS
-
-    def test_osm_criterion_ids(self):
-        from atoms_vs_ashes.connectors.osm.models import CRITERION_IDS
-        assert isinstance(CRITERION_IDS, tuple)
-        assert "EP-01" in CRITERION_IDS
-        assert "HI-01" in CRITERION_IDS
-
-    def test_population_criterion_ids(self):
-        from atoms_vs_ashes.connectors.population.models import CRITERION_IDS
-        assert isinstance(CRITERION_IDS, tuple)
-        assert "RI-04" in CRITERION_IDS
-        assert "RI-06" in CRITERION_IDS
-
-    def test_ingest_criterion_ids(self):
-        from atoms_vs_ashes.ingest.models import CRITERION_IDS
-        assert isinstance(CRITERION_IDS, tuple)
-        assert "NS-05" in CRITERION_IDS
-
-
-# ===================================================================
 # Provenance utility tests
 # ===================================================================
 
@@ -708,9 +664,18 @@ class TestProvenanceUtility:
     """Verify _provenance module functions exist and have correct signatures."""
 
     def test_imports(self):
-        from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+        from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
         import inspect
         sig = inspect.signature(ensure_data_source)
         assert "session" in sig.parameters
         assert "name" in sig.parameters
         assert "url" in sig.parameters
+
+    def test_write_observation_signature(self):
+        from atoms_vs_ashes.analysis._provenance import write_observation
+        import inspect
+        sig = inspect.signature(write_observation)
+        assert "site_id" in sig.parameters
+        assert "criterion_id" in sig.parameters
+        assert "observation" in sig.parameters
+        assert "run_id" in sig.parameters

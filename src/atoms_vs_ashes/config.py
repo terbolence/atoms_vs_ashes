@@ -90,5 +90,9 @@ class Settings:
     def alert_thresholds(self) -> dict[str, float]:
         return self._yaml.get("observability", {}).get("alert_thresholds", {})
 
+    @property
+    def llm(self) -> dict[str, Any]:
+        return self._yaml.get("llm", {})
+
     def raw(self) -> dict[str, Any]:
         return dict(self._yaml)

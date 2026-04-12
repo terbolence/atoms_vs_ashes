@@ -60,7 +60,7 @@ Site record (lat, lon, params)
 - All API responses shall be cached with configurable expiration (default: 30 days).
 - Cache key: connector name + site_id + query parameters hash.
 - Cache storage: PostgreSQL table or local filesystem (configurable).
-- Stale cache may be used as fallback when the API is unreachable, with a data quality flag set.
+- Stale cache may be used as fallback when the API is unreachable, with a `site_observations` record logged.
 
 ### 4.3.2 Retry and Backoff
 
@@ -79,7 +79,7 @@ Site record (lat, lon, params)
 
 - Each connector shall define an expected response schema (required fields, types, value ranges).
 - Responses failing validation are logged as data quality issues, not silently discarded.
-- Partial data (e.g. some fields present, others missing) shall be stored with appropriate quality flags.
+- Partial data (e.g. some fields present, others missing) shall be stored with inline `*_quality` columns set and a `site_observations` record.
 
 ### 4.3.5 Provenance
 

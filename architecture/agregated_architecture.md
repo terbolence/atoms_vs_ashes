@@ -178,9 +178,9 @@ Development shall follow established software engineering practices:
 | Producer                | Consumer                                        | Data Contract                                       |
 | ----------------------- | ----------------------------------------------- | --------------------------------------------------- |
 | Data ingestion pipeline | PostgreSQL `sites` table                        | Normalised site records with audit trail            |
-| Connector framework     | PostgreSQL `site_attributes`, `site_scores`     | Typed attribute values with provenance metadata     |
-| Screening engine        | PostgreSQL `screening_results`                  | Pass/fail per criterion per site with justification |
-| Scoring engine          | PostgreSQL `ranking_results`                    | Composite scores per site                           |
+| Connector framework     | PostgreSQL domain tables (natural/human/radio/EP/infra) | Typed attribute values with provenance metadata     |
+| Screening engine        | PostgreSQL `screening_verdicts`                 | Pass/fail/caution per criterion per site per SMR design |
+| Scoring engine          | PostgreSQL `ranking_scores`, `composite_rankings` | Per-criterion and composite scores per site per SMR |
 | Output generators       | Filesystem (CSV, JSON, MD, XLSX, GeoJSON, HTML) | Reproducible report artifacts per run               |
 
 ---
@@ -203,17 +203,25 @@ This document specifies the PostgreSQL database schema, field definitions, data 
 -- Core tables
 sites                  -- Primary site records
 site_ownership         -- Ownership stakes per site (from GEM ownership CSV)
-site_attributes        -- Key-value attribute storage per site
-site_infrastructure    -- Grid, cooling, transport details
-site_scores            -- Criterion scores per site
 criteria               -- Criterion definitions and weights
-screening_results      -- Exclusionary/avoidance pass/fail records
-ranking_results        -- Final composite scores and ranks
+smr_designs            -- SMR reactor designs (NuScale, BWRX-300, etc.)
 
--- Reference tables
+-- Domain tables (one row per site, typed columns per criterion)
+site_natural_hazards   -- NH-01..NH-14: seismic, geological, flood, volcano, etc.
+site_human_hazards     -- HI-01..HI-08: aviation, military, industrial, etc.
+site_radiological      -- RI-01..RI-06: population density, geology for disposal
+site_emergency_planning-- EP-01..EP-05: road access, amenities, waterways
+site_infrastructure_v2 -- NS-01..NS-13: grid, cooling, land, transport
+
+-- Decision tables (per site × per SMR design)
+screening_verdicts     -- Pass/fail/caution/inconclusive per criterion per SMR
+ranking_scores         -- 1–5 score per criterion per SMR with score_low/score_high
+composite_rankings     -- Weighted composite score and rank per SMR
+
+-- Observations and audit
+site_observations      -- Structured comments per site per criterion
 countries              -- Country metadata and regulatory info
 data_sources           -- Data provenance tracking
-data_quality_flags     -- Quality assessment per dataset per site
 audit_log              -- Change tracking for all updates
 ```
 
@@ -337,7 +345,7 @@ A separate ownership table captures the corporate ownership structure for each p
 
 | Source                       | Format                                                                                 | Target Table(s)                    |
 | ---------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------- |
-| Global Coal Plant Tracker    | XLSX (`sources/global_coal_plant_tracker/Global-Coal-Plant-Tracker-January-2026.xlsx`) | `sites`, `site_attributes`         |
+| Global Coal Plant Tracker    | XLSX (`sources/global_coal_plant_tracker/Global-Coal-Plant-Tracker-January-2026.xlsx`) | `sites`, domain tables             |
 | GEM Ownership Dataset        | CSV                                                                                    | `site_ownership`                   |
 | Beyond Fossil Fuels Database | CSV                                                                                    | `sites` (supplementary attributes) |
 
@@ -663,14 +671,15 @@ For each site, evaluate all exclusionary criteria (E1–E9). Any site failing on
 
 ### 5.2.2 Process
 
-1. Load enriched site attributes from PostgreSQL.
-2. For each exclusionary criterion, evaluate the site against the defined threshold.
-3. Record pass/fail per criterion in `screening_results`, including:
-   - Criterion ID
-   - Result (pass / fail)
+1. Load enriched site data from domain tables (e.g. `site_natural_hazards`, `site_infrastructure_v2`).
+2. For each exclusionary criterion and each SMR design, evaluate the site against the defined threshold.
+3. Record a `screening_verdicts` row per site × criterion × SMR design, including:
+   - Criterion ID and SMR key
+   - Verdict (pass / fail / caution / inconclusive)
    - Justification text (e.g. "PGA 0.35g exceeds 0.3g threshold at site coordinates")
+   - Confidence level (high / medium / low)
    - Data source reference
-4. Sites with **any** fail result are flagged as excluded.
+4. Sites with **any** fail verdict for a given SMR design are flagged as excluded for that design.
 
 ### 5.2.3 Configuration
 
@@ -686,9 +695,9 @@ For sites that pass exclusionary screening, evaluate avoidance criteria (A1–A1
 
 ### 5.3.2 Process
 
-1. For each non-excluded site, evaluate all avoidance criteria against configurable thresholds.
-2. Record results in `screening_results` with the same structure as exclusionary results.
-3. Avoidance flags are carried forward into the scoring stage as input context.
+1. For each non-excluded site, evaluate all avoidance criteria against configurable thresholds per SMR design.
+2. Record results in `screening_verdicts` with the same structure as exclusionary results (verdict = "caution" for avoidance concerns).
+3. Avoidance verdicts are carried forward into the scoring stage as input context.
 
 ---
 
@@ -720,7 +729,7 @@ Rubrics shall be versioned alongside the configuration to support audit and repr
 When data for a criterion is unavailable:
 
 - Assign a configurable default score (e.g. 3) or mark as "unscored."
-- Flag the site-criterion pair in `data_quality_flags`.
+- Write a `site_observations` record with impact "negative" and the reason for missing data.
 - Include the missing-data count in the run summary.
 
 ---
@@ -749,12 +758,12 @@ Sites are sorted by descending composite score. Ties are broken by:
 
 ### 5.5.3 Output
 
-Store results in `ranking_results`:
+Per-criterion scores are stored in `ranking_scores` (one row per site × criterion × SMR design, with `score_low`/`score_high` for uncertainty). Aggregate results are stored in `composite_rankings`:
 
-- site_id
-- composite_score
+- site_id, smr_key
+- composite_score, composite_low, composite_high
 - rank
-- per-criterion scores
+- confidence
 - run_id, timestamp
 
 ---

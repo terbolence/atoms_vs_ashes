@@ -1,20 +1,17 @@
 # man_hours: 4.0
-"""Verify that every connector's criterion_ids are seeded in the DB.
+"""Verify that connector persist logic writes to the new domain tables.
 
 Two test layers:
-1. Static: parse all Alembic seed migrations and compare against the
-   CRITERION_IDS constants exported by each connector.
+1. Static: parse all Alembic seed migrations and confirm all 46 criteria
+   are seeded.
 2. Live DB (skipped when no database): create a test site, call the
-   connector's persist logic with mock data, and verify SiteAttribute
+   connector's persist logic with mock data, and verify domain-table
    rows are written without FK violations.
 """
 
 from __future__ import annotations
 
-import importlib
-import importlib.util
 import re
-import types
 from pathlib import Path
 
 import pytest
@@ -36,128 +33,17 @@ def _seeded_criterion_ids() -> set[str]:
     return ids
 
 
-# ---------------------------------------------------------------------------
-# Helpers — collect CRITERION_IDS from all connectors
-# ---------------------------------------------------------------------------
-
-_CONNECTORS_DIR = (
-    Path(__file__).resolve().parents[1]
-    / "src"
-    / "atoms_vs_ashes"
-    / "connectors"
-)
-
-
-_INGEST_DIR = (
-    Path(__file__).resolve().parents[1]
-    / "src"
-    / "atoms_vs_ashes"
-    / "ingest"
-)
-
-
-def _scan_models_file(path: Path, name: str) -> tuple[str, ...] | None:
-    """Extract CRITERION_IDS from a models.py file."""
-    spec = importlib.util.spec_from_file_location(
-        f"_tmp_{name}_models", path,
-    )
-    if spec is None or spec.loader is None:
-        return None
-    mod = types.ModuleType(spec.name)
-    try:
-        exec(compile(path.read_text(), path, "exec"), mod.__dict__)
-    except Exception:
-        text = path.read_text(encoding="utf-8")
-        m = re.search(
-            r'CRITERION_IDS\s*=\s*\(([^)]+)\)', text,
-        )
-        if m:
-            return tuple(
-                s.strip().strip('"').strip("'")
-                for s in m.group(1).split(",")
-                if s.strip()
-            )
-        return None
-
-    cids = getattr(mod, "CRITERION_IDS", None)
-    if cids is not None:
-        return tuple(cids)
-    return None
-
-
-def _connector_criterion_ids() -> dict[str, tuple[str, ...]]:
-    """Return {connector_name: CRITERION_IDS} for every connector that
-    declares a CRITERION_IDS constant in its models module.
-    Also scans ingest/models.py for non-connector persistence modules."""
-    result: dict[str, tuple[str, ...]] = {}
-
-    for subdir in sorted(_CONNECTORS_DIR.iterdir()):
-        models_path = subdir / "models.py"
-        if not models_path.is_file():
-            continue
-        cids = _scan_models_file(models_path, subdir.name)
-        if cids is not None:
-            result[subdir.name] = cids
-
-    ingest_models = _INGEST_DIR / "models.py"
-    if ingest_models.is_file():
-        cids = _scan_models_file(ingest_models, "ingest")
-        if cids is not None:
-            result["ingest"] = cids
-
-    return result
-
-
 # ===================================================================
 # Static tests — no DB required
 # ===================================================================
 
 
 class TestCriteriaSeedCompleteness:
-    """Every criterion_id written by a connector must exist in Alembic seeds."""
+    """All 46 criteria from requirements must be seeded in Alembic."""
 
     _seeded = _seeded_criterion_ids()
-    _connectors = _connector_criterion_ids()
-
-    def test_at_least_one_connector_found(self):
-        assert len(self._connectors) >= 5, (
-            f"Expected at least 5 modules with CRITERION_IDS, found: "
-            f"{list(self._connectors.keys())}"
-        )
-
-    def test_all_criterion_ids_are_seeded(self):
-        missing: dict[str, list[str]] = {}
-        for name, ids in self._connectors.items():
-            not_seeded = [cid for cid in ids if cid not in self._seeded]
-            if not_seeded:
-                missing[name] = not_seeded
-
-        assert not missing, (
-            "Connectors reference criterion_ids that are NOT seeded in any "
-            f"Alembic migration:\n"
-            + "\n".join(
-                f"  {name}: {ids}" for name, ids in missing.items()
-            )
-            + "\n\nFix: add a seed migration for these criteria."
-        )
-
-    @pytest.mark.parametrize(
-        "connector_name,criterion_ids",
-        [
-            pytest.param(name, ids, id=name)
-            for name, ids in _connector_criterion_ids().items()
-        ],
-    )
-    def test_per_connector_coverage(self, connector_name, criterion_ids):
-        not_seeded = [cid for cid in criterion_ids if cid not in self._seeded]
-        assert not not_seeded, (
-            f"Connector '{connector_name}' uses criterion_ids {not_seeded} "
-            f"which are not seeded in Alembic migrations."
-        )
 
     def test_seed_migration_has_all_46_criteria(self):
-        """All 46 criteria from requirements/05_siting_criteria.md
-        should be present in the combined seed data."""
         expected = set()
         for prefix, count in [("NH", 14), ("HI", 8), ("RI", 6), ("EP", 5), ("NS", 13)]:
             for i in range(1, count + 1):
@@ -187,7 +73,7 @@ class TestCriteriaSeedCompleteness:
 
 class TestConnectorPersistLiveDB:
     """Verify that connector persist functions can write to a real DB
-    without FK violations on criterion_id."""
+    without FK violations on the new domain tables."""
 
     @pytest.fixture(autouse=True)
     def _require_db(self):
@@ -205,12 +91,11 @@ class TestConnectorPersistLiveDB:
             pytest.skip("Database not available for live integration tests")
 
     def test_seismic_hazard_persist_succeeds(self):
-        """S-01: create a test site, persist mock SeismicHazardResult,
-        verify 3 SiteAttribute rows (NH-01, NH-03, NH-04)."""
+        """S-01: persist mock SeismicHazardResult, verify SiteNaturalHazards columns."""
         from atoms_vs_ashes.connectors.seismic_hazard.batch import _persist_result, _ensure_data_source
         from atoms_vs_ashes.connectors.seismic_hazard.models import SeismicHazardResult
         from atoms_vs_ashes.db.engine import session_scope
-        from atoms_vs_ashes.db.models import Site, SiteAttribute, Country
+        from atoms_vs_ashes.db.models import Site, SiteNaturalHazards
 
         with session_scope() as session:
             _ensure_country(session, "RO", "Romania")
@@ -233,21 +118,17 @@ class TestConnectorPersistLiveDB:
             _persist_result(session, site.site_id, result, run_id, source_id)
             session.flush()
 
-            attrs = (
-                session.query(SiteAttribute)
-                .filter_by(site_id=site.site_id, run_id=run_id)
-                .all()
-            )
-            written_cids = {a.criterion_id for a in attrs}
-            assert {"NH-01", "NH-03", "NH-04"} <= written_cids, (
-                f"Expected NH-01, NH-03, NH-04; got {written_cids}"
-            )
+            nh = session.get(SiteNaturalHazards, site.site_id)
+            assert nh is not None, "SiteNaturalHazards row not created"
+            assert nh.pga_475yr_g is not None
+            assert nh.nh01_quality == "high"
+            assert nh.run_id == run_id
 
             session.rollback()
 
     def test_egdi_geology_persist_succeeds(self):
-        """S-02: create a test site, persist mock EgdiGeologyResult,
-        verify 6 SiteAttribute rows (NH-02..NH-06, RI-03)."""
+        """S-02: persist mock EgdiGeologyResult, verify SiteNaturalHazards
+        and SiteRadiological columns."""
         from atoms_vs_ashes.connectors.egdi_geology.batch import _persist_result, _ensure_data_sources
         from atoms_vs_ashes.connectors.egdi_geology.models import (
             EgdiGeologyResult,
@@ -255,7 +136,7 @@ class TestConnectorPersistLiveDB:
             LithologyAssessment,
         )
         from atoms_vs_ashes.db.engine import session_scope
-        from atoms_vs_ashes.db.models import Site, SiteAttribute
+        from atoms_vs_ashes.db.models import Site, SiteNaturalHazards, SiteRadiological
 
         with session_scope() as session:
             _ensure_country(session, "RO", "Romania")
@@ -287,15 +168,12 @@ class TestConnectorPersistLiveDB:
             _persist_result(session, site.site_id, result, run_id, source_ids)
             session.flush()
 
-            attrs = (
-                session.query(SiteAttribute)
-                .filter_by(site_id=site.site_id, run_id=run_id)
-                .all()
-            )
-            written_cids = {a.criterion_id for a in attrs}
-            assert {"NH-02", "NH-03", "NH-04", "NH-05", "NH-06", "RI-03"} <= written_cids, (
-                f"Expected all 6 EGDI criteria; got {written_cids}"
-            )
+            nh = session.get(SiteNaturalHazards, site.site_id)
+            assert nh is not None, "SiteNaturalHazards row not created"
+            assert nh.nearest_fault_km is not None
+
+            ri = session.get(SiteRadiological, site.site_id)
+            assert ri is not None, "SiteRadiological row not created"
 
             session.rollback()
 

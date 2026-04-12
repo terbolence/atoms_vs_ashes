@@ -41,3 +41,14 @@ After running integration tests, save a Markdown snapshot documenting the result
 - **Update** the snapshot whenever the corresponding spec is re-implemented or tests change
 
 Example path: `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md`
+
+## Running Tests
+
+The **user** runs integration tests manually via the `ava-client` CLI. Do **not** run tests on behalf of the user unless explicitly asked.
+
+```bash
+source .venv/bin/activate
+ava-client run --test-sites --skip egdi --skip seismic
+```
+
+See `src/ava_client/README.md` for the full command reference.

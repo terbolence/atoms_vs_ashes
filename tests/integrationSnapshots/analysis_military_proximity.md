@@ -1,14 +1,16 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # Military Proximity (HI-06)
 
-**Generated:** 2026-04-02 18:26 UTC
+**Generated:** 2026-04-03 10:30 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Military installation proximity from OSM
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
+- **Coordinates:** 44.1456, 23.1234
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -17,8 +19,8 @@
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
+  "lat": 44.1456,
+  "lon": 23.1234,
   "nearest_distance_km": null,
   "nearest_name": null,
   "installation_count": 0,
@@ -31,9 +33,9 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
+- **Coordinates:** 51.2644, 19.3278
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -42,58 +44,123 @@
 
 ```json
 {
-  "lat": 48.32611,
-  "lon": 15.923333,
-  "nearest_distance_km": 10.98,
-  "nearest_name": "unnamed",
-  "installation_count": 9,
+  "lat": 51.2644,
+  "lon": 19.3278,
+  "nearest_distance_km": 5.96,
+  "nearest_name": "Bunkier 1",
+  "installation_count": 17,
   "installations": [
     {
-      "name": "unnamed",
+      "name": "Bunkier 1",
       "military_type": "bunker",
-      "distance_km": 10.98
+      "distance_km": 5.96
     },
     {
-      "name": "unnamed",
-      "military_type": "range",
-      "distance_km": 13.29
+      "name": "bunkier 4",
+      "military_type": "bunker",
+      "distance_km": 11.49
     },
     {
-      "name": "Fliegerhorst Leopold Figl",
-      "military_type": "airfield",
+      "name": "bunkier 5",
+      "military_type": "bunker",
+      "distance_km": 12.19
+    },
+    {
+      "name": "bunkier 6",
+      "military_type": "bunker",
+      "distance_km": 12.33
+    },
+    {
+      "name": "bunkier 7",
+      "military_type": "bunker",
+      "distance_km": 12.74
+    },
+    {
+      "name": "bunkier 8",
+      "military_type": "bunker",
+      "distance_km": 13.47
+    },
+    {
+      "name": "bunkier 9",
+      "military_type": "bunker",
       "distance_km": 14.14
     },
     {
-      "name": "Sperrgebiet Kohlreithberg",
-      "military_type": "military",
-      "distance_km": 16.7
-    },
-    {
-      "name": "Bunker (verschüttet)",
+      "name": "Bunkier 7, Linia Umocnień Armii \"Łódź\" z 1939 r.",
       "military_type": "bunker",
-      "distance_km": 21.56
+      "distance_km": 16.86
     },
     {
-      "name": "Bundesheer-Wasserübungsplatz",
-      "military_type": "naval_base",
-      "distance_km": 24.52
+      "name": "Bunkier 7, Linia Umocnień Armii \"Łódź\" z 1939 r.",
+      "military_type": "bunker",
+      "distance_km": 17.38
+    },
+    {
+      "name": "Bunkier 8, Linia Umocnień Armii \"Łódź\" z 1939 r.",
+      "military_type": "bunker",
+      "distance_km": 17.45
     },
     {
       "name": "unnamed",
       "military_type": "bunker",
-      "distance_km": 24.94
+      "distance_km": 17.46
     },
     {
-      "name": "unnamed",
+      "name": "bunkier 6",
       "military_type": "bunker",
-      "distance_km": 24.99
+      "distance_km": 18.03
     },
     {
-      "name": "Gruppenübungsplatz 2",
-      "military_type": "training_area",
-      "distance_km": 25.31
+      "name": "Bunkier 3, Linia Umocnień Armii \"Łódź\" z 1939r.",
+      "military_type": "bunker",
+      "distance_km": 22.11
+    },
+    {
+      "name": "Bunkier 4, Linia Umocnień Armii \"Łódź\" z 1939r.",
+      "military_type": "bunker",
+      "distance_km": 22.15
+    },
+    {
+      "name": "Bunkier 2, Linia Umocnień Armii \"Łódź\" z 1939 r.",
+      "military_type": "bunker",
+      "distance_km": 22.78
+    },
+    {
+      "name": "Bunkier 1, Linia Umocnień Armii \"Łódź\" z 1939 r.",
+      "military_type": "bunker",
+      "distance_km": 23.13
+    },
+    {
+      "name": "Schron tradytorowy dwustronny",
+      "military_type": "bunker",
+      "distance_km": 23.62
     }
   ],
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (0 ms)
+- **Summary:** OK
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 50.3928,
+  "lon": 13.3278,
+  "nearest_distance_km": null,
+  "nearest_name": null,
+  "installation_count": 0,
+  "installations": [],
   "error": null
 }
 ```

@@ -4,7 +4,8 @@
 Iterates over all sites, queries the OSM Overpass API for ``power=plant``
 polygons near each site's coordinates, computes geodesic area, and persists
 the result as ``site_area_ha`` on the ``sites`` table.  A :class:`DataSource`
-provenance record is maintained in ``data_sources``.
+provenance record is maintained in ``data_sources``, and quality issues are
+logged via :class:`SiteObservation`.
 """
 
 from __future__ import annotations
@@ -21,7 +22,7 @@ from atoms_vs_ashes.connectors.osm import (
     find_best_plant_boundary,
     health_check,
 )
-from atoms_vs_ashes.db.models import AuditLog, DataQualityFlag, DataSource, Site
+from atoms_vs_ashes.db.models import AuditLog, DataSource, Site, SiteObservation
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -103,12 +104,13 @@ def ingest_site_areas(
                 error=str(exc),
             )
             session.add(
-                DataQualityFlag(
+                SiteObservation(
                     site_id=site.site_id,
-                    dataset="osm",
-                    dimension="site_area",
-                    level="low",
-                    detail=f"OSM Overpass query failed: {exc}",
+                    criterion_id="NS-05",
+                    source_type="api",
+                    observation=f"OSM Overpass query failed: {exc}",
+                    impact="negative",
+                    confidence="low",
                     run_id=run_id,
                 )
             )
@@ -123,15 +125,16 @@ def ingest_site_areas(
                 name=site.name,
             )
             session.add(
-                DataQualityFlag(
+                SiteObservation(
                     site_id=site.site_id,
-                    dataset="osm",
-                    dimension="site_area",
-                    level="low",
-                    detail=(
+                    criterion_id="NS-05",
+                    source_type="api",
+                    observation=(
                         f"No power=plant polygon found within {search_radius_m} m "
                         f"of site coordinates ({lat}, {lon})"
                     ),
+                    impact="negative",
+                    confidence="low",
                     run_id=run_id,
                 )
             )

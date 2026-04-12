@@ -25,22 +25,38 @@ def _resolve_root() -> Path:
     return cwd
 
 
+_DB_PROFILES = {
+    "api": "atoms_vs_ashes",
+    "llm": "atoms_vs_ashes_llm",
+}
+
+
 @click.group()
 @click.option("--config", "config_path", type=click.Path(exists=True), default=None,
               help="Path to YAML config file (defaults to config/default.yml).")
 @click.option("--verbose", is_flag=True, default=False, help="Enable DEBUG logging.")
 @click.option("--run-id", default=None, help="Explicit run ID (auto-generated if omitted).")
+@click.option("--db-profile", type=click.Choice(["api", "llm"]), default="api",
+              show_default=True,
+              help="Database profile: 'api' (default) or 'llm'.")
 @click.pass_context
-def main(ctx: click.Context, config_path: str | None, verbose: bool, run_id: str | None) -> None:
+def main(ctx: click.Context, config_path: str | None, verbose: bool,
+         run_id: str | None, db_profile: str) -> None:
     """Atoms vs Ashes — SMR Siting Assessment CLI."""
+    import os
     ctx.ensure_object(dict)
     rid = run_id or new_run_id()
     configure_logging(verbose=verbose, run_id=rid)
+
+    os.environ["POSTGRES_DB"] = _DB_PROFILES[db_profile]
+
     settings = Settings(config_path)
     init_engine(settings)
     ctx.obj["settings"] = settings
     ctx.obj["run_id"] = rid
     ctx.obj["project_root"] = _resolve_root()
+    ctx.obj["db_profile"] = db_profile
+    log.info("Using database profile '%s' → %s", db_profile, settings.database.db)
 
 
 @main.command()
@@ -180,7 +196,94 @@ def score(ctx: click.Context) -> None:
 
 
 @main.command()
+@click.option(
+    "--output", "-o",
+    type=click.Path(),
+    default="export/atoms_vs_ashes_export.xlsx",
+    show_default=True,
+    help="Output path for the Excel file.",
+)
+@click.pass_context
+def export(ctx: click.Context, output: str) -> None:
+    """Export entire database to a structured Excel file."""
+    from atoms_vs_ashes.db.engine import session_scope
+    from atoms_vs_ashes.pipeline.export import export_to_xlsx
+
+    settings: Settings = ctx.obj["settings"]
+
+    if not check_connection(settings):
+        click.echo("ERROR: Cannot connect to database. Is PostgreSQL running?", err=True)
+        sys.exit(1)
+
+    with session_scope() as session:
+        out = export_to_xlsx(session, output)
+
+    click.echo(f"Exported to {out}")
+
+
+@main.command()
 @click.pass_context
 def report(ctx: click.Context) -> None:
     """Generate output artifacts. [NOT YET IMPLEMENTED]"""
     click.echo("report: not yet implemented")
+
+
+@main.command("llm-assess")
+@click.option("--tier", type=click.Choice(["all", "exclusionary", "avoidance", "ranking"]),
+              default="all", show_default=True,
+              help="Which tier to run.")
+@click.option("--sites", "site_csv", default=None,
+              help="Comma-separated site UUIDs, or omit for all sites.")
+@click.option("--country", "country_csv", default=None,
+              help="Comma-separated country codes (e.g. RO,BG,PL).")
+@click.option("--dry-run", is_flag=True, default=False,
+              help="Show what would be assessed without calling the API.")
+@click.option("--max-concurrent", type=int, default=None,
+              help="Override concurrent request limit.")
+@click.pass_context
+def llm_assess(
+    ctx: click.Context,
+    tier: str,
+    site_csv: str | None,
+    country_csv: str | None,
+    dry_run: bool,
+    max_concurrent: int | None,
+) -> None:
+    """Run LLM-based siting assessment (writes to atoms_vs_ashes_llm DB)."""
+    import asyncio
+    import uuid as _uuid
+
+    from atoms_vs_ashes.llm.config import LlmConfig
+    from atoms_vs_ashes.llm.orchestrator import LlmOrchestrator
+
+    settings: Settings = ctx.obj["settings"]
+    rid: str = f"llm-{ctx.obj['run_id']}"
+
+    if not check_connection(settings):
+        click.echo("ERROR: Cannot connect to main database.", err=True)
+        sys.exit(1)
+
+    llm_cfg = LlmConfig.from_yaml(settings._yaml)
+    if max_concurrent:
+        llm_cfg = LlmConfig(
+            **{k: v for k, v in llm_cfg.__dict__.items() if k != "max_concurrent"},
+            max_concurrent=max_concurrent,
+        )
+
+    site_ids = None
+    if site_csv:
+        site_ids = [_uuid.UUID(s.strip()) for s in site_csv.split(",")]
+    country_codes = None
+    if country_csv:
+        country_codes = [c.strip().upper() for c in country_csv.split(",")]
+
+    orch = LlmOrchestrator(settings, llm_cfg, run_id=rid)
+    summary = asyncio.run(
+        orch.run(
+            tier=tier,
+            site_ids=site_ids,
+            country_codes=country_codes,
+            dry_run=dry_run,
+        )
+    )
+    click.echo(json.dumps(summary.to_dict(), indent=2, default=str))

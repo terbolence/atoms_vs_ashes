@@ -48,6 +48,7 @@ class OverpassClient:
         self._timeout = timeout_s or cfg.get("timeout_s", _TIMEOUT_S)
         self._delay = cfg.get("inter_request_delay_s", 1.0)
         self._client = httpx.Client(timeout=self._timeout)
+        self._last_http_status: int = 0
 
     def health_check(self) -> bool:
         """Check Overpass API status endpoint."""
@@ -63,23 +64,32 @@ class OverpassClient:
             log.warning("osm_health_error", error=str(exc))
             return False
 
+    @property
+    def was_rate_limited(self) -> bool:
+        """True if the last query received a 429 or 504 response."""
+        return self._last_http_status in (429, 504)
+
     def query(self, overpass_ql: str) -> list[dict[str, Any]]:
         """Execute an Overpass QL query, return the ``elements`` list."""
+        self._last_http_status = 0
         t0 = time.monotonic()
         try:
             resp = self._client.post(
                 self._url, data={"data": overpass_ql},
             )
+            self._last_http_status = resp.status_code
             resp.raise_for_status()
             elements = resp.json().get("elements", [])
             elapsed_ms = int((time.monotonic() - t0) * 1000)
             log.info("osm_query_ok", element_count=len(elements), elapsed_ms=elapsed_ms)
             return elements
         except httpx.TimeoutException as exc:
+            self._last_http_status = 408
             log.warning("osm_query_error", error=f"Timeout: {exc}")
             return []
         except httpx.HTTPStatusError as exc:
             status = exc.response.status_code
+            self._last_http_status = status
             if status in (401, 403):
                 log.error("osm_auth_error", status=status)
                 raise

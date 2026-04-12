@@ -22,14 +22,15 @@ For each site, evaluate all exclusionary criteria (E1–E9). Any site failing on
 
 ### 5.2.2 Process
 
-1. Load enriched site attributes from PostgreSQL.
-2. For each exclusionary criterion, evaluate the site against the defined threshold.
-3. Record pass/fail per criterion in `screening_results`, including:
-   - Criterion ID
-   - Result (pass / fail)
+1. Load enriched site data from domain tables (e.g. `site_natural_hazards`, `site_infrastructure_v2`).
+2. For each exclusionary criterion and each SMR design, evaluate the site against the defined threshold.
+3. Record a `screening_verdicts` row per site × criterion × SMR design, including:
+   - Criterion ID and SMR key
+   - Verdict (pass / fail / caution / inconclusive)
    - Justification text (e.g. "PGA 0.35g exceeds 0.3g threshold at site coordinates")
+   - Confidence level (high / medium / low)
    - Data source reference
-4. Sites with **any** fail result are flagged as excluded.
+4. Sites with **any** fail verdict for a given SMR design are flagged as excluded for that design.
 
 ### 5.2.3 Configuration
 
@@ -45,9 +46,9 @@ For sites that pass exclusionary screening, evaluate avoidance criteria (A1–A1
 
 ### 5.3.2 Process
 
-1. For each non-excluded site, evaluate all avoidance criteria against configurable thresholds.
-2. Record results in `screening_results` with the same structure as exclusionary results.
-3. Avoidance flags are carried forward into the scoring stage as input context.
+1. For each non-excluded site, evaluate all avoidance criteria against configurable thresholds per SMR design.
+2. Record results in `screening_verdicts` with the same structure as exclusionary results (verdict = "caution" for avoidance concerns).
+3. Avoidance verdicts are carried forward into the scoring stage as input context.
 
 ---
 
@@ -79,7 +80,7 @@ Rubrics shall be versioned alongside the configuration to support audit and repr
 When data for a criterion is unavailable:
 
 - Assign a configurable default score (e.g. 3) or mark as "unscored."
-- Flag the site-criterion pair in `data_quality_flags`.
+- Write a `site_observations` record with impact "negative" and the reason for missing data.
 - Include the missing-data count in the run summary.
 
 ---
@@ -108,12 +109,12 @@ Sites are sorted by descending composite score. Ties are broken by:
 
 ### 5.5.3 Output
 
-Store results in `ranking_results`:
+Per-criterion scores are stored in `ranking_scores` (one row per site × criterion × SMR design, with `score_low`/`score_high` for uncertainty). Aggregate results are stored in `composite_rankings`:
 
-- site_id
-- composite_score
+- site_id, smr_key
+- composite_score, composite_low, composite_high
 - rank
-- per-criterion scores
+- confidence
 - run_id, timestamp
 
 ---

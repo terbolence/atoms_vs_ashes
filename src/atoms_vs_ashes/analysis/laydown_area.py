@@ -10,18 +10,19 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.connectors.corine import (
     CorineConnector,
     LAYDOWN_SUITABLE_CLC,
     NON_EU_COUNTRIES,
     parse_clc_features,
 )
-from atoms_vs_ashes.db.models import SiteAttribute
+from atoms_vs_ashes.db.models import SiteInfrastructureV2
 from atoms_vs_ashes.geo import buffer_circle_wgs84, geodesic_area_ha
 from atoms_vs_ashes.logging import get_logger
 
@@ -119,29 +120,33 @@ def assess_and_persist(
     t0 = time.monotonic()
 
     if country_code in NON_EU_COUNTRIES:
-        write_quality_flag(
-            session, site_id=site_id, dataset="corine", dimension="laydown_area",
-            level="insufficient", detail=f"CORINE does not cover {country_code}", run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation=f"CORINE does not cover {country_code}",
+            run_id=run_id, confidence="low", impact="blocking",
         )
         result = LaydownResult(lat=lat, lon=lon, error=f"No CORINE coverage for {country_code}")
     else:
         result = assess_laydown_area(lat, lon, corine)
 
-    source_id = ensure_data_source(
+    ensure_data_source(
         session, name="corine_clc2018_wfs", url=corine._wfs_url,
     )
 
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id=CRITERION_ID,
-        value_numeric=result.total_suitable_ha,
-        value_json=result.to_dict(), source_id=source_id,
-        run_id=run_id, cache_status="fresh",
-    ))
+    row = session.get(SiteInfrastructureV2, site_id)
+    if row is None:
+        row = SiteInfrastructureV2(site_id=site_id)
+        session.add(row)
+    row.laydown_suitable_ha = result.total_suitable_ha
+    row.laydown_largest_patch_ha = result.largest_patch_ha
+    row.ns13_quality = "low" if result.error else "medium"
+    row.fetched_at = datetime.now(timezone.utc)
+    row.run_id = run_id
 
     if result.error:
-        write_quality_flag(
-            session, site_id=site_id, dataset="corine", dimension="laydown_area",
-            level="low", detail=result.error, run_id=run_id,
+        write_observation(
+            session, site_id=site_id, criterion_id=CRITERION_ID,
+            observation=result.error, run_id=run_id, confidence="low", impact="negative",
         )
 
     elapsed_ms = int((time.monotonic() - t0) * 1000)

@@ -3,5 +3,6 @@
 
 All analysis modules follow the ``assess_and_persist()`` pattern:
 fetch data from a connector, compute derived metrics, persist results
-as SiteAttribute rows with DataSource provenance and DataQualityFlags.
+to domain-specific tables (SiteNaturalHazards, SiteHumanHazards, etc.)
+with DataSource provenance and SiteObservation records.
 """

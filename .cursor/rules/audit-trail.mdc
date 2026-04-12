@@ -40,7 +40,15 @@ Required sections in the log:
 
 ## Plan Logging
 
-When a **plan is created or implemented**, copy the full plan content to `audit/plans/` preserving the original filename.
+**MANDATORY — immediate persistence:** Immediately after any `CreatePlan` tool call completes, in the **same response**, the agent MUST:
+
+1. Write the full plan content to `architecture/plans/<plan_name>.md` (kebab-case slug of the plan name).
+2. Copy the identical file to `audit/plans/<plan_name>.md`.
+3. Both files must contain the complete plan text — never a summary or reference.
+
+Do NOT defer this to "end of conversation." The plan file write must happen in the same tool-call batch as the `CreatePlan` invocation or immediately after.
+
+When a plan is **subsequently implemented**, update the file in `architecture/plans/` with a "Status: Completed" header and any execution notes, then sync the copy in `audit/plans/`.
 
 ## Rules
 

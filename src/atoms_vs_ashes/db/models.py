@@ -10,6 +10,7 @@ from geoalchemy2 import Geometry
 from sqlalchemy import (
     ARRAY,
     Boolean,
+    CheckConstraint,
     Date,
     DateTime,
     Enum,
@@ -17,6 +18,7 @@ from sqlalchemy import (
     Index,
     Integer,
     Numeric,
+    SmallInteger,
     String,
     Text,
     UniqueConstraint,
@@ -59,15 +61,9 @@ SiteStatus = Enum(
     create_constraint=True,
 )
 
-ScreeningVerdict = Enum(
-    "pass", "fail", "inconclusive",
+VerdictEnum = Enum(
+    "pass", "fail", "inconclusive", "caution",
     name="screening_verdict",
-    create_constraint=True,
-)
-
-QualityLevel = Enum(
-    "high", "medium", "low", "insufficient",
-    name="quality_level",
     create_constraint=True,
 )
 
@@ -108,6 +104,21 @@ class Criterion(Base):
     iaea_reference: Mapped[str | None] = mapped_column(String(200))
     epri_reference: Mapped[str | None] = mapped_column(String(200))
     description: Mapped[str | None] = mapped_column(Text)
+
+
+class SmrDesign(Base):
+    __tablename__ = "smr_designs"
+
+    smr_key: Mapped[str] = mapped_column(String(30), primary_key=True)
+    name: Mapped[str] = mapped_column(String(120), nullable=False)
+    capacity_mwe: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
+    thermal_output_mwt: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    land_requirement_ha: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
+    epz_radius_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    module_weight_t: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    cooling_type: Mapped[str | None] = mapped_column(String(60))
+    design_life_yr: Mapped[int | None] = mapped_column(Integer)
+    regulatory_status: Mapped[str | None] = mapped_column(String(200))
 
 
 # ---------------------------------------------------------------------------
@@ -166,6 +177,9 @@ class Site(Base):
 
     extended_data: Mapped[dict | None] = mapped_column(JSONB)
 
+    unit_count: Mapped[int | None] = mapped_column(Integer)
+    operating_capacity_mw: Mapped[float | None] = mapped_column(Numeric(10, 2))
+
     last_verified: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_utcnow
@@ -175,11 +189,16 @@ class Site(Base):
     )
 
     ownership_records = relationship("SiteOwnership", back_populates="site")
-    attributes = relationship("SiteAttribute", back_populates="site")
-    infrastructure = relationship("SiteInfrastructure", back_populates="site")
-    scores = relationship("SiteScore", back_populates="site")
-    screening_results = relationship("ScreeningResult", back_populates="site")
-    quality_flags = relationship("DataQualityFlag", back_populates="site")
+    units = relationship("SiteUnit", back_populates="site", order_by="SiteUnit.unit_name")
+    natural_hazards = relationship("SiteNaturalHazards", back_populates="site", uselist=False)
+    human_hazards = relationship("SiteHumanHazards", back_populates="site", uselist=False)
+    radiological = relationship("SiteRadiological", back_populates="site", uselist=False)
+    emergency_planning = relationship("SiteEmergencyPlanning", back_populates="site", uselist=False)
+    infrastructure = relationship("SiteInfrastructureV2", back_populates="site", uselist=False)
+    screening_verdicts = relationship("ScreeningVerdict", back_populates="site")
+    ranking_scores = relationship("RankingScore", back_populates="site")
+    composite_rankings = relationship("CompositeRanking", back_populates="site")
+    observations = relationship("SiteObservation", back_populates="site")
 
     __table_args__ = (
         Index("ix_sites_gem_location_id", "gem_location_id"),
@@ -225,6 +244,45 @@ class SiteOwnership(Base):
     )
 
 
+class SiteUnit(Base):
+    """Individual generating unit within a plant site.
+
+    One ``Site`` (keyed by ``gem_location_id``) may have many units.
+    The parent ``Site`` carries aggregated totals; this table preserves
+    per-unit detail from the GEM Coal Plant Tracker.
+    """
+
+    __tablename__ = "site_units"
+
+    unit_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=_uuid
+    )
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
+    )
+    gem_unit_phase_id: Mapped[str | None] = mapped_column(String(30))
+    unit_name: Mapped[str | None] = mapped_column(String(200))
+    capacity_mw: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    status: Mapped[str | None] = mapped_column(SiteStatus)
+    start_year: Mapped[int | None] = mapped_column(Integer)
+    retired_year: Mapped[int | None] = mapped_column(Integer)
+    planned_retirement: Mapped[date | None] = mapped_column(Date)
+    combustion_technology: Mapped[str | None] = mapped_column(String(100))
+    coal_type: Mapped[str | None] = mapped_column(String(100))
+    extended_data: Mapped[dict | None] = mapped_column(JSONB)
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_utcnow
+    )
+
+    site = relationship("Site", back_populates="units")
+
+    __table_args__ = (
+        Index("ix_unit_site_id", "site_id"),
+        Index("ix_unit_gem_unit_phase_id", "gem_unit_phase_id"),
+    )
+
+
 class StagingUnmatchedOwnership(Base):
     """Ownership rows that could not be joined to any site."""
 
@@ -240,61 +298,386 @@ class StagingUnmatchedOwnership(Base):
     )
 
 
-class SiteAttribute(Base):
-    __tablename__ = "site_attributes"
+# ---------------------------------------------------------------------------
+# Domain measurement tables (one row per site, explicit typed columns)
+# ---------------------------------------------------------------------------
 
-    attribute_id: Mapped[uuid.UUID] = mapped_column(
+class SiteNaturalHazards(Base):
+    """NH-01 through NH-14: all natural hazard metrics for a site."""
+
+    __tablename__ = "site_natural_hazards"
+
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
+    )
+    # NH-01: Seismic ground motion
+    pga_475yr_g: Mapped[float | None] = mapped_column(Numeric(8, 5))
+    pga_2475yr_g: Mapped[float | None] = mapped_column(Numeric(8, 5))
+    spectral_accel_json: Mapped[dict | None] = mapped_column(JSONB)
+    nh01_source: Mapped[str | None] = mapped_column(String(200))
+    nh01_quality: Mapped[str | None] = mapped_column(String(20))
+    nh01_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-02: Surface rupture
+    nearest_fault_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    fault_name: Mapped[str | None] = mapped_column(String(200))
+    fault_slip_rate_mm_yr: Mapped[float | None] = mapped_column(Numeric(8, 3))
+    nh02_source: Mapped[str | None] = mapped_column(String(200))
+    nh02_quality: Mapped[str | None] = mapped_column(String(20))
+    nh02_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-03: Liquefaction
+    liquefaction_suscept: Mapped[str | None] = mapped_column(String(30))
+    soil_type: Mapped[str | None] = mapped_column(String(100))
+    groundwater_depth_m: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nh03_quality: Mapped[str | None] = mapped_column(String(20))
+    nh03_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-04: Slope stability
+    slope_angle_deg: Mapped[float | None] = mapped_column(Numeric(6, 2))
+    slope_stability_class: Mapped[str | None] = mapped_column(String(30))
+    nh04_quality: Mapped[str | None] = mapped_column(String(20))
+    nh04_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-05: Subsidence
+    mining_void_present: Mapped[bool | None] = mapped_column(Boolean)
+    karst_present: Mapped[bool | None] = mapped_column(Boolean)
+    subsidence_risk_class: Mapped[str | None] = mapped_column(String(30))
+    nh05_quality: Mapped[str | None] = mapped_column(String(20))
+    nh05_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-06: Foundation (ranking)
+    bearing_capacity_kpa: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    depth_to_bedrock_m: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nh06_quality: Mapped[str | None] = mapped_column(String(20))
+    nh06_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-07: Volcanism
+    nearest_holocene_volcano_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    volcano_name: Mapped[str | None] = mapped_column(String(200))
+    nh07_quality: Mapped[str | None] = mapped_column(String(20))
+    nh07_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-08: Coastal flooding
+    distance_to_coast_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    storm_surge_risk: Mapped[str | None] = mapped_column(String(30))
+    tsunami_risk: Mapped[str | None] = mapped_column(String(30))
+    nh08_quality: Mapped[str | None] = mapped_column(String(20))
+    nh08_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-09: River flooding
+    flood_zone_class: Mapped[str | None] = mapped_column(String(30))
+    nearest_river_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    dam_break_exposure: Mapped[bool | None] = mapped_column(Boolean)
+    nh09_quality: Mapped[str | None] = mapped_column(String(20))
+    nh09_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-10: Extreme winds (ranking)
+    max_wind_speed_ms: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nh10_quality: Mapped[str | None] = mapped_column(String(20))
+    nh10_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-11: Extreme precipitation (ranking)
+    extreme_precip_mm: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nh11_quality: Mapped[str | None] = mapped_column(String(20))
+    nh11_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-12: Extreme temperatures (ranking)
+    extreme_temp_max_c: Mapped[float | None] = mapped_column(Numeric(6, 2))
+    extreme_temp_min_c: Mapped[float | None] = mapped_column(Numeric(6, 2))
+    nh12_quality: Mapped[str | None] = mapped_column(String(20))
+    nh12_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-13: Forest/wildfire (ranking)
+    wildfire_combustible_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    wildfire_wui_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    nh13_quality: Mapped[str | None] = mapped_column(String(20))
+    nh13_comment: Mapped[str | None] = mapped_column(Text)
+    # NH-14: Combined hazards (ranking)
+    combined_hazard_notes: Mapped[str | None] = mapped_column(Text)
+    nh14_quality: Mapped[str | None] = mapped_column(String(20))
+    nh14_comment: Mapped[str | None] = mapped_column(Text)
+
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    run_id: Mapped[str | None] = mapped_column(String(40))
+
+    site = relationship("Site", back_populates="natural_hazards")
+
+
+class SiteHumanHazards(Base):
+    """HI-01 through HI-08: human-induced hazard metrics for a site."""
+
+    __tablename__ = "site_human_hazards"
+
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
+    )
+    # HI-01: Aviation
+    nearest_airport_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_airport_name: Mapped[str | None] = mapped_column(String(200))
+    nearest_airport_type: Mapped[str | None] = mapped_column(String(30))
+    flight_path_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    airport_count: Mapped[int | None] = mapped_column(Integer)
+    hi01_quality: Mapped[str | None] = mapped_column(String(20))
+    hi01_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-02: Industrial explosions
+    nearest_seveso_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_industrial_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    hi02_quality: Mapped[str | None] = mapped_column(String(20))
+    hi02_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-03: Toxic releases
+    nearest_toxic_source_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    hi03_quality: Mapped[str | None] = mapped_column(String(20))
+    hi03_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-04: External fires
+    nearest_flammable_storage_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_pipeline_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    hi04_quality: Mapped[str | None] = mapped_column(String(20))
+    hi04_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-05: Transport hazards (ranking)
+    hazmat_route_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    hi05_quality: Mapped[str | None] = mapped_column(String(20))
+    hi05_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-06: Military installations
+    nearest_military_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_military_name: Mapped[str | None] = mapped_column(String(200))
+    military_count: Mapped[int | None] = mapped_column(Integer)
+    hi06_quality: Mapped[str | None] = mapped_column(String(20))
+    hi06_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-07: Electromagnetic interference
+    nearest_transmitter_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    transmitter_type: Mapped[str | None] = mapped_column(String(60))
+    transmitter_count: Mapped[int | None] = mapped_column(Integer)
+    hi07_quality: Mapped[str | None] = mapped_column(String(20))
+    hi07_comment: Mapped[str | None] = mapped_column(Text)
+    # HI-08: Other nuclear installations
+    nearest_nuclear_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_nuclear_name: Mapped[str | None] = mapped_column(String(200))
+    hi08_quality: Mapped[str | None] = mapped_column(String(20))
+    hi08_comment: Mapped[str | None] = mapped_column(Text)
+
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    run_id: Mapped[str | None] = mapped_column(String(40))
+
+    site = relationship("Site", back_populates="human_hazards")
+
+
+class SiteRadiological(Base):
+    """RI-01 through RI-06: radiological impact metrics for a site."""
+
+    __tablename__ = "site_radiological"
+
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
+    )
+    # RI-04: Population density at EPZ radii (screening)
+    pop_density_5km: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    pop_density_16km: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    pop_density_25km: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    pop_density_80km: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    pop_total_5km: Mapped[int | None] = mapped_column(Integer)
+    pop_total_16km: Mapped[int | None] = mapped_column(Integer)
+    pop_total_25km: Mapped[int | None] = mapped_column(Integer)
+    pop_total_80km: Mapped[int | None] = mapped_column(Integer)
+    ri04_quality: Mapped[str | None] = mapped_column(String(20))
+    ri04_comment: Mapped[str | None] = mapped_column(Text)
+    # RI-05: Distance to population centres (ranking)
+    nearest_city_50k_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_city_name: Mapped[str | None] = mapped_column(String(200))
+    nearest_city_pop: Mapped[int | None] = mapped_column(Integer)
+    ri05_quality: Mapped[str | None] = mapped_column(String(20))
+    ri05_comment: Mapped[str | None] = mapped_column(Text)
+    # RI-06: Population projections (ranking)
+    pop_growth_rate_pct: Mapped[float | None] = mapped_column(Numeric(6, 3))
+    projected_pop_25km_60yr: Mapped[int | None] = mapped_column(Integer)
+    ri06_quality: Mapped[str | None] = mapped_column(String(20))
+    ri06_comment: Mapped[str | None] = mapped_column(Text)
+    # RI-01: Atmospheric dispersion (ranking)
+    prevailing_wind_dir: Mapped[str | None] = mapped_column(String(10))
+    avg_wind_speed_ms: Mapped[float | None] = mapped_column(Numeric(6, 2))
+    mixing_height_m: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    ri01_quality: Mapped[str | None] = mapped_column(String(20))
+    ri01_comment: Mapped[str | None] = mapped_column(Text)
+    # RI-02: Surface water dispersion (ranking)
+    nearest_river_flow_m3s: Mapped[float | None] = mapped_column(Numeric(12, 2))
+    ri02_quality: Mapped[str | None] = mapped_column(String(20))
+    ri02_comment: Mapped[str | None] = mapped_column(Text)
+    # RI-03: Groundwater dispersion (ranking)
+    aquifer_type: Mapped[str | None] = mapped_column(String(60))
+    groundwater_flow_dir: Mapped[str | None] = mapped_column(String(30))
+    ri03_quality: Mapped[str | None] = mapped_column(String(20))
+    ri03_comment: Mapped[str | None] = mapped_column(Text)
+
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    run_id: Mapped[str | None] = mapped_column(String(40))
+
+    site = relationship("Site", back_populates="radiological")
+
+
+class SiteEmergencyPlanning(Base):
+    """EP-01 through EP-05: emergency planning metrics for a site."""
+
+    __tablename__ = "site_emergency_planning"
+
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
+    )
+    # EP-01: Emergency plan feasibility (composite)
+    ep01_composite_score: Mapped[float | None] = mapped_column(Numeric(5, 1))
+    ep01_road_score: Mapped[float | None] = mapped_column(Numeric(5, 1))
+    ep01_special_pop_score: Mapped[float | None] = mapped_column(Numeric(5, 1))
+    ep01_geography_score: Mapped[float | None] = mapped_column(Numeric(5, 1))
+    ep01_population_score: Mapped[float | None] = mapped_column(Numeric(5, 1))
+    ep01_quality: Mapped[str | None] = mapped_column(String(20))
+    ep01_comment: Mapped[str | None] = mapped_column(Text)
+    # EP-02: Evacuation routes (ranking)
+    road_density_km_per_km2: Mapped[float | None] = mapped_column(Numeric(8, 3))
+    total_road_km: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    has_motorway_access: Mapped[bool | None] = mapped_column(Boolean)
+    ep02_quality: Mapped[str | None] = mapped_column(String(20))
+    ep02_comment: Mapped[str | None] = mapped_column(Text)
+    # EP-03: Physical geography constraints (ranking)
+    major_river_barrier: Mapped[bool | None] = mapped_column(Boolean)
+    waterway_count_epz: Mapped[int | None] = mapped_column(Integer)
+    ep03_quality: Mapped[str | None] = mapped_column(String(20))
+    ep03_comment: Mapped[str | None] = mapped_column(Text)
+    # EP-04: Special populations (ranking)
+    hospital_count_epz: Mapped[int | None] = mapped_column(Integer)
+    prison_count_epz: Mapped[int | None] = mapped_column(Integer)
+    care_home_count_epz: Mapped[int | None] = mapped_column(Integer)
+    ep04_quality: Mapped[str | None] = mapped_column(String(20))
+    ep04_comment: Mapped[str | None] = mapped_column(Text)
+    # EP-05: Concurrent hazard impact (ranking)
+    concurrent_hazard_notes: Mapped[str | None] = mapped_column(Text)
+    ep05_quality: Mapped[str | None] = mapped_column(String(20))
+    ep05_comment: Mapped[str | None] = mapped_column(Text)
+
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    run_id: Mapped[str | None] = mapped_column(String(40))
+
+    site = relationship("Site", back_populates="emergency_planning")
+
+
+class SiteInfrastructureV2(Base):
+    """NS-01 through NS-13: non-safety / infrastructure metrics for a site."""
+
+    __tablename__ = "site_infrastructure_v2"
+
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
+    )
+    # NS-01: Cooling water
+    cooling_source_type: Mapped[str | None] = mapped_column(String(60))
+    cooling_source_name: Mapped[str | None] = mapped_column(String(200))
+    cooling_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    cooling_flow_m3s: Mapped[float | None] = mapped_column(Numeric(12, 2))
+    ns01_quality: Mapped[str | None] = mapped_column(String(20))
+    ns01_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-02: Grid connection
+    nearest_substation_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    substation_name: Mapped[str | None] = mapped_column(String(200))
+    nearest_hv_line_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    hv_line_voltage_kv: Mapped[int | None] = mapped_column(Integer)
+    hv_line_count: Mapped[int | None] = mapped_column(Integer)
+    substation_count: Mapped[int | None] = mapped_column(Integer)
+    grid_export_capacity_mw: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    ns02_quality: Mapped[str | None] = mapped_column(String(20))
+    ns02_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-03: Transport access
+    nearest_highway_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_rail_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_waterway_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    heavy_haul_capable: Mapped[bool | None] = mapped_column(Boolean)
+    ns03_quality: Mapped[str | None] = mapped_column(String(20))
+    ns03_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-04: Site topography
+    dominant_land_class: Mapped[str | None] = mapped_column(String(30))
+    dominant_class_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    favourable_land_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    moderate_land_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    unfavourable_land_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    ns04_quality: Mapped[str | None] = mapped_column(String(20))
+    ns04_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-05: Land availability / site footprint
+    buildable_area_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    largest_contiguous_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    patch_count: Mapped[int | None] = mapped_column(Integer)
+    ns05_quality: Mapped[str | None] = mapped_column(String(20))
+    ns05_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-06: Existing infrastructure (ranking)
+    reusable_infra_score: Mapped[int | None] = mapped_column(SmallInteger)
+    ns06_quality: Mapped[str | None] = mapped_column(String(20))
+    ns06_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-07: Environmental impact non-rad (screening)
+    env_impact_notes: Mapped[str | None] = mapped_column(Text)
+    ns07_quality: Mapped[str | None] = mapped_column(String(20))
+    ns07_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-08: Ecological sensitivity
+    ecological_natural_pct: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    ecological_patch_count: Mapped[int | None] = mapped_column(Integer)
+    ecological_largest_patch_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    ns08_quality: Mapped[str | None] = mapped_column(String(20))
+    ns08_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-09: Socioeconomic impact (ranking)
+    ns09_quality: Mapped[str | None] = mapped_column(String(20))
+    ns09_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-10: Workforce availability (ranking)
+    ns10_quality: Mapped[str | None] = mapped_column(String(20))
+    ns10_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-11: Coal-to-nuclear synergies (ranking)
+    ns11_quality: Mapped[str | None] = mapped_column(String(20))
+    ns11_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-12: Regulatory/political environment (ranking)
+    ns12_quality: Mapped[str | None] = mapped_column(String(20))
+    ns12_comment: Mapped[str | None] = mapped_column(Text)
+    # NS-13: Construction logistics (ranking)
+    laydown_suitable_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    laydown_largest_patch_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    ns13_quality: Mapped[str | None] = mapped_column(String(20))
+    ns13_comment: Mapped[str | None] = mapped_column(Text)
+
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    run_id: Mapped[str | None] = mapped_column(String(40))
+
+    site = relationship("Site", back_populates="infrastructure")
+
+
+# ---------------------------------------------------------------------------
+# Decision tables (per-site, per-SMR-design)
+# ---------------------------------------------------------------------------
+
+class ScreeningVerdict(Base):
+    """Pass/fail verdicts from screening phases, per site per SMR design."""
+
+    __tablename__ = "screening_verdicts"
+
+    verdict_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=_uuid
     )
     site_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
     )
+    smr_key: Mapped[str] = mapped_column(
+        String(30), ForeignKey("smr_designs.smr_key"), nullable=False
+    )
     criterion_id: Mapped[str] = mapped_column(
         String(10), ForeignKey("criteria.criterion_id"), nullable=False
     )
-    value_numeric: Mapped[float | None] = mapped_column(Numeric)
-    value_text: Mapped[str | None] = mapped_column(Text)
-    value_json: Mapped[dict | None] = mapped_column(JSONB)
-    source_id: Mapped[uuid.UUID | None] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("data_sources.source_id")
-    )
-    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    phase: Mapped[str] = mapped_column(String(30), nullable=False)
+    verdict: Mapped[str] = mapped_column(VerdictEnum, nullable=False)
+    measured_value: Mapped[str | None] = mapped_column(Text)
+    threshold: Mapped[str | None] = mapped_column(Text)
+    justification: Mapped[str] = mapped_column(Text, nullable=False)
+    confidence: Mapped[str] = mapped_column(String(20), nullable=False)
+    data_sources: Mapped[list[str] | None] = mapped_column(ARRAY(String))
     run_id: Mapped[str | None] = mapped_column(String(40))
-    cache_status: Mapped[str | None] = mapped_column(String(20))
+    screened_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_utcnow
+    )
 
-    site = relationship("Site", back_populates="attributes")
+    site = relationship("Site", back_populates="screening_verdicts")
 
     __table_args__ = (
-        UniqueConstraint("site_id", "criterion_id", "run_id", name="uq_site_criterion_run"),
-        Index("ix_attr_site_id", "site_id"),
+        UniqueConstraint(
+            "site_id", "smr_key", "criterion_id", "run_id",
+            name="uq_verdict_site_smr_criterion_run",
+        ),
+        Index("ix_verdict_site_id", "site_id"),
     )
 
 
-class SiteInfrastructure(Base):
-    __tablename__ = "site_infrastructure"
+class RankingScore(Base):
+    """1-5 ranking scores per site per SMR design per criterion."""
 
-    infra_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=_uuid
-    )
-    site_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False, unique=True
-    )
-    grid_voltage_kv: Mapped[int | None] = mapped_column(Integer)
-    grid_capacity_mw: Mapped[float | None] = mapped_column(Numeric(10, 2))
-    substation_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
-    cooling_source_type: Mapped[str | None] = mapped_column(String(60))
-    cooling_source_name: Mapped[str | None] = mapped_column(String(200))
-    cooling_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
-    transport_road: Mapped[bool | None] = mapped_column(Boolean)
-    transport_rail: Mapped[bool | None] = mapped_column(Boolean)
-    transport_waterway: Mapped[bool | None] = mapped_column(Boolean)
-    notes: Mapped[str | None] = mapped_column(Text)
-
-    site = relationship("Site", back_populates="infrastructure")
-
-
-class SiteScore(Base):
-    __tablename__ = "site_scores"
+    __tablename__ = "ranking_scores"
 
     score_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=_uuid
@@ -302,59 +685,42 @@ class SiteScore(Base):
     site_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
     )
+    smr_key: Mapped[str] = mapped_column(
+        String(30), ForeignKey("smr_designs.smr_key"), nullable=False
+    )
     criterion_id: Mapped[str] = mapped_column(
         String(10), ForeignKey("criteria.criterion_id"), nullable=False
     )
-    score: Mapped[int] = mapped_column(Integer, nullable=False)
-    justification: Mapped[str | None] = mapped_column(Text)
-    source_refs: Mapped[str | None] = mapped_column(Text)
+    score: Mapped[int] = mapped_column(
+        SmallInteger, nullable=False
+    )
+    score_low: Mapped[int | None] = mapped_column(SmallInteger)
+    score_high: Mapped[int | None] = mapped_column(SmallInteger)
+    confidence: Mapped[str] = mapped_column(String(20), nullable=False)
+    justification: Mapped[str] = mapped_column(Text, nullable=False)
+    data_sources: Mapped[list[str] | None] = mapped_column(ARRAY(String))
     run_id: Mapped[str | None] = mapped_column(String(40))
     scored_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_utcnow
     )
 
-    site = relationship("Site", back_populates="scores")
+    site = relationship("Site", back_populates="ranking_scores")
 
     __table_args__ = (
-        UniqueConstraint("site_id", "criterion_id", "run_id", name="uq_score_site_criterion_run"),
-    )
-
-
-class ScreeningResult(Base):
-    __tablename__ = "screening_results"
-
-    result_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=_uuid
-    )
-    site_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
-    )
-    criterion_id: Mapped[str] = mapped_column(
-        String(10), ForeignKey("criteria.criterion_id"), nullable=False
-    )
-    phase: Mapped[str] = mapped_column(String(30), nullable=False)
-    verdict: Mapped[str] = mapped_column(ScreeningVerdict, nullable=False)
-    value: Mapped[str | None] = mapped_column(Text)
-    threshold: Mapped[str | None] = mapped_column(Text)
-    justification: Mapped[str | None] = mapped_column(Text)
-    source_refs: Mapped[str | None] = mapped_column(Text)
-    run_id: Mapped[str | None] = mapped_column(String(40))
-    screened_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=_utcnow
-    )
-
-    site = relationship("Site", back_populates="screening_results")
-
-    __table_args__ = (
+        CheckConstraint("score BETWEEN 1 AND 5", name="ck_ranking_score_range"),
+        CheckConstraint("score_low IS NULL OR score_low BETWEEN 1 AND 5", name="ck_ranking_score_low_range"),
+        CheckConstraint("score_high IS NULL OR score_high BETWEEN 1 AND 5", name="ck_ranking_score_high_range"),
         UniqueConstraint(
-            "site_id", "criterion_id", "run_id",
-            name="uq_screening_site_criterion_run",
+            "site_id", "smr_key", "criterion_id", "run_id",
+            name="uq_ranking_site_smr_criterion_run",
         ),
     )
 
 
-class RankingResult(Base):
-    __tablename__ = "ranking_results"
+class CompositeRanking(Base):
+    """Final weighted composite score and rank per site per SMR design."""
+
+    __tablename__ = "composite_rankings"
 
     ranking_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=_uuid
@@ -362,39 +728,74 @@ class RankingResult(Base):
     site_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
     )
-    composite_score: Mapped[float] = mapped_column(Numeric(7, 4), nullable=False)
-    rank: Mapped[int] = mapped_column(Integer, nullable=False)
-    per_criterion_scores: Mapped[dict | None] = mapped_column(JSONB)
+    smr_key: Mapped[str] = mapped_column(
+        String(30), ForeignKey("smr_designs.smr_key"), nullable=False
+    )
+    composite_score: Mapped[float | None] = mapped_column(Numeric(6, 3))
+    rank_position: Mapped[int | None] = mapped_column(Integer)
+    passed_exclusionary: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    passed_avoidance: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    criteria_coverage: Mapped[float | None] = mapped_column(Numeric(5, 2))
+    avg_confidence: Mapped[str | None] = mapped_column(String(20))
+    sensitivity_stable: Mapped[bool | None] = mapped_column(Boolean)
+    per_category_scores: Mapped[dict | None] = mapped_column(JSONB)
     run_id: Mapped[str | None] = mapped_column(String(40))
     ranked_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_utcnow
     )
 
+    site = relationship("Site", back_populates="composite_rankings")
+
     __table_args__ = (
-        UniqueConstraint("site_id", "run_id", name="uq_ranking_site_run"),
+        UniqueConstraint(
+            "site_id", "smr_key", "run_id",
+            name="uq_composite_site_smr_run",
+        ),
     )
 
 
-class DataQualityFlag(Base):
-    __tablename__ = "data_quality_flags"
+# ---------------------------------------------------------------------------
+# Observations / comments
+# ---------------------------------------------------------------------------
 
-    flag_id: Mapped[uuid.UUID] = mapped_column(
+class SiteObservation(Base):
+    """Structured comments and annotations per site per criterion."""
+
+    __tablename__ = "site_observations"
+
+    observation_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=_uuid
     )
-    site_id: Mapped[uuid.UUID | None] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("sites.site_id")
+    site_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("sites.site_id"), nullable=False
     )
-    dataset: Mapped[str] = mapped_column(String(120), nullable=False)
-    dimension: Mapped[str] = mapped_column(String(60), nullable=False)
-    level: Mapped[str] = mapped_column(QualityLevel, nullable=False)
-    detail: Mapped[str | None] = mapped_column(Text)
+    criterion_id: Mapped[str] = mapped_column(
+        String(10), ForeignKey("criteria.criterion_id"), nullable=False
+    )
+    smr_key: Mapped[str | None] = mapped_column(
+        String(30), ForeignKey("smr_designs.smr_key")
+    )
+    source_type: Mapped[str] = mapped_column(String(20), nullable=False)
+    observation: Mapped[str] = mapped_column(Text, nullable=False)
+    impact: Mapped[str | None] = mapped_column(String(20))
+    confidence: Mapped[str | None] = mapped_column(String(20))
+    author: Mapped[str | None] = mapped_column(String(100))
     run_id: Mapped[str | None] = mapped_column(String(40))
-    flagged_at: Mapped[datetime] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_utcnow
     )
 
-    site = relationship("Site", back_populates="quality_flags")
+    site = relationship("Site", back_populates="observations")
 
+    __table_args__ = (
+        Index("ix_obs_site_id", "site_id"),
+        Index("ix_obs_criterion_id", "criterion_id"),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Audit
+# ---------------------------------------------------------------------------
 
 class AuditLog(Base):
     __tablename__ = "audit_log"

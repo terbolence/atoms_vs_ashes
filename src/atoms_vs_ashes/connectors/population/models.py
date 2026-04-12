@@ -6,7 +6,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-CRITERION_IDS = ("RI-04", "RI-05", "RI-06")
+
 
 DEFAULT_RADII_KM = [5, 16, 25, 80]
 DEFAULT_CITY_THRESHOLD = 50_000

@@ -1,16 +1,18 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # OSM Populated Places - fetch_populated_places()
 
-**Generated:** 2026-04-02 18:22 UTC
+**Generated:** 2026-04-03 10:27 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Populated places with population tags
+**Sites:** 0 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
-- **Status:** PASS (8254 ms)
-- **Summary:** 169 elements
+- **Coordinates:** 44.1456, 23.1234
+- **Status:** PASS (2475 ms)
+- **Summary:** 884 elements
 
 <details>
 <summary>Full response</summary>
@@ -19,615 +21,602 @@
 [
   {
     "osm_type": "node",
-    "osm_id": 33150886,
-    "lat": 41.0758988,
-    "lon": 19.6649775,
-    "name": "Rrogozhinë",
+    "osm_id": 31058196,
+    "lat": 43.9857242,
+    "lon": 22.8772194,
+    "name": "Видин",
     "tags": {
-      "name": "Rrogozhinë",
-      "place": "town",
-      "population": "7049",
-      "type": "City_Municipality_capital"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 33208686,
-    "lat": 40.7251118,
-    "lon": 19.5582079,
-    "name": "Fier",
-    "tags": {
-      "name": "Fier",
+      "name": "Видин",
       "place": "city",
-      "population": "55845"
+      "population": "50977"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 192271967,
-    "lat": 41.926012,
-    "lon": 19.2055563,
-    "name": "Ulcinj - Ulqin",
+    "osm_id": 126278515,
+    "lat": 44.6257835,
+    "lon": 22.6531975,
+    "name": "Drobeta-Turnu Severin",
     "tags": {
-      "name": "Ulcinj - Ulqin",
-      "place": "town",
-      "population": "10707"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 274122533,
-    "lat": 42.0681371,
-    "lon": 19.5121437,
-    "name": "Shkodër",
-    "tags": {
-      "name": "Shkodër",
+      "name": "Drobeta-Turnu Severin",
       "place": "city",
-      "population": "96000",
-      "type": "City_Municipality_capital"
+      "population": "92617"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 283575748,
-    "lat": 41.9696582,
-    "lon": 19.1841934,
-    "name": "Krute Ulcinjske - Krytha e Ulqinit",
+    "osm_id": 130308534,
+    "lat": 44.0230929,
+    "lon": 23.3450079,
+    "name": "Băilești",
     "tags": {
-      "name": "Krute Ulcinjske - Krytha e Ulqinit",
+      "name": "Băilești",
+      "place": "city",
+      "population": "21696"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 137971248,
+    "lat": 44.6231121,
+    "lon": 23.1961003,
+    "name": "Strehaia",
+    "tags": {
+      "name": "Strehaia",
+      "place": "town",
+      "population": "7697"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 137973708,
+    "lat": 44.4250326,
+    "lon": 22.8712672,
+    "name": "Vânju Mare",
+    "tags": {
+      "name": "Vânju Mare",
+      "place": "town",
+      "population": "4229"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 138000688,
+    "lat": 43.784314,
+    "lon": 23.9574422,
+    "name": "Bechet",
+    "tags": {
+      "name": "Bechet",
+      "place": "town",
+      "population": "3943"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 138003888,
+    "lat": 44.5538277,
+    "lon": 23.5205621,
+    "name": "Filiași",
+    "tags": {
+      "name": "Filiași",
+      "place": "town",
+      "population": "13524"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 138005562,
+    "lat": 44.0930481,
+    "lon": 23.7468875,
+    "name": "Segarcea",
+    "tags": {
+      "name": "Segarcea",
+      "place": "town",
+      "population": "8581"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 138011262,
+    "lat": 44.8011015,
+    "lon": 22.9678763,
+    "name": "Motru",
+    "tags": {
+      "name": "Motru",
+      "place": "city",
+      "population": "22472"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 138027552,
+    "lat": 44.6807576,
+    "lon": 23.3730835,
+    "name": "Turceni",
+    "tags": {
+      "name": "Turceni",
+      "place": "town",
+      "population": "4844"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 144320679,
+    "lat": 44.0053156,
+    "lon": 23.005496,
+    "name": "Basarabi",
+    "tags": {
+      "name": "Basarabi",
       "place": "village",
-      "population": "205"
+      "population": "1330"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 283578459,
-    "lat": 41.9519175,
-    "lon": 19.1946791,
-    "name": "Bratica - Braticë",
+    "osm_id": 151213247,
+    "lat": 44.226346,
+    "lon": 22.7055202,
+    "name": "Pristol",
     "tags": {
-      "name": "Bratica - Braticë",
+      "name": "Pristol",
       "place": "village",
-      "population": "233"
+      "population": "1355"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 307926115,
-    "lat": 42.0510559,
-    "lon": 19.1462648,
-    "name": "Dobra Voda",
+    "osm_id": 262322095,
+    "lat": 44.6048177,
+    "lon": 23.1222577,
+    "name": "Ciochiuța",
     "tags": {
-      "name": "Dobra Voda",
+      "name": "Ciochiuța",
+      "place": "village",
+      "population": "1228"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 262329121,
+    "lat": 44.6083537,
+    "lon": 22.9160879,
+    "name": "Prunișor",
+    "tags": {
+      "name": "Prunișor",
+      "place": "village",
+      "population": "803"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 262329993,
+    "lat": 44.2686875,
+    "lon": 23.8984346,
+    "name": "Cârcea",
+    "tags": {
+      "name": "Cârcea",
+      "place": "village",
+      "population": "1777"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273488696,
+    "lat": 44.1621209,
+    "lon": 22.7839149,
+    "name": "Ново село",
+    "tags": {
+      "name": "Ново село",
+      "place": "village",
+      "population": "3381"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273488802,
+    "lat": 43.8201697,
+    "lon": 23.2386638,
+    "name": "Лом",
+    "tags": {
+      "name": "Лом",
+      "place": "town",
+      "population": "24181"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273488804,
+    "lat": 43.6266828,
+    "lon": 22.6861167,
+    "name": "Белоградчик",
+    "tags": {
+      "name": "Белоградчик",
+      "place": "town",
+      "population": "5334"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273488824,
+    "lat": 43.6900754,
+    "lon": 23.4426025,
+    "name": "Вълчедръм",
+    "tags": {
+      "name": "Вълчедръм",
+      "place": "town",
+      "population": "3578"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273488979,
+    "lat": 43.7750934,
+    "lon": 23.7293313,
+    "name": "Козлодуй",
+    "tags": {
+      "name": "Козлодуй",
+      "place": "town",
+      "population": "13593"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273816263,
+    "lat": 44.03297,
+    "lon": 22.83498,
+    "name": "Иново",
+    "tags": {
+      "name": "Иново",
+      "place": "village",
+      "population": "631"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273816307,
+    "lat": 43.8531269,
+    "lon": 22.842355,
+    "name": "Цар Симеоново",
+    "tags": {
+      "name": "Цар Симеоново",
+      "place": "village",
+      "population": "86"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273816626,
+    "lat": 43.8524818,
+    "lon": 22.7057642,
+    "name": "Водна",
+    "tags": {
+      "name": "Водна",
+      "place": "village",
+      "population": "37"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273873694,
+    "lat": 43.5482325,
+    "lon": 23.1952211,
+    "name": "Безденица",
+    "tags": {
+      "name": "Безденица",
+      "place": "village",
+      "population": "323"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273875653,
+    "lat": 44.0972223,
+    "lon": 22.7610976,
+    "name": "Гъмзово",
+    "tags": {
+      "name": "Гъмзово",
+      "place": "village",
+      "population": "400"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 273875691,
+    "lat": 44.0450246,
+    "lon": 23.013759,
+    "name": "Сланотрън",
+    "tags": {
+      "name": "Сланотрън",
+      "place": "village",
+      "population": "550"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 281664933,
+    "lat": 43.9031075,
+    "lon": 22.2785496,
+    "name": "Зајечар",
+    "tags": {
+      "name": "Зајечар",
+      "place": "city",
+      "population": "32448"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 290635272,
+    "lat": 44.6121653,
+    "lon": 22.7107521,
+    "name": "Șimian",
+    "tags": {
+      "name": "Șimian",
+      "place": "village",
+      "population": "3071"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305906768,
+    "lat": 44.0648846,
+    "lon": 23.6750672,
+    "name": "Cerăt",
+    "tags": {
+      "name": "Cerăt",
+      "place": "village",
+      "population": "3768"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305906875,
+    "lat": 44.1048299,
+    "lon": 23.6278845,
+    "name": "Lipovu",
+    "tags": {
+      "name": "Lipovu",
+      "place": "village",
+      "population": "3035"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305906885,
+    "lat": 44.1120965,
+    "lon": 23.5738067,
+    "name": "Întorsura",
+    "tags": {
+      "name": "Întorsura",
+      "place": "village",
+      "population": "1936"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305906979,
+    "lat": 44.1596572,
+    "lon": 23.6050535,
+    "name": "Radovan",
+    "tags": {
+      "name": "Radovan",
+      "place": "village",
+      "population": "1002"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305907011,
+    "lat": 44.0273697,
+    "lon": 23.630455,
+    "name": "Giurgița",
+    "tags": {
+      "name": "Giurgița",
+      "place": "village",
+      "population": "2625"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305907080,
+    "lat": 44.0020003,
+    "lon": 23.6387377,
+    "name": "Curmătura",
+    "tags": {
+      "name": "Curmătura",
+      "place": "village",
+      "population": "688"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305907168,
+    "lat": 44.0550802,
+    "lon": 23.8433329,
+    "name": "Drănic",
+    "tags": {
+      "name": "Drănic",
+      "place": "village",
+      "population": "1296"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 305907182,
+    "lat": 44.0769656,
+    "lon": 23.8338782,
+    "name": "Booveni",
+    "tags": {
+      "name": "Booveni",
+      "place": "village",
+      "population": "464"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 308012293,
+    "lat": 44.2467849,
+    "lon": 23.9266042,
+    "name": "Coșoveni",
+    "tags": {
+      "name": "Coșoveni",
+      "place": "village",
+      "population": "3436"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 308012947,
+    "lat": 44.1874824,
+    "lon": 23.9999762,
+    "name": "Leu",
+    "tags": {
+      "name": "Leu",
+      "place": "village",
+      "population": "3614"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 311556123,
+    "lat": 44.1576206,
+    "lon": 24.0946389,
+    "name": "Zănoaga",
+    "tags": {
+      "name": "Zănoaga",
+      "place": "village",
+      "population": "1508"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317236520,
+    "lat": 44.2271199,
+    "lon": 22.5308921,
+    "name": "Неготин",
+    "tags": {
+      "name": "Неготин",
+      "place": "town",
+      "population": "14647"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317238678,
+    "lat": 44.3702151,
+    "lon": 22.4942396,
+    "name": "Михајловац",
+    "tags": {
+      "name": "Михајловац",
+      "place": "village",
+      "population": "268"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317238680,
+    "lat": 44.3494291,
+    "lon": 22.488103,
+    "name": "Мала Каменица",
+    "tags": {
+      "name": "Мала Каменица",
+      "place": "village",
+      "population": "217"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317282818,
+    "lat": 43.8835464,
+    "lon": 23.5973243,
+    "name": "Cârna",
+    "tags": {
+      "name": "Cârna",
+      "place": "village",
+      "population": "1737"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317729139,
+    "lat": 44.2731206,
+    "lon": 23.8180638,
+    "name": "Făcăi",
+    "tags": {
+      "name": "Făcăi",
+      "place": "village",
+      "population": "1061"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317934688,
+    "lat": 44.331274,
+    "lon": 23.9644196,
+    "name": "Pielești",
+    "tags": {
+      "name": "Pielești",
+      "place": "village",
+      "population": "2844"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317934826,
+    "lat": 44.3577385,
+    "lon": 23.8934284,
+    "name": "Ghercești",
+    "tags": {
+      "name": "Ghercești",
+      "place": "village",
+      "population": "877"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317934970,
+    "lat": 44.37718,
+    "lon": 23.8730957,
+    "name": "Mlecănești",
+    "tags": {
+      "name": "Mlecănești",
+      "place": "village",
+      "population": "603"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317935057,
+    "lat": 44.3872554,
+    "lon": 23.8559296,
+    "name": "Mischii",
+    "tags": {
+      "name": "Mischii",
+      "place": "village",
+      "population": "705"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317935081,
+    "lat": 44.4071383,
+    "lon": 23.8412289,
+    "name": "Urechești",
+    "tags": {
+      "name": "Urechești",
+      "place": "village",
+      "population": "308"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 317935536,
+    "lat": 44.3600422,
+    "lon": 23.8208199,
+    "name": "Șimnicu de Jos",
+    "tags": {
+      "name": "Șimnicu de Jos",
       "place": "village",
       "population": "995"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 347462790,
-    "lat": 41.1834239,
-    "lon": 19.5599485,
-    "name": "Kavajë",
-    "tags": {
-      "name": "Kavajë",
-      "place": "town",
-      "population": "40094"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 414076827,
-    "lat": 41.4922026,
-    "lon": 20.2183758,
-    "name": "Bulqizë",
-    "tags": {
-      "name": "Bulqizë",
-      "place": "town",
-      "population": "67000",
-      "type": "City_Municipality_capital"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 414076828,
-    "lat": 41.610429,
-    "lon": 20.0130651,
-    "name": "Burrel",
-    "tags": {
-      "name": "Burrel",
-      "place": "town",
-      "population": "10862"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 415789950,
-    "lat": 40.804415,
-    "lon": 19.9134448,
-    "name": "Kuçovë",
-    "tags": {
-      "name": "Kuçovë",
-      "place": "town",
-      "population": "12654",
-      "type": "City_municipality"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 503689082,
-    "lat": 41.511251,
-    "lon": 19.792852,
-    "name": "Krujë",
-    "tags": {
-      "name": "Krujë",
-      "place": "town",
-      "population": "11721"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 708006203,
-    "lat": 42.0139861,
-    "lon": 19.2619899,
-    "name": "Кrute - Krythë",
-    "tags": {
-      "name": "Кrute - Krythë",
-      "place": "village",
-      "population": "606"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 708023131,
-    "lat": 42.0215545,
-    "lon": 19.3155004,
-    "name": "Braiša - Brajsh",
-    "tags": {
-      "name": "Braiša - Brajsh",
-      "place": "village",
-      "population": "767"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 708023149,
-    "lat": 42.0766711,
-    "lon": 19.34418,
-    "name": "Arbnesh",
-    "tags": {
-      "name": "Arbnesh",
-      "place": "village",
-      "population": "399"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 717492856,
-    "lat": 41.9934607,
-    "lon": 19.3175121,
-    "name": "Šas - Shas",
-    "tags": {
-      "name": "Šas - Shas",
-      "place": "village",
-      "population": "500"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728416527,
-    "lat": 41.4543451,
-    "lon": 19.9539456,
-    "name": "Vilëz",
-    "tags": {
-      "name": "Vilëz",
-      "place": "village",
-      "population": "1265",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728416646,
-    "lat": 41.0517517,
-    "lon": 19.6368281,
-    "name": "Çermë e Sipërme",
-    "tags": {
-      "name": "Çermë e Sipërme",
-      "place": "village",
-      "population": "2797"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728416730,
-    "lat": 40.7791212,
-    "lon": 19.9222363,
-    "name": "Perondi",
-    "tags": {
-      "name": "Perondi",
-      "place": "village",
-      "population": "2131"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728416910,
-    "lat": 41.6351819,
-    "lon": 19.7565266,
-    "name": "Selitë",
-    "tags": {
-      "name": "Selitë",
-      "place": "village",
-      "population": "425"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417045,
-    "lat": 41.7127128,
-    "lon": 19.7349428,
-    "name": "Berzane",
-    "tags": {
-      "name": "Berzane",
-      "place": "hamlet",
-      "population": "181"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417102,
-    "lat": 41.5072297,
-    "lon": 20.0850706,
-    "name": "Klos",
-    "tags": {
-      "name": "Klos",
-      "place": "town",
-      "population": "12172"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417125,
-    "lat": 41.7060393,
-    "lon": 19.9205805,
-    "name": "Shtrezë",
-    "tags": {
-      "name": "Shtrezë",
-      "place": "hamlet",
-      "population": "145"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417207,
-    "lat": 41.5480809,
-    "lon": 19.678866,
-    "name": "Thumanë",
-    "tags": {
-      "name": "Thumanë",
-      "place": "village",
-      "population": "2567"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417532,
-    "lat": 41.5751431,
-    "lon": 20.0504498,
-    "name": "Suç",
-    "tags": {
-      "name": "Suç",
-      "place": "village",
-      "population": "984",
-      "type": "Village_Communa Capital"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417779,
-    "lat": 41.7469701,
-    "lon": 19.6769491,
-    "name": "Tresh",
-    "tags": {
-      "name": "Tresh",
-      "place": "village",
-      "population": "1914"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417842,
-    "lat": 41.4534254,
-    "lon": 20.0747829,
-    "name": "Gur i Bardhë",
-    "tags": {
-      "name": "Gur i Bardhë",
-      "place": "village",
-      "population": "664"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728417953,
-    "lat": 41.3986302,
-    "lon": 20.2231518,
-    "name": "Lenë",
-    "tags": {
-      "name": "Lenë",
-      "place": "village",
-      "population": "352"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418165,
-    "lat": 41.3376796,
-    "lon": 19.624804,
-    "name": "Shtrazë",
-    "tags": {
-      "name": "Shtrazë",
-      "place": "village",
-      "population": "277",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418345,
-    "lat": 41.6712933,
-    "lon": 20.0568539,
-    "name": "Derjan",
-    "tags": {
-      "name": "Derjan",
-      "place": "village",
-      "population": "636"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418391,
-    "lat": 41.6780001,
-    "lon": 20.0342983,
-    "name": "Rremull",
-    "tags": {
-      "name": "Rremull",
-      "place": "village",
-      "population": "906"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418395,
-    "lat": 40.6843228,
-    "lon": 19.6159921,
-    "name": "Patos",
-    "tags": {
-      "name": "Patos",
-      "place": "town",
-      "population": "23626"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418466,
-    "lat": 41.6033612,
-    "lon": 19.8003133,
-    "name": "Vinjoll",
-    "tags": {
-      "name": "Vinjoll",
-      "place": "village",
-      "population": "450",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418637,
-    "lat": 41.4282958,
-    "lon": 19.5993585,
-    "name": "Manëz",
-    "tags": {
-      "name": "Manëz",
-      "place": "village",
-      "population": "6600",
-      "type": "City_Municipality_capital"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728418785,
-    "lat": 41.6563787,
-    "lon": 19.6878363,
-    "name": "Shullaz",
-    "tags": {
-      "name": "Shullaz",
-      "place": "village",
-      "population": "1654"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419230,
-    "lat": 41.6793596,
-    "lon": 19.6080045,
-    "name": "Alk",
-    "tags": {
-      "name": "Alk",
-      "place": "village",
-      "population": "330"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419301,
-    "lat": 41.4232172,
-    "lon": 20.2034934,
-    "name": "Krastë",
-    "tags": {
-      "name": "Krastë",
-      "place": "village",
-      "population": "1398"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419466,
-    "lat": 41.8771562,
-    "lon": 20.0479543,
-    "name": "Kodër Spaç",
-    "tags": {
-      "name": "Kodër Spaç",
-      "place": "village",
-      "population": "104"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419534,
-    "lat": 41.768084,
-    "lon": 19.8769608,
-    "name": "Rrëshen",
-    "tags": {
-      "name": "Rrëshen",
-      "place": "town",
-      "population": "14262"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419582,
-    "lat": 41.7224707,
-    "lon": 19.6907872,
-    "name": "Markatomaj",
-    "tags": {
-      "name": "Markatomaj",
-      "place": "village",
-      "population": "1044"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419677,
-    "lat": 41.2479237,
-    "lon": 20.3193355,
-    "name": "Zgosht",
-    "tags": {
-      "name": "Zgosht",
-      "place": "village",
-      "population": "927",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419738,
-    "lat": 41.6280919,
-    "lon": 20.0265751,
-    "name": "Zenisht",
-    "tags": {
-      "name": "Zenisht",
-      "place": "village",
-      "population": "1138"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419930,
-    "lat": 41.6682981,
-    "lon": 19.9157225,
-    "name": "Bushkash",
-    "tags": {
-      "name": "Bushkash",
-      "place": "village",
-      "population": "737"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728419989,
-    "lat": 41.6874309,
-    "lon": 19.6145282,
-    "name": "Tale 1",
-    "tags": {
-      "name": "Tale 1",
-      "place": "village",
-      "population": "1616"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420016,
-    "lat": 41.5470022,
-    "lon": 20.0523667,
-    "name": "Shulbatër",
-    "tags": {
-      "name": "Shulbatër",
-      "place": "village",
-      "population": "445",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420023,
-    "lat": 41.7768727,
-    "lon": 19.8960156,
-    "name": "Kodër Rrëshen",
-    "tags": {
-      "name": "Kodër Rrëshen",
-      "place": "village",
-      "population": "853"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420197,
-    "lat": 41.5900392,
-    "lon": 19.9609952,
-    "name": "German",
-    "tags": {
-      "name": "German",
-      "place": "village",
-      "population": "754",
-      "type": "Village"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420289,
-    "lat": 41.6910576,
-    "lon": 19.6526054,
-    "name": "Shënkoll",
-    "tags": {
-      "name": "Shënkoll",
-      "place": "village",
-      "population": "4149"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420458,
-    "lat": 41.9334686,
-    "lon": 20.0159809,
-    "name": "Dom",
-    "tags": {
-      "name": "Dom",
-      "place": "village",
-      "population": "579"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 728420890,
-    "lat": 41.216436,
-    "lon": 20.3144537,
-    "name": "Dorëz",
-    "tags": {
-      "name": "Dorëz",
-      "place": "village",
-      "population": "1932",
-      "type": "Village"
     }
   },
   "... (1 more items)"
@@ -638,11 +627,28 @@
 
 ---
 
-## AT - Duernrohr power station
+## PL - Bełchatów
 
-- **Coordinates:** 48.32611, 15.923333
-- **Status:** PASS (8824 ms)
-- **Summary:** 3228 elements
+- **Coordinates:** 51.2644, 19.3278
+- **Status:** PASS (5207 ms)
+- **Summary:** 0 elements
+
+<details>
+<summary>Full response</summary>
+
+```json
+[]
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (9687 ms)
+- **Summary:** 2662 elements
 
 <details>
 <summary>Full response</summary>
@@ -651,602 +657,602 @@
 [
   {
     "osm_type": "node",
-    "osm_id": 588370,
-    "lat": 48.5694232,
-    "lon": 15.0950756,
-    "name": "Merzenstein",
+    "osm_id": 20830918,
+    "lat": 50.8323531,
+    "lon": 12.918914,
+    "name": "Chemnitz",
     "tags": {
-      "name": "Merzenstein",
-      "place": "village",
-      "population": "144"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 17328659,
-    "lat": 48.2083537,
-    "lon": 16.3725042,
-    "name": "Wien",
-    "tags": {
-      "name": "Wien",
+      "name": "Chemnitz",
       "place": "city",
-      "population": "1920949"
+      "population": "243089"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 17330426,
-    "lat": 48.2076724,
-    "lon": 16.1772068,
-    "name": "Purkersdorf",
+    "osm_id": 20833613,
+    "lat": 51.0493286,
+    "lon": 13.7381437,
+    "name": "Dresden",
     "tags": {
-      "name": "Purkersdorf",
+      "name": "Dresden",
+      "place": "city",
+      "population": "572240"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 26785103,
+    "lat": 50.9199287,
+    "lon": 13.6603457,
+    "name": "Malter",
+    "tags": {
+      "name": "Malter",
+      "place": "village",
+      "population": "729"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 26785139,
+    "lat": 50.9337129,
+    "lon": 13.6392405,
+    "name": "Seifersdorf",
+    "tags": {
+      "name": "Seifersdorf",
+      "place": "village",
+      "population": "1015"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 26969262,
+    "lat": 50.8614612,
+    "lon": 13.1694372,
+    "name": "Oederan",
+    "tags": {
+      "name": "Oederan",
       "place": "town",
-      "population": "9684"
+      "population": "8258"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 21512705,
-    "lat": 48.1152652,
-    "lon": 16.1011089,
-    "name": "Gruberau",
+    "osm_id": 27374884,
+    "lat": 50.7513151,
+    "lon": 12.9938343,
+    "name": "Dittersdorf",
     "tags": {
-      "name": "Gruberau",
-      "place": "hamlet",
-      "population": "149"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 26806588,
-    "lat": 48.1115223,
-    "lon": 16.6856133,
-    "name": "Maria Ellend",
-    "tags": {
-      "name": "Maria Ellend",
+      "name": "Dittersdorf",
       "place": "village",
-      "population": "695"
+      "population": "1500"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 26807229,
-    "lat": 47.8131847,
-    "lon": 16.2441166,
-    "name": "Wiener Neustadt",
+    "osm_id": 27549531,
+    "lat": 50.7996456,
+    "lon": 12.8000119,
+    "name": "Mittelbach",
     "tags": {
-      "name": "Wiener Neustadt",
+      "name": "Mittelbach",
+      "place": "village",
+      "population": "2188"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 28385651,
+    "lat": 50.7615393,
+    "lon": 12.939163,
+    "name": "Berbisdorf",
+    "tags": {
+      "name": "Berbisdorf",
+      "place": "village",
+      "population": "1000"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 28396755,
+    "lat": 50.9331827,
+    "lon": 12.7075852,
+    "name": "Penig",
+    "tags": {
+      "name": "Penig",
       "place": "town",
-      "population": "38481"
+      "population": "4903"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 26807230,
-    "lat": 47.7368423,
-    "lon": 16.3980488,
-    "name": "Mattersburg",
+    "osm_id": 28398314,
+    "lat": 50.8503529,
+    "lon": 13.0772325,
+    "name": "Flöha",
     "tags": {
-      "name": "Mattersburg",
+      "name": "Flöha",
       "place": "town",
-      "population": "7177"
+      "population": "11128"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 26807231,
-    "lat": 47.9973956,
-    "lon": 16.8608307,
-    "name": "Parndorf/Pandrof",
+    "osm_id": 29123685,
+    "lat": 50.7686553,
+    "lon": 12.8183211,
+    "name": "Leukersdorf",
     "tags": {
-      "name": "Parndorf/Pandrof",
+      "name": "Leukersdorf",
       "place": "village",
-      "population": "4858"
+      "population": "1789"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 26807235,
-    "lat": 48.0198451,
-    "lon": 16.7792466,
-    "name": "Bruckneudorf",
+    "osm_id": 29123686,
+    "lat": 50.7653911,
+    "lon": 12.802147,
+    "name": "Seifersdorf",
     "tags": {
-      "name": "Bruckneudorf",
+      "name": "Seifersdorf",
       "place": "village",
-      "population": "2815"
+      "population": "700"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 26807241,
-    "lat": 47.8454821,
-    "lon": 16.5249288,
-    "name": "Eisenstadt",
+    "osm_id": 29123748,
+    "lat": 50.7894372,
+    "lon": 12.7343596,
+    "name": "Oberlungwitz",
     "tags": {
-      "name": "Eisenstadt",
+      "name": "Oberlungwitz",
       "place": "town",
-      "population": "9243"
+      "population": "5851"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27255535,
-    "lat": 48.1555671,
-    "lon": 16.1746578,
-    "name": "Laab im Walde",
+    "osm_id": 29181998,
+    "lat": 50.5788781,
+    "lon": 13.0106108,
+    "name": "Annaberg-Buchholz",
     "tags": {
-      "name": "Laab im Walde",
-      "place": "village",
-      "population": "1144"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27255536,
-    "lat": 48.1579894,
-    "lon": 16.1209769,
-    "name": "Wolfsgraben",
-    "tags": {
-      "name": "Wolfsgraben",
-      "place": "village",
-      "population": "1416"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27255539,
-    "lat": 48.0450978,
-    "lon": 16.0967323,
-    "name": "Mayerling",
-    "tags": {
-      "name": "Mayerling",
-      "place": "village",
-      "population": "265"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27255542,
-    "lat": 48.0664562,
-    "lon": 15.923188,
-    "name": "St. Corona am Schöpfl",
-    "tags": {
-      "name": "St. Corona am Schöpfl",
-      "place": "village",
-      "population": "278"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27255543,
-    "lat": 48.0845418,
-    "lon": 15.8649268,
-    "name": "Klamm",
-    "tags": {
-      "name": "Klamm",
-      "place": "village",
-      "population": "198"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27255545,
-    "lat": 48.0500185,
-    "lon": 15.8834212,
-    "name": "Obertriesting",
-    "tags": {
-      "name": "Obertriesting",
-      "place": "hamlet",
-      "population": "80"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27257342,
-    "lat": 47.6998726,
-    "lon": 16.1477079,
-    "name": "Seebenstein",
-    "tags": {
-      "name": "Seebenstein",
-      "place": "village",
-      "population": "826"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27257345,
-    "lat": 47.6097666,
-    "lon": 15.9913438,
-    "name": "Kirchberg am Wechsel",
-    "tags": {
-      "name": "Kirchberg am Wechsel",
-      "place": "village",
-      "population": "2417"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27257348,
-    "lat": 48.0830785,
-    "lon": 15.1483291,
-    "name": "Unternberg",
-    "tags": {
-      "name": "Unternberg",
-      "place": "hamlet",
-      "population": "53"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27270090,
-    "lat": 48.015706,
-    "lon": 15.9917879,
-    "name": "Altenmarkt an der Triesting",
-    "tags": {
-      "name": "Altenmarkt an der Triesting",
-      "place": "village",
-      "population": "2068"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27270094,
-    "lat": 48.1970124,
-    "lon": 15.907098,
-    "name": "Neulengbach",
-    "tags": {
-      "name": "Neulengbach",
+      "name": "Annaberg-Buchholz",
       "place": "town",
-      "population": "1529"
+      "population": "21604"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270095,
-    "lat": 48.1721443,
-    "lon": 15.9451491,
-    "name": "Götzwiesen",
+    "osm_id": 29325458,
+    "lat": 50.5440998,
+    "lon": 13.1037169,
+    "name": "Grumbach",
     "tags": {
-      "name": "Götzwiesen",
-      "place": "hamlet",
-      "population": "82"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 27270098,
-    "lat": 47.7481585,
-    "lon": 16.2467165,
-    "name": "Klein Wolkersdorf",
-    "tags": {
-      "name": "Klein Wolkersdorf",
+      "name": "Grumbach",
       "place": "village",
-      "population": "665"
+      "population": "742"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270101,
-    "lat": 48.0585791,
-    "lon": 16.0786108,
-    "name": "Alland",
+    "osm_id": 29325460,
+    "lat": 50.5142346,
+    "lon": 13.0900195,
+    "name": "Jöhstadt",
     "tags": {
-      "name": "Alland",
+      "name": "Jöhstadt",
       "place": "town",
-      "population": "1558"
+      "population": "3381"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270102,
-    "lat": 48.0477731,
-    "lon": 15.7415074,
-    "name": "Rohrbach an der Gölsen",
+    "osm_id": 29671881,
+    "lat": 50.1200804,
+    "lon": 14.2604324,
+    "name": "Kněževes",
     "tags": {
-      "name": "Rohrbach an der Gölsen",
+      "name": "Kněževes",
       "place": "village",
-      "population": "1200"
+      "population": "524"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270104,
-    "lat": 48.0348237,
-    "lon": 15.7711936,
-    "name": "Hainfeld",
+    "osm_id": 29838787,
+    "lat": 51.0524125,
+    "lon": 13.5362765,
+    "name": "Wilsdruff",
     "tags": {
-      "name": "Hainfeld",
+      "name": "Wilsdruff",
       "place": "town",
-      "population": "2025"
+      "population": "14613"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270105,
-    "lat": 48.0241207,
-    "lon": 15.8980956,
-    "name": "Kaumberg",
+    "osm_id": 29844041,
+    "lat": 50.9349219,
+    "lon": 13.5628002,
+    "name": "Dorfhain",
     "tags": {
-      "name": "Kaumberg",
+      "name": "Dorfhain",
       "place": "village",
-      "population": "633"
+      "population": "1100"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270106,
-    "lat": 48.3846124,
-    "lon": 16.2076303,
-    "name": "Stockerau",
+    "osm_id": 29902556,
+    "lat": 50.8144193,
+    "lon": 13.1009791,
+    "name": "Augustusburg",
     "tags": {
-      "name": "Stockerau",
+      "name": "Augustusburg",
       "place": "town",
-      "population": "16858"
+      "population": "4826"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270108,
-    "lat": 47.7752135,
-    "lon": 16.3258026,
-    "name": "Bad Sauerbrunn",
+    "osm_id": 29915939,
+    "lat": 51.0565934,
+    "lon": 13.2980726,
+    "name": "Nossen",
     "tags": {
-      "name": "Bad Sauerbrunn",
+      "name": "Nossen",
+      "place": "town",
+      "population": "6336"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 29915942,
+    "lat": 50.9909991,
+    "lon": 13.2884224,
+    "name": "Großvoigtsberg",
+    "tags": {
+      "name": "Großvoigtsberg",
       "place": "village",
-      "population": "1949"
+      "population": "683"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27270476,
-    "lat": 47.9513587,
-    "lon": 16.2285187,
-    "name": "Kottingbrunn",
+    "osm_id": 29915943,
+    "lat": 50.9664763,
+    "lon": 13.2784375,
+    "name": "Großschirma",
     "tags": {
-      "name": "Kottingbrunn",
+      "name": "Großschirma",
+      "place": "town",
+      "population": "5721"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 29915945,
+    "lat": 50.7987248,
+    "lon": 13.3207207,
+    "name": "Großhartmannsdorf",
+    "tags": {
+      "name": "Großhartmannsdorf",
       "place": "village",
-      "population": "7947"
+      "population": "1681"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 27393337,
-    "lat": 48.0560466,
-    "lon": 16.1292957,
-    "name": "Heiligenkreuz",
+    "osm_id": 29915946,
+    "lat": 50.7651314,
+    "lon": 13.3058162,
+    "name": "Mittelsaida",
     "tags": {
-      "name": "Heiligenkreuz",
+      "name": "Mittelsaida",
       "place": "village",
-      "population": "1390"
+      "population": "591"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745217,
-    "lat": 48.1801065,
-    "lon": 16.0242089,
-    "name": "Rekawinkel",
+    "osm_id": 29916412,
+    "lat": 50.5906737,
+    "lon": 13.0697621,
+    "name": "Mildenau",
     "tags": {
-      "name": "Rekawinkel",
+      "name": "Mildenau",
       "place": "village",
-      "population": "755"
+      "population": "3853"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745219,
-    "lat": 48.1778256,
-    "lon": 15.992543,
-    "name": "Hutten",
+    "osm_id": 29916413,
+    "lat": 50.6194141,
+    "lon": 13.0465688,
+    "name": "Thermalbad Wiesenbad",
     "tags": {
-      "name": "Hutten",
+      "name": "Thermalbad Wiesenbad",
       "place": "village",
-      "population": "1505"
+      "population": "3876"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745225,
-    "lat": 48.1691917,
-    "lon": 15.9555281,
-    "name": "Knagg",
+    "osm_id": 29916936,
+    "lat": 50.6384347,
+    "lon": 13.2175775,
+    "name": "Pobershau",
     "tags": {
-      "name": "Knagg",
+      "name": "Pobershau",
+      "place": "village",
+      "population": "2075"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 29916937,
+    "lat": 50.658016,
+    "lon": 13.2313076,
+    "name": "Zöblitz",
+    "tags": {
+      "name": "Zöblitz",
+      "place": "town",
+      "population": "2918"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 29927546,
+    "lat": 50.9616923,
+    "lon": 13.9386643,
+    "name": "Pirna",
+    "tags": {
+      "name": "Pirna",
+      "place": "town",
+      "population": "37645"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 30226976,
+    "lat": 50.9853391,
+    "lon": 13.5794907,
+    "name": "Tharandt",
+    "tags": {
+      "name": "Tharandt",
+      "place": "town",
+      "population": "5700"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 30480336,
+    "lat": 50.71989,
+    "lon": 12.7556602,
+    "name": "Niederwürschnitz",
+    "tags": {
+      "name": "Niederwürschnitz",
+      "place": "village",
+      "population": "3078"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 30903115,
+    "lat": 50.8286715,
+    "lon": 13.6172344,
+    "name": "Hennersdorf",
+    "tags": {
+      "name": "Hennersdorf",
+      "place": "village",
+      "population": "453"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 30903161,
+    "lat": 50.8408836,
+    "lon": 13.6345474,
+    "name": "Sadisdorf",
+    "tags": {
+      "name": "Sadisdorf",
+      "place": "village",
+      "population": "397"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 30998067,
+    "lat": 50.7469606,
+    "lon": 13.0695613,
+    "name": "Zschopau",
+    "tags": {
+      "name": "Zschopau",
+      "place": "town",
+      "population": "11939"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 31352716,
+    "lat": 50.8247317,
+    "lon": 13.7085401,
+    "name": "Dönschten",
+    "tags": {
+      "name": "Dönschten",
+      "place": "village",
+      "population": "185"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 31472474,
+    "lat": 50.7827033,
+    "lon": 13.7468846,
+    "name": "Hirschsprung",
+    "tags": {
+      "name": "Hirschsprung",
       "place": "hamlet",
-      "population": "37"
+      "population": "117"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745226,
-    "lat": 48.1534694,
-    "lon": 15.91884,
-    "name": "Altlengbach",
+    "osm_id": 31608593,
+    "lat": 50.9214318,
+    "lon": 13.9033417,
+    "name": "Niederseidewitz",
     "tags": {
-      "name": "Altlengbach",
+      "name": "Niederseidewitz",
       "place": "village",
-      "population": "913"
+      "population": "69"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745227,
-    "lat": 48.1884656,
-    "lon": 16.1248453,
-    "name": "Untertullnerbach",
+    "osm_id": 31628312,
+    "lat": 51.0749571,
+    "lon": 13.5293546,
+    "name": "Klipphausen",
     "tags": {
-      "name": "Untertullnerbach",
+      "name": "Klipphausen",
       "place": "village",
-      "population": "337"
+      "population": "6171"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29745228,
-    "lat": 48.1879915,
-    "lon": 16.0933148,
-    "name": "Tullnerbach-Lawies",
+    "osm_id": 31660744,
+    "lat": 49.9113563,
+    "lon": 13.7050301,
+    "name": "Terešovská Huť",
     "tags": {
-      "name": "Tullnerbach-Lawies",
+      "name": "Terešovská Huť",
       "place": "village",
-      "population": "1727"
+      "population": "7"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29747056,
-    "lat": 48.1145439,
-    "lon": 16.1274954,
-    "name": "Wöglerin",
+    "osm_id": 32666229,
+    "lat": 49.7477415,
+    "lon": 13.3775249,
+    "name": "Plzeň",
     "tags": {
-      "name": "Wöglerin",
+      "name": "Plzeň",
+      "place": "city",
+      "population": "185599"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 33364292,
+    "lat": 50.1621283,
+    "lon": 12.3545281,
+    "name": "Starý Rybník",
+    "tags": {
+      "name": "Starý Rybník",
+      "place": "village",
+      "population": "145"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 33364297,
+    "lat": 50.1217804,
+    "lon": 12.3147479,
+    "name": "Krapice",
+    "tags": {
+      "name": "Krapice",
       "place": "hamlet",
-      "population": "142"
+      "population": "43"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29747057,
-    "lat": 48.1054414,
-    "lon": 16.1337704,
-    "name": "Stangau",
+    "osm_id": 33364300,
+    "lat": 50.1032203,
+    "lon": 12.3249382,
+    "name": "Klest",
     "tags": {
-      "name": "Stangau",
+      "name": "Klest",
       "place": "village",
-      "population": "230"
+      "population": "62"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29747059,
-    "lat": 48.2348719,
-    "lon": 16.0229075,
-    "name": "Rappoltenkirchen",
+    "osm_id": 33364303,
+    "lat": 50.1310217,
+    "lon": 12.2826455,
+    "name": "Ostroh",
     "tags": {
-      "name": "Rappoltenkirchen",
-      "place": "village",
-      "population": "403"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747062,
-    "lat": 48.2673924,
-    "lon": 16.0830741,
-    "name": "Ollern",
-    "tags": {
-      "name": "Ollern",
-      "place": "village",
-      "population": "907"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747063,
-    "lat": 48.3005067,
-    "lon": 16.0623219,
-    "name": "Staasdorf",
-    "tags": {
-      "name": "Staasdorf",
-      "place": "village",
-      "population": "303"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747064,
-    "lat": 48.2858765,
-    "lon": 16.0864432,
-    "name": "Chorherrn",
-    "tags": {
-      "name": "Chorherrn",
-      "place": "village",
-      "population": "147"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747066,
-    "lat": 48.2904507,
-    "lon": 16.1230974,
-    "name": "Tulbing",
-    "tags": {
-      "name": "Tulbing",
-      "place": "village",
-      "population": "961"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747069,
-    "lat": 48.2416152,
-    "lon": 16.1360434,
-    "name": "Allhang",
-    "tags": {
-      "name": "Allhang",
+      "name": "Ostroh",
       "place": "hamlet",
-      "population": "75"
+      "population": "32"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29747070,
-    "lat": 48.2552614,
-    "lon": 16.071244,
-    "name": "Ried am Riederberg",
+    "osm_id": 33364305,
+    "lat": 50.1098801,
+    "lon": 12.3774087,
+    "name": "Dlouhé Mosty",
     "tags": {
-      "name": "Ried am Riederberg",
+      "name": "Dlouhé Mosty",
+      "place": "hamlet",
+      "population": "22"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 33364309,
+    "lat": 50.1382612,
+    "lon": 12.3918163,
+    "name": "Nový Drahov",
+    "tags": {
+      "name": "Nový Drahov",
+      "place": "hamlet",
+      "population": "24"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 33527237,
+    "lat": 50.6557148,
+    "lon": 13.0664608,
+    "name": "Wolkenstein",
+    "tags": {
+      "name": "Wolkenstein",
+      "place": "town",
+      "population": "4309"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 33614007,
+    "lat": 50.2234326,
+    "lon": 12.3814405,
+    "name": "Lomnička",
+    "tags": {
+      "name": "Lomnička",
       "place": "village",
-      "population": "343"
+      "population": "88"
     }
   },
   {
     "osm_type": "node",
-    "osm_id": 29747071,
-    "lat": 48.2831751,
-    "lon": 16.0317687,
-    "name": "Baumgarten am Tullnerfeld",
+    "osm_id": 34004739,
+    "lat": 50.1337727,
+    "lon": 12.4688731,
+    "name": "Hartoušov",
     "tags": {
-      "name": "Baumgarten am Tullnerfeld",
-      "place": "village",
-      "population": "813"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747480,
-    "lat": 48.2198004,
-    "lon": 15.9811903,
-    "name": "Hagenau",
-    "tags": {
-      "name": "Hagenau",
+      "name": "Hartoušov",
       "place": "hamlet",
-      "population": "38"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747481,
-    "lat": 48.2399347,
-    "lon": 15.9860074,
-    "name": "Röhrenbach",
-    "tags": {
-      "name": "Röhrenbach",
-      "place": "hamlet",
-      "population": "135"
-    }
-  },
-  {
-    "osm_type": "node",
-    "osm_id": 29747482,
-    "lat": 48.2311204,
-    "lon": 15.9695821,
-    "name": "Wimmersdorf",
-    "tags": {
-      "name": "Wimmersdorf",
-      "place": "hamlet",
-      "population": "124"
+      "population": "39"
     }
   },
   "... (1 more items)"

@@ -2,11 +2,13 @@
 """Batch enrichment and DB persistence for the EGDI geology connector.
 
 Handles per-site commit isolation, cache-based resumability, progress
-logging, and writes to ``SiteAttribute`` / ``DataQualityFlag`` tables.
+logging, and writes to ``SiteNaturalHazards`` / ``SiteRadiological`` /
+``SiteObservation`` tables.
 
-Persists up to six SiteAttribute rows per site:
+Persists geology data to domain table columns:
   NH-02 (faults), NH-03 (lithology/soil), NH-04 (rock type),
-  NH-05 (mines + karst), NH-06 (boreholes + hydrogeology), RI-03 (aquifer).
+  NH-05 (mines + karst), NH-06 (boreholes + hydrogeology),
+  RI-03 (aquifer).
 """
 
 from __future__ import annotations
@@ -19,12 +21,17 @@ from typing import TYPE_CHECKING, Any
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.connectors.egdi_geology.models import (
-    CRITERION_IDS,
     BatchResult,
     EgdiGeologyResult,
     SiteEnrichmentSummary,
 )
-from atoms_vs_ashes.db.models import DataQualityFlag, DataSource, Site, SiteAttribute
+from atoms_vs_ashes.db.models import (
+    DataSource,
+    Site,
+    SiteNaturalHazards,
+    SiteObservation,
+    SiteRadiological,
+)
 from atoms_vs_ashes.logging import get_logger
 
 if TYPE_CHECKING:
@@ -60,11 +67,6 @@ _SOURCE_DESCRIPTIONS: dict[str, tuple[str, str]] = {
 }
 
 
-# ------------------------------------------------------------------
-# Public entry points
-# ------------------------------------------------------------------
-
-
 def enrich_site(
     connector: EgdiGeologyConnector,
     site_id: uuid.UUID,
@@ -82,23 +84,23 @@ def enrich_site(
     t0 = time.monotonic()
 
     cached = _check_cache(session, site_id, run_id, connector._cache_ttl_days)
-    if cached is not None:
+    if cached:
         elapsed = int((time.monotonic() - t0) * 1000)
         log.info("egdi_cache_hit", site_id=str(site_id))
         return SiteEnrichmentSummary(
             site_id=site_id, site_name=site.name, status="cached",
-            quality=cached.value_json.get("quality") if cached.value_json else None,
+            quality=cached.nh02_quality,
             elapsed_ms=elapsed,
         )
 
-    source_ids = _ensure_data_sources(session)
+    _ensure_data_sources(session)
 
     try:
         result = connector.fetch_all(
             float(site.latitude), float(site.longitude),
             country_code=site.country_code,
         )
-        criteria = _persist_result(session, site_id, result, run_id, source_ids)
+        criteria = _persist_result(session, site_id, result, run_id)
         session.commit()
         elapsed = int((time.monotonic() - t0) * 1000)
         log.info(
@@ -111,7 +113,7 @@ def enrich_site(
         )
     except Exception as exc:
         session.rollback()
-        _persist_error_flag(session, site_id, run_id, str(exc))
+        _persist_error_observation(session, site_id, run_id, str(exc))
         session.commit()
         elapsed = int((time.monotonic() - t0) * 1000)
         log.error("egdi_site_error", site_id=str(site_id), error=str(exc))
@@ -154,13 +156,13 @@ def enrich_batch(
         cached = _check_cache(
             session, site.site_id, run_id, connector._cache_ttl_days,
         )
-        if cached is not None:
+        if cached:
             log.info("egdi_cache_hit", site_id=str(site.site_id))
             batch.skipped_cached += 1
             elapsed_ms = int((time.monotonic() - site_start) * 1000)
             batch.per_site.append(SiteEnrichmentSummary(
                 site_id=site.site_id, site_name=site.name, status="cached",
-                quality=cached.value_json.get("quality") if cached.value_json else None,
+                quality=cached.nh02_quality,
                 elapsed_ms=elapsed_ms,
             ))
             continue
@@ -170,9 +172,8 @@ def enrich_batch(
                 float(site.latitude), float(site.longitude),
                 country_code=site.country_code,
             )
-            source_ids = _ensure_data_sources(session)
             criteria = _persist_result(
-                session, site.site_id, result, run_id, source_ids,
+                session, site.site_id, result, run_id,
             )
             session.commit()
             batch.succeeded += 1
@@ -192,7 +193,7 @@ def enrich_batch(
         except Exception as exc:
             session.rollback()
             log.error("egdi_site_error", site_id=str(site.site_id), error=str(exc))
-            _persist_error_flag(session, site.site_id, run_id, str(exc))
+            _persist_error_observation(session, site.site_id, run_id, str(exc))
             session.commit()
             batch.failed += 1
             elapsed_ms = int((time.monotonic() - site_start) * 1000)
@@ -225,28 +226,21 @@ def enrich_batch(
 # Persistence helpers
 # ------------------------------------------------------------------
 
-
 def _check_cache(
     session: Session,
     site_id: uuid.UUID,
     run_id: str,
     ttl_days: int,
-) -> SiteAttribute | None:
-    """Check if NH-02 attribute already exists for this site+run."""
-    existing = (
-        session.query(SiteAttribute)
-        .filter_by(site_id=site_id, criterion_id="NH-02", run_id=run_id)
-        .first()
-    )
-    if existing and existing.fetched_at:
-        age = datetime.now(timezone.utc) - existing.fetched_at
-        if age < timedelta(days=ttl_days):
-            return existing
+) -> SiteNaturalHazards | None:
+    row = session.get(SiteNaturalHazards, site_id)
+    if row and row.nearest_fault_km is not None and row.fetched_at:
+        age = datetime.now(timezone.utc) - row.fetched_at
+        if age < timedelta(days=ttl_days) and row.run_id == run_id:
+            return row
     return None
 
 
 def _ensure_data_sources(session: Session) -> dict[str, uuid.UUID]:
-    """Create or retrieve DataSource records for each EGDI layer group."""
     ids: dict[str, uuid.UUID] = {}
     for name, (url, description) in _SOURCE_DESCRIPTIONS.items():
         existing = session.query(DataSource).filter_by(name=name).first()
@@ -268,139 +262,98 @@ def _persist_result(
     site_id: uuid.UUID,
     result: EgdiGeologyResult,
     run_id: str,
-    source_ids: dict[str, uuid.UUID],
 ) -> list[str]:
-    """Write up to 6 SiteAttribute rows and quality flags.
-
-    Returns list of criterion IDs that were written.
-    """
+    """Write geology data to SiteNaturalHazards + SiteRadiological columns."""
     now = datetime.now(timezone.utc)
     written: list[str] = []
 
+    nh_row = session.get(SiteNaturalHazards, site_id)
+    if nh_row is None:
+        nh_row = SiteNaturalHazards(site_id=site_id)
+        session.add(nh_row)
+
     # NH-02 — Fault activity
-    fault_src = source_ids.get("egdi_hike_faults")
-    fault_dist = None
     if result.faults:
-        fault_dist = result.faults.nearest_fault_distance_km
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="NH-02",
-        value_numeric=fault_dist,
-        value_json=result.faults.to_dict() if result.faults else None,
-        source_id=fault_src, fetched_at=now, run_id=run_id,
-    ))
+        nh_row.nearest_fault_km = result.faults.nearest_fault_distance_km
+        nh_row.fault_name = result.faults.nearest_fault_name if hasattr(result.faults, "nearest_fault_name") else None
+    nh_row.nh02_quality = "low" if (result.faults is None or result.faults.fault_count_within_buffer == 0) else "medium"
     written.append("NH-02")
     if result.faults is None or result.faults.fault_count_within_buffer == 0:
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="NH-02_faults",
-            level="low" if result.faults else "insufficient",
-            detail="No faults found within buffer — site may be outside HIKE coverage",
-            run_id=run_id,
+        session.add(SiteObservation(
+            site_id=site_id, criterion_id="NH-02", source_type="api",
+            observation="No faults found within buffer — site may be outside HIKE coverage",
+            impact="neutral", confidence=nh_row.nh02_quality or "low", run_id=run_id,
         ))
 
-    # NH-03 — Soil type (lithology for liquefaction assessment)
-    lith_src = source_ids.get("egdi_lithology")
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="NH-03",
-        value_text=result.lithology.lithology_class if result.lithology else None,
-        value_json=result.lithology.to_dict() if result.lithology else None,
-        source_id=lith_src, fetched_at=now, run_id=run_id,
-    ))
+    # NH-03 — Soil type (lithology)
+    if result.lithology:
+        nh_row.soil_type = result.lithology.lithology_class
+        nh_row.liquefaction_suscept = result.lithology.lithology_class
+    nh_row.nh03_quality = "low" if (result.lithology is None or result.lithology.lithology_class is None) else "medium"
     written.append("NH-03")
-    if result.lithology is None or result.lithology.lithology_class is None:
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="NH-03_lithology",
-            level="low",
-            detail="No lithology data returned from EGDI",
-            run_id=run_id,
-        ))
 
-    # NH-04 — Soil/rock type (reuses lithology, tagged for slope stability)
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="NH-04",
-        value_text=result.lithology.rock_type if result.lithology else None,
-        value_json=result.lithology.to_dict() if result.lithology else None,
-        source_id=lith_src, fetched_at=now, run_id=run_id,
-    ))
+    # NH-04 — Slope stability (reuses lithology rock_type)
+    if result.lithology:
+        nh_row.slope_stability_class = result.lithology.rock_type if hasattr(result.lithology, "rock_type") else None
+    nh_row.nh04_quality = nh_row.nh03_quality
     written.append("NH-04")
 
     # NH-05 — Mining history + karst
-    mine_src = source_ids.get("egdi_mines")
-    nh05_json: dict[str, Any] = {}
-    nh05_numeric: float | None = None
     if result.mines:
-        nh05_json["mines"] = result.mines.to_dict()
-        nh05_numeric = result.mines.nearest_mine_distance_km
+        nh_row.mining_void_present = result.mines.nearest_mine_distance_km is not None
     if result.karst:
-        nh05_json["karst"] = result.karst.to_dict()
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="NH-05",
-        value_numeric=nh05_numeric,
-        value_json=nh05_json or None,
-        source_id=mine_src, fetched_at=now, run_id=run_id,
-    ))
+        nh_row.karst_present = result.karst.coverage_available and result.karst.is_karst_zone if hasattr(result.karst, "is_karst_zone") else None
+    nh_row.nh05_quality = "medium"
     written.append("NH-05")
     if result.karst and not result.karst.coverage_available:
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="NH-05_karst",
-            level="insufficient",
-            detail="No EGDI karst data available for this country — S-03 OneGeology or national survey required",
-            run_id=run_id,
+        session.add(SiteObservation(
+            site_id=site_id, criterion_id="NH-05", source_type="api",
+            observation="No EGDI karst data available for this country — S-03 OneGeology or national survey required",
+            impact="negative", confidence="low", run_id=run_id,
         ))
 
     # NH-06 — Foundation (boreholes + hydrogeology)
-    bh_src = source_ids.get("egdi_boreholes")
-    nh06_json: dict[str, Any] = {}
-    if result.boreholes:
-        nh06_json["boreholes"] = result.boreholes.to_dict()
-    if result.hydrogeology:
-        nh06_json["hydrogeology"] = result.hydrogeology.to_dict()
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="NH-06",
-        value_json=nh06_json or None,
-        source_id=bh_src, fetched_at=now, run_id=run_id,
-    ))
+    if result.boreholes and hasattr(result.boreholes, "depth_m"):
+        nh_row.depth_to_bedrock_m = result.boreholes.depth_m
+    nh_row.nh06_quality = "low" if (result.boreholes and result.boreholes.borehole_count_within_buffer == 0) else "medium"
     written.append("NH-06")
     if result.boreholes and result.boreholes.borehole_count_within_buffer == 0:
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="NH-06_boreholes",
-            level="insufficient",
-            detail="No EGDI geotechnical boreholes within buffer — limited pilot coverage",
-            run_id=run_id,
+        session.add(SiteObservation(
+            site_id=site_id, criterion_id="NH-06", source_type="api",
+            observation="No EGDI geotechnical boreholes within buffer — limited pilot coverage",
+            impact="negative", confidence="low", run_id=run_id,
         ))
 
-    # RI-03 — Aquifer characteristics
-    hydro_src = source_ids.get("egdi_bgr_hydrogeology")
-    session.merge(SiteAttribute(
-        site_id=site_id, criterion_id="RI-03",
-        value_text=result.hydrogeology.aquifer_type if result.hydrogeology else None,
-        value_json=result.hydrogeology.to_dict() if result.hydrogeology else None,
-        source_id=hydro_src, fetched_at=now, run_id=run_id,
-    ))
+    nh_row.fetched_at = now
+    nh_row.run_id = run_id
+
+    # RI-03 — Aquifer characteristics → SiteRadiological
+    ri_row = session.get(SiteRadiological, site_id)
+    if ri_row is None:
+        ri_row = SiteRadiological(site_id=site_id)
+        session.add(ri_row)
+    if result.hydrogeology:
+        ri_row.aquifer_type = result.hydrogeology.aquifer_type
+    ri_row.ri03_quality = "low" if (result.hydrogeology is None or result.hydrogeology.aquifer_type is None) else "medium"
+    ri_row.fetched_at = now
+    ri_row.run_id = run_id
     written.append("RI-03")
-    if result.hydrogeology is None or result.hydrogeology.aquifer_type is None:
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="RI-03_aquifer",
-            level="low",
-            detail="No aquifer type data returned from BGR hydrogeological map",
-            run_id=run_id,
-        ))
 
-    # Overall quality flag
     if result.quality not in ("high", "medium"):
-        session.add(DataQualityFlag(
-            site_id=site_id, dataset="egdi_geology", dimension="completeness",
-            level=result.quality,
-            detail=result.error or f"Quality: {result.quality} — {len(result.layers_with_data)}/{len(result.layers_queried)} layers returned data",
-            run_id=run_id,
+        session.add(SiteObservation(
+            site_id=site_id, criterion_id="NH-02", source_type="api",
+            observation=result.error or f"Quality: {result.quality} — {len(result.layers_with_data)}/{len(result.layers_queried)} layers returned data",
+            impact="negative", confidence=result.quality, run_id=run_id,
         ))
 
     return written
 
 
-def _persist_error_flag(
+def _persist_error_observation(
     session: Session, site_id: uuid.UUID, run_id: str, error: str,
 ) -> None:
-    session.add(DataQualityFlag(
-        site_id=site_id, dataset="egdi_geology", dimension="availability",
-        level="insufficient", detail=f"Enrichment failed: {error}", run_id=run_id,
+    session.add(SiteObservation(
+        site_id=site_id, criterion_id="NH-02", source_type="api",
+        observation=f"Enrichment failed: {error}",
+        impact="blocking", confidence="low", run_id=run_id,
     ))

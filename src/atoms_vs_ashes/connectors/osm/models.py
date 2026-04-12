@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-CRITERION_IDS = ("EP-01", "HI-01", "HI-06", "HI-07", "NS-02", "NS-05")
+
 
 
 @dataclass

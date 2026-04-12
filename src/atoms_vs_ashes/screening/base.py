@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import json
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any
@@ -11,7 +10,7 @@ from typing import Any
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.config import Settings
-from atoms_vs_ashes.db.models import AuditLog, DataQualityFlag, ScreeningResult
+from atoms_vs_ashes.db.models import AuditLog, ScreeningVerdict
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
@@ -26,13 +25,14 @@ class CheckSummary:
     passed: int = 0
     failed: int = 0
     inconclusive: int = 0
+    caution: int = 0
     detail: dict[str, Any] = field(default_factory=dict)
 
 
 class ScreeningCheck(ABC):
     """Protocol that every screening check must follow.
 
-    Subclasses implement ``evaluate`` which yields per-site results.
+    Subclasses implement ``evaluate`` which yields per-site-per-SMR verdicts.
     The ``run`` method handles the write-to-DB + audit boilerplate.
     """
 
@@ -45,12 +45,8 @@ class ScreeningCheck(ABC):
         session: Session,
         settings: Settings,
         run_id: str,
-    ) -> list[ScreeningResult]:
-        """Produce screening results for all relevant sites.
-
-        Implementations should also create ``DataQualityFlag`` objects for
-        sites with missing data and add them to *session* directly.
-        """
+    ) -> list[ScreeningVerdict]:
+        """Produce screening verdicts for all relevant sites × SMR designs."""
         ...
 
     def run(
@@ -62,29 +58,31 @@ class ScreeningCheck(ABC):
         """Execute the check, persist results, and return a summary."""
         log.info("screening_check_start", criterion=self.criterion_id, run_id=run_id)
 
-        results = self.evaluate(session, settings, run_id)
+        verdicts = self.evaluate(session, settings, run_id)
 
-        for r in results:
-            session.merge(r)
+        for v in verdicts:
+            session.merge(v)
 
         session.add(
             AuditLog(
                 operation="screening",
-                table_name="screening_results",
+                table_name="screening_verdicts",
                 run_id=run_id,
                 message=(
                     f"BF check {self.criterion_id}: "
-                    f"{len(results)} results written"
+                    f"{len(verdicts)} verdicts written"
                 ),
             )
         )
 
-        summary = CheckSummary(criterion_id=self.criterion_id, total=len(results))
-        for r in results:
-            if r.verdict == "pass":
+        summary = CheckSummary(criterion_id=self.criterion_id, total=len(verdicts))
+        for v in verdicts:
+            if v.verdict == "pass":
                 summary.passed += 1
-            elif r.verdict == "fail":
+            elif v.verdict == "fail":
                 summary.failed += 1
+            elif v.verdict == "caution":
+                summary.caution += 1
             else:
                 summary.inconclusive += 1
 
@@ -95,6 +93,7 @@ class ScreeningCheck(ABC):
             passed=summary.passed,
             failed=summary.failed,
             inconclusive=summary.inconclusive,
+            caution=summary.caution,
         )
         return summary
 

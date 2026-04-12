@@ -1,14 +1,16 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # Land Availability (NS-05)
 
-**Generated:** 2026-04-02 18:26 UTC
+**Generated:** 2026-04-03 10:30 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Contiguous buildable land from OSM
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
+- **Coordinates:** 44.1456, 23.1234
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -17,8 +19,37 @@
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
+  "lat": 44.1456,
+  "lon": 23.1234,
+  "total_buildable_ha": 0.0,
+  "largest_patch_ha": 0.0,
+  "patch_count": 4,
+  "by_landuse": {
+    "farmland": 2,
+    "industrial": 2
+  },
+  "source": "osm_overpass_land",
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## PL - Bełchatów
+
+- **Coordinates:** 51.2644, 19.3278
+- **Status:** PASS (0 ms)
+- **Summary:** OK
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 51.2644,
+  "lon": 19.3278,
   "total_buildable_ha": 0.0,
   "largest_patch_ha": 0.0,
   "patch_count": 0,
@@ -32,9 +63,9 @@
 
 ---
 
-## AT - Duernrohr power station
+## CZ - Tušimice
 
-- **Coordinates:** 48.32611, 15.923333
+- **Coordinates:** 50.3928, 13.3278
 - **Status:** PASS (0 ms)
 - **Summary:** OK
 
@@ -43,18 +74,12 @@
 
 ```json
 {
-  "lat": 48.32611,
-  "lon": 15.923333,
+  "lat": 50.3928,
+  "lon": 13.3278,
   "total_buildable_ha": 0.0,
   "largest_patch_ha": 0.0,
-  "patch_count": 445,
-  "by_landuse": {
-    "industrial": 12,
-    "farmland": 392,
-    "quarry": 7,
-    "commercial": 15,
-    "farmyard": 19
-  },
+  "patch_count": 0,
+  "by_landuse": {},
   "source": "osm_overpass_land",
   "error": null
 }

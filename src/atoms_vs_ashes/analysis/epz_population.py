@@ -18,7 +18,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_quality_flag
+from atoms_vs_ashes.analysis._provenance import ensure_data_source, write_observation
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.connectors.population import (
     PopulatedPlace,
@@ -27,9 +27,10 @@ from atoms_vs_ashes.connectors.population import (
     RingPopulation,
 )
 from atoms_vs_ashes.db.models import (
-    ScreeningResult,
+    ScreeningVerdict as ScreeningVerdictModel,
     Site,
-    SiteAttribute,
+    SiteRadiological,
+    SmrDesign,
 )
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.screening.base import ScreeningCheck, register_check
@@ -176,7 +177,9 @@ class PopulationDensityCheck(ScreeningCheck):
         session: Session,
         settings: Settings,
         run_id: str,
-    ) -> list[ScreeningResult]:
+    ) -> list[ScreeningVerdictModel]:
+        from datetime import datetime, timezone
+
         epz_cfg = _epz_config(settings)
         radii_km = epz_cfg.get("radii_km", DEFAULT_EPZ_RADII_KM)
         density_threshold = epz_cfg.get(
@@ -188,15 +191,16 @@ class PopulationDensityCheck(ScreeningCheck):
 
         connector = PopulationConnector(settings)
 
-        source_id = ensure_data_source(
+        ensure_data_source(
             session,
             name="osm_overpass_population",
             url=connector._overpass._url,
             description="OSM Overpass API for population density screening",
         )
 
+        smr_designs = session.execute(select(SmrDesign)).scalars().all()
         sites = session.execute(select(Site)).scalars().all()
-        results: list[ScreeningResult] = []
+        verdicts: list[ScreeningVerdictModel] = []
 
         for site in sites:
             lat, lon = float(site.latitude), float(site.longitude)
@@ -216,7 +220,6 @@ class PopulationDensityCheck(ScreeningCheck):
                 )
                 pop_result = PopulationResult(lat=lat, lon=lon, error=str(exc))
 
-            # RI-04: population density verdict
             verdict, value_dict, justification = evaluate_ri04(
                 pop_result.rings, density_threshold,
             )
@@ -224,90 +227,70 @@ class PopulationDensityCheck(ScreeningCheck):
             elapsed_ms = int((time.monotonic() - t0) * 1000)
 
             if verdict == "inconclusive":
-                write_quality_flag(
-                    session,
-                    site_id=site.site_id,
-                    dataset="population",
-                    dimension="epz_density",
-                    level="low",
-                    detail="Population data unavailable for RI-04 screening",
-                    run_id=run_id,
+                write_observation(
+                    session, site_id=site.site_id, criterion_id=RI04_CRITERION_ID,
+                    observation="Population data unavailable for RI-04 screening",
+                    run_id=run_id, confidence="low", impact="blocking",
                 )
 
             if pop_result.rings and all(r.place_count == 0 for r in pop_result.rings):
-                write_quality_flag(
-                    session,
-                    site_id=site.site_id,
-                    dataset="population",
-                    dimension="epz_density",
-                    level="medium",
-                    detail="Zero populated places found; density may be underestimated",
-                    run_id=run_id,
+                write_observation(
+                    session, site_id=site.site_id, criterion_id=RI04_CRITERION_ID,
+                    observation="Zero populated places found; density may be underestimated",
+                    run_id=run_id, confidence="medium", impact="negative",
                 )
 
             threshold_text = (
                 f">{density_threshold:,.0f} persons/km² within "
                 f"{radii_km[0]} km (EPRI avoidance)"
             )
-            results.append(
-                ScreeningResult(
-                    site_id=site.site_id,
-                    criterion_id=self.criterion_id,
-                    phase=self.phase,
-                    verdict=verdict,
-                    value=json.dumps(value_dict),
-                    threshold=threshold_text,
-                    justification=justification,
-                    source_refs="osm_overpass / geonames (population)",
-                    run_id=run_id,
-                )
-            )
 
-            # FIX-01-E: RI-04 dual persistence — also as SiteAttribute
-            max_ring_density = 0.0
-            max_ring_label = ""
-            density_by_ring = {}
+            ri_row = session.get(SiteRadiological, site.site_id)
+            if ri_row is None:
+                ri_row = SiteRadiological(site_id=site.site_id)
+                session.add(ri_row)
+
             for r in pop_result.rings:
-                label = f"{r.inner_km}-{r.outer_km}km"
-                density_by_ring[label] = round(r.density_per_km2, 1)
-                if r.density_per_km2 > max_ring_density:
-                    max_ring_density = r.density_per_km2
-                    max_ring_label = label
+                if r.outer_km <= 5.5:
+                    ri_row.pop_density_5km = r.density_per_km2
+                    ri_row.pop_total_5km = r.population
+                elif r.outer_km <= 16.5:
+                    ri_row.pop_density_16km = r.density_per_km2
+                    ri_row.pop_total_16km = r.population
+                elif r.outer_km <= 25.5:
+                    ri_row.pop_density_25km = r.density_per_km2
+                    ri_row.pop_total_25km = r.population
+                elif r.outer_km <= 80.5:
+                    ri_row.pop_density_80km = r.density_per_km2
+                    ri_row.pop_total_80km = r.population
+            ri_row.ri04_quality = "low" if verdict == "inconclusive" else "medium"
+            ri_row.fetched_at = datetime.now(timezone.utc)
+            ri_row.run_id = run_id
 
-            session.merge(
-                SiteAttribute(
-                    site_id=site.site_id,
-                    criterion_id=RI04_CRITERION_ID,
-                    value_numeric=max_ring_density,
-                    value_json={
-                        "ring_densities": density_by_ring,
-                        "max_density_ring": max_ring_label,
-                        "max_density_value": round(max_ring_density, 1),
-                        "verdict": verdict,
-                        "threshold_persons_per_km2": density_threshold,
-                    },
-                    source_id=source_id,
-                    run_id=run_id,
-                    cache_status="fresh",
-                )
-            )
-
-            # RI-05: city distance (ranking — stored as SiteAttribute)
             ri05_data = evaluate_ri05(
                 pop_result.nearest_large_cities, city_threshold,
             )
-            ri05_distance = ri05_data.get("nearest_city_distance_km")
-            session.merge(
-                SiteAttribute(
-                    site_id=site.site_id,
-                    criterion_id=RI05_CRITERION_ID,
-                    value_numeric=ri05_distance,
-                    value_json=ri05_data,
-                    source_id=source_id,
-                    run_id=run_id,
-                    cache_status="fresh",
+            ri_row.nearest_city_50k_km = ri05_data.get("nearest_city_distance_km")
+            ri_row.nearest_city_name = ri05_data.get("nearest_city_name")
+            ri_row.nearest_city_pop = ri05_data.get("nearest_city_population")
+            ri_row.ri05_quality = "medium" if ri05_data.get("nearest_city_name") else "low"
+
+            for smr in smr_designs:
+                verdicts.append(
+                    ScreeningVerdictModel(
+                        site_id=site.site_id,
+                        smr_key=smr.smr_key,
+                        criterion_id=self.criterion_id,
+                        phase=self.phase,
+                        verdict=verdict,
+                        measured_value=json.dumps(value_dict),
+                        threshold=threshold_text,
+                        justification=justification,
+                        confidence="medium" if verdict != "inconclusive" else "low",
+                        data_sources=["osm_overpass", "geonames (population)"],
+                        run_id=run_id,
+                    )
                 )
-            )
 
             log.info(
                 "epz_population_screen_ok",
@@ -319,8 +302,8 @@ class PopulationDensityCheck(ScreeningCheck):
             )
 
         connector.close()
-        log.info("epz_population_persist_ok", run_id=run_id, site_count=len(results))
-        return results
+        log.info("epz_population_persist_ok", run_id=run_id, site_count=len(verdicts))
+        return verdicts
 
 
 # ---------------------------------------------------------------------------

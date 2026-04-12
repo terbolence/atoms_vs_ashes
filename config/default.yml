@@ -218,6 +218,29 @@ scoring:
     site_characteristics: 0.10
     socioeconomic_synergies: 0.15
 
+llm:
+  provider: anthropic
+  api_key: null  # env: ANTHROPIC_API_KEY
+  database_profile: llm  # connects to atoms_vs_ashes_llm
+  models:
+    tier1_exclusionary: claude-sonnet-4-20250514
+    tier2_avoidance: claude-sonnet-4-20250514
+    tier3_ranking: claude-haiku-3.5-20250401
+  tier1_thinking_budget: 16384
+  temperature: 0.0
+  max_tokens: 4096
+  max_tokens_tier1: 16384
+  max_tokens_tier2: 4096
+  max_tokens_tier3: 2048
+  max_concurrent: 50
+  rps: 40
+  timeout_s: 120
+  retry:
+    max_retries: 3
+    base_delay_s: 2
+    max_delay_s: 60
+  few_shot_examples: true
+
 cache:
   default_ttl_days: 30
 

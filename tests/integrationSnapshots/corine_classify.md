@@ -1,24 +1,26 @@
-<!-- man_hours: 0.1 -->
+<!-- man_hours: 0.0 -->
 # CORINE Land Cover - classify()
 
-**Generated:** 2026-04-02 18:22 UTC
+**Generated:** 2026-04-03 10:26 UTC
+**Run ID:** 20260403T102652_8572b44b
 **Description:** Fetch CLC features + ring classification
+**Sites:** 3 processed, 0 successful, 0 failed
 
 ---
 
-## AL - Porto Romano Power Station
+## RO - Rovinari
 
-- **Coordinates:** 41.371141, 19.425201
-- **Status:** PASS (5449 ms)
-- **Summary:** 28 features, 3 rings, dev=538.2ha
+- **Coordinates:** 44.1456, 23.1234
+- **Status:** PASS (2631 ms)
+- **Summary:** 14 features, 3 rings, dev=1256.5ha
 
 <details>
 <summary>Full response</summary>
 
 ```json
 {
-  "lat": 41.371141,
-  "lon": 19.425201,
+  "lat": 44.1456,
+  "lon": 23.1234,
   "rings": [
     {
       "label": "0-500m",
@@ -26,81 +28,7 @@
       "outer_m": 500,
       "total_area_ha": 78.53,
       "by_class": {
-        "112": 53.359,
-        "123": 5.398,
-        "211": 16.352,
-        "324": 1.645,
-        "523": 1.778
-      },
-      "developable_ha": 16.352
-    },
-    {
-      "label": "500m-1km",
-      "inner_m": 500,
-      "outer_m": 1000,
-      "total_area_ha": 235.6,
-      "by_class": {
-        "112": 23.78,
-        "121": 14.349,
-        "123": 14.051,
-        "211": 77.495,
-        "231": 12.498,
-        "324": 14.409,
-        "523": 79.014
-      },
-      "developable_ha": 104.342
-    },
-    {
-      "label": "1-2km",
-      "inner_m": 1000,
-      "outer_m": 2000,
-      "total_area_ha": 942.38,
-      "by_class": {
-        "112": 41.872,
-        "121": 33.153,
-        "123": 28.262,
-        "211": 349.828,
-        "231": 34.492,
-        "323": 29.12,
-        "324": 34.259,
-        "523": 391.396
-      },
-      "developable_ha": 417.473
-    }
-  ],
-  "total_developable_ha": 538.168,
-  "source": "corine_wfs",
-  "error": null
-}
-```
-
-</details>
-
----
-
-## AT - Duernrohr power station
-
-- **Coordinates:** 48.32611, 15.923333
-- **Status:** PASS (1299 ms)
-- **Summary:** 57 features, 3 rings, dev=1014.5ha
-
-<details>
-<summary>Full response</summary>
-
-```json
-{
-  "lat": 48.32611,
-  "lon": 15.923333,
-  "rings": [
-    {
-      "label": "0-500m",
-      "inner_m": 0,
-      "outer_m": 500,
-      "total_area_ha": 78.53,
-      "by_class": {
-        "121": 54.143,
-        "211": 22.316,
-        "243": 2.074
+        "211": 78.532
       },
       "developable_ha": 78.532
     },
@@ -110,12 +38,9 @@
       "outer_m": 1000,
       "total_area_ha": 235.6,
       "by_class": {
-        "112": 0.02,
-        "121": 68.645,
-        "211": 134.945,
-        "243": 31.985
+        "211": 235.596
       },
-      "developable_ha": 235.576
+      "developable_ha": 235.596
     },
     {
       "label": "1-2km",
@@ -123,19 +48,142 @@
       "outer_m": 2000,
       "total_area_ha": 942.38,
       "by_class": {
-        "112": 115.358,
-        "121": 27.998,
-        "142": 100.59,
-        "211": 634.936,
-        "243": 37.469,
-        "311": 16.291,
-        "512": 0.682,
-        "511": 9.058
+        "211": 942.383
       },
-      "developable_ha": 700.404
+      "developable_ha": 942.383
     }
   ],
-  "total_developable_ha": 1014.512,
+  "total_developable_ha": 1256.511,
+  "source": "corine_wfs",
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## PL - Bełchatów
+
+- **Coordinates:** 51.2644, 19.3278
+- **Status:** PASS (651 ms)
+- **Summary:** 64 features, 3 rings, dev=677.2ha
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 51.2644,
+  "lon": 19.3278,
+  "rings": [
+    {
+      "label": "0-500m",
+      "inner_m": 0,
+      "outer_m": 500,
+      "total_area_ha": 78.53,
+      "by_class": {
+        "121": 78.532
+      },
+      "developable_ha": 78.532
+    },
+    {
+      "label": "500m-1km",
+      "inner_m": 500,
+      "outer_m": 1000,
+      "total_area_ha": 235.6,
+      "by_class": {
+        "121": 191.599,
+        "312": 40.3,
+        "324": 3.697
+      },
+      "developable_ha": 191.599
+    },
+    {
+      "label": "1-2km",
+      "inner_m": 1000,
+      "outer_m": 2000,
+      "total_area_ha": 942.38,
+      "by_class": {
+        "121": 303.663,
+        "131": 96.537,
+        "231": 0.199,
+        "242": 6.688,
+        "312": 393.739,
+        "324": 141.558
+      },
+      "developable_ha": 407.087
+    }
+  ],
+  "total_developable_ha": 677.217,
+  "source": "corine_wfs",
+  "error": null
+}
+```
+
+</details>
+
+---
+
+## CZ - Tušimice
+
+- **Coordinates:** 50.3928, 13.3278
+- **Status:** PASS (1590 ms)
+- **Summary:** 73 features, 3 rings, dev=907.1ha
+
+<details>
+<summary>Full response</summary>
+
+```json
+{
+  "lat": 50.3928,
+  "lon": 13.3278,
+  "rings": [
+    {
+      "label": "0-500m",
+      "inner_m": 0,
+      "outer_m": 500,
+      "total_area_ha": 78.53,
+      "by_class": {
+        "121": 6.96,
+        "211": 15.309,
+        "231": 0.558,
+        "313": 55.706
+      },
+      "developable_ha": 22.826
+    },
+    {
+      "label": "500m-1km",
+      "inner_m": 500,
+      "outer_m": 1000,
+      "total_area_ha": 235.6,
+      "by_class": {
+        "121": 63.907,
+        "211": 45.422,
+        "231": 37.609,
+        "313": 88.657
+      },
+      "developable_ha": 146.938
+    },
+    {
+      "label": "1-2km",
+      "inner_m": 1000,
+      "outer_m": 2000,
+      "total_area_ha": 942.38,
+      "by_class": {
+        "121": 177.541,
+        "131": 0.567,
+        "211": 216.725,
+        "222": 30.803,
+        "231": 342.489,
+        "311": 2.444,
+        "313": 141.734,
+        "324": 30.08
+      },
+      "developable_ha": 737.322
+    }
+  ],
+  "total_developable_ha": 907.086,
   "source": "corine_wfs",
   "error": null
 }
