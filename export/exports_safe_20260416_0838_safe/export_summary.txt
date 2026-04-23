@@ -1,0 +1,9 @@
+Safe Export Summary
+==================
+
+Version: 20260416_0838_safe
+Timestamp: 2026-04-16T08:39:11.411341
+
+Results:
+✓ API database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_safe_20260416_0838_safe/api/atoms_vs_ashes_api.xlsx (1.8 MB)
+✓ LLM database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_safe_20260416_0838_safe/llm/atoms_vs_ashes_llm.xlsx (14.3 MB)

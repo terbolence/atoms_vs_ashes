@@ -1,0 +1,9 @@
+Export Summary
+==============
+
+Version: 20260416_0835
+Timestamp: 2026-04-16T08:35:46.425210
+Export directory: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260416_0835
+
+Files created:
+- API database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260416_0835/api/atoms_vs_ashes_api.xlsx (3.0 MB)

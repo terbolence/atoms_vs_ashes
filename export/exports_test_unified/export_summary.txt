@@ -1,0 +1,10 @@
+Database Export Summary
+======================
+
+Version: test_unified
+Timestamp: 2026-04-16T08:56:02.712299
+Export directory: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_test_unified
+Clear naming: No
+
+Export Results:
+✓ API database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_test_unified/api/atoms_vs_ashes_api.xlsx (3.0 MB)
