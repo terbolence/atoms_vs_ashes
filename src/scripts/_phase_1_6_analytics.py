@@ -6,15 +6,12 @@ then produces stability metrics vs. the ``baseline`` profile:
 
 - Scored-pair coverage (how many (site, SMR) pairs carry a numeric
   ``composite_score`` under a profile).
-- Top-N (10 / 20) overlap and Jaccard with the baseline ranking.
+- Pct-based top-N (top-5 % / top-10 %) overlap and Jaccard with the
+  baseline ranking, size-independent by design.
 - Mean / max absolute composite-score drift across all pairs that
   are scored under *both* profiles.
 - Per-category roll-up for the weight profiles
   (``w_<CAT>_plus_20`` / ``w_<CAT>_minus_20``).
-
-Kept as a standalone helper (rather than inside
-:mod:`scripts._phase_1_6_audit`) so every file stays well under the
-300-line rule and so the markdown writer has no DB dependencies.
 """
 
 from __future__ import annotations
@@ -39,6 +36,9 @@ class ProfileRow:
     country_code: str
 
 
+TOP_PCTS: tuple[float, float] = (0.05, 0.10)
+
+
 @dataclass
 class ProfileStats:
     """Per-profile stability + drift block."""
@@ -46,9 +46,12 @@ class ProfileStats:
     label: str
     total_rows: int
     scored_rows: int
-    top10_overlap: int
-    top20_overlap: int
-    top20_jaccard: float
+    top5pct_size: int
+    top10pct_size: int
+    top5pct_overlap: int
+    top10pct_overlap: int
+    top5pct_jaccard: float
+    top10pct_jaccard: float
     mean_abs_drift: float | None
     max_abs_drift: float | None
     pairs_drift_compared: int
@@ -61,7 +64,9 @@ class PhaseAnalytics:
     baseline_label: str
     baseline_total_rows: int
     baseline_scored_rows: int
-    baseline_top20_countries: dict[str, int] = field(default_factory=dict)
+    baseline_top5pct_size: int = 0
+    baseline_top10pct_size: int = 0
+    baseline_top10pct_countries: dict[str, int] = field(default_factory=dict)
     profiles: list[ProfileStats] = field(default_factory=list)
     per_category_weight: list[tuple[str, float, int]] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
@@ -101,6 +106,12 @@ def _top_keys(rows: list[ProfileRow], n: int) -> list[tuple[str, str]]:
     scored = [r for r in rows if r.composite_score is not None]
     scored.sort(key=lambda r: r.composite_score, reverse=True)  # type: ignore[arg-type]
     return [(r.site_id, r.smr_key) for r in scored[:n]]
+
+
+def _top_pct_size(rows: list[ProfileRow], pct: float) -> int:
+    """Number of scored pairs to consider for the top-``pct`` slice."""
+    scored = sum(1 for r in rows if r.composite_score is not None)
+    return max(1, int(pct * scored)) if scored else 0
 
 
 def _jaccard(a: list[tuple[str, str]], b: list[tuple[str, str]]) -> float:
@@ -161,16 +172,20 @@ def compute_analytics(
         )
 
     baseline_scored = [r for r in baseline_rows if r.composite_score is not None]
-    baseline_top20 = _top_keys(baseline_rows, 20)
-    baseline_top10 = set(_top_keys(baseline_rows, 10))
-    top20_countries = _country_counts(baseline_top20, baseline_rows)
+    top5_size = _top_pct_size(baseline_rows, TOP_PCTS[0])
+    top10_size = _top_pct_size(baseline_rows, TOP_PCTS[1])
+    baseline_top5 = _top_keys(baseline_rows, top5_size)
+    baseline_top10 = _top_keys(baseline_rows, top10_size)
+    top10_countries = _country_counts(baseline_top10, baseline_rows)
 
     profile_stats: list[ProfileStats] = []
     for label, rows in sorted(rows_by_profile.items()):
         if label == baseline_label:
             continue
-        top10 = _top_keys(rows, 10)
-        top20 = _top_keys(rows, 20)
+        p_top5_size = _top_pct_size(rows, TOP_PCTS[0])
+        p_top10_size = _top_pct_size(rows, TOP_PCTS[1])
+        top5 = _top_keys(rows, p_top5_size)
+        top10 = _top_keys(rows, p_top10_size)
         mean_drift, max_drift, compared = _drift(baseline_rows, rows)
         scored_rows = sum(1 for r in rows if r.composite_score is not None)
         profile_stats.append(
@@ -178,9 +193,12 @@ def compute_analytics(
                 label=label,
                 total_rows=len(rows),
                 scored_rows=scored_rows,
-                top10_overlap=len(set(top10) & baseline_top10),
-                top20_overlap=len(set(top20) & set(baseline_top20)),
-                top20_jaccard=_jaccard(top20, baseline_top20),
+                top5pct_size=p_top5_size,
+                top10pct_size=p_top10_size,
+                top5pct_overlap=len(set(top5) & set(baseline_top5)),
+                top10pct_overlap=len(set(top10) & set(baseline_top10)),
+                top5pct_jaccard=_jaccard(top5, baseline_top5),
+                top10pct_jaccard=_jaccard(top10, baseline_top10),
                 mean_abs_drift=mean_drift,
                 max_abs_drift=max_drift,
                 pairs_drift_compared=compared,
@@ -193,7 +211,9 @@ def compute_analytics(
         baseline_label=baseline_label,
         baseline_total_rows=len(baseline_rows),
         baseline_scored_rows=len(baseline_scored),
-        baseline_top20_countries=top20_countries,
+        baseline_top5pct_size=top5_size,
+        baseline_top10pct_size=top10_size,
+        baseline_top10pct_countries=top10_countries,
         profiles=profile_stats,
         per_category_weight=per_category,
         warnings=warnings,
@@ -203,7 +223,7 @@ def compute_analytics(
 def _per_category_weight_roll_up(
     stats: list[ProfileStats],
 ) -> list[tuple[str, float, int]]:
-    """Average mean-abs-drift + top-20 overlap per NH/HI/RI/EP/NS bucket."""
+    """Average mean-abs-drift + top-10 % overlap per NH/HI/RI/EP/NS bucket."""
     buckets: dict[str, list[ProfileStats]] = defaultdict(list)
     for s in stats:
         if not s.label.startswith("w_"):
@@ -216,14 +236,8 @@ def _per_category_weight_roll_up(
     out: list[tuple[str, float, int]] = []
     for cat, items in sorted(buckets.items()):
         drifts = [i.mean_abs_drift for i in items if i.mean_abs_drift is not None]
-        overlap = [i.top20_overlap for i in items]
+        overlap = [i.top10pct_overlap for i in items]
         if not drifts or not overlap:
             continue
-        out.append(
-            (
-                cat,
-                round(fmean(drifts), 4),
-                round(fmean(overlap)),
-            )
-        )
+        out.append((cat, round(fmean(drifts), 4), round(fmean(overlap))))
     return out

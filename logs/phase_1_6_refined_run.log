@@ -1,0 +1,101 @@
+{"pairs": 2904, "profile": "baseline", "baseline_run_id": "20260421T140803_e73831f6", "event": "sensitivity_pairs_loaded", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:37:42.531654Z"}
+{"pairs": 2056, "criteria": 48, "event": "oat_importance_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:37:49.561981Z"}
+OAT importance (zero-out per criterion) ━━━━━━━━━━━━━━━━━━━━━ 100% 48/48 0:00:00
+
+{"criteria": 48, "csv_path": "audit/post_processing/06_scoring/20260423_oat_importance.csv", "event": "oat_stage_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:37:49.563118Z"}
+{"pairs": 2904, "profile": "baseline", "baseline_run_id": "20260421T140803_e73831f6", "event": "sensitivity_pairs_loaded", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:37:52.874613Z"}
+{"pairs": 2904, "profiles": ["w_NH_plus_20", "w_NH_minus_20", "w_HI_plus_20", "w_HI_minus_20", "w_RI_plus_20", "w_RI_minus_20", "w_EP_plus_20", "w_EP_minus_20", "w_NS_plus_20", "w_NS_minus_20"], "event": "weight_sensitivity_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:37:54.357732Z"}
+{"pairs": 2904, "iterations": 10000, "preset": null, "event": "monte_carlo_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:26.938337Z"}
+Monte Carlo (10000 draws) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 2904/2904 0:00:00
+
+{"direction": "threshold_minus_25", "factor": 0.75, "pairs": 2904, "event": "threshold_sensitivity_direction_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:38.187950Z"}
+{"direction": "threshold_plus_25", "factor": 1.25, "pairs": 2904, "event": "threshold_sensitivity_direction_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:47.593055Z"}
+{"directions": ["threshold_minus_25", "threshold_plus_25"], "event": "threshold_sensitivity_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:47.599914Z"}
+Threshold ±25 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 5808/5808 0:00:00
+
+{"path": "audit/post_processing/06_scoring/20260423_sensitivity_mc_10000.md", "event": "sensitivity_audit_written", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:48.761336Z"}
+{"run_id": "p16_20260423T163739_074314b6", "pairs": 2904, "iterations": 10000, "preset": null, "weight_rows": 29040, "mc_rows": 2904, "country_rows": 2904, "threshold_rows": 5808, "event": "sensitivity_suite_complete", "level": "info", "timestamp": "2026-04-23T16:49:48.761365Z"}
+{"sites": 257, "band_counts": {"A": 10, "B": 15, "C": 1, "D": 231}, "csv_path": "audit/post_processing/06_scoring/20260423_site_bands.csv", "event": "banding_stage_complete", "run_id": "p16_20260423T163739_074314b6", "level": "info", "timestamp": "2026-04-23T16:49:49.187720Z"}
+{
+  "stage": "oat",
+  "message": "running OAT importance (Phase A)"
+}
+{
+  "stage": "oat",
+  "csv_path": "audit/post_processing/06_scoring/20260423_oat_importance.csv",
+  "criteria_scored": 48,
+  "top_criterion": "NH-01",
+  "top_importance": 0.0934
+}
+{
+  "stage": 1,
+  "message": "running first stage (weights + mc + country + threshold)",
+  "iterations": 10000,
+  "run_id": "p16_20260423T163739_074314b6"
+}
+{
+  "run_id": "p16_20260423T163739_074314b6",
+  "pairs": 2904,
+  "iterations": 10000,
+  "preset_label": null,
+  "weight_rows_persisted": 29040,
+  "mc_rows_persisted": 2904,
+  "country_balanced_rows_persisted": 2904,
+  "threshold_rows_persisted": 5808,
+  "country_report": {
+    "total_sites": 2056,
+    "top_n": 20,
+    "max_share": 0.4,
+    "flagged": false,
+    "country_counts": {
+      "PL": 8,
+      "HU": 8,
+      "UA": 4
+    }
+  },
+  "audit_path": "audit/post_processing/06_scoring/20260423_sensitivity_mc_10000.md",
+  "mc_label": "mc_10000",
+  "notes": []
+}
+{
+  "stage": "banding",
+  "message": "running site banding (Phase C)"
+}
+{
+  "stage": "banding",
+  "csv_path": "audit/post_processing/06_scoring/20260423_site_bands.csv",
+  "sites_total": 257,
+  "band_counts": {
+    "A": 10,
+    "B": 15,
+    "C": 1,
+    "D": 231
+  },
+  "scenarios_used": [
+    "country_balanced",
+    "mc_10000",
+    "threshold_minus_25",
+    "threshold_plus_25",
+    "w_EP_minus_20",
+    "w_EP_plus_20",
+    "w_HI_minus_20",
+    "w_HI_plus_20",
+    "w_NH_minus_20",
+    "w_NH_plus_20",
+    "w_NS_minus_20",
+    "w_NS_plus_20",
+    "w_RI_minus_20",
+    "w_RI_plus_20"
+  ]
+}
+{
+  "message": "phase_1_6_sensitivity_complete",
+  "run_id": "p16_20260423T163739_074314b6",
+  "stages": 1,
+  "consolidated_audit": "audit/post_processing/06_scoring/20260423_phase1_6_sensitivity.md",
+  "per_stage_audits": [
+    "audit/post_processing/06_scoring/20260423_sensitivity_mc_10000.md"
+  ],
+  "importance_csv": "audit/post_processing/06_scoring/20260423_oat_importance.csv",
+  "bands_csv": "audit/post_processing/06_scoring/20260423_site_bands.csv"
+}

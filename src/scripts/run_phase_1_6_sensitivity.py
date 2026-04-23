@@ -1,35 +1,17 @@
 #!/usr/bin/env python
 # man_hours: 3.0
-"""Phase 1.6 sensitivity driver.
+"""Phase 1.6 sensitivity driver (refined).
 
-Executes the full sensitivity matrix required by
-``.cursor/plans/siting_report_end_to_end_4a5dbb0d.plan.md`` §1.6:
+End-to-end refined sensitivity analysis per
+``.cursor/plans/phase_1.6_refined_sensitivity_8e58bf1f.plan.md``:
 
-- Per-category weight perturbation ±20 % — one profile pair per family
-  (``w_NH_plus_20`` / ``w_NH_minus_20`` / ``w_HI_…`` / ``w_RI_…`` /
-  ``w_EP_…`` / ``w_NS_…``). Uniform ±20 % scaling across every
-  criterion is a renormalisation no-op so we perturb one family at a
-  time instead.
-- Monte Carlo @ N = 1000, 3000, 10000 (``mc_1000`` / ``mc_3000`` /
-  ``mc_10000`` profiles).
-- Threshold ±25 % (``threshold_plus_25`` / ``threshold_minus_25`` profiles).
-- Country-balanced top-N check (``country_balanced`` profile).
+- Phase A — OAT importance CSV (``<stamp>_oat_importance.csv``).
+- Phase B — regulatory matrix in ``composite_rankings`` (per-category
+  ±20 % weights, Monte Carlo @ N=10000, threshold ±25 %, country-balance).
+- Phase C — site banding CSV (``<stamp>_site_bands.csv``).
 
-All rows land in ``composite_rankings`` of the selected DB. A single
-consolidated markdown audit report is written under
-``audit/post_processing/06_scoring/`` alongside the per-MC-count audit
-files emitted by :func:`run_sensitivity_suite`.
-
-Example
--------
-::
-
-    python -m scripts.run_phase_1_6_sensitivity \\
-        --db-profile merged \\
-        --top-n-country 20
-
-Runs against the merged DB (where baseline ``composite_rankings`` live)
-and produces the full Phase 1.6 audit package.
+A consolidated markdown audit is written under
+``audit/post_processing/06_scoring/`` alongside per-MC-stage audits.
 """
 
 from __future__ import annotations
@@ -52,6 +34,14 @@ load_dotenv(_PROJECT_ROOT / ".env", override=False)
 from atoms_vs_ashes.config import Settings  # noqa: E402
 from atoms_vs_ashes.db.engine import init_engine, session_scope  # noqa: E402
 from atoms_vs_ashes.logging import configure_logging, new_run_id  # noqa: E402
+from atoms_vs_ashes.scoring._suite_banding import (  # noqa: E402
+    BandingRunResult,
+    run_banding_stage,
+)
+from atoms_vs_ashes.scoring._suite_importance import (  # noqa: E402
+    OATRunResult,
+    run_oat_stage,
+)
 from atoms_vs_ashes.scoring.suite import (  # noqa: E402
     DEFAULT_AUDIT_DIR,
     DEFAULT_RUBRIC_DIR,
@@ -68,7 +58,7 @@ DB_PROFILES = {
     "merged": "atoms_vs_ashes_merged",
 }
 
-MC_ITERATION_STAGES: tuple[int, ...] = (1000, 3000, 10000)
+MC_ITERATION_STAGES: tuple[int, ...] = (10000,)
 
 
 def _parse_args() -> argparse.Namespace:
@@ -104,12 +94,22 @@ def _parse_args() -> argparse.Namespace:
         nargs="+",
         type=int,
         default=list(MC_ITERATION_STAGES),
-        help="Monte Carlo iteration stages (default: 1000 3000 10000).",
+        help="Monte Carlo iteration stages (default: 10000).",
     )
     parser.add_argument(
         "--skip-threshold",
         action="store_true",
         help="Skip the threshold ±25 %% direction (slowest stage).",
+    )
+    parser.add_argument(
+        "--skip-oat",
+        action="store_true",
+        help="Skip the OAT importance stage (useful when re-running audit only).",
+    )
+    parser.add_argument(
+        "--skip-banding",
+        action="store_true",
+        help="Skip the site banding stage.",
     )
     parser.add_argument(
         "--run-id",
@@ -189,6 +189,54 @@ def _run_pipeline(
     return stages
 
 
+def _run_oat(args: argparse.Namespace, audit_dir: Path) -> OATRunResult | None:
+    if args.skip_oat:
+        return None
+    _print({"stage": "oat", "message": "running OAT importance (Phase A)"})
+    with session_scope() as session:
+        result = run_oat_stage(
+            session,
+            weight_profile_base=args.weight_profile_base,
+            rubric_dir=args.rubric_dir,
+            audit_dir=audit_dir,
+            progress_enabled=not args.no_progress,
+        )
+    _print(
+        {
+            "stage": "oat",
+            "csv_path": str(result.csv_path),
+            "criteria_scored": result.criteria_scored,
+            "top_criterion": result.top_criterion,
+            "top_importance": result.top_importance,
+        }
+    )
+    return result
+
+
+def _run_banding(
+    args: argparse.Namespace, audit_dir: Path
+) -> BandingRunResult | None:
+    if args.skip_banding:
+        return None
+    _print({"stage": "banding", "message": "running site banding (Phase C)"})
+    with session_scope() as session:
+        result = run_banding_stage(
+            session,
+            audit_dir=audit_dir,
+            baseline_label=args.weight_profile_base,
+        )
+    _print(
+        {
+            "stage": "banding",
+            "csv_path": str(result.csv_path),
+            "sites_total": result.sites_total,
+            "band_counts": result.band_counts,
+            "scenarios_used": result.scenarios_used,
+        }
+    )
+    return result
+
+
 def main() -> int:
     args = _parse_args()
 
@@ -208,14 +256,22 @@ def main() -> int:
         "top_n_country": args.top_n_country,
     }
 
+    oat = _run_oat(args, audit_dir)
     stages = _run_pipeline(args, run_id, common)
+    banding = _run_banding(args, audit_dir)
 
     with session_scope() as analytics_session:
         analytics = compute_analytics(
             analytics_session, baseline_label=args.weight_profile_base
         )
     consolidated = write_consolidated_audit(
-        audit_dir, run_id, args.db_profile, stages, analytics
+        audit_dir,
+        run_id,
+        args.db_profile,
+        stages,
+        analytics,
+        importance_csv=oat.csv_path if oat else None,
+        bands_csv=banding.csv_path if banding else None,
     )
     _print(
         {
@@ -224,6 +280,8 @@ def main() -> int:
             "stages": len(stages),
             "consolidated_audit": str(consolidated),
             "per_stage_audits": [str(s.audit_path) for s in stages],
+            "importance_csv": str(oat.csv_path) if oat else None,
+            "bands_csv": str(banding.csv_path) if banding else None,
         }
     )
     return 0

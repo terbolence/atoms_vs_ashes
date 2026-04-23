@@ -1,16 +1,10 @@
 # man_hours: 5.0
 """Sensitivity suite for the composite scoring stage.
 
-Covers Phase 1.6's four requirements (see
-``report/sites_evaluation/08_composite_and_sensitivity.md``):
-
-- ``weight_perturbation`` — ±20 % on weight factors, ranking-stability index.
-- ``monte_carlo`` — N draws over ``(score_low_0_10, score_high_0_10)`` bands;
-  default N from :data:`MC_DEFAULT_ITERATIONS`, CLI presets in :data:`MC_PRESETS`.
-- ``threshold_perturbation`` — ±25 % scalar helper for numeric context metrics.
-- ``country_balance_test`` — flags top-N concentration by country.
-
-All math uses only ``statistics`` + ``random`` from the stdlib.
+Covers Phase 1.6: weight perturbation (re-exported from
+:mod:`_weight_perturbation`), Monte Carlo band-sampling, OAT
+importance, the ±25 % numeric-context scaler, and the top-N
+country-balance test. See ``report/sites_evaluation/08_composite_and_sensitivity.md``.
 """
 
 from __future__ import annotations
@@ -23,6 +17,14 @@ from typing import Callable, Iterable
 
 from atoms_vs_ashes.db.models import RankingScore, ScreeningVerdict
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.scoring._weight_perturbation import (
+    WEIGHT_CATEGORIES,
+    WEIGHT_DIRECTIONS,
+    _category_of,
+    perturb_weights,
+    perturb_weights_category,
+    run_weight_sensitivity,
+)
 from atoms_vs_ashes.scoring.composite import CompositeResult, compute_composite_for_site_smr
 from atoms_vs_ashes.scoring.rubric import Criterion
 
@@ -33,102 +35,92 @@ MC_PRESETS: dict[str, int] = {"test": 1000, "medium": 3000, "production": 10000}
 
 
 # ---------------------------------------------------------------------------
-# Weight perturbation
+# One-at-a-time (OAT) importance
 # ---------------------------------------------------------------------------
 
 
-WEIGHT_CATEGORIES: tuple[str, ...] = ("NH", "HI", "RI", "EP", "NS")
-WEIGHT_DIRECTIONS: tuple[tuple[str, float, str], ...] = (
-    ("plus", 1.2, "plus_20"),
-    ("minus", 0.8, "minus_20"),
-)
+@dataclass(frozen=True)
+class OATImportance:
+    """OAT importance record for a single ranking criterion."""
+
+    criterion_id: str
+    family: str
+    mean_abs_rank_change: float
+    importance_score: float
+    pairs_compared: int
 
 
-def _category_of(criterion_id: str) -> str:
-    """Return the two-letter family prefix upper-cased (e.g. ``NH-02`` → ``NH``)."""
-    return criterion_id.split("-", 1)[0].upper()
+def _rank_by_score(composites: Iterable[CompositeResult]) -> dict[tuple, int]:
+    scored = [c for c in composites if c.composite_score is not None]
+    scored.sort(key=lambda c: float(c.composite_score), reverse=True)  # type: ignore[arg-type]
+    return {(c.site_id, c.smr_key): idx + 1 for idx, c in enumerate(scored)}
 
 
-def perturb_weights_category(
+def _composites_for_weights(
+    sites_rows: dict[tuple, list[RankingScore]],
+    verdicts_by_pair: dict[tuple, list[ScreeningVerdict]],
     weights: dict[str, float],
-    category: str,
-    factor: float,
-) -> dict[str, float]:
-    """Scale only ``category``'s weights by ``factor`` then renormalise.
-
-    Uniform ±20 % scaling across **all** criteria is a mathematical
-    no-op once the weights are renormalised to sum to 1.0. The plan
-    (``§6 Weight perturbation (per category)``) therefore specifies
-    that only one family's weights should move at a time; this helper
-    implements that correctly.
-    """
-    cat = category.upper()
-    scaled = {
-        cid: (w * factor if _category_of(cid) == cat else w)
-        for cid, w in weights.items()
-    }
-    total = sum(scaled.values())
-    if total <= 0:
-        return dict(weights)
-    return {cid: w / total for cid, w in scaled.items()}
+    criteria: dict[str, Criterion],
+) -> list[CompositeResult]:
+    return [
+        compute_composite_for_site_smr(
+            site_id=pair[0],
+            smr_key=pair[1],
+            ranking_rows=rows,
+            verdicts=verdicts_by_pair.get(pair, []),
+            weights=weights,
+            criteria=criteria,
+        )
+        for pair, rows in sites_rows.items()
+    ]
 
 
-def perturb_weights(
-    weights: dict[str, float],
-    direction: str,
-) -> dict[str, float]:
-    """Return a per-category bump of the ``NH`` family (legacy helper).
-
-    Kept as a thin back-compat shim so any legacy import keeps working.
-    ``direction`` in ``{plus, minus}``; ``nh`` is chosen because it is
-    the heaviest family and therefore the most conservative default.
-    Prefer :func:`perturb_weights_category` for explicit per-family
-    control (that is what :func:`run_weight_sensitivity` uses).
-    """
-    factor = 1.2 if direction == "plus" else 0.8 if direction == "minus" else 1.0
-    return perturb_weights_category(weights, "NH", factor)
-
-
-def run_weight_sensitivity(
+def run_oat_importance(
     sites_rows: dict[tuple, list[RankingScore]],
     verdicts_by_pair: dict[tuple, list[ScreeningVerdict]],
     *,
     weights: dict[str, float],
     criteria: dict[str, Criterion],
-    categories: Iterable[str] = WEIGHT_CATEGORIES,
-) -> dict[str, list[CompositeResult]]:
-    """Recompute composites for every (site, SMR) under per-category ±20 %.
+    progress_cb: Callable[[int], None] | None = None,
+) -> dict[str, OATImportance]:
+    """Zero-out each ranking criterion, renormalise, measure mean |Δrank|.
 
-    Produces profiles ``w_<CAT>_plus_20`` and ``w_<CAT>_minus_20`` for
-    every family in ``categories`` (default: NH, HI, RI, EP, NS).
-    ``sites_rows`` / ``verdicts_by_pair`` are keyed on
-    ``(site_id, smr_key)``.
+    Returns per-criterion importance. ``importance_score`` is
+    ``mean_abs_rank_change / N_pairs`` in ``[0, 1]`` (0 = no effect,
+    1 = full reversal). Compared over pairs scored in *both* the
+    baseline and the perturbed ranking.
     """
-    out: dict[str, list[CompositeResult]] = {}
-    for cat in categories:
-        cat_upper = cat.upper()
-        for _name, factor, suffix in WEIGHT_DIRECTIONS:
-            label = f"w_{cat_upper}_{suffix}"
-            perturbed = perturb_weights_category(weights, cat_upper, factor)
-            bucket: list[CompositeResult] = []
-            for pair, rows in sites_rows.items():
-                verdicts = verdicts_by_pair.get(pair, [])
-                bucket.append(
-                    compute_composite_for_site_smr(
-                        site_id=pair[0],
-                        smr_key=pair[1],
-                        ranking_rows=rows,
-                        verdicts=verdicts,
-                        weights=perturbed,
-                        criteria=criteria,
-                    )
-                )
-            out[label] = bucket
-    log.info(
-        "weight_sensitivity_complete",
-        pairs=len(sites_rows),
-        profiles=list(out.keys()),
+    baseline_ranks = _rank_by_score(
+        _composites_for_weights(sites_rows, verdicts_by_pair, weights, criteria)
     )
+    n_pairs = len(baseline_ranks) or 1
+    ranking_ids = [cid for cid, c in criteria.items() if c.is_ranking and cid in weights]
+    out: dict[str, OATImportance] = {}
+    for cid in ranking_ids:
+        perturbed = {k: (0.0 if k == cid else v) for k, v in weights.items()}
+        total = sum(perturbed.values())
+        if total <= 0:
+            continue
+        perturbed = {k: v / total for k, v in perturbed.items()}
+        perturbed_ranks = _rank_by_score(
+            _composites_for_weights(sites_rows, verdicts_by_pair, perturbed, criteria)
+        )
+        deltas = [
+            abs(perturbed_ranks[p] - r)
+            for p, r in baseline_ranks.items()
+            if p in perturbed_ranks
+        ]
+        mean_abs = statistics.fmean(deltas) if deltas else 0.0
+        out[cid] = OATImportance(
+            criterion_id=cid,
+            family=_category_of(cid),
+            mean_abs_rank_change=round(mean_abs, 3),
+            importance_score=round(mean_abs / n_pairs, 4),
+            pairs_compared=len(deltas),
+        )
+        if progress_cb is not None:
+            progress_cb(1)
+    log.info("oat_importance_complete", pairs=n_pairs, criteria=len(out))
     return out
 
 
@@ -172,37 +164,23 @@ def run_monte_carlo(
 ) -> MonteCarloSummary:
     """Sample per-criterion scores within their uncertainty bands.
 
-    Stability: MC is deemed ``stable`` when the 5 %–95 % band width is
-    ≤ 1.0 point, per the ranking-stability index in §6 of
-    ``report/sites_evaluation/08_composite_and_sensitivity.md``.
+    ``stable`` is True when the 5 %–95 % band width is ≤ 1.0 point.
     """
-    if any(v.phase == "exclusionary" and v.verdict == "fail" for v in verdicts):
+    def _empty(note: str) -> MonteCarloSummary:
         return MonteCarloSummary(
             site_id=site_id,
             smr_key=smr_key,
-            mean=None,
-            p05=None,
-            p95=None,
-            stdev=None,
-            iterations=0,
-            stable=False,
-            notes=["excluded_by_E_code"],
+            mean=None, p05=None, p95=None, stdev=None,
+            iterations=0, stable=False, notes=[note],
         )
+
+    if any(v.phase == "exclusionary" and v.verdict == "fail" for v in verdicts):
+        return _empty("excluded_by_E_code")
 
     rng = random.Random(f"{site_id}:{smr_key}:{seed}")
     usable = [r for r in rows if r.criterion_id in weights]
     if not usable:
-        return MonteCarloSummary(
-            site_id=site_id,
-            smr_key=smr_key,
-            mean=None,
-            p05=None,
-            p95=None,
-            stdev=None,
-            iterations=0,
-            stable=False,
-            notes=["no_scored_criteria"],
-        )
+        return _empty("no_scored_criteria")
 
     draws: list[float] = []
     for _ in range(iterations):
@@ -245,37 +223,20 @@ def run_mc_suite(
 ) -> dict[tuple, MonteCarloSummary]:
     """Run Monte Carlo for every (site, SMR) pair.
 
-    ``iterations`` is driven end-to-end from the CLI: ``ava score
-    sensitivity --mc-draws N`` (or ``--preset {test,medium,production}``
-    mapped via :data:`MC_PRESETS`) populates
-    ``SensitivitySuiteConfig.iterations``, which ``run_sensitivity_suite``
-    forwards here and on to :func:`run_monte_carlo`, feeding the one
-    true hot loop ``for _ in range(iterations)``. No ``1000`` literal is
-    hard-coded on that path.
-
-    ``progress_cb`` fires once per completed (site, SMR) pair; pass
-    ``ProgressReporter.advance`` for a rich/percent bar. Default is
-    ``None`` so existing call sites and tests stay unchanged.
+    ``iterations`` is forwarded verbatim to :func:`run_monte_carlo`.
+    ``progress_cb`` fires once per completed pair; pass
+    ``ProgressReporter.advance`` for a rich/percent bar.
     """
     results: dict[tuple, MonteCarloSummary] = {}
     for pair, rows in sites_rows.items():
         results[pair] = run_monte_carlo(
-            pair[0],
-            pair[1],
-            rows,
-            verdicts_by_pair.get(pair, []),
-            weights,
-            iterations=iterations,
-            seed=seed,
+            pair[0], pair[1], rows, verdicts_by_pair.get(pair, []),
+            weights, iterations=iterations, seed=seed,
         )
         if progress_cb is not None:
             progress_cb(1)
-    log.info(
-        "monte_carlo_complete",
-        pairs=len(sites_rows),
-        iterations=iterations,
-        preset=preset_label,
-    )
+    log.info("monte_carlo_complete", pairs=len(sites_rows),
+             iterations=iterations, preset=preset_label)
     return results
 
 
@@ -285,12 +246,10 @@ def run_mc_suite(
 
 
 def scale_numeric_context(context: dict[str, object], factor: float) -> dict[str, object]:
-    """Return a copy of ``context`` with numeric values scaled by ``factor``.
+    """Scale numeric values in ``context`` by ``factor`` (±25 % range).
 
-    ``factor`` is expected in the range ``[0.75, 1.25]`` (±25 %). Useful
-    for the engine's "threshold ±25 %" sensitivity re-run: we leave the
-    rubric's bands untouched and instead perturb the measured data, which
-    exercises the same band logic with a different operating point.
+    The rubric's bands stay untouched; we perturb the measured data
+    so the band logic runs at a different operating point.
     """
     scaled: dict[str, object] = dict(context)
     for key, value in list(scaled.items()):
@@ -321,9 +280,8 @@ def country_balance_test(
 ) -> CountryBalanceReport:
     """Detect artefactual top-N concentration by country.
 
-    ``ranked_pairs`` = iterable of ``(country_code, composite_score)``
-    sorted descending by score. ``flagged`` becomes True when one
-    country holds > ``max_share_threshold`` of the top-N slots.
+    ``flagged`` is True when one country holds >
+    ``max_share_threshold`` of the top-N slots.
     """
     pairs = list(ranked_pairs)
     head = pairs[:top_n]

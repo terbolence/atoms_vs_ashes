@@ -2,10 +2,9 @@
 """Consolidated-audit writer for Phase 1.6.
 
 Pulls cross-profile stability metrics from :mod:`_phase_1_6_analytics`
-so the single markdown artefact can answer the headline sensitivity
-questions (top-N stability, drift, per-category weight influence)
-without requiring the reader to open each per-MC stage file. Kept
-≤ 300 lines per the python file-size rule.
+and the standalone artefacts from :mod:`_suite_importance` and
+:mod:`_suite_banding`, then produces a single regulatory-style
+markdown report. Kept ≤ 300 lines per the python file-size rule.
 """
 
 from __future__ import annotations
@@ -18,6 +17,10 @@ from scripts._phase_1_6_analytics import (
     PhaseAnalytics,
     ProfileStats,
 )
+from scripts._phase_1_6_audit_tables import (
+    append_banding_table,
+    append_importance_table,
+)
 from atoms_vs_ashes.scoring.suite import SensitivitySuiteResult
 
 
@@ -27,8 +30,15 @@ def write_consolidated_audit(
     db_profile: str,
     stages: list[SensitivitySuiteResult],
     analytics: PhaseAnalytics,
+    *,
+    importance_csv: Path | None = None,
+    bands_csv: Path | None = None,
 ) -> Path:
-    """Write ``<audit_dir>/<YYYYMMDD>_phase1_6_sensitivity.md``."""
+    """Write ``<audit_dir>/<YYYYMMDD>_phase1_6_sensitivity.md``.
+
+    Optional paths let the driver surface the OAT importance and
+    banding artefacts as top-level tables in the audit.
+    """
     audit_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
     path = audit_dir / f"{stamp}_phase1_6_sensitivity.md"
@@ -46,12 +56,18 @@ def write_consolidated_audit(
         f"- Baseline scored rows: **{analytics.baseline_scored_rows}** / "
         f"{analytics.baseline_total_rows}"
     )
+    lines.append(
+        f"- Top-5 % slice: **{analytics.baseline_top5pct_size}** pairs; "
+        f"top-10 % slice: **{analytics.baseline_top10pct_size}** pairs."
+    )
     lines.append("")
 
     _append_executive_summary(lines, analytics)
+    append_importance_table(lines, importance_csv)
     _append_stage_table(lines, stages)
     _append_stability_table(lines, analytics)
     _append_category_table(lines, analytics)
+    append_banding_table(lines, bands_csv)
     _append_country_balance(lines, first, analytics)
     _append_profile_legend(lines, stages)
     _append_notes(lines, stages, analytics)
@@ -76,8 +92,7 @@ def _append_executive_summary(lines: list[str], analytics: PhaseAnalytics) -> No
         )
         lines.append("")
         return
-    top20 = [p for p in analytics.profiles if p.top20_overlap is not None]
-    worst = min(top20, key=lambda p: p.top20_overlap) if top20 else None
+    worst = min(analytics.profiles, key=lambda p: p.top10pct_jaccard)
     biggest_drift = max(
         (p for p in analytics.profiles if p.mean_abs_drift is not None),
         key=lambda p: p.mean_abs_drift or 0.0,
@@ -86,11 +101,11 @@ def _append_executive_summary(lines: list[str], analytics: PhaseAnalytics) -> No
     lines.append(
         f"- Profiles compared vs `baseline`: **{len(analytics.profiles)}**."
     )
-    if worst is not None:
-        lines.append(
-            f"- Lowest top-20 overlap: **{worst.top20_overlap}/20** "
-            f"(profile `{worst.label}`, Jaccard {worst.top20_jaccard})."
-        )
+    lines.append(
+        f"- Lowest top-10 % Jaccard: **{worst.top10pct_jaccard}** "
+        f"(profile `{worst.label}`, overlap "
+        f"{worst.top10pct_overlap}/{analytics.baseline_top10pct_size})."
+    )
     if biggest_drift is not None:
         lines.append(
             f"- Largest mean |Δscore|: **{biggest_drift.mean_abs_drift}** "
@@ -124,30 +139,41 @@ def _append_stage_table(
 
 
 def _append_stability_table(lines: list[str], analytics: PhaseAnalytics) -> None:
-    lines.append("## Top-N stability vs. baseline")
+    lines.append("## Top-N stability vs. baseline (pct-based)")
     lines.append("")
     if not analytics.profiles:
         lines.append("_No perturbed profiles to compare._")
         lines.append("")
         return
+    b5 = analytics.baseline_top5pct_size or 0
+    b10 = analytics.baseline_top10pct_size or 0
     lines.append(
-        "| Profile | Scored pairs | Top-10 overlap | Top-20 overlap | "
-        "Jaccard@20 | Mean |Δ| | Max |Δ| | Pairs in drift |"
+        f"Top-5 % = **{b5}** pairs; top-10 % = **{b10}** pairs "
+        "(fractions of the baseline scored slice)."
     )
-    lines.append("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    lines.append("")
+    lines.append(
+        "| Profile | Scored pairs | Top-5 % overlap | Jaccard@5 % | "
+        "Top-10 % overlap | Jaccard@10 % | Mean |Δ| | Max |Δ| | Pairs in drift |"
+    )
+    lines.append(
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"
+    )
     for p in analytics.profiles:
-        lines.append(_stability_row(p))
+        lines.append(_stability_row(p, b5, b10))
     lines.append("")
 
 
-def _stability_row(p: ProfileStats) -> str:
-    md = (
-        f"| `{p.label}` | {p.scored_rows} | {p.top10_overlap}/10 | "
-        f"{p.top20_overlap}/20 | {p.top20_jaccard} | "
+def _stability_row(p: ProfileStats, b5: int, b10: int) -> str:
+    return (
+        f"| `{p.label}` | {p.scored_rows} | "
+        f"{p.top5pct_overlap}/{b5 or p.top5pct_size} | "
+        f"{p.top5pct_jaccard} | "
+        f"{p.top10pct_overlap}/{b10 or p.top10pct_size} | "
+        f"{p.top10pct_jaccard} | "
         f"{_fmt(p.mean_abs_drift)} | {_fmt(p.max_abs_drift)} | "
         f"{p.pairs_drift_compared} |"
     )
-    return md
 
 
 def _fmt(value: float | None) -> str:
@@ -164,8 +190,9 @@ def _append_category_table(lines: list[str], analytics: PhaseAnalytics) -> None:
         )
         lines.append("")
         return
+    b10 = analytics.baseline_top10pct_size or 0
     lines.append(
-        "| Category | Avg mean |Δscore| | Avg top-20 overlap (of 20) |"
+        f"| Category | Avg mean |Δscore| | Avg top-10 % overlap (of {b10}) |"
     )
     lines.append("| --- | ---: | ---: |")
     for cat, drift, overlap in analytics.per_category_weight:
@@ -178,9 +205,9 @@ def _append_country_balance(
     first: SensitivitySuiteResult | None,
     analytics: PhaseAnalytics,
 ) -> None:
-    lines.append("## Country balance (baseline top-20)")
+    lines.append("## Country balance (baseline top-10 %)")
     lines.append("")
-    counts = analytics.baseline_top20_countries
+    counts = analytics.baseline_top10pct_countries
     if counts:
         lines.append("| Country | Count |")
         lines.append("| --- | ---: |")

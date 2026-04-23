@@ -1,0 +1,49 @@
+criterion_id,family,criterion_name,mean_abs_rank_change,importance_score,pairs_compared
+NH-01,NH,Seismic ground motion (PGA),192.062,0.0934,2056
+NS-04,NS,Site topography / grading,128.996,0.0627,2056
+RI-04,RI,Population density (EPZ rings),116.732,0.0568,2056
+NS-05,NS,Land availability / ownership / zoning,111.072,0.054,2056
+RI-06,RI,Population projections (60-yr design life),100.981,0.0491,2056
+NH-02,NH,Seismic surface rupture (capable faults),92.196,0.0448,2056
+NS-03,NS,Transport access (heavy haul road / rail / port),90.089,0.0438,2056
+EP-01,EP,Emergency-plan feasibility (composite),84.038,0.0409,2056
+HI-06,HI,Military installations,81.429,0.0396,2056
+EP-02,EP,Evacuation routes (road network),80.125,0.039,2056
+NH-04,NH,Geotechnical - slope stability,62.006,0.0302,2056
+NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",61.701,0.03,2056
+HI-01,HI,Aircraft crash hazard,51.362,0.025,2056
+NS-02,NS,Grid connection (detailed),51.246,0.0249,2056
+NS-08,NS,Ecological sensitivity (Natura 2000 / WDPA),45.883,0.0223,2056
+NS-01,NS,Cooling water / ultimate heat sink,41.523,0.0202,2056
+HI-03,HI,Toxic / gas releases,31.312,0.0152,2056
+NH-05,NH,Subsidence / karst / mining / oil & gas,16.934,0.0082,2056
+NH-03,NH,Geotechnical - settlement and liquefaction,9.525,0.0046,2056
+NH-12,NH,Extreme temperatures,9.282,0.0045,2056
+NH-10,NH,Extreme winds,6.548,0.0032,2056
+HI-02,HI,Industrial explosions (Seveso / IED),5.728,0.0028,2056
+HI-04,HI,External fires,4.732,0.0023,2056
+NH-11,NH,"Extreme precipitation (rain, snow, drought)",3.113,0.0015,2056
+RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",1.992,0.001,2056
+EP-03,EP,Physical-geography constraints,0.0,0.0,2056
+EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,2056
+EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,2056
+HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,2056
+HI-07,HI,Electromagnetic interference,0.0,0.0,2056
+HI-08,HI,Other nuclear installations,0.0,0.0,2056
+BF-01,BF,Grid export / connection adequacy,0.0,0.0,2056
+BF-02,BF,Land / nuclear-island footprint,0.0,0.0,2056
+NH-07,NH,Volcanism,0.0,0.0,2056
+NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,2056
+NH-09,NH,River flooding,0.0,0.0,2056
+NH-13,NH,Forest / wildfire,0.0,0.0,2056
+NH-14,NH,Combined hazards,0.0,0.0,2056
+NS-06,NS,Existing infrastructure reuse,0.0,0.0,2056
+NS-07,NS,Environmental impact (non-radiological),0.0,0.0,2056
+NS-09,NS,Socioeconomic impact,0.0,0.0,2056
+NS-10,NS,Workforce availability,0.0,0.0,2056
+NS-11,NS,Coal-to-nuclear synergies,0.0,0.0,2056
+NS-12,NS,Regulatory / political environment,0.0,0.0,2056
+NS-13,NS,Construction logistics,0.0,0.0,2056
+RI-02,RI,Surface water dispersion,0.0,0.0,2056
+RI-03,RI,Groundwater dispersion,0.0,0.0,2056
+RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,2056
