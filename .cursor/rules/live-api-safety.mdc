@@ -1,0 +1,35 @@
+---
+description: Require explicit user consent before any live external API call (Anthropic, connectors, etc.)
+alwaysApply: true
+---
+
+# Live API Safety Rule
+
+## Absolute Requirement
+
+The agent MUST obtain **explicit, unambiguous consent** from the user before executing any command or code that makes a live call to an external API. This includes but is not limited to:
+
+- Anthropic Claude API calls (LLM assessment pipeline)
+- Any connector API calls (EFEHR, EGDI, Overpass, Corine, etc.)
+- Any other HTTP request to a third-party service that costs money or modifies state
+
+## What Counts as Consent
+
+- The user explicitly says "run", "go", "yes", "proceed", "execute", or similar **in direct response to a specific description of what will be called**.
+- A blanket "do everything" does NOT count — the agent must still describe the specific API calls (which API, how many calls, estimated cost) and wait for confirmation.
+
+## What Does NOT Count
+
+- The user asking to "set up" or "prepare" something — preparation is allowed, execution is not.
+- Implicit consent from a previous conversation or session.
+- The agent's own judgment that "the user probably wants this."
+
+## Procedure
+
+1. Describe what will be called (API name, endpoint, number of calls, estimated cost).
+2. Wait for explicit user confirmation.
+3. Only then execute.
+
+## Dry Runs Are Always Allowed
+
+Commands with `--dry-run` flags or read-only database queries do not require consent. Only actual external API calls do.

@@ -1,0 +1,86 @@
+---
+description: Every per-site connector must dual-write raw responses to the site_raw_responses table and disk
+alwaysApply: true
+---
+
+# Raw Response Logging Rule
+
+## Absolute Requirement
+
+Every connector that performs **per-site** fetching (HTTP API call) or **per-site** raster extraction MUST log each call to BOTH:
+
+1. The `site_raw_responses` Postgres table — via `log_raw_response` or `log_raster_extraction` from `src/atoms_vs_ashes/connectors/response_logger.py`.
+2. Disk — automatic when calling those helpers with `write_disk=True` (the default). Files land at `data/raw_responses/<connector_slug>/<run_id>/<site_id>.json`.
+
+A connector implementation is **not complete** until both DB rows and disk files exist for a smoke run of at least 2 sites.
+
+## Where the call lives
+
+The call MUST happen inside the connector's `batch.py` (or in a shared batch wrapper for connectors used by multiple criteria). NEVER rely on a one-off audit script (`scripts/run_*_audit_responses.py`) to backfill logging — those scripts are remediation tools, not the system of record.
+
+## Integration pattern (live HTTP API)
+
+```python
+from atoms_vs_ashes.connectors.response_logger import log_raw_response
+
+for site in sites:
+    result = client.fetch(site.lat, site.lon)
+    log_raw_response(
+        session=session,
+        site_id=site.id,
+        connector_slug="<slug>",
+        run_id=run_id,
+        request_url=client.last_request_url,
+        request_params=client.last_request_params,
+        response_body=client.last_response_body,
+        response_text=client.last_response_text,
+        response_headers=client.last_response_headers,
+        http_status=client.last_response_status,
+    )
+```
+
+The client must expose either:
+
+- single-call attributes: `last_request_url`, `last_request_params`, `last_response_status`, `last_response_body`, `last_response_headers`, OR
+- a multi-call list `last_raw_responses: list[dict]` (used by `egdi_geology`, `noaa_ncei`) — in which case wrap that list in a single `response_body={"calls": [...]}`.
+
+## Integration pattern (raster extraction)
+
+```python
+from atoms_vs_ashes.connectors.response_logger import log_raster_extraction
+
+log_raster_extraction(
+    session=session,
+    site_id=site.id,
+    connector_slug="<slug>",
+    run_id=run_id,
+    source_url=str(raster_path),
+    extracted_values={"value_a": ..., "value_b": ...},
+    crs="EPSG:4326",
+    resolution_m=...,
+)
+```
+
+## Registry
+
+Every per-site connector must be added to `MANDATORY_LOGGING_CONNECTORS` in [src/atoms_vs_ashes/connectors/__init__.py](src/atoms_vs_ashes/connectors/__init__.py). The CI test `tests/test_raw_response_logging.py` iterates this registry and fails if any registered connector does not call the logger.
+
+## Verification
+
+After every production enrichment run, execute:
+
+```bash
+PYTHONPATH=src python scripts/verify_raw_response_coverage.py --run-id <run_id>
+```
+
+The script reports per connector: `expected_sites`, `logged_sites`, `missing_sites`, and exits non-zero if any registered connector has < 100% coverage. Capture its output in the audit doc for that run.
+
+## What does NOT count
+
+- Writing only to `logs/<connector>/<run_id>/responses/` via `ConnectorHttpAuditLogger` — that path is deprecated for new code; migrate to `log_raw_response`.
+- Writing only a single global catalogue file (e.g. the old `copernicus_ems` `_save_catalogue_to_disk`) — must also write a per-site row.
+- Running a one-off audit script after the fact — the connector itself is responsible.
+
+## Enforcement
+
+If the agent adds or modifies a per-site connector and does not wire `log_raw_response` / `log_raster_extraction` into its `batch.py` AND add it to `MANDATORY_LOGGING_CONNECTORS`, the task is not done.

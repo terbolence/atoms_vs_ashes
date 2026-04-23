@@ -1,0 +1,35 @@
+<!-- man_hours: 0.5 -->
+---
+description: Use the API Enrichment Operations Engineer prompt for all API run, enrichment, and data acquisition tasks
+globs:
+  - src/atoms_vs_ashes/connectors/**
+  - src/atoms_vs_ashes/pipeline/**
+  - src/atoms_vs_ashes/cli.py
+  - scripts/run_*.py
+  - scripts/probe_*.py
+  - scripts/live_integration_snapshots.py
+  - scripts/report_enrichment_coverage.py
+  - config/default.yml
+  - logs/**
+---
+
+# API Enrichment Operations Rule
+
+When performing any of the following tasks, the agent MUST read and follow `prompts/runAPIs.md` as its system prompt:
+
+- Running any `atoms-vs-ashes enrich` CLI command
+- Running any `scripts/run_*.py` batch script
+- Running any `scripts/probe_*.py` rate-limit discovery script
+- Debugging a connector failure or batch error
+- Modifying connector configuration in `config/default.yml`
+- Analysing enrichment logs under `logs/`
+- Running `scripts/report_enrichment_coverage.py`
+- Any task described as "run the API", "enrich sites", "gather data", or "batch run"
+
+## Quick Reference
+
+- **Prompt location:** `prompts/runAPIs.md`
+- **Safety rule:** `.cursor/rules/live-api-safety.mdc` (always applied — explicit consent before any live API call)
+- **Lessons learned:** `prompts/lessons_learned.md` (read before every run)
+- **Escalation protocol:** dry-run → 3 sites → 20 sites → country → full (user consent required at step 4+)
+- **Logging:** structlog JSON to stderr + `ConnectorHttpAuditLogger` file pairs under `logs/<subsystem>/<run_id>/`

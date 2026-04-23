@@ -1,0 +1,52 @@
+---
+description: Every connector implementation must produce a saved .md sample report with legends for all metrics
+alwaysApply: true
+---
+
+# Connector Reports Rule
+
+## Requirement
+
+Implementation of any connector is **not complete** until a sample report is saved to disk as a `.md` file. Printing results to stdout does not count.
+
+## File location
+
+```
+docs/connector_reports/<slug>_sample_report.md
+```
+
+Examples: `era5_s04_sample_report.md`, `gfms_s09_sample_report.md`, `noaa_ncei_s11_sample_report.md`
+
+## Required sections
+
+Every report must contain:
+
+1. **Header** — connector name, run date, criteria served, connector slug
+2. **Methodology** — what the connector queries, how each metric is derived, assumptions and proxies used
+3. **Metric legend** — a table for **every numeric or categorical metric** in the output, with:
+   - Column name / field name
+   - Unit (m, m/s, °C, dimensionless, etc.)
+   - How it is computed (formula, source, or method name)
+   - What `null` / `N/A` means for that metric
+4. **Quality grade legend** — a table for each `*_quality` field: grade → what it means in plain language
+5. **Sample data table** — results for ≥ 20 representative sites (or all project sites if fewer)
+6. **Coverage notes** — data gaps, spatial domain limits, sites where quality is `insufficient`
+
+## Metric legend format
+
+```markdown
+| Metric | Unit | Derivation | Null means |
+|--------|------|------------|------------|
+| wind_gust_50yr_ms | m/s | GEV fit on 30-yr monthly max gust (i10fg) | GEV fit failed |
+| mean_temp_c | °C | Mean of t2m (K → °C) over 1991–2020 | File missing |
+```
+
+## When to produce the report
+
+- At the end of **H7 Step 3** (20-site validation), always.
+- If re-running a connector batch with live data, overwrite the existing report.
+- Coverage and effort summary reports in `reports/` follow the same legend rule.
+
+## Enforcement
+
+If the agent has run H7 steps but has not yet written the `.md` report file, the task is not done. The report must be written before marking the connector to-do as `completed`.

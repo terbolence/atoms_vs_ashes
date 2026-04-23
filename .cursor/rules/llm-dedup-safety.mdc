@@ -1,0 +1,41 @@
+---
+description: LLM assessment deduplication — never re-run when usable data exists in DB
+globs:
+  - src/atoms_vs_ashes/llm/**
+  - src/atoms_vs_ashes/cli.py
+alwaysApply: false
+---
+
+# LLM Assessment Deduplication Safety
+
+## Rule
+
+Before any LLM API call, the orchestrator MUST check the LLM database for
+existing usable results for that `(site_id, prompt_key)` pair.
+
+## What counts as "usable"
+
+| Tier | Table | Usable if |
+|------|-------|-----------|
+| Exclusionary (E1-E9) | `screening_verdicts` | `verdict` in (`pass`, `fail`) |
+| Avoidance (A1-A15) | `screening_verdicts` | `verdict` in (`pass`, `fail`, `caution`) |
+| Ranking (NH-*, HI-*, etc.) | `ranking_scores` | `score IS NOT NULL` |
+
+An `inconclusive` verdict is NOT usable — the system will re-attempt.
+
+## Behaviour
+
+- If usable data exists → skip the API call, log a structured `llm_assess_skipped` event.
+- If no usable data exists → proceed with the API call.
+- This applies to ALL tiers and ALL run modes (standard `run()`, `run_sequential_elimination()`, `run_second_pass()`).
+
+## Force re-run
+
+- The `--force-rerun` CLI flag bypasses dedup checks.
+- When `--force-rerun` is used, display existing data summary and require interactive `click.confirm()` before proceeding.
+- NEVER silently overwrite existing data without explicit user consent.
+
+## Logging
+
+All skipped assessments must be logged to `logs/llm/<run_id>/skips/` as structured JSON with:
+`run_id`, `site_id`, `site_name`, `criterion_id`, `prompt_key`, `skip_reason`, `existing_verdict`, `existing_confidence`, `existing_run_id`.

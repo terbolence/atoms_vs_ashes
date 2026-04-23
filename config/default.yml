@@ -107,16 +107,25 @@ screening:
     ep01_fail_threshold: 30  # composite score 0–100
 
 connectors:
+  copernicus_dem:
+    https_base_url: "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com"
+    cache_dir: "sources/dem/copernicus_glo30"
+    timeout_s: 60
+    buffer_m: 5000                     # elevation stats buffer (metres)
+    slope_buffer_m: 1000               # slope/TRI computation buffer (metres)
+    cache_ttl_days: 365                # static dataset; annual updates
+    use_local_cache: true              # prefer local tiles over remote COG reads
   seismic_hazard:
     efehr_base_url: "http://appsrvr.share-eu.org:8080/share"
     efehr_model_name: "ESHM20"
     efehr_model_id: null              # auto-discovered if null; set to override
     gem_raster_dir: "sources/seismic/gem_global"
     timeout_s: 30
-    inter_request_delay_s: 0.5
+    inter_request_delay_s: 0.5        # courtesy delay between API calls
     cache_ttl_days: 365
     default_imt: "PGA"
     default_soil: "rock_vs30_800ms-1"
+    bbox_margin: 0.15                 # degrees; grid resolution ~0.1°
     return_periods:
       - poe: 0.1
         label: "475yr"
@@ -129,6 +138,70 @@ connectors:
       - "0.50s"
       - "1.00s"
       - "2.00s"
+    fetch_spectral_periods: false          # set true to query /curve for each SA(T) period (6 extra API calls/site)
+  efsm20_faults:
+    data_dir: "sources/efsm20"
+    download_url: "https://seismofaults.eu/images/downloads/efsm20/EFSM20_GeoJSON.zip"
+    wfs_url: "https://seismofaults.eu/geoserver/wfs"
+    timeout_s: 30
+    download_timeout_s: 600
+    cache_ttl_days: 36500              # static model (EFSM20 released 2022); cache indefinitely
+    search_radius_km: 50               # find faults within 50 km of each site
+    e1_threshold_km: 8.0               # IAEA SSG-9 capable fault exclusion distance
+    rupture_zone_buffer_km: 1.0        # conservative surface rupture zone estimate
+    inter_request_delay_s: 0.5         # courtesy delay for WFS fallback queries
+  onegeology:
+    timeout_s: 30
+    inter_request_delay_s: 1.0
+    cache_ttl_days: 180
+    max_features_per_request: 500
+    fault_buffer_km: 8.0
+    karst_buffer_km: 5.0
+    # Curated national geological survey WFS endpoint registry.
+    # Only countries with verified endpoints are listed; others default to S-02 EGDI only.
+    # fault_layer / karst_layer values set to null until confirmed by GetCapabilities probe.
+    endpoint_registry:
+      PL:
+        # Probed 2026-04-16: cbdgportal.pgi.gov.pl/geoserver/wfs → HTTP 404 (wrong path)
+        # Correct base is ecoportal.pgi.gov.pl but also unreachable from current network.
+        wfs_url: null
+        wfs_version: "2.0.0"
+        fault_layer: null
+        karst_layer: null
+      RO:
+        # Probed 2026-04-16: inspire.igr.ro/geoserver/wfs → HTTP 200 but WFS service
+        # is DISABLED on the server ("Service WFS is disabled"). GeoServer is running
+        # but the WFS endpoint is administratively disabled. WMS also returns error.
+        # Use null until service is re-enabled or alternative URL found.
+        wfs_url: null
+        wfs_version: "2.0.0"
+        fault_layer: null
+        karst_layer: null
+      BG:
+        # Probed 2026-04-16: inspire.geology.bg → DNS resolution failure.
+        # Domain not reachable from current network.
+        wfs_url: null
+        wfs_version: "2.0.0"
+        fault_layer: null
+        karst_layer: null
+      AT:
+        # Probed 2026-04-16: gisgba.geologie.ac.at → DNS resolution failure.
+        # GBA (Geologische Bundesanstalt) endpoint not reachable. Try geosphere.at.
+        wfs_url: null
+        wfs_version: "2.0.0"
+        fault_layer: null
+        karst_layer: null
+      EE:
+        # Probed 2026-04-16: xgis.maaamet.ee/xgis2/wfs → HTTP 404 (wrong path).
+        # Maamet Land Board has a WFS but path is different. Needs re-verification.
+        wfs_url: null
+        wfs_version: "2.0.0"
+        fault_layer: null
+        karst_layer: null
+      # Countries with unverified or unknown endpoints — left null until probed.
+      # Per API exploration 2026-04-16: all 5 initially registered endpoints are
+      # currently unreachable. S-03 connector gracefully skips and writes quality flags.
+      # The EGDI WFS (S-02) remains the primary source; S-03 adds value when re-enabled.
   egdi_geology:
     wfs_base_url: "https://maps.europe-geology.eu/wfs/"
     wms_base_url: "https://maps.europe-geology.eu/wms/"
@@ -138,6 +211,7 @@ connectors:
     inter_request_delay_s: 1.0
     cache_ttl_days: 180
     max_features_per_request: 1000
+    max_retries: 1
     layer_registry:
       faults:
         layer_name: "ms:hike_all_faults_layer"
@@ -169,12 +243,39 @@ connectors:
         layer_name: "ms:egdi_geotech_boreholes"
         criteria: ["NH-06"]
         buffer_km: 5
+        enabled: false  # Layer returns HTTP 500 consistently (2026-04-13)
+  soilgrids:
+    cache_dir: "sources/soilgrids"
+    cache_ttl_days: 36500
+    min_request_interval_s: 3.0  # WCS endpoint; REST fair use is 5 req/min but WCS is more lenient
+    timeout_s: 30
+    wcs_base_url: "https://maps.isric.org/mapserv"
+    batch:
+      inter_request_delay_s: 3.0
+      skip_already_enriched: true
+  bdticm_bedrock:
+    cache_ttl_days: 36500
+    # No local download needed — uses /vsicurl/ remote sampling
+    # Source: https://files.isric.org/soilgrids/former/2017-03-10/data/BDTICM_M_250m_ll.tif
   corine:
     rest_url: "https://image.discomap.eea.europa.eu/arcgis/rest/services/Corine/CLC2018_WM/MapServer"
     rest_layer_id: 0
     wfs_url: "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WFSServer"
     layer_name: "Corine:CLC2018_CLC2018_V2018_20"
     timeout_s: 30
+    batch:
+      inter_request_delay_s: 2.0
+      skip_already_enriched: true
+      buildable_radius_m: 1000
+      ring_defs:
+        - [0, 500, "0-500m"]
+        - [500, 1000, "500m-1km"]
+        - [1000, 2000, "1-2km"]
+  worldcover:
+    raster_dir: "sources/worldcover"
+    s3_base_url: "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map"
+    download_timeout_s: 600
+    cache_ttl_days: 36500  # static dataset — cache indefinitely
   population:
     geonames_username: null  # optional; set for richer data
     overpass_url: "https://overpass-api.de/api/interpreter"
@@ -183,10 +284,670 @@ connectors:
     timeout_s: 120
     inter_request_delay_s: 1.0
     max_retries: 3
+    transport_batch:
+      queries_per_site: 3
+      min_delay_between_queries_s: 5
+      max_concurrent_overpass_slots: 2
+      skip_already_enriched: true
+      highway_search_radius_km: 10
+      railway_search_radius_km: 15
+      waterway_search_radius_km: 10
+      cache_ttl_days: 30
+  zhu_liquefaction:
+    raster_dir: "sources/liquefaction"
+    download_url: "https://zenodo.org/records/2583746/files/liquefaction_v1_deg.tif?download=1"
+    download_timeout_s: 600
+    cache_ttl_days: 36500              # static dataset; cache indefinitely
+  wokam_karst:
+    data_dir: "sources/karst/wokam"
+    download_url: "https://download.bgr.de/bgr/grundwasser/whymap/shp/WHYMAP_WOKAM_v1.zip"
+    download_timeout_s: 300
+    cache_ttl_days: 36500              # static geological dataset (2017); cache indefinitely
+  geonames_dump:
+    base_url: "https://download.geonames.org/export/dump/"
+    archive_name: "cities5000.zip"
+    txt_name: "cities5000.txt"
+    cache_dir: "sources/geonames"
+    download_timeout_s: 120
+    cache_ttl_days: 90
+    min_population: 50000
+    city_feature_class: "P"
+  eurostat_gisco:
+    gisco_base_url: "https://gisco-services.ec.europa.eu/distribution/v2"
+    eurostat_api_url: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0"
+    timeout_s: 120
+    api_timeout_s: 30
+    inter_request_delay_s: 0.5
+    cache_dir: "sources/eurostat_gisco"
+    cache_ttl_days: 180
+    city_search_radius_km: 100
+    city_min_population: 50000
+  eurostat_projections:
+    statistics_api_url: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0"
+    timeout_s: 30
+    inter_request_delay_s: 0.5           # courtesy delay between API calls
+    cache_dir: "sources/eurostat_projections"
+    projection_cache_ttl_days: 365       # EUROPOP published every ~4 years
+    statistics_cache_ttl_days: 90        # annual updates
+    nso_supplement_dir: "sources/nso_projections"
+    national_projection_dataset: "proj_23np"
+    national_indicators_dataset: "proj_23ndbi"
+    projection_variant_primary: "BSL"
+    projection_variant_lo: "LMIG"
+    projection_variant_hi: "HMIG"
+    projection_years:
+      - 2030
+      - 2040
+      - 2050
+      - 2060
+      - 2070
+      - 2080
+    regional_projection_dataset: "proj_19rp3"
+    regional_projection_years:
+      - 2030
+      - 2040
+      - 2050
+    datasets:
+      demographics_age: "DEMO_R_PJANGRP3"
+      demographics_growth: "DEMO_R_GIND3"
+      gdp: "NAMA_10R_3GDP"
+      gdp_per_capita: "NAMA_10R_3POPGDP"
+      employment: "LFST_R_LFE2EN2N"
+      unemployment: "LFST_R_LFU3RT"
+      education: "EDAT_LFSE_04"
+    statistics_reference_year: 2023
+    indicators:
+      - "MEDAGEPOP"
+      - "OLDDEP"
+      - "CNMIGRATRT"
+      - "NATGROWRT"
+      - "GROWRT"
+    growth_thresholds:
+      rapid_growth_min_pct: 5.0
+      moderate_growth_min_pct: 1.0
+      stable_band_pct: 1.0
+      moderate_decline_max_pct: -1.0
+    nuclear_policy:
+      PL: "favourable"
+      CZ: "favourable"
+      SK: "favourable"
+      HU: "favourable"
+      AT: "unfavourable"
+      SI: "neutral"
+      HR: "neutral"
+      BA: "unknown"
+      RS: "neutral"
+      ME: "unknown"
+      XK: "unknown"
+      AL: "unknown"
+      MK: "unknown"
+      RO: "favourable"
+      BG: "favourable"
+      MD: "unknown"
+      UA: "favourable"
+      BY: "favourable"
+      EE: "neutral"
+      LV: "neutral"
+      LT: "neutral"
+      AM: "favourable"
+      TR: "favourable"
+  ghsl_pop:
+    raster_dir: "sources/population/ghsl"
+    download_base_url: "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/"
+    download_timeout_s: 1800           # 30 min; tiles can be large
+    cache_ttl_days: 36500              # static dataset per release; cache indefinitely
+    use_1km_resolution: false          # true = use 1 km global file (smaller); false = 100 m tiles
+    primary_epoch: 2020
+    projection_epoch: 2030
   protected_areas:
     wfs_url: "https://bio.discomap.eea.europa.eu/arcgis/services/ProtectedSites/Natura2000Sites/MapServer/WFSServer"
     layer_name: "Natura2000Sites:Natura2000polygon"
     wdpa_token: null  # optional; set for WDPA data
+  natura2000:
+    rest_url: "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer"
+    rest_layer_id: 2                             # Layer 2 = combined Habitats + Birds Directive
+    wfs_url: "https://bio.discomap.eea.europa.eu/arcgis/services/ProtectedSites/Natura2000Sites/MapServer/WFSServer"
+    layer_name: "Natura2000Sites:Natura2000polygon"
+    timeout_s: 90                                # EEA service can be slow; 90s accommodates peak load
+    inter_request_delay_s: 0.5
+    cache_ttl_days: 90
+    search_radius_m: 25000
+    max_features: 5000
+    epz_radii_m:
+      - 5000
+      - 16000
+      - 25000
+    avoidance_overlap: true
+    avoidance_min_distance_km: 1.0
+    eu_member_states:
+      - PL
+      - CZ
+      - SK
+      - HU
+      - AT
+      - SI
+      - HR
+      - RO
+      - BG
+      - EE
+      - LV
+      - LT
+    sensitivity_thresholds:
+      high_overlap: true
+      high_within_1km: true
+      moderate_min_sites_5km: 2
+      moderate_min_area_fraction_5km: 0.10
+      low_min_sites_25km: 1
+  wdpa:
+    api_url: "https://api.protectedplanet.net"
+    api_version: "v4"
+    api_token: null                               # required — free at https://api.protectedplanet.net/request
+    timeout_s: 30
+    inter_request_delay_s: 0.2
+    per_page: 50
+    cache_dir: "sources/wdpa"
+    cache_ttl_days: 30
+    search_radius_m: 25000
+    max_areas_per_country: 10000
+    epz_radii_m:
+      - 5000
+      - 16000
+      - 25000
+    iso3_mapping:
+      PL: POL
+      CZ: CZE
+      SK: SVK
+      HU: HUN
+      AT: AUT
+      SI: SVN
+      HR: HRV
+      BA: BIH
+      RS: SRB
+      ME: MNE
+      XK: XKX
+      AL: ALB
+      MK: MKD
+      RO: ROU
+      BG: BGR
+      MD: MDA
+      UA: UKR
+      BY: BLR
+      EE: EST
+      LV: LVA
+      LT: LTU
+      AM: ARM
+      TR: TUR
+    eu_member_states:
+      - PL
+      - CZ
+      - SK
+      - HU
+      - AT
+      - SI
+      - HR
+      - RO
+      - BG
+      - EE
+      - LV
+      - LT
+    n2k_designation_patterns:
+      - "Habitats Directive"
+      - "Birds Directive"
+      - "Natura 2000"
+    bulk_download:
+      cdn_base_url: "https://d1gam3xoknrgr2.cloudfront.net/current"
+      timeout_s: 600                          # 10 min; large countries can be ~200 MB
+    avoidance_overlap: true
+    avoidance_iucn_ia_ib_buffer_km: 2.0
+    avoidance_international_buffer_km: 2.0
+    sensitivity_thresholds:
+      high_overlap: true
+      high_iucn_ia_ib_within_2km: true
+      high_international_within_2km: true
+      moderate_min_sites_5km: 2
+      moderate_min_area_fraction_5km: 0.10
+      moderate_ramsar_within_5km: true
+      low_min_sites_25km: 1
+    iucn_groups:
+      strict: ["Ia", "Ib"]
+      high: ["II", "III"]
+      moderate: ["IV", "V", "VI"]
+    international_designation_patterns:
+      ramsar: "Ramsar"
+      world_heritage: "World Heritage"
+      biosphere: "Biosphere Reserve"
+      emerald: "Emerald"
+  hydrorivers:
+    data_dir: "sources/hydrorivers"
+    regions: ["eu", "as"]                  # EU covers most scope; AS covers Turkey, Armenia
+    download_timeout_s: 1800               # 30 min; regional shapefiles ~150 MB each
+    cache_ttl_days: 36500                  # static dataset (2019); cache indefinitely
+    search_radius_km: 50                   # max distance to search for nearest river
+    min_strahler_order: 3                  # min Strahler order for cooling viability
+  wri_aqueduct:
+    data_dir: "sources/wri_aqueduct"
+    download_url: "https://files.wri.org/aqueduct/aqueduct-4-0-water-risk-data.zip"
+    download_timeout_s: 600                # 10 min; ~400 MB download
+    cache_ttl_days: 36500                  # static dataset (2023); cache indefinitely
+  glofas_discharge:
+    cache_dir: "sources/glofas_discharge"
+    cache_ttl_days: 365                    # reanalysis dataset; annual refresh
+    cds_url: null                          # uses default CDS API endpoint
+    cds_key: null                          # env: CDS_API_KEY or ~/.cdsapirc
+    years: [1991, 1995, 2000, 2005, 2010, 2015, 2020]  # sample years for climatology
+    months: [1, 4, 7, 10]                  # quarterly sampling
+    bbox:
+      min_lat: 35
+      max_lat: 60
+      min_lon: 12
+      max_lon: 50
+  eu_flood_risk:
+    glofas_base_url: "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-GLOFAS/flood_hazard"
+    tile_extents_url: "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-GLOFAS/flood_hazard/tile_extents.geojson"
+    return_periods: [10, 20, 50, 75, 100, 200, 500]
+    download_reclass_tiles: false
+    cache_dir: "sources/eu_flood_risk"
+    glofas_cache_ttl_days: 365
+    apsfr_cache_ttl_days: 180
+    tile_download_timeout_s: 300
+    apsfr_download_timeout_s: 600
+    timeout_s: 60
+    project_bbox:
+      min_lat: 35
+      max_lat: 60
+      min_lon: 12
+      max_lon: 45
+    exclusion_depth_rp100_m: 0.5
+    avoidance_depth_rp500_m: 0.0
+  copernicus_ems:
+    rrm_api_url: "https://riskandrecovery.emergency.copernicus.eu/api/public-activations/"
+    rapid_api_url: "https://mapping.emergency.copernicus.eu/activations/api/activations/"
+    geodata_cache_dir: "sources/copernicus_ems/geodata"
+    timeout_s: 30
+    download_timeout_s: 120
+    inter_request_delay_s: 1.0
+    cache_ttl_days: 180
+    catalogue_refresh_days: 30
+    site_buffer_km: 100                             # centroid-based proximity; 100 km captures flood event edges
+    susceptibility_thresholds:
+      high_intersection: true
+      medium_distance_km: 10
+      low_distance_km: 50
+    categories:
+      - "Flood"
+      - "Storm"
+  eea_industrial:
+    esri_query_url: "https://air.discomap.eea.europa.eu/arcgis/rest/services/Air/IED_SiteMap/MapServer/0/query"
+    cache_dir: "sources/eea_industrial"
+    cache_ttl_days: 180
+    timeout_s: 120
+    search_radius_km: 30
+    country_filter:
+      - PL
+      - CZ
+      - SK
+      - HU
+      - AT
+      - SI
+      - HR
+      - BG
+      - RO
+      - EE
+      - LV
+      - LT
+      - RS
+      - TR
+  seveso:
+    eea_api_base_url: "https://industry.eea.europa.eu/api"
+    eea_api_inter_request_delay_s: 0.5
+    eprtr_source: "local"
+    eprtr_local_path: "sources/seveso/eprtr_facilities.csv"
+    minerva_local_path: "sources/seveso/minerva_seveso.csv"
+    national_data_dir: "sources/seveso/national"
+    timeout_s: 30
+    cache_ttl_days: 90
+    max_search_radius_km: 25
+    dedup_distance_threshold_m: 500
+    dedup_name_similarity_threshold: 0.8
+    distance_bands_km:
+      - 2
+      - 5
+      - 10
+      - 25
+    epz_radii_km:
+      - 5
+      - 16
+      - 25
+    hazard_nace_codes:
+      explosion:
+        - "19.20"
+        - "20.14"
+        - "20.15"
+        - "20.51"
+        - "24.10"
+        - "35.21"
+      toxic:
+        - "20.11"
+        - "20.12"
+        - "20.13"
+        - "20.14"
+        - "20.15"
+        - "20.20"
+        - "38.12"
+        - "38.22"
+      fire:
+        - "19.20"
+        - "20.14"
+        - "20.60"
+        - "24.10"
+        - "35.21"
+        - "46.71"
+    eu_member_countries:
+      - PL
+      - CZ
+      - SK
+      - HU
+      - AT
+      - SI
+      - HR
+      - BG
+      - RO
+      - EE
+      - LV
+      - LT
+    reporting_year: 2024
+  ourairports:
+    airports_csv_url: "https://ourairports.com/data/airports.csv"
+    runways_csv_url: "https://ourairports.com/data/runways.csv"
+    cache_dir: "sources/ourairports"
+    cache_ttl_days: 30
+    search_radius_km: 100
+    timeout_s: 60
+  gfms:
+    base_download_url: "http://eagle2.umd.edu/flood/download"
+    wms_url: "http://193.170.252.77/geoserver/global_flood_monitoring/wms"
+    readme_url: "http://eagle2.umd.edu/flood/GFMS_readme.pdf"
+    timeout_s: 30
+    download_timeout_s: 60
+    inter_request_delay_s: 0.5
+    cache_dir: "sources/gfms"
+    cache_ttl_days: 180
+    archive_cache_ttl_days: 365
+
+    # Analysis period (2013-2025: years with accessible .bin files on eagle2)
+    analysis_start_year: 2013
+    analysis_end_year: 2025
+
+    # Temporal sampling strategy: "weekly" | "daily_recent" | "full"
+    temporal_sampling: "weekly"
+
+    # Grid specification (from GFMS_readme.pdf — do not change unless GFMS format changes)
+    grid_rows: 800
+    grid_cols: 2458
+    resolution_degrees: 0.125
+    yllcorner: -50.0
+    xllcorner: -127.25
+
+    # Project sub-grid extraction (lat 35–50°N, lon 12–45°E)
+    project_bbox:
+      min_lat: 35.0
+      max_lat: 50.0
+      min_lon: 12.0
+      max_lon: 45.0
+
+    # Flood susceptibility thresholds
+    susceptibility_thresholds:
+      high_annual_probability: 0.10
+      moderate_annual_probability: 0.03
+      low_annual_probability: 0.005
+
+    # Coastal proxy: sites within this distance of coast get NH-08 proxy
+    coastal_distance_threshold_km: 20
+
+    # Data validation
+    max_plausible_intensity_mm: 5000
+    min_snapshots_for_statistics: 100
+
+  noaa_ncei:
+    cdo_api_url: "https://www.ncei.noaa.gov/cdo-web/api/v2"
+    access_data_url: "https://www.ncei.noaa.gov/access/services/data/v1"
+    cdo_api_token: null                    # required — free registration at https://www.ncei.noaa.gov/cdo-web/token
+    ibtracs_csv_url: "https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.ALL.list.v04r01.csv"
+    ibtracs_cache_path: "sources/noaa/ibtracs_all.csv"
+    timeout_s: 30
+    access_data_timeout_s: 60
+    cdo_inter_request_delay_s: 0.25        # 5 req/s max → 0.2s minimum; 0.25s with margin
+    access_data_inter_request_delay_s: 0.5
+    cache_ttl_days: 90
+    station_discovery_cache_ttl_days: 365
+    ibtracs_cache_ttl_days: 90
+    station_search_radius_km: 100
+    station_search_max_radius_km: 200
+    tropical_storm_radius_km: 500
+    analysis_start_year: 1980
+    analysis_end_year: 2025
+    min_record_years: 10
+    preferred_record_years: 30
+    ghcnd_datatypes:
+      - "TMAX"
+      - "TMIN"
+      - "PRCP"
+      - "SNOW"
+      - "SNWD"
+      - "AWND"
+      - "WSF2"
+      - "WSF5"
+      - "WT03"
+      - "WT05"
+      - "WT10"
+      - "WT11"
+    gsom_datatypes:
+      - "EMXT"
+      - "EMNT"
+      - "MXPN"
+      - "TPCP"
+      - "MXSD"
+      - "DT00"
+      - "DT32"
+      - "DX90"
+      - "DP01"
+  copernicus_era5:
+    cds_url: "https://cds.climate.copernicus.eu/api"
+    cds_key: null                           # set via CDSAPI_KEY env var or ~/.cdsapirc
+    data_dir: "sources/era5"
+    timeout_s: 7200                         # 2 hours — CDS queue can be long
+    inter_download_delay_s: 60              # courtesy between CDS requests
+    cache_ttl_days: 90                      # re-download ERA5 data every ~3 months
+    cmip6_cache_ttl_days: 365              # CMIP6 data is static
+
+    reference_period:
+      start_year: 1991
+      end_year: 2020
+
+    extremes_period:
+      start_year: 1991                      # ERA5 monthly means period (no separate hourly)
+      end_year: 2020
+
+    bounding_box:                           # N, W, S, E (covers all 23 in-scope countries)
+      north: 72
+      west: -25
+      south: 35
+      east: 46
+
+    gev:
+      return_periods: [50, 100]             # years
+      min_annual_maxima: 20                 # minimum years for reliable GEV fit
+
+    wind_rose:
+      n_sectors: 16
+
+    pasquill:
+      blh_thresholds:
+        very_unstable_min: 1500             # class A (very unstable, BLH > 1500m)
+        unstable_min: 1000                  # class B (unstable, BLH > 1000m)
+        slightly_unstable_min: 500          # class C (slightly unstable, BLH > 500m)
+        neutral_max: 500                    # class D (neutral)
+        stable_max: 200                     # class E (stable, BLH 100-200m)
+        very_stable_max: 100                # class F (very stable, BLH < 100m)
+
+    # ERA5 variable lists (for download requests)
+    wind_variables:
+      - "10m_u_component_of_wind"
+      - "10m_v_component_of_wind"
+      - "instantaneous_10m_wind_gust"   # CDS API v2 name; NetCDF var: i10fg
+    temperature_variables:
+      - "2m_temperature"
+      # mx2t/mn2t not in monthly-means dataset; extraction falls back to t2m
+    precipitation_variables:
+      - "total_precipitation"
+      - "snowfall"
+      - "convective_precipitation"
+    stability_variables:
+      - "boundary_layer_height"
+      - "convective_available_potential_energy"
+      - "convective_inhibition"
+    drought_variables:
+      - "volumetric_soil_water_layer_1"
+      - "total_evaporation"
+      - "potential_evaporation"
+
+    cmip6:
+      experiments: ["historical", "ssp2_4_5", "ssp5_8_5"]
+      variable: "near_surface_air_temperature"
+      models: ["mpi_esm1_2_hr"]            # commonly available; extend after initial run
+      projection_periods:
+        - label: "2050"
+          start_year: 2041
+          end_year: 2060
+        - label: "2080"
+          start_year: 2071
+          end_year: 2090
+
+  smithsonian_gvp:
+    wfs_url: "https://webservices.volcano.si.edu/geoserver/GVP-VOTW/wfs"
+    volcanoes_layer: "GVP-VOTW:Smithsonian_VOTW_Holocene_Volcanoes"
+    eruptions_layer: "GVP-VOTW:Smithsonian_VOTW_Holocene_Eruptions"
+    timeout_s: 60
+    cache_dir: "sources/gvp"
+    volcanoes_cache_file: "holocene_volcanoes.json"
+    eruptions_cache_file: "holocene_eruptions.json"
+    cache_ttl_days: 365
+    eruptions_cache_ttl_days: 180
+    search_radius_km: 300
+    extended_radius_km: 500
+    max_nearby_volcanoes: 10
+    exclusion_distance_km: 5
+    avoidance_vei4_distance_km: 40
+    avoidance_recent_distance_km: 100
+    avoidance_recent_years: 2000
+  entso_e:
+    api_url: "https://web-api.tp.entsoe.eu/api"
+    security_token: null                        # required — free registration at https://transparency.entsoe.eu/
+    timeout_s: 30
+    inter_request_delay_s: 0.2                  # 300 req/min (under 400/min limit)
+    cache_dir: "sources/entso_e"
+    cache_ttl_days: 180
+    reference_year: 2025
+    flow_sample_months: 1
+    bidding_zones:
+      PL: "10YPL-AREA-----S"
+      CZ: "10YCZ-CEPS-----N"
+      SK: "10YSK-SEPS-----K"
+      HU: "10YHU-MAVIR----U"
+      AT: "10YAT-APG------L"
+      SI: "10YSI-ELES-----O"
+      HR: "10YHR-HEP------M"
+      BA: "10YBA-JPCC-----D"
+      RS: "10YCS-SERBIATSOV"
+      ME: "10YCS-CG-TSO---S"
+      XK: "10Y1001C--00100H"
+      AL: "10YAL-KESH-----5"
+      MK: "10YMK-MEPSO----8"
+      RO: "10YRO-TEL------P"
+      BG: "10YCA-BULGARIA-R"
+      MD: "10Y1001A1001A990"
+      UA: "10Y1001C--00003F"
+      BY: "10Y1001A1001A51S"
+      EE: "10Y1001A1001A39I"
+      LV: "10YLV-1001A00074"
+      LT: "10YLT-1001A0008Q"
+      AM: "10Y1001A1001B004"
+      TR: "10YTR-TEIAS----W"
+    interconnectors:
+      - ["10YPL-AREA-----S", "10YCZ-CEPS-----N"]      # PL-CZ
+      - ["10YPL-AREA-----S", "10YSK-SEPS-----K"]      # PL-SK
+      - ["10YPL-AREA-----S", "10YLT-1001A0008Q"]      # PL-LT
+      - ["10YPL-AREA-----S", "10Y1001C--00003F"]       # PL-UA
+      - ["10YCZ-CEPS-----N", "10YSK-SEPS-----K"]      # CZ-SK
+      - ["10YCZ-CEPS-----N", "10YAT-APG------L"]      # CZ-AT
+      - ["10YSK-SEPS-----K", "10YHU-MAVIR----U"]      # SK-HU
+      - ["10YHU-MAVIR----U", "10YAT-APG------L"]      # HU-AT
+      - ["10YHU-MAVIR----U", "10YHR-HEP------M"]      # HU-HR
+      - ["10YHU-MAVIR----U", "10YRO-TEL------P"]      # HU-RO
+      - ["10YHU-MAVIR----U", "10YCS-SERBIATSOV"]      # HU-RS
+      - ["10YSI-ELES-----O", "10YAT-APG------L"]      # SI-AT
+      - ["10YSI-ELES-----O", "10YHR-HEP------M"]      # SI-HR
+      - ["10YHR-HEP------M", "10YBA-JPCC-----D"]      # HR-BA
+      - ["10YHR-HEP------M", "10YCS-SERBIATSOV"]      # HR-RS
+      - ["10YBA-JPCC-----D", "10YCS-SERBIATSOV"]      # BA-RS
+      - ["10YBA-JPCC-----D", "10YCS-CG-TSO---S"]      # BA-ME
+      - ["10YCS-SERBIATSOV", "10YCS-CG-TSO---S"]      # RS-ME
+      - ["10YCS-SERBIATSOV", "10YMK-MEPSO----8"]      # RS-MK
+      - ["10YCS-SERBIATSOV", "10YRO-TEL------P"]      # RS-RO
+      - ["10YCS-CG-TSO---S", "10YAL-KESH-----5"]      # ME-AL
+      - ["10YCS-CG-TSO---S", "10Y1001C--00100H"]      # ME-XK
+      - ["10Y1001C--00100H", "10YAL-KESH-----5"]      # XK-AL
+      - ["10Y1001C--00100H", "10YMK-MEPSO----8"]      # XK-MK
+      - ["10YRO-TEL------P", "10YCA-BULGARIA-R"]      # RO-BG
+      - ["10YRO-TEL------P", "10Y1001C--00003F"]      # RO-UA
+      - ["10YRO-TEL------P", "10Y1001A1001A990"]      # RO-MD
+      - ["10YCA-BULGARIA-R", "10YMK-MEPSO----8"]      # BG-MK
+      - ["10YCA-BULGARIA-R", "10YTR-TEIAS----W"]      # BG-TR
+      - ["10Y1001C--00003F", "10Y1001A1001A990"]      # UA-MD
+      - ["10Y1001A1001A39I", "10YLV-1001A00074"]      # EE-LV
+      - ["10YLV-1001A00074", "10YLT-1001A0008Q"]      # LV-LT
+    nuclear_readiness_thresholds:
+      excellent_min_total_mw: 10000
+      good_min_total_mw: 5000
+      moderate_min_total_mw: 2000
+      limited_min_total_mw: 500
+      large_unit_threshold_mw: 400
+
+  earth_engine:
+    # Google Earth Engine requires a Cloud project + optional Google app review.
+    # Off by default — use Copernicus DEM / other connectors only until re-enabled.
+    enabled: false
+    project_id: null                              # env: GEE_PROJECT_ID
+    service_account_email: null                   # env: GEE_SERVICE_ACCOUNT_EMAIL (client_email in JSON)
+    service_account_key: null                    # env: GEE_SERVICE_ACCOUNT_KEY — path to JSON key
+    high_volume_endpoint: true
+    mode: "fallback"                              # "fallback" | "standalone"
+    timeout_s: 120
+    inter_request_delay_s: 1.0
+    dem_asset: "COPERNICUS/DEM/GLO30"
+    dem_band: "DEM"
+    fusion:
+      small_rel_tolerance: 0.12
+      small_abs_slope_deg: 2.0
+      small_abs_built: 0.08
+      # On large disagreement, first listed wins for tie-break (not universal truth).
+      trusted_priority:
+        - "google_earth_engine"
+        - "sentinel_hub_cdse"
+        - "copernicus_dem_glo30"
+    modules:
+      terrain:
+        enabled: true
+        radius_m: 2000
+        epz_radius_m: 16000
+      fire:
+        enabled: true
+        radius_m: 5000
+        start_date: "2000-11-01"
+      built_up:
+        enabled: true
+        radius_m: 500
+        lookback_months: 12
 
 analysis:
   wildfire_context:
@@ -226,15 +987,21 @@ llm:
     tier1_exclusionary: claude-sonnet-4-20250514
     tier2_avoidance: claude-sonnet-4-20250514
     tier3_ranking: claude-haiku-3.5-20250401
+    tier1_upgrade: claude-opus-4-20250514  # second-pass model for inconclusive Tier 1
   tier1_thinking_budget: 16384
+  tier1_upgrade_thinking_budget: 25000  # Opus 4 cap is 32K output tokens; 25K thinking + 7K response
   temperature: 0.0
   max_tokens: 4096
   max_tokens_tier1: 16384
+  max_tokens_tier1_upgrade: 32000  # Opus 4 hard limit
   max_tokens_tier2: 4096
   max_tokens_tier3: 2048
-  max_concurrent: 50
-  rps: 40
+  max_concurrent: 20
+  max_concurrent_upgrade: 10  # Opus is slower and more expensive; limit concurrency
+  rps: 16
+  rps_upgrade: 5  # conservative RPS for the upgrade model
   timeout_s: 120
+  timeout_s_upgrade: 300  # Opus with extended thinking needs more time
   retry:
     max_retries: 3
     base_delay_s: 2

@@ -1,0 +1,78 @@
+<!-- man_hours: 0.5 -->
+---
+description: Enforce separation of hard data and qualitative assessments; require methodology documentation for every quality label
+alwaysApply: true
+---
+
+# Data Quality Discipline
+
+## Core Principle
+
+Every database column follows one of two roles — never mixed:
+
+- **Hard data columns** — raw measurements, counts, distances, percentages, booleans derived directly from a data source. These are populated by connectors/analysis modules.
+- **Qualitative columns** (`*_quality`, `*_confidence`, `*_comment`) — interpretive labels applied **on top of** hard data. They must NOT replace a numeric column.
+
+## Rules
+
+### 1 — Hard data always comes first
+
+If a connector measures something, it **must** be stored in a typed column (`Numeric`, `Integer`, `Float`, `Boolean`), even if the value is zero.  
+Never encode a measurement only inside a quality string or comment.
+
+```python
+# ❌ BAD — hides the measurement
+row.ep02_quality = "low"   # road density was 0.1, but not stored
+
+# ✅ GOOD — hard data first, then quality label
+row.road_density_km_per_km2 = 0.12
+row.ep02_quality = "medium"
+```
+
+### 2 — Every quality label requires a documented rationale
+
+When you assign a **new** `*_quality` value — whether a fixed string or a computed expression — you **must** add or update the corresponding entry in:
+
+```
+report/methodology/methodology.md   → section "Data Quality Framework"
+```
+
+The entry must state:
+- What `high` / `medium` / `low` / `insufficient` / `not_applicable` means for that specific criterion column.
+- What numeric or logical condition triggers each grade.
+- Which source(s) each grade corresponds to.
+
+### 3 — Quality grades are drawn from the controlled vocabulary
+
+Use only these five values for `*_quality` columns:
+
+| Value | Meaning |
+|-------|---------|
+| `high` | Direct authoritative measurement at appropriate spatial resolution |
+| `medium` | Reliable proxy or lower-resolution source; adequate for ranking, not for eliminatory decisions without additional validation |
+| `low` | Sparse / coarse / error-fallback; flag for further investigation only |
+| `insufficient` | Source covers the topic but site falls outside its spatial coverage, or retrieval failed |
+| `not_applicable` | Criterion/register does not apply to this site by design (e.g. E-PRTR for non-EU countries) |
+
+Source names (e.g. `"osm_overpass"`) are **never** valid quality values. Record source attribution in `*_comment` or the `data_sources_used` field.
+
+### 4 — Qualitative rationale cannot live only in code
+
+Comments in `.py` files are not auditable methodology. The rationale belongs in `report/methodology/methodology.md` so it survives code refactors and is visible to non-engineers (reviewers, regulators).
+
+### 5 — Raw downloaded data must be cached to `sources/<slug>/`
+
+Every connector that makes an external HTTP call must persist the raw response (or a faithful serialisation) to `sources/<connector_slug>/`. Without it, the distinction between "API returned wrong data" and "connector parsed data incorrectly" is unknowable during post-hoc audits.
+
+- **Bulk-download connectors** (WFS, CSV, GeoTIFF): cache the full download with TTL-based invalidation. Reference pattern: `smithsonian_gvp/client.py` (atomic write via `.tmp` rename).
+- **Per-site API connectors** (Overpass, EFEHR, EGDI): at minimum cache (a) the first successful response as a reference sample, and (b) batch-level metadata in `sources/<slug>/batch_<run_id>.meta.json` (total calls, total bytes, error count, timestamp).
+
+See **LL-024** in `prompts/lessons_learned.md` for the full rationale and the list of connectors that currently lack this.
+
+## Checklist for every new connector / analysis module
+
+- [ ] All numeric measurements stored in typed DB columns
+- [ ] `*_quality` uses only the five controlled vocabulary values
+- [ ] `*_comment` contains human-readable evidence summary (source, value, date)
+- [ ] `report/methodology/methodology.md` → "Data Quality Framework" updated with this criterion's grade definitions
+- [ ] Raw downloaded data cached to `sources/<slug>/` (LL-024)
