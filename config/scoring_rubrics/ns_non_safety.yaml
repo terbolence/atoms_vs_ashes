@@ -1,0 +1,273 @@
+# Non-safety (NS) scoring rubric. Source: report/sites_evaluation/07_criteria_non_safety.md.
+# Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
+family: ns
+pass_mark_default: 5.0
+criteria:
+  - criterion_id: NS-01
+    name: Cooling water / ultimate heat sink
+    phases: [exclusionary, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    db_fields: {api: [site_infrastructure_v2.cooling_source_type, site_infrastructure_v2.cooling_source_name, site_infrastructure_v2.cooling_source_hyriv_id, site_infrastructure_v2.cooling_distance_km, site_infrastructure_v2.cooling_flow_m3s, site_infrastructure_v2.water_stress_score, site_natural_hazards.spi12_min], llm: ns01_cooling_text}
+    aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
+    sub_scores:
+      - key: source_type
+        weight: 0.35
+        primary_metric: cooling_source_type
+        bands:
+          - {score_range: [9, 10], condition_expr: "cooling_source_type in ['sea', 'large_lake'] or strahler_order >= 5", descriptor: "Large river (Strahler >= 5) or sea/large lake."}
+          - {score_range: [7, 8], condition_expr: "strahler_order == 4 or cooling_source_type in ['medium_lake', 'reservoir']", descriptor: "Medium river / medium lake / reservoir."}
+          - {score_range: [5, 6], condition_expr: "strahler_order == 3 or cooling_source_type == 'canal'", descriptor: "Small river (Strahler 3) or canal."}
+          - {score_range: [3, 4], condition_expr: "strahler_order <= 2 or cooling_source_type == 'groundwater'", descriptor: "Very small stream or groundwater only."}
+          - {score_range: [1, 2], condition_expr: "cooling_source_type in ['none', null] and cooling_distance_km > 10", descriptor: "No identified water source within 10 km."}
+          - {score_range: [0, 0], condition_expr: "cooling_source_type == 'none' and dry_cooling_viable == false", descriptor: "E9: no viable source AND dry cooling not viable."}
+      - key: distance_to_source
+        weight: 0.20
+        primary_metric: cooling_distance_km
+        bands:
+          - {score_range: [9, 10], condition_expr: "cooling_distance_km < 0.5", descriptor: "< 0.5 km."}
+          - {score_range: [7, 8], condition_expr: "cooling_distance_km < 2", descriptor: "0.5-2 km."}
+          - {score_range: [5, 6], condition_expr: "cooling_distance_km < 5", descriptor: "2-5 km."}
+          - {score_range: [3, 4], condition_expr: "cooling_distance_km <= 10", descriptor: "5-10 km."}
+          - {score_range: [1, 2], condition_expr: "cooling_distance_km > 10", descriptor: "> 10 km."}
+      - key: water_stress
+        weight: 0.25
+        primary_metric: water_stress_score
+        bands:
+          - {score_range: [9, 10], condition_expr: "water_stress_score < 1.0", descriptor: "Low (< 1.0)."}
+          - {score_range: [7, 8], condition_expr: "water_stress_score < 2.0", descriptor: "Low-Med (1.0-2.0)."}
+          - {score_range: [5, 6], condition_expr: "water_stress_score < 3.0", descriptor: "Med-High (2.0-3.0)."}
+          - {score_range: [3, 4], condition_expr: "water_stress_score < 4.0", descriptor: "High (3.0-4.0)."}
+          - {score_range: [1, 2], condition_expr: "water_stress_score >= 4.0", descriptor: "Extremely High (>= 4.0)."}
+      - key: seasonal_drought
+        weight: 0.20
+        primary_metric: spi12_min
+        bands:
+          - {score_range: [9, 10], condition_expr: "spi12_min > -1.0", descriptor: "> -1.0."}
+          - {score_range: [7, 8], condition_expr: "spi12_min > -1.5", descriptor: "-1.5 to -1.0."}
+          - {score_range: [5, 6], condition_expr: "spi12_min > -2.0", descriptor: "-2.0 to -1.5."}
+          - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
+          - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5."}
+    fail_conditions:
+      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", descriptor: "No viable cooling source AND dry cooling not viable."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-02
+    name: Grid connection (detailed)
+    phases: [avoidance, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.nearest_hv_line_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: ns02_grid_text}
+    aggregation: {method: min_of_sub_scores}
+    sub_scores:
+      - key: distance_to_grid
+        primary_metric: nearest_hv_line_km
+        bands:
+          - {score_range: [9, 10], condition_expr: "nearest_hv_line_km < 1", descriptor: "< 1 km."}
+          - {score_range: [7, 8], condition_expr: "nearest_hv_line_km <= 5", descriptor: "1-5 km."}
+          - {score_range: [5, 6], condition_expr: "nearest_hv_line_km <= 15", descriptor: "5-15 km."}
+          - {score_range: [3, 4], condition_expr: "nearest_hv_line_km <= 30", descriptor: "15-30 km."}
+          - {score_range: [1, 2], condition_expr: "nearest_hv_line_km > 30", descriptor: "> 30 km."}
+      - key: voltage_class
+        primary_metric: hv_line_voltage_kv
+        bands:
+          - {score_range: [9, 10], condition_expr: "hv_line_voltage_kv >= 400", descriptor: ">= 400 kV."}
+          - {score_range: [7, 8], condition_expr: "hv_line_voltage_kv >= 220", descriptor: "220-399 kV."}
+          - {score_range: [5, 6], condition_expr: "hv_line_voltage_kv >= 110", descriptor: "110-219 kV."}
+          - {score_range: [3, 4], condition_expr: "hv_line_voltage_kv >= 33", descriptor: "33-109 kV."}
+          - {score_range: [1, 2], condition_expr: "hv_line_voltage_kv < 33", descriptor: "< 33 kV or unknown."}
+    fail_conditions:
+      - {code: A13, action: avoidance_penalty, condition_expr: "grid_export_capacity_mw < 462", descriptor: "Project A13: transmission >= reference SMR net MWe within feasible distance."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-03
+    name: Transport access (heavy haul road / rail / port)
+    phases: [avoidance, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    db_fields: {api: [site_infrastructure_v2.nearest_highway_km, site_infrastructure_v2.nearest_rail_km, site_infrastructure_v2.nearest_waterway_km, site_infrastructure_v2.heavy_haul_capable], llm: ns03_transport_text}
+    aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
+    sub_scores:
+      - key: road
+        weight: 0.50
+        primary_metric: nearest_highway_km
+        bands:
+          - {score_range: [9, 10], condition_expr: "nearest_highway_km < 2", descriptor: "< 2 km."}
+          - {score_range: [7, 8], condition_expr: "nearest_highway_km <= 10", descriptor: "2-10 km."}
+          - {score_range: [5, 6], condition_expr: "nearest_highway_km <= 25", descriptor: "10-25 km."}
+          - {score_range: [3, 4], condition_expr: "nearest_highway_km <= 50", descriptor: "25-50 km."}
+          - {score_range: [1, 2], condition_expr: "nearest_highway_km > 50", descriptor: "> 50 km."}
+      - key: rail
+        weight: 0.30
+        primary_metric: nearest_rail_km
+        bands:
+          - {score_range: [9, 10], condition_expr: "nearest_rail_km < 1", descriptor: "< 1 km."}
+          - {score_range: [7, 8], condition_expr: "nearest_rail_km <= 5", descriptor: "1-5 km."}
+          - {score_range: [5, 6], condition_expr: "nearest_rail_km <= 15", descriptor: "5-15 km."}
+          - {score_range: [3, 4], condition_expr: "nearest_rail_km <= 30", descriptor: "15-30 km."}
+          - {score_range: [1, 2], condition_expr: "nearest_rail_km > 30", descriptor: "> 30 km."}
+      - key: waterway
+        weight: 0.20
+        primary_metric: nearest_waterway_km
+        bands:
+          - {score_range: [9, 10], condition_expr: "nearest_waterway_km < 2", descriptor: "< 2 km."}
+          - {score_range: [7, 8], condition_expr: "nearest_waterway_km <= 10", descriptor: "2-10 km."}
+          - {score_range: [5, 6], condition_expr: "nearest_waterway_km <= 30", descriptor: "10-30 km."}
+          - {score_range: [3, 4], condition_expr: "nearest_waterway_km <= 75", descriptor: "30-75 km."}
+          - {score_range: [1, 2], condition_expr: "nearest_waterway_km > 75", descriptor: "> 75 km / no navigable waterway."}
+    fail_conditions:
+      - {code: A14, action: avoidance_penalty, condition_expr: "heavy_haul_capable == false", descriptor: "Project A14: heavy-haul access >= 700 t segment capacity."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-04
+    name: Site topography / grading
+    phases: [ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: favourable_land_pct
+    db_fields: {api: [site_infrastructure_v2.favourable_land_pct, site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.favourable_area_method], llm: ns04_topography_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "favourable_land_pct > 80", descriptor: "> 80 %."}
+      - {score_range: [7, 8], condition_expr: "favourable_land_pct >= 60", descriptor: "60-80 %."}
+      - {score_range: [5, 6], condition_expr: "favourable_land_pct >= 40", descriptor: "40-60 %."}
+      - {score_range: [3, 4], condition_expr: "favourable_land_pct >= 20", descriptor: "20-40 %."}
+      - {score_range: [1, 2], condition_expr: "favourable_land_pct < 20", descriptor: "< 20 %."}
+    fail_conditions:
+      - {code: sanity_task2, action: review_flag, condition_expr: "favourable_area_ha < 1.0 and site_area_ha > 50", descriptor: "Curation Task 2 sanity: trigger hypothesis-based review (water dominated / DEM overwrite / mid-river / unknown)."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-05
+    name: Land availability / ownership / zoning
+    phases: [avoidance, ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: composite
+    db_fields: {api: [site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, site_infrastructure_v2.patch_count], llm: ns05_land_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "buildable_area_ha >= 50 and largest_contiguous_ha >= 25", descriptor: "Buildable >= 50 ha AND contiguous >= 25 ha; consolidated."}
+      - {score_range: [7, 8], condition_expr: "buildable_area_ha >= 25 and largest_contiguous_ha >= 14", descriptor: "Buildable >= 25 ha AND contiguous >= 14 ha."}
+      - {score_range: [5, 6], condition_expr: "buildable_area_ha >= 14 and largest_contiguous_ha >= 10", descriptor: "Buildable >= 14 ha AND contiguous >= 10 ha (project pass mark)."}
+      - {score_range: [3, 4], condition_expr: "buildable_area_ha >= 8 or largest_contiguous_ha >= 5", descriptor: "Buildable >= 8 ha OR contiguous >= 5 ha; complex ownership."}
+      - {score_range: [1, 2], condition_expr: "buildable_area_ha < 8 and largest_contiguous_ha < 5", descriptor: "Buildable < 8 ha AND contiguous < 5 ha."}
+      - {score_range: [0, 0], condition_expr: "zoning_hard_block == true", descriptor: "Legal / zoning hard-block at screening."}
+    fail_conditions:
+      - {code: A15, action: avoidance_penalty, condition_expr: "largest_contiguous_ha < 14", descriptor: "Project A15: >= 14 ha contiguous industrial land."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-06
+    name: Existing infrastructure reuse
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: reuse_tier
+    db_fields: {api: [], llm: ns06_reuse_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "reuse_tier == 'strong'", descriptor: "Strong civil + grid + cooling reuse; minimal demolition."}
+      - {score_range: [7, 8], condition_expr: "reuse_tier == 'solid'", descriptor: "Solid grid + cooling reuse; civil partially."}
+      - {score_range: [5, 6], condition_expr: "reuse_tier == 'moderate'", descriptor: "Moderate reuse; one major asset class transferable."}
+      - {score_range: [3, 4], condition_expr: "reuse_tier == 'limited'", descriptor: "Limited reuse; greenfield-equivalent."}
+      - {score_range: [1, 2], condition_expr: "reuse_tier == 'contaminated'", descriptor: "Legacy assets contaminated or beyond useful life."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-07
+    name: Environmental impact (non-radiological)
+    phases: [avoidance, ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: env_impact_tier
+    db_fields: {api: [], llm: ns07_env_impact_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "env_impact_tier == 'industrial'", descriptor: "Industrial / agricultural setting; favourable thermal-discharge headroom."}
+      - {score_range: [7, 8], condition_expr: "env_impact_tier == 'few_sensitivities'", descriptor: "Few sensitivities; standard EIA path."}
+      - {score_range: [5, 6], condition_expr: "env_impact_tier == 'typical'", descriptor: "Typical conversion challenges."}
+      - {score_range: [3, 4], condition_expr: "env_impact_tier == 'significant'", descriptor: "Significant EIA issues; mitigation costly."}
+      - {score_range: [1, 2], condition_expr: "env_impact_tier == 'showstopper_risk'", descriptor: "Iconic landscape or strict thermal cap; EIA showstopper risk."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-08
+    name: Ecological sensitivity (Natura 2000 / WDPA)
+    phases: [exclusionary, ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: composite
+    db_fields: {api: [site_infrastructure_v2.n2k_nearest_distance_km, site_infrastructure_v2.wdpa_nearest_distance_km, site_infrastructure_v2.ecological_natural_pct], llm: ns08_ecology_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "n2k_nearest_distance_km > 25 and ecological_natural_pct < 15", descriptor: "> 25 km AND natural land < 15 %."}
+      - {score_range: [7, 8], condition_expr: "n2k_nearest_distance_km >= 10 or ecological_natural_pct <= 30", descriptor: "10-25 km OR natural land 15-30 %."}
+      - {score_range: [5, 6], condition_expr: "n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50", descriptor: "5-10 km OR natural land 30-50 %."}
+      - {score_range: [3, 4], condition_expr: "n2k_nearest_distance_km >= 2 or ecological_natural_pct <= 70", descriptor: "2-5 km OR natural land 50-70 %."}
+      - {score_range: [1, 2], condition_expr: "n2k_nearest_distance_km < 2 or ecological_natural_pct > 70", descriptor: "< 2 km OR natural land > 70 %."}
+      - {score_range: [0, 0], condition_expr: "site_within_strict_protected == true", descriptor: "E7: site within strict-category protected zone."}
+    fail_conditions:
+      - {code: E7, action: exclude, condition_expr: "site_within_strict_protected == true", descriptor: "Site within strict-category Natura 2000 / WDPA."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-09
+    name: Socioeconomic impact
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: socio_tier
+    db_fields: {api: [site_socioeconomic.unemployment_pct, site_socioeconomic.gdp_per_capita_eur], llm: ns09_socioeconomic_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "socio_tier == 'strong_alignment'", descriptor: "Strong alignment with regional development goals."}
+      - {score_range: [7, 8], condition_expr: "socio_tier == 'net_positive'", descriptor: "Net positive; clear coal-to-nuclear narrative."}
+      - {score_range: [5, 6], condition_expr: "socio_tier == 'neutral'", descriptor: "Neutral to moderately positive."}
+      - {score_range: [3, 4], condition_expr: "socio_tier == 'mixed'", descriptor: "Mixed; significant stakeholder work required."}
+      - {score_range: [1, 2], condition_expr: "socio_tier == 'opposition'", descriptor: "Strong opposition indicators; negative net narrative."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-10
+    name: Workforce availability
+    phases: [ranking]
+    weight_factor: 4
+    normalised_weight_pct: 1.4
+    primary_metric: workforce_tier
+    db_fields: {api: [], llm: ns10_workforce_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "workforce_tier == 'excellent'", descriptor: "Excellent depth + training ecosystem; nuclear-relevant skills nearby."}
+      - {score_range: [7, 8], condition_expr: "workforce_tier == 'strong_industrial'", descriptor: "Strong industrial labour basin."}
+      - {score_range: [5, 6], condition_expr: "workforce_tier == 'adequate'", descriptor: "Adequate regional supply."}
+      - {score_range: [3, 4], condition_expr: "workforce_tier == 'tight'", descriptor: "Tight labour market; premium wages and housing required."}
+      - {score_range: [1, 2], condition_expr: "workforce_tier == 'severe_bottleneck'", descriptor: "Severe bottleneck; major migration programme needed."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-11
+    name: Coal-to-nuclear synergies
+    phases: [ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: ns11_synergy_index
+    db_fields: {api: [site_infrastructure_v2.ns11_synergy_index], llm: ns11_synergy_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "ns11_synergy_index == 'exceptional'", descriptor: "Exceptional integration potential; credible cost evidence."}
+      - {score_range: [7, 8], condition_expr: "ns11_synergy_index == 'strong'", descriptor: "Strong alignment of coal retirement assets with SMR needs."}
+      - {score_range: [5, 6], condition_expr: "ns11_synergy_index == 'balanced'", descriptor: "Balanced brownfield advantages vs remediation cost."}
+      - {score_range: [3, 4], condition_expr: "ns11_synergy_index == 'modest'", descriptor: "Modest synergy; benefits offset by legacy liabilities."}
+      - {score_range: [1, 2], condition_expr: "ns11_synergy_index == 'minimal'", descriptor: "Minimal realistic synergy."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-12
+    name: Regulatory / political environment
+    phases: [ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: policy_tier
+    db_fields: {api: [], llm: ns12_policy_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "policy_tier == 'strong_enabling'", descriptor: "Strong stable enabling framework; fast EIA courts."}
+      - {score_range: [7, 8], condition_expr: "policy_tier == 'clear_support'", descriptor: "Clear policy support; competent regulator engagement."}
+      - {score_range: [5, 6], condition_expr: "policy_tier == 'feasible'", descriptor: "Permitting feasible but not fast; moderate political support."}
+      - {score_range: [3, 4], condition_expr: "policy_tier == 'uncertain'", descriptor: "Uncertain policy; major political risk."}
+      - {score_range: [1, 2], condition_expr: "policy_tier == 'hostile'", descriptor: "Hostile or legally blocked pathway for new nuclear."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NS-13
+    name: Construction logistics
+    phases: [ranking]
+    weight_factor: 4
+    normalised_weight_pct: 1.4
+    primary_metric: logistics_tier
+    db_fields: {api: [], llm: ns13_construction_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "logistics_tier == 'excellent'", descriptor: "Excellent multi-supplier landscape; abundant laydown."}
+      - {score_range: [7, 8], condition_expr: "logistics_tier == 'generous'", descriptor: "Generous laydown and supply chain geometry."}
+      - {score_range: [5, 6], condition_expr: "logistics_tier == 'workable'", descriptor: "Workable with industry-standard planning."}
+      - {score_range: [3, 4], condition_expr: "logistics_tier == 'tight'", descriptor: "Tight; costly temporary works and traffic management."}
+      - {score_range: [1, 2], condition_expr: "logistics_tier == 'severe'", descriptor: "Severe space / logistics constraints."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}

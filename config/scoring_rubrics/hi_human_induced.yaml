@@ -1,0 +1,144 @@
+# Human-induced hazards (HI) scoring rubric. Source: report/sites_evaluation/04_criteria_human_induced.md.
+# Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
+family: hi
+pass_mark_default: 5.0
+criteria:
+  - criterion_id: HI-01
+    name: Aircraft crash hazard
+    phases: [avoidance, ranking]
+    weight_factor: 7
+    normalised_weight_pct: 2.5
+    primary_metric: composite
+    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_military_airfield_km], llm: hi01_aircraft_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_airport_km > 30 and nearest_military_airfield_km > 60", descriptor: "No airport within 30 km AND no military within 60 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_airport_km >= 15 and nearest_military_airfield_km >= 30 and under_flight_path == false", descriptor: "Civilian 15-30 km, military 30-60 km; no flight path overhead."}
+      - {score_range: [5, 6], condition_expr: "nearest_airport_km >= 8 or nearest_military_airfield_km >= 30", descriptor: "Civilian 8-15 km OR military 30-60 km (project pass-mark)."}
+      - {score_range: [3, 4], condition_expr: "nearest_airport_km < 15 or nearest_military_airfield_km < 30", descriptor: "Civilian < 15 km OR military < 30 km (avoidance penalty)."}
+      - {score_range: [1, 2], condition_expr: "(nearest_airport_type == 'large_intl' and nearest_airport_km < 8) or nearest_military_airfield_km < 16", descriptor: "Large international < 8 km or military airbase < 16 km."}
+      - {score_range: [0, 0], condition_expr: "under_flight_path == true and nearest_airport_type in ['large_intl', 'military_major']", descriptor: "Direct under-flight of major corridor with no remedy."}
+    # A1-A4 split per report/sites_evaluation/10_appendices.md Table A.2 and
+    # report/sites_evaluation/04_criteria_human_induced.md §4.3 HI-01. Each
+    # aircraft-crash sub-threshold becomes its own verdict so appendix
+    # coverage is 1-to-1 (see audit/plans/.../siting_report_end_to_end plan
+    # Phase 1.4 "E1-E9 + A1-A15 evaluators").
+    fail_conditions:
+      - {code: A1, action: avoidance_penalty, condition_expr: "nearest_airport_km < 10 and nearest_airport_type in ['small', 'small_ga', 'general_aviation', 'light', 'small_airport']", descriptor: "A1 — SSG-35: general-aviation / small airport < 10 km."}
+      - {code: A2, action: avoidance_penalty, condition_expr: "nearest_airport_km < 15 and nearest_airport_type in ['commercial', 'large_intl', 'large_airport', 'large', 'medium']", descriptor: "A2 — Project: commercial / large-international airport < 15 km (SSG-35 ≥ 16 km)."}
+      - {code: A3, action: avoidance_penalty, condition_expr: "nearest_military_airfield_km < 30 or (nearest_airport_km < 30 and nearest_airport_type in ['military', 'military_major', 'military_minor', 'military_base'])", descriptor: "A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."}
+      - {code: A4, action: avoidance_penalty, condition_expr: "under_flight_path == true or flight_path_distance_km < 4", descriptor: "A4 — SSG-35: flight-path overhead / < 4 km from airway."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-02
+    name: Industrial explosions (Seveso / IED)
+    phases: [avoidance, ranking]
+    weight_factor: 7
+    normalised_weight_pct: 2.5
+    primary_metric: nearest_seveso_km
+    db_fields: {api: [site_human_induced.nearest_seveso_km, site_human_induced.nearest_ied_km], llm: hi02_explosions_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_seveso_km > 20", descriptor: "> 20 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_seveso_km >= 10", descriptor: "10-20 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_seveso_km >= 5", descriptor: "5-10 km (project A7 pass-mark)."}
+      - {score_range: [3, 4], condition_expr: "nearest_seveso_km >= 2", descriptor: "2-5 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_seveso_km < 2", descriptor: "< 2 km."}
+      - {score_range: [0, 0], condition_expr: "nearest_seveso_km < 0.5 and has_mitigation == false", descriptor: "Direct adjacency with credible ignition and no mitigation."}
+    fail_conditions:
+      - {code: A7, action: avoidance_penalty, condition_expr: "nearest_seveso_km < 5", descriptor: "Project avoidance: >= 5 km from flammable/toxic/explosive storage."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-03
+    name: Toxic / gas releases
+    phases: [avoidance, ranking]
+    weight_factor: 7
+    normalised_weight_pct: 2.5
+    primary_metric: nearest_toxic_source_km
+    db_fields: {api: [site_human_induced.nearest_toxic_source_km, site_human_induced.toxic_source_type], llm: hi03_toxic_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_toxic_source_km > 25", descriptor: "> 25 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_toxic_source_km >= 15", descriptor: "15-25 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_toxic_source_km >= 8", descriptor: "8-15 km (project A8 pass-mark)."}
+      - {score_range: [3, 4], condition_expr: "nearest_toxic_source_km >= 3", descriptor: "3-8 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_toxic_source_km < 3", descriptor: "< 3 km."}
+      - {score_range: [0, 0], condition_expr: "nearest_toxic_source_km < 1 and has_mitigation == false", descriptor: "Hazardous-cloud envelope intersect with no mitigation."}
+    fail_conditions:
+      - {code: A8, action: avoidance_penalty, condition_expr: "nearest_toxic_source_km < 8", descriptor: "Project avoidance: >= 8 km from hazardous-cloud sources."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-04
+    name: External fires
+    phases: [avoidance, ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: nearest_flammable_storage_km
+    db_fields: {api: [site_human_induced.nearest_flammable_storage_km, site_human_induced.nearest_pipeline_km], llm: hi04_external_fires_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_flammable_storage_km > 15", descriptor: "> 15 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_flammable_storage_km >= 8", descriptor: "8-15 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_flammable_storage_km >= 4", descriptor: "4-8 km."}
+      - {score_range: [3, 4], condition_expr: "nearest_flammable_storage_km >= 1", descriptor: "1-4 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_flammable_storage_km < 1", descriptor: "< 1 km."}
+      - {score_range: [0, 0], condition_expr: "nearest_flammable_storage_km < 0.2 and has_mitigation == false", descriptor: "Adjacent major flammable facility with credible ignition."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-05
+    name: Transport hazards (hazmat road / rail / pipe)
+    phases: [ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: nearest_hazmat_corridor_km
+    db_fields: {api: [site_human_induced.nearest_hazmat_corridor_km], llm: hi05_transport_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_hazmat_corridor_km > 10", descriptor: "> 10 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_hazmat_corridor_km >= 5", descriptor: "5-10 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_hazmat_corridor_km >= 2", descriptor: "2-5 km."}
+      - {score_range: [3, 4], condition_expr: "nearest_hazmat_corridor_km >= 1", descriptor: "1-2 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_hazmat_corridor_km < 1", descriptor: "< 1 km."}
+      - {score_range: [0, 0], condition_expr: "nearest_hazmat_corridor_km < 0.1 and has_pinch_point == true", descriptor: "Unique pinch point immediately adjacent to safety footprint."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-06
+    name: Military installations
+    phases: [avoidance, ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: nearest_military_km
+    db_fields: {api: [site_human_induced.nearest_military_km, site_human_induced.military_type], llm: hi06_military_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_military_km > 60", descriptor: "> 60 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_military_km >= 30", descriptor: "30-60 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_military_km >= 15", descriptor: "15-30 km (project A5 boundary)."}
+      - {score_range: [3, 4], condition_expr: "nearest_military_km >= 8", descriptor: "8-15 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_military_km < 8", descriptor: "< 8 km."}
+      - {score_range: [0, 0], condition_expr: "nearest_military_km < 0.5 and military_type == 'active_exclusion'", descriptor: "Inside live military exclusion polygon."}
+    fail_conditions:
+      - {code: A5, action: avoidance_penalty, condition_expr: "nearest_military_km < 30 and military_type in ['firing_range', 'bombing_range', 'practice_range']", descriptor: "Project A5: >= 30 km from practice/bombing/firing ranges."}
+      - {code: A6, action: avoidance_penalty, condition_expr: "nearest_military_km < 8 and military_type == 'ammunition_storage'", descriptor: "Project A6: >= 8 km from ammunition storage."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-07
+    name: Electromagnetic interference
+    phases: [ranking]
+    weight_factor: 2
+    normalised_weight_pct: 0.7
+    primary_metric: transmitter_count_10km
+    db_fields: {api: [site_human_induced.transmitter_count_10km], llm: hi07_emi_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "transmitter_count_10km == 0", descriptor: "No high-power transmitters in 10 km radius."}
+      - {score_range: [7, 8], condition_expr: "transmitter_count_10km <= 2 and nearest_transmitter_km > 5", descriptor: "Few transmitters; distance > 5 km."}
+      - {score_range: [5, 6], condition_expr: "transmitter_count_10km <= 5", descriptor: "Ordinary European RF environment."}
+      - {score_range: [3, 4], condition_expr: "nearest_transmitter_km < 2", descriptor: "Notable transmitters within 2 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_transmitter_km < 0.5 and transmitter_power_class == 'very_high'", descriptor: "Very high power transmitter immediately adjacent."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: HI-08
+    name: Other nuclear installations
+    phases: [ranking]
+    weight_factor: 3
+    normalised_weight_pct: 1.1
+    primary_metric: nearest_nuclear_km
+    db_fields: {api: [site_human_induced.nearest_nuclear_km], llm: hi08_other_nuclear_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_nuclear_km > 100", descriptor: "> 100 km (no other nuclear in region)."}
+      - {score_range: [7, 8], condition_expr: "nearest_nuclear_km >= 50", descriptor: "50-100 km."}
+      - {score_range: [5, 6], condition_expr: "nearest_nuclear_km >= 20", descriptor: "20-50 km."}
+      - {score_range: [3, 4], condition_expr: "nearest_nuclear_km >= 5", descriptor: "5-20 km."}
+      - {score_range: [1, 2], condition_expr: "nearest_nuclear_km < 5", descriptor: "< 5 km with unresolved interface."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}

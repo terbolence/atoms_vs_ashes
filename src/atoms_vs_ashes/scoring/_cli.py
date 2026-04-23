@@ -1,0 +1,243 @@
+# man_hours: 2.0
+"""Click ``score`` group — entry point for the sensitivity suite CLI.
+
+Registered on the top-level CLI via ``main.add_command(score_group)``
+in :mod:`atoms_vs_ashes.cli`. All siting / scoring CLI work is hosted
+in this submodule so :mod:`atoms_vs_ashes.cli` can stay focused on
+pipeline wiring and respect the repository's per-file size rules.
+
+Help text documents how ``--mc-draws`` / ``--preset`` flow end-to-end
+into :func:`atoms_vs_ashes.scoring.sensitivity.run_mc_suite`'s
+``iterations`` parameter and on to the single
+``for _ in range(iterations)`` loop in :func:`run_monte_carlo`.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import click
+
+from atoms_vs_ashes.db.engine import session_scope
+from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.scoring.engine import run_scoring
+from atoms_vs_ashes.scoring.sensitivity import MC_DEFAULT_ITERATIONS, MC_PRESETS
+from atoms_vs_ashes.scoring.suite import (
+    DEFAULT_AUDIT_DIR,
+    DEFAULT_RUBRIC_DIR,
+    INCLUDE_CHOICES,
+    SensitivitySuiteConfig,
+    run_sensitivity_suite,
+)
+
+log = get_logger(__name__)
+
+
+def _resolve_iterations(
+    preset: str | None, mc_draws: int | None
+) -> tuple[int, str | None]:
+    """Resolve ``(iterations, preset_label)`` from mutually-exclusive flags.
+
+    - Neither set → ``(MC_DEFAULT_ITERATIONS, None)``.
+    - Preset only → look up in :data:`MC_PRESETS`.
+    - ``--mc-draws`` only → use the explicit value, no preset label.
+    - Both set → raise :class:`click.UsageError`.
+    """
+    if preset is not None and mc_draws is not None:
+        raise click.UsageError(
+            "--preset and --mc-draws are mutually exclusive; pass one or neither."
+        )
+    if preset is not None:
+        if preset not in MC_PRESETS:
+            raise click.UsageError(
+                f"Unknown preset '{preset}'. Valid: {sorted(MC_PRESETS)}."
+            )
+        return MC_PRESETS[preset], preset
+    if mc_draws is not None:
+        if mc_draws < 1:
+            raise click.UsageError("--mc-draws must be >= 1.")
+        return mc_draws, None
+    return MC_DEFAULT_ITERATIONS, None
+
+
+_HELP = (
+    "Monte Carlo + weight / country sensitivity. "
+    "Iteration count flows from this command all the way into the "
+    "run_monte_carlo for-loop via run_sensitivity_suite → run_mc_suite. "
+    "Presets (via MC_PRESETS): test → 1000, medium → 3000, production → 10000."
+)
+
+
+@click.group("score")
+def score_group() -> None:
+    """Compute scores, rankings, and run the sensitivity suite."""
+
+
+@score_group.command("run", help="Run the 0-10 scoring engine over all sites x SMRs.")
+@click.option(
+    "--weight-profile",
+    default="baseline",
+    show_default=True,
+    help="Weight profile label written onto ranking / composite rows.",
+)
+@click.option(
+    "--rubric-dir",
+    type=click.Path(file_okay=False, exists=True),
+    default=DEFAULT_RUBRIC_DIR,
+    show_default=True,
+    help="Directory with scoring rubric YAML files.",
+)
+@click.pass_context
+def score_run(ctx: click.Context, weight_profile: str, rubric_dir: str) -> None:
+    """Persist ranking_scores, composite_rankings and screening_verdicts.
+
+    Uses the session bound to the active ``--db-profile`` so a single
+    command can be pointed at the API DB, the LLM DB, or the merged DB.
+    Prints a JSON summary (run_id, row counts, warnings) on completion.
+    """
+    run_id = (ctx.obj or {}).get("run_id")
+    with session_scope() as session:
+        summary = run_scoring(
+            session,
+            rubric_dir=rubric_dir,
+            weight_profile=weight_profile,
+            run_id=run_id,
+        )
+    click.echo(
+        json.dumps(
+            {
+                "run_id": summary.run_id,
+                "weight_profile": summary.weight_profile,
+                "sites_processed": summary.sites_processed,
+                "smr_designs": summary.smr_designs,
+                "verdict_rows": summary.verdict_rows,
+                "ranking_rows": summary.ranking_rows,
+                "composite_rows": summary.composite_rows,
+                "excluded_pairs": summary.excluded_pairs,
+                "warnings": summary.warnings,
+            },
+            indent=2,
+            default=str,
+        )
+    )
+
+
+@score_group.command("sensitivity", help=_HELP)
+@click.option(
+    "--preset",
+    type=click.Choice(sorted(MC_PRESETS.keys())),
+    default=None,
+    help=(
+        "Named iteration preset (test → 1000, medium → 3000, "
+        "production → 10000). Mutually exclusive with --mc-draws."
+    ),
+)
+@click.option(
+    "--mc-draws",
+    type=int,
+    default=None,
+    help=(
+        "Explicit Monte Carlo iteration count (int >= 1). "
+        f"Defaults to {MC_DEFAULT_ITERATIONS} when neither --preset nor "
+        "--mc-draws is given."
+    ),
+)
+@click.option(
+    "--include",
+    "include",
+    type=click.Choice(list(INCLUDE_CHOICES)),
+    multiple=True,
+    default=("weights", "mc", "country"),
+    show_default=True,
+    help=(
+        "Which sensitivity stages to run. 'threshold' is accepted for "
+        "forward-compat but not yet driven (see plan §8)."
+    ),
+)
+@click.option(
+    "--weight-profile-base",
+    default="baseline",
+    show_default=True,
+    help="Weight profile to load baseline ranking_scores / composites for.",
+)
+@click.option("--seed", type=int, default=42, show_default=True)
+@click.option(
+    "--rubric-dir",
+    type=click.Path(file_okay=False, exists=False),
+    default=DEFAULT_RUBRIC_DIR,
+    show_default=True,
+    help="Directory with scoring rubric YAML files.",
+)
+@click.option(
+    "--audit-dir",
+    type=click.Path(file_okay=False),
+    default=str(DEFAULT_AUDIT_DIR),
+    show_default=True,
+    help="Directory for the audit markdown output.",
+)
+@click.option(
+    "--top-n-country",
+    type=int,
+    default=20,
+    show_default=True,
+    help="Top-N window for the country-balance check.",
+)
+@click.option(
+    "--no-progress",
+    is_flag=True,
+    default=False,
+    help="Disable the rich progress bar (forces structured-log fallback).",
+)
+@click.pass_context
+def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
+    ctx: click.Context,
+    preset: str | None,
+    mc_draws: int | None,
+    include: tuple[str, ...],
+    weight_profile_base: str,
+    seed: int,
+    rubric_dir: str,
+    audit_dir: str,
+    top_n_country: int,
+    no_progress: bool,
+) -> None:
+    """Run the sensitivity suite against the currently-selected DB."""
+    iterations, preset_label = _resolve_iterations(preset, mc_draws)
+
+    include_set = set(include)
+    cfg = SensitivitySuiteConfig(
+        iterations=iterations,
+        preset_label=preset_label,
+        include_weights="weights" in include_set,
+        include_mc="mc" in include_set,
+        include_country="country" in include_set,
+        include_threshold="threshold" in include_set,
+        weight_profile_base=weight_profile_base,
+        seed=seed,
+        rubric_dir=rubric_dir,
+        audit_dir=Path(audit_dir),
+        progress_enabled=not no_progress,
+        top_n_country=top_n_country,
+    )
+
+    run_id = (ctx.obj or {}).get("run_id") or "sensitivity"
+    click.echo(
+        json.dumps(
+            {
+                "message": "sensitivity_suite_starting",
+                "run_id": run_id,
+                "iterations": cfg.iterations,
+                "preset": cfg.preset_label,
+                "include": sorted(include_set),
+                "weight_profile_base": cfg.weight_profile_base,
+                "progress_enabled": cfg.progress_enabled,
+            },
+            indent=2,
+        ),
+    )
+
+    with session_scope() as session:
+        result = run_sensitivity_suite(session, cfg, run_id=run_id)
+
+    click.echo(json.dumps(result.to_dict(), indent=2, default=str))
