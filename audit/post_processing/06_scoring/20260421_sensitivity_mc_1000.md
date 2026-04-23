@@ -1,0 +1,46 @@
+# Sensitivity run — 20260421
+
+- Run ID: `p16_20260421T143300_4543bcf7`
+- Iterations: **1000**
+- Preset: `custom`
+- Seed: `42`
+- Weight profile base: `baseline`
+- Rubric dir: `config/scoring_rubrics`
+
+## Config
+
+```json
+{
+  "include_weights": true,
+  "include_mc": true,
+  "include_country": true,
+  "include_threshold": true,
+  "top_n_country": 20,
+  "progress_enabled": true
+}
+```
+
+## Rows persisted
+
+- Pairs processed: 2904
+- Weight-sensitivity rows: 5808
+- Monte Carlo rows (`mc_1000`): 2904
+- Threshold (±25 %) rows: 5808
+- Country-balanced rows: 2904
+
+## Country balance
+
+- Total sites ranked: 2056
+- Top-N: 20
+- Max share: 0.4
+- Flagged: **False**
+
+| Country | Count |
+| --- | ---: |
+| PL | 8 |
+| HU | 8 |
+| UA | 4 |
+
+## Notes
+
+- (no additional notes)

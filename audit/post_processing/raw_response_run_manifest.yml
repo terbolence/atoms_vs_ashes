@@ -1,0 +1,33 @@
+# Raw-response coverage manifest
+# -------------------------------
+# Maps every connector in MANDATORY_LOGGING_CONNECTORS
+# (src/atoms_vs_ashes/connectors/__init__.py) to the run_id under which
+# its raw responses are considered authoritative.
+#
+# Consumed by:
+#   PYTHONPATH=src python -u scripts/verify_raw_response_coverage.py \
+#       --manifest audit/post_processing/raw_response_run_manifest.yml
+#
+# A single failing slug returns exit code 2.
+
+# ---- Phase 1: existing complete coverage (no re-run needed) -----------
+bdticm_bedrock: audit_20260419T221957       # 363/363
+copernicus_dem: audit_20260419T221957       # 363/363
+corine: audit_20260419T221957               # 363/363
+noaa_ncei: audit_20260419T221957            # 363/363
+soilgrids: audit_20260419T221957            # 363/363
+natura2000: audit_20260419T221957           # 362/363  (Porto Romano AL backfill in Phase 3)
+egdi_geology: audit_rerun_20260419          # 363/363  (boreholes layer logged as empty — EGDI HTTP 500)
+osm: osm_audit_20260420                     # 363/363  (already complete; no Phase 3 work)
+
+# ---- Phase 2: local-data re-runs (no live API) ------------------------
+copernicus_era5: audit_postlogging_20260421
+copernicus_ems: audit_postlogging_20260421
+eurostat_gisco: audit_postlogging_20260421
+eurostat_projections: audit_postlogging_20260421
+
+# ---- Phase 3: live-API re-runs (require explicit consent) -------------
+entso_e: audit_postlogging_20260421
+onegeology: audit_postlogging_20260421
+population: audit_postlogging_20260421
+seismic_hazard: audit_postlogging_20260421  # prior runs maxed at 347/363; full re-roll under one id
