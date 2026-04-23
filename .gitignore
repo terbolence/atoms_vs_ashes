@@ -126,3 +126,10 @@ export/**/*.xlsx
 # LLM and audit logs under src tree (mirror of root logs policy)
 /src/logs/llm/
 /src/logs/audit_rerun/
+
+# Heavy connector HTTP trace trees under src/logs
+/src/logs/seismic/
+/src/logs/entso_e/
+
+# Local scoring run logs (reproducible via CLI)
+logs/scoring_runs/
