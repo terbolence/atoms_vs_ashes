@@ -84,7 +84,7 @@ def run_overpass_worker(
 
     stats = {"ok": 0, "fail": 0}
     osm_endpoints = _build_osm_endpoint_list()
-    osm_client = OverpassClient(settings)
+    osm_client = OverpassClient(settings, retry_on_error=True)
     pop_client = PopulationConnector(settings)
 
     try:
