@@ -131,5 +131,22 @@ export/**/*.xlsx
 /src/logs/seismic/
 /src/logs/entso_e/
 
+# Remaining operational logs, audits, and one-off traces under src/logs
+/src/logs/audit_postlogging/
+/src/logs/curation/
+/src/logs/*.log
+/src/logs/*.txt
+/src/logs/*.json
+/src/logs/dem_*
+/src/logs/efsm20_*
+/src/logs/era5_*
+/src/logs/fix04_*
+/src/logs/fix06_*
+/src/logs/p11_*
+/src/logs/site_area_*
+/src/logs/smithsonian_gvp_*
+/src/logs/soilgrids_*
+/src/logs/S-25_*
+
 # Local scoring run logs (reproducible via CLI)
 logs/scoring_runs/
