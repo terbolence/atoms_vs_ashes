@@ -21,7 +21,7 @@ In the reference 2026-04-23 run this resolves to **2 056 pairs** across **257 di
 
 ## 2. Techniques
 
-The suite is a **regulatory-style matrix** of four perturbation families plus one diagnostic. Each family produces rows in `composite_rankings` under a distinct `weight_profile` label so the suite is reproducible and auditable. OAT importance and banding are pure analytics (no new DB rows; CSV artefacts).
+The suite is a **regulatory-style matrix** of four perturbation families plus one diagnostic. Each family produces rows in `composite_rankings` under a distinct `weight_profile` label so the suite is reproducible and auditable. One-at-a-time (OAT) importance and banding are pure analytics (no new database (DB) rows; comma-separated value (CSV) artefacts).
 
 ### 2.1 OAT (one-at-a-time) importance — Phase A
 
@@ -74,16 +74,16 @@ A site enters "top-N %" of a scenario when _any_ of its (site, SMR) pairs lies i
 
 ## 3. Metrics
 
-| Metric                 | Definition                                                  | Role                               |
-| ---------------------- | ----------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------- | ------------------------------------- | --- | ------------------------- |
-| `top5pct_overlap`      | `                                                           | top5%\_profile ∩ top5%\_baseline   | `                                                    | Size-independent short-list stability |
-| `top10pct_overlap`     | same at 10 %                                                | Broader long-list stability        |
-| `jaccard@5%` / `@10%`  | `                                                           | A ∩ B                              | /                                                    | A ∪ B                                 | `   | Scale-free set similarity |
-| `mean                  | Δscore                                                      | `                                  | mean absolute change in composite score across pairs | Magnitude of perturbation             |
-| `max                   | Δscore                                                      | `                                  | worst-case change                                    | Tail sensitivity                      |
-| `mean_abs_rank_change` | mean `                                                      | rank_perturbed − rank_baseline     | ` (OAT only)                                         | Criterion influence                   |
-| `importance_score`     | `mean_abs_rank_change / N_pairs`                            | Normalised OAT importance ∈ [0, 1] |
-| `top5/10pct_hit_rate`  | fraction of scenarios in which the site sits in the top-N % | Input to banding                   |
+| Metric                 | Definition                                                                 | Role                                  |
+| ---------------------- | -------------------------------------------------------------------------- | ------------------------------------- |
+| `top5pct_overlap`      | size of intersection between profile and baseline top-5 % sets             | Size-independent short-list stability |
+| `top10pct_overlap`     | same at top-10 %                                                           | Broader long-list stability           |
+| `jaccard@5 %` / `@10 %`| intersection divided by union of the two top-N sets                        | Scale-free set similarity             |
+| `mean abs Δscore`      | mean absolute change in composite score across pairs                       | Magnitude of perturbation             |
+| `max abs Δscore`       | worst-case absolute change in composite score                              | Tail sensitivity                      |
+| `mean_abs_rank_change` | mean absolute difference between perturbed and baseline rank (OAT only)    | Criterion influence                   |
+| `importance_score`     | `mean_abs_rank_change / N_pairs` ∈ [0, 1]                                  | Normalised OAT importance             |
+| `top5/10pct_hit_rate`  | fraction of scenarios in which the site sits in the top-N %                | Input to banding                      |
 
 Top-N is expressed as **percentages** rather than fixed counts (5 % / 10 %) so the metric is robust to changes in the scored-pair population between runs.
 
@@ -109,14 +109,105 @@ composite_rankings (baseline) ─┬─▶ load_pairs ─▶ OAT (Phase A) ─�
 - The entire suite runs under a single Python process with structured JSON logging; no step mutates baseline rows.
 - Wall time on the reference hardware (2026-04-23): **12 min 11 s** (OAT ≈ 7 s, weight ≈ 2 s, MC@10k ≈ 11.5 min, threshold ≈ 20 s, banding ≈ 0.4 s).
 
-## 6. Interpretation rules
+## 6. Reference production run outcomes (2026-04-23)
+
+> Numbers below are **run-specific** (`run_id = p16_20260423T163739_074314b6`, DB profile `merged`). Authoritative tables live in [`20260423_phase1_6_sensitivity.md`](../../audit/post_processing/06_scoring/20260423_phase1_6_sensitivity.md), [`20260423_oat_importance.csv`](../../audit/post_processing/06_scoring/20260423_oat_importance.csv), [`20260423_site_bands.csv`](../../audit/post_processing/06_scoring/20260423_site_bands.csv); figures are regenerated by [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py). Future runs replace this section.
+
+**Run envelope:** 2 056 scored passing pairs / 2 904 universe, 257 distinct sites × 8 SMRs; top-5 % slice = 102 pairs, top-10 % slice = 205 pairs; 14 non-baseline scenarios; wall time 12 min 11 s.
+
+### 6.1 Phase A outcome — top-15 influential criteria
+
+| Rank | Criterion | Family | Name                                              | `importance_score` | Mean abs Δrank |
+| ---: | --------- | ------ | ------------------------------------------------- | -----------------: | -------------: |
+|    1 | `NH-01`   | NH     | Seismic ground motion (PGA)                       |             0.0934 |        192.062 |
+|    2 | `NS-04`   | NS     | Site topography / grading                         |             0.0627 |        128.996 |
+|    3 | `RI-04`   | RI     | Population density (EPZ rings)                    |             0.0568 |        116.732 |
+|    4 | `NS-05`   | NS     | Land availability / ownership / zoning            |             0.0540 |        111.072 |
+|    5 | `RI-06`   | RI     | Population projections (60-yr design life)        |             0.0491 |        100.981 |
+|    6 | `NH-02`   | NH     | Seismic surface rupture (capable faults)          |             0.0448 |         92.196 |
+|    7 | `NS-03`   | NS     | Transport access (heavy haul road / rail / port)  |             0.0438 |         90.089 |
+|    8 | `EP-01`   | EP     | Emergency-plan feasibility (composite)            |             0.0409 |         84.038 |
+|    9 | `HI-06`   | HI     | Military installations                            |             0.0396 |         81.429 |
+|   10 | `EP-02`   | EP     | Evacuation routes (road network)                  |             0.0390 |         80.125 |
+|   11 | `NH-04`   | NH     | Geotechnical — slope stability                    |             0.0302 |         62.006 |
+|   12 | `NH-06`   | NH     | Foundation conditions                             |             0.0300 |         61.701 |
+|   13 | `HI-01`   | HI     | Aircraft crash hazard                             |             0.0250 |         51.362 |
+|   14 | `NS-02`   | NS     | Grid connection (detailed)                        |             0.0249 |         51.246 |
+|   15 | `NS-08`   | NS     | Ecological sensitivity (Natura 2000 / WDPA)       |             0.0223 |         45.883 |
+
+**Takeaway:** seismic PGA (`NH-01`) is the single dominant driver; the next tier mixes site-topography / land-availability (NS) with population-exposure criteria (RI). 23 of the 48 criteria score `0` — either the population carries no effective weight signal for them (unchanged ranks when zeroed) or the criterion is confined to earlier phases.
+
+### 6.2 Phase B.1 outcome — weight perturbation (±20 %)
+
+Lowest Jaccard@10 % across the ten profiles is **0.925** (`w_NH_minus_20`, `w_NS_plus_20`, `w_EP_plus_20`); highest is **0.990** (`w_NH_plus_20`, `w_RI_plus_20`). Category roll-up (avg over `plus`/`minus`):
+
+| Category | Avg mean abs Δscore | Avg top-10 % overlap (of 205) |
+| -------- | ------------------: | ----------------------------: |
+| `EP`     |              0.0291 |                           200 |
+| `HI`     |              0.0267 |                           201 |
+| `NH`     |              0.0300 |                           200 |
+| `NS`     |              0.0609 |                           198 |
+| `RI`     |              0.0234 |                           203 |
+
+**Takeaway:** ranking is robust to weight perturbation — every weight profile clears the §7 threshold (Jaccard@10 % ≥ 0.85). `NS` is the family that moves scores most in absolute terms (consistent with its Phase A top-tier importance).
+
+### 6.3 Phase B.2 outcome — Monte Carlo @ N = 10 000
+
+- Jaccard@5 % = **0.457**; Jaccard@10 % = **0.640**; top-10 % overlap 160 / 205.
+- Mean abs Δscore = **0.2296**; max = **0.706**.
+- **Largest single perturbation** in the suite — roughly 4× the weight-family effect.
+
+**Takeaway:** within the declared data uncertainty bands, the **rank order of borderline pairs is not robust**; the Band A / B identification (§6.6) is the correct way to read MC into the narrative rather than the raw top-5 % list.
+
+### 6.4 Phase B.3 outcome — threshold ±25 %
+
+- `threshold_minus_25` — Jaccard@10 % = 0.898; mean abs Δscore = 0.0572.
+- `threshold_plus_25` — Jaccard@10 % = 0.971; mean abs Δscore = 0.0083.
+
+**Takeaway:** tightening thresholds (`minus_25`, operating point shifted so more pairs fall into tighter bands) perturbs the ranking ~7× more than loosening — the baseline is closer to the "permissive" end of its thresholds.
+
+### 6.5 Phase B.4 outcome — country balance
+
+`top_n = 20`, `max_share_threshold = 0.40`. Observed `max_share = 0.40` (**not flagged**, right at the boundary); top-20 head country counts `PL : 8`, `HU : 8`, `UA : 4`. The wider baseline top-10 % slice (205 pairs) is dominated by `PL` (88) and `UA` (40) — not artefactually concentrated, but PL's share warrants a narrative callout.
+
+### 6.6 Phase C outcome — site stability banding
+
+| Band | Sites | Rule                                         |
+| ---- | ----: | -------------------------------------------- |
+| A    |    10 | top-5 %  in ≥ 80 % of the 14 scenarios       |
+| B    |    15 | top-10 % in ≥ 80 % of scenarios (not A)      |
+| C    |     1 | top-10 % in 50–79 % of scenarios             |
+| D    |   231 | below top-10 % everywhere else               |
+
+**Band A shortlist (2026-04-23):** Opole (PL), Połaniec (PL), Starobesheve (UA), Opalenie (PL), Mohács (HU), Chvaletice (CZ), Puchaczów (PL), Turceni (RO), Çoban Yıldız (TR), Počerady (CZ). These 10 sites carry into Phase 1.7 as the robust regulatory shortlist; the Band B set (15 sites) provides the resilience bench.
+
+### 6.7 Synthesis
+
+- **Weights robust, MC stresses the ranking** — use Band A+B (25 sites) as the "structurally top-tier" pool, not the raw baseline top-N.
+- **NS family is the lever to tighten** — highest category drift + three of the top-15 OAT drivers (NS-04, NS-05, NS-03). Additional data-quality work on those criteria would yield the largest reduction in Phase B.2 spread.
+- **Seismic (NH-01, NH-02) + population (RI-04, RI-06)** are non-negotiable drivers; their rubric bands must stay defensible against any future expert challenge.
+- **Country-balance boundary** — PL at 40 % of top-20 meets but does not exceed the artefact threshold; the consolidated audit should document the explicit data-coverage rationale.
+- **No rubric change recommended** on the strength of this run; Phase 1.7 can proceed with the existing weight profile.
+
+### 6.8 Figures
+
+Generated from the artefacts above (regenerate via [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py)):
+
+- OAT top-15 importance — [`figures/20260423/oat_top15.png`](../../audit/post_processing/06_scoring/figures/20260423/oat_top15.png)
+- Jaccard@10 % by scenario — [`figures/20260423/jaccard_by_profile.png`](../../audit/post_processing/06_scoring/figures/20260423/jaccard_by_profile.png)
+- Site band counts (A/B/C/D) — [`figures/20260423/band_counts.png`](../../audit/post_processing/06_scoring/figures/20260423/band_counts.png)
+- Country balance (baseline top-10 %) — [`figures/20260423/country_top10pct.png`](../../audit/post_processing/06_scoring/figures/20260423/country_top10pct.png)
+
+Scoring, sensitivity re-runs, connector batches, and the **exact** `plot_phase_1_6_sensitivity` invocation are documented in the repository [`README.md`](../../README.md).
+
+## 7. Interpretation rules
 
 - **Ranking is robust** if Jaccard@10 % ≥ 0.85 for every weight profile and ≥ 0.70 under MC.
 - **Band A + B sites** are the "structurally top-tier" set — these are the ones carried into Phase 1.7 narrative.
 - **Category with the highest avg mean |Δscore|** points to the scoring family most deserving of tighter rubric definitions or additional data collection.
 - **Country-balance flagged** (`max_share > 0.40`) means the top-N is driven by data-coverage asymmetry and the suite narrative must discuss it explicitly.
 
-## 7. Known limitations
+## 8. Known limitations
 
 - OAT captures only first-order effects — interactions between criteria (two simultaneously perturbed) are not explored. A variance-based Sobol extension is deferred to Phase 1.7 if reviewers require it.
 - Threshold perturbation acts on measured numeric values, not on every rubric edge; non-numeric bands (e.g. categorical quality tiers) are insensitive to the ±25 % operator by construction.
