@@ -2,7 +2,7 @@
 
 from atoms_vs_ashes.llm.prompts._base import SYSTEM_BASE
 
-PROMPT_VERSION = "v2.0-2026-04-12"
+PROMPT_VERSION = "v2.4-2026-04-13"
 
 _EXCLUSIONARY_PREAMBLE = """
 
@@ -36,13 +36,48 @@ DISTANCE ESTIMATION — Since you cannot perform geometric calculations:
 - Never claim a distance is "exactly" anything. All your distances are \
   approximate.
 
+ENRICHMENT-AWARE CONFIDENCE CALIBRATION — Follow these rules strictly:
+- If API enrichment data IS PROVIDED for the primary metric of this criterion \
+  (distance, flag, score), anchor your assessment on that data. Confidence \
+  may be "medium" or "high" depending on corroboration.
+- If API enrichment data IS NOT PROVIDED but STRONG REGIONAL KNOWLEDGE \
+  supports a clear verdict, confidence = "medium" is appropriate. Strong \
+  regional knowledge means: you can NAME the specific geological formation, \
+  mining type, river system, or terrain feature AND cite it as [FACT]. \
+  Examples: "Oltenia basin is open-pit lignite", "site is on the Elbe \
+  floodplain", "North Bohemian basin uses surface mining".
+- If API enrichment data IS NOT PROVIDED AND regional knowledge is ambiguous \
+  or contradictory (you cannot name a specific formation or feature), \
+  confidence = "low". If the ambiguity makes the verdict uncertain, \
+  return "inconclusive".
+- NEVER return "pass" with "high" confidence without at least one \
+  quantitative data point from enrichment OR a definitive geological/ \
+  physical impossibility (e.g., no volcanism in a country).
+- NEVER return "pass" with "medium" or "high" confidence while marking \
+  ALL critical data fields as [UNKNOWN]. If you can fill at least one \
+  structured field with a factual value, "medium" confidence is permitted.
+
+REASONING/VERDICT CONSISTENCY — If your thinking trace leads toward one \
+verdict but your final assessment differs, you MUST explicitly document \
+this tension in your justification (e.g., "While my initial reasoning \
+suggested X, the lack of Y data means I cannot confirm this with \
+sufficient confidence").
+
 OUTPUT FORMAT — Your justification MUST follow this structure:
 - Sentence 1: State what you found (the hazard feature, its location, your \
   evidence basis). Label as FACT, INFERENCE, or UNKNOWN.
 - Sentence 2: State the distance/metric and how you estimated it. Label.
 - Sentence 3: Compare to the threshold. State whether it is triggered.
 - Sentence 4-6: State any caveats, adversarial considerations, or data gaps \
-  that affect confidence. Label each."""
+  that affect confidence. Label each.
+
+SOURCE CITATION RULES — In cited_sources:
+- ONLY list sources you ACTUALLY USED in your reasoning (enrichment data, \
+  specific factual knowledge you can name and verify).
+- Do NOT list databases you "would need" or "should be consulted" — those \
+  go in your justification as data gaps, not in cited_sources.
+- If you used only general LLM knowledge, write: "LLM general knowledge — \
+  low confidence; desk study verification required"."""
 
 _E1 = SYSTEM_BASE + _EXCLUSIONARY_PREAMBLE + """
 
@@ -55,8 +90,32 @@ in the Quaternary period (last 2.6 Ma) and is considered capable of \
 generating surface rupture. This is stricter than "active fault" — not \
 all active faults are capable faults.
 
-ANALYTICAL STEPS:
-1. Identify the site's tectonic domain. Which of these does it belong to:
+TWO ASSESSMENT PATHWAYS — Choose based on data availability:
+
+PATHWAY A — WITH ENRICHMENT (nearest_fault_km is provided):
+1. Use the enrichment distance as your primary anchor.
+2. Corroborate with your knowledge of the tectonic domain.
+3. If distance >20 km: "pass" (confidence up to "high" if corroborated).
+4. If 8-20 km: "pass" with "medium" confidence, note margin.
+5. If <8 km: "fail" (confirm with fault name and slip evidence).
+
+PATHWAY B — WITHOUT ENRICHMENT (nearest_fault_km is null/absent):
+1. Identify the site's tectonic domain (see list below).
+2. Name the nearest KNOWN capable fault — do NOT invent one.
+3. Estimate distance using city/town spacing as calibration.
+4. Give a RANGE estimate (e.g., "~40-60 km"), never a single number.
+5. If your estimate is >40 km from any capable fault: "pass" with "low" \
+   confidence, data_quality: "low". This IS acceptable — the 8 km \
+   threshold is so tight that a 40+ km estimate provides reasonable \
+   assurance even without precision.
+6. If your estimate is 8-40 km: "inconclusive" — the uncertainty range \
+   could overlap the threshold. Request enrichment data.
+7. If your estimate is <8 km: "fail" or "inconclusive" depending on \
+   certainty of the fault identification.
+8. NEVER return "pass" with "medium" or "high" confidence without \
+   enrichment data for this criterion.
+
+TECTONIC DOMAINS:
    - East European Platform / Baltic Shield (stable, very few capable faults)
    - Pannonian Basin (moderate, basin-margin faults)
    - Carpathian Orogen (moderate-high, thrust faults)
@@ -65,16 +124,6 @@ ANALYTICAL STEPS:
    - Vrancea Deep Seismicity Zone (unique — deep seismicity, few surface faults)
    - South Caucasus (high, Bitlis-Zagros collision zone)
    - Balkan extensional zone (moderate, normal faults)
-2. Identify the nearest KNOWN capable fault by name. If you cannot name a \
-   specific fault, say so — do not invent one.
-3. Estimate the distance from the site to that fault. Use city/town \
-   spacing as calibration anchors.
-4. If the enrichment data includes nh02_nearest_fault_km, compare your \
-   estimate to it. If they differ by >50%, explain why and state which \
-   you trust more.
-5. Apply the 8 km threshold. If the nearest capable fault is >20 km away, \
-   this is a confident "pass". If 8-20 km, assess carefully. If <8 km, \
-   this is a "fail".
 
 CRITICAL REGIONAL FEATURES (search your knowledge for these):
 - North Anatolian Fault (NAF): ~1200 km, passes through northern Turkey. \
@@ -87,6 +136,23 @@ CRITICAL REGIONAL FEATURES (search your knowledge for these):
 - Dinaric thrust front: runs from Slovenia to Albania.
 - South Carpathian fault zone: Olt Valley faults, Jiu Valley faults.
 - Dead Sea Transform northern extension: affects far SE Turkey.
+
+ROMANIA-SPECIFIC GEOLOGICAL ANCHORS (use when assessing Romanian sites):
+- Moesian Platform: covers southern Romania (Oltenia, Muntenia). Stable \
+  platform, very few capable surface faults. Sites on the Moesian Platform \
+  are typically >50 km from any capable fault.
+- Peceneaga-Camena Fault: major crustal boundary separating Moesian Platform \
+  from North Dobrogea. Runs roughly NW-SE through eastern Romania. \
+  Debated whether it is "capable" in the IAEA sense — low Quaternary slip rate.
+- South Carpathian Fault Zone: Jiu Valley, Olt Valley thrust faults. \
+  More relevant for sites in the Carpathian foothills.
+- Intramoesian Fault: buried fault under Wallachian Plain, generally not \
+  considered capable at the surface.
+- Vrancea intermediate-depth zone: generates M7+ earthquakes at 70-180 km \
+  depth. NOT a surface fault — irrelevant for this criterion. Do NOT \
+  confuse Vrancea seismicity with surface capable faults.
+- Key distance anchors: Bucharest-Craiova ~230 km; Craiova-Deva ~280 km; \
+  Braila-Galati ~25 km; Turceni-Rovinari ~15 km; Isalnita-Craiova ~10 km.
 
 COMMON PITFALL: Confusing high seismicity with capable fault proximity. \
 The Vrancea zone produces M7+ earthquakes but from 100+ km depth — surface \
@@ -170,8 +236,19 @@ ANALYTICAL STEPS:
    high-confidence "pass" with the rationale "industrial site on flat \
    terrain" is the correct answer for most sites.
 
+COAL PLANT SITING ANCHOR:
+Coal power plants require flat industrial sites for heavy equipment (boilers, \
+turbines, generators weighing hundreds of tonnes), cooling towers (30-100 m \
+tall), coal storage yards, ash disposal areas, and rail/road access. Even \
+cancelled/proposed projects selected sites meeting these requirements. If the \
+site is a coal plant location (operating, retired, or planned), you can infer \
+flat terrain (<5° slopes) at the plant footprint itself with high confidence. \
+The assessment then focuses on whether SURROUNDING terrain poses a landslide \
+threat to the site.
+
 DECISION FRAMEWORK:
-- Flat site (<5° slope), no surrounding steep terrain → pass (high confidence)
+- Coal plant site on flat/gently sloping ground → pass (high confidence)
+- Coal plant in a valley but surrounded by stable geology → pass (medium-high)
 - Flat site but in a known landslide-prone region (e.g., Carpathian flysch \
   zone) → pass (medium confidence, note surrounding risk)
 - Hillside site or steep terrain → needs careful assessment
@@ -247,7 +324,71 @@ ANALYTICAL STEPS:
    massive karst bedrock — the coal itself sits in non-karstic strata. \
    The plant may be NEAR karst terrain but not ON it.
 
-KEY KARST REGIONS IN SCOPE:
+COAL BASIN GEOLOGICAL ANCHOR — Coal-bearing formations are clastic \
+sedimentary sequences (sandstone, siltstone, clay, marl), NOT carbonate \
+or evaporite rocks. This means:
+- Romanian coal basins (Oltenia lignite basin: Rovinari, Turceni, Isalnita, \
+  Craiova; Jiu Valley: Paroseni, Vulcan, Lupeni; Wallachian Plain CHP plants) \
+  sit in Neogene-Quaternary clastic fill. Karst is geologically impossible \
+  at the plant footprint itself.
+- Polish Silesian coal basin: Carboniferous sandstone/shale — non-karstic.
+- Turkish Afsin-Elbistan, Soma, Cayirhan lignite basins: lacustrine clastic \
+  sequences — non-karstic.
+If the site's coal basin geology is identifiable as clastic, return "pass" \
+with "medium" or higher confidence, noting that coal strata exclude karst.
+
+COUNTRY-SPECIFIC KARST ASSESSMENT ANCHORS:
+
+CZECH REPUBLIC: Bohemian coal basins sit in Cretaceous/Tertiary CLASTIC \
+formations (sandstone, siltstone, clay) — non-karstic. The famous Moravian \
+Karst (Blansko area) and Bohemian Karst (Beroun area) are Devonian/ \
+Silurian limestone but are NOT in coal mining regions. North Bohemian \
+lignite basin (Most, Chomutov, Usti) = Neogene clastic fill over \
+crystalline basement — karst impossible. Pardubice region = Bohemian \
+Cretaceous Basin, dominantly sandstone — non-karstic.
+
+BULGARIA: Maritsa basin = Neogene clastic fill (sand, clay, lignite \
+seams) over pre-Tertiary basement. NO karst in the Thrace/Maritsa lowland. \
+Rhodope edge has some marble karst but NOT in the lignite mining areas. \
+Black Sea coastal plants (Varna, Devnya) sit on Quaternary alluvium — no \
+karst at plant level. Danubian platform (Lom, Vidin, Ruse) = stable \
+sedimentary cover, not karstic at coal plant locations.
+
+BOSNIA AND HERZEGOVINA: The Dinaric Karst IS the global type locality of \
+karst (the word "karst" comes from the Dinaric region). HOWEVER, coal \
+basins within Bosnia (Tuzla, Kakanj, Banovici, Zenica) sit in Miocene \
+CLASTIC intra-montane basins (sandstone, clay, marl with lignite seams), \
+NOT on the surrounding carbonate bedrock. The key distinction: the BASIN \
+fill is clastic even though the SURROUNDING mountains are limestone. \
+EXCEPTION: Tuzla has significant Miocene EVAPORITE deposits (salt, gypsum). \
+Evaporite karst is a genuine concern for Tuzla specifically — gypsum \
+dissolves much faster than limestone. Tuzla sites need careful assessment.
+
+AUSTRIA: Alpine foreland and Danube valley plants sit on Quaternary \
+alluvial/glacial deposits — non-karstic. The Northern Limestone Alps \
+have extensive karst but coal plants are NOT in the Alps. Lavanttal \
+(St Andrae) = Neogene clastic basin fill. Styrian plants = alluvial \
+valley settings.
+
+BELARUS: East European Platform, covered by thick Quaternary glacial \
+deposits. NO karst risk whatsoever. → pass with high confidence.
+
+POLAND: Silesian coal basin = Carboniferous sandstone/shale — non-karstic. \
+Krakow-Czestochowa Upland has Jurassic limestone karst but is NOT where \
+coal plants are located. Belchatow = Neogene clay/sand fill.
+
+HUNGARY: Pannonian Basin fill is Neogene clastic (sand, clay, marl). \
+Mecsek Hills (Pecs) have Triassic limestone karst but coal mining is in \
+adjacent Jurassic coal measures (clastic). Buda Hills karst near Budapest \
+is NOT relevant for power plant sites.
+
+UKRAINE: Donbas = Carboniferous sandstone/shale coal measures — non-karstic. \
+Western Ukraine = Carpathian flysch or platform cover — generally non-karstic.
+
+TURKEY: Coal basins are lacustrine clastic sequences. Southern Turkey has \
+extensive Taurus Mountain karst but it does NOT extend into the lignite basins.
+
+KEY KARST REGIONS IN SCOPE (for awareness, not coal plant locations):
 - Dinaric Karst (Slovenia, Croatia, Bosnia, Montenegro, Albania) — the \
   type locality of karst. Massive, well-developed.
 - Apuseni Mountains (Romania) — significant karst.
@@ -255,6 +396,8 @@ KEY KARST REGIONS IN SCOPE:
 - Taurus Mountains (Turkey) — extensive karst in southern Turkey.
 - Kraków-Częstochowa Upland (Poland) — Jurassic limestone karst.
 - Slovak Karst / Aggtelek (Slovakia/Hungary border).
+- Moravian Karst (Czech Republic) — Devonian limestone, Blansko area.
+- Rhodope marble karst (Bulgaria/Greece border region).
 
 REFERENCE DATA SOURCES: WOKAM (World Karst Aquifer Map, BGR/UNESCO), \
 EGDI karstified zones layers, national geological surveys 1:50k lithology, \
@@ -293,6 +436,119 @@ ANALYTICAL STEPS:
 5. Other subsidence mechanisms: salt extraction (relevant in Poland, Romania), \
    groundwater withdrawal (relevant in coastal Turkey), peat compaction.
 
+REGION-SPECIFIC MINING CONTEXT — Use this knowledge to anchor your assessment:
+
+ROMANIA:
+- Oltenia lignite basin (Turceni, Rovinari, Isalnita/Craiova area): \
+  OPEN-PIT (surface) mining. Massive open cuts (Tismana, Rosia, Pinoasa, \
+  Jilt, Lupoaia). Open-pit mining does NOT create underground voids or \
+  subsidence under adjacent structures. The plant sits on stable ground \
+  adjacent to open pits. → pass with medium-to-high confidence.
+- Jiu Valley (Paroseni, Vulcan, Lupeni, Petrila): UNDERGROUND mining \
+  (longwall) in steep valley terrain. Subsidence risk is real but typically \
+  confined to the mining panels. Power plants were built on geotechnically \
+  assessed ground, not over active workings. → pass with medium confidence, \
+  note proximity to underground workings.
+- Wallachian Plain CHP plants (Bucharest, Braila, Galati, Brasov): NO \
+  mining activity. These are gas/coal import CHP plants in urban/industrial \
+  zones with no local mining. → pass with high confidence.
+- Salt mining areas (Turda, Praid, Slanic): relevant only if a site is \
+  directly adjacent — generally not coal plant locations.
+
+CZECH REPUBLIC:
+- North Bohemian lignite basins (Most-Chomutov area: Prunerov, Tusimice, \
+  Pocerady, Ledvice, Melnik, Komorany, Mostecka, Vresova TPS): \
+  overwhelmingly OPEN-PIT (surface) mining. Giant open cuts (Bilina, \
+  CSA, Libous, Vrsany). Open-pit mining does NOT create underground voids. \
+  → pass with medium confidence.
+- Sokolov basin (Tisova): OPEN-PIT mining. Same logic as above. → pass \
+  with medium confidence.
+- Ostrava-Karvina basin (Detmarovice, Karvina, Trebovice): UNDERGROUND \
+  longwall mining. Known subsidence zones in Ostrava-Karvina. Check if \
+  plant is over mine workings. → pass with medium confidence if plant \
+  is on stable ground adjacent to mine; inconclusive if uncertain.
+- Pardubice region (Chvaletice, Opatovice): NO local mining — lignite \
+  imported by rail from North Bohemia. → pass with medium-to-high confidence.
+- Central/South Bohemia (Kladno, Malesice, Plzen CHP, Porici, Mondi Steti, \
+  Hodonin): Kladno has HISTORICAL underground mining (ceased). Modern plants \
+  built on assessed ground. Hodonin is in South Moravia — NO local coal \
+  mining, fuel imported. → pass with medium confidence.
+
+BULGARIA:
+- Maritsa East complex (Maritsa Iztok-1/2/3, Brikel, Maritsa 3): massive \
+  OPEN-PIT lignite mining. Plants sit adjacent to open pits on stable \
+  Neogene sediments. → pass with medium-to-high confidence.
+- Bobov Dol: OPEN-PIT lignite mining. → pass with medium confidence.
+- Pernik basin: mixed but primarily SURFACE extraction. → pass with medium \
+  confidence.
+- Republika (Pernik area): OPEN-PIT. → pass with medium confidence.
+- Varna, Ruse Iztok, Svilosa, Deven, Lom, Vidin Works: CHP or import \
+  plants — NO local mining activity. → pass with high confidence.
+
+BOSNIA AND HERZEGOVINA:
+- Stanari: OPEN-PIT lignite. → pass with medium confidence.
+- Gacko: OPEN-PIT lignite (Gacko basin). → pass with medium confidence.
+- Kakanj: UNDERGROUND mining (room-and-pillar in Kakanj basin). Subsidence \
+  risk exists but typically confined to mining panels. Plant built on \
+  geotechnically assessed ground. → pass with medium confidence, note risk.
+- Tuzla, Banovici: UNDERGROUND mining (Tuzla coal basin). Known mining \
+  region with underground workings. Assess plant vs mine spatial relation. \
+  → pass with medium confidence if plant is on adjacent stable ground.
+- Ugljevik: OPEN-PIT lignite. → pass with medium confidence.
+- Bugojno, Kamengrad, Kongora, Glinica, Miljevina: CANCELLED/PROPOSED \
+  projects. For cancelled plants near known mining: assess based on mining \
+  type in the target area. If open-pit → pass. If underground → assess \
+  spatial relationship.
+
+AUSTRIA:
+- Lavanttal (St Andrae): historical OPEN-PIT lignite mining, mining \
+  ceased ~2004. Site has been stable for 20+ years. → pass with medium \
+  confidence.
+- Danube valley plants (Duernrohr, Enns, Mellach, Riedersbach): NO coal \
+  mining in vicinity — these burn imported coal or gas. → pass with \
+  high confidence.
+- Voitsberg: adjacent to former OPEN-PIT Karlschacht lignite mine, now \
+  closed and remediated. → pass with medium confidence.
+- Zeltweg: military/industrial zone, no significant mining nearby. \
+  → pass with medium confidence.
+
+BELARUS:
+- NO coal mining industry whatsoever. Power plants (Lelchitsy, Zelwa) burn \
+  imported fuel or are planned gas plants. Zero subsidence risk from mining. \
+  → pass with high confidence.
+
+POLAND: Silesian coal basin uses underground longwall mining. Katowice \
+and Upper Silesia have documented subsidence zones. Check plant proximity. \
+Belchatow (Lodz voivodeship): massive OPEN-PIT lignite → pass with high \
+confidence. Konin/Turow basins: OPEN-PIT → pass with medium-to-high.
+
+TURKEY: Mostly open-pit lignite (Afsin-Elbistan, Soma, Tuncbilek, \
+Cayirhan). Low subsidence risk. Zonguldak basin on the Black Sea coast \
+is the exception: UNDERGROUND hard coal mining. Check proximity.
+
+UKRAINE:
+- Donbas region: extensive UNDERGROUND coal mining. Known subsidence \
+  zones. Assess plant vs mine spatial relationship carefully.
+- Western Ukraine CHP plants: typically NO local mining, fuel imported. \
+  → pass with high confidence.
+
+HUNGARY:
+- Matra basin (Visonta, Bukkabrany): OPEN-PIT lignite → pass with \
+  medium-to-high confidence.
+- Mecsek coal basin (Pecs area): UNDERGROUND mining (historical). Mining \
+  has largely ceased. Assess proximity.
+
+SERBIA:
+- Kolubara basin (Lazarevac area): massive OPEN-PIT lignite. → pass with \
+  medium-to-high confidence.
+- Kostolac basin: OPEN-PIT lignite. → pass with medium confidence.
+
+REMAINING BALKANS (HR, SI, ME, XK, MK, AL):
+- Generally small coal operations. Slovenia (Velenje): UNDERGROUND longwall. \
+  Croatia (Plomin): imported coal, no local mining. Montenegro (Pljevlja): \
+  OPEN-PIT. Kosovo (Obilic/Kosovo A&B): OPEN-PIT lignite adjacent to plants. \
+  North Macedonia (Bitola/REK): OPEN-PIT. Albania (Porto Romano): no mining.
+
 DECISION FRAMEWORK:
 - Open-pit mining region, plant on stable ground → pass (high confidence)
 - Underground mining nearby but not under plant → pass (medium confidence)
@@ -301,6 +557,21 @@ DECISION FRAMEWORK:
 - Active underground mining under or very near plant + shallow workings → \
   inconclusive or fail (needs site investigation)
 - Known subsidence damage in the area → inconclusive (needs data)
+
+CANCELLED/PROPOSED PLANT GUIDANCE FOR E6:
+For cancelled or unbuilt plants where the planned extraction method is unknown:
+1. Determine the coal basin type in the target area from the regional context \
+   above. Most Balkan/Central European lignite basins use OPEN-PIT extraction.
+2. If the regional mining method is identifiable (e.g., "Gacko basin = open-pit"), \
+   apply that context to the cancelled plant → pass with medium confidence.
+3. If the region has BOTH open-pit and underground mining (e.g., Ostrava-Karvina \
+   in CZ), and you cannot determine which method was planned, return "pass" \
+   with "low" confidence, noting the uncertainty.
+4. NEVER return "inconclusive" solely because the plant is cancelled. The \
+   subsidence risk comes from the GEOLOGY and MINING HISTORY of the location, \
+   not from the plant's operational status.
+5. Even for cancelled plants, fill the collapse_mechanism field with the \
+   regional mining type (e.g., "open-pit surface mining" or "no mining").
 
 REFERENCE DATA SOURCES: EGDI mines and coalheritage layers, S-MICA InSAR \
 subsidence monitoring, national mining cadastre databases, E-PRTR, national \
@@ -415,6 +686,79 @@ ANALYTICAL STEPS:
    reasonable piping distance (~10 km) AND the existing coal plant \
    apparently operates without water cooling (dry coal plants do exist \
    but are rare) AND dry cooling for the SMR is infeasible.
+
+EXISTING INFRASTRUCTURE AS EVIDENCE — The strongest evidence for cooling \
+water availability is the EXISTING coal plant's cooling system:
+- If cooling_water_source field lists a river, reservoir, or cooling towers, \
+  this IS definitive enrichment data. The SMR will reuse or adapt the same \
+  infrastructure. Return "pass" with "medium" or "high" confidence.
+- If cooling_water_source is absent/null but you KNOW the plant's design \
+  (e.g., "Turceni has hyperbolic cooling towers visible in satellite imagery" \
+  or "Braila CHP uses Danube water"), treat your factual knowledge as \
+  equivalent to enrichment data.
+- If the plant name contains "CHP" (Combined Heat and Power) — these almost \
+  always have water-based cooling from a nearby river or district heating loop.
+- Only return "inconclusive" if you genuinely cannot determine whether the \
+  plant has any water source AND you have no knowledge of the plant's cooling.
+
+CANCELLED/GREENFIELD PLANT GUIDANCE:
+For cancelled or unbuilt plants, the absence of operational cooling \
+infrastructure does NOT automatically mean "inconclusive". Instead:
+1. If the site is within 5 km of a major river (flow >5 m³/s annual mean) \
+   or a lake, cooling water is likely available → pass with medium confidence.
+2. If the site is in a water-rich hydrological region (e.g., Danube basin, \
+   Neman basin, Sava/Drina basin, Maritsa basin), infer availability from \
+   the watershed context → pass with low-to-medium confidence.
+3. Only mark "inconclusive" if the site is in a semi-arid or arid region \
+   AND no water body can be identified within 10 km.
+4. Dry cooling is always a technical fallback — note it but do not rely on \
+   it alone for a "pass" verdict.
+5. IMPORTANT: Even cancelled plants were proposed at locations selected by \
+   engineers who considered cooling water availability. The site selection \
+   itself is evidence of water access.
+
+COUNTRY-SPECIFIC HYDROLOGICAL ANCHORS:
+- BELARUS (BY): The Polesie lowland (Gomel, Brest oblasts) is one of \
+  Europe's most water-rich regions — dense networks of rivers, canals, and \
+  marshes. Key rivers: Pripyat (mean flow ~400 m³/s at Mozyr), Dnieper \
+  (~1700 m³/s), Berezina (~150 m³/s), Neman (~200 m³/s), Ubort (~15 m³/s \
+  at mouth), Sluch. The Zelwa site is near the Neman River system. \
+  Lelchitsy (51.789N, 28.321E) is in the Pripyat basin — the Ubort River \
+  flows ~8 km to the east and multiple drainage channels cross the area. \
+  ANY site in Belarus's southern lowland should pass with at least low \
+  confidence based on the water-rich hydrogeological setting.
+- BOSNIA & HERZEGOVINA (BA): The Sava/Drina/Neretva/Vrbas river systems \
+  provide abundant water. Even in Herzegovina (drier karst), rivers like \
+  the Neretva (>100 m³/s) and Trebisnjica are within engineering distance.
+- AUSTRIA (AT): Alpine rivers (Danube, Mur, Drau, Enns) provide massive flow.
+- CZECH REPUBLIC (CZ): Elbe (Labe), Vltava, Ohre, Morava river systems. \
+  North Bohemian plants are all within 10 km of the Ohre or Bilina rivers.
+- POLAND (PL): Vistula (mean ~1000 m³/s), Oder/Odra (~500 m³/s), Warta, \
+  Bug river systems. Silesian plants on Vistula/Oder tributaries. Belchatow \
+  uses cooling towers with Widawka River makeup water. Konin plants use \
+  lake cooling (Patnow, Gosławice lakes). All major Polish coal plants \
+  have established cooling infrastructure.
+- UKRAINE (UA): Dnieper (~1700 m³/s), Donets, Southern Bug, Dniester. \
+  Donbas plants use Donets River or Siverskyi Donets tributaries. Western \
+  Ukraine plants on Dniester/Bug tributaries. Massive water availability.
+- HUNGARY (HU): Danube (~2300 m³/s at Budapest), Tisza (~800 m³/s), \
+  Drava, Sajo rivers. Matra plants (Visonta) use Tisza basin water. \
+  All Hungarian thermal plants have river or lake cooling.
+- SERBIA (RS): Danube, Sava (~1600 m³/s), Morava, Drina rivers. \
+  Kolubara basin plants near Sava. Kostolac on the Danube. Abundant water.
+- SLOVAKIA (SK): Danube, Vah, Hron, Nitra rivers. Vojany plant on \
+  Laborec/Latorica. Novaky on Nitra River. All have cooling water access.
+- CROATIA (HR): Sava, Drava, Danube. Plomin on Adriatic coast (seawater).
+- SLOVENIA (SI): Sava, Drava rivers. Sostanj/Velenje near Paka River \
+  (Sava tributary). Ljubljana basin well-watered.
+- MONTENEGRO (ME): Pljevlja on Cehotina River (Drina tributary). \
+  Adriatic coast sites have seawater access.
+- NORTH MACEDONIA (MK): Vardar River (~100 m³/s), Treska, Crna Reka. \
+  REK Bitola uses Crna Reka/Shemnica water system.
+- KOSOVO (XK): Sitnica, Ibar, White Drin rivers. Kosovo A/B plants at \
+  Obilic use Sitnica River and Batllava/Badovc reservoirs.
+- LATVIA (LV): Daugava (~700 m³/s), Gauja, Lielupe. Extremely water-rich.
+- MOLDOVA (MD): Dniester, Prut rivers. Adequate water resources.
 
 EXPECTED OUTCOME: This criterion should almost always "pass" for existing \
 coal/thermal plants, because they already have cooling water infrastructure. \

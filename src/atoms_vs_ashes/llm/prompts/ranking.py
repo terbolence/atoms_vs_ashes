@@ -173,7 +173,7 @@ can support significant structural loads — apply a +0.5 to +1 modifier \
 relative to raw geological assessment, unless the plant has known \
 foundation problems.
 
-ENRICHMENT FIELDS: nh06_bearing_capacity_kpa, nh06_depth_to_bedrock_m.
+ENRICHMENT FIELDS: bearing_capacity_kpa, depth_to_bedrock_m.
 
 REFERENCE DATA SOURCES: EGDI surface lithology maps (1:1M), OneGeology \
 WMS, national geological survey 1:50k sheets, EGDI geotech boreholes \
@@ -205,8 +205,8 @@ river sites. Coastal plants exist primarily in Turkey (Aegean, \
 Mediterranean, Black Sea coasts) and possibly Croatia/Albania. \
 For inland sites, this criterion should score 5 with high confidence.
 
-ENRICHMENT FIELDS: nh08_distance_to_coast_km, nh08_storm_surge_risk, \
-nh08_tsunami_risk.
+ENRICHMENT FIELDS: distance_to_coast_km, storm_surge_risk, \
+tsunami_risk.
 
 REFERENCE DATA SOURCES: NOAA/NGDC Historical Tsunami Database, EU-DEM \
 v1.1 for elevation, OpenStreetMap coastline data, JRC storm surge \
@@ -240,8 +240,8 @@ has operated for decades without flood damage, that is positive evidence \
 (score modifier +0.5). Known historical flooding at the plant is a \
 strong negative signal.
 
-ENRICHMENT FIELDS: nh09_flood_zone_class, nh09_nearest_river_km, \
-nh09_dam_break_exposure.
+ENRICHMENT FIELDS: flood_zone_class, nearest_river_km, \
+dam_break_exposure.
 
 REFERENCE DATA SOURCES: EU Floods Directive flood hazard maps, JRC EFAS, \
 national flood risk maps (ISOK Poland, ANAR Romania, DSI Turkey), \
@@ -413,8 +413,8 @@ Known correlated pairs for this region:
   • Extreme precipitation → river flood → landslide (mountain catchments)
   • Storm → flood + wind damage (coastal areas)
 
-ENRICHMENT FIELDS: pga_475yr_g, nh08_distance_to_coast_km, \
-nh09_flood_zone_class, nh13_wildfire_combustible_pct.
+ENRICHMENT FIELDS: pga_475yr_g, distance_to_coast_km, \
+flood_zone_class, wildfire_combustible_pct.
 
 REFERENCE DATA SOURCES: Synthesize from other NH criteria assessed \
 for this site. INFORM Risk Index (JRC/DRMKC) for multi-hazard \
@@ -451,8 +451,8 @@ DECISION TREE:
   ELIF nearest_airport_km > 5 → score=2
   ELSE → score=1
 
-ENRICHMENT FIELDS: hi01_nearest_airport_km, hi01_nearest_airport_name, \
-hi01_airport_count.
+ENRICHMENT FIELDS: nearest_airport_km, nearest_airport_name, \
+airport_count.
 
 REFERENCE DATA SOURCES: OurAirports database (2024), Eurostat aviation \
 statistics (avia_tf_apal), OpenStreetMap aeroway data."""
@@ -483,7 +483,7 @@ The presence of the coal plant itself does NOT count as a SEVESO \
 facility. Focus on separate industrial neighbours that could produce \
 blast overpressure affecting nuclear safety-related structures.
 
-ENRICHMENT FIELDS: hi02_nearest_seveso_km, hi02_nearest_industrial_km.
+ENRICHMENT FIELDS: nearest_seveso_km, nearest_industrial_km.
 
 REFERENCE DATA SOURCES: EU SEVESO III establishment registers (national \
 competent authority public lists), E-PRTR (European Pollutant Release \
@@ -514,7 +514,7 @@ This criterion assesses AIRBORNE TOXIC CLOUD drift that could affect \
 control room habitability and worker safety. A single facility may \
 be relevant to both criteria.
 
-ENRICHMENT FIELDS: hi03_nearest_toxic_source_km.
+ENRICHMENT FIELDS: nearest_toxic_source_km.
 
 REFERENCE DATA SOURCES: EU SEVESO III registers, E-PRTR for toxic \
 substance releases (search for chlorine, ammonia, HF, phosgene, \
@@ -546,8 +546,8 @@ within the site boundary — it is an internal hazard, not an external \
 one. Focus on EXTERNAL sources of fire that could threaten the future \
 nuclear plant.
 
-ENRICHMENT FIELDS: hi04_nearest_flammable_storage_km, \
-hi04_nearest_pipeline_km.
+ENRICHMENT FIELDS: nearest_flammable_storage_km, \
+nearest_pipeline_km.
 
 REFERENCE DATA SOURCES: E-PRTR, national pipeline operator public \
 maps, OpenStreetMap pipeline and fuel storage data, SEVESO III \
@@ -609,8 +609,8 @@ If you cannot identify specific installations but the region is known \
 for military presence, note this uncertainty and set confidence="low" \
 with a wider score range.
 
-ENRICHMENT FIELDS: hi06_nearest_military_km, hi06_nearest_military_name, \
-hi06_military_count.
+ENRICHMENT FIELDS: nearest_military_km, nearest_military_name, \
+military_count.
 
 REFERENCE DATA SOURCES: OpenStreetMap military tags, NOTAM permanent \
 restricted airspace zones, national defence public facility lists."""
@@ -639,7 +639,7 @@ NOTE: EMI from transmission lines (the plant's own grid connection) is \
 an internal design issue, not scored here. Focus on external broadcast \
 and radar transmitters.
 
-ENRICHMENT FIELDS: hi07_nearest_transmitter_km, hi07_transmitter_type, \
+ENRICHMENT FIELDS: nearest_transmitter_km, transmitter_type, \
 hi07_transmitter_count.
 
 REFERENCE DATA SOURCES: OpenStreetMap man_made=mast/tower and \
@@ -674,7 +674,7 @@ REGIONAL NUCLEAR LANDSCAPE:
     AM (Metsamor), TR (Akkuyu under construction), BY (Ostrovets)
   • Planned: PL (Lubiatowo-Kopalino), RO (Doicești SMR), TR (Sinop)
 
-ENRICHMENT FIELDS: hi08_nearest_nuclear_km, hi08_nearest_nuclear_name.
+ENRICHMENT FIELDS: nearest_nuclear_km, nearest_nuclear_name.
 
 REFERENCE DATA SOURCES: IAEA PRIS (Power Reactor Information System), \
 World Nuclear Association reactor database, national nuclear regulatory \
@@ -715,8 +715,8 @@ TERRAIN EFFECTS (critical for this region):
   • Mountain basins (Bohemian Basin, Transylvanian Basin): variable, \
     can trap air in winter → score 2–3
 
-ENRICHMENT FIELDS: ri01_prevailing_wind_dir, ri01_avg_wind_speed_ms, \
-ri01_mixing_height_m.
+ENRICHMENT FIELDS: prevailing_wind_dir, avg_wind_speed_ms, \
+mixing_height_m.
 
 REFERENCE DATA SOURCES: National meteorological service wind roses and \
 mixing height data, European Wind Atlas, ECMWF ERA5 reanalysis for \
@@ -751,7 +751,7 @@ RIVER REFERENCE FLOWS (annual mean):
   • Olt (RO): ~100 m³/s  • Morava (CZ): ~100 m³/s
   Smaller tributaries: 5–50 m³/s typical
 
-ENRICHMENT FIELDS: ri02_nearest_river_flow_m3s.
+ENRICHMENT FIELDS: nearest_river_flow_m3s.
 
 REFERENCE DATA SOURCES: GRDC river discharge data, European river basin \
 management plans (WFD), national hydrology services, HydroSHEDS river \
@@ -783,7 +783,7 @@ COAL-PLANT CONTEXT: Coal plants may have contaminated local groundwater \
 suggests the aquifer is reachable by surface contaminants — a \
 vulnerability indicator for nuclear groundwater pathways.
 
-ENRICHMENT FIELDS: ri03_aquifer_type, ri03_groundwater_flow_dir.
+ENRICHMENT FIELDS: aquifer_type, groundwater_flow_dir.
 
 REFERENCE DATA SOURCES: EGDI hydrogeological maps (BGR 1:1.5M), WHYMAP \
 World Hydrogeological Map, WFD groundwater body status reports, national \
@@ -845,8 +845,8 @@ captures dispersed population, while this criterion captures the \
 risk of a single large urban centre being within emergency planning \
 zones. Both are important for different reasons.
 
-ENRICHMENT FIELDS: ri05_nearest_city_50k_km, ri05_nearest_city_name, \
-ri05_nearest_city_pop.
+ENRICHMENT FIELDS: nearest_city_50k_km, nearest_city_name, \
+nearest_city_pop.
 
 REFERENCE DATA SOURCES: GeoNames cities with population >50,000, \
 Eurostat Urban Audit, national statistical offices."""
@@ -877,8 +877,8 @@ REGIONAL TRENDS (strong generalizations):
   • TR: Growing nationally but coal regions may differ from Istanbul/Ankara
   • AL, XK, MK: Mixed — emigration vs. young demographic
 
-ENRICHMENT FIELDS: ri06_pop_growth_rate_pct, \
-ri06_projected_pop_25km_60yr.
+ENRICHMENT FIELDS: pop_growth_rate_pct, \
+projected_pop_25km_60yr.
 
 REFERENCE DATA SOURCES: Eurostat EUROPOP2023 population projections, \
 UN World Population Prospects 2024, national statistical office \
@@ -1019,7 +1019,7 @@ simultaneously with a nuclear event prevent or severely delay \
 evacuation?" Focus on INFRASTRUCTURE VULNERABILITY, not just hazard \
 presence.
 
-ENRICHMENT FIELDS: ep05_concurrent_hazard_notes.
+ENRICHMENT FIELDS: concurrent_hazard_notes.
 
 REFERENCE DATA SOURCES: Synthesize from NH criteria for this site, \
 INFORM Risk Index for infrastructure vulnerability, national \
@@ -1056,8 +1056,8 @@ is the strongest indicator. A coal plant that recently operated at \
 ≥462 MWe has a demonstrably adequate grid connection (score 5). Use \
 the plant's installed_capacity_mw as the primary proxy.
 
-ENRICHMENT FIELDS: ns02_nearest_substation_km, ns02_nearest_hv_line_km, \
-ns02_grid_export_capacity_mw.
+ENRICHMENT FIELDS: nearest_substation_km, nearest_hv_line_km, \
+grid_export_capacity_mw.
 
 REFERENCE DATA SOURCES: ENTSO-E transmission grid map, national TSO \
 grid development plans, OpenStreetMap power data."""
@@ -1090,8 +1090,8 @@ advantage. If the enrichment data shows the plant is/was operational, \
 assume rail + road access exists → baseline score 4. Only reduce if \
 there is evidence of infrastructure degradation.
 
-ENRICHMENT FIELDS: ns03_nearest_rail_km, ns03_nearest_highway_km, \
-ns03_nearest_waterway_km, ns03_heavy_haul_capable.
+ENRICHMENT FIELDS: nearest_rail_km, nearest_highway_km, \
+nearest_waterway_km, heavy_haul_capable.
 
 REFERENCE DATA SOURCES: OpenStreetMap railway and highway data, TEN-T \
 maps, national railway operator network maps."""
@@ -1124,7 +1124,7 @@ surrounding land needed for the full 72.8 ha footprint is also \
 favourable. An existing coal plant on a flat river terrace with \
 adjacent agricultural land → score 4–5.
 
-ENRICHMENT FIELDS: ns04_dominant_land_class, ns04_favourable_land_pct.
+ENRICHMENT FIELDS: dominant_land_class, favourable_land_pct.
 
 REFERENCE DATA SOURCES: CORINE Land Cover 2018, EU-DEM v1.1 / SRTM \
 slope analysis."""
@@ -1159,7 +1159,7 @@ site header refers to the existing plant boundary. The buildable_area_ha \
 accounts for actual usable space after excluding water bodies, steep \
 slopes, and protected areas within the site boundary.
 
-ENRICHMENT FIELDS: ns05_buildable_area_ha, ns05_largest_contiguous_ha.
+ENRICHMENT FIELDS: buildable_area_ha, largest_contiguous_ha.
 
 REFERENCE DATA SOURCES: Site enrichment data, CORINE Land Cover 2018 \
 for adjacent land use analysis."""
@@ -1234,7 +1234,7 @@ heavy metals, fly ash). This is a significant net environmental benefit \
 that should be noted in the justification, even though this criterion \
 focuses on the nuclear plant's own impact.
 
-ENRICHMENT FIELDS: ns07_env_impact_notes.
+ENRICHMENT FIELDS: env_impact_notes.
 
 REFERENCE DATA SOURCES: CORINE Land Cover 2018, Natura 2000 network \
 viewer, EU EIA Directive project registers."""
@@ -1263,8 +1263,8 @@ RUBRIC BANDS:
       Ramsar wetland; formal HRA screening would likely require \
       compensatory measures
 
-ENRICHMENT FIELDS: ns08_ecological_natural_pct, \
-ns08_ecological_patch_count.
+ENRICHMENT FIELDS: ecological_natural_pct, \
+ecological_patch_count.
 
 REFERENCE DATA SOURCES: Natura 2000 WFS data (EEA), CDDA protected \
 area database, CORINE Land Cover natural classes (CLC 3xx), BirdLife \
@@ -1339,7 +1339,7 @@ SMR construction requires 2,000–3,000 peak construction workers, but \
 operational staff for VOYGR-6 is ~250 — similar to a large coal plant.
 
 ENRICHMENT FIELDS: From site header: installed_capacity_mw, status. \
-From RI-05: ri05_nearest_city_50k_km.
+From RI-05: nearest_city_50k_km.
 
 REFERENCE DATA SOURCES: Coal plant capacity as workforce proxy, \
 Eurostat regional employment statistics (NUTS-3), national labour \

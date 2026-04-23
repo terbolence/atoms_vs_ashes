@@ -31,9 +31,30 @@ from atoms_vs_ashes.llm.schemas import (
     EXCLUSIONARY_KEYS,
     PROMPT_REGISTRY,
 )
+from sqlalchemy import inspect as sa_inspect
+
 from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
+
+
+def _safe_truncate(row: Any, col_name: str, value: Any) -> Any:
+    """Clip string values to column max length to prevent StringDataRightTruncation."""
+    if not isinstance(value, str):
+        return value
+    mapper = sa_inspect(type(row))
+    col = mapper.columns.get(col_name)
+    if col is not None and hasattr(col.type, "length") and col.type.length:
+        max_len = col.type.length
+        if len(value) > max_len:
+            log.warning(
+                "persist_truncated_value",
+                column=col_name,
+                original_len=len(value),
+                max_len=max_len,
+            )
+            return value[: max_len - 3] + "..."
+    return value
 
 _DOMAIN_TABLE_MAP: dict[str, type] = {
     "NH-01": SiteNaturalHazards,
@@ -41,6 +62,7 @@ _DOMAIN_TABLE_MAP: dict[str, type] = {
     "NH-03": SiteNaturalHazards,
     "NH-04": SiteNaturalHazards,
     "NH-05": SiteNaturalHazards,
+    "NH-05b": SiteNaturalHazards,
     "NH-06": SiteNaturalHazards,
     "NH-07": SiteNaturalHazards,
     "NH-08": SiteNaturalHazards,
@@ -90,9 +112,10 @@ _DOMAIN_TABLE_MAP: dict[str, type] = {
 _FIELD_MAP: dict[str, dict[str, str]] = {
     "NH-02": {"nearest_fault_km": "nearest_fault_km", "nearest_fault_name": "fault_name", "fault_slip_rate_mm_yr": "fault_slip_rate_mm_yr"},
     "NH-03": {"liquefaction_suscept": "liquefaction_suscept", "soil_type": "soil_type", "groundwater_depth_m": "groundwater_depth_m"},
-    "NH-04": {"slope_angle_deg": "slope_angle_deg", "slope_stability_class": "slope_stability_class"},
+    "NH-04": {"slope_angle_deg": "slope_angle_deg", "slope_stability_class": "slope_stability_class", "landslide_inventory_notes": "landslide_inventory_notes"},
     "NH-07": {"nearest_holocene_volcano_km": "nearest_holocene_volcano_km", "volcano_name": "volcano_name"},
-    "NH-05": {"karst_present": "karst_present", "mining_void_present": "mining_void_present", "subsidence_risk_class": "subsidence_risk_class"},
+    "NH-05": {"karst_present": "karst_present", "karst_severity": "karst_severity", "karst_formation_type": "karst_formation_type"},
+    "NH-05b": {"mining_void_present": "mining_void_present", "subsidence_risk_class": "subsidence_risk_class", "collapse_mechanism": "collapse_mechanism"},
     "NS-08": {"ecological_natural_pct": "ecological_natural_pct", "ecological_patch_count": "ecological_patch_count"},
     "EP-01": {},
     "NS-01": {"cooling_source_type": "cooling_source_type", "cooling_source_name": "cooling_source_name", "cooling_distance_km": "cooling_distance_km", "estimated_flow_m3s": "cooling_flow_m3s"},
@@ -126,12 +149,15 @@ _FIELD_MAP: dict[str, dict[str, str]] = {
     "NS-04": {"dominant_land_class": "dominant_land_class", "favourable_land_pct": "favourable_land_pct"},
     "NS-05": {"buildable_area_ha": "buildable_area_ha", "largest_contiguous_ha": "largest_contiguous_ha"},
     "NS-06": {"reusable_infra_score": "reusable_infra_score"},
+    "NS-07": {"env_impact_notes": "env_impact_notes"},
     "NS-13": {"laydown_suitable_ha": "laydown_suitable_ha", "laydown_largest_patch_ha": "laydown_largest_patch_ha"},
+    "NH-14": {"combined_hazard_notes": "combined_hazard_notes"},
+    "EP-05": {"concurrent_hazard_notes": "concurrent_hazard_notes"},
 }
 
 _QUALITY_COL: dict[str, str] = {
     "NH-01": "nh01_quality", "NH-02": "nh02_quality", "NH-03": "nh03_quality",
-    "NH-04": "nh04_quality", "NH-05": "nh05_quality", "NH-06": "nh06_quality",
+    "NH-04": "nh04_quality", "NH-05": "nh05_quality", "NH-05b": "nh05b_quality", "NH-06": "nh06_quality",
     "NH-07": "nh07_quality", "NH-08": "nh08_quality", "NH-09": "nh09_quality",
     "NH-10": "nh10_quality", "NH-11": "nh11_quality", "NH-12": "nh12_quality",
     "NH-13": "nh13_quality", "NH-14": "nh14_quality",
@@ -198,29 +224,48 @@ def persist_exclusionary(
         for src_field, db_col in field_map.items():
             val = result.get(src_field)
             if val is not None and hasattr(domain_row, db_col):
+                val = _safe_truncate(domain_row, db_col, val)
                 setattr(domain_row, db_col, val)
         q_col = _QUALITY_COL.get(criterion_id)
         if q_col and hasattr(domain_row, q_col):
             setattr(domain_row, q_col, "llm")
         c_col = _COMMENT_COL_BY_CRITERION.get(criterion_id)
         if c_col and hasattr(domain_row, c_col):
-            setattr(domain_row, c_col, result.get("justification", "")[:500])
+            comment = _safe_truncate(domain_row, c_col, result.get("justification", "")[:500])
+            setattr(domain_row, c_col, comment)
         domain_row.fetched_at = now
         domain_row.run_id = run_id
 
+    phase = "exclusionary" if prompt_key in EXCLUSIONARY_KEYS else "avoidance"
+    sn_raw = result.get("sources_needed")
+    sources_needed_text = "; ".join(sn_raw) if isinstance(sn_raw, list) else (sn_raw or None)
     for smr_key in smr_keys:
-        verdict = ScreeningVerdict(
-            site_id=site_id,
-            smr_key=smr_key,
-            criterion_id=criterion_id,
-            phase="exclusionary" if prompt_key in EXCLUSIONARY_KEYS else "avoidance",
-            verdict=result.get("verdict", "inconclusive"),
-            justification=result.get("justification", "No justification provided"),
-            confidence=result.get("confidence", "low"),
-            data_sources=[f"llm:{model_name}"],
-            run_id=run_id,
-        )
-        session.merge(verdict)
+        existing = session.query(ScreeningVerdict).filter_by(
+            site_id=site_id, smr_key=smr_key, criterion_id=criterion_id,
+            prompt_key=prompt_key, run_id=run_id,
+        ).first()
+        if existing:
+            existing.verdict = result.get("verdict", "inconclusive")
+            existing.justification = result.get("justification", "No justification provided")
+            existing.confidence = result.get("confidence", "low")
+            existing.data_sources = [f"llm:{model_name}"]
+            existing.sources_needed = sources_needed_text
+            existing.phase = phase
+            existing.screened_at = now
+        else:
+            session.add(ScreeningVerdict(
+                site_id=site_id,
+                smr_key=smr_key,
+                criterion_id=criterion_id,
+                prompt_key=prompt_key,
+                phase=phase,
+                verdict=result.get("verdict", "inconclusive"),
+                justification=result.get("justification", "No justification provided"),
+                confidence=result.get("confidence", "low"),
+                data_sources=[f"llm:{model_name}"],
+                sources_needed=sources_needed_text,
+                run_id=run_id,
+            ))
 
     author_tag = f"{model_name}|{prompt_ver}"
     if thinking:
@@ -298,33 +343,57 @@ def persist_ranking(
         for src_field, db_col in field_map.items():
             val = result.get(src_field)
             if val is not None and hasattr(domain_row, db_col):
+                val = _safe_truncate(domain_row, db_col, val)
                 setattr(domain_row, db_col, val)
         q_col = _QUALITY_COL.get(criterion_id)
         if q_col and hasattr(domain_row, q_col):
             setattr(domain_row, q_col, "llm")
         c_col = _COMMENT_COL_BY_CRITERION.get(criterion_id)
         if c_col and hasattr(domain_row, c_col):
-            setattr(domain_row, c_col, result.get("justification", "")[:500])
+            comment = _safe_truncate(domain_row, c_col, result.get("justification", "")[:500])
+            setattr(domain_row, c_col, comment)
         domain_row.fetched_at = now
         domain_row.run_id = run_id
 
     author_tag = f"{model_name}|{prompt_ver}"
     score_val = result.get("score")
     if score_val is not None:
+        # LLM prompts still emit scores on the legacy 1–5 scale; the DB
+        # now stores native 0–10 (Alembic 033).  Scale by 2 so existing
+        # prompts remain usable until the rubric-driven scoring engine
+        # lands in phase 1.3.
+        def _scale(val: Any) -> float | None:
+            return float(val) * 2 if val is not None else None
+
+        scaled_score = _scale(score_val)
+        scaled_low = _scale(result.get("score_low"))
+        scaled_high = _scale(result.get("score_high"))
         for smr_key in smr_keys:
-            rs = RankingScore(
-                site_id=site_id,
-                smr_key=smr_key,
-                criterion_id=criterion_id,
-                score=int(score_val),
-                score_low=result.get("score_low"),
-                score_high=result.get("score_high"),
-                confidence=result.get("confidence", "low"),
-                justification=result.get("justification", ""),
-                data_sources=[f"llm:{model_name}"],
-                run_id=run_id,
-            )
-            session.merge(rs)
+            existing_rs = session.query(RankingScore).filter_by(
+                site_id=site_id, smr_key=smr_key,
+                criterion_id=criterion_id, run_id=run_id,
+            ).first()
+            if existing_rs:
+                existing_rs.score_0_10 = scaled_score
+                existing_rs.score_low_0_10 = scaled_low
+                existing_rs.score_high_0_10 = scaled_high
+                existing_rs.confidence = result.get("confidence", "low")
+                existing_rs.justification = result.get("justification", "")
+                existing_rs.data_sources = [f"llm:{model_name}"]
+                existing_rs.scored_at = now
+            else:
+                session.add(RankingScore(
+                    site_id=site_id,
+                    smr_key=smr_key,
+                    criterion_id=criterion_id,
+                    score_0_10=scaled_score,
+                    score_low_0_10=scaled_low,
+                    score_high_0_10=scaled_high,
+                    confidence=result.get("confidence", "low"),
+                    justification=result.get("justification", ""),
+                    data_sources=[f"llm:{model_name}"],
+                    run_id=run_id,
+                ))
 
     write_observation(
         session,

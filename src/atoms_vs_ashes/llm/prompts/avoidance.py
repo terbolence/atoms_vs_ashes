@@ -166,7 +166,7 @@ ANALYSIS STEPS:
 4. ASSESS completeness — are there likely unregistered strips in the area?
 
 FAST-TRACK RULES:
-• Enrichment data shows hi01_nearest_airport_km > 12 km with quality \
+• Enrichment data shows nearest_airport_km > 12 km with quality \
   "high" → verdict="pass", confidence="high" (assumes enrichment \
   captured small airports too).
 • Site is in a heavily agricultural region with flat terrain → reduce \
@@ -261,7 +261,7 @@ ANALYSIS STEPS:
 5. ASSESS data completeness — military range data is inherently sparse.
 
 FAST-TRACK RULES:
-• Enrichment data shows hi06_nearest_military_km > 35 km with quality \
+• Enrichment data shows nearest_military_km > 35 km with quality \
   "high" → verdict="pass", confidence="medium" (enrichment may not \
   distinguish ranges from other military facilities).
 • Site is in a country with minimal military (MD, XK, ME, MK) → \
@@ -364,7 +364,7 @@ ANALYSIS STEPS:
 5. COMPARE to 5.0 km threshold.
 
 FAST-TRACK RULES:
-• Enrichment data shows hi02_nearest_seveso_km > 7 km with quality \
+• Enrichment data shows nearest_seveso_km > 7 km with quality \
   "high" → verdict="pass", confidence="high".
 • Site is in a major industrial/energy district → reduce confidence \
   by one level even if no specific SEVESO facility is identified \
@@ -565,7 +565,7 @@ ANALYSIS STEPS:
    - In a mapped floodplain?
    - Downstream of major dams or reservoirs?
 2. ESTIMATE elevation relative to nearest water body:
-   - Use enrichment data (elevation_m, nh09_flood_zone_class) if available
+   - Use enrichment data (elevation_m, flood_zone_class) if available
    - Use knowledge of local topography
 3. ASSESS historical flood events in the region.
 4. EVALUATE flood defence feasibility — is the site protectable?
@@ -674,7 +674,7 @@ ANALYSIS STEPS:
    strongest signals. If grid_capacity_mw >= 462 → "pass".
 2. CHECK installed_capacity_mw: if the coal plant was >= 500 MWe, \
    the grid was built to handle that → "pass".
-3. CHECK enrichment: ns02_grid_export_capacity_mw, ns02_nearest_substation_km.
+3. CHECK enrichment: grid_export_capacity_mw, nearest_substation_km.
 4. ASSESS grid infrastructure quality for the country/region.
 
 DECISION FRAMEWORK:
@@ -726,8 +726,8 @@ TRANSPORT MODE HIERARCHY (in order of suitability):
    5 km are acceptable.
 
 ANALYSIS STEPS:
-1. CHECK site enrichment: ns03_nearest_rail_km, ns03_nearest_highway_km, \
-   ns03_nearest_waterway_km. If rail < 1 km → strong evidence of access.
+1. CHECK site enrichment: nearest_rail_km, nearest_highway_km, \
+   nearest_waterway_km. If rail < 1 km → strong evidence of access.
 2. ASSESS coal delivery mode: How was coal delivered to this plant? \
    Rail delivery (most common) → rail siding exists → "pass".
    Waterway delivery (Danube plants, river plants) → barge access → "pass".
@@ -778,7 +778,7 @@ AREA BREAKDOWN:
 ANALYSIS STEPS:
 1. CHECK site data: site_area_ha is the strongest signal. If provided \
    and >= 14 ha → minimum is met.
-2. CHECK enrichment: ns05_buildable_area_ha is the most relevant field.
+2. CHECK enrichment: buildable_area_ha is the most relevant field.
 3. ESTIMATE from coal plant characteristics:
    - Installed capacity is a proxy for site area: ~0.05-0.15 ha/MWe \
      for coal plants (a 500 MWe plant typically occupies 25-75 ha)
@@ -820,7 +820,7 @@ COMMON PITFALLS:
   Some urban plants are tightly constrained despite high capacity.
 
 REFERENCE DATA: CORINE Land Cover 2018, OSM landuse tags, site's \
-site_area_ha field, enrichment ns05_buildable_area_ha."""
+site_area_ha field, enrichment buildable_area_ha."""
 
 AVOIDANCE_PROMPTS: dict[str, str] = {
     "A1": _A1, "A2": _A2, "A3": _A3, "A4": _A4,

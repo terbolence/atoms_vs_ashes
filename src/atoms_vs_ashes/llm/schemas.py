@@ -26,6 +26,8 @@ class _ExclusionaryBase(BaseModel):
     justification: str
     data_quality: str = Field(..., pattern="^(high|medium|low)$")
     cited_sources: list[str] = Field(default_factory=list)
+    sources_used: list[str] = Field(default_factory=list)
+    sources_needed: list[str] = Field(default_factory=list)
 
     tier: int = TIER_EXCLUSIONARY
 
@@ -46,13 +48,30 @@ class _ExclusionaryBase(BaseModel):
             "cited_sources": {
                 "type": "array",
                 "items": {"type": "string"},
-                "description": "References used. If none, write 'LLM general knowledge — low confidence'.",
+                "description": "DEPRECATED — use sources_used instead. Kept for backward compatibility.",
+            },
+            "sources_used": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": (
+                    "Data sources ACTUALLY USED in this assessment — enrichment data, "
+                    "specific factual knowledge you applied. "
+                    "If only LLM knowledge: 'LLM general knowledge — low confidence'."
+                ),
+            },
+            "sources_needed": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": (
+                    "Data sources that WOULD IMPROVE this assessment but were NOT available. "
+                    "E.g., 'EDSF fault database — needed for precise fault distance'."
+                ),
             },
         }
 
     @classmethod
     def _base_required(cls) -> list[str]:
-        return ["verdict", "confidence", "justification", "data_quality", "cited_sources"]
+        return ["verdict", "confidence", "justification", "data_quality", "sources_used", "sources_needed"]
 
 
 class _AvoidanceBase(BaseModel):
@@ -61,6 +80,8 @@ class _AvoidanceBase(BaseModel):
     justification: str
     data_quality: str = Field(..., pattern="^(high|medium|low)$")
     cited_sources: list[str] = Field(default_factory=list)
+    sources_used: list[str] = Field(default_factory=list)
+    sources_needed: list[str] = Field(default_factory=list)
 
     tier: int = TIER_AVOIDANCE
 
@@ -80,13 +101,23 @@ class _AvoidanceBase(BaseModel):
             "cited_sources": {
                 "type": "array",
                 "items": {"type": "string"},
-                "description": "References used. If none, write 'LLM general knowledge — low confidence'.",
+                "description": "DEPRECATED — use sources_used instead.",
+            },
+            "sources_used": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Data sources ACTUALLY USED in this assessment.",
+            },
+            "sources_needed": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Data sources that WOULD IMPROVE this assessment but were NOT available.",
             },
         }
 
     @classmethod
     def _base_required(cls) -> list[str]:
-        return ["verdict", "confidence", "justification", "data_quality", "cited_sources"]
+        return ["verdict", "confidence", "justification", "data_quality", "sources_used", "sources_needed"]
 
 
 class _RankingBase(BaseModel):
@@ -223,13 +254,16 @@ class E5Karst(_ExclusionaryBase):
         p.update({
             "karst_present": {"type": ["boolean", "null"]},
             "karst_severity": {"type": ["string", "null"], "enum": ["none", "minor", "moderate", "massive", None]},
-            "karst_formation_type": {"type": ["string", "null"]},
+            "karst_formation_type": {
+                "type": ["string", "null"],
+                "description": "Bedrock type: 'none' (no karst-prone rock), 'limestone', 'dolomite', 'gypsum', 'evaporite', 'mixed_carbonate', or null if unknown. Use 'none' when site is on clastic/ignite rock.",
+            },
         })
         return _tool("record_e5_assessment", "Record karst assessment (E5)", p, cls._base_required())
 
 
 class E6Subsidence(_ExclusionaryBase):
-    criterion_id: str = "NH-05"
+    criterion_id: str = "NH-05b"
     mining_void_present: bool | None = None
     subsidence_risk_class: str | None = None
     collapse_mechanism: str | None = None
@@ -240,7 +274,10 @@ class E6Subsidence(_ExclusionaryBase):
         p.update({
             "mining_void_present": {"type": ["boolean", "null"]},
             "subsidence_risk_class": {"type": ["string", "null"], "enum": ["none", "low", "moderate", "high", None]},
-            "collapse_mechanism": {"type": ["string", "null"]},
+            "collapse_mechanism": {
+                "type": ["string", "null"],
+                "description": "Short phrase: 'open-pit surface mining', 'underground longwall', 'underground room-and-pillar', 'salt extraction', 'no mining', 'groundwater withdrawal', or null if unknown. Always fill when mining_void_present is not null.",
+            },
         })
         return _tool("record_e6_assessment", "Record subsidence/collapse assessment (E6)", p, cls._base_required())
 
