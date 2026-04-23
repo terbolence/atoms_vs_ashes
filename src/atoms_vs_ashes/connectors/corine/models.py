@@ -1,8 +1,9 @@
-# man_hours: 2.0
+# man_hours: 3.0
 """CORINE Land Cover data models and constants."""
 
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -166,6 +167,8 @@ class SiteClassification:
     lon: float
     rings: list[RingClassification] = field(default_factory=list)
     total_developable_ha: float = 0.0
+    patch_count: int = 0
+    largest_contiguous_ha: float = 0.0
     source: str = "corine_wfs"
     error: str | None = None
 
@@ -175,6 +178,44 @@ class SiteClassification:
             "lon": self.lon,
             "rings": [r.to_dict() for r in self.rings],
             "total_developable_ha": round(self.total_developable_ha, 3),
+            "patch_count": self.patch_count,
+            "largest_contiguous_ha": round(self.largest_contiguous_ha, 2),
             "source": self.source,
             "error": self.error,
         }
+
+
+SOURCE_NAME = "corine_clc2018"
+SOURCE_URL = (
+    "https://image.discomap.eea.europa.eu/arcgis/rest/services/"
+    "Corine/CLC2018_WM/MapServer"
+)
+
+
+@dataclass
+class SiteEnrichmentSummary:
+    """Per-site result summary for batch logging."""
+
+    site_id: uuid.UUID
+    site_name: str
+    status: str  # ok | cached | non_eu | error | skipped
+    buildable_area_ha: float | None = None
+    dominant_land_class: str | None = None
+    quality: str | None = None
+    error: str | None = None
+    elapsed_ms: int = 0
+
+
+@dataclass
+class BatchResult:
+    """Aggregate result for a CORINE land cover batch run."""
+
+    run_id: str = ""
+    total_sites: int = 0
+    succeeded: int = 0
+    failed: int = 0
+    skipped_cached: int = 0
+    skipped_non_eu: int = 0
+    skipped_already_enriched: int = 0
+    elapsed_s: float = 0.0
+    per_site: list[SiteEnrichmentSummary] = field(default_factory=list)

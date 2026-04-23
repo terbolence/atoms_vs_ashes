@@ -264,21 +264,40 @@ def classify_lithology(raw_class: str | None) -> LithologyAssessment:
 def classify_fault_activity(props: dict[str, Any]) -> tuple[str | None, float | None]:
     """Extract fault activity class and slip rate from HIKE fault properties.
 
-    HIKE attributes vary; we defensively probe common field names.
+    HIKE attributes use ``active`` (Yes/No) and ``capable`` (Yes/No) fields
+    rather than a free-text ``activity`` field.  We synthesise an activity
+    class from whichever fields are populated.
+
     Returns (activity_class, slip_rate_mm_yr).
     """
     activity: str | None = None
     slip_rate: float | None = None
 
-    for key in ("activity", "Activity", "fault_activity", "ACTIVITY", "status"):
-        val = props.get(key)
-        if val is not None:
-            activity = str(val).strip().lower()
-            break
+    active_val = props.get("active")
+    capable_val = props.get("capable")
+    if active_val and str(active_val).strip():
+        raw = str(active_val).strip().lower()
+        if raw == "yes":
+            activity = "active"
+        elif raw == "no":
+            activity = "inactive"
+        else:
+            activity = raw
 
-    for key in ("slip_rate", "SlipRate", "SLIP_RATE", "slip_rate_mm_yr"):
+    if activity is None:
+        for key in ("activity", "Activity", "fault_activity", "ACTIVITY", "status"):
+            val = props.get(key)
+            if val is not None and str(val).strip():
+                activity = str(val).strip().lower()
+                break
+
+    if capable_val and str(capable_val).strip().lower() == "yes":
+        activity = "capable"
+
+    for key in ("slip_rate", "SlipRate", "SLIP_RATE", "slip_rate_mm_yr",
+                "net_slip", "strikeslip", "dip_slip"):
         val = props.get(key)
-        if val is not None:
+        if val is not None and str(val).strip():
             try:
                 slip_rate = float(val)
                 if slip_rate < 0:
@@ -291,16 +310,23 @@ def classify_fault_activity(props: dict[str, Any]) -> tuple[str | None, float | 
 
 
 def classify_aquifer(props: dict[str, Any]) -> HydrogeologyAssessment:
-    """Map BGR/WFD aquifer properties to a HydrogeologyAssessment."""
+    """Map BGR/WFD aquifer properties to a HydrogeologyAssessment.
+
+    The BGR ``hydrogeologic_map_bgr_2019`` layer uses hierarchical fields
+    ``level1`` … ``level5`` and ``interpreta`` instead of ``aquifer_type``.
+    We derive aquifer type from ``interpreta`` or ``level1`` when the
+    canonical field names are absent.
+    """
     aquifer_type: str | None = None
     productivity: str | None = None
     vulnerability: str | None = None
     gw_status: str | None = None
     gw_id: str | None = None
 
-    for key in ("aquifer_type", "Aquifer_type", "AQUIFER_TYPE", "type", "hydrogeologic_unit"):
+    for key in ("aquifer_type", "Aquifer_type", "AQUIFER_TYPE", "type",
+                "hydrogeologic_unit", "interpreta", "level1"):
         val = props.get(key)
-        if val is not None:
+        if val is not None and str(val).strip():
             aquifer_type = str(val).strip().lower()
             break
 
@@ -322,7 +348,7 @@ def classify_aquifer(props: dict[str, Any]) -> HydrogeologyAssessment:
             gw_status = str(val).strip().lower()
             break
 
-    for key in ("gw_body_id", "id", "ID", "euUoMCode"):
+    for key in ("gw_body_id", "localid", "thematicid", "id", "ID", "euUoMCode"):
         val = props.get(key)
         if val is not None:
             gw_id = str(val).strip()

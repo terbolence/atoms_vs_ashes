@@ -1,10 +1,11 @@
-# man_hours: 0.5
+# man_hours: 1.0
 """OpenStreetMap Overpass connector package."""
 
 from atoms_vs_ashes.connectors.osm.client import (
     DEFAULT_OVERPASS_URL,
     OverpassClient,
     _parse_population,
+    _parse_site_area_candidates,
     _parse_way_geometry,
     _parse_relation_geometry,
     _polyline_length_km,
@@ -13,19 +14,55 @@ from atoms_vs_ashes.connectors.osm.client import (
     find_best_plant_boundary,
     health_check,
 )
-from atoms_vs_ashes.connectors.osm.models import OsmElement, PlantBoundary
+from atoms_vs_ashes.connectors.osm.models import (
+    HighwayResult,
+    OsmElement,
+    PlantBoundary,
+    RailwayResult,
+    SiteAreaCandidate,
+    SiteAreaResult,
+    TransportBatchResult,
+    TransportResult,
+    TransportSiteEnrichmentSummary,
+    WaterwayResult,
+)
+from atoms_vs_ashes.connectors.osm.parsers import (
+    assess_heavy_haul,
+    build_ns03_comment,
+    classify_highways,
+    classify_railways,
+    classify_waterways,
+    determine_quality,
+    infer_gauge_by_country,
+)
 
 __all__ = [
     "DEFAULT_OVERPASS_URL",
+    "HighwayResult",
     "OsmElement",
     "OverpassClient",
     "PlantBoundary",
+    "RailwayResult",
+    "SiteAreaCandidate",
+    "SiteAreaResult",
+    "TransportBatchResult",
+    "TransportResult",
+    "TransportSiteEnrichmentSummary",
+    "WaterwayResult",
     "_parse_population",
+    "_parse_site_area_candidates",
     "_parse_relation_geometry",
     "_parse_way_geometry",
     "_polyline_length_km",
+    "assess_heavy_haul",
+    "build_ns03_comment",
+    "classify_highways",
+    "classify_railways",
+    "classify_waterways",
     "compute_geodesic_area_ha",
+    "determine_quality",
     "fetch_plant_boundaries",
     "find_best_plant_boundary",
     "health_check",
+    "infer_gauge_by_country",
 ]

@@ -12,11 +12,24 @@ from typing import Any
 
 VS30_REFERENCE = 760.0
 
-# Stricter bounds for the 23 in-scope countries
 INSCOPE_LAT_MIN, INSCOPE_LAT_MAX = 35.0, 60.0
 INSCOPE_LON_MIN, INSCOPE_LON_MAX = 12.0, 46.0
 
 NRML_NS = "http://openquake.org/xmlns/nrml/0.4"
+NRML_NS_03 = "http://openquake.org/xmlns/nrml/0.3"
+GML_NS = "http://www.opengis.net/gml"
+
+SOURCE_EFEHR_ESHM20 = "efehr_eshm20"
+SOURCE_EFEHR_ESHM13 = "efehr_eshm13"
+SOURCE_EFEHR_CURVE = "efehr_eshm20_curve"
+SOURCE_GEM_GLOBAL = "gem_global_v2023"
+
+# ESHM13 map works; ESHM20 map data not served (API under development).
+# ESHM20 curves work. Spectra endpoint non-functional for both models.
+DEFAULT_ESHM13_MODEL_ID = 68
+DEFAULT_ESHM20_MODEL_ID = 81
+
+DEFAULT_BBOX_MARGIN = 0.15
 
 
 

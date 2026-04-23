@@ -99,8 +99,8 @@ class EgdiGeologyConnector:
         if settings is not None and hasattr(settings, "connector_config"):
             cfg = settings.connector_config("egdi_geology")
 
-        self._wfs_url: str = cfg.get("wfs_base_url", _DEFAULT_WFS_URL).rstrip("/")
-        self._wms_url: str = cfg.get("wms_base_url", _DEFAULT_WMS_URL).rstrip("/")
+        self._wfs_url: str = cfg.get("wfs_base_url", _DEFAULT_WFS_URL)
+        self._wms_url: str = cfg.get("wms_base_url", _DEFAULT_WMS_URL)
         self._wfs_version: str = cfg.get("wfs_version", _DEFAULT_WFS_VERSION)
         self._whoami: str = cfg.get("whoami", _DEFAULT_WHOAMI)
         self._timeout: int = cfg.get("timeout_s", _DEFAULT_TIMEOUT_S)
@@ -119,11 +119,18 @@ class EgdiGeologyConnector:
         retry_cfg: dict[str, Any] = {}
         if settings is not None and hasattr(settings, "retry"):
             retry_cfg = settings.retry
-        self._max_retries: int = retry_cfg.get("max_retries", 3)
+        self._max_retries: int = cfg.get("max_retries", retry_cfg.get("max_retries", 3))
         self._base_delay: float = retry_cfg.get("base_delay_s", 2)
         self._max_delay: float = retry_cfg.get("max_delay_s", 60)
 
-        self._client = httpx.Client(timeout=self._timeout)
+        self._client = httpx.Client(
+            timeout=self._timeout, follow_redirects=True,
+        )
+
+        self.last_raw_responses: list[dict[str, Any]] = []
+
+    def _reset_raw_responses(self) -> None:
+        self.last_raw_responses = []
 
     # ------------------------------------------------------------------
     # Context manager
@@ -243,6 +250,8 @@ class EgdiGeologyConnector:
         """Query geotechnical borehole features within buffer."""
         cfg = self._layer_registry.get("boreholes", {})
         layer = cfg.get("layer_name", "ms:egdi_geotech_boreholes")
+        if cfg.get("enabled") is False:
+            return [], layer
         r = radius_km if radius_km is not None else cfg.get("buffer_km", 5)
         features = self._wfs_query(layer, lat, lon, r)
         return features, layer
@@ -268,6 +277,7 @@ class EgdiGeologyConnector:
             ISO 3166-1 alpha-2 code for coverage-gap detection.
         """
         result = EgdiGeologyResult(lat=lat, lon=lon)
+        self._reset_raw_responses()
 
         if not validate_coordinates_in_egdi_domain(lat, lon):
             log.warning("egdi_out_of_domain", lat=lat, lon=lon)
@@ -459,7 +469,7 @@ class EgdiGeologyConnector:
             "version": self._wfs_version,
             "request": "GetFeature",
             "typeName": layer_name,
-            "outputFormat": "application/json",
+            "outputFormat": "application/json; charset=utf-8 subtype=geojson",
             "srsName": "EPSG:4326",
             "bbox": bbox,
             "count": str(self._max_features),
@@ -478,6 +488,14 @@ class EgdiGeologyConnector:
                 error=str(exc), lat=lat, lon=lon,
             )
             return []
+
+        self.last_raw_responses.append({
+            "layer_name": layer_name,
+            "request_url": self._wfs_url,
+            "request_params": params,
+            "http_status": resp.status_code,
+            "response_body": data,
+        })
 
         features = parse_geojson_features(data)
 
@@ -503,10 +521,25 @@ class EgdiGeologyConnector:
         self, url: str, params: dict[str, str],
     ) -> httpx.Response | None:
         """HTTP GET with exponential backoff and jitter."""
+        layer = params.get("typeName", "unknown")
         last_exc: Exception | None = None
         for attempt in range(self._max_retries):
+            t0 = time.monotonic()
+            log.info(
+                "http_request",
+                method="GET", url=url, layer=layer,
+                bbox=params.get("bbox", ""), attempt=attempt + 1,
+            )
             try:
                 resp = self._client.get(url, params=params)
+                elapsed_ms = int((time.monotonic() - t0) * 1000)
+                ct = resp.headers.get("content-type", "")
+                log.info(
+                    "http_response",
+                    layer=layer, status=resp.status_code,
+                    content_type=ct, content_length=len(resp.content),
+                    elapsed_ms=elapsed_ms,
+                )
                 if resp.status_code >= 500:
                     last_exc = httpx.HTTPStatusError(
                         f"HTTP {resp.status_code}",
@@ -525,12 +558,12 @@ class EgdiGeologyConnector:
                 if resp.status_code >= 400:
                     log.warning(
                         "egdi_client_error", url=url,
-                        status=resp.status_code,
-                        layer=params.get("typeName", ""),
+                        status=resp.status_code, layer=layer,
                     )
                     return None
                 return resp
             except httpx.HTTPError as exc:
+                elapsed_ms = int((time.monotonic() - t0) * 1000)
                 last_exc = exc
                 delay = min(
                     self._base_delay * (2 ** attempt) + random.uniform(0, 1),
@@ -538,12 +571,13 @@ class EgdiGeologyConnector:
                 )
                 log.warning(
                     "egdi_retry", url=url, error=str(exc),
+                    layer=layer, elapsed_ms=elapsed_ms,
                     attempt=attempt + 1, delay_s=round(delay, 1),
                 )
                 time.sleep(delay)
 
         log.error(
-            "egdi_fetch_error", url=url,
+            "egdi_fetch_error", url=url, layer=layer,
             error=str(last_exc), attempts=self._max_retries,
         )
         return None

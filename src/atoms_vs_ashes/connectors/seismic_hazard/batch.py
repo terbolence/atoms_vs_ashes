@@ -7,13 +7,16 @@ logging, and writes to ``SiteNaturalHazards`` / ``SiteObservation`` tables.
 
 from __future__ import annotations
 
+import json
 import time
 import uuid
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.connectors.response_logger import log_raw_response
 from atoms_vs_ashes.connectors.seismic_hazard.models import (
     BatchResult,
     SeismicHazardResult,
@@ -57,8 +60,10 @@ def enrich_site(
         )
 
     try:
+        connector.reset_raw_call_log()
         result = connector.fetch_all(float(site.latitude), float(site.longitude))
         _persist_result(session, site_id, result, run_id)
+        _log_seismic_raw(session, connector, site_id, run_id, result)
         session.commit()
         elapsed = int((time.monotonic() - t0) * 1000)
         return SiteEnrichmentSummary(
@@ -68,6 +73,10 @@ def enrich_site(
     except Exception as exc:
         session.rollback()
         _persist_error_observation(session, site_id, run_id, str(exc))
+        try:
+            _log_seismic_raw(session, connector, site_id, run_id, None, error=str(exc))
+        except Exception as log_exc:
+            log.warning("seismic_raw_log_after_error_failed", error=str(log_exc))
         session.commit()
         elapsed = int((time.monotonic() - t0) * 1000)
         log.error("seismic_site_error", site_id=str(site_id), error=str(exc))
@@ -123,8 +132,10 @@ def enrich_batch(
             continue
 
         try:
+            connector.reset_raw_call_log()
             result = connector.fetch_all(float(site.latitude), float(site.longitude))
             _persist_result(session, site.site_id, result, run_id)
+            _log_seismic_raw(session, connector, site.site_id, run_id, result)
             session.commit()
             batch.succeeded += 1
             elapsed_ms = int((time.monotonic() - site_start) * 1000)
@@ -144,6 +155,10 @@ def enrich_batch(
             session.rollback()
             log.error("seismic_site_error", site_id=str(site.site_id), error=str(exc))
             _persist_error_observation(session, site.site_id, run_id, str(exc))
+            try:
+                _log_seismic_raw(session, connector, site.site_id, run_id, None, error=str(exc))
+            except Exception as log_exc:
+                log.warning("seismic_raw_log_after_error_failed", error=str(log_exc))
             session.commit()
             batch.failed += 1
             elapsed_ms = int((time.monotonic() - site_start) * 1000)
@@ -169,6 +184,9 @@ def enrich_batch(
         failed=batch.failed, cached=batch.skipped_cached,
         elapsed_s=round(batch.elapsed_s, 1),
     )
+
+    _write_batch_metadata(batch)
+
     return batch
 
 
@@ -231,6 +249,21 @@ def _persist_result(
     row.fetched_at = now
     row.run_id = run_id
 
+    comment_parts: list[str] = []
+    if result.model_name:
+        comment_parts.append(f"Model: {result.model_name}")
+    if result.hazard_curve:
+        comment_parts.append(f"Hazard curve: {len(result.hazard_curve.imls)} IML points")
+    if result.uhs:
+        comment_parts.append(f"UHS: {len(result.uhs.periods)} periods")
+    elif result.sa_values:
+        comment_parts.append(f"SA(T) from curves: {len(result.sa_values)} periods")
+    else:
+        comment_parts.append("UHS: unavailable (spectra endpoint non-functional)")
+    if result.grid_distance_km > 0:
+        comment_parts.append(f"Grid distance: {result.grid_distance_km:.1f} km")
+    row.nh01_comment = "; ".join(comment_parts) if comment_parts else None
+
     if result.quality != "high":
         session.add(SiteObservation(
             site_id=site_id, criterion_id="NH-01", source_type="api",
@@ -238,10 +271,10 @@ def _persist_result(
             impact="negative" if result.quality == "low" else "neutral",
             confidence=result.quality, run_id=run_id,
         ))
-    if result.source == "gem_global_v2023":
+    if "gem_global" in result.source:
         session.add(SiteObservation(
             site_id=site_id, criterion_id="NH-01", source_type="api",
-            observation="GEM global fallback used instead of EFEHR ESHM20. No hazard curve or UHS available.",
+            observation="GEM global fallback used instead of EFEHR. No hazard curve or UHS available.",
             impact="negative", confidence="medium", run_id=run_id,
         ))
     if result.grid_distance_km > 15.0:
@@ -260,3 +293,87 @@ def _persist_error_observation(
         observation=f"Enrichment failed: {error}",
         impact="blocking", confidence="low", run_id=run_id,
     ))
+
+
+def _log_seismic_raw(
+    session: Session,
+    connector: SeismicHazardConnector,
+    site_id: uuid.UUID,
+    run_id: str,
+    result: SeismicHazardResult | None,
+    *,
+    error: str | None = None,
+) -> None:
+    """Persist this site's accumulated EFEHR calls + assembled result.
+
+    Combines every per-call entry from ``connector.consume_raw_call_log()``
+    into a single ``response_body`` dict so the disk file and DB row contain
+    the full EFEHR/GEM dialogue for the site plus the parsed assessment.
+    """
+    calls = connector.consume_raw_call_log()
+    body: dict[str, Any] = {
+        "type": "seismic_hazard_assessment",
+        "calls": calls,
+    }
+    if result is not None:
+        body["result"] = {
+            "lat": result.lat,
+            "lon": result.lon,
+            "pga_475yr": result.pga_475yr,
+            "pga_2475yr": result.pga_2475yr,
+            "source": result.source,
+            "model_name": result.model_name,
+            "model_id": result.model_id,
+            "grid_distance_km": result.grid_distance_km,
+            "quality": result.quality,
+            "error": result.error,
+            "sa_values": result.sa_values,
+        }
+    if error is not None:
+        body["error"] = error
+
+    last_status = next(
+        (c["http_status"] for c in reversed(calls) if c.get("http_status") is not None),
+        None,
+    )
+    base_url = getattr(connector, "_base_url", "") or ""
+    log_raw_response(
+        session,
+        site_id=site_id,
+        connector_slug="seismic_hazard",
+        run_id=run_id,
+        request_url=base_url,
+        response_body=body,
+        http_status=last_status,
+    )
+
+
+def _write_batch_metadata(batch: BatchResult) -> None:
+    """LL-024: Write batch-level audit metadata to disk for reproducibility."""
+    meta_dir = Path("sources") / "seismic_hazard"
+    meta_dir.mkdir(parents=True, exist_ok=True)
+    meta_path = meta_dir / f"batch_{batch.run_id}.meta.json"
+
+    source_counts: dict[str, int] = {}
+    quality_counts: dict[str, int] = {}
+    errors: list[dict[str, str]] = []
+    for s in batch.per_site:
+        src = s.source or "unknown"
+        source_counts[src] = source_counts.get(src, 0) + 1
+        if s.status == "error" and s.error:
+            errors.append({"site_id": str(s.site_id), "error": s.error})
+
+    meta = {
+        "run_id": batch.run_id,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "total_sites": batch.total_sites,
+        "succeeded": batch.succeeded,
+        "failed": batch.failed,
+        "cached": batch.skipped_cached,
+        "elapsed_s": round(batch.elapsed_s, 1),
+        "source_distribution": source_counts,
+        "errors": errors[:20],
+    }
+
+    meta_path.write_text(json.dumps(meta, indent=2) + "\n")
+    log.info("seismic_batch_metadata_written", path=str(meta_path))

@@ -25,6 +25,7 @@ from atoms_vs_ashes.connectors.egdi_geology.models import (
     EgdiGeologyResult,
     SiteEnrichmentSummary,
 )
+from atoms_vs_ashes.connectors.response_logger import log_raw_response
 from atoms_vs_ashes.db.models import (
     DataSource,
     Site,
@@ -101,6 +102,16 @@ def enrich_site(
             country_code=site.country_code,
         )
         criteria = _persist_result(session, site_id, result, run_id)
+        if connector.last_raw_responses:
+            combined = {"layers": connector.last_raw_responses}
+            log_raw_response(
+                session,
+                site_id=site_id,
+                connector_slug="egdi_geology",
+                run_id=run_id,
+                request_url=connector._wfs_url,
+                response_body=combined,
+            )
         session.commit()
         elapsed = int((time.monotonic() - t0) * 1000)
         log.info(
@@ -175,6 +186,16 @@ def enrich_batch(
             criteria = _persist_result(
                 session, site.site_id, result, run_id,
             )
+            if connector.last_raw_responses:
+                combined = {"layers": connector.last_raw_responses}
+                log_raw_response(
+                    session,
+                    site_id=site.site_id,
+                    connector_slug="egdi_geology",
+                    run_id=run_id,
+                    request_url=connector._wfs_url,
+                    response_body=combined,
+                )
             session.commit()
             batch.succeeded += 1
             elapsed_ms = int((time.monotonic() - site_start) * 1000)
@@ -233,9 +254,9 @@ def _check_cache(
     ttl_days: int,
 ) -> SiteNaturalHazards | None:
     row = session.get(SiteNaturalHazards, site_id)
-    if row and row.nearest_fault_km is not None and row.fetched_at:
+    if row and row.nh02_quality is not None and row.fetched_at:
         age = datetime.now(timezone.utc) - row.fetched_at
-        if age < timedelta(days=ttl_days) and row.run_id == run_id:
+        if age < timedelta(days=ttl_days):
             return row
     return None
 
@@ -275,8 +296,10 @@ def _persist_result(
     # NH-02 — Fault activity
     if result.faults:
         nh_row.nearest_fault_km = result.faults.nearest_fault_distance_km
-        nh_row.fault_name = result.faults.nearest_fault_name if hasattr(result.faults, "nearest_fault_name") else None
+        if result.faults.nearest_fault_slip_rate_mm_yr is not None:
+            nh_row.fault_slip_rate_mm_yr = result.faults.nearest_fault_slip_rate_mm_yr
     nh_row.nh02_quality = "low" if (result.faults is None or result.faults.fault_count_within_buffer == 0) else "medium"
+    nh_row.nh02_source = "egdi_hike_faults"
     written.append("NH-02")
     if result.faults is None or result.faults.fault_count_within_buffer == 0:
         session.add(SiteObservation(
@@ -285,24 +308,31 @@ def _persist_result(
             impact="neutral", confidence=nh_row.nh02_quality or "low", run_id=run_id,
         ))
 
-    # NH-03 — Soil type (lithology)
-    if result.lithology:
+    # NH-03 — Soil type (lithology); preserve existing Zhu liquefaction data
+    if result.lithology and result.lithology.lithology_class:
         nh_row.soil_type = result.lithology.lithology_class
-        nh_row.liquefaction_suscept = result.lithology.lithology_class
-    nh_row.nh03_quality = "low" if (result.lithology is None or result.lithology.lithology_class is None) else "medium"
+        if nh_row.liquefaction_suscept is None:
+            nh_row.liquefaction_suscept = result.lithology.liquefaction_susceptibility
+    egdi_nh03_quality = "low" if (result.lithology is None or result.lithology.lithology_class is None) else "medium"
+    # See docs/post_processing/data_curation_methodology.md task 3 — provenance
+    # belongs in nh03_source, evidence-confidence in nh03_quality.
+    if nh_row.nh03_source is None:
+        nh_row.nh03_source = "egdi_lithology"
+    if nh_row.nh03_quality is None or nh_row.nh03_quality == "low":
+        nh_row.nh03_quality = egdi_nh03_quality
     written.append("NH-03")
 
     # NH-04 — Slope stability (reuses lithology rock_type)
-    if result.lithology:
-        nh_row.slope_stability_class = result.lithology.rock_type if hasattr(result.lithology, "rock_type") else None
-    nh_row.nh04_quality = nh_row.nh03_quality
+    if result.lithology and result.lithology.rock_type:
+        nh_row.slope_stability_class = result.lithology.rock_type
+    nh_row.nh04_quality = egdi_nh03_quality
     written.append("NH-04")
 
     # NH-05 — Mining history + karst
     if result.mines:
         nh_row.mining_void_present = result.mines.nearest_mine_distance_km is not None
     if result.karst:
-        nh_row.karst_present = result.karst.coverage_available and result.karst.is_karst_zone if hasattr(result.karst, "is_karst_zone") else None
+        nh_row.karst_present = result.karst.coverage_available and result.karst.in_karst_zone
     nh_row.nh05_quality = "medium"
     written.append("NH-05")
     if result.karst and not result.karst.coverage_available:
@@ -313,8 +343,8 @@ def _persist_result(
         ))
 
     # NH-06 — Foundation (boreholes + hydrogeology)
-    if result.boreholes and hasattr(result.boreholes, "depth_m"):
-        nh_row.depth_to_bedrock_m = result.boreholes.depth_m
+    if result.boreholes and result.boreholes.nearest_borehole_depth_m is not None:
+        nh_row.depth_to_bedrock_m = result.boreholes.nearest_borehole_depth_m
     nh_row.nh06_quality = "low" if (result.boreholes and result.boreholes.borehole_count_within_buffer == 0) else "medium"
     written.append("NH-06")
     if result.boreholes and result.boreholes.borehole_count_within_buffer == 0:

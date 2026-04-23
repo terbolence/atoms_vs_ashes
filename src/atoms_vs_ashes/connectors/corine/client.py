@@ -55,6 +55,11 @@ class CorineConnector:
         self._wfs_url: str = cfg.get("wfs_url", DEFAULT_WFS_URL)
         self._layer: str = cfg.get("layer_name", DEFAULT_LAYER)
 
+        self.last_raw_response: dict[str, Any] | None = None
+        self.last_request_url: str | None = None
+        self.last_request_params: dict[str, str] | None = None
+        self.last_http_status: int | None = None
+
     @property
     def _query_url(self) -> str:
         return f"{self._rest_url}/{self._layer_id}/query"
@@ -96,23 +101,25 @@ class CorineConnector:
         bbox = bbox_around(lat, lon, radius_m)
         bbox_str = f"{bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]}"
         t0 = time.monotonic()
+        params = {
+            "f": "geojson",
+            "geometry": bbox_str,
+            "geometryType": "esriGeometryEnvelope",
+            "spatialRel": "esriSpatialRelIntersects",
+            "inSR": "4326",
+            "outSR": "4326",
+            "outFields": "*",
+            "resultRecordCount": "5000",
+        }
 
         try:
-            resp = self._client.get(
-                self._query_url,
-                params={
-                    "f": "geojson",
-                    "geometry": bbox_str,
-                    "geometryType": "esriGeometryEnvelope",
-                    "spatialRel": "esriSpatialRelIntersects",
-                    "inSR": "4326",
-                    "outSR": "4326",
-                    "outFields": "*",
-                    "resultRecordCount": "5000",
-                },
-            )
+            resp = self._client.get(self._query_url, params=params)
             resp.raise_for_status()
             data = resp.json()
+            self.last_raw_response = data
+            self.last_request_url = self._query_url
+            self.last_request_params = params
+            self.last_http_status = resp.status_code
             features = data.get("features", [])
             elapsed_ms = int((time.monotonic() - t0) * 1000)
             log.info(
@@ -213,12 +220,13 @@ class CorineConnector:
             return result
 
         total_dev = 0.0
+        dev_feature_areas: dict[int, float] = {}
         for ring_geom, label, inner_m, outer_m in ring_geoms:
             ring_area = geodesic_area_ha(ring_geom)
             by_class: dict[str, float] = {}
             dev_ha = 0.0
 
-            for feat_geom, clc_code in parsed:
+            for j, (feat_geom, clc_code) in enumerate(parsed):
                 try:
                     intersection = ring_geom.intersection(feat_geom)
                     if intersection.is_empty:
@@ -227,6 +235,7 @@ class CorineConnector:
                     by_class[clc_code] = by_class.get(clc_code, 0.0) + area_ha
                     if clc_code in DEVELOPABLE_CODES:
                         dev_ha += area_ha
+                        dev_feature_areas[j] = dev_feature_areas.get(j, 0.0) + area_ha
                 except Exception:
                     continue
 
@@ -242,6 +251,11 @@ class CorineConnector:
             total_dev += dev_ha
 
         result.total_developable_ha = total_dev
+        result.patch_count = len(dev_feature_areas)
+        if dev_feature_areas:
+            result.largest_contiguous_ha = round(
+                max(dev_feature_areas.values()), 2,
+            )
         return result
 
     def close(self) -> None:

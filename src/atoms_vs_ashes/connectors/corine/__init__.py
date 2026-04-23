@@ -1,4 +1,4 @@
-# man_hours: 0.25
+# man_hours: 0.5
 """CORINE Land Cover connector package."""
 
 from atoms_vs_ashes.connectors.corine.client import (
@@ -7,6 +7,7 @@ from atoms_vs_ashes.connectors.corine.client import (
     extract_clc_code,
 )
 from atoms_vs_ashes.connectors.corine.models import (
+    BatchResult,
     CLC_LABELS,
     CORINE_COVERED_COUNTRIES,
     DEFAULT_LAYER,
@@ -22,12 +23,21 @@ from atoms_vs_ashes.connectors.corine.models import (
     MODERATE_FOOTPRINT_CLC,
     NATURAL_SEMINATURAL_CLC,
     NON_EU_COUNTRIES,
-    UNFAVOURABLE_FOOTPRINT_CLC,
     RingClassification,
+    SOURCE_NAME,
     SiteClassification,
+    SiteEnrichmentSummary,
+    UNFAVOURABLE_FOOTPRINT_CLC,
+)
+from atoms_vs_ashes.connectors.corine.parsers import (
+    assess_buildable_adequacy,
+    build_ns04_comment,
+    compute_buildable_metrics,
+    is_corine_covered,
 )
 
 __all__ = [
+    "BatchResult",
     "CLC_LABELS",
     "CORINE_COVERED_COUNTRIES",
     "CorineConnector",
@@ -45,8 +55,14 @@ __all__ = [
     "NATURAL_SEMINATURAL_CLC",
     "NON_EU_COUNTRIES",
     "RingClassification",
+    "SOURCE_NAME",
     "SiteClassification",
+    "SiteEnrichmentSummary",
     "UNFAVOURABLE_FOOTPRINT_CLC",
+    "assess_buildable_adequacy",
+    "build_ns04_comment",
+    "compute_buildable_metrics",
     "extract_clc_code",
+    "is_corine_covered",
     "parse_clc_features",
 ]

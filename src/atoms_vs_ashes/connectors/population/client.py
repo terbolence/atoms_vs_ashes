@@ -40,6 +40,12 @@ class PopulationConnector:
             cfg = settings._yaml.get("connectors", {}).get("population", {})
 
         self._geonames_username: str | None = cfg.get("geonames_username")
+
+        self.last_geonames_response: dict[str, Any] | None = None
+        self.last_geonames_url: str | None = None
+        self.last_geonames_params: dict[str, Any] | None = None
+        self.last_geonames_status: int | None = None
+
         self._overpass = OverpassClient(
             settings=settings,
             overpass_url=cfg.get("overpass_url"),
@@ -138,23 +144,29 @@ class PopulationConnector:
         """Optional GeoNames back-end for richer population data."""
         radius_km = min(radius_m / 1_000, 300)
         url = "http://api.geonames.org/findNearbyPlaceNameJSON"
+        params = {
+            "lat": lat,
+            "lng": lon,
+            "radius": radius_km,
+            "maxRows": 500,
+            "featureClass": "P",
+            "username": self._geonames_username,
+        }
+        self.last_geonames_url = url
+        self.last_geonames_params = dict(params)
         try:
-            resp = httpx.get(
-                url,
-                params={
-                    "lat": lat,
-                    "lng": lon,
-                    "radius": radius_km,
-                    "maxRows": 500,
-                    "featureClass": "P",
-                    "username": self._geonames_username,
-                },
-                timeout=30,
-            )
+            resp = httpx.get(url, params=params, timeout=30)
             resp.raise_for_status()
             data = resp.json()
+            self.last_geonames_response = data
+            self.last_geonames_status = resp.status_code
         except (httpx.HTTPError, ValueError) as exc:
             log.warning("population_fetch_error", error=str(exc), lat=lat, lon=lon)
+            self.last_geonames_status = (
+                exc.response.status_code if isinstance(exc, httpx.HTTPStatusError)
+                else None
+            )
+            self.last_geonames_response = {"error": str(exc)}
             return []
 
         places: list[PopulatedPlace] = []

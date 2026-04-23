@@ -16,6 +16,7 @@ from atoms_vs_ashes.connectors.seismic_hazard.models import (
 from atoms_vs_ashes.connectors.seismic_hazard.parsers import (
     nearest_value,
     parse_map_csv,
+    parse_model_discovery,
     parse_nrml_curve,
     parse_nrml_spectra,
     validate_coordinates_in_scope,
@@ -33,6 +34,7 @@ __all__ = [
     "UniformHazardSpectrum",
     "nearest_value",
     "parse_map_csv",
+    "parse_model_discovery",
     "parse_nrml_curve",
     "parse_nrml_spectra",
     "validate_coordinates_in_scope",
