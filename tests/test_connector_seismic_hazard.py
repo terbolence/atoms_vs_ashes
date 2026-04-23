@@ -1,8 +1,14 @@
-# man_hours: 8.0
+# man_hours: 10.0
 """Tests for the S-01 GEM/SHARE Seismic Hazard connector.
 
 Covers: pure parsing, validation, result structures, fallback decisions,
 integration with mocked HTTP, and batch operations with a test DB.
+
+Updated 2026-04-13 after API exploration revealed:
+  - Model discovery XML uses nested <id>/<name> elements
+  - ESHM20 curve returns NRML 0.3 format
+  - ESHM13 model ID = 68 (not 142)
+  - ESHM20 model ID = 81
 """
 
 from __future__ import annotations
@@ -24,6 +30,7 @@ from atoms_vs_ashes.connectors.seismic_hazard import (
     UniformHazardSpectrum,
     nearest_value,
     parse_map_csv,
+    parse_model_discovery,
     parse_nrml_curve,
     parse_nrml_spectra,
     validate_coordinates_in_scope,
@@ -32,14 +39,14 @@ from atoms_vs_ashes.connectors.seismic_hazard import (
 )
 
 # ---------------------------------------------------------------------------
-# Sample fixture data (trimmed from real EFEHR responses)
+# Sample fixture data (trimmed from real EFEHR responses, 2026-04-13)
 # ---------------------------------------------------------------------------
 
 SAMPLE_MAP_CSV = """\
 # longitude; latitude; PGA
-23.1234; 44.1456; 0.1523
-23.2234; 44.1456; 0.1498
-23.1234; 44.2456; 0.1612
+26.0821339; 44.4; 0.24212687778265965
+26.182133900000004; 44.4; 0.2406849820590185
+26.0821339; 44.5; 0.24996237652999578
 """
 
 SAMPLE_MAP_CSV_EMPTY = "# longitude; latitude; PGA\n"
@@ -49,7 +56,8 @@ SAMPLE_MAP_CSV_SINGLE = """\
 23.12; 44.15; 0.2000
 """
 
-SAMPLE_CURVE_NRML = """\
+# NRML 0.4 (spec-documented format)
+SAMPLE_CURVE_NRML_04 = """\
 <?xml version="1.0" encoding="UTF-8"?>
 <nrml xmlns="http://openquake.org/xmlns/nrml/0.4">
   <hazardCurves IMT="PGA" investigationTime="50.0">
@@ -59,6 +67,30 @@ SAMPLE_CURVE_NRML = """\
     </hazardCurve>
   </hazardCurves>
 </nrml>"""
+
+# NRML 0.3 (actual EFEHR response for ESHM20 curves)
+SAMPLE_CURVE_NRML_03 = """\
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:nrml xmlns:ns2="http://openquake.org/xmlns/nrml/0.3" xmlns:ns1="http://www.opengis.net/gml">
+    <ns2:hazardResult ns1:id="gml_id_15092">
+        <ns2:config>
+            <ns2:hazardProcessing saDamping="0.05" saPeriod="0.1" IDmodel="European Seismic hazard Model 2020 (ESHM20)" investigationTimeSpan="50.0"/>
+        </ns2:config>
+        <ns2:hazardCurveField quantileValue="0.5" statistics="mean" ns1:id="gml_id_15093">
+            <ns2:IML IMT="PGA">5.0E-4 0.001 0.005 0.01 0.05 0.1 0.2 0.5 1.0 2.0 3.0</ns2:IML>
+            <ns2:HCNode ns1:id="gml_id_15094">
+                <ns2:site>
+                    <ns1:Point srsName="4326">
+                        <ns1:pos>26.0821339 44.4</ns1:pos>
+                    </ns1:Point>
+                </ns2:site>
+                <ns2:hazardCurve>
+                    <ns2:poE>1.0 1.0 0.9999 0.9998 0.9462 0.8524 0.6965 0.5018 0.3123 0.0028 0.000002</ns2:poE>
+                </ns2:hazardCurve>
+            </ns2:HCNode>
+        </ns2:hazardCurveField>
+    </ns2:hazardResult>
+</ns2:nrml>"""
 
 SAMPLE_CURVE_NRML_NO_NS = """\
 <?xml version="1.0" encoding="UTF-8"?>
@@ -89,7 +121,16 @@ SAMPLE_SPECTRA_NRML = """\
   </uniformHazardSpectra>
 </nrml>"""
 
+# Real model discovery XML from EFEHR (2026-04-13)
 SAMPLE_MODEL_DISCOVERY_XML = """\
+<models>\
+<model><id>74</id><name>Global Seismic Hz Assessment Program (GSHAP)</name></model>\
+<model><id>68</id><name>European Seismic Hazard Model 2013 (ESHM13)</name></model>\
+<model><id>81</id><name>European Seismic hazard Model 2020 (ESHM20)</name></model>\
+</models>"""
+
+# Attribute-style (for backward compat testing)
+SAMPLE_MODEL_DISCOVERY_XML_ATTRS = """\
 <?xml version="1.0" encoding="UTF-8"?>
 <models>
   <model id="68" name="SHARE 2013"/>
@@ -97,10 +138,12 @@ SAMPLE_MODEL_DISCOVERY_XML = """\
 </models>"""
 
 SAMPLE_MODEL_DISCOVERY_XML_NO_ESHM20 = """\
-<?xml version="1.0" encoding="UTF-8"?>
-<models>
-  <model id="68" name="SHARE 2013"/>
+<models>\
+<model><id>68</id><name>European Seismic Hazard Model 2013 (ESHM13)</name></model>\
 </models>"""
+
+SAMPLE_EFEHR_ERROR = """\
+<errors><error>Error is: Command not found for CommandCode: CCODEerror</error></errors>"""
 
 
 # ===================================================================
@@ -112,7 +155,7 @@ class TestParseMapCsv:
     def test_basic_parse(self):
         rows = parse_map_csv(SAMPLE_MAP_CSV)
         assert len(rows) == 3
-        assert rows[0] == pytest.approx((23.1234, 44.1456, 0.1523))
+        assert rows[0] == pytest.approx((26.0821339, 44.4, 0.2421269), abs=1e-4)
 
     def test_empty_csv(self):
         rows = parse_map_csv(SAMPLE_MAP_CSV_EMPTY)
@@ -139,9 +182,46 @@ class TestParseMapCsv:
         assert rows[0] == pytest.approx((23.1, 44.1, 0.15))
 
 
+class TestParseModelDiscovery:
+    """Test the model discovery XML parser — nested elements are the real format."""
+
+    def test_nested_elements(self):
+        models = parse_model_discovery(SAMPLE_MODEL_DISCOVERY_XML)
+        assert len(models) == 3
+        ids = {m[0] for m in models}
+        assert 68 in ids
+        assert 81 in ids
+        assert 74 in ids
+
+    def test_finds_eshm20(self):
+        models = parse_model_discovery(SAMPLE_MODEL_DISCOVERY_XML)
+        eshm20 = [m for m in models if m[0] == 81]
+        assert len(eshm20) == 1
+        assert "ESHM20" in eshm20[0][1]
+
+    def test_finds_eshm13(self):
+        models = parse_model_discovery(SAMPLE_MODEL_DISCOVERY_XML)
+        eshm13 = [m for m in models if m[0] == 68]
+        assert len(eshm13) == 1
+        assert "ESHM13" in eshm13[0][1] or "2013" in eshm13[0][1]
+
+    def test_attribute_style_backward_compat(self):
+        models = parse_model_discovery(SAMPLE_MODEL_DISCOVERY_XML_ATTRS)
+        assert len(models) == 2
+        ids = {m[0] for m in models}
+        assert 68 in ids
+        assert 142 in ids
+
+    def test_malformed_xml(self):
+        assert parse_model_discovery("not xml") == []
+
+    def test_empty_models(self):
+        assert parse_model_discovery("<models></models>") == []
+
+
 class TestParseNrmlCurve:
-    def test_basic_parse(self):
-        curve = parse_nrml_curve(SAMPLE_CURVE_NRML)
+    def test_nrml04_parse(self):
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_04)
         assert curve is not None
         assert curve.imt == "PGA"
         assert curve.investigation_time == 50.0
@@ -149,6 +229,17 @@ class TestParseNrmlCurve:
         assert len(curve.poes) == 8
         assert curve.imls[0] == pytest.approx(0.005)
         assert curve.poes[-1] == pytest.approx(0.0002)
+
+    def test_nrml03_parse(self):
+        """ESHM20 returns NRML 0.3 with ns2: prefixed elements."""
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_03)
+        assert curve is not None
+        assert curve.imt == "PGA"
+        assert curve.investigation_time == 50.0
+        assert len(curve.imls) == 11
+        assert len(curve.poes) == 11
+        assert curve.imls[0] == pytest.approx(5e-4)
+        assert curve.poes[0] == pytest.approx(1.0)
 
     def test_no_namespace(self):
         curve = parse_nrml_curve(SAMPLE_CURVE_NRML_NO_NS)
@@ -161,8 +252,11 @@ class TestParseNrmlCurve:
     def test_incomplete_curve(self):
         assert parse_nrml_curve(SAMPLE_CURVE_NRML_MALFORMED) is None
 
+    def test_efehr_error_response(self):
+        assert parse_nrml_curve(SAMPLE_EFEHR_ERROR) is None
+
     def test_to_dict(self):
-        curve = parse_nrml_curve(SAMPLE_CURVE_NRML)
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_04)
         d = curve.to_dict()
         assert d["imt"] == "PGA"
         assert len(d["imls"]) == 8
@@ -191,6 +285,9 @@ class TestParseNrmlSpectra:
         )
         assert parse_nrml_spectra(xml) is None
 
+    def test_efehr_error_response(self):
+        assert parse_nrml_spectra(SAMPLE_EFEHR_ERROR) is None
+
     def test_to_dict(self):
         uhs = parse_nrml_spectra(SAMPLE_SPECTRA_NRML)
         d = uhs.to_dict()
@@ -213,7 +310,7 @@ class TestNearestValue:
         ]
         val, dist = nearest_value(grid, 44.14, 23.11)
         assert val == pytest.approx(0.20)
-        assert dist < 2.0  # within ~2 km
+        assert dist < 2.0
 
     def test_empty_grid_raises(self):
         with pytest.raises(ValueError, match="Empty grid"):
@@ -223,7 +320,7 @@ class TestNearestValue:
         grid = [(0.0, 0.0, 0.50)]
         val, dist = nearest_value(grid, 44.0, 23.0)
         assert val == pytest.approx(0.50)
-        assert dist > 1000  # very far
+        assert dist > 1000
 
 
 class TestPgaValidation:
@@ -259,15 +356,19 @@ class TestPgaValidation:
 
 
 class TestCurveMonotonicity:
-    def test_valid_curve(self):
-        curve = parse_nrml_curve(SAMPLE_CURVE_NRML)
+    def test_valid_curve_nrml04(self):
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_04)
+        assert validate_curve_monotonicity(curve) is True
+
+    def test_valid_curve_nrml03(self):
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_03)
         assert validate_curve_monotonicity(curve) is True
 
     def test_non_monotonic(self):
         curve = HazardCurve(
             imt="PGA",
             imls=[0.01, 0.1, 0.5],
-            poes=[0.5, 0.8, 0.1],  # 0.8 > 0.5 → non-monotonic
+            poes=[0.5, 0.8, 0.1],
         )
         assert validate_curve_monotonicity(curve) is False
 
@@ -296,23 +397,23 @@ class TestResultStructure:
         result = SeismicHazardResult(
             lat=44.15,
             lon=23.12,
-            model_id=142,
-            model_name="ESHM20",
+            model_id=68,
+            model_name="ESHM13",
             pga_475yr=0.15,
             pga_2475yr=0.30,
-            source="efehr_eshm20",
+            source="efehr_eshm13",
         )
         d = result.to_dict()
         assert d["lat"] == 44.15
         assert d["pga_475yr"] == pytest.approx(0.15)
         assert d["pga_2475yr"] == pytest.approx(0.30)
-        assert d["source"] == "efehr_eshm20"
+        assert d["source"] == "efehr_eshm13"
         assert d["vs30_reference"] == 760.0
         assert d["hazard_curve"] is None
         assert d["uhs"] is None
 
     def test_result_with_curve_and_uhs(self):
-        curve = parse_nrml_curve(SAMPLE_CURVE_NRML)
+        curve = parse_nrml_curve(SAMPLE_CURVE_NRML_04)
         uhs = parse_nrml_spectra(SAMPLE_SPECTRA_NRML)
         result = SeismicHazardResult(
             lat=44.15, lon=23.12,
@@ -354,7 +455,7 @@ class TestResultStructure:
             per_site=[
                 SiteEnrichmentSummary(
                     site_id=uuid.uuid4(), site_name="Site A",
-                    status="ok", pga_475yr=0.15, source="efehr_eshm20",
+                    status="ok", pga_475yr=0.15, source="efehr_eshm13",
                     elapsed_ms=200,
                 ),
                 SiteEnrichmentSummary(
@@ -372,20 +473,22 @@ class TestResultStructure:
 
 
 class TestFallbackDecision:
-    """Test that GEM fallback is triggered in the right scenarios."""
+    """Test that fallback is triggered in the right scenarios."""
 
     def test_empty_efehr_triggers_fallback(self):
         connector = SeismicHazardConnector()
-        connector._model_id_cache = 142
+        connector._eshm13_id = 68
+        connector._models_discovered = True
 
         with patch.object(connector, "_request_with_retry", return_value=None):
             result = connector.fetch_all(44.15, 23.12)
-            assert result.pga_475yr is None or result.source == "gem_global_v2023"
+            assert result.pga_475yr is None or "gem" in result.source
 
     def test_empty_map_csv_triggers_bbox_expansion(self):
         """When the first map query returns empty CSV, connector retries with larger bbox."""
         connector = SeismicHazardConnector()
-        connector._model_id_cache = 142
+        connector._eshm13_id = 68
+        connector._models_discovered = True
         connector._inter_request_delay = 0.0
 
         call_count = 0
@@ -422,7 +525,9 @@ def _mock_response(text: str, status_code: int = 200) -> httpx.Response:
 class TestFetchPgaFullFlow:
     def test_fetches_two_return_periods(self):
         connector = SeismicHazardConnector()
-        connector._model_id_cache = 142
+        connector._eshm13_id = 68
+        connector._models_discovered = True
+        connector._inter_request_delay = 0.0
 
         responses = iter([
             _mock_response(SAMPLE_MAP_CSV),
@@ -432,39 +537,51 @@ class TestFetchPgaFullFlow:
         ])
 
         with patch.object(
-            connector, "_request_with_retry", side_effect=lambda *a, **kw: next(responses)
+            connector, "_request_with_retry",
+            side_effect=lambda *a, **kw: next(responses),
         ):
-            pga_475, pga_2475, dist = connector.fetch_pga(44.15, 23.12)
+            pga_475, pga_2475, dist, source = connector.fetch_pga(44.43, 26.10)
 
         assert pga_475 is not None
         assert pga_2475 is not None
         assert dist >= 0
+        assert source == "efehr_eshm13"
 
 
 class TestModelDiscoveryCaching:
+    def test_discovers_both_models(self):
+        connector = SeismicHazardConnector()
+        assert connector._eshm20_id is None
+        assert connector._eshm13_id is None
+
+        resp = _mock_response(SAMPLE_MODEL_DISCOVERY_XML)
+        with patch.object(connector, "_request_with_retry", return_value=resp):
+            connector.discover_models(44.15, 23.12)
+
+        assert connector._eshm20_id == 81
+        assert connector._eshm13_id == 68
+        assert connector._models_discovered is True
+
     def test_caches_after_first_call(self):
         connector = SeismicHazardConnector()
-        assert connector._model_id_cache is None
-
         resp = _mock_response(SAMPLE_MODEL_DISCOVERY_XML)
         with patch.object(connector, "_request_with_retry", return_value=resp):
             mid = connector.discover_model(44.15, 23.12)
 
-        assert mid == 142
-        assert connector._model_id_cache == 142
+        assert mid is not None
 
-        # Second call should NOT make any HTTP request
         with patch.object(connector, "_request_with_retry") as mock_req:
             mid2 = connector.discover_model(47.0, 15.0)
             mock_req.assert_not_called()
-        assert mid2 == 142
+        assert mid2 is not None
 
     def test_fallback_to_first_model(self):
         connector = SeismicHazardConnector()
-        resp = _mock_response(SAMPLE_MODEL_DISCOVERY_XML_NO_ESHM20)
+        no_eshm = "<models><model><id>99</id><name>Unknown Model</name></model></models>"
+        resp = _mock_response(no_eshm)
         with patch.object(connector, "_request_with_retry", return_value=resp):
-            mid = connector.discover_model(44.15, 23.12)
-        assert mid == 68  # falls back to SHARE 2013 (first model)
+            connector.discover_models(44.15, 23.12)
+        assert connector._eshm13_id == 99
 
     def test_handles_no_response(self):
         connector = SeismicHazardConnector()
@@ -476,7 +593,9 @@ class TestModelDiscoveryCaching:
 class TestFetchAll:
     def _make_connector(self) -> SeismicHazardConnector:
         conn = SeismicHazardConnector()
-        conn._model_id_cache = 142
+        conn._eshm13_id = 68
+        conn._eshm20_id = 81
+        conn._models_discovered = True
         conn._inter_request_delay = 0.0
         return conn
 
@@ -484,25 +603,29 @@ class TestFetchAll:
         connector = self._make_connector()
 
         map_resp = _mock_response(SAMPLE_MAP_CSV)
-        curve_resp = _mock_response(SAMPLE_CURVE_NRML)
-        spectra_resp = _mock_response(SAMPLE_SPECTRA_NRML)
+        curve_resp = _mock_response(SAMPLE_CURVE_NRML_03)
+        error_resp = _mock_response(SAMPLE_EFEHR_ERROR)
 
+        # Call sequence: 2 map (PGA 475yr + 2475yr for ESHM13),
+        # then curve ESHM20 (succeeds), then spectra ESHM20 + ESHM13 (both error)
         responses = iter([
-            map_resp, map_resp,   # PGA 475yr + retry, PGA 2475yr + retry
-            map_resp, map_resp,
-            curve_resp,
-            spectra_resp,
+            map_resp,       # PGA 475yr map (ESHM13)
+            map_resp,       # PGA 2475yr map (ESHM13)
+            curve_resp,     # Hazard curve (ESHM20 — NRML 0.3, succeeds)
+            error_resp,     # Spectra ESHM20 (error)
+            error_resp,     # Spectra ESHM13 (error)
         ])
 
         with patch.object(
             connector, "_request_with_retry",
             side_effect=lambda *a, **kw: next(responses),
         ):
-            result = connector.fetch_all(44.15, 23.12)
+            result = connector.fetch_all(44.43, 26.10)
 
         assert result.pga_475yr is not None
-        assert result.source == "efehr_eshm20"
+        assert result.source == "efehr_eshm13"
         assert result.quality in ("high", "medium", "low")
+        assert result.hazard_curve is not None
 
     def test_gem_fallback_when_efehr_down(self):
         connector = self._make_connector()
@@ -528,7 +651,10 @@ class TestHealthCheck:
 
     def test_unhealthy(self):
         connector = SeismicHazardConnector()
-        with patch.object(connector._client, "get", side_effect=httpx.ConnectError("down")):
+        with patch.object(
+            connector._client, "get",
+            side_effect=httpx.ConnectError("down"),
+        ):
             assert connector.health_check() is False
 
 
@@ -577,7 +703,9 @@ class TestRetryLogic:
         fail_resp = MagicMock(spec=httpx.Response)
         fail_resp.status_code = 404
 
-        with patch.object(connector._client, "get", return_value=fail_resp) as mock_get:
+        with patch.object(
+            connector._client, "get", return_value=fail_resp
+        ) as mock_get:
             resp = connector._request_with_retry("http://test", {})
             assert mock_get.call_count == 1
 
@@ -596,7 +724,6 @@ class TestConnectorSettings:
     def test_from_settings(self, settings):
         connector = SeismicHazardConnector(settings)
         assert connector._base_url == "http://appsrvr.share-eu.org:8080/share"
-        assert connector._model_name == "ESHM20"
         assert connector._timeout == 30
 
 

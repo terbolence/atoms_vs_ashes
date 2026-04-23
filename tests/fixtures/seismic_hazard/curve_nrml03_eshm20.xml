@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:nrml xmlns:ns2="http://openquake.org/xmlns/nrml/0.3" xmlns:ns1="http://www.opengis.net/gml">
+    <ns2:hazardResult ns1:id="gml_id_15092">
+        <ns2:config>
+            <ns2:hazardProcessing saDamping="0.05" saPeriod="0.1" IDmodel="European Seismic hazard Model 2020 (ESHM20)" investigationTimeSpan="50.0"/>
+        </ns2:config>
+        <ns2:hazardCurveField quantileValue="0.5" statistics="mean" ns1:id="gml_id_15093">
+            <ns2:IML IMT="PGA">5.0E-4 0.001 0.005 0.01 0.05 0.1 0.2 0.5 1.0 2.0 3.0</ns2:IML>
+            <ns2:HCNode ns1:id="gml_id_15094">
+                <ns2:site>
+                    <ns1:Point srsName="4326">
+                        <ns1:pos>26.0821339 44.4</ns1:pos>
+                    </ns1:Point>
+                </ns2:site>
+                <ns2:hazardCurve>
+                    <ns2:poE>1.0 1.0 0.9999 0.9998 0.9462 0.8524 0.6965 0.5018 0.3123 0.0028 0.000002</ns2:poE>
+                </ns2:hazardCurve>
+            </ns2:HCNode>
+        </ns2:hazardCurveField>
+    </ns2:hazardResult>
+</ns2:nrml>

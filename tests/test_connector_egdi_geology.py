@@ -725,7 +725,7 @@ class TestConnectorSettings:
 
     def test_from_settings(self, settings):
         connector = EgdiGeologyConnector(settings)
-        assert connector._wfs_url == "https://maps.europe-geology.eu/wfs"
+        assert connector._wfs_url == "https://maps.europe-geology.eu/wfs/"
         assert connector._wfs_version == "2.0.0"
         assert connector._timeout == 60
 
