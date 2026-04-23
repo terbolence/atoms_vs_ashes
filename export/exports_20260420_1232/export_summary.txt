@@ -1,0 +1,11 @@
+Database Export Summary
+======================
+
+Version: 20260420_1232
+Timestamp: 2026-04-20T17:20:41.209304
+Export directory: export/exports_20260420_1232
+Clear naming: No
+
+Export Results:
+✓ API database: export/exports_20260420_1232/api/atoms_vs_ashes_api.xlsx (5.4 MB)
+✓ LLM database: export/exports_20260420_1232/llm/atoms_vs_ashes_llm.xlsx (18.9 MB)

@@ -1,0 +1,10 @@
+Database Export Summary
+======================
+
+Version: 20260421_1709
+Timestamp: 2026-04-21T17:10:08.634424
+Export directory: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260421_1709
+Clear naming: No
+
+Export Results:
+✓ MERGED database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260421_1709/merged/atoms_vs_ashes_merged.xlsx (54.1 MB)

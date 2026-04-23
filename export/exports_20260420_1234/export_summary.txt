@@ -1,0 +1,11 @@
+Database Export Summary
+======================
+
+Version: 20260420_1234
+Timestamp: 2026-04-20T12:34:33.773122
+Export directory: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260420_1234
+Clear naming: No
+
+Export Results:
+✓ API database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260420_1234/api/atoms_vs_ashes_api.xlsx (5.4 MB)
+✓ LLM database: /Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/export/exports_20260420_1234/llm/atoms_vs_ashes_llm.xlsx (15.2 MB)
