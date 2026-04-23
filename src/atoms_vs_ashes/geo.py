@@ -40,9 +40,9 @@ def buffer_ring_wgs84(
     _to_local, to_wgs84 = _make_transformers(lat, lon)
     origin = Point(0, 0)
 
-    outer = origin.buffer(outer_m, resolution=64)
+    outer = origin.buffer(outer_m, quad_segs=64)
     if inner_m > 0:
-        ring = outer.difference(origin.buffer(inner_m, resolution=64))
+        ring = outer.difference(origin.buffer(inner_m, quad_segs=64))
     else:
         ring = outer
 
