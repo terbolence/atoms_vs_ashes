@@ -766,3 +766,71 @@ with SeismicHazardConnector(settings) as connector:
 | 22 | Empty site list returns immediately with `total_sites=0` | Unit test |
 | 23 | CLI `--site-id`, `--country`, `--all`, `--run-id`, `--dry-run` flags work correctly | CLI integration test |
 | 24 | 500-site batch completes with correct totals (mocked HTTP, 0s delay) | Performance integration test |
+
+---
+
+## 16. API Validation Notes (2026-04-13)
+
+Live probing of the EFEHR REST API revealed significant deviations from
+the documented endpoints. These findings are encoded in the connector
+implementation and should be re-validated periodically.
+
+### 16.1 Model IDs
+
+| Model | Expected (spec) | Actual | Notes |
+|-------|-----------------|--------|-------|
+| ESHM13 | — | **68** | "European Seismic Hazard Model 2013 (ESHM13)" |
+| ESHM20 | 142 | **81** | "European Seismic hazard Model 2020 (ESHM20)" |
+| GSHAP | — | 74 | Global Seismic Hz Assessment Program — not used |
+
+### 16.2 Model Discovery XML Format
+
+The `/share/models` endpoint returns nested child elements, **not**
+attributes:
+
+```xml
+<models>
+  <model><id>68</id><name>European Seismic Hazard Model 2013 (ESHM13)</name></model>
+  <model><id>81</id><name>European Seismic hazard Model 2020 (ESHM20)</name></model>
+</models>
+```
+
+The parser (`parse_model_discovery`) handles both nested-element and
+attribute-style (`<model id="68" name="..."/>`) for backward
+compatibility.
+
+### 16.3 Endpoint Status
+
+| Endpoint | ESHM13 (68) | ESHM20 (81) | Notes |
+|----------|-------------|-------------|-------|
+| `/share/map` | **Works** | Empty / error | ESHM13 used as primary PGA source |
+| `/share/curve` | CCODEerror | **Works** (NRML 0.3) | ESHM20 used for curves |
+| `/share/spectra` | CCODEerror | CCODEerror | Non-functional for both; UHS omitted |
+
+### 16.4 NRML Version Mismatch
+
+ESHM20 curves return **NRML 0.3** (namespace `http://openquake.org/xmlns/nrml/0.3`)
+with `ns2:`-prefixed elements, not the NRML 0.4 structure documented in the
+OpenQuake spec. The parser tries NRML 0.4 first, then falls back to 0.3.
+
+### 16.5 Parameter Differences
+
+| Parameter | ESHM13 | ESHM20 |
+|-----------|--------|--------|
+| `hmapexceedprob` | `0.1` (10% in 50yr) | Annual rate: `0.002105` |
+| `hmapexceedyears` | `50` | `1` |
+| `soiltype` | `rock_vs30_800ms-1` | `rock_vs30_800ms-1` |
+| `poe` (curve) | — | `0.002105` |
+| `timespanpoe` (curve) | — | `1` |
+
+### 16.6 Bounding Box & Grid Resolution
+
+- ESHM13 grid spacing: ~0.1° (≈11 km at 44°N)
+- A `bbox_margin` of **0.15°** ensures at least one grid node falls
+  within the query bbox for any site location.
+
+### 16.7 Recommended Re-validation Cadence
+
+- **Quarterly**: Smoke test against live API (CI-optional `pytest -m smoke`)
+- **Annually**: Full model discovery + endpoint scan
+- **On failure**: Check EFEHR/SHARE status page and re-probe all endpoints

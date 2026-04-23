@@ -2,6 +2,7 @@
 
 **Source ID:** S-16
 **Phase:** 2 — Core Ranking
+**Status:** ✅ RI-05 IMPLEMENTED (2026-04-13) · ⏳ RI-02/RI-04/NS-09/NS-10 pending (GEOSTAT grid + NUTS statistics)
 **Estimated effort:** 16 h
 **Criteria served:** RI-02 (downstream population — Priority 1), RI-04 (population density at EPZ radii — Priority 2), RI-05 (population centres distance, settlement hierarchy — Priority 1), RI-06 (current population baseline for projections — supporting), NS-09 (employment, GDP — Priority 2), NS-10 (workforce, housing — Priority 2)
 **Connector slug:** `eurostat_gisco`

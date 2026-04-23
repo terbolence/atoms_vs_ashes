@@ -852,3 +852,42 @@ classify_flood_hazard(depth: FloodDepthProfile, apsfr: list[ApsfrDesignation]) �
 | Permanent water body | `insufficient` |
 | All data unavailable | `insufficient` |
 | APSFR only (no GloFAS data) | `medium` |
+
+---
+
+## 17. P14 Extension — A11 Flood Risk Avoidance
+
+**Date:** 2026-04-13
+**Priority:** P14 (reuse from P6)
+**Criterion:** A11 — River / Coastal Flood Risk (Avoidance)
+
+### Implementation
+
+P14 extends the existing S-08 connector to serve criterion A11 (flood risk avoidance, SSG-18 §5; SSG-35 §3.25). No new data source or API is required — A11 reuses the same JRC/GloFAS raster and EEA APSFR vector data already fetched and persisted by P6 for NH-08/NH-09.
+
+**Changes made:**
+
+1. **`parsers.py` — `determine_screening_flags()`**: Added `A11` flag. Triggers when the site has any flood exposure: non-zero GloFAS depth at any return period, or falls within any APSFR designation regardless of probability scenario.
+
+2. **`batch.py` — `_persist_result()`**: Added A11-specific `SiteObservation` when the A11 flag is triggered. Observation includes: GloFAS depth summary, APSFR designation count and type, hazard class, and exposure class. References IAEA SSG-18 §5.
+
+3. **`models.py`**: Added `AVOIDANCE_CRITERION_A11 = "A11"` constant and documented A11 in the `CRITERION_IDS` comment.
+
+### A11 Screening Logic
+
+A11 is an **avoidance** criterion (not exclusionary). It triggers whenever the site has any flood exposure:
+
+- Any GloFAS depth > 0 at any return period (RP10–RP500) → A11 triggered
+- Site within any APSFR (high, medium, or low probability) → A11 triggered
+- No flood depth and no APSFR → A11 not triggered
+
+This is deliberately broader than E8 (exclusionary, depth > 0.5 m at RP100) and A14 (avoidance, depth > 0 at RP500). A11 captures all sites with any flood signal for avoidance-level review.
+
+### DB Fields Served
+
+A11 maps to the same `SiteNaturalHazards` columns already written by P6:
+- `flood_zone_class` (hazard classification)
+- `nearest_river_km` (0.0 if RP100 depth > 0)
+- `nh09_quality`, `nh09_comment`
+
+The LLM context builder (`llm/context.py`) already maps A11 to `{nh09_flood_zone_class, nh09_nearest_river_km, nh09_quality, nh09_comment}`. No context builder changes needed.

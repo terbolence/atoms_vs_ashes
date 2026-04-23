@@ -886,4 +886,4 @@ TARGET:
 | **Analysis module** | A module under `analysis/` that consumes connector outputs and persists `SiteAttribute`/`ScreeningResult` rows |
 | **Wiring** | The registration and invocation of analysis modules from the screening pipeline |
 | **Fallback-grade** | Data or analysis that serves as a placeholder until a higher-quality source is implemented |
-| **Priority N source** | The Nth-preferred data source for a sub-criterion, as assigned in `data_source_access_plan.md` §3.x |
+| **Priority N source** | The Nth-preferred data source for a sub-criterion, as assigned in `Data Source Access Plan/criterion_family_mapping.md` §3.x |
