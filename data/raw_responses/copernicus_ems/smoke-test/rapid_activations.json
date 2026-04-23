@@ -1,0 +1,1956 @@
+[
+  {
+    "code": "EMSR871",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 41.899617109537935,
+    "centroid_lon": 14.938764359319357,
+    "activation_time": "2026-04-01T15:16:00"
+  },
+  {
+    "code": "EMSR868",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 41.152672298024065,
+    "centroid_lon": 26.301135962077815,
+    "activation_time": "2026-02-20T08:51:00"
+  },
+  {
+    "code": "EMSN231",
+    "category": "storm",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 61.4721,
+    "centroid_lon": 16.3336,
+    "activation_time": "2026-01-30T00:00:00"
+  },
+  {
+    "code": "EMSN232",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 47.7331,
+    "centroid_lon": 12.1103,
+    "activation_time": "2026-01-27T00:00:00"
+  },
+  {
+    "code": "EMSR858",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 38.36763697419224,
+    "centroid_lon": 13.360408116455249,
+    "activation_time": "2026-01-19T10:40:00"
+  },
+  {
+    "code": "EMSR856",
+    "category": "flood",
+    "countries": [
+      "AL",
+      "ME"
+    ],
+    "centroid_lat": 41.552760834713624,
+    "centroid_lon": 19.478280624734882,
+    "activation_time": "2026-01-09T08:05:00"
+  },
+  {
+    "code": "EMSR855",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 41.93216757830378,
+    "centroid_lon": 12.666284214141033,
+    "activation_time": "2026-01-06T16:21:00"
+  },
+  {
+    "code": "EMSR854",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 43.52970267075619,
+    "centroid_lon": 18.174347944207835,
+    "activation_time": "2026-01-05T16:05:00"
+  },
+  {
+    "code": "EMSN228",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.97987,
+    "centroid_lon": 13.44682,
+    "activation_time": "2025-12-04T00:00:00"
+  },
+  {
+    "code": "EMSR850",
+    "category": "flood",
+    "countries": [
+      "AL"
+    ],
+    "centroid_lat": 40.13805517868506,
+    "centroid_lon": 20.1228445207708,
+    "activation_time": "2025-11-19T16:49:00"
+  },
+  {
+    "code": "EMSN225",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 48.82891,
+    "centroid_lon": 9.04993,
+    "activation_time": "2025-10-28T17:52:56"
+  },
+  {
+    "code": "EMSR843",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.62562627809529,
+    "centroid_lon": 9.14224262916911,
+    "activation_time": "2025-09-22T14:42:00"
+  },
+  {
+    "code": "EMSN224",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 47.28421,
+    "centroid_lon": 25.63711,
+    "activation_time": "2025-09-18T00:00:00"
+  },
+  {
+    "code": "EMSR841",
+    "category": "flood",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 63.47,
+    "centroid_lon": 17.93,
+    "activation_time": "2025-09-11T13:16:00"
+  },
+  {
+    "code": "EMSN222",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.82891,
+    "centroid_lon": 9.04993,
+    "activation_time": "2025-05-30T13:42:02"
+  },
+  {
+    "code": "EMSR802",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 45.768595,
+    "centroid_lon": 25.929407,
+    "activation_time": "2025-05-28T17:20:00"
+  },
+  {
+    "code": "EMSR800",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.117662,
+    "centroid_lon": 9.135158,
+    "activation_time": "2025-04-18T11:00:00"
+  },
+  {
+    "code": "EMSR797",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 44.62482,
+    "centroid_lon": 17.590969,
+    "activation_time": "2025-03-27T14:57:00"
+  },
+  {
+    "code": "EMSR795",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 42.465698,
+    "centroid_lon": 12.121307,
+    "activation_time": "2025-03-14T16:07:00"
+  },
+  {
+    "code": "EMSR775",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 60.8549,
+    "centroid_lon": 6.3678,
+    "activation_time": "2024-10-30T19:04:00"
+  },
+  {
+    "code": "EMSR771",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.52650499999999,
+    "centroid_lon": 11.314544999999999,
+    "activation_time": "2024-10-20T08:24:00"
+  },
+  {
+    "code": "EMSR770",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 43.450288,
+    "centroid_lon": 17.694091,
+    "activation_time": "2024-10-04T15:59:00"
+  },
+  {
+    "code": "EMSR768",
+    "category": "flood",
+    "countries": [
+      "HR",
+      "SI"
+    ],
+    "centroid_lat": 45.471714999999996,
+    "centroid_lon": 15.548094999999998,
+    "activation_time": "2024-10-04T09:35:00"
+  },
+  {
+    "code": "EMSR766",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.673449,
+    "centroid_lon": 18.957527,
+    "activation_time": "2024-09-24T11:53:00"
+  },
+  {
+    "code": "EMSR764",
+    "category": "flood",
+    "countries": [
+      "AT"
+    ],
+    "centroid_lat": 48.18506099999998,
+    "centroid_lon": 16.376631,
+    "activation_time": "2024-09-22T08:19:00"
+  },
+  {
+    "code": "EMSR763",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.075383,
+    "centroid_lon": 14.735793999999997,
+    "activation_time": "2024-09-20T13:01:00"
+  },
+  {
+    "code": "EMSR762",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.281576,
+    "centroid_lon": 11.891452,
+    "activation_time": "2024-09-18T14:58:00"
+  },
+  {
+    "code": "EMSR761",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.051891,
+    "centroid_lon": 13.729819999999998,
+    "activation_time": "2024-09-18T13:00:00"
+  },
+  {
+    "code": "EMSR759",
+    "category": "flood",
+    "countries": [
+      "AT",
+      "HU",
+      "SK"
+    ],
+    "centroid_lat": 47.750803000000005,
+    "centroid_lon": 17.974131999999997,
+    "activation_time": "2024-09-14T15:59:00"
+  },
+  {
+    "code": "EMSR758",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 45.78855099999999,
+    "centroid_lon": 27.668568,
+    "activation_time": "2024-09-14T13:44:00"
+  },
+  {
+    "code": "EMSR757",
+    "category": "flood",
+    "countries": [
+      "SK"
+    ],
+    "centroid_lat": 48.394821,
+    "centroid_lon": 16.913951,
+    "activation_time": "2024-09-13T15:59:00"
+  },
+  {
+    "code": "EMSR756",
+    "category": "flood",
+    "countries": [
+      "CZ",
+      "PL"
+    ],
+    "centroid_lat": 50.603763,
+    "centroid_lon": 16.667259,
+    "activation_time": "2024-09-13T12:50:00"
+  },
+  {
+    "code": "EMSR755",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.948906,
+    "centroid_lon": 14.700622999999997,
+    "activation_time": "2024-09-13T10:04:00"
+  },
+  {
+    "code": "EMSN205",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 49.3391,
+    "centroid_lon": 6.9366,
+    "activation_time": "2024-09-09T00:00:00"
+  },
+  {
+    "code": "EMSR742",
+    "category": "storm",
+    "countries": [
+      "LV"
+    ],
+    "centroid_lat": 56.644158999999995,
+    "centroid_lon": 23.715229,
+    "activation_time": "2024-07-29T12:16:00"
+  },
+  {
+    "code": "EMSN199",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.68632,
+    "centroid_lon": 11.2282,
+    "activation_time": "2024-07-09T00:00:00"
+  },
+  {
+    "code": "EMSR732",
+    "category": "storm",
+    "countries": [
+      "FR"
+    ],
+    "centroid_lat": 48.679149,
+    "centroid_lon": 6.194527,
+    "activation_time": "2024-06-29T10:26:00"
+  },
+  {
+    "code": "EMSR728",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.973487,
+    "centroid_lon": 10.890198,
+    "activation_time": "2024-05-30T20:09:00"
+  },
+  {
+    "code": "EMSR722",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 49.292609,
+    "centroid_lon": 7.089958,
+    "activation_time": "2024-05-17T16:37:00"
+  },
+  {
+    "code": "EMSR721",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.596479,
+    "centroid_lon": 9.396557,
+    "activation_time": "2024-05-16T15:29:00"
+  },
+  {
+    "code": "EMSN193",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 46.40475,
+    "centroid_lon": 26.71429,
+    "activation_time": "2024-05-07T00:00:00"
+  },
+  {
+    "code": "EMSN189",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 42.43166,
+    "centroid_lon": 12.82679,
+    "activation_time": "2024-03-07T00:00:00"
+  },
+  {
+    "code": "EMSN186",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.93741,
+    "centroid_lon": 8.21811,
+    "activation_time": "2024-01-15T13:09:00"
+  },
+  {
+    "code": "EMSR713",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 49.431374,
+    "centroid_lon": 6.853409,
+    "activation_time": "2024-01-03T16:10:00"
+  },
+  {
+    "code": "EMSR712",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.814659999999996,
+    "centroid_lon": 9.596558,
+    "activation_time": "2023-12-22T17:45:00"
+  },
+  {
+    "code": "EMSN185",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.87478,
+    "centroid_lon": 11.06808,
+    "activation_time": "2023-12-21T00:00:00"
+  },
+  {
+    "code": "EMSR710",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 47.059257,
+    "centroid_lon": 22.227783,
+    "activation_time": "2023-11-30T16:25:00"
+  },
+  {
+    "code": "EMSN184",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 38.87509,
+    "centroid_lon": 23.19128,
+    "activation_time": "2023-11-23T00:00:00"
+  },
+  {
+    "code": "EMSR705",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.700247,
+    "centroid_lon": 10.773193,
+    "activation_time": "2023-11-03T03:21:00"
+  },
+  {
+    "code": "EMSR701",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 54.293587,
+    "centroid_lon": 10.933228,
+    "activation_time": "2023-10-20T14:05:00"
+  },
+  {
+    "code": "EMSN176",
+    "category": "storm",
+    "countries": [
+      "LV"
+    ],
+    "centroid_lat": 56.8796,
+    "centroid_lon": 24.6032,
+    "activation_time": "2023-10-10T14:18:00"
+  },
+  {
+    "code": "EMSR697",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 38.901433,
+    "centroid_lon": 22.421417,
+    "activation_time": "2023-09-26T10:32:00"
+  },
+  {
+    "code": "EMSR693",
+    "category": "flood",
+    "countries": [
+      "BG"
+    ],
+    "centroid_lat": 42.080255,
+    "centroid_lon": 27.903919,
+    "activation_time": "2023-09-06T16:04:00"
+  },
+  {
+    "code": "EMSR692",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 39.362522,
+    "centroid_lon": 22.900257,
+    "activation_time": "2023-09-05T12:10:00"
+  },
+  {
+    "code": "EMSN171",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 53.11377,
+    "centroid_lon": 8.7335,
+    "activation_time": "2023-09-01T00:00:00"
+  },
+  {
+    "code": "EMSR684",
+    "category": "flood",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 60.456315,
+    "centroid_lon": 16.419067,
+    "activation_time": "2023-08-15T17:45:00"
+  },
+  {
+    "code": "EMSR683",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 60.938438,
+    "centroid_lon": 9.821777,
+    "activation_time": "2023-08-08T09:02:00"
+  },
+  {
+    "code": "EMSR680",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.005388,
+    "centroid_lon": 14.619141,
+    "activation_time": "2023-08-04T10:40:00"
+  },
+  {
+    "code": "EMSN154",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.19451,
+    "centroid_lon": 11.85635,
+    "activation_time": "2023-05-25T01:00:00"
+  },
+  {
+    "code": "EMSR668",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 59.747229,
+    "centroid_lon": 10.204582,
+    "activation_time": "2023-05-22T15:53:00"
+  },
+  {
+    "code": "EMSR665",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 44.944713,
+    "centroid_lon": 16.578369,
+    "activation_time": "2023-05-17T09:42:00"
+  },
+  {
+    "code": "EMSR664",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.251702,
+    "centroid_lon": 12.046509,
+    "activation_time": "2023-05-16T14:33:00"
+  },
+  {
+    "code": "EMSR659",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.396995,
+    "centroid_lon": 11.845322,
+    "activation_time": "2023-05-03T09:39:00"
+  },
+  {
+    "code": "EMSR657",
+    "category": "flood",
+    "countries": [
+      "LV"
+    ],
+    "centroid_lat": 56.011946,
+    "centroid_lon": 26.361694,
+    "activation_time": "2023-03-31T11:49:00"
+  },
+  {
+    "code": "EMSR649",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 36.96,
+    "centroid_lon": 15.26,
+    "activation_time": "2023-02-09T02:33:00"
+  },
+  {
+    "code": "EMSR646",
+    "category": "flood",
+    "countries": [
+      "XK"
+    ],
+    "centroid_lat": 42.72,
+    "centroid_lon": 20.6,
+    "activation_time": "2023-01-27T16:54:00"
+  },
+  {
+    "code": "EMSR644",
+    "category": "flood",
+    "countries": [
+      "LV"
+    ],
+    "centroid_lat": 56.55135999999998,
+    "centroid_lon": 25.62793999999999,
+    "activation_time": "2023-01-11T13:53:00"
+  },
+  {
+    "code": "EMSN141",
+    "category": "flood",
+    "countries": [
+      "BG"
+    ],
+    "centroid_lat": 42.64112,
+    "centroid_lon": 24.65888,
+    "activation_time": "2022-11-30T01:00:00"
+  },
+  {
+    "code": "EMSR642",
+    "category": "storm",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.26552,
+    "centroid_lon": 12.33028,
+    "activation_time": "2022-11-24T16:25:00"
+  },
+  {
+    "code": "EMSN139",
+    "category": "flood",
+    "countries": [
+      "LU"
+    ],
+    "centroid_lat": 49.64597,
+    "centroid_lon": 6.25539,
+    "activation_time": "2022-10-11T01:00:00"
+  },
+  {
+    "code": "EMSR634",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.71681,
+    "centroid_lon": 13.14526,
+    "activation_time": "2022-09-16T09:48:00"
+  },
+  {
+    "code": "EMSR575",
+    "category": "storm",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.7158,
+    "centroid_lon": 8.76255,
+    "activation_time": "2022-05-24T07:04:00"
+  },
+  {
+    "code": "EMSR572",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 43.06061,
+    "centroid_lon": 17.701,
+    "activation_time": "2022-04-01T09:34:00"
+  },
+  {
+    "code": "EMSR557",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 61.87,
+    "centroid_lon": 8.28,
+    "activation_time": "2022-01-11T23:27:00"
+  },
+  {
+    "code": "EMSR552",
+    "category": "storm",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 60.82614,
+    "centroid_lon": 10.06466,
+    "activation_time": "2021-11-22T17:48:00"
+  },
+  {
+    "code": "EMSR548",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 37.52,
+    "centroid_lon": 15.0,
+    "activation_time": "2021-10-27T11:31:00"
+  },
+  {
+    "code": "EMSN105",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.55752,
+    "centroid_lon": 7.97741,
+    "activation_time": "2021-08-16T01:00:00"
+  },
+  {
+    "code": "EMSR520",
+    "category": "flood",
+    "countries": [
+      "NL"
+    ],
+    "centroid_lat": 51.0774,
+    "centroid_lon": 5.9009,
+    "activation_time": "2021-07-15T23:57:00"
+  },
+  {
+    "code": "EMSR519",
+    "category": "flood",
+    "countries": [
+      "CH"
+    ],
+    "centroid_lat": 46.94824,
+    "centroid_lon": 7.45032,
+    "activation_time": "2021-07-15T19:02:00"
+  },
+  {
+    "code": "EMSR518",
+    "category": "flood",
+    "countries": [
+      "BE",
+      "NL"
+    ],
+    "centroid_lat": 50.49873999999999,
+    "centroid_lon": 5.62101,
+    "activation_time": "2021-07-14T14:00:00"
+  },
+  {
+    "code": "EMSR517",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 50.30537,
+    "centroid_lon": 7.58477,
+    "activation_time": "2021-07-13T17:11:00"
+  },
+  {
+    "code": "EMSN095",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.55752,
+    "centroid_lon": 7.97741,
+    "activation_time": "2021-04-29T01:00:00"
+  },
+  {
+    "code": "EMSN092",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.30137,
+    "centroid_lon": 6.98507,
+    "activation_time": "2021-03-29T01:00:00"
+  },
+  {
+    "code": "EMSR501",
+    "category": "flood",
+    "countries": [
+      "AL"
+    ],
+    "centroid_lat": 42.06,
+    "centroid_lon": 19.5,
+    "activation_time": "2021-02-12T16:50:00"
+  },
+  {
+    "code": "EMSR497",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.44162,
+    "centroid_lon": 6.70082,
+    "activation_time": "2021-02-01T13:42:00"
+  },
+  {
+    "code": "EMSR496",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 42.4384,
+    "centroid_lon": 12.8185,
+    "activation_time": "2021-01-27T17:31:00"
+  },
+  {
+    "code": "EMSR488",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 41.7188,
+    "centroid_lon": 13.607,
+    "activation_time": "2020-12-09T13:39:00"
+  },
+  {
+    "code": "EMSR487",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.921,
+    "centroid_lon": 10.96438,
+    "activation_time": "2020-12-06T14:26:00"
+  },
+  {
+    "code": "EMSR486",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 40.32142,
+    "centroid_lon": 9.32465,
+    "activation_time": "2020-11-28T16:19:00"
+  },
+  {
+    "code": "EMSR483",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 39.04759,
+    "centroid_lon": 17.08265,
+    "activation_time": "2020-11-22T10:19:00"
+  },
+  {
+    "code": "EMSR480",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 35.05,
+    "centroid_lon": 24.9,
+    "activation_time": "2020-11-11T07:57:00"
+  },
+  {
+    "code": "EMSR471",
+    "category": "flood",
+    "countries": [
+      "SK"
+    ],
+    "centroid_lat": 48.88422,
+    "centroid_lon": 20.07495,
+    "activation_time": "2020-10-14T16:53:00"
+  },
+  {
+    "code": "EMSR468",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.3322,
+    "centroid_lon": 8.473,
+    "activation_time": "2020-10-04T16:18:00"
+  },
+  {
+    "code": "EMSR467",
+    "category": "flood",
+    "countries": [
+      "FR"
+    ],
+    "centroid_lat": 43.99003,
+    "centroid_lon": 7.29399,
+    "activation_time": "2020-10-03T12:43:00"
+  },
+  {
+    "code": "EMSR465",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 39.3194,
+    "centroid_lon": 21.98262,
+    "activation_time": "2020-09-19T09:46:00"
+  },
+  {
+    "code": "EMSR451",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 47.8655,
+    "centroid_lon": 12.1169,
+    "activation_time": "2020-08-04T16:05:00"
+  },
+  {
+    "code": "EMSR445",
+    "category": "flood",
+    "countries": [
+      "MD",
+      "RO",
+      "UA"
+    ],
+    "centroid_lat": 48.22587999999999,
+    "centroid_lon": 26.777239999999995,
+    "activation_time": "2020-06-26T11:12:00"
+  },
+  {
+    "code": "EMSR444",
+    "category": "flood",
+    "countries": [
+      "UA"
+    ],
+    "centroid_lat": 48.46,
+    "centroid_lon": 25.07,
+    "activation_time": "2020-06-25T16:34:00"
+  },
+  {
+    "code": "EMSR427",
+    "category": "flood",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 58.12768,
+    "centroid_lon": 12.33217,
+    "activation_time": "2020-02-18T14:34:00"
+  },
+  {
+    "code": "EMSN068",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.73764,
+    "centroid_lon": 13.07979,
+    "activation_time": "2020-02-17T17:01:00"
+  },
+  {
+    "code": "EMSN070",
+    "category": "storm",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.22725,
+    "centroid_lon": 14.43472,
+    "activation_time": "2020-02-17T14:47:00"
+  },
+  {
+    "code": "EMSR414",
+    "category": "flood",
+    "countries": [
+      "AT"
+    ],
+    "centroid_lat": 47.07349,
+    "centroid_lon": 13.41722,
+    "activation_time": "2019-11-27T12:33:00"
+  },
+  {
+    "code": "EMSR413",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 37.97192,
+    "centroid_lon": 23.19986,
+    "activation_time": "2019-11-26T12:34:00"
+  },
+  {
+    "code": "EMSR411",
+    "category": "flood",
+    "countries": [
+      "FR"
+    ],
+    "centroid_lat": 43.47,
+    "centroid_lon": 6.65,
+    "activation_time": "2019-11-23T20:03:00"
+  },
+  {
+    "code": "EMSR409",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.44133,
+    "centroid_lon": 12.33526,
+    "activation_time": "2019-11-14T12:15:00"
+  },
+  {
+    "code": "EMSN054",
+    "category": "flood",
+    "countries": [
+      "AL",
+      "XK",
+      "ME",
+      "MK"
+    ],
+    "centroid_lat": 41.82,
+    "centroid_lon": 19.975,
+    "activation_time": "2019-08-02T01:00:00"
+  },
+  {
+    "code": "EMSR364",
+    "category": "flood",
+    "countries": [
+      "TR"
+    ],
+    "centroid_lat": 40.754129999999996,
+    "centroid_lon": 40.00413999999999,
+    "activation_time": "2019-06-19T09:29:00"
+  },
+  {
+    "code": "EMSR359",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.25,
+    "centroid_lon": 12.1,
+    "activation_time": "2019-05-15T11:22:00"
+  },
+  {
+    "code": "EMSR358",
+    "category": "flood",
+    "countries": [
+      "BA"
+    ],
+    "centroid_lat": 44.6692,
+    "centroid_lon": 18.0807,
+    "activation_time": "2019-05-14T14:17:00"
+  },
+  {
+    "code": "EMSR340",
+    "category": "storm",
+    "countries": [
+      "AT"
+    ],
+    "centroid_lat": 46.76188,
+    "centroid_lon": 13.70245,
+    "activation_time": "2019-01-25T09:15:00"
+  },
+  {
+    "code": "EMSR337",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 37.58,
+    "centroid_lon": 21.67,
+    "activation_time": "2019-01-14T13:14:00"
+  },
+  {
+    "code": "EMSR334",
+    "category": "storm",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 46.25,
+    "centroid_lon": 12.08,
+    "activation_time": "2018-11-07T10:55:00"
+  },
+  {
+    "code": "EMSR333",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 37.841,
+    "centroid_lon": 13.176,
+    "activation_time": "2018-11-04T19:52:00"
+  },
+  {
+    "code": "EMSR332",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.71602,
+    "centroid_lon": 11.84376,
+    "activation_time": "2018-11-01T21:08:00"
+  },
+  {
+    "code": "EMSR330",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 37.28147,
+    "centroid_lon": 14.70709,
+    "activation_time": "2018-10-25T15:00:00"
+  },
+  {
+    "code": "EMSR329",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 39.25,
+    "centroid_lon": 9.01,
+    "activation_time": "2018-10-24T15:27:00"
+  },
+  {
+    "code": "EMSN056",
+    "category": "flood",
+    "countries": [
+      "CZ",
+      "DE"
+    ],
+    "centroid_lat": 51.80153,
+    "centroid_lon": 12.59691,
+    "activation_time": "2018-10-02T01:00:00"
+  },
+  {
+    "code": "EMSR308",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.58045,
+    "centroid_lon": 11.79715,
+    "activation_time": "2018-09-05T19:30:00"
+  },
+  {
+    "code": "EMSR294",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 38.11403,
+    "centroid_lon": 23.5207,
+    "activation_time": "2018-07-03T11:33:00"
+  },
+  {
+    "code": "EMSR293",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 46.5,
+    "centroid_lon": 26.25,
+    "activation_time": "2018-06-30T22:52:00"
+  },
+  {
+    "code": "EMSR292",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 40.9575,
+    "centroid_lon": 24.7166,
+    "activation_time": "2018-06-29T10:26:00"
+  },
+  {
+    "code": "EMSN052",
+    "category": "storm",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.14019,
+    "centroid_lon": 9.41574,
+    "activation_time": "2018-06-08T01:00:00"
+  },
+  {
+    "code": "EMSR287",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 50.39,
+    "centroid_lon": 12.4,
+    "activation_time": "2018-05-25T12:44:00"
+  },
+  {
+    "code": "EMSR283",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 60.86096,
+    "centroid_lon": 10.99731,
+    "activation_time": "2018-05-10T21:00:00"
+  },
+  {
+    "code": "EMSR280",
+    "category": "flood",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 60.85,
+    "centroid_lon": 14.78,
+    "activation_time": "2018-04-21T15:15:00"
+  },
+  {
+    "code": "EMSR277",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 41.0954,
+    "centroid_lon": 27.3897,
+    "activation_time": "2018-03-29T11:27:00"
+  },
+  {
+    "code": "EMSR276",
+    "category": "storm",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.3512,
+    "centroid_lon": 9.50317,
+    "activation_time": "2018-03-28T17:14:00"
+  },
+  {
+    "code": "EMSR275",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.44,
+    "centroid_lon": 16.58,
+    "activation_time": "2018-03-23T14:30:00"
+  },
+  {
+    "code": "EMSR273",
+    "category": "flood",
+    "countries": [
+      "AL"
+    ],
+    "centroid_lat": 41.98,
+    "centroid_lon": 19.44,
+    "activation_time": "2018-03-13T11:45:00"
+  },
+  {
+    "code": "EMSR271",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 39.5068,
+    "centroid_lon": 22.12856,
+    "activation_time": "2018-02-26T14:05:00"
+  },
+  {
+    "code": "EMSN048",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 40.45,
+    "centroid_lon": 9.32,
+    "activation_time": "2018-02-06T01:00:00"
+  },
+  {
+    "code": "EMSR268",
+    "category": "flood",
+    "countries": [
+      "LV"
+    ],
+    "centroid_lat": 56.3988,
+    "centroid_lon": 25.3902,
+    "activation_time": "2018-02-02T19:35:00"
+  },
+  {
+    "code": "EMSR267",
+    "category": "flood",
+    "countries": [
+      "LT"
+    ],
+    "centroid_lat": 55.3,
+    "centroid_lon": 21.36,
+    "activation_time": "2018-02-01T15:42:00"
+  },
+  {
+    "code": "EMSR266",
+    "category": "storm",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 51.75,
+    "centroid_lon": 8.75,
+    "activation_time": "2018-01-24T12:47:00"
+  },
+  {
+    "code": "EMSR261",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.2142,
+    "centroid_lon": 10.0738,
+    "activation_time": "2017-12-14T21:47:00"
+  },
+  {
+    "code": "EMSR260",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.7112,
+    "centroid_lon": 10.8587,
+    "activation_time": "2017-12-12T14:57:00"
+  },
+  {
+    "code": "EMSN046",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.05,
+    "centroid_lon": 10.11,
+    "activation_time": "2017-12-06T01:00:00"
+  },
+  {
+    "code": "EMSR258",
+    "category": "flood",
+    "countries": [
+      "AL"
+    ],
+    "centroid_lat": 40.57818,
+    "centroid_lon": 19.68654,
+    "activation_time": "2017-12-01T09:38:00"
+  },
+  {
+    "code": "EMSR257",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 38.0,
+    "centroid_lon": 23.5,
+    "activation_time": "2017-11-19T11:46:00"
+  },
+  {
+    "code": "EMSR255",
+    "category": "storm",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 50.84,
+    "centroid_lon": 13.07,
+    "activation_time": "2017-11-10T14:44:00"
+  },
+  {
+    "code": "EMSR251",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 58.28,
+    "centroid_lon": 8.17,
+    "activation_time": "2017-10-20T16:26:00"
+  },
+  {
+    "code": "EMSN043",
+    "category": "storm",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 38.83641,
+    "centroid_lon": 16.81199,
+    "activation_time": "2017-09-25T01:00:00"
+  },
+  {
+    "code": "EMSR238",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.522,
+    "centroid_lon": 10.36,
+    "activation_time": "2017-09-10T18:33:00"
+  },
+  {
+    "code": "EMSR225",
+    "category": "storm",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.90787,
+    "centroid_lon": 12.92582,
+    "activation_time": "2017-08-17T17:30:00"
+  },
+  {
+    "code": "EMSR223",
+    "category": "storm",
+    "countries": [
+      "PL"
+    ],
+    "centroid_lat": 54.00293,
+    "centroid_lon": 17.62344,
+    "activation_time": "2017-08-16T11:16:00"
+  },
+  {
+    "code": "EMSR215",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.26,
+    "centroid_lon": 10.51,
+    "activation_time": "2017-07-27T08:16:00"
+  },
+  {
+    "code": "EMSR192",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.77,
+    "centroid_lon": 8.16,
+    "activation_time": "2016-11-24T20:04:00"
+  },
+  {
+    "code": "EMSR187",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 45.62,
+    "centroid_lon": 27.79,
+    "activation_time": "2016-10-12T20:41:00"
+  },
+  {
+    "code": "EMSR174",
+    "category": "flood",
+    "countries": [
+      "MK"
+    ],
+    "centroid_lat": 41.989999999999995,
+    "centroid_lon": 21.489999999999995,
+    "activation_time": "2016-08-08T11:44:00"
+  },
+  {
+    "code": "EMSR167",
+    "category": "flood",
+    "countries": [
+      "BE"
+    ],
+    "centroid_lat": 51.1018,
+    "centroid_lon": 5.2409,
+    "activation_time": "2016-06-02T17:29:00"
+  },
+  {
+    "code": "EMSR166",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.4144,
+    "centroid_lon": 12.8312,
+    "activation_time": "2016-06-02T15:06:00"
+  },
+  {
+    "code": "EMSN022",
+    "category": "flood",
+    "countries": [
+      "BG"
+    ],
+    "centroid_lat": 43.705,
+    "centroid_lon": 23.84,
+    "activation_time": "2016-05-04T01:00:00"
+  },
+  {
+    "code": "EMSR142",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.528,
+    "centroid_lon": 15.976,
+    "activation_time": "2015-10-16T13:39:00"
+  },
+  {
+    "code": "EMSR141",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 41.15,
+    "centroid_lon": 14.74,
+    "activation_time": "2015-10-16T01:15:00"
+  },
+  {
+    "code": "EMSR139",
+    "category": "flood",
+    "countries": [
+      "FR"
+    ],
+    "centroid_lat": 42.0,
+    "centroid_lon": 9.0,
+    "activation_time": "2015-10-01T21:28:00"
+  },
+  {
+    "code": "EMSR138",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 45.0,
+    "centroid_lon": 9.0,
+    "activation_time": "2015-09-25T15:09:00"
+  },
+  {
+    "code": "EMSR136",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.79999999999999,
+    "centroid_lon": 9.5,
+    "activation_time": "2015-09-15T16:25:00"
+  },
+  {
+    "code": "EMSR129",
+    "category": "flood",
+    "countries": [
+      "MK"
+    ],
+    "centroid_lat": 42.01,
+    "centroid_lon": 20.95,
+    "activation_time": "2015-08-05T14:02:00"
+  },
+  {
+    "code": "EMSR122",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 40.9441,
+    "centroid_lon": 23.6292,
+    "activation_time": "2015-03-31T12:41:00"
+  },
+  {
+    "code": "EMSR117",
+    "category": "flood",
+    "countries": [
+      "GR"
+    ],
+    "centroid_lat": 39.377,
+    "centroid_lon": 20.637,
+    "activation_time": "2015-02-02T11:21:00"
+  },
+  {
+    "code": "EMSR112",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.48,
+    "centroid_lon": 8.799999999999999,
+    "activation_time": "2014-11-25T19:00:00"
+  },
+  {
+    "code": "EMSR107",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.487,
+    "centroid_lon": 15.713,
+    "activation_time": "2014-11-06T17:57:00"
+  },
+  {
+    "code": "EMSR102",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.64,
+    "centroid_lon": 16.158,
+    "activation_time": "2014-09-14T15:53:00"
+  },
+  {
+    "code": "EMSR101",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.487,
+    "centroid_lon": 15.883,
+    "activation_time": "2014-09-14T11:00:00"
+  },
+  {
+    "code": "EMSR092",
+    "category": "flood",
+    "countries": [
+      "BG"
+    ],
+    "centroid_lat": 43.28000000000001,
+    "centroid_lon": 27.48,
+    "activation_time": "2014-06-20T17:10:00"
+  },
+  {
+    "code": "EMSR089",
+    "category": "flood",
+    "countries": [
+      "NO"
+    ],
+    "centroid_lat": 60.04,
+    "centroid_lon": 11.26,
+    "activation_time": "2014-05-28T19:09:00"
+  },
+  {
+    "code": "EMSR088",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 44.99,
+    "centroid_lon": 18.8,
+    "activation_time": "2014-05-17T12:47:00"
+  },
+  {
+    "code": "EMSR086",
+    "category": "flood",
+    "countries": [
+      "RS"
+    ],
+    "centroid_lat": 44.307,
+    "centroid_lon": 20.786,
+    "activation_time": "2014-05-16T15:00:00"
+  },
+  {
+    "code": "EMSR087",
+    "category": "flood",
+    "countries": [
+      "BA",
+      "RS"
+    ],
+    "centroid_lat": 44.326,
+    "centroid_lon": 18.573,
+    "activation_time": "2014-05-16T12:30:00"
+  },
+  {
+    "code": "EMSR085",
+    "category": "flood",
+    "countries": [
+      "LU"
+    ],
+    "centroid_lat": 49.69,
+    "centroid_lon": 6.47,
+    "activation_time": "2014-05-07T11:30:00"
+  },
+  {
+    "code": "EMSR083",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.66,
+    "centroid_lon": 13.14,
+    "activation_time": "2014-05-05T18:45:00"
+  },
+  {
+    "code": "EMSR082",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 44.49,
+    "centroid_lon": 23.09,
+    "activation_time": "2014-05-04T17:07:00"
+  },
+  {
+    "code": "EMSR079",
+    "category": "flood",
+    "countries": [
+      "RS"
+    ],
+    "centroid_lat": 43.94,
+    "centroid_lon": 21.3,
+    "activation_time": "2014-04-25T22:38:00"
+  },
+  {
+    "code": "EMSR078",
+    "category": "flood",
+    "countries": [
+      "RO"
+    ],
+    "centroid_lat": 44.0242,
+    "centroid_lon": 25.2975,
+    "activation_time": "2014-04-23T23:06:00"
+  },
+  {
+    "code": "EMSR073",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.5762,
+    "centroid_lon": 16.4053,
+    "activation_time": "2014-02-20T17:33:00"
+  },
+  {
+    "code": "EMSR070",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 45.77,
+    "centroid_lon": 14.43,
+    "activation_time": "2014-02-11T14:16:00"
+  },
+  {
+    "code": "EMSR067",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 44.36,
+    "centroid_lon": 8.53,
+    "activation_time": "2014-01-22T13:40:00"
+  },
+  {
+    "code": "EMSR064",
+    "category": "storm",
+    "countries": [
+      "PL"
+    ],
+    "centroid_lat": 49.28999999999999,
+    "centroid_lon": 19.839999999999996,
+    "activation_time": "2013-12-28T11:30:00"
+  },
+  {
+    "code": "EMSR062",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 41.3308,
+    "centroid_lon": 14.8,
+    "activation_time": "2013-12-03T11:00:00"
+  },
+  {
+    "code": "EMSR061",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 40.8,
+    "centroid_lon": 9.54,
+    "activation_time": "2013-11-19T01:30:00"
+  },
+  {
+    "code": "EMSR060",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 43.325,
+    "centroid_lon": 12.67,
+    "activation_time": "2013-11-13T18:54:00"
+  },
+  {
+    "code": "EMSR056",
+    "category": "storm",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 56.74,
+    "centroid_lon": 15.609999999999996,
+    "activation_time": "2013-10-29T15:30:00"
+  },
+  {
+    "code": "EMSR053",
+    "category": "flood",
+    "countries": [
+      "IT"
+    ],
+    "centroid_lat": 40.5,
+    "centroid_lon": 16.75,
+    "activation_time": "2013-10-11T13:07:00"
+  },
+  {
+    "code": "EMSN005",
+    "category": "flood",
+    "countries": [
+      "AT"
+    ],
+    "centroid_lat": 47.81082,
+    "centroid_lon": 13.06265,
+    "activation_time": "2013-06-21T09:00:00"
+  },
+  {
+    "code": "EMSN006",
+    "category": "storm",
+    "countries": [
+      "CZ"
+    ],
+    "centroid_lat": 49.95137,
+    "centroid_lon": 15.9473,
+    "activation_time": "2013-06-21T09:00:00"
+  },
+  {
+    "code": "EMSR047",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 52.38,
+    "centroid_lon": 12.05,
+    "activation_time": "2013-06-17T16:30:00"
+  },
+  {
+    "code": "EMSN004",
+    "category": "flood",
+    "countries": [
+      "DK",
+      "DE"
+    ],
+    "centroid_lat": 54.56942,
+    "centroid_lon": 9.16344,
+    "activation_time": "2013-06-17T12:39:00"
+  },
+  {
+    "code": "EMSR046",
+    "category": "flood",
+    "countries": [
+      "HU"
+    ],
+    "centroid_lat": 47.29,
+    "centroid_lon": 18.97,
+    "activation_time": "2013-06-05T15:45:00"
+  },
+  {
+    "code": "EMSR045",
+    "category": "flood",
+    "countries": [
+      "CZ"
+    ],
+    "centroid_lat": 50.3448,
+    "centroid_lon": 14.376,
+    "activation_time": "2013-06-05T13:50:00"
+  },
+  {
+    "code": "EMSR044",
+    "category": "flood",
+    "countries": [
+      "DE"
+    ],
+    "centroid_lat": 48.0,
+    "centroid_lon": 12.4431,
+    "activation_time": "2013-06-03T09:20:00"
+  },
+  {
+    "code": "EMSR035",
+    "category": "flood",
+    "countries": [
+      "HR"
+    ],
+    "centroid_lat": 45.5,
+    "centroid_lon": 16.0,
+    "activation_time": "2013-04-05T14:54:00"
+  },
+  {
+    "code": "EMSR033",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.5,
+    "centroid_lon": 16.2,
+    "activation_time": "2013-04-04T08:41:00"
+  },
+  {
+    "code": "EMSR020",
+    "category": "flood",
+    "countries": [
+      "SI"
+    ],
+    "centroid_lat": 46.46785652,
+    "centroid_lon": 15.43064878,
+    "activation_time": "2012-11-06T11:46:00"
+  },
+  {
+    "code": "EMSR009",
+    "category": "flood",
+    "countries": [
+      "SE"
+    ],
+    "centroid_lat": 57.3484963,
+    "centroid_lon": 15.78072113,
+    "activation_time": "2012-07-09T12:56:00"
+  }
+]
