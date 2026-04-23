@@ -1,0 +1,76 @@
+id: "nuscale_entra1"
+name: "NuScale ENTRA1 (6×77 MWe)"
+vendor: "NuScale Power"
+fuel_type: "LEU+ (≤4.95% U-235, conventional UO2)"
+plant_net_mwe: 462          # 6 modules × 77 MWe — RoPower Doicești spec (project sponsor: will not build fewer)
+modules_per_plant: 6
+site_area_hectares: 50      # upper bound of 30–50 ha VOYGR-6 envelope (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - UAMPS Carbon Free Power Project cancelled Nov 2023 at $9,300/kWe
+#     overnight (escalated from $5,366/kWe) — Reuters / Politico Nov 2023.
+#   - DOE LCOE study 2023 estimated $89/MWh under Inflation Reduction Act PTC.
+#   - ENTRA1 product (post-VOYGR-6) has not published a unit cost.
+# Bounds set conservatively to span vendor target → DOE risk-adjusted.
+foak_overnight_capex_usd_per_kwe:
+  low: 7500
+  central: 10500
+  high: 14000
+
+fixed_om_usd_per_kwe_yr:
+  low: 105
+  central: 130
+  high: 170
+
+variable_om_usd_per_mwh:
+  low: 2.0
+  central: 3.0
+  high: 4.5
+
+# Conventional LWR fuel — well-supplied; DOE 2023 ATB nuclear fuel ~$8/MWh
+fuel_usd_per_mwh:
+  low: 7.0
+  central: 9.0
+  high: 11.5
+
+# NRC/DOE LCOE component for sinking-fund decommissioning
+decommissioning_usd_per_mwh:
+  low: 1.0
+  central: 1.5
+  high: 2.5
+
+capacity_factor:
+  low: 0.88
+  central: 0.92
+  high: 0.95
+
+construction_years:
+  low: 4
+  central: 5
+  high: 7
+
+operating_lifetime_years: 60
+
+# Multi-module factory + extensive design freeze cycles → moderate LR
+learning_rate:
+  low: 0.04
+  central: 0.10
+  high: 0.15
+
+tier_a_status:
+  a1_licensability: "pass"
+  a2_fuel_supply: "pass"
+  a3_supply_chain: "pass"
+  a4_reference_pipeline: "pass"
+  a5_design_freeze: "caution"   # ENTRA1 product spec post-VOYGR-6 still finalizing
+  a6_decommissioning: "pass"
+  a7_2033_cod: "pass"
+
+eligible_panel_a: true        # passes Tier A gates with manageable A5 caution
+notes: |
+  US NRC SDA approval for NuScale 50 MWe (2020) and 77 MWe (2025, NRC 25-033)
+  provides the strongest licensing precedent of any SMR. Romania-NuScale joint
+  workstream with Doicești site selection (RoPower) is the only Tier-A-clean
+  candidate currently engaged with CNCAN. Cost risk concentrated in FOAK build
+  cycle — UAMPS overrun is the dominant prior.

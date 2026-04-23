@@ -1,0 +1,73 @@
+id: "terrapower_natrium"
+name: "TerraPower Natrium (345 MWe baseload, 500 MWe peak with thermal storage)"
+vendor: "TerraPower / GE Hitachi"
+fuel_type: "HALEU metal fuel (sodium fast reactor)"
+plant_net_mwe: 345       # nameplate baseload; storage uplift to 500 MWe peak
+modules_per_plant: 1
+site_area_hectares: 80   # upper bound of Natrium 50–80 ha envelope (Kemmerer) (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference.
+#   - Wyoming Kemmerer FOAK: DOE ARDP cost-share, total project est. $4B
+#     (2020 dollars) ≈ $11.6k/kWe FOAK; latest TerraPower disclosure (2024)
+#     escalated to ~$5B → ~$14.5k/kWe.
+#   - Vendor NOAK target $4,000–5,000/kWe.
+#   - DOE schedule: FOAK COD slipped to 2030–2031 (HALEU shortage cited).
+foak_overnight_capex_usd_per_kwe:
+  low: 9500
+  central: 13500
+  high: 17500
+
+fixed_om_usd_per_kwe_yr:
+  low: 120
+  central: 160
+  high: 200
+
+variable_om_usd_per_mwh:
+  low: 2.5
+  central: 4.0
+  high: 5.5
+
+fuel_usd_per_mwh:
+  low: 18.0
+  central: 28.0
+  high: 42.0
+
+decommissioning_usd_per_mwh:
+  low: 2.0
+  central: 3.0
+  high: 4.5
+
+capacity_factor:
+  low: 0.85
+  central: 0.90
+  high: 0.93
+
+construction_years:
+  low: 5
+  central: 7
+  high: 10
+
+operating_lifetime_years: 60
+
+learning_rate:
+  low: 0.04
+  central: 0.10
+  high: 0.16
+
+tier_a_status:
+  a1_licensability: "caution"   # NRC CPA submitted 2024, SAR review ongoing
+  a2_fuel_supply: "fail"        # Metal HALEU fuel — DOE Centrus Piketon still ramp
+  a3_supply_chain: "caution"
+  a4_reference_pipeline: "caution"  # Kemmerer only firm site
+  a5_design_freeze: "caution"
+  a6_decommissioning: "caution"
+  a7_2033_cod: "caution"        # Kemmerer FOAK 2030-31; RO follow-on tight
+
+eligible_panel_a: false
+eligible_panel_b: true
+notes: |
+  Phase 2 verdict: drop for RO 2033. HALEU supply (A2) and design maturity
+  (A1, A5) are the binding constraints. Included in Panel B because the
+  thermal-storage variable-output capability (345-500 MWe) has unique value
+  in a high-renewables grid — economics here measure only baseload LCOE.

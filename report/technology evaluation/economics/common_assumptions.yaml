@@ -1,0 +1,124 @@
+# Common assumptions for SMR economic model — Romanian deployment context
+# Anchored to dashboard_extracts/00_romania_market_snapshot.md (April 2026)
+# All monetary values in EUR2025 unless noted.
+# CONFIDENCE: analyst_inference for vendor LCOE / CAPEX figures (vendor targets carry
+#   ±50% uncertainty per IEA / NEA / DOE guidance). Market benchmarks: direct_evidence.
+
+evaluation_metadata:
+  evaluation_date: "2026-04-21"
+  currency: "EUR2025"
+  fx_usd_to_eur: 0.93              # 1 USD ≈ 0.93 EUR baseline (April 2026)
+  target_country: "RO"
+  target_cod: "2033-12-31"
+  methodology_ref: "report/technology evaluation/smr_evaluation_methodology.md (v1.1)"
+
+financial:
+  # SNN as utility-grade nuclear operator with EU CfD support — blended WACC
+  # Romanian state-backed nuclear projects historically use 6–8 % real WACC
+  # (cf. Cernavoda Units 3&4 Cost-Benefit Analysis 2023, EBRD/EIB term sheets).
+  discount_rate_real:
+    low: 0.05         # IEA/NEA Projected Costs of Generating Electricity 2020 — public-finance bound
+    central: 0.07     # SNN treasury-equivalent WACC for sovereign-backed nuclear
+    high: 0.09        # private-finance / merchant exposure
+  inflation_assumed_for_real_terms: 0.00   # all values already in real EUR2025
+  construction_finance_uplift_pct:
+    # Interest During Construction (IDC) overlay applied to overnight CAPEX
+    # Linear approximation: IDC ≈ 0.5 × WACC × construction_years
+    low: 0.10
+    central: 0.18
+    high: 0.30
+
+learning_curve:
+  # Single-factor learning curve applied to overnight CAPEX per kWe.
+  # Cost(n) = Cost(1) × n^(-b),   b = -log2(1-LR)
+  # LR = single-unit doubling progress ratio.
+  # Sources: IEA Energy Technology Perspectives (nuclear LR 0–10%);
+  #          NEA "Unlocking Reductions in the Construction Costs of Nuclear" 2020 (LR 8–15% for repeated build);
+  #          MIT "The Future of Nuclear Energy in a Carbon-Constrained World" 2018 (LR ~10% with serial deployment).
+  # Per-design values overridden in each design YAML.
+  default_learning_rate:
+    low: 0.00         # no learning (FOAK alone, regulatory/supply churn)
+    central: 0.08     # historical nuclear average for serial reactor builds
+    high: 0.15        # vendor optimistic case
+  apply_learning_to_om: false   # conservative — only CAPEX learns
+  fleet_unit_basis: "plant"     # "plant" = one deliverable site of the SMR
+
+market_benchmarks_eur_per_mwh:
+  # Source: dashboard_extracts/00_romania_market_snapshot.md
+  ro_dam_2025_avg:
+    low: 80
+    central: 95
+    high: 115
+  ro_dam_baseload_2026q1_avg:
+    low: 75
+    central: 88
+    high: 105
+  eu_cfd_strike_uk_hpc_2024_indexed:
+    central: 145      # UK HPC strike £92.50/MWh (2012) indexed to 2024 ≈ £128 → €148, Apr 2026 indexed
+  eu_cfd_strike_uk_szc_2024:
+    central: 110      # Sizewell C strike at FID, indicative
+  eu_cfd_strike_cz_dukovany_2024:
+    central: 95       # ČEZ / Dukovany II target
+  eu_cfd_strike_pl_choczewo_2024:
+    central: 105      # Polish AP1000 indicative range
+  avoided_coal_lcoe_2026:
+    low: 95           # ETS @ €70/t, lignite plant book costs
+    central: 120      # ETS @ €85/t central case
+    high: 150         # ETS @ €110/t, refurb-needed lignite
+
+operating_assumptions:
+  capacity_factor:
+    low: 0.85
+    central: 0.90
+    high: 0.93
+  construction_years_default:
+    low: 4
+    central: 6
+    high: 9
+  operating_lifetime_years: 60
+  hours_per_year: 8760
+
+verdict_groupings:
+  # Source: report/technology evaluation/llm_runs/*.md (Tier A verdicts)
+  passes_all_tier_a:
+    - "nuscale_entra1"      # Tier A: pass / pass / pass / pass / caution-A5 / pass / pass — A5 caution flagged
+    - "bwrx_300"             # all Tier A pass
+    - "rolls_royce_smr"      # caution on A5 (GDA Step 3 ongoing)
+    - "holtec_smr_300"       # caution on A4 (TVA pipeline) and A5 (FSAR pending)
+  fails_a2_haleu:
+    - "kairos_kp_fhr"
+    - "xenergy_xe_100"
+    - "oklo_aurora"
+    - "terrapower_natrium"
+  fails_a5_design_freeze:
+    - "nuward"
+
+panel_definitions:
+  panel_a:
+    label: "Tier A gate-passers (post-A2/A5 risk-adjusted)"
+    eligibility: "verdict in [shortlist_primary, shortlist_secondary] AND no Tier A fail"
+    designs: ["nuscale_entra1", "bwrx_300", "rolls_royce_smr"]   # top-3 from Phase 2 verdicts
+  panel_b:
+    label: "Top-3 by economics — A2 (HALEU) and A5 (design freeze) gates relaxed"
+    eligibility: "lowest unit-12 LCOE across ALL 9 designs, ignoring A2 and A5 verdicts"
+    designs: "auto"   # computed by the engine
+
+monte_carlo:
+  enabled: true
+  n_samples: 2000
+  seed: 20260421
+  vary:
+    - "foak_overnight_capex_usd_per_kwe"
+    - "fixed_om_usd_per_kwe_yr"
+    - "variable_om_usd_per_mwh"
+    - "fuel_usd_per_mwh"
+    - "capacity_factor"
+    - "discount_rate_real"
+    - "learning_rate"
+    - "construction_years"
+  distribution: "triangular"   # uses (low, central, high) as (a, mode, b)
+
+output:
+  dir: "outputs"
+  png_dpi: 160
+  generate_csv: true

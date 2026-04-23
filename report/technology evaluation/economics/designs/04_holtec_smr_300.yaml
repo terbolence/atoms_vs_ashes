@@ -1,0 +1,70 @@
+id: "holtec_smr_300"
+name: "Holtec SMR-300 (1×300 MWe)"
+vendor: "Holtec International"
+fuel_type: "LEU (≤4.95% U-235, conventional UO2)"
+plant_net_mwe: 300
+modules_per_plant: 1
+site_area_hectares: 30      # single-unit Holtec PWR compact footprint (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - Holtec public guidance ~$1B per unit at NOAK ≈ $3,300/kWe — vendor-optimistic.
+#   - DOE conditional loan guarantee $7.4B (2024) for Palisades restart + 2 SMR-300 units.
+#   - FOAK estimate consistent with non-LWR-novelty premium ~$8–11k/kWe.
+foak_overnight_capex_usd_per_kwe:
+  low: 6500
+  central: 9500
+  high: 12500
+
+fixed_om_usd_per_kwe_yr:
+  low: 100
+  central: 130
+  high: 165
+
+variable_om_usd_per_mwh:
+  low: 2.0
+  central: 3.0
+  high: 4.5
+
+fuel_usd_per_mwh:
+  low: 7.0
+  central: 9.0
+  high: 11.5
+
+decommissioning_usd_per_mwh:
+  low: 1.0
+  central: 1.5
+  high: 2.5
+
+capacity_factor:
+  low: 0.85
+  central: 0.90
+  high: 0.93
+
+construction_years:
+  low: 4
+  central: 6
+  high: 8
+
+operating_lifetime_years: 60
+
+learning_rate:
+  low: 0.04
+  central: 0.09
+  high: 0.14
+
+tier_a_status:
+  a1_licensability: "caution"   # Pre-app NRC; FSAR pending; not yet SDA/SDC
+  a2_fuel_supply: "pass"
+  a3_supply_chain: "pass"
+  a4_reference_pipeline: "caution"   # Palisades twin units only firm pipeline
+  a5_design_freeze: "caution"   # FSAR not submitted as of April 2026
+  a6_decommissioning: "pass"     # Holtec is the world leader in SMR decom/spent fuel
+  a7_2033_cod: "caution"         # Palisades twin COD 2030–2032; RO 2033 tight
+
+eligible_panel_a: false   # multiple Tier A cautions stack — Phase 2 verdict: shortlist_secondary
+notes: |
+  Holtec brings unique vertical integration: HI-STORM dry storage, decommissioning
+  expertise, and Palisades restart precedent. But A1+A4+A5+A7 cautions stack.
+  Romania-relevance: limited; Holtec signed exploratory MoU with Nuclearelectrica
+  2023 but no firm site/CfD pathway. Shown for completeness; not in Panel A.

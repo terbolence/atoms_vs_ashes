@@ -1,0 +1,74 @@
+id: "xenergy_xe_100"
+name: "X-energy Xe-100 (4×80 MWe = 320 MWe pack)"
+vendor: "X-energy"
+fuel_type: "TRISO HALEU (≤15.5% U-235, UCO kernel)"
+plant_net_mwe: 320       # standard 4-pack — single-module commercial plant not licensable (Dow Seadrift, Darlington CP all 4-pack)
+modules_per_plant: 4
+site_area_hectares: 80   # 4-module plant envelope (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - DOE ARDP $1.2B cost-share to FOAK demo (Dow Seadrift, TX) 2020–2027.
+#   - Vendor target $5,000–6,000/kWe NOAK — vendor-optimistic.
+#   - HALEU TRISO supply premium implies FOAK $10–13k/kWe range.
+foak_overnight_capex_usd_per_kwe:
+  low: 7500
+  central: 11500
+  high: 15000
+
+fixed_om_usd_per_kwe_yr:
+  low: 110
+  central: 145
+  high: 185
+
+variable_om_usd_per_mwh:
+  low: 2.5
+  central: 3.5
+  high: 5.0
+
+# TRISO UCO fuel — X-energy operates own TF3 fab line at Oak Ridge but supply
+# chain still HALEU-bottlenecked.
+fuel_usd_per_mwh:
+  low: 16.0
+  central: 25.0
+  high: 38.0
+
+decommissioning_usd_per_mwh:
+  low: 1.5
+  central: 2.5
+  high: 4.0
+
+capacity_factor:
+  low: 0.85
+  central: 0.91
+  high: 0.93
+
+construction_years:
+  low: 5
+  central: 7
+  high: 9
+
+operating_lifetime_years: 60
+
+# Pebble-bed continuous refuelling + 4-module factory build — favourable LR
+learning_rate:
+  low: 0.06
+  central: 0.12
+  high: 0.18
+
+tier_a_status:
+  a1_licensability: "caution"   # NRC pre-app advanced, no SDA
+  a2_fuel_supply: "fail"        # HALEU TRISO supply chain — see 00_haleu_supply_snapshot.md
+  a3_supply_chain: "pass"
+  a4_reference_pipeline: "caution"  # Dow Seadrift, Energy Northwest only firm
+  a5_design_freeze: "caution"
+  a6_decommissioning: "caution"
+  a7_2033_cod: "fail"           # FOAK Seadrift COD slipped to 2030; Romania post-2036
+
+eligible_panel_a: false
+eligible_panel_b: true
+notes: |
+  Phase 2 verdict: drop. HALEU supply (A2) + 2033 COD (A7) eliminate for
+  Romania near-term. Included in Panel B to demonstrate what relaxing A2
+  achieves — Xe-100 has the strongest non-LWR licensing pipeline behind
+  Natrium and the cleanest TRISO supply integration via TF3.

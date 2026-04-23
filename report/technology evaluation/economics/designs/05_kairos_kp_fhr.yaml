@@ -1,0 +1,75 @@
+id: "kairos_kp_fhr"
+name: "Kairos KP-FHR (Hermes / KP-X — 140 MWe assumed commercial)"
+vendor: "Kairos Power"
+fuel_type: "TRISO HALEU (~19.75% U-235)"
+plant_net_mwe: 140        # KP-X commercial design assumed; Hermes 1/2 are demo (35 MWth)
+modules_per_plant: 1
+site_area_hectares: 50    # commercial KP-X siting envelope (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference (HIGH uncertainty).
+#   - Hermes 1 demo (35 MWth, no power output) under construction at Oak Ridge.
+#   - DOE ARDP cost-share $629M (2020) — fully demo-funded.
+#   - KP-X commercial design and CAPEX not publicly disclosed; FHR (fluoride salt
+#     + TRISO) novelty implies premium FOAK.
+foak_overnight_capex_usd_per_kwe:
+  low: 9000
+  central: 13500
+  high: 18000
+
+fixed_om_usd_per_kwe_yr:
+  low: 130
+  central: 170
+  high: 220
+
+variable_om_usd_per_mwh:
+  low: 3.0
+  central: 4.5
+  high: 6.5
+
+# HALEU TRISO fuel — DOE acknowledges deficit; Centrus + Urenco only sources
+# Per IAEA / NEA HALEU snapshots (April 2026), TRISO fuel costs 3–5× UO2.
+fuel_usd_per_mwh:
+  low: 18.0
+  central: 28.0
+  high: 42.0
+
+decommissioning_usd_per_mwh:
+  low: 1.5
+  central: 2.5
+  high: 4.0
+
+capacity_factor:
+  low: 0.80
+  central: 0.87
+  high: 0.92
+
+construction_years:
+  low: 5
+  central: 7
+  high: 10
+
+operating_lifetime_years: 60
+
+# Novel design + small per-unit MWe — high series learning theoretically possible
+learning_rate:
+  low: 0.05
+  central: 0.10
+  high: 0.18
+
+tier_a_status:
+  a1_licensability: "caution"   # Hermes 1 CP only; KP-X pre-app
+  a2_fuel_supply: "fail"        # HALEU TRISO supply chain not viable for 2033
+  a3_supply_chain: "caution"
+  a4_reference_pipeline: "fail" # Google data center MoU only, no utility commitments
+  a5_design_freeze: "fail"      # KP-X design not frozen
+  a6_decommissioning: "caution"
+  a7_2033_cod: "fail"           # Demo Hermes 1 COD 2027; commercial COD post-2035
+
+eligible_panel_a: false
+eligible_panel_b: true   # included in Panel B which relaxes A2 + A5
+notes: |
+  Phase 2 verdict: drop. Eliminated for 2033 COD by A2 (HALEU TRISO supply),
+  A4 (no utility pipeline), A5 (KP-X design open), A7 (commercial COD post-2035).
+  Included in Panel B (economics-only) to show what HALEU/freeze gates are
+  actually buying us in dollars.

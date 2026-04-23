@@ -1,0 +1,73 @@
+id: "nuward"
+name: "EDF NUWARD (2×200 MWe pair — post-2024 reset, higher-value spec)"
+vendor: "EDF / Framatome"
+fuel_type: "LEU (≤4.95% U-235, conventional UO2)"
+plant_net_mwe: 400       # 2 modules × 200 MWe (post-reset spec; higher-value rule applied 2026-04-21)
+modules_per_plant: 2
+site_area_hectares: 50   # 2-unit plant footprint (locked 2026-04-21)
+country_of_origin: "FR"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - EDF July 2024 announcement: design reset, output reduced from 170+170
+#     standard to single-loop redesign; partner industrials (Belgium, Sweden,
+#     Czechia, Italy) maintained.
+#   - Vendor target ~€5,000–6,000/kWe NOAK at series production.
+#   - FOAK: post-reset schedule pushes detailed design freeze to 2026–2027,
+#     COD likely post-2035.
+foak_overnight_capex_usd_per_kwe:
+  low: 8000
+  central: 11000
+  high: 14500
+
+fixed_om_usd_per_kwe_yr:
+  low: 105
+  central: 130
+  high: 165
+
+variable_om_usd_per_mwh:
+  low: 2.5
+  central: 3.5
+  high: 4.5
+
+fuel_usd_per_mwh:
+  low: 7.5
+  central: 9.5
+  high: 12.0
+
+decommissioning_usd_per_mwh:
+  low: 1.0
+  central: 1.5
+  high: 2.5
+
+capacity_factor:
+  low: 0.85
+  central: 0.90
+  high: 0.93
+
+construction_years:
+  low: 5
+  central: 7
+  high: 9
+
+operating_lifetime_years: 60
+
+learning_rate:
+  low: 0.04
+  central: 0.09
+  high: 0.14
+
+tier_a_status:
+  a1_licensability: "caution"   # ASNR Phase 1 review stopped 2024 reset; Joint Early Review re-engaged 2025
+  a2_fuel_supply: "pass"        # PWR LEU fuel — Framatome supply chain solid
+  a3_supply_chain: "pass"        # Strong EU industrial base
+  a4_reference_pipeline: "caution"  # EDF anchor only; partners exploratory
+  a5_design_freeze: "fail"      # Reset 2024 — design freeze not before 2027
+  a6_decommissioning: "pass"     # Framatome / Orano backend established
+  a7_2033_cod: "fail"           # Post-reset COD likely 2036+
+
+eligible_panel_a: false
+eligible_panel_b: true   # Panel B relaxes A5 (and A2, n/a here)
+notes: |
+  Phase 2 verdict: eliminated for RO 2033. NUWARD has the strongest European
+  industrial fit but the 2024 design reset removed it from the 2033 COD window.
+  Included in Panel B for an "EU-sovereignty-first if you can wait" comparison.

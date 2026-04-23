@@ -1,0 +1,72 @@
+id: "oklo_aurora"
+name: "Oklo Aurora (1×75 MWe — Phase 2 design)"
+vendor: "Oklo Inc."
+fuel_type: "HALEU metal fuel (sodium-cooled fast spectrum)"
+plant_net_mwe: 75        # Phase 2 design upsized from 15–50 MWe
+modules_per_plant: 1
+site_area_hectares: 20   # analyst_inference — Oklo has not published a site-area figure; 20 ha bounds a 75 MWe microreactor with EPZ buffer + aux buildings + cooling envelope (locked 2026-04-21)
+country_of_origin: "US"
+
+# CONFIDENCE: analyst_inference (VERY HIGH uncertainty).
+#   - Oklo public guidance: target $2,500–3,000/kWe NOAK — extreme vendor optimism.
+#   - No commercial unit licensed; original Aurora COL denied Jan 2022 (NRC).
+#   - Resubmission anticipated 2026; design upsized to 75 MWe.
+#   - Metal-fuel HALEU supply at commercial scale does not exist.
+foak_overnight_capex_usd_per_kwe:
+  low: 10000
+  central: 16000
+  high: 22000
+
+fixed_om_usd_per_kwe_yr:
+  low: 130
+  central: 180
+  high: 240
+
+variable_om_usd_per_mwh:
+  low: 3.0
+  central: 5.0
+  high: 7.5
+
+fuel_usd_per_mwh:
+  low: 18.0
+  central: 30.0
+  high: 45.0
+
+decommissioning_usd_per_mwh:
+  low: 2.0
+  central: 3.5
+  high: 5.5
+
+capacity_factor:
+  low: 0.85
+  central: 0.92
+  high: 0.95   # claimed: 20-yr core, no refuelling outage
+
+construction_years:
+  low: 5
+  central: 8
+  high: 11
+
+operating_lifetime_years: 40   # vendor-claimed; conservative
+
+# Small unit + claimed factory build + claimed serial deployment
+learning_rate:
+  low: 0.05
+  central: 0.12
+  high: 0.20
+
+tier_a_status:
+  a1_licensability: "fail"      # Original Aurora COL denied 2022; resubmission pending
+  a2_fuel_supply: "fail"        # Metal HALEU fuel no commercial supply
+  a3_supply_chain: "fail"
+  a4_reference_pipeline: "fail" # No utility commitments; data-center MOUs only
+  a5_design_freeze: "fail"      # Phase 2 design not frozen
+  a6_decommissioning: "fail"    # No fuel cycle backend established
+  a7_2033_cod: "fail"           # Realistic commercial COD post-2035
+
+eligible_panel_a: false
+eligible_panel_b: true   # Panel B explicitly relaxes A2 and A5
+notes: |
+  Phase 2 verdict: drop. Multiple Tier A failures. Included in Panel B for
+  comparison only — Oklo's economics CLAIMS are very low ($30-50/MWh) but
+  the engineering basis is unverified. The model uses risk-adjusted bounds.

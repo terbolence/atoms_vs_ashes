@@ -1,0 +1,74 @@
+id: "bwrx_300"
+name: "GE Vernova Hitachi BWRX-300 (1×300 MWe)"
+vendor: "GE Vernova Hitachi Nuclear Energy"
+fuel_type: "LEU (≤4.95% U-235, GNF2/GNF3 conventional)"
+plant_net_mwe: 300
+modules_per_plant: 1
+site_area_hectares: 30      # single-unit BWR compact footprint (locked 2026-04-21)
+country_of_origin: "US/JP"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - OPG Darlington New Nuclear Project (DNNP) Unit 1: announced CAD $4.7–5.7B
+#     equivalent ≈ USD $3.5–4.2B for FOAK Canadian unit (~$11.7–14k/kWe).
+#   - TVA Clinch River CWIP filing 2024 indicates target ≤$6,000/kWe NOAK.
+#   - Vendor (GE Vernova) public NOAK target $40–65/MWh LCOE — vendor-optimistic.
+# Bounds span FOAK Canadian build → vendor NOAK target.
+foak_overnight_capex_usd_per_kwe:
+  low: 6500
+  central: 9500
+  high: 13000
+
+fixed_om_usd_per_kwe_yr:
+  low: 95
+  central: 120
+  high: 150
+
+variable_om_usd_per_mwh:
+  low: 2.0
+  central: 3.0
+  high: 4.0
+
+fuel_usd_per_mwh:
+  low: 6.5
+  central: 8.5
+  high: 11.0
+
+decommissioning_usd_per_mwh:
+  low: 1.0
+  central: 1.5
+  high: 2.5
+
+capacity_factor:
+  low: 0.88
+  central: 0.92
+  high: 0.95
+
+construction_years:
+  low: 4
+  central: 5
+  high: 7
+
+operating_lifetime_years: 60
+
+# BWR derivative + simplified passive design → strong learning potential
+learning_rate:
+  low: 0.05
+  central: 0.10
+  high: 0.15
+
+tier_a_status:
+  a1_licensability: "pass"
+  a2_fuel_supply: "pass"
+  a3_supply_chain: "pass"
+  a4_reference_pipeline: "pass"
+  a5_design_freeze: "pass"
+  a6_decommissioning: "pass"
+  a7_2033_cod: "pass"
+
+eligible_panel_a: true
+notes: |
+  Strongest reference pipeline of any SMR (OPG Darlington 1 in construction,
+  TVA Clinch River in licensing, Estonia/Sweden/Czech offtake MoUs). Derivative
+  of ESBWR (NRC certified 2014) drives credible learning. FOAK CAPEX risk
+  bounded by Canadian build precedent. Romania-relevance: GE Vernova present
+  in Cernavoda fleet via fuel cycle services.

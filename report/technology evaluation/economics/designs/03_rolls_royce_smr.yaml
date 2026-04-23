@@ -1,0 +1,73 @@
+id: "rolls_royce_smr"
+name: "Rolls-Royce SMR (1×470 MWe)"
+vendor: "Rolls-Royce SMR Ltd"
+fuel_type: "LEU (≤4.95% U-235, conventional UO2)"
+plant_net_mwe: 470
+modules_per_plant: 1
+site_area_hectares: 50      # upper bound of RR SMR 30–50 ha envelope (locked 2026-04-21)
+country_of_origin: "UK"
+
+# CONFIDENCE: analyst_inference. CAPEX evidence:
+#   - Vendor target £1.8–2.2B per unit at NOAK ≈ £3,800–4,700/kWe (~$5–6k USD/kWe).
+#   - GBN competition winner July 2025 — UK government committed £2.5B funding.
+#   - FOAK estimates from House of Commons Library 2024 brief: £2.5–3B per unit.
+# Bounds: FOAK UK build → NOAK series target.
+foak_overnight_capex_usd_per_kwe:
+  low: 6500
+  central: 9000
+  high: 11500
+
+fixed_om_usd_per_kwe_yr:
+  low: 100
+  central: 125
+  high: 155
+
+variable_om_usd_per_mwh:
+  low: 2.5
+  central: 3.5
+  high: 4.5
+
+fuel_usd_per_mwh:
+  low: 7.0
+  central: 9.0
+  high: 11.5
+
+decommissioning_usd_per_mwh:
+  low: 1.0
+  central: 1.5
+  high: 2.5
+
+capacity_factor:
+  low: 0.85
+  central: 0.90
+  high: 0.93
+
+construction_years:
+  low: 4
+  central: 6
+  high: 8
+
+operating_lifetime_years: 60
+
+# UK GDA Step 3 ongoing — first-of-fleet learning constrained by single-vendor production line
+learning_rate:
+  low: 0.04
+  central: 0.08
+  high: 0.13
+
+tier_a_status:
+  a1_licensability: "pass"   # GDA Step 2 complete, Step 3 in progress; no NRC SDA
+  a2_fuel_supply: "pass"
+  a3_supply_chain: "pass"    # strong UK-EU supply chain (Sheffield Forgemasters, Framatome)
+  a4_reference_pipeline: "pass"
+  a5_design_freeze: "caution"  # GDA Step 3 will require change-control freeze ~2026-2027
+  a6_decommissioning: "pass"
+  a7_2033_cod: "caution"     # UK FOAK targeting 2032-2033; RO COD 2033 tight
+
+eligible_panel_a: true
+notes: |
+  Selected UK Government strategic SMR vendor (GBN competition 2025).
+  Strong European industrial base (UK + Czech Doosan + Romanian Romatom MoU).
+  A5 caution: GDA Step 3 design changes likely. A7 caution: UK FOAK and RO
+  unit must run in parallel — schedule risk on critical components.
+  Romania-relevance: HIGH — RR SMR signed MoU with Nuclearelectrica 2023.
