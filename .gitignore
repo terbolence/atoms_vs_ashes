@@ -26,6 +26,43 @@ Thumbs.db
 *.tmp
 outputs/
 
+# LLM API call logs (contain full prompts and responses)
+logs/llm/
+
+# Connector HTTP audit logs (full request/response bodies; can grow large)
+logs/seismic/
+logs/entso_e/
+
+# Large downloaded / cached geodata (see docs/large_assets.md)
+sources/wdpa/**/*.zip
+sources/wdpa/**/*.shp
+sources/wdpa/**/*.dbf
+sources/wdpa/**/*.shx
+sources/wdpa/**/*.prj
+sources/wdpa/**/*.cpg
+sources/wdpa/**/*.qpj
+sources/wdpa/**/*.pkl
+sources/wdpa/**/*.tif
+sources/wdpa/**/*.xml
+sources/liquefaction/*.tif
+sources/population/ghsl/*.tif
+sources/worldcover/**/*.tif
+sources/seismic/**/*.tif
+sources/seismic/**/*.tiff
+sources/entso_e/**/*.json
+
+# GEM tracker / ownership spreadsheets (multi‑MB; refresh from GEM)
+sources/global_coal_plant_tracker/*.xlsx
+
+# Normative PDF references (large; keep locally)
+sources/regulations/**/*.pdf
+
+# Local bulk archives (project-specific)
+/Amplasamente_surse_si_cerinte.zip
+
+# Database snapshots (pg_dump custom-format archives)
+backups/
+
 # Alembic
 alembic/__pycache__/
 
@@ -34,3 +71,54 @@ alembic/__pycache__/
 
 # Excel temp files
 ~$*.xlsx
+
+# -----------------------------------------------------------------------------
+# Large local artefacts (>1 MB typical) — never commit
+# See also docs/large_assets.md for rationale on geodata mirrors.
+# -----------------------------------------------------------------------------
+
+# Spreadsheet exports (multi‑MB database dumps; keep README/scripts tracked)
+export/*.xlsx
+export/**/*.xlsx
+
+# EU flood depth rasters (GeoTIFF)
+/sources/eu_flood_risk/
+
+# GVP bulk JSON
+/sources/gvp/holocene_eruptions.json
+/sources/gvp/holocene_volcanoes.json
+
+# OurAirports full dump
+/sources/ourairports/airports.csv
+
+# Eurostat GISCO urban centres (GeoJSON)
+/sources/eurostat_gisco/cities.geojson
+
+# NOAA IBTrACS (full cyclone archive)
+/sources/noaa/ibtracs_all.csv
+
+# Generated coverage snapshots (can exceed 1 MB per country)
+/report/requirements/coverage_reports/country_snapshots/
+
+# Normative PDFs under report (large; keep locally)
+/report/regulations/**/*.pdf
+/report/technology evaluation/references/**/*.pdf
+
+# Nested venv from economics notebooks / tooling
+/report/technology evaluation/economics/.venv/
+
+# Test-only venv with heavy wheels (pyproj, rasterio, …)
+/src/venv_test/
+
+# pg_dump and other DB snapshots under src
+/src/backups/*.dump
+
+# Full API / connector raw JSON payloads (often multi‑MB)
+/src/data/raw_responses/
+
+# Mirrored bulk geodata under src (WDPA zips, seismic rasters, …)
+/src/data/sources/
+
+# LLM and audit logs under src tree (mirror of root logs policy)
+/src/logs/llm/
+/src/logs/audit_rerun/
