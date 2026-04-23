@@ -19,7 +19,7 @@ files:
     category: "Configuration & DevOps"
 
   config/default.yml:
-    hours: 5.0
+    hours: 8.0
     category: "Configuration & DevOps"
 
   docker-compose.yml:
@@ -113,11 +113,11 @@ files:
     category: "Requirements & Analysis"
 
   requirements/05_siting_criteria.md:
-    hours: 16.0
+    hours: 20.0
     category: "Requirements & Analysis"
 
   requirements/06_scoring_matrix.md:
-    hours: 6.0
+    hours: 8.0
     category: "Requirements & Analysis"
 
   requirements/07_data_requirements.md:
@@ -239,7 +239,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/corine/client.py:
-    hours: 14.0
+    hours: 16.0
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/corine/models.py:
@@ -251,7 +251,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/osm/client.py:
-    hours: 12.0
+    hours: 20.0
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/osm/models.py:
@@ -263,7 +263,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/population/client.py:
-    hours: 12.0
+    hours: 14.0
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/population/models.py:
@@ -283,7 +283,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/db/models.py:
-    hours: 16.0
+    hours: 32.0
     category: "Implementation"
 
   src/atoms_vs_ashes/geo.py:
@@ -450,6 +450,16 @@ files:
     hours: 8.0
     category: "AI Prompts & Tooling"
 
+  prompts/runAPIs.md:
+    hours: 8.0
+    category: "AI Prompts & Tooling"
+
+  # ── Configuration & DevOps (Cursor rules) ──────────────────────
+
+  .cursor/rules/api-enrichment-ops.mdc:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
   # ── Project Management & QA ─────────────────────────────────────
 
   audit/README.md:
@@ -528,8 +538,616 @@ files:
     hours: 0.5
     category: "Project Management & QA"
 
-  # ── Data Acquisition ──────────────────────────────────────────────
+  # ── Data Acquisition Specifications ──────────────────────────────
 
   src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md:
     hours: 1.0
     category: "Implementation"
+
+  src/dataAcquisition/data_source_access_plan.md:
+    hours: 8.0
+    category: "Research & Data Sources"
+
+  src/dataAcquisition/database_fusion_prompt.md:
+    hours: 4.0
+    category: "Research & Data Sources"
+
+  src/dataAcquisition/criterion_data_coverage_matrix.md:
+    hours: 6.0
+    category: "Research & Data Sources"
+
+  src/dataAcquisition/Data Source Access Plan (7 files):
+    hours: 20.0
+    category: "Research & Data Sources"
+
+  src/dataAcquisition/specifications (26 spec files S-01 through FIX-04):
+    hours: 78.0
+    category: "Research & Data Sources"
+
+  # ── Connectors (added Apr 2026) ────────────────────────────────
+  # Each connector includes client.py, batch.py, models.py, parsers.py, __init__.py
+  # Hours represent total per connector (all files combined)
+
+  src/atoms_vs_ashes/connectors/seismic_hazard/:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/copernicus_dem/:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/copernicus_era5/:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/noaa_ncei/:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/egdi_geology/:
+    hours: 14.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/zhu_liquefaction/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/soilgrids/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/bdticm_bedrock/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/natura2000/:
+    hours: 10.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/wdpa/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/entso_e/:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/hydrorivers/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/glofas_discharge/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/wri_aqueduct/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/gfms/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/eu_flood_risk/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/smithsonian_gvp/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/worldcover/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/wokam_karst/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/eea_industrial/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/seveso/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/eurostat_gisco/:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/eurostat_projections/:
+    hours: 10.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/geonames_dump/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/ghsl_pop/:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/ourairports/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/onegeology/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/efsm20_faults/:
+    hours: 10.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/copernicus_ems/:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/earth_engine/:
+    hours: 14.0
+    category: "Implementation"
+
+  # ── OSM/Corine/Population connector updates (Apr 2026) ─────────
+
+  src/atoms_vs_ashes/connectors/osm/batch.py:
+    hours: 6.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/osm/parsers.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/corine/batch.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/corine/parsers.py:
+    hours: 3.0
+    category: "Implementation"
+
+  # ── LLM Assessment Pipeline ────────────────────────────────────
+
+  src/atoms_vs_ashes/llm/orchestrator.py:
+    hours: 24.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/schemas.py:
+    hours: 16.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/context.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/client.py:
+    hours: 10.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/persist.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/audit_log.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/config.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/__init__.py:
+    hours: 0.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/prompts/exclusionary.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/prompts/avoidance.py:
+    hours: 8.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/prompts/ranking.py:
+    hours: 12.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/prompts/_base.py:
+    hours: 4.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/llm/prompts/__init__.py:
+    hours: 1.0
+    category: "Implementation"
+
+  # ── Pipeline & Export ──────────────────────────────────────────
+
+  src/atoms_vs_ashes/pipeline/export.py:
+    hours: 4.0
+    category: "Implementation"
+
+  export/export_databases.py:
+    hours: 8.0
+    category: "Implementation"
+
+  # ── Alembic Migrations (005–029) ───────────────────────────────
+
+  alembic/versions/005_seed_all_siting_criteria.py:
+    hours: 2.0
+    category: "Database & Migrations"
+
+  alembic/versions/006_schema_overhaul.py:
+    hours: 6.0
+    category: "Database & Migrations"
+
+  alembic/versions/007_add_site_units.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/008_add_screening_verdict_prompt_key.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/009_add_not_assessed_verdict.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/010_nh05b_quality_and_deferred_verdict.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/011_add_structured_fields_and_sources_needed.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/012_widen_collapse_mechanism_column.py:
+    hours: 0.25
+    category: "Database & Migrations"
+
+  alembic/versions/013_widen_karst_formation_type.py:
+    hours: 0.25
+    category: "Database & Migrations"
+
+  alembic/versions/014_add_natura2000_columns.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/015_add_wdpa_columns.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/016_add_hydrology_ns01_columns.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/017_add_ep_composite_columns.py:
+    hours: 1.5
+    category: "Database & Migrations"
+
+  alembic/versions/018_create_enrichment_runs.py:
+    hours: 1.5
+    category: "Database & Migrations"
+
+  alembic/versions/019_backfill_enrichment_runs.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/020_create_connector_errors.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/021_migrate_error_observations.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/022_enrich_criteria_table.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/023_add_verdict_numeric_columns.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/024_add_observation_class.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/025_fix_hi_nonapplicable_quality.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/026_add_cross_source_evidence_json.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/027_replace_cross_source_json_with_typed_columns.py:
+    hours: 1.0
+    category: "Database & Migrations"
+
+  alembic/versions/028_add_nh07_hazard_class.py:
+    hours: 0.5
+    category: "Database & Migrations"
+
+  alembic/versions/029_create_site_raw_responses.py:
+    hours: 1.5
+    category: "Database & Migrations"
+
+  # ── Scripts (added Apr 2026) ───────────────────────────────────
+
+  scripts/generate_siting_expert_audits.py:
+    hours: 8.0
+    category: "Implementation"
+
+  scripts/report_enrichment_coverage.py:
+    hours: 6.0
+    category: "Implementation"
+
+  scripts/report_effort_metrics.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/enrich_sa_progressive.py:
+    hours: 6.0
+    category: "Implementation"
+
+  scripts/enrich_site_area_web.py:
+    hours: 4.0
+    category: "Implementation"
+
+  scripts/run_fix03_patch_count.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/run_fix04_osm_avoidance_batch.py:
+    hours: 4.0
+    category: "Implementation"
+
+  scripts/run_fix05_osm_amenities_batch.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/run_fix06_ns01_cooling.py:
+    hours: 4.0
+    category: "Implementation"
+
+  scripts/run_fix07_ep01_road_score_recalc.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/run_fix08_transport_gaps.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/run_ep02_road_density_requery.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/run_efsm20_faults.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/run_gvp_batch.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/run_p10_ourairports_batch.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/run_site_area_all_countries.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/run_overpass_orchestrator.py:
+    hours: 4.0
+    category: "Implementation"
+
+  scripts/run_osm_audit_responses.py:
+    hours: 4.0
+    category: "Implementation"
+
+  scripts/run_osm_road_density_retry.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/rerun_audit_responses.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/backfill_raw_responses.py:
+    hours: 3.0
+    category: "Implementation"
+
+  scripts/verify_bulk_sources.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/export_country_power_plants_md.py:
+    hours: 2.0
+    category: "Implementation"
+
+  scripts/list_large_files.py:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
+  scripts/probe_efehr_rate_limits.py:
+    hours: 1.0
+    category: "Testing"
+
+  scripts/probe_copernicus_dem_rate_limits.py:
+    hours: 1.0
+    category: "Testing"
+
+  scripts/probe_natura2000_rate_limits.py:
+    hours: 1.0
+    category: "Testing"
+
+  scripts/probe_wdpa_rate_limits.py:
+    hours: 1.0
+    category: "Testing"
+
+  scripts/probe_efsm20_rate_limits.py:
+    hours: 1.0
+    category: "Testing"
+
+  # ── Requirements (added Apr 2026) ──────────────────────────────
+
+  requirements/05_1_siting_criteria_natural_hazards.md:
+    hours: 6.0
+    category: "Requirements & Analysis"
+
+  requirements/05_2_siting_criteria_human_induced_hazards copy.md:
+    hours: 4.0
+    category: "Requirements & Analysis"
+
+  requirements/05_3_siting_criteria_human_radiological_hazards.md:
+    hours: 4.0
+    category: "Requirements & Analysis"
+
+  requirements/05_4_siting_criteria_human_emergency_planning.md:
+    hours: 3.0
+    category: "Requirements & Analysis"
+
+  requirements/05_5_siting_criteria_non_safety.md:
+    hours: 5.0
+    category: "Requirements & Analysis"
+
+  requirements/13_data_post_processing.md:
+    hours: 2.5
+    category: "Requirements & Analysis"
+
+  # ── Report & Methodology ───────────────────────────────────────
+
+  report/methodology/methodology.md:
+    hours: 6.0
+    category: "Research & Data Sources"
+
+  # ── Connector Reports ──────────────────────────────────────────
+
+  docs/connector_reports/seismic_hazard_s01_sample_report.md:
+    hours: 3.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/era5_s04_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/onegeology_s03_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/entso_e_s13_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/s17_eurostat_projections_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/efsm20_faults_s18_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  docs/connector_reports/soilgrids_s21_sample_report.md:
+    hours: 1.5
+    category: "Research & Data Sources"
+
+  docs/connector_reports/zhu_liquefaction_s22_sample_report.md:
+    hours: 1.5
+    category: "Research & Data Sources"
+
+  docs/connector_reports/bdticm_bedrock_s23_sample_report.md:
+    hours: 1.5
+    category: "Research & Data Sources"
+
+  docs/connector_reports/ns01_cooling_fix06_sample_report.md:
+    hours: 2.0
+    category: "Research & Data Sources"
+
+  # ── Post-Processing Audit Deliverables ─────────────────────────
+
+  audit/post_processing/01_requirements_coverage/20260418_gaps.md:
+    hours: 3.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/20260418_data_inventory.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/20260418_column_readability.md:
+    hours: 3.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/20260418_engineer_audit.md:
+    hours: 3.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/bulk_source_verification.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_3_cooling_sources.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_6_population_emergency.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_7_scoring_method.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/post_processing/monday_rerun_list.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  # ── Siting Expert Audits (30 connector packs) ─────────────────
+
+  audit/siting_expert_audits (30 audit packs × FINDINGS.md + SAMPLES.json):
+    hours: 12.0
+    category: "Project Management & QA"
+
+  # ── AI Prompts & Tooling (updated) ─────────────────────────────
+
+  prompts/sitingExpert.md:
+    hours: 6.0
+    category: "AI Prompts & Tooling"
+
+  prompts/lessons_learned.md:
+    hours: 4.0
+    category: "AI Prompts & Tooling"
+
+  prompts/databaseAudit.md:
+    hours: 2.0
+    category: "AI Prompts & Tooling"
+
+  prompts/site_area_web_search.md:
+    hours: 1.0
+    category: "AI Prompts & Tooling"
+
+  # ── Cursor Rules (added Apr 2026) ──────────────────────────────
+
+  .cursor/rules/live-api-safety.mdc:
+    hours: 1.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/llm-dedup-safety.mdc:
+    hours: 1.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/connector-reports.mdc:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
+  .cursor/rules/data-quality-discipline.mdc:
+    hours: 0.5
+    category: "Configuration & DevOps"
