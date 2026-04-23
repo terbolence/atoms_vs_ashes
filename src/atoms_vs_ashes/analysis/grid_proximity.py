@@ -28,13 +28,20 @@ MIN_HV_VOLTAGE_KV = 110
 
 
 def _parse_voltage_kv(tags: dict[str, str]) -> float | None:
+    """Parse OSM voltage tag to kV, handling semicolon-separated multi-circuit values."""
     raw = tags.get("voltage", "")
     if not raw:
         return None
-    try:
-        return float(raw.replace(",", "").strip()) / 1000
-    except ValueError:
-        return None
+    voltages: list[float] = []
+    for part in raw.split(";"):
+        cleaned = part.replace(",", "").strip()
+        if not cleaned:
+            continue
+        try:
+            voltages.append(float(cleaned) / 1000)
+        except ValueError:
+            continue
+    return max(voltages) if voltages else None
 
 
 @dataclass
