@@ -24,7 +24,7 @@ import pandas as pd  # noqa: E402
 
 TOP_OAT_N = 15
 TOP_COUNTRIES_N = 12
-BAND_ORDER: tuple[str, ...] = ("A", "B", "C", "D")
+BAND_ORDER: tuple[str, ...] = ("A", "B", "C", "D", "E", "F", "G", "H")
 _PROFILE_ORDER_HINT: tuple[str, ...] = (
     "country_balanced",
     "w_EP_minus_20",

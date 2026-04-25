@@ -88,6 +88,28 @@ Implementation: [`src/scripts/plot_phase_1_6_sensitivity.py`](src/scripts/plot_p
 
 ---
 
+## Phase 1.6 — extended banding & national analysis
+
+Runs against the rows the refined sensitivity driver already wrote (no new scenarios): emits **A–H** global bands, per-SMR bands, **per-country** bands (within-country percentiles), country Jaccard summaries, a regional MD and one MD + PNG per country under `report/output/sensitivity/<stamp>/`.
+
+```bash
+POSTGRES_DB=atoms_vs_ashes_merged \
+python -m scripts.run_phase_1_6_extended_analysis \
+  --db-profile merged \
+  --audit-dir audit/post_processing/06_scoring \
+  --report-dir report/output/sensitivity \
+  2>&1 | tee logs/phase_1_6_extended_analysis.log
+```
+
+Pass `--stamp 20260423` to align artefact naming with a prior sensitivity run; `--no-figures` to skip PNG generation. Outputs:
+
+- Audit CSVs: `{stamp}_site_bands.csv`, `{stamp}_site_bands_nuscale_voygr6.csv`, one file per SMR, per-country bands, and `{stamp}_country_rankings_summary(.csv|_nuscale.csv)`.
+- Reports: `report/output/sensitivity/<stamp>/00_regional_summary.md` + `national/{CC_name}.md` (+ `figures/`).
+
+Implementation: [`src/scripts/run_phase_1_6_extended_analysis.py`](src/scripts/run_phase_1_6_extended_analysis.py), [`src/scripts/_phase_1_6_extended_stages.py`](src/scripts/_phase_1_6_extended_stages.py), [`src/atoms_vs_ashes/scoring/_band_rules.py`](src/atoms_vs_ashes/scoring/_band_rules.py).
+
+---
+
 ## Data acquisition — connectors
 
 ### AVA client (runs the implemented connector stack on a site list)

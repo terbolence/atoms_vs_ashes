@@ -59,18 +59,22 @@ The suite is a **regulatory-style matrix** of four perturbation families plus on
 - Baseline composite is re-persisted under `weight_profile = "country_balanced"` (identical scores) solely to make the country-share check visible to the banding stage.
 - Reports top-20 country counts and `max_share`; flags if any single country holds > 40 % of the shortlist (`LL-022` risk).
 
-### 2.6 Site stability banding — Phase C
+### 2.6 Site stability banding — Phase C (A–H, scope-parameterised)
 
 Across the **14 non-baseline profiles** (10 weight + 1 MC + 2 threshold + 1 country-balanced), each scored site receives a single band:
 
-| Band | Rule                                       |
-| ---- | ------------------------------------------ |
-| A    | In top-5 % in ≥ 80 % of scenarios          |
-| B    | In top-10 % in ≥ 80 % of scenarios (not A) |
-| C    | In top-10 % in 50–79 % of scenarios        |
-| D    | Below top-10 % in all other cases          |
+| Band | Rule                                         | Intent                                         |
+| ---- | -------------------------------------------- | ---------------------------------------------- |
+| A    | top-5 % hit rate ≥ 0.80                      | Robust short-list (unchanged)                  |
+| B    | top-10 % hit rate ≥ 0.80 (not A)             | Defensible top-10 % (unchanged)                |
+| C    | top-10 % hit rate 0.50–0.79 (not A/B)        | Bench (unchanged)                              |
+| D    | top-30 % hit rate ≥ 9 / 14 (≈ 0.64)          | Frequently in broader top tier                 |
+| E    | top-30 % hit rate ≥ 7 / 14 (0.50)            | Majority of scenarios                          |
+| F    | top-30 % hit rate ≥ 5 / 14 (≈ 0.36)          | Roughly a third of scenarios                   |
+| G    | top-30 % hit rate ≥ 3 / 14 (≈ 0.21)          | Occasional appearance                          |
+| H    | below all of the above                       | Rarely / never in the top-30 % slice           |
 
-A site enters "top-N %" of a scenario when _any_ of its (site, SMR) pairs lies in the top-N % slice of that scenario's scored pairs. Implementation: [`_suite_banding.py`](../../src/atoms_vs_ashes/scoring/_suite_banding.py).
+Bands **A–G** together cover ≈ 25–35 % of the scored sites, turning the previously opaque "D" into a ranked five-tier long-list usable for sensitivity-aware screening, while A/B/C keep their regulatory meaning. The assignment rule is the same at every **scope**: the same function runs on the global pool, the per-SMR pool (8 SMR keys), the per-country pool (all-SMR), and the per-country × NuScale pool. Within-country percentiles are computed on the local pool, so **national bands reflect local competitiveness**, not global rank. A site enters "top-N %" of a scenario when _any_ of its (site, SMR) pairs lies in the top-N % slice of that scope's scored pairs. Implementation: [`_band_rules.py`](../../src/atoms_vs_ashes/scoring/_band_rules.py), [`_suite_banding.py`](../../src/atoms_vs_ashes/scoring/_suite_banding.py).
 
 ## 3. Metrics
 
@@ -99,7 +103,8 @@ composite_rankings (baseline) ─┬─▶ load_pairs ─▶ OAT (Phase A) ─�
 ```
 
 - Perturbed composites are persisted so every number in the audit is traceable to a DB row.
-- Artefacts land under `audit/post_processing/06_scoring/<YYYYMMDD>_*` (per-stage `.md`, `oat_importance.csv`, `site_bands.csv`, consolidated `phase1_6_sensitivity.md`).
+- **Audit artefacts** (traceability) land under `audit/post_processing/06_scoring/<YYYYMMDD>_*`: per-stage `.md`, `oat_importance.csv`, `site_bands.csv` (+ `_nuscale_voygr6`, `_{smr}`, `_{CC}`, `_{CC}_{smr}` variants), `country_rankings_summary(.csv|_nuscale.csv)`, and the consolidated `phase1_6_sensitivity.md`.
+- **Human-readable reports** are emitted under `report/output/sensitivity/<YYYYMMDD>/` — one `00_regional_summary.md` plus `national/{CC_name}.md` per country, with `figures/` siblings (global A–H counts + per-country top-sites bar charts). These MDs are pure derivatives of the audit CSVs; re-running [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py) regenerates them without touching the database.
 - Run tagging: `run_id` identifies the suite instance; `weight_profile` identifies the scenario within the suite. Together they uniquely identify any row.
 
 ## 5. Reproducibility and governance
@@ -137,6 +142,10 @@ composite_rankings (baseline) ─┬─▶ load_pairs ─▶ OAT (Phase A) ─�
 
 **Takeaway:** seismic PGA (`NH-01`) is the single dominant driver; the next tier mixes site-topography / land-availability (NS) with population-exposure criteria (RI). 23 of the 48 criteria score `0` — either the population carries no effective weight signal for them (unchanged ranks when zeroed) or the criterion is confined to earlier phases.
 
+![OAT importance — top 15 criteria](../../audit/post_processing/06_scoring/figures/20260423/oat_top15.png)
+
+*Figure 1 — Top-15 criteria by OAT importance score (`mean_abs_rank_change / N_pairs`). Source: `20260423_oat_importance.csv`.*
+
 ### 6.2 Phase B.1 outcome — weight perturbation (±20 %)
 
 Lowest Jaccard@10 % across the ten profiles is **0.925** (`w_NH_minus_20`, `w_NS_plus_20`, `w_EP_plus_20`); highest is **0.990** (`w_NH_plus_20`, `w_RI_plus_20`). Category roll-up (avg over `plus`/`minus`):
@@ -159,6 +168,10 @@ Lowest Jaccard@10 % across the ten profiles is **0.925** (`w_NH_minus_20`, `w_NS
 
 **Takeaway:** within the declared data uncertainty bands, the **rank order of borderline pairs is not robust**; the Band A / B identification (§6.6) is the correct way to read MC into the narrative rather than the raw top-5 % list.
 
+![Top-10 % ranking stability (Jaccard) vs. baseline](../../audit/post_processing/06_scoring/figures/20260423/jaccard_by_profile.png)
+
+*Figure 2 — Jaccard@10 % for every non-baseline profile vs. the 0.85 "robust" threshold (dashed) and the 0.70 MC threshold (dotted). `mc_10000` is the only bar below both lines. Source: consolidated audit `20260423_phase1_6_sensitivity.md`.*
+
 ### 6.4 Phase B.3 outcome — threshold ±25 %
 
 - `threshold_minus_25` — Jaccard@10 % = 0.898; mean abs Δscore = 0.0572.
@@ -170,16 +183,28 @@ Lowest Jaccard@10 % across the ten profiles is **0.925** (`w_NH_minus_20`, `w_NS
 
 `top_n = 20`, `max_share_threshold = 0.40`. Observed `max_share = 0.40` (**not flagged**, right at the boundary); top-20 head country counts `PL : 8`, `HU : 8`, `UA : 4`. The wider baseline top-10 % slice (205 pairs) is dominated by `PL` (88) and `UA` (40) — not artefactually concentrated, but PL's share warrants a narrative callout.
 
-### 6.6 Phase C outcome — site stability banding
+![Country balance — baseline top-10 % slice](../../audit/post_processing/06_scoring/figures/20260423/country_top10pct.png)
 
-| Band | Sites | Rule                                         |
-| ---- | ----: | -------------------------------------------- |
-| A    |    10 | top-5 %  in ≥ 80 % of the 14 scenarios       |
-| B    |    15 | top-10 % in ≥ 80 % of scenarios (not A)      |
-| C    |     1 | top-10 % in 50–79 % of scenarios             |
-| D    |   231 | below top-10 % everywhere else               |
+*Figure 3 — Country distribution across the 205-pair baseline top-10 % slice. Source: consolidated audit `20260423_phase1_6_sensitivity.md`.*
 
-**Band A shortlist (2026-04-23):** Opole (PL), Połaniec (PL), Starobesheve (UA), Opalenie (PL), Mohács (HU), Chvaletice (CZ), Puchaczów (PL), Turceni (RO), Çoban Yıldız (TR), Počerady (CZ). These 10 sites carry into Phase 1.7 as the robust regulatory shortlist; the Band B set (15 sites) provides the resilience bench.
+### 6.6 Phase C outcome — site stability banding (A–H)
+
+The extended A–H assignment (see §2.6) expands the previously opaque "D" into a ranked five-tier long-list (D–H) while preserving the regulatory meaning of **A / B / C**. The 10-site Band A from the legacy run is unchanged by construction — Band A sites still clear `top-5 % hit rate ≥ 0.80`. The `top30pct_hit_rate` column, added to `<stamp>_site_bands.csv`, is what drives the D/E/F/G/H split.
+
+Two regional scopes are reported:
+
+- **All-SMR pool** (A site's best-of-8 SMR score enters the percentile slice) — the default comparator.
+- **NuScale `nuscale_voygr6`** — restricts the pool to the SMR family most relevant to the primary regulatory audience. Produced from `{stamp}_site_bands_nuscale_voygr6.csv`.
+
+Counts are plotted side-by-side from the consolidated audit; see Figures 4a / 4b below. **Band A shortlist (2026-04-23, all-SMR pool):** Opole (PL), Połaniec (PL), Starobesheve (UA), Opalenie (PL), Mohács (HU), Chvaletice (CZ), Puchaczów (PL), Turceni (RO), Çoban Yıldız (TR), Počerady (CZ). These 10 sites carry into Phase 1.7 as the robust regional shortlist; Band B (15 sites) is the resilience bench. The NuScale-specific Band A / B shortlists (primary decision input for utilities building NuScale SmMRs) live in `report/output/sensitivity/<stamp>/00_regional_summary.md`.
+
+![Site stability band counts — all SMRs (A–H)](../output/sensitivity/20260423/figures/band_counts_ah_global.png)
+
+*Figure 4a — All-SMR A–H band counts across 14 non-baseline scenarios. Source: `20260423_site_bands.csv`.*
+
+![Site stability band counts — NuScale voygr6 (A–H)](../output/sensitivity/20260423/figures/band_counts_ah_nuscale.png)
+
+*Figure 4b — NuScale-only pool. Smaller population (one SMR) means a thinner A/B head and a longer H tail compared with the all-SMR scope. Source: `20260423_site_bands_nuscale_voygr6.csv`.*
 
 ### 6.7 Synthesis
 
@@ -189,25 +214,44 @@ Lowest Jaccard@10 % across the ten profiles is **0.925** (`w_NH_minus_20`, `w_NS
 - **Country-balance boundary** — PL at 40 % of top-20 meets but does not exceed the artefact threshold; the consolidated audit should document the explicit data-coverage rationale.
 - **No rubric change recommended** on the strength of this run; Phase 1.7 can proceed with the existing weight profile.
 
-### 6.8 Figures
+### 6.8 Figure regeneration
 
-Generated from the artefacts above (regenerate via [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py)):
+Figures 1–4 are embedded above. Regenerate from the same audit artefacts via [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py); the new A–H regional figures and all per-country figures are regenerated by [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py). Scoring, sensitivity re-runs, connector batches and the exact invocations are documented in the repository [`README.md`](../../README.md). Raw PNGs live under [`audit/post_processing/06_scoring/figures/20260423/`](../../audit/post_processing/06_scoring/figures/20260423/) and under `report/output/sensitivity/20260423/figures/`.
 
-- OAT top-15 importance — [`figures/20260423/oat_top15.png`](../../audit/post_processing/06_scoring/figures/20260423/oat_top15.png)
-- Jaccard@10 % by scenario — [`figures/20260423/jaccard_by_profile.png`](../../audit/post_processing/06_scoring/figures/20260423/jaccard_by_profile.png)
-- Site band counts (A/B/C/D) — [`figures/20260423/band_counts.png`](../../audit/post_processing/06_scoring/figures/20260423/band_counts.png)
-- Country balance (baseline top-10 %) — [`figures/20260423/country_top10pct.png`](../../audit/post_processing/06_scoring/figures/20260423/country_top10pct.png)
+## 7. National analysis (per-country shortlists)
 
-Scoring, sensitivity re-runs, connector batches, and the **exact** `plot_phase_1_6_sensitivity` invocation are documented in the repository [`README.md`](../../README.md).
+SMRs are procured by **national governments**, so the regional regulatory view (§6) has to be supplemented by a per-country view with the same rigor. The extended analytics stage runs the **same** A–H engine inside each country's pool and emits one Markdown file per country under `report/output/sensitivity/<stamp>/national/`.
 
-## 7. Interpretation rules
+**Scope-parameterised engine.** `compute_bands(session, *, baseline_label, smr_filter, country_filter)` is a single function whose two optional filters fully determine the analysis scope:
+
+| Scope                           | `smr_filter`      | `country_filter` | Output                                               |
+| ------------------------------- | ----------------- | ---------------- | ---------------------------------------------------- |
+| Regional, all SMRs pooled       | `None`            | `None`           | `{stamp}_site_bands.csv` (primary regulatory input)  |
+| Regional, NuScale only          | `nuscale_voygr6`  | `None`           | `{stamp}_site_bands_nuscale_voygr6.csv`              |
+| Regional, other 6 SMR keys      | `{smr_key}`       | `None`           | `{stamp}_site_bands_{smr}.csv` ×7 (retrieval-ready)  |
+| National, all SMRs pooled       | `None`            | `{CC}`           | `{stamp}_site_bands_{CC}.csv`                        |
+| National, NuScale               | `nuscale_voygr6`  | `{CC}`           | `{stamp}_site_bands_{CC}_nuscale_voygr6.csv`         |
+
+Within each scope the top-5 / 10 / 30 % percentiles are recomputed **on the local pool**, so within-country Band A identifies the sites that remain in the **local** top-5 % in ≥ 80 % of the 14 scenarios — irrespective of whether they would appear in the regional head.
+
+**Country shortlist rule.** Each country's MD ranks at least the top 10 sites (fewer only if the country has fewer sites): `K = n` if `n < 10`, else `K = min(n, max(10, ⌈0.30·n⌉))`. Example `K`: `n = 5 → 5`, `n = 15 → 10`, `n = 50 → 15`, `n = 100 → 30`.
+
+**Robustness vs baseline top-K.** For every country and every non-baseline scenario, we record the Jaccard between the baseline country top-K and that scenario's country top-K. The per-country `mean_jaccard_vs_baseline_topk` and `min_jaccard_vs_baseline_topk` populate `{stamp}_country_rankings_summary(.csv|_nuscale.csv)` — and are surfaced in the "Country roll-up" section of the consolidated audit.
+
+**Example figure (Romania).** One horizontal bar per shortlisted site (up to 10), X-axis = within-country top-10 % hit rate, with dashed/dotted lines at the Band B (0.80) and Band C (0.50) thresholds. One such figure is emitted per country.
+
+![Example — Romania within-country top sites](../output/sensitivity/20260423/national/figures/RO_top_sites.png)
+
+*Figure 5 — Example per-country figure (Romania). The same template is emitted for every country with ≥ 1 scored site. Source: `20260423_site_bands_RO.csv`.*
+
+## 8. Interpretation rules
 
 - **Ranking is robust** if Jaccard@10 % ≥ 0.85 for every weight profile and ≥ 0.70 under MC.
 - **Band A + B sites** are the "structurally top-tier" set — these are the ones carried into Phase 1.7 narrative.
 - **Category with the highest avg mean |Δscore|** points to the scoring family most deserving of tighter rubric definitions or additional data collection.
 - **Country-balance flagged** (`max_share > 0.40`) means the top-N is driven by data-coverage asymmetry and the suite narrative must discuss it explicitly.
 
-## 8. Known limitations
+## 9. Known limitations
 
 - OAT captures only first-order effects — interactions between criteria (two simultaneously perturbed) are not explored. A variance-based Sobol extension is deferred to Phase 1.7 if reviewers require it.
 - Threshold perturbation acts on measured numeric values, not on every rubric edge; non-numeric bands (e.g. categorical quality tiers) are insensitive to the ±25 % operator by construction.

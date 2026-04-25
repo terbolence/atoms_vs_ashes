@@ -19,6 +19,7 @@ from scripts._phase_1_6_analytics import (
 )
 from scripts._phase_1_6_audit_tables import (
     append_banding_table,
+    append_country_summary_table,
     append_importance_table,
 )
 from atoms_vs_ashes.scoring.suite import SensitivitySuiteResult
@@ -33,11 +34,13 @@ def write_consolidated_audit(
     *,
     importance_csv: Path | None = None,
     bands_csv: Path | None = None,
+    nuscale_bands_csv: Path | None = None,
+    country_summary_csv: Path | None = None,
 ) -> Path:
     """Write ``<audit_dir>/<YYYYMMDD>_phase1_6_sensitivity.md``.
 
-    Optional paths let the driver surface the OAT importance and
-    banding artefacts as top-level tables in the audit.
+    Optional paths surface OAT importance, A–H bands (regional pool +
+    NuScale) and the country roll-up as top-level audit sections.
     """
     audit_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
@@ -67,7 +70,19 @@ def write_consolidated_audit(
     _append_stage_table(lines, stages)
     _append_stability_table(lines, analytics)
     _append_category_table(lines, analytics)
-    append_banding_table(lines, bands_csv)
+    append_banding_table(
+        lines,
+        bands_csv,
+        heading="Site stability banding (regional, all SMRs)",
+        scope_hint="Percentiles computed across all scored (site, SMR) pairs.",
+    )
+    append_banding_table(
+        lines,
+        nuscale_bands_csv,
+        heading="Site stability banding — NuScale `nuscale_voygr6`",
+        scope_hint="Percentiles computed on the NuScale-only pool.",
+    )
+    append_country_summary_table(lines, country_summary_csv)
     _append_country_balance(lines, first, analytics)
     _append_profile_legend(lines, stages)
     _append_notes(lines, stages, analytics)

@@ -8,31 +8,29 @@ d762ceeb-514f-43a6-9f91-a2d422ed6c60,Chvaletice power station,CZ,A,1.0,1.0,1.0,1
 dadadad9-b67e-44b8-a9ab-4cbf116da20b,Puchaczow power station,PL,A,1.0,1.0,1.0,14,14
 345fb795-170a-4fb5-833c-f6bcf2eb450c,Turceni power station,RO,A,0.9286,1.0,1.0,14,14
 778e0750-19f9-426e-a6c7-e0e30645fb97,Çoban Yıldız power station,TR,A,0.9286,1.0,1.0,14,14
-32484f7b-18a4-4b21-8e6a-6d68ae099d02,Pocerady power station,CZ,A,0.8571,1.0,1.0,14,14
-cd84938d-eea8-47a1-8ea6-2e9f943e5914,Turów power station,PL,B,0.7857,1.0,1.0,14,14
-c47eb6a3-49c1-4879-95b6-9bcd53b7af04,Burshtyn power station,UA,B,0.7143,1.0,1.0,14,14
-ad0c8590-c672-43f2-a813-1217a10f7d2d,Konya Karapınar power station,TR,B,0.5714,0.9286,1.0,14,14
-f5be4e73-938d-4fe2-b585-5090ec780670,Skawina power station,PL,B,0.2857,1.0,1.0,14,14
-202d797d-b0f9-4cd0-bbac-d7bb06805c09,ZW Nowa power station,PL,B,0.2143,1.0,1.0,14,14
-a67255dd-8134-418e-9377-e28516c53722,Siekierki power station,PL,B,0.2143,1.0,1.0,14,14
-29b3a802-7ef1-4722-ad59-b1511b1b0075,Zmiivska power station,UA,B,0.1429,1.0,1.0,14,14
-f7dcdb63-26e6-44cd-b440-ec14fe507d90,Borsod power station,HU,B,0.1429,1.0,1.0,14,14
+32484f7b-18a4-4b21-8e6a-6d68ae099d02,Pocerady power station,CZ,B,0.7143,1.0,1.0,14,14
+c47eb6a3-49c1-4879-95b6-9bcd53b7af04,Burshtyn power station,UA,B,0.5714,1.0,1.0,14,14
+cd84938d-eea8-47a1-8ea6-2e9f943e5914,Turów power station,PL,B,0.5,1.0,1.0,14,14
+ad0c8590-c672-43f2-a813-1217a10f7d2d,Konya Karapınar power station,TR,B,0.4286,0.9286,1.0,14,14
+f5be4e73-938d-4fe2-b585-5090ec780670,Skawina power station,PL,B,0.2143,1.0,1.0,14,14
+202d797d-b0f9-4cd0-bbac-d7bb06805c09,ZW Nowa power station,PL,B,0.1429,1.0,1.0,14,14
+a67255dd-8134-418e-9377-e28516c53722,Siekierki power station,PL,B,0.1429,1.0,1.0,14,14
+29b3a802-7ef1-4722-ad59-b1511b1b0075,Zmiivska power station,UA,B,0.1429,0.9286,1.0,14,14
 558e7bff-5b5d-4666-9ca3-ec02f2269aab,Dolna Odra power station,PL,B,0.0714,1.0,1.0,14,14
 ee332928-87b2-4e7b-9203-20e402bc551f,Pulawy ZAP Works power station,PL,B,0.0714,1.0,1.0,14,14
+f7dcdb63-26e6-44cd-b440-ec14fe507d90,Borsod power station,HU,B,0.0714,1.0,1.0,14,14
 fac3d0b5-36a5-48ae-8494-f2f08e4342f4,Zelwa power station,BY,B,0.0714,0.9286,1.0,14,14
-770f1d3c-e5fd-493c-a376-e708d2abec6c,Vojany I power station,SK,B,0.0,1.0,1.0,14,14
+770f1d3c-e5fd-493c-a376-e708d2abec6c,Vojany I power station,SK,B,0.0,0.9286,1.0,14,14
 c39819ef-6798-4c01-9a82-9eead65b5f56,Konin power station,PL,B,0.0,0.9286,1.0,14,14
-3657989a-61ae-4fe3-9e8b-6ba7e68f8c59,Vuglegirska power station,UA,B,0.0,0.8571,1.0,14,14
-5ed0a674-a292-44bc-997f-5c1990da1235,Dobrotvir power station,UA,B,0.0,0.8571,1.0,14,14
-b3eb5dd2-98cf-40c4-b9ee-2a86fd066093,Kuchurgan power station,MD,C,0.0,0.6429,1.0,14,14
-142cad75-648a-495d-8c10-792351e72126,Eren-1 power station,TR,D,0.0,0.3571,1.0,14,14
+3657989a-61ae-4fe3-9e8b-6ba7e68f8c59,Vuglegirska power station,UA,C,0.0,0.7143,1.0,14,14
+5ed0a674-a292-44bc-997f-5c1990da1235,Dobrotvir power station,UA,C,0.0,0.6429,1.0,14,14
+b3eb5dd2-98cf-40c4-b9ee-2a86fd066093,Kuchurgan power station,MD,D,0.0,0.4286,1.0,14,14
+142cad75-648a-495d-8c10-792351e72126,Eren-1 power station,TR,D,0.0,0.2143,1.0,14,14
 02253fcc-4fc6-42d4-a6a8-42365487302f,Prydniprovska power station,UA,D,0.0,0.0714,1.0,14,14
 287cbb48-bb08-40dd-82c5-cfe1530dfbb9,Tusimice power station,CZ,D,0.0,0.0714,1.0,14,14
 a064c7ae-e699-4a94-a18c-79bdfe42bce3,Vidin Works power station,BG,D,0.0,0.0714,1.0,14,14
-c3790475-3d3b-4e2b-92ae-24503fe03e6b,Romag Termo power station,RO,D,0.0,0.0714,1.0,14,14
 cb08e7b6-0af3-45d9-95c3-3832e7e2677c,Filyos power station,TR,D,0.0,0.0714,1.0,14,14
 cdb6adfb-52ff-4631-939a-001080b20450,Trypilska power station,UA,D,0.0,0.0714,1.0,14,14
-f2c061de-66ad-4fce-b911-7f1899f25b75,Zuevskaya power station,UA,D,0.0,0.0714,1.0,14,14
 05daa6b2-bb29-4c26-a459-855626673955,Opatovice power station,CZ,D,0.0,0.0,1.0,14,14
 0b187a1d-55de-47cf-96a3-06abc8ff2476,Leczna Power Station (Bogdanka SA),PL,D,0.0,0.0,1.0,14,14
 29836b52-a882-4921-95a7-6417e636d9a2,Braila power station,RO,D,0.0,0.0,1.0,14,14
@@ -54,6 +52,7 @@ f2c061de-66ad-4fce-b911-7f1899f25b75,Zuevskaya power station,UA,D,0.0,0.0714,1.0
 a733fc13-11a4-4722-b62d-85c85a4f8ef3,Detmarovice power station,CZ,D,0.0,0.0,1.0,14,14
 ab57f5c3-8699-46f9-970f-3007dfc58af4,Patnow power station,PL,D,0.0,0.0,1.0,14,14
 b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c,Pólnoc power station,PL,D,0.0,0.0,1.0,14,14
+c3790475-3d3b-4e2b-92ae-24503fe03e6b,Romag Termo power station,RO,D,0.0,0.0,1.0,14,14
 c97125b3-20ed-4e21-a853-b928644ec7dd,Novaky power station,SK,D,0.0,0.0,1.0,14,14
 cec871bd-c7f6-4444-b0da-9b3a9ecc6963,Ladyzhyn power station,UA,D,0.0,0.0,1.0,14,14
 d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,Yeşilovacık power station,TR,D,0.0,0.0,1.0,14,14
@@ -61,6 +60,7 @@ de6735bd-7a79-43c8-baad-1fe23d50d6f0,Laziska power station,PL,D,0.0,0.0,1.0,14,1
 e073b3f8-4312-4d34-b322-6289a3121af1,Isalnita power station,RO,D,0.0,0.0,1.0,14,14
 e4c6a713-99e6-4fdf-afaa-d456779c504c,Chernihiv power station,UA,D,0.0,0.0,1.0,14,14
 e780e4ac-0506-4186-9b58-0f378f878345,Gerze power station,TR,D,0.0,0.0,1.0,14,14
+f2c061de-66ad-4fce-b911-7f1899f25b75,Zuevskaya power station,UA,D,0.0,0.0,1.0,14,14
 f3523341-daaa-4573-a856-becb2e1bb9e3,Melnik power station,CZ,D,0.0,0.0,1.0,14,14
 0248611c-b745-404f-ad50-c2870882c7a1,Kangal power station,TR,D,0.0,0.0,0.9286,14,14
 83fede8b-5f92-429d-920d-9a8928a74780,Kryvorizka power station,UA,D,0.0,0.0,0.9286,14,14

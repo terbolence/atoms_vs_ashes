@@ -1,0 +1,24 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+d762ceeb-514f-43a6-9f91-a2d422ed6c60,Chvaletice power station,CZ,A,0.9286,1.0,1.0,14,14
+32484f7b-18a4-4b21-8e6a-6d68ae099d02,Pocerady power station,CZ,B,0.0714,1.0,1.0,14,14
+05daa6b2-bb29-4c26-a459-855626673955,Opatovice power station,CZ,D,0.0,0.0,1.0,14,14
+f3523341-daaa-4573-a856-becb2e1bb9e3,Melnik power station,CZ,D,0.0,0.0,1.0,14,14
+2fe0a0b3-4108-427e-8e54-f77e1ea7227c,Ledvice power station,CZ,D,0.0,0.0,0.9286,14,14
+a733fc13-11a4-4722-b62d-85c85a4f8ef3,Detmarovice power station,CZ,D,0.0,0.0,0.9286,14,14
+287cbb48-bb08-40dd-82c5-cfe1530dfbb9,Tusimice power station,CZ,H,0.0,0.0,0.0714,14,14
+9c4291f1-173b-467e-ae26-8cb01312c605,Plana Nad Luznici power station,CZ,H,0.0,0.0,0.0714,14,14
+0ae8917b-a70b-41e5-82de-e4963a7686e3,Pribram power station,CZ,H,0.0,0.0,0.0,14,14
+14e88076-ce0e-4693-bca4-e80f3f013c7f,Tisova power station,CZ,H,0.0,0.0,0.0,14,14
+180880c2-7284-4723-b02a-a62348b9b40b,Hodonin power station,CZ,H,0.0,0.0,0.0,14,14
+20bce4f5-ca0b-4145-87e5-0a0694343f31,Porici power station,CZ,H,0.0,0.0,0.0,14,14
+274ec928-e527-44cf-86c5-b6eddc09d0f7,Komorany power station,CZ,H,0.0,0.0,0.0,14,14
+43e5b2b4-2ccf-46ab-b01e-e3d480146455,Karvina power station,CZ,H,0.0,0.0,0.0,14,14
+4eb7914c-e000-403c-b5a5-c350de67bb83,Mostecka Power Station,CZ,H,0.0,0.0,0.0,14,14
+5f4ed23c-cea2-41ef-a3e8-ac863e1bdcd6,Vresova TPS power station,CZ,H,0.0,0.0,0.0,14,14
+60baaa73-dd8c-4865-bb18-6c73d63a4052,Prerov power station,CZ,H,0.0,0.0,0.0,14,14
+63601ccc-3f20-4cbd-95cb-0fbeaf821c6a,Trinec-E3 power station,CZ,H,0.0,0.0,0.0,14,14
+aa38441d-aec7-4ae9-b4c3-68c5bf567db3,Zlin power station,CZ,H,0.0,0.0,0.0,14,14
+b0ba194f-3c80-4725-b1e7-fa5277b38833,Prunerov power station,CZ,H,0.0,0.0,0.0,14,14
+cbd67443-4a4e-44fd-a9ed-20ba9574c99e,Marianske Hory power station,CZ,H,0.0,0.0,0.0,14,14
+e299922a-1670-4aff-acda-fd80600af9af,Mondi Steti power station,CZ,H,0.0,0.0,0.0,14,14
+f1d2bca1-a7a9-4404-84c1-34fc8a59dab7,Kladno power station,CZ,H,0.0,0.0,0.0,14,14

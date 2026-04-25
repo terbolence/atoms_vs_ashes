@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -34,10 +35,6 @@ load_dotenv(_PROJECT_ROOT / ".env", override=False)
 from atoms_vs_ashes.config import Settings  # noqa: E402
 from atoms_vs_ashes.db.engine import init_engine, session_scope  # noqa: E402
 from atoms_vs_ashes.logging import configure_logging, new_run_id  # noqa: E402
-from atoms_vs_ashes.scoring._suite_banding import (  # noqa: E402
-    BandingRunResult,
-    run_banding_stage,
-)
 from atoms_vs_ashes.scoring._suite_importance import (  # noqa: E402
     OATRunResult,
     run_oat_stage,
@@ -51,6 +48,12 @@ from atoms_vs_ashes.scoring.suite import (  # noqa: E402
 )
 from scripts._phase_1_6_analytics import compute_analytics  # noqa: E402
 from scripts._phase_1_6_audit import write_consolidated_audit  # noqa: E402
+from scripts._phase_1_6_extended_stages import (  # noqa: E402
+    ExtendedStagesResult,
+    run_extended_stages,
+)
+
+DEFAULT_REPORT_DIR = "report/output/sensitivity"
 
 DB_PROFILES = {
     "api": "atoms_vs_ashes",
@@ -62,61 +65,32 @@ MC_ITERATION_STAGES: tuple[int, ...] = (10000,)
 
 
 def _parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument(
-        "--db-profile",
-        choices=sorted(DB_PROFILES.keys()),
-        default="merged",
-        help="Database profile (default: merged, where Phase 1.5 wrote baselines).",
-    )
-    parser.add_argument(
-        "--weight-profile-base",
-        default="baseline",
-        help="Baseline weight profile to load composites from.",
-    )
-    parser.add_argument(
-        "--rubric-dir", default=DEFAULT_RUBRIC_DIR, help="Scoring rubric directory."
-    )
-    parser.add_argument(
-        "--audit-dir",
-        default=str(DEFAULT_AUDIT_DIR),
-        help="Audit output directory.",
-    )
-    parser.add_argument(
-        "--top-n-country", type=int, default=20, help="Top-N for country balance check."
-    )
-    parser.add_argument("--seed", type=int, default=42, help="Monte Carlo seed.")
-    parser.add_argument(
-        "--no-progress", action="store_true", help="Disable progress bar."
-    )
-    parser.add_argument(
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--db-profile", choices=sorted(DB_PROFILES.keys()), default="merged")
+    p.add_argument("--weight-profile-base", default="baseline")
+    p.add_argument("--rubric-dir", default=DEFAULT_RUBRIC_DIR)
+    p.add_argument("--audit-dir", default=str(DEFAULT_AUDIT_DIR))
+    p.add_argument("--top-n-country", type=int, default=20)
+    p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--no-progress", action="store_true")
+    p.add_argument(
         "--mc-stages",
         nargs="+",
         type=int,
         default=list(MC_ITERATION_STAGES),
         help="Monte Carlo iteration stages (default: 10000).",
     )
-    parser.add_argument(
-        "--skip-threshold",
-        action="store_true",
-        help="Skip the threshold ±25 %% direction (slowest stage).",
-    )
-    parser.add_argument(
-        "--skip-oat",
-        action="store_true",
-        help="Skip the OAT importance stage (useful when re-running audit only).",
-    )
-    parser.add_argument(
+    p.add_argument("--skip-threshold", action="store_true")
+    p.add_argument("--skip-oat", action="store_true")
+    p.add_argument(
         "--skip-banding",
         action="store_true",
-        help="Skip the site banding stage.",
+        help="Skip the extended banding + national analysis stage.",
     )
-    parser.add_argument(
-        "--run-id",
-        default=None,
-        help="Optional run id (auto-generated if omitted).",
-    )
-    return parser.parse_args()
+    p.add_argument("--report-dir", default=DEFAULT_REPORT_DIR)
+    p.add_argument("--no-figures", action="store_true")
+    p.add_argument("--run-id", default=None)
+    return p.parse_args()
 
 
 def _run_stage(cfg: SensitivitySuiteConfig, run_id: str) -> SensitivitySuiteResult:
@@ -213,25 +187,34 @@ def _run_oat(args: argparse.Namespace, audit_dir: Path) -> OATRunResult | None:
     return result
 
 
-def _run_banding(
-    args: argparse.Namespace, audit_dir: Path
-) -> BandingRunResult | None:
+def _run_extended(
+    args: argparse.Namespace, audit_dir: Path, stamp: str
+) -> ExtendedStagesResult | None:
     if args.skip_banding:
         return None
-    _print({"stage": "banding", "message": "running site banding (Phase C)"})
+    _print(
+        {
+            "stage": "extended",
+            "message": "running extended banding + national analysis (Phase C)",
+        }
+    )
+    report_dir = Path(args.report_dir) / stamp
     with session_scope() as session:
-        result = run_banding_stage(
+        result = run_extended_stages(
             session,
-            audit_dir=audit_dir,
             baseline_label=args.weight_profile_base,
+            audit_dir=audit_dir,
+            report_dir=report_dir,
+            stamp=stamp,
+            generate_figures=not args.no_figures,
         )
     _print(
         {
-            "stage": "banding",
-            "csv_path": str(result.csv_path),
-            "sites_total": result.sites_total,
-            "band_counts": result.band_counts,
-            "scenarios_used": result.scenarios_used,
+            "stage": "extended",
+            "regional_bands_csv": str(result.regional_bands_csv),
+            "nuscale_bands_csv": str(result.nuscale_bands_csv),
+            "country_report_count": len(result.country_report_mds),
+            "regional_report_md": str(result.regional_report_md),
         }
     )
     return result
@@ -256,9 +239,11 @@ def main() -> int:
         "top_n_country": args.top_n_country,
     }
 
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+
     oat = _run_oat(args, audit_dir)
     stages = _run_pipeline(args, run_id, common)
-    banding = _run_banding(args, audit_dir)
+    extended = _run_extended(args, audit_dir, stamp)
 
     with session_scope() as analytics_session:
         analytics = compute_analytics(
@@ -271,7 +256,9 @@ def main() -> int:
         stages,
         analytics,
         importance_csv=oat.csv_path if oat else None,
-        bands_csv=banding.csv_path if banding else None,
+        bands_csv=extended.regional_bands_csv if extended else None,
+        nuscale_bands_csv=extended.nuscale_bands_csv if extended else None,
+        country_summary_csv=extended.country_summary_csv if extended else None,
     )
     _print(
         {
@@ -281,7 +268,10 @@ def main() -> int:
             "consolidated_audit": str(consolidated),
             "per_stage_audits": [str(s.audit_path) for s in stages],
             "importance_csv": str(oat.csv_path) if oat else None,
-            "bands_csv": str(banding.csv_path) if banding else None,
+            "bands_csv": str(extended.regional_bands_csv) if extended else None,
+            "regional_report_md": str(extended.regional_report_md)
+            if extended
+            else None,
         }
     )
     return 0
