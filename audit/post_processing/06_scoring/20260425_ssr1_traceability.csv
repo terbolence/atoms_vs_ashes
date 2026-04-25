@@ -1,0 +1,56 @@
+ssr1_requirement_id,ssr1_title,ssr1_section,criterion_id,criterion_name,coverage,notes
+SSR-1/Req-1,Responsibilities in site evaluation,Section 3 — Roles and responsibilities,,,out_of_scope,Programmatic obligation on operator/regulator. Atoms-vs-Ashes is a pre-screening study; responsibilities are addressed in the operational stage.
+SSR-1/Req-2,Process of site evaluation,Section 3 — Process,BF-01,Grid export / connection adequacy,screening_only,The basic-filter family captures the upstream eligibility gates (grid adequacy and minimum land footprint) before hazard assessment proper begins.
+SSR-1/Req-2,Process of site evaluation,Section 3 — Process,BF-02,Land / nuclear-island footprint,screening_only,The basic-filter family captures the upstream eligibility gates (grid adequacy and minimum land footprint) before hazard assessment proper begins.
+SSR-1/Req-3,Considerations for site evaluation (information quality),Section 3 — Considerations,,,out_of_scope,"Information-quality considerations are handled by the data provenance layer (API-primary / LLM-fallback) and the assumption register, not by an individual scoring criterion."
+SSR-1/Req-4,Earthquakes (vibratory ground motion),Section 4 — External events of natural origin,NH-01,Seismic ground motion (PGA),full,"PGA, liquefaction/settlement and bedrock/foundation conditions together cover the substantive Req-4 obligations at screening resolution."
+SSR-1/Req-4,Earthquakes (vibratory ground motion),Section 4 — External events of natural origin,NH-03,Geotechnical - settlement and liquefaction,full,"PGA, liquefaction/settlement and bedrock/foundation conditions together cover the substantive Req-4 obligations at screening resolution."
+SSR-1/Req-4,Earthquakes (vibratory ground motion),Section 4 — External events of natural origin,NH-06,"Foundation conditions (bearing, bedrock, groundwater)",full,"PGA, liquefaction/settlement and bedrock/foundation conditions together cover the substantive Req-4 obligations at screening resolution."
+SSR-1/Req-5,Surface faulting (capable faults),Section 4 — External events of natural origin,NH-02,Seismic surface rupture (capable faults),full,
+SSR-1/Req-6,"Meteorological hazards (extreme winds, temperatures, precipitation)",Section 4 — External events of natural origin,NH-10,Extreme winds,full,
+SSR-1/Req-6,"Meteorological hazards (extreme winds, temperatures, precipitation)",Section 4 — External events of natural origin,NH-11,"Extreme precipitation (rain, snow, drought)",full,
+SSR-1/Req-6,"Meteorological hazards (extreme winds, temperatures, precipitation)",Section 4 — External events of natural origin,NH-12,Extreme temperatures,full,
+SSR-1/Req-7,"Flooding (river, coastal, surge, tsunami)",Section 4 — External events of natural origin,NH-08,"Coastal flooding (storm surge, tsunami)",full,
+SSR-1/Req-7,"Flooding (river, coastal, surge, tsunami)",Section 4 — External events of natural origin,NH-09,River flooding,full,
+SSR-1/Req-8,"Geotechnical hazards (slope stability, subsidence, karst)",Section 4 — External events of natural origin,NH-04,Geotechnical - slope stability,full,
+SSR-1/Req-8,"Geotechnical hazards (slope stability, subsidence, karst)",Section 4 — External events of natural origin,NH-05,Subsidence / karst / mining / oil & gas,full,
+SSR-1/Req-8,"Geotechnical hazards (slope stability, subsidence, karst)",Section 4 — External events of natural origin,NH-06,"Foundation conditions (bearing, bedrock, groundwater)",full,
+SSR-1/Req-9,Volcanism,Section 4 — External events of natural origin,NH-07,Volcanism,full,
+SSR-1/Req-10,"Other natural events (wildfire, biological hazards)",Section 4 — External events of natural origin,NH-13,Forest / wildfire,partial,Wildfire is covered; biological hazards (e.g. fouling organisms in cooling-water intakes) are deferred to detailed siting because no pan-regional dataset supports a screening rubric.
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-01,Aircraft crash hazard,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-02,Industrial explosions (Seveso / IED),full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-03,Toxic / gas releases,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-04,External fires,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-05,Transport hazards (hazmat road / rail / pipe),full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-06,Military installations,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-07,Electromagnetic interference,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-11,External events caused by human activities,Section 5 — External events of human origin,HI-08,Other nuclear installations,full,"Aircraft crash, industrial explosions, toxic releases, external fires, transport hazmat corridors, military installations, EMI and other nuclear installations."
+SSR-1/Req-12,Population characteristics (current and projected),Section 6 — Effects on people and environment,RI-04,Population density (EPZ rings),full,
+SSR-1/Req-12,Population characteristics (current and projected),Section 6 — Effects on people and environment,RI-05,Distance to large population centres (>50 k),full,
+SSR-1/Req-12,Population characteristics (current and projected),Section 6 — Effects on people and environment,RI-06,Population projections (60-yr design life),full,
+SSR-1/Req-13,Emergency planning zones (EPZ feasibility),Section 6 — Emergency planning,EP-01,Emergency-plan feasibility (composite),full,
+SSR-1/Req-13,Emergency planning zones (EPZ feasibility),Section 6 — Emergency planning,EP-02,Evacuation routes (road network),full,
+SSR-1/Req-13,Emergency planning zones (EPZ feasibility),Section 6 — Emergency planning,EP-03,Physical-geography constraints,full,
+SSR-1/Req-13,Emergency planning zones (EPZ feasibility),Section 6 — Emergency planning,EP-04,"Special populations (hospitals, prisons, care homes)",full,
+SSR-1/Req-13,Emergency planning zones (EPZ feasibility),Section 6 — Emergency planning,EP-05,Concurrent-hazard impact on EP,full,
+SSR-1/Req-14,Atmospheric dispersion characteristics,Section 7 — Dispersion of radioactive material,RI-01,"Atmospheric dispersion (wind, stability, BLH)",full,
+SSR-1/Req-15,Surface- and groundwater dispersion characteristics,Section 7 — Dispersion of radioactive material,RI-02,Surface water dispersion,full,
+SSR-1/Req-15,Surface- and groundwater dispersion characteristics,Section 7 — Dispersion of radioactive material,RI-03,Groundwater dispersion,full,
+SSR-1/Req-16,Radioactive material accumulation in water bodies,Section 7 — Dispersion of radioactive material,RI-02,Surface water dispersion,partial,Screening proxy via dispersion characteristics; long-term accumulation modelling is part of detailed siting.
+SSR-1/Req-16,Radioactive material accumulation in water bodies,Section 7 — Dispersion of radioactive material,RI-03,Groundwater dispersion,partial,Screening proxy via dispersion characteristics; long-term accumulation modelling is part of detailed siting.
+SSR-1/Req-17,Combinations of hazards,Section 8 — Combined hazards,NH-14,Combined hazards,full,
+SSR-1/Req-18,Site protection against external hazards,Section 8 — Site protection,NS-04,Site topography / grading,partial,Topography / grading provides screening of natural protection potential; engineered protection is a design-stage concern.
+SSR-1/Req-19,Monitoring of site-related parameters,Section 9 — Monitoring,,,out_of_scope,Operational obligation; not a screening criterion.
+SSR-1/Req-20,Quality assurance for site evaluation,Section 9 — QA,,,out_of_scope,Programmatic; addressed by the assumption register and API/LLM provenance layer rather than a scoring criterion.
+non_ssr1,Cooling water / ultimate heat sink,—,NS-01,Cooling water / ultimate heat sink,out_of_scope,"Captured under SSR-1 Req-15 indirectly, but treated as a non-safety viability axis here."
+non_ssr1,Grid connection (detailed),—,NS-02,Grid connection (detailed),out_of_scope,Project-economic; outside SSR-1 scope.
+non_ssr1,Transport access (heavy haul),—,NS-03,Transport access (heavy haul road / rail / port),out_of_scope,Constructability; outside SSR-1 scope.
+non_ssr1,Land availability / ownership / zoning,—,NS-05,Land availability / ownership / zoning,out_of_scope,Project-legal; outside SSR-1 scope.
+non_ssr1,Existing infrastructure reuse,—,NS-06,Existing infrastructure reuse,out_of_scope,Project-economic; outside SSR-1 scope.
+non_ssr1,Environmental impact (non-radiological),—,NS-07,Environmental impact (non-radiological),out_of_scope,"Covered by EIA legislation, not SSR-1."
+non_ssr1,Ecological sensitivity (Natura 2000 / WDPA),—,NS-08,Ecological sensitivity (Natura 2000 / WDPA),out_of_scope,"Covered by EIA legislation, not SSR-1."
+non_ssr1,Socioeconomic impact,—,NS-09,Socioeconomic impact,out_of_scope,Project-acceptability; outside SSR-1 scope.
+non_ssr1,Workforce availability,—,NS-10,Workforce availability,out_of_scope,Project-economic; outside SSR-1 scope.
+non_ssr1,Coal-to-nuclear synergies,—,NS-11,Coal-to-nuclear synergies,out_of_scope,Project-strategy; outside SSR-1 scope.
+non_ssr1,Regulatory / political environment,—,NS-12,Regulatory / political environment,out_of_scope,Project-political; outside SSR-1 scope.
+non_ssr1,Construction logistics,—,NS-13,Construction logistics,out_of_scope,Project-economic; outside SSR-1 scope.

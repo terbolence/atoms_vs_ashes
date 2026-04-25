@@ -69,7 +69,16 @@ class Aggregation(BaseModel):
 
 
 class FailCondition(BaseModel):
-    """Exclusionary / avoidance / review trigger attached to a criterion."""
+    """Exclusionary / avoidance / review trigger attached to a criterion.
+
+    ``pass_mark`` (optional, only meaningful when ``action == 'exclude'``)
+    is the minimum 0–10 ranking score the criterion must reach for the
+    site to clear the floor. A site whose evaluated score is strictly
+    below ``pass_mark`` triggers the floor with a synthetic exclusion
+    verdict carrying ``code = "<code>:floor"``. See
+    ``report/methodology/exclusionary_floors.md`` for the source-of-truth
+    rule table.
+    """
 
     model_config = ConfigDict(frozen=True, extra="forbid")
 
@@ -77,6 +86,7 @@ class FailCondition(BaseModel):
     action: Literal["exclude", "avoidance_penalty", "screen_flag", "review_flag"]
     condition_expr: str
     descriptor: str = ""
+    pass_mark: float | None = Field(default=None, ge=0.0, le=10.0)
 
 
 class QualityFloor(BaseModel):
@@ -135,6 +145,21 @@ class Criterion(BaseModel):
     @property
     def is_ranking(self) -> bool:
         return "ranking" in self.phases
+
+    @property
+    def exclusion_pass_marks(self) -> dict[str, float]:
+        """E-code -> pass_mark for every ``action: exclude`` condition.
+
+        Returns an empty dict if the criterion has no exclusionary fail
+        conditions, or if no ``pass_mark`` is declared. Used by
+        :mod:`atoms_vs_ashes.scoring._safety_floor` to evaluate the
+        ranking-score floor alongside the existing ``condition_expr``.
+        """
+        return {
+            fc.code: float(fc.pass_mark)
+            for fc in self.fail_conditions
+            if fc.action == "exclude" and fc.pass_mark is not None
+        }
 
     def llm_prompt_keys(self) -> list[str]:
         """Return LLM prompt keys declared on this criterion (may be empty)."""

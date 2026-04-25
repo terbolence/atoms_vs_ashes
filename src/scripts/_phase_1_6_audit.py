@@ -253,6 +253,10 @@ def _append_profile_legend(
         "- `w_<CAT>_plus_20` / `w_<CAT>_minus_20` — per-category weight "
         "perturbation for CAT ∈ {NH, HI, RI, EP, NS}."
     )
+    lines.append(
+        "- `w_swing` — swing-weight profile (rescale by observed 0–10 score "
+        "range across the survivor pool, then renormalise)."
+    )
     for r in stages:
         lines.append(f"- `mc_{r.iterations}` — Monte Carlo @ N={r.iterations}.")
     lines.append(

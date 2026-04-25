@@ -18,3 +18,20 @@ Acronyms and Abbreviations
    10. Proximity to Roads, Railways, Pipelines, Industrial Establishments, etc
 4. Final Remarks
 5. References
+
+---
+
+## Methodology artefacts (regulator-facing, ready for the final report)
+
+These artefacts are auto-generated and stay in sync with the rubric; cite them under §2 (Site Screening) or §1 (Data limitations) as needed.
+
+| Artefact | Path | Generator |
+| --- | --- | --- |
+| Sensitivity method + reference run | [`report/methodology/sensitivity_analysis.md`](../methodology/sensitivity_analysis.md) | `scripts.run_phase_1_6_sensitivity` (numbers); manual narrative |
+| Failure-mode analysis (why sites failed scoring) | [`report/methodology/failure_analysis.md`](../methodology/failure_analysis.md) | `scripts.generate_failure_analysis` |
+| Exclusionary thresholds + safety-floor rules | [`report/methodology/exclusionary_floors.md`](../methodology/exclusionary_floors.md) | `scripts.generate_exclusionary_floors` |
+| Swing-weight audit (declared vs observed-range) | [`report/methodology/swing_weight_audit.md`](../methodology/swing_weight_audit.md) | `scripts.generate_swing_weight_audit` |
+| Criterion correlation flag list (|ρ| ≥ 0.7) | [`report/methodology/criterion_correlation.md`](../methodology/criterion_correlation.md) | `scripts._phase_1_6_figures_correlation` |
+| IAEA SSR-1 ↔ project criterion traceability | [`report/methodology/ssr1_traceability.md`](../methodology/ssr1_traceability.md) | `scripts.generate_ssr1_traceability` |
+| Project-wide assumption register | [`report/methodology/assumption_register.md`](../methodology/assumption_register.md) | manual (versioned with the rubric) |
+| Regional + per-country sensitivity reports | [`report/output/sensitivity/<stamp>/`](sensitivity/) | `scripts.run_phase_1_6_extended_analysis` |

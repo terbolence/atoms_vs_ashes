@@ -1,0 +1,7 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+2dcd2c6d-f375-4408-9492-7910662fac03,Timelkam power station,AT,C,0.7857,0.7857,0.9286,14,14
+99d712ac-7993-4186-8a0e-2e88bae7e90f,Voitsberg power station,AT,E,0.0,0.0,0.5,14,14
+660d9d71-6733-4294-951b-1c58614d58cf,Riedersbach power station,AT,G,0.1429,0.1429,0.2857,14,14
+532bfb42-0d4c-42cf-a81a-287f2b3a75bf,Enns Power Station,AT,G,0.0714,0.2143,0.3571,14,14
+6e7fc4d8-636d-411a-baef-e138a5a07acc,Duernrohr power station,AT,G,0.0,0.0,0.2143,14,14
+90820fe3-9889-4faf-9906-7c528f8d7bc5,Mellach power station,AT,H,0.0,0.0,0.0,14,14

@@ -140,6 +140,7 @@ class ScoringEngine:
                 run_id=run_id,
                 confidence=ctx.confidence or "low",
                 data_sources=ctx.data_sources,
+                band_result=result,
             )
         )
         verdicts.extend(

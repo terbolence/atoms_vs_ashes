@@ -1,0 +1,128 @@
+{"pairs": 2904, "profile": "baseline", "baseline_run_id": "20260425T073743_20d0478d", "event": "sensitivity_pairs_loaded", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:52:28.698764Z"}
+{"pairs": 208, "criteria": 48, "event": "oat_importance_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:52:29.939791Z"}
+OAT importance (zero-out per criterion) ━━━━━━━━━━━━━━━━━━━━━ 100% 48/48 0:00:00
+
+{"criteria": 48, "csv_path": "audit/post_processing/06_scoring/20260425_oat_importance.csv", "event": "oat_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:52:29.942949Z"}
+{"pairs": 2904, "profile": "baseline", "baseline_run_id": "20260425T073743_20d0478d", "event": "sensitivity_pairs_loaded", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:52:33.112999Z"}
+{"pairs": 2904, "profiles": ["w_NH_plus_20", "w_NH_minus_20", "w_HI_plus_20", "w_HI_minus_20", "w_RI_plus_20", "w_RI_minus_20", "w_EP_plus_20", "w_EP_minus_20", "w_NS_plus_20", "w_NS_minus_20", "w_swing"], "event": "weight_sensitivity_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:52:33.544699Z"}
+{"pairs": 2904, "iterations": 10000, "preset": null, "event": "monte_carlo_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:53:47.378315Z"}
+Monte Carlo (10000 draws) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 2904/2904 0:00:00
+
+{"direction": "threshold_minus_25", "factor": 0.75, "pairs": 2904, "event": "threshold_sensitivity_direction_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:53:57.071534Z"}
+{"direction": "threshold_plus_25", "factor": 1.25, "pairs": 2904, "event": "threshold_sensitivity_direction_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:05.742256Z"}
+{"directions": ["threshold_minus_25", "threshold_plus_25"], "event": "threshold_sensitivity_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:05.748362Z"}
+Threshold ±25 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 5808/5808 0:00:00
+
+{"path": "audit/post_processing/06_scoring/20260425_sensitivity_mc_10000.md", "event": "sensitivity_audit_written", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:06.738367Z"}
+{"run_id": "p16_20260425T075225_014e4161", "pairs": 2904, "iterations": 10000, "preset": null, "weight_rows": 31944, "mc_rows": 2904, "country_rows": 2904, "threshold_rows": 5808, "event": "sensitivity_suite_complete", "level": "info", "timestamp": "2026-04-25T07:54:06.738396Z"}
+{"sites": 257, "band_counts": {"A": 14, "B": 8, "C": 2, "D": 46, "F": 2, "G": 3, "H": 182}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands.csv", "smr_filter": null, "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.206536Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.255142Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_oklo_aurora.csv", "smr_filter": "oklo_aurora", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.290895Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_xe_100.csv", "smr_filter": "xe_100", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.358199Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_bwrx_300.csv", "smr_filter": "bwrx_300", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.400900Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_holtec_smr300.csv", "smr_filter": "holtec_smr300", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.438863Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_natrium_nominal.csv", "smr_filter": "natrium_nominal", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.474926Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_rolls_royce_smr.csv", "smr_filter": "rolls_royce_smr", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.509613Z"}
+{"sites": 257, "band_counts": {"A": 12, "B": 8, "C": 3, "D": 46, "E": 1, "F": 2, "G": 1, "H": 184}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_natrium_peak.csv", "smr_filter": "natrium_peak", "country_filter": null, "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.575751Z"}
+{"sites": 257, "countries": 17, "event": "extended_stages_regional_done", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.576183Z"}
+{"sites": 6, "band_counts": {"C": 1, "E": 1, "G": 3, "H": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_AT.csv", "smr_filter": null, "country_filter": "AT", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.605990Z"}
+{"sites": 6, "band_counts": {"C": 1, "D": 1, "G": 1, "H": 3}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BA.csv", "smr_filter": null, "country_filter": "BA", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.621173Z"}
+{"sites": 7, "band_counts": {"A": 1, "D": 1, "H": 5}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BG.csv", "smr_filter": null, "country_filter": "BG", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.636984Z"}
+{"sites": 2, "band_counts": {"A": 1, "H": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BY.csv", "smr_filter": null, "country_filter": "BY", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.639224Z"}
+{"sites": 23, "band_counts": {"A": 2, "B": 1, "D": 4, "G": 1, "H": 15}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_CZ.csv", "smr_filter": null, "country_filter": "CZ", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.660874Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_HR.csv", "smr_filter": null, "country_filter": "HR", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.662699Z"}
+{"sites": 10, "band_counts": {"A": 1, "D": 2, "H": 7}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_HU.csv", "smr_filter": null, "country_filter": "HU", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.677648Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_LV.csv", "smr_filter": null, "country_filter": "LV", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.679161Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_MD.csv", "smr_filter": null, "country_filter": "MD", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.680496Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_ME.csv", "smr_filter": null, "country_filter": "ME", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.683224Z"}
+{"sites": 4, "band_counts": {"A": 1, "D": 1, "G": 1, "H": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_MK.csv", "smr_filter": null, "country_filter": "MK", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.685924Z"}
+{"sites": 41, "band_counts": {"A": 2, "B": 2, "C": 1, "D": 6, "G": 1, "H": 29}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_PL.csv", "smr_filter": null, "country_filter": "PL", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.723107Z"}
+{"sites": 19, "band_counts": {"A": 2, "C": 1, "D": 1, "H": 15}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_RO.csv", "smr_filter": null, "country_filter": "RO", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.744979Z"}
+{"sites": 7, "band_counts": {"A": 1, "D": 1, "F": 1, "G": 1, "H": 3}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_RS.csv", "smr_filter": null, "country_filter": "RS", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.759494Z"}
+{"sites": 5, "band_counts": {"A": 1, "D": 1, "H": 3}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_SK.csv", "smr_filter": null, "country_filter": "SK", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.763264Z"}
+{"sites": 106, "band_counts": {"A": 5, "B": 1, "C": 2, "D": 20, "E": 2, "F": 1, "H": 75}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_TR.csv", "smr_filter": null, "country_filter": "TR", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.874983Z"}
+{"sites": 17, "band_counts": {"A": 1, "C": 1, "D": 3, "H": 12}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_UA.csv", "smr_filter": null, "country_filter": "UA", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.910395Z"}
+{"sites": 6, "band_counts": {"C": 1, "G": 1, "H": 4}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_AT_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "AT", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.913067Z"}
+{"sites": 6, "band_counts": {"C": 1, "G": 1, "H": 4}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BA_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "BA", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.915678Z"}
+{"sites": 7, "band_counts": {"A": 1, "D": 1, "H": 5}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BG_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "BG", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.918349Z"}
+{"sites": 2, "band_counts": {"A": 1, "H": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_BY_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "BY", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.920874Z"}
+{"sites": 23, "band_counts": {"A": 1, "B": 1, "D": 4, "H": 17}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_CZ_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "CZ", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.925371Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_HR_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "HR", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.927011Z"}
+{"sites": 10, "band_counts": {"A": 1, "D": 2, "H": 7}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_HU_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "HU", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.929273Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_LV_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "LV", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.930562Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_MD_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "MD", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.931921Z"}
+{"sites": 1, "band_counts": {"A": 1}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_ME_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "ME", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.933467Z"}
+{"sites": 4, "band_counts": {"A": 1, "H": 3}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_MK_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "MK", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.935262Z"}
+{"sites": 41, "band_counts": {"A": 2, "B": 2, "D": 6, "G": 1, "H": 30}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_PL_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "PL", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.956497Z"}
+{"sites": 19, "band_counts": {"A": 1, "B": 1, "D": 2, "H": 15}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_RO_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "RO", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.959431Z"}
+{"sites": 7, "band_counts": {"A": 1, "D": 1, "H": 5}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_RS_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "RS", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.961197Z"}
+{"sites": 5, "band_counts": {"A": 1, "H": 4}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_SK_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "SK", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.962714Z"}
+{"sites": 106, "band_counts": {"A": 5, "B": 1, "C": 2, "D": 18, "E": 3, "G": 2, "H": 75}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_TR_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "TR", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.981601Z"}
+{"sites": 17, "band_counts": {"A": 1, "D": 4, "H": 12}, "csv_path": "audit/post_processing/06_scoring/20260425_site_bands_UA_nuscale_voygr6.csv", "smr_filter": "nuscale_voygr6", "country_filter": "UA", "event": "banding_stage_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:07.984229Z"}
+{"rows": 139392, "baseline_run_id": "20260425T073743_20d0478d", "event": "correlation_rows_loaded", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:11.047403Z"}
+{"criteria": 48, "pairs": 1128, "flagged": 4, "threshold": 0.7, "event": "correlation_computed", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:11.753228Z"}
+{"countries": 17, "country_reports": 17, "per_smr_scopes": 8, "event": "extended_stages_complete", "run_id": "p16_20260425T075225_014e4161", "level": "info", "timestamp": "2026-04-25T07:54:12.290726Z"}
+{
+  "stage": "oat",
+  "message": "running OAT importance (Phase A)"
+}
+{
+  "stage": "oat",
+  "csv_path": "audit/post_processing/06_scoring/20260425_oat_importance.csv",
+  "criteria_scored": 48,
+  "top_criterion": "NH-01",
+  "top_importance": 0.1006
+}
+{
+  "stage": 1,
+  "message": "running first stage (weights + mc + country + threshold)",
+  "iterations": 10000,
+  "run_id": "p16_20260425T075225_014e4161"
+}
+{
+  "run_id": "p16_20260425T075225_014e4161",
+  "pairs": 2904,
+  "iterations": 10000,
+  "preset_label": null,
+  "weight_rows_persisted": 31944,
+  "mc_rows_persisted": 2904,
+  "country_balanced_rows_persisted": 2904,
+  "threshold_rows_persisted": 5808,
+  "country_report": {
+    "total_sites": 208,
+    "top_n": 20,
+    "max_share": 0.4,
+    "flagged": false,
+    "country_counts": {
+      "PL": 8,
+      "RO": 8,
+      "TR": 4
+    }
+  },
+  "audit_path": "audit/post_processing/06_scoring/20260425_sensitivity_mc_10000.md",
+  "mc_label": "mc_10000",
+  "notes": []
+}
+{
+  "stage": "extended",
+  "message": "running extended banding + national analysis (Phase C)"
+}
+{
+  "stage": "extended",
+  "regional_bands_csv": "audit/post_processing/06_scoring/20260425_site_bands.csv",
+  "nuscale_bands_csv": "audit/post_processing/06_scoring/20260425_site_bands_nuscale_voygr6.csv",
+  "country_report_count": 17,
+  "regional_report_md": "report/output/sensitivity/20260425/00_regional_summary.md"
+}
+{
+  "message": "phase_1_6_sensitivity_complete",
+  "run_id": "p16_20260425T075225_014e4161",
+  "stages": 1,
+  "consolidated_audit": "audit/post_processing/06_scoring/20260425_phase1_6_sensitivity.md",
+  "per_stage_audits": [
+    "audit/post_processing/06_scoring/20260425_sensitivity_mc_10000.md"
+  ],
+  "importance_csv": "audit/post_processing/06_scoring/20260425_oat_importance.csv",
+  "bands_csv": "audit/post_processing/06_scoring/20260425_site_bands.csv",
+  "regional_report_md": "report/output/sensitivity/20260425/00_regional_summary.md"
+}

@@ -1,0 +1,8 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+a064c7ae-e699-4a94-a18c-79bdfe42bce3,Vidin Works power station,BG,A,1.0,1.0,1.0,14,14
+b01fe781-dbc7-40f8-a544-946288020042,Bobov Dol power station,BG,D,0.0,0.0,1.0,14,14
+ec5f337a-ca52-4b86-a0f4-4933eac349e3,Maritsa Iztok-2 power station,BG,H,0.0,0.0,0.1429,14,14
+2fb27566-cc7b-4530-8ff9-e55e3a1985bd,Svilosa power station,BG,H,0.0,0.0,0.0,14,14
+30c9e377-b575-46fa-880f-922c46e6500a,Lom Power Station,BG,H,0.0,0.0,0.0,14,14
+3bb6666f-de2f-4c6f-a28e-c3bddb71b54a,Maritsa 3 power station,BG,H,0.0,0.0,0.0,14,14
+704ef487-f600-4f23-b06e-a0f81b627597,Ruse Iztok power station,BG,H,0.0,0.0,0.0,14,14

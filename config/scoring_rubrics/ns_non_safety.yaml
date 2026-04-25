@@ -49,7 +49,7 @@ criteria:
           - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
           - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5."}
     fail_conditions:
-      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", descriptor: "No viable cooling source AND dry cooling not viable."}
+      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", pass_mark: 5.0, descriptor: "No viable cooling source AND dry cooling not viable."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-02
     name: Grid connection (detailed)
@@ -194,7 +194,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "n2k_nearest_distance_km < 2 or ecological_natural_pct > 70", descriptor: "< 2 km OR natural land > 70 %."}
       - {score_range: [0, 0], condition_expr: "site_within_strict_protected == true", descriptor: "E7: site within strict-category protected zone."}
     fail_conditions:
-      - {code: E7, action: exclude, condition_expr: "site_within_strict_protected == true", descriptor: "Site within strict-category Natura 2000 / WDPA."}
+      - {code: E7, action: exclude, condition_expr: "site_within_strict_protected == true", pass_mark: 5.0, descriptor: "Site within strict-category Natura 2000 / WDPA."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-09
     name: Socioeconomic impact

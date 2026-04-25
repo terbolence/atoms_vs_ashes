@@ -1,0 +1,230 @@
+# SSR-1 ↔ Atoms-vs-Ashes criterion traceability
+#
+# Source: IAEA Safety Standards Series No. SSR-1, "Site Evaluation for
+# Nuclear Installations" (2019 revision). Requirement numbering follows
+# the published table of Requirements (1–20). Where a criterion satisfies
+# the substance of a Requirement only in part (e.g. screening level
+# rather than full hazard characterisation) the mapping records
+# ``coverage: partial`` and a short scope note.
+#
+# Schema (consumed by `scripts.generate_ssr1_traceability`):
+#
+#   reference: SSR-1 (IAEA Safety Standards, 2019)
+#   requirements:
+#     - id: SSR-1/Req-N
+#       title: <verbatim Requirement title>
+#       section: <SSR-1 section it sits under>
+#       criterion_ids: [<criterion_id>, ...]
+#       coverage: full | partial | screening_only | out_of_scope
+#       notes: <optional scope qualifier>
+#
+# Out-of-scope items (e.g. site monitoring during operation, QA system)
+# are listed explicitly so reviewers can see we considered them rather
+# than overlooked them.
+
+reference: "IAEA SSR-1 (2019) — Site Evaluation for Nuclear Installations"
+
+requirements:
+  - id: "SSR-1/Req-1"
+    title: "Responsibilities in site evaluation"
+    section: "Section 3 — Roles and responsibilities"
+    criterion_ids: []
+    coverage: out_of_scope
+    notes: >-
+      Programmatic obligation on operator/regulator. Atoms-vs-Ashes is a
+      pre-screening study; responsibilities are addressed in the
+      operational stage.
+
+  - id: "SSR-1/Req-2"
+    title: "Process of site evaluation"
+    section: "Section 3 — Process"
+    criterion_ids: ["BF-01", "BF-02"]
+    coverage: screening_only
+    notes: >-
+      The basic-filter family captures the upstream eligibility gates
+      (grid adequacy and minimum land footprint) before hazard
+      assessment proper begins.
+
+  - id: "SSR-1/Req-3"
+    title: "Considerations for site evaluation (information quality)"
+    section: "Section 3 — Considerations"
+    criterion_ids: []
+    coverage: out_of_scope
+    notes: >-
+      Information-quality considerations are handled by the data
+      provenance layer (API-primary / LLM-fallback) and the assumption
+      register, not by an individual scoring criterion.
+
+  - id: "SSR-1/Req-4"
+    title: "Earthquakes (vibratory ground motion)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-01", "NH-03", "NH-06"]
+    coverage: full
+    notes: >-
+      PGA, liquefaction/settlement and bedrock/foundation conditions
+      together cover the substantive Req-4 obligations at screening
+      resolution.
+
+  - id: "SSR-1/Req-5"
+    title: "Surface faulting (capable faults)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-02"]
+    coverage: full
+
+  - id: "SSR-1/Req-6"
+    title: "Meteorological hazards (extreme winds, temperatures, precipitation)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-10", "NH-11", "NH-12"]
+    coverage: full
+
+  - id: "SSR-1/Req-7"
+    title: "Flooding (river, coastal, surge, tsunami)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-08", "NH-09"]
+    coverage: full
+
+  - id: "SSR-1/Req-8"
+    title: "Geotechnical hazards (slope stability, subsidence, karst)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-04", "NH-05", "NH-06"]
+    coverage: full
+
+  - id: "SSR-1/Req-9"
+    title: "Volcanism"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-07"]
+    coverage: full
+
+  - id: "SSR-1/Req-10"
+    title: "Other natural events (wildfire, biological hazards)"
+    section: "Section 4 — External events of natural origin"
+    criterion_ids: ["NH-13"]
+    coverage: partial
+    notes: >-
+      Wildfire is covered; biological hazards (e.g. fouling organisms in
+      cooling-water intakes) are deferred to detailed siting because no
+      pan-regional dataset supports a screening rubric.
+
+  - id: "SSR-1/Req-11"
+    title: "External events caused by human activities"
+    section: "Section 5 — External events of human origin"
+    criterion_ids:
+      - "HI-01"
+      - "HI-02"
+      - "HI-03"
+      - "HI-04"
+      - "HI-05"
+      - "HI-06"
+      - "HI-07"
+      - "HI-08"
+    coverage: full
+    notes: >-
+      Aircraft crash, industrial explosions, toxic releases, external
+      fires, transport hazmat corridors, military installations, EMI
+      and other nuclear installations.
+
+  - id: "SSR-1/Req-12"
+    title: "Population characteristics (current and projected)"
+    section: "Section 6 — Effects on people and environment"
+    criterion_ids: ["RI-04", "RI-05", "RI-06"]
+    coverage: full
+
+  - id: "SSR-1/Req-13"
+    title: "Emergency planning zones (EPZ feasibility)"
+    section: "Section 6 — Emergency planning"
+    criterion_ids: ["EP-01", "EP-02", "EP-03", "EP-04", "EP-05"]
+    coverage: full
+
+  - id: "SSR-1/Req-14"
+    title: "Atmospheric dispersion characteristics"
+    section: "Section 7 — Dispersion of radioactive material"
+    criterion_ids: ["RI-01"]
+    coverage: full
+
+  - id: "SSR-1/Req-15"
+    title: "Surface- and groundwater dispersion characteristics"
+    section: "Section 7 — Dispersion of radioactive material"
+    criterion_ids: ["RI-02", "RI-03"]
+    coverage: full
+
+  - id: "SSR-1/Req-16"
+    title: "Radioactive material accumulation in water bodies"
+    section: "Section 7 — Dispersion of radioactive material"
+    criterion_ids: ["RI-02", "RI-03"]
+    coverage: partial
+    notes: >-
+      Screening proxy via dispersion characteristics; long-term
+      accumulation modelling is part of detailed siting.
+
+  - id: "SSR-1/Req-17"
+    title: "Combinations of hazards"
+    section: "Section 8 — Combined hazards"
+    criterion_ids: ["NH-14"]
+    coverage: full
+
+  - id: "SSR-1/Req-18"
+    title: "Site protection against external hazards"
+    section: "Section 8 — Site protection"
+    criterion_ids: ["NS-04"]
+    coverage: partial
+    notes: >-
+      Topography / grading provides screening of natural protection
+      potential; engineered protection is a design-stage concern.
+
+  - id: "SSR-1/Req-19"
+    title: "Monitoring of site-related parameters"
+    section: "Section 9 — Monitoring"
+    criterion_ids: []
+    coverage: out_of_scope
+    notes: >-
+      Operational obligation; not a screening criterion.
+
+  - id: "SSR-1/Req-20"
+    title: "Quality assurance for site evaluation"
+    section: "Section 9 — QA"
+    criterion_ids: []
+    coverage: out_of_scope
+    notes: >-
+      Programmatic; addressed by the assumption register and API/LLM
+      provenance layer rather than a scoring criterion.
+
+# Non-SSR-1 criteria (project-specific viability axes that do not map to
+# a Safety Requirement; recorded for completeness so reviewers see the
+# full criterion list).
+non_ssr1_criteria:
+  - criterion_id: "NS-01"
+    label: "Cooling water / ultimate heat sink"
+    rationale: "Captured under SSR-1 Req-15 indirectly, but treated as a non-safety viability axis here."
+  - criterion_id: "NS-02"
+    label: "Grid connection (detailed)"
+    rationale: "Project-economic; outside SSR-1 scope."
+  - criterion_id: "NS-03"
+    label: "Transport access (heavy haul)"
+    rationale: "Constructability; outside SSR-1 scope."
+  - criterion_id: "NS-05"
+    label: "Land availability / ownership / zoning"
+    rationale: "Project-legal; outside SSR-1 scope."
+  - criterion_id: "NS-06"
+    label: "Existing infrastructure reuse"
+    rationale: "Project-economic; outside SSR-1 scope."
+  - criterion_id: "NS-07"
+    label: "Environmental impact (non-radiological)"
+    rationale: "Covered by EIA legislation, not SSR-1."
+  - criterion_id: "NS-08"
+    label: "Ecological sensitivity (Natura 2000 / WDPA)"
+    rationale: "Covered by EIA legislation, not SSR-1."
+  - criterion_id: "NS-09"
+    label: "Socioeconomic impact"
+    rationale: "Project-acceptability; outside SSR-1 scope."
+  - criterion_id: "NS-10"
+    label: "Workforce availability"
+    rationale: "Project-economic; outside SSR-1 scope."
+  - criterion_id: "NS-11"
+    label: "Coal-to-nuclear synergies"
+    rationale: "Project-strategy; outside SSR-1 scope."
+  - criterion_id: "NS-12"
+    label: "Regulatory / political environment"
+    rationale: "Project-political; outside SSR-1 scope."
+  - criterion_id: "NS-13"
+    label: "Construction logistics"
+    rationale: "Project-economic; outside SSR-1 scope."

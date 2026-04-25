@@ -66,7 +66,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 5 and has_remedy == true", descriptor: "Borderline near 5 km; only with documented remedy."}
       - {score_range: [0, 0], condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", descriptor: "Excluded: within project E1 buffer."}
     fail_conditions:
-      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", descriptor: "Capable fault within 5 km (project) / 8 km (SSG-35)."}
+      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", pass_mark: 5.0, descriptor: "Capable fault within 5 km (project) / 8 km (SSG-35)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-03
     name: Geotechnical - settlement and liquefaction
@@ -83,7 +83,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high'", descriptor: "Very high with high PGA and shallow GW; remedy uncertain."}
       - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "E2 confirmed."}
     fail_conditions:
-      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "Unacceptable liquefaction with no engineering remedy."}
+      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-04
     name: Geotechnical - slope stability
@@ -100,24 +100,32 @@ criteria:
       - {score_range: [1, 2], condition_expr: "slope_angle_deg < 25", descriptor: "Major instability risk; runout inventory must clear."}
       - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 25", descriptor: "E3 triggered."}
     fail_conditions:
-      - {code: E3, action: exclude, condition_expr: "slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'", descriptor: "Catastrophic landslide / slope > 25 deg."}
+      - {code: E3, action: exclude, condition_expr: "slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'", pass_mark: 5.0, descriptor: "Catastrophic landslide / slope > 25 deg."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-05
     name: Subsidence / karst / mining / oil & gas
     phases: [exclusionary, ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
-    db_fields: {api: [site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.karst_depth_m, site_natural_hazards.mining_void_distance_km, site_natural_hazards.oil_gas_extraction_flag], llm: nh05_subsidence_text}
+    # Bands aligned to the columns currently materialised in
+    # ``site_natural_hazards`` (karst_severity, karst_present,
+    # karst_formation_type, mining_void_present, subsidence_risk_class).
+    # The aspirational metrics (karst_depth_m, mining_void_distance_km,
+    # oil_gas_extraction_flag) are tracked as TODO enrichments in the
+    # assumption register; bands fall back to "unscored" when data is
+    # absent so the safety floor never fires on missing evidence (see
+    # report/methodology/exclusionary_floors.md).
+    db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_distance_km > 25 and oil_gas_extraction_flag == false", descriptor: "No karst/mining/hydrocarbon evidence in 25 km."}
-      - {score_range: [7, 8], condition_expr: "karst_severity in ['none', 'very_low'] and mining_void_distance_km >= 10 and oil_gas_extraction_flag == false", descriptor: "Karst absent on site; mining void 10-25 km; no historic O&G."}
-      - {score_range: [5, 6], condition_expr: "mining_void_distance_km >= 5 and oil_gas_extraction_flag == false", descriptor: "Karst 5-25 km; mining 5-10 km (avoidance band); no on-site O&G."}
-      - {score_range: [3, 4], condition_expr: "mining_void_distance_km >= 1 and oil_gas_extraction_flag == false", descriptor: "Karst within 5 km; mining 1-5 km; legacy O&G nearby."}
-      - {score_range: [1, 2], condition_expr: "mining_void_distance_km < 1 or karst_severity == 'high'", descriptor: "Karst within 1 km; mining < 1 km; pressure-compaction risk."}
-      - {score_range: [0, 0], condition_expr: "default", descriptor: "E5/E6 confirmed."}
+      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'", descriptor: "No karst, no mining voids, subsidence risk none."}
+      - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']", descriptor: "No karst on site; no mining voids; low subsidence risk."}
+      - {score_range: [5, 6], condition_expr: "karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']", descriptor: "Mild karst at most; no mining voids; subsidence low-to-moderate."}
+      - {score_range: [3, 4], condition_expr: "(karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate'", descriptor: "Moderate karst or moderate subsidence; mining absent."}
+      - {score_range: [1, 2], condition_expr: "mining_void_present == true or subsidence_risk_class == 'high'", descriptor: "Mining voids present or high subsidence risk; remedy plausible."}
+      - {score_range: [0, 0], condition_expr: "karst_severity == 'high'", descriptor: "E5 confirmed: high karst severity."}
     fail_conditions:
-      - {code: E5, action: exclude, condition_expr: "karst_severity == 'on_site' or karst_depth_m > 15", descriptor: "Karst voids on site or formations > 15 m deep."}
-      - {code: E6, action: exclude, condition_expr: "mining_void_distance_km < 1 or oil_gas_extraction_flag == true", descriptor: "Mining beneath site OR historical on-site oil & gas."}
+      - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", pass_mark: 5.0, descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
+      - {code: E6, action: exclude, condition_expr: "mining_void_present == true", pass_mark: 5.0, descriptor: "Mining voids present beneath / adjacent to site."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-06
     name: Foundation conditions (bearing, bedrock, groundwater)
@@ -150,7 +158,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 50", descriptor: "Elevated risk; mitigation uncertain."}
       - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 50", descriptor: "E4 triggered."}
     fail_conditions:
-      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50 or in_pyroclastic_zone == true", descriptor: "< 50 km Holocene volcano or in mapped hazard zone."}
+      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50 or in_pyroclastic_zone == true", pass_mark: 5.0, descriptor: "< 50 km Holocene volcano or in mapped hazard zone."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-08
     name: Coastal flooding (storm surge, tsunami)
@@ -201,7 +209,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads."}
       - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h)."}
     fail_conditions:
-      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
+      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", pass_mark: 5.0, descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-11
     name: Extreme precipitation (rain, snow, drought)

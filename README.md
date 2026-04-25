@@ -2,7 +2,7 @@
 
 SMR siting assessment tooling (screening, scoring, sensitivity, and data-acquisition connectors) for coal-to-nuclear candidate sites in Central / Eastern / Southern Europe.
 
-This README lists **common operational commands**. Deeper methodology lives under [`report/methodology/`](report/methodology/); connector behaviour is documented in [`src/ava_client/README.md`](src/ava_client/README.md).
+This README lists **common operational commands**. Deeper methodology lives under [`report/methodology/`](report/methodology/) (entry points: [`sensitivity_analysis.md`](report/methodology/sensitivity_analysis.md), [`failure_analysis.md`](report/methodology/failure_analysis.md), [`exclusionary_floors.md`](report/methodology/exclusionary_floors.md), [`swing_weight_audit.md`](report/methodology/swing_weight_audit.md), [`criterion_correlation.md`](report/methodology/criterion_correlation.md), [`ssr1_traceability.md`](report/methodology/ssr1_traceability.md), [`assumption_register.md`](report/methodology/assumption_register.md)); connector behaviour is documented in [`src/ava_client/README.md`](src/ava_client/README.md).
 
 ---
 
@@ -68,21 +68,17 @@ Install plotting dependencies once (matplotlib is an optional extra):
 pip install -e ".[report_plots]"
 ```
 
-Then regenerate all four figures (defaults point at the `20260423_*` artefacts under `audit/post_processing/06_scoring/`):
-
-```bash
-python -m scripts.plot_phase_1_6_sensitivity
-```
-
-Custom paths:
+Then regenerate all four figures. The latest reference run is `20260425_*`; pass the corresponding paths explicitly:
 
 ```bash
 python -m scripts.plot_phase_1_6_sensitivity \
-  --oat-csv   audit/post_processing/06_scoring/20260423_oat_importance.csv \
-  --bands-csv audit/post_processing/06_scoring/20260423_site_bands.csv \
-  --audit-md  audit/post_processing/06_scoring/20260423_phase1_6_sensitivity.md \
-  --out-dir   audit/post_processing/06_scoring/figures/20260423
+  --oat-csv   audit/post_processing/06_scoring/20260425_oat_importance.csv \
+  --bands-csv audit/post_processing/06_scoring/20260425_site_bands.csv \
+  --audit-md  audit/post_processing/06_scoring/20260425_phase1_6_sensitivity.md \
+  --out-dir   audit/post_processing/06_scoring/figures/20260425
 ```
+
+Without arguments the script falls back to the historical 2026-04-23 defaults (kept for diff visibility).
 
 Implementation: [`src/scripts/plot_phase_1_6_sensitivity.py`](src/scripts/plot_phase_1_6_sensitivity.py), [`src/scripts/_phase_1_6_sensitivity_figures.py`](src/scripts/_phase_1_6_sensitivity_figures.py).
 
@@ -101,12 +97,45 @@ python -m scripts.run_phase_1_6_extended_analysis \
   2>&1 | tee logs/phase_1_6_extended_analysis.log
 ```
 
-Pass `--stamp 20260423` to align artefact naming with a prior sensitivity run; `--no-figures` to skip PNG generation. Outputs:
+Pass `--stamp 20260425` to align artefact naming with the current reference run (or any prior sensitivity stamp); `--no-figures` to skip PNG generation. Outputs:
 
 - Audit CSVs: `{stamp}_site_bands.csv`, `{stamp}_site_bands_nuscale_voygr6.csv`, one file per SMR, per-country bands, and `{stamp}_country_rankings_summary(.csv|_nuscale.csv)`.
 - Reports: `report/output/sensitivity/<stamp>/00_regional_summary.md` + `national/{CC_name}.md` (+ `figures/`).
 
 Implementation: [`src/scripts/run_phase_1_6_extended_analysis.py`](src/scripts/run_phase_1_6_extended_analysis.py), [`src/scripts/_phase_1_6_extended_stages.py`](src/scripts/_phase_1_6_extended_stages.py), [`src/atoms_vs_ashes/scoring/_band_rules.py`](src/atoms_vs_ashes/scoring/_band_rules.py).
+
+---
+
+## Phase 1.6 — IAEA-style audit artefacts
+
+Three regulator-facing artefacts are regenerated independently of the
+sensitivity / extended-stages drivers:
+
+```bash
+# Swing-weight audit (declared vs observed-range weights)
+.venv/bin/python -m scripts.generate_swing_weight_audit --db-profile merged
+
+# Exclusionary-floor documentation (rubric → pass marks → DB conditions)
+.venv/bin/python -m scripts.generate_exclusionary_floors
+
+# IAEA SSR-1 ↔ project-criterion traceability matrix
+.venv/bin/python -m scripts.generate_ssr1_traceability
+
+# Failure-mode analysis (why sites failed scoring) — funnel, per-criterion,
+# per-country, per-SMR, multi-failure histogram + tables + methodology MD.
+.venv/bin/python -m scripts.generate_failure_analysis \
+  --db-profile merged --stamp 20260425
+```
+
+The criterion correlation heatmap is produced standalone or as part of
+the extended analysis:
+
+```bash
+.venv/bin/python -m scripts._phase_1_6_figures_correlation --db-profile merged
+```
+
+Outputs land under [`report/methodology/`](report/methodology/) and
+[`audit/post_processing/06_scoring/`](audit/post_processing/06_scoring/).
 
 ---
 
@@ -157,6 +186,12 @@ tail -f logs/<pick_the_file_you_just_created>.log
 | Topic | Location |
 | ----- | -------- |
 | Sensitivity method + reference run | [`report/methodology/sensitivity_analysis.md`](report/methodology/sensitivity_analysis.md) |
+| Failure-mode analysis (why sites failed) | [`report/methodology/failure_analysis.md`](report/methodology/failure_analysis.md) |
+| Exclusionary thresholds & safety floors | [`report/methodology/exclusionary_floors.md`](report/methodology/exclusionary_floors.md) |
+| Swing-weight audit | [`report/methodology/swing_weight_audit.md`](report/methodology/swing_weight_audit.md) |
+| Criterion correlation flag list | [`report/methodology/criterion_correlation.md`](report/methodology/criterion_correlation.md) |
+| IAEA SSR-1 traceability matrix | [`report/methodology/ssr1_traceability.md`](report/methodology/ssr1_traceability.md) |
+| Project-wide assumptions | [`report/methodology/assumption_register.md`](report/methodology/assumption_register.md) |
 | AVA client / connector phases | [`src/ava_client/README.md`](src/ava_client/README.md) |
 | Database profiles / migrations | [`src/atoms_vs_ashes/db/README.md`](src/atoms_vs_ashes/db/README.md) |
 | Audit pack layout | [`audit/README.md`](audit/README.md) |

@@ -25,7 +25,7 @@ from atoms_vs_ashes.scoring._codes import (
     ScreeningCode,
     codes_for_criterion,
 )
-from atoms_vs_ashes.scoring.bands import safe_eval
+from atoms_vs_ashes.scoring.bands import BandResult, safe_eval
 from atoms_vs_ashes.scoring.rubric import Criterion, FailCondition
 
 log = get_logger(__name__)
@@ -155,6 +155,7 @@ def evaluate_exclusionary_for_site(
     run_id: str,
     confidence: str,
     data_sources: list[str],
+    band_result: BandResult | None = None,
 ) -> list[ScreeningVerdict]:
     """Return ``ScreeningVerdict`` rows for the E-codes on ``criterion``.
 
@@ -163,10 +164,28 @@ def evaluate_exclusionary_for_site(
     disambiguates the row even when multiple E-codes live on the same
     criterion (e.g. E5 + E6 on NH-05).
 
+    When ``band_result`` is supplied (the criterion was evaluated as part
+    of the ranking phase), the safety-floor evaluator runs in addition
+    to the hard ``condition_expr`` check and may emit synthetic
+    ``<E-code>:floor`` verdicts. See
+    :mod:`atoms_vs_ashes.scoring._safety_floor`.
+
     Returns an empty list when the criterion has no ``action == 'exclude'``
     fail_conditions.
     """
+    # Deferred import to avoid an exclusionary <-> _safety_floor module cycle
+    # (the floor module needs FailEvaluation defined above).
+    from atoms_vs_ashes.scoring._safety_floor import evaluate_safety_floor
+
     evaluations = evaluate_fail_conditions(criterion, context, action="exclude")
+    if band_result is not None:
+        evaluations.extend(
+            evaluate_safety_floor(
+                criterion,
+                band_result=band_result,
+                hard_evaluations=evaluations,
+            )
+        )
     return [
         build_verdict(
             site_id=site_id,
@@ -177,10 +196,26 @@ def evaluate_exclusionary_for_site(
             phase="exclusionary",
             confidence=confidence,
             data_sources=data_sources,
-            prompt_key=e.code if e.code in EXCLUSIONARY_CODE_NAMES else None,
+            prompt_key=_prompt_key_for(e.code),
         )
         for e in evaluations
     ]
+
+
+def _prompt_key_for(code: str) -> str | None:
+    """Return the ``prompt_key`` to stamp on a verdict for ``code``.
+
+    Catalog E-codes (E1..E9 + ``project_wind_envelope``) use the code
+    verbatim. Synthetic floor codes (``E1:floor`` etc.) use the floored
+    form so they remain distinct from the hard-fail row in the
+    ``uq_verdict_site_smr_criterion_prompt_run`` unique constraint.
+    Anything else returns ``None`` (legacy behaviour).
+    """
+    from atoms_vs_ashes.scoring._safety_floor import base_code, is_floor_code
+
+    if is_floor_code(code):
+        return code if base_code(code) in EXCLUSIONARY_CODE_NAMES else None
+    return code if code in EXCLUSIONARY_CODE_NAMES else None
 
 
 def expected_exclusionary_codes(criterion: Criterion) -> tuple[ScreeningCode, ...]:

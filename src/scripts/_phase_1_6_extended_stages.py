@@ -19,6 +19,10 @@ from atoms_vs_ashes.scoring._country_summary import (
     compute_country_summary,
     write_country_summary_csv,
 )
+from scripts._phase_1_6_figures_correlation import (
+    CorrelationArtefacts,
+    build_correlation_artefacts,
+)
 from scripts._phase_1_6_regional_report import write_regional_report
 from scripts._phase_1_6_stage_helpers import (
     attach_band_counts,
@@ -57,6 +61,7 @@ class ExtendedStagesResult:
     regional_report_md: Path | None = None
     country_report_mds: dict[str, Path] = field(default_factory=dict)
     figures: dict[str, Path] = field(default_factory=dict)
+    correlation: CorrelationArtefacts | None = None
 
 
 def run_extended_stages(
@@ -124,6 +129,7 @@ def run_extended_stages(
 
     figures: dict[str, Path] = {}
     per_country_figures: dict[str, Path] = {}
+    correlation: CorrelationArtefacts | None = None
     if generate_figures:
         figures = make_regional_figures(
             regional.csv_path,
@@ -132,6 +138,14 @@ def run_extended_stages(
         )
         per_country_figures = make_country_figures(
             per_country_bands, report_dir / "national" / "figures"
+        )
+        correlation = build_correlation_artefacts(
+            session,
+            audit_dir=audit_dir,
+            figures_dir=report_dir / "figures" / "correlation",
+            flagged_md_path=report_dir / "criterion_correlation.md",
+            baseline_label=baseline_label,
+            stamp=stamp,
         )
 
     regional_report = write_regional_report(
@@ -160,6 +174,16 @@ def run_extended_stages(
         per_smr_scopes=len(per_smr),
     )
 
+    figures_out: dict[str, Path] = {
+        **figures,
+        **{
+            f"country_{k}": v for k, v in per_country_figures.items()
+        },
+    }
+    if correlation is not None:
+        figures_out["correlation_pearson"] = correlation.pearson_png
+        figures_out["correlation_spearman"] = correlation.spearman_png
+
     return ExtendedStagesResult(
         regional_bands_csv=regional.csv_path,
         nuscale_bands_csv=nuscale.csv_path,
@@ -170,10 +194,6 @@ def run_extended_stages(
         country_summary_nuscale_csv=country_summary_ns_csv,
         regional_report_md=regional_report,
         country_report_mds=country_reports,
-        figures={
-            **figures,
-            **{
-                f"country_{k}": v for k, v in per_country_figures.items()
-            },
-        },
+        figures=figures_out,
+        correlation=correlation,
     )

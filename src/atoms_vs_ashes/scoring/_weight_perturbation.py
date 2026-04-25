@@ -12,6 +12,10 @@ from typing import Iterable
 
 from atoms_vs_ashes.db.models import RankingScore, ScreeningVerdict
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.scoring._swing_weights import (
+    observed_ranges,
+    swing_normalised_weights,
+)
 from atoms_vs_ashes.scoring.composite import CompositeResult, compute_composite_for_site_smr
 from atoms_vs_ashes.scoring.rubric import Criterion
 
@@ -22,6 +26,7 @@ WEIGHT_DIRECTIONS: tuple[tuple[str, float, str], ...] = (
     ("plus", 1.2, "plus_20"),
     ("minus", 0.8, "minus_20"),
 )
+SWING_WEIGHT_PROFILE = "w_swing"
 
 
 def _category_of(criterion_id: str) -> str:
@@ -58,6 +63,45 @@ def perturb_weights(
     return perturb_weights_category(weights, "NH", factor)
 
 
+def _swing_weights_from_pool(
+    sites_rows: dict[tuple, list[RankingScore]],
+    weights: dict[str, float],
+) -> dict[str, float]:
+    """Return swing-weighted ``criterion_id -> weight`` for the pool.
+
+    Builds the observed ranges from every baseline ranking row across
+    the (site, SMR) pool, then delegates to
+    :func:`atoms_vs_ashes.scoring._swing_weights.swing_normalised_weights`.
+    """
+    flat: list[RankingScore] = []
+    for rows in sites_rows.values():
+        flat.extend(rows)
+    return swing_normalised_weights(weights, observed_ranges(flat))
+
+
+def _composites_for_profile(
+    sites_rows: dict[tuple, list[RankingScore]],
+    verdicts_by_pair: dict[tuple, list[ScreeningVerdict]],
+    *,
+    weights: dict[str, float],
+    criteria: dict[str, Criterion],
+) -> list[CompositeResult]:
+    bucket: list[CompositeResult] = []
+    for pair, rows in sites_rows.items():
+        verdicts = verdicts_by_pair.get(pair, [])
+        bucket.append(
+            compute_composite_for_site_smr(
+                site_id=pair[0],
+                smr_key=pair[1],
+                ranking_rows=rows,
+                verdicts=verdicts,
+                weights=weights,
+                criteria=criteria,
+            )
+        )
+    return bucket
+
+
 def run_weight_sensitivity(
     sites_rows: dict[tuple, list[RankingScore]],
     verdicts_by_pair: dict[tuple, list[ScreeningVerdict]],
@@ -65,11 +109,15 @@ def run_weight_sensitivity(
     weights: dict[str, float],
     criteria: dict[str, Criterion],
     categories: Iterable[str] = WEIGHT_CATEGORIES,
+    include_swing: bool = True,
 ) -> dict[str, list[CompositeResult]]:
     """Recompute composites for every (site, SMR) under per-category ±20 %.
 
     Produces profiles ``w_<CAT>_plus_20`` and ``w_<CAT>_minus_20`` for
-    every family in ``categories``.
+    every family in ``categories``. When ``include_swing`` is true (the
+    default) an extra ``w_swing`` profile is appended that re-weights
+    each criterion by its observed 0-10 score range across the pool —
+    the IAEA-style swing-weight check requested in the expert review.
     """
     out: dict[str, list[CompositeResult]] = {}
     for cat in categories:
@@ -77,20 +125,14 @@ def run_weight_sensitivity(
         for _name, factor, suffix in WEIGHT_DIRECTIONS:
             label = f"w_{cat_upper}_{suffix}"
             perturbed = perturb_weights_category(weights, cat_upper, factor)
-            bucket: list[CompositeResult] = []
-            for pair, rows in sites_rows.items():
-                verdicts = verdicts_by_pair.get(pair, [])
-                bucket.append(
-                    compute_composite_for_site_smr(
-                        site_id=pair[0],
-                        smr_key=pair[1],
-                        ranking_rows=rows,
-                        verdicts=verdicts,
-                        weights=perturbed,
-                        criteria=criteria,
-                    )
-                )
-            out[label] = bucket
+            out[label] = _composites_for_profile(
+                sites_rows, verdicts_by_pair, weights=perturbed, criteria=criteria
+            )
+    if include_swing:
+        swing = _swing_weights_from_pool(sites_rows, weights)
+        out[SWING_WEIGHT_PROFILE] = _composites_for_profile(
+            sites_rows, verdicts_by_pair, weights=swing, criteria=criteria
+        )
     log.info(
         "weight_sensitivity_complete",
         pairs=len(sites_rows),

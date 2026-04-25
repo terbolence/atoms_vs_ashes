@@ -104,5 +104,18 @@ def write_country_report(
     )
     lines.append("")
 
+    lines.append("## Score provenance")
+    lines.append("")
+    lines.append(
+        "Scores feeding this shortlist follow the project's API-primary "
+        "/ LLM-fallback hierarchy: exclusionary E-codes use Tier 1 (API "
+        "/ open-data) evidence only, while ranking criteria may fall "
+        "back to Tier 2 (LLM-curated) values when API coverage is "
+        "absent. See "
+        "[`sensitivity_analysis.md` §9](../../../methodology/sensitivity_analysis.md#9-score-provenance-hierarchy) "
+        "for the tier definitions and the per-tier audit rules."
+    )
+    lines.append("")
+
     path.write_text("\n".join(lines), encoding="utf-8")
     return path

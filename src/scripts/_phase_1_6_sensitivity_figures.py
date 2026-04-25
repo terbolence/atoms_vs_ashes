@@ -37,6 +37,7 @@ _PROFILE_ORDER_HINT: tuple[str, ...] = (
     "w_NS_plus_20",
     "w_RI_minus_20",
     "w_RI_plus_20",
+    "w_swing",
     "threshold_minus_25",
     "threshold_plus_25",
     "mc_10000",
