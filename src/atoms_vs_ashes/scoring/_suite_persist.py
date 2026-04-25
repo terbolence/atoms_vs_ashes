@@ -21,6 +21,7 @@ from atoms_vs_ashes.db.models import (
 )
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.scoring._suite_threshold import ThresholdSensitivityResult
+from atoms_vs_ashes.scoring._threshold_rollup import persist_threshold_rollup
 from atoms_vs_ashes.scoring.composite import build_composite_row
 from atoms_vs_ashes.scoring.sensitivity import MonteCarloSummary
 
@@ -194,8 +195,9 @@ def persist_threshold_results(
     results_by_direction: dict[str, ThresholdSensitivityResult],
     *,
     run_id: str,
+    baseline_rows: dict[tuple, CompositeRanking] | None = None,
 ) -> int:
-    """Persist threshold-direction composites as ``weight_profile=<direction>``."""
+    """Persist threshold-direction composites + per-direction roll-up rows."""
     count = 0
     for direction, result in results_by_direction.items():
         for composite in result.composites:
@@ -203,6 +205,9 @@ def persist_threshold_results(
                 build_composite_row(composite, run_id=run_id, weight_profile=direction)
             )
             count += 1
+    persist_threshold_rollup(
+        session, results_by_direction, baseline_rows or {}, run_id=run_id
+    )
     return count
 
 
@@ -211,14 +216,17 @@ def persist_country_balanced(
     baseline_rows: dict[tuple, CompositeRanking],
     *,
     run_id: str,
+    country_by_pair: dict[tuple, str] | None = None,
 ) -> int:
     """Clone baseline composites under ``weight_profile='country_balanced'``.
 
-    The country-balance check is summary-level; we persist a row per
-    pair so downstream queries can filter on a single weight_profile
-    string.
+    Also emits a per-country survivor snapshot into
+    ``country_balance_check`` when ``country_by_pair`` is provided, so
+    reviewers can read survivor counts without re-aggregating
+    composite_rankings.
     """
     count = 0
+    survivors_by_country: dict[str, int] = {}
     for pair, baseline in baseline_rows.items():
         row = CompositeRanking(
             site_id=pair[0],
@@ -237,4 +245,23 @@ def persist_country_balanced(
         )
         session.merge(row)
         count += 1
+        if baseline.passed_exclusionary and country_by_pair is not None:
+            code = country_by_pair.get(pair, "??")
+            survivors_by_country[code] = survivors_by_country.get(code, 0) + 1
+
+    if country_by_pair is not None:
+        from atoms_vs_ashes.db.analytics_writers import (
+            persist_country_balance_check,
+        )
+        rows = [
+            {
+                "country_code": code,
+                "baseline_count": survivors,
+                "balanced_count": survivors,
+                "delta": 0,
+                "triggered_floor_swap": False,
+            }
+            for code, survivors in sorted(survivors_by_country.items())
+        ]
+        persist_country_balance_check(session, run_id=run_id, rows=rows)
     return count

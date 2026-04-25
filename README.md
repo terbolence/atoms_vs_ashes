@@ -121,10 +121,23 @@ sensitivity / extended-stages drivers:
 # IAEA SSR-1 ↔ project-criterion traceability matrix
 .venv/bin/python -m scripts.generate_ssr1_traceability
 
-# Failure-mode analysis (why sites failed scoring) — funnel, per-criterion,
-# per-country, per-SMR, multi-failure histogram + tables + methodology MD.
+# Failure-mode analysis (why sites failed scoring).
+# Default: 1 global pack + 8 per-SMR packs (NuScale featured).
+# Outputs: CSVs under audit/.../, figures under report/output/sensitivity/<stamp>/figures/failure/{,per_smr/<key>/},
+# and methodology MDs under report/methodology/{failure_analysis,failure_analysis_<smr_key>}.md.
 .venv/bin/python -m scripts.generate_failure_analysis \
   --db-profile merged --stamp 20260425
+
+# NuScale-only refresh (also re-renders the global pack):
+.venv/bin/python -m scripts.generate_failure_analysis \
+  --db-profile merged --stamp 20260425 --smr-nuscale
+
+# Per-SMR-only (skip global; pick any subset of vendor flags):
+.venv/bin/python -m scripts.generate_failure_analysis \
+  --db-profile merged --stamp 20260425 --skip-global \
+  --smr-nuscale --smr-geh --smr-holtec --smr-oklo \
+  --smr-rollsroyce --smr-xenergy \
+  --smr-terrapower-nominal --smr-terrapower-peak
 ```
 
 The criterion correlation heatmap is produced standalone or as part of
@@ -136,6 +149,43 @@ the extended analysis:
 
 Outputs land under [`report/methodology/`](report/methodology/) and
 [`audit/post_processing/06_scoring/`](audit/post_processing/06_scoring/).
+
+---
+
+## Inspecting run results (DB-first)
+
+Alembic revision `034_persist_analytics` introduces a provenance layer (`runs`, `dataset_snapshot`) plus 12 analytics tables (composite components, bands, country summaries / rankings, OAT, weight-profile stability, threshold roll-up, failure outcomes / aggregates, swing weights, correlations, country balance check). Every row carries a `run_id` so a single pipeline invocation is fully reproducible from the DB without touching the CSV trees.
+
+The `inspect_run` CLI exposes the most common audit queries; output is JSON on stdout for easy `jq` / pipeline composition:
+
+```bash
+# Top 10 sites per country for a given SMR within a run
+python -m scripts.inspect_run \
+  --db-profile merged --run-id <run_id> \
+  top-n-per-country --smr-key nuscale_voygr6 --n 10
+
+# All criterion-level score components for one site/SMR/profile
+python -m scripts.inspect_run \
+  --db-profile merged --run-id <run_id> \
+  site-criterion-scores --site-id <uuid> --smr-key nuscale_voygr6
+
+# Composite + band + active stability profiles in one shot
+python -m scripts.inspect_run \
+  --db-profile merged --run-id <run_id> \
+  site-sensitivity-profile --site-id <uuid> --smr-key nuscale_voygr6
+
+# Why did this pair fail? Bucket + verdict trail
+python -m scripts.inspect_run \
+  --db-profile merged --run-id <run_id> \
+  failure-explanation --site-id <uuid> --smr-key nuscale_voygr6
+
+# Threshold-direction roll-up (per criterion, ±25 % weight perturbation)
+python -m scripts.inspect_run \
+  --db-profile merged --run-id <run_id> \
+  threshold-summary
+```
+
+Forward-only: pre-`034` runs (notably the `20260423` and `20260425` reference snapshots) remain CSV-only by design — see [`assumption_register.md`](report/methodology/assumption_register.md). The DB tables fill in from the next pipeline invocation. Implementation: [`src/atoms_vs_ashes/db/queries.py`](src/atoms_vs_ashes/db/queries.py), [`src/scripts/inspect_run.py`](src/scripts/inspect_run.py).
 
 ---
 

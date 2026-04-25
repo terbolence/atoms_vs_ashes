@@ -42,6 +42,17 @@ UNSCORED_FALLBACK_SCORE = 3.0
 
 
 @dataclass
+class CompositeComponent:
+    """Per-criterion contribution to a composite for one (site, SMR) pair."""
+
+    criterion_id: str
+    score_0_10: float
+    weight_normalised: float
+    weighted_contribution: float
+    category: str
+
+
+@dataclass
 class CompositeResult:
     """Outcome of computing a (site, SMR) composite."""
 
@@ -57,6 +68,7 @@ class CompositeResult:
     per_category_scores: dict[str, float]
     confidence: str
     notes: list[str] = field(default_factory=list)
+    components: list[CompositeComponent] = field(default_factory=list)
 
 
 def _category_for(criterion_id: str) -> str:
@@ -131,6 +143,7 @@ def compute_composite_for_site_smr(
     per_cat_acc: dict[str, tuple[float, float]] = {}
 
     scored_ids: set[str] = set()
+    components: list[CompositeComponent] = []
     for row in usable_rows:
         w = weights[row.criterion_id]
         c = float(row.score_0_10)
@@ -147,6 +160,15 @@ def compute_composite_for_site_smr(
         cat = _category_for(row.criterion_id)
         acc_w, acc_s = per_cat_acc.get(cat, (0.0, 0.0))
         per_cat_acc[cat] = (acc_w + w, acc_s + w * c)
+        components.append(
+            CompositeComponent(
+                criterion_id=row.criterion_id,
+                score_0_10=c,
+                weight_normalised=w,
+                weighted_contribution=w * c,
+                category=cat,
+            )
+        )
 
     # Pick up criteria in the weight set but missing from ranking_rows.
     missing_ids = set(weights.keys()) - {r.criterion_id for r in usable_rows}
@@ -210,6 +232,7 @@ def compute_composite_for_site_smr(
         per_category_scores=per_category_scores,
         confidence=confidence,
         notes=notes,
+        components=components,
     )
 
 
@@ -252,16 +275,25 @@ def persist_composites(
     run_id: str,
     weight_profile: str = "baseline",
 ) -> int:
-    """Write / upsert composite rows; returns count written."""
+    """Write / upsert composite rows + component breakdown; returns row count."""
+    from atoms_vs_ashes.scoring._composite_components import (
+        persist_composite_components,
+    )
+
+    materialised = list(results)
     count = 0
-    for r in results:
+    for r in materialised:
         row = build_composite_row(r, run_id=run_id, weight_profile=weight_profile)
         session.merge(row)
         count += 1
+    components = persist_composite_components(
+        session, materialised, run_id=run_id, weight_profile=weight_profile,
+    )
     log.info(
         "composite_rankings_persisted",
         run_id=run_id,
         weight_profile=weight_profile,
         count=count,
+        components=components,
     )
     return count

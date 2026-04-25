@@ -33,6 +33,9 @@ import pandas as pd  # noqa: E402
 from sqlalchemy import select  # noqa: E402
 from sqlalchemy.orm import Session  # noqa: E402
 
+from atoms_vs_ashes.db.analytics_writers import (  # noqa: E402
+    persist_criterion_correlations,
+)
 from atoms_vs_ashes.db.engine import session_scope  # noqa: E402
 from atoms_vs_ashes.db.models import RankingScore  # noqa: E402
 from atoms_vs_ashes.logging import get_logger  # noqa: E402
@@ -151,6 +154,7 @@ def build_correlation_artefacts(
     threshold: float = DEFAULT_THRESHOLD,
     rubric_dir: Path = DEFAULT_RUBRIC_DIR,
     stamp: str | None = None,
+    run_id: str | None = None,
 ) -> CorrelationArtefacts:
     """Compute correlation, write CSV/PNGs/MD, return artefact paths."""
     stamp = stamp or datetime.now(UTC).strftime("%Y%m%d")
@@ -163,6 +167,11 @@ def build_correlation_artefacts(
     long_df = report.to_long_dataframe()
     if not long_df.empty:
         long_df.to_csv(pairs_csv, index=False)
+        persist_criterion_correlations(
+            session, run_id=run_id,
+            rows=long_df.to_dict(orient="records"),
+            threshold=threshold,
+        )
     else:
         pairs_csv.write_text("criterion_a,criterion_b,pearson,spearman,max_abs,n_pairs,flagged\n")
     pearson_png = _plot_heatmap(

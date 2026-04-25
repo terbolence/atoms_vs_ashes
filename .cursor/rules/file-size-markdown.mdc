@@ -16,6 +16,17 @@ Every Markdown file in this repo MUST be **≤ 500 lines**. This is a hard limit
 - Existing files over 500 lines are **not retroactively broken**, but any file the agent edits must be brought into compliance in the same change.
 - New files must be born compliant.
 
+## Exemptions (no 500-line limit)
+
+These paths are **excluded** from the Markdown line-count rule. They are expected to grow with the assembled final report and master table of contents; splitting them would hurt navigation and editorial flow.
+
+| Path | Reason |
+| --- | --- |
+| `report/output/tableOfContents.md` | Rolling master ToC for the final report; naturally long. |
+| `report/output/chapters/**` | Assembled report chapters (one file per chapter is allowed to exceed 500 lines as content accrues). |
+
+If a `chapters` tree is introduced elsewhere under `report/output/` with the same role, treat it the same way; the canonical location is **`report/output/chapters/`**.
+
 ## How to Split
 
 Long documents must live under a folder with **one file per major section** plus an `index.md` (or `00_index.md`) that provides the table of contents and links. The final report is assembled from these pieces in Phase 5.

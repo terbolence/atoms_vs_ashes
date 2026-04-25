@@ -218,6 +218,33 @@ silent change.
   traceability matrix with ``coverage: out_of_scope`` and a rationale,
   rather than being silently omitted.
 
+### A-REPORT-04 — Pre-`034` runs are CSV-only by design
+- **Domain:** persisted analytics tables introduced by Alembic
+  revision `034_persist_analytics` (`runs`, `dataset_snapshot`,
+  `composite_score_components`, `site_bands`,
+  `country_rankings_summary`, `country_site_rankings`,
+  `oat_importance`, `weight_profile_stability`,
+  `threshold_sensitivity`, `failure_outcomes`, `failure_aggregates`,
+  `swing_weights`, `criterion_correlations`,
+  `country_balance_check`).
+- **Statement:** the headline reference runs `20260423` and
+  `20260425` were generated **before** revision 034 was authored; for
+  those stamps the CSV trees under `audit/post_processing/06_scoring/`
+  and `report/output/sensitivity/<stamp>/` remain authoritative. The
+  new tables are populated from the **next** pipeline invocation
+  onward (forward-only); no historical backfill is performed.
+- **Rationale:** backfilling synthetic `run_id`s would either invent
+  provenance (defeating the purpose of `runs` / `dataset_snapshot`)
+  or require re-executing the pipeline with the original rubric and
+  data snapshot, which is out of scope for this revision.
+- **Impact-if-wrong:** none for ranking; the only consequence is
+  that `inspect_run --run-id <pre_034>` returns empty result sets
+  for the analytics queries. The CSVs cover the same axes.
+- **Mitigation:** the `inspect_run` CLI documents the forward-only
+  behaviour; `composite_rankings.run_id` keeps a non-validated FK to
+  `runs.run_id` so historical rows survive without breaking the
+  constraint.
+
 ---
 
 ## Change log
@@ -225,3 +252,4 @@ silent change.
 | Stamp     | Change                                                                  |
 | --------- | ----------------------------------------------------------------------- |
 | 2026-04-25 | Initial assumption register seeded after IAEA expert-review fixes.     |
+| 2026-04-25 | Added A-REPORT-04 (pre-034 runs are CSV-only by design).               |

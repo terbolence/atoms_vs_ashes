@@ -28,7 +28,9 @@ These artefacts are auto-generated and stay in sync with the rubric; cite them u
 | Artefact | Path | Generator |
 | --- | --- | --- |
 | Sensitivity method + reference run | [`report/methodology/sensitivity_analysis.md`](../methodology/sensitivity_analysis.md) | `scripts.run_phase_1_6_sensitivity` (numbers); manual narrative |
-| Failure-mode analysis (why sites failed scoring) | [`report/methodology/failure_analysis.md`](../methodology/failure_analysis.md) | `scripts.generate_failure_analysis` |
+| Failure-mode analysis (why sites failed scoring) — global pack | [`report/methodology/failure_analysis.md`](../methodology/failure_analysis.md) | `scripts.generate_failure_analysis` |
+| Failure-mode analysis — NuScale VOYGR-6 pack ★ featured | [`report/methodology/failure_analysis_nuscale_voygr6.md`](../methodology/failure_analysis_nuscale_voygr6.md) | `scripts.generate_failure_analysis --smr-nuscale` |
+| Failure-mode analysis — other 7 vendor packs | `report/methodology/failure_analysis_<smr_key>.md` (8 in total) | `scripts.generate_failure_analysis --smr-<vendor>` |
 | Exclusionary thresholds + safety-floor rules | [`report/methodology/exclusionary_floors.md`](../methodology/exclusionary_floors.md) | `scripts.generate_exclusionary_floors` |
 | Swing-weight audit (declared vs observed-range) | [`report/methodology/swing_weight_audit.md`](../methodology/swing_weight_audit.md) | `scripts.generate_swing_weight_audit` |
 | Criterion correlation flag list (|ρ| ≥ 0.7) | [`report/methodology/criterion_correlation.md`](../methodology/criterion_correlation.md) | `scripts._phase_1_6_figures_correlation` |

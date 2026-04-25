@@ -34,11 +34,9 @@ load_dotenv(_PROJECT_ROOT / ".env", override=False)
 
 from atoms_vs_ashes.config import Settings  # noqa: E402
 from atoms_vs_ashes.db.engine import init_engine, session_scope  # noqa: E402
+from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run  # noqa: E402
 from atoms_vs_ashes.logging import configure_logging, new_run_id  # noqa: E402
-from atoms_vs_ashes.scoring._suite_importance import (  # noqa: E402
-    OATRunResult,
-    run_oat_stage,
-)
+from atoms_vs_ashes.scoring._suite_importance import OATRunResult, run_oat_stage  # noqa: E402
 from atoms_vs_ashes.scoring.suite import (  # noqa: E402
     DEFAULT_AUDIT_DIR,
     DEFAULT_RUBRIC_DIR,
@@ -163,7 +161,9 @@ def _run_pipeline(
     return stages
 
 
-def _run_oat(args: argparse.Namespace, audit_dir: Path) -> OATRunResult | None:
+def _run_oat(
+    args: argparse.Namespace, audit_dir: Path, run_id: str
+) -> OATRunResult | None:
     if args.skip_oat:
         return None
     _print({"stage": "oat", "message": "running OAT importance (Phase A)"})
@@ -174,6 +174,7 @@ def _run_oat(args: argparse.Namespace, audit_dir: Path) -> OATRunResult | None:
             rubric_dir=args.rubric_dir,
             audit_dir=audit_dir,
             progress_enabled=not args.no_progress,
+            run_id=run_id,
         )
     _print(
         {
@@ -187,8 +188,22 @@ def _run_oat(args: argparse.Namespace, audit_dir: Path) -> OATRunResult | None:
     return result
 
 
+def _open_run(args: argparse.Namespace, run_id: str):
+    with session_scope() as run_session:
+        return start_run(
+            run_session,
+            run_kind="sensitivity",
+            cli_command=" ".join(sys.argv),
+            run_id=run_id,
+            dataset_meta=DatasetMeta(
+                rubric_file_path=args.rubric_dir,
+                weight_normalisation_profile=args.weight_profile_base,
+            ),
+        )
+
+
 def _run_extended(
-    args: argparse.Namespace, audit_dir: Path, stamp: str
+    args: argparse.Namespace, audit_dir: Path, stamp: str, run_id: str
 ) -> ExtendedStagesResult | None:
     if args.skip_banding:
         return None
@@ -201,12 +216,9 @@ def _run_extended(
     report_dir = Path(args.report_dir) / stamp
     with session_scope() as session:
         result = run_extended_stages(
-            session,
-            baseline_label=args.weight_profile_base,
-            audit_dir=audit_dir,
-            report_dir=report_dir,
-            stamp=stamp,
-            generate_figures=not args.no_figures,
+            session, baseline_label=args.weight_profile_base,
+            audit_dir=audit_dir, report_dir=report_dir, stamp=stamp,
+            generate_figures=not args.no_figures, run_id=run_id,
         )
     _print(
         {
@@ -240,40 +252,46 @@ def main() -> int:
     }
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+    handle = _open_run(args, run_id)
 
-    oat = _run_oat(args, audit_dir)
-    stages = _run_pipeline(args, run_id, common)
-    extended = _run_extended(args, audit_dir, stamp)
+    try:
+        oat = _run_oat(args, audit_dir, run_id)
+        stages = _run_pipeline(args, run_id, common)
+        extended = _run_extended(args, audit_dir, stamp, run_id)
+    except Exception as exc:
+        with session_scope() as fail_session:
+            complete_run(fail_session, handle, status="failed", notes=f"err={exc!r}")
+        raise
 
     with session_scope() as analytics_session:
         analytics = compute_analytics(
             analytics_session, baseline_label=args.weight_profile_base
         )
-    consolidated = write_consolidated_audit(
-        audit_dir,
-        run_id,
-        args.db_profile,
-        stages,
-        analytics,
-        importance_csv=oat.csv_path if oat else None,
-        bands_csv=extended.regional_bands_csv if extended else None,
-        nuscale_bands_csv=extended.nuscale_bands_csv if extended else None,
-        country_summary_csv=extended.country_summary_csv if extended else None,
-    )
-    _print(
-        {
-            "message": "phase_1_6_sensitivity_complete",
-            "run_id": run_id,
-            "stages": len(stages),
-            "consolidated_audit": str(consolidated),
-            "per_stage_audits": [str(s.audit_path) for s in stages],
-            "importance_csv": str(oat.csv_path) if oat else None,
-            "bands_csv": str(extended.regional_bands_csv) if extended else None,
-            "regional_report_md": str(extended.regional_report_md)
-            if extended
-            else None,
-        }
-    )
+        consolidated = write_consolidated_audit(
+            audit_dir,
+            run_id,
+            args.db_profile,
+            stages,
+            analytics,
+            importance_csv=oat.csv_path if oat else None,
+            bands_csv=extended.regional_bands_csv if extended else None,
+            nuscale_bands_csv=extended.nuscale_bands_csv if extended else None,
+            country_summary_csv=extended.country_summary_csv if extended else None,
+            db_session=analytics_session,
+        )
+        complete_run(analytics_session, handle, status="completed")
+    _print({
+        "message": "phase_1_6_sensitivity_complete",
+        "run_id": run_id,
+        "stages": len(stages),
+        "consolidated_audit": str(consolidated),
+        "per_stage_audits": [str(s.audit_path) for s in stages],
+        "importance_csv": str(oat.csv_path) if oat else None,
+        "bands_csv": str(extended.regional_bands_csv) if extended else None,
+        "regional_report_md": (
+            str(extended.regional_report_md) if extended else None
+        ),
+    })
     return 0
 
 

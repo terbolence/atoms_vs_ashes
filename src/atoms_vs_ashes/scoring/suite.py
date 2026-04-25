@@ -151,7 +151,9 @@ def run_sensitivity_suite(
     if cfg.include_country:
         ranked = _build_ranked_country_list(country_by_pair, baseline_rows)
         country_report = country_balance_test(ranked, top_n=cfg.top_n_country)
-        country_rows = persist_country_balanced(session, baseline_rows, run_id=run_id)
+        country_rows = persist_country_balanced(
+            session, baseline_rows, run_id=run_id, country_by_pair=country_by_pair,
+        )
     else:
         notes.append("country_skipped")
 
@@ -170,7 +172,8 @@ def run_sensitivity_suite(
                 progress_cb=reporter.advance,
             )
         threshold_rows = persist_threshold_results(
-            session, threshold_results, run_id=run_id
+            session, threshold_results, run_id=run_id,
+            baseline_rows=baseline_rows,
         )
 
     session.flush()

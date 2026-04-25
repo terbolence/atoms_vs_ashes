@@ -29,8 +29,13 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
+from atoms_vs_ashes.db.analytics_writers import persist_swing_weights
 from atoms_vs_ashes.db.engine import session_scope
-from atoms_vs_ashes.scoring._suite_persist import load_pairs
+from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run
+from atoms_vs_ashes.scoring._suite_persist import (
+    _resolve_baseline_run_id,  # type: ignore[attr-defined]
+    load_pairs,
+)
 from atoms_vs_ashes.scoring._swing_weights import (
     ObservedRange,
     observed_ranges,
@@ -222,15 +227,30 @@ def main(argv: list[str] | None = None) -> int:
     csv_path = args.audit_dir / f"{args.stamp}_swing_weight_audit.csv"
 
     with session_scope() as session:
+        parent_run_id = _resolve_baseline_run_id(
+            session, weight_profile_base=args.weight_profile_base
+        )
+        handle = start_run(
+            session,
+            run_kind="swing_audit",
+            cli_command="scripts.generate_swing_weight_audit",
+            parent_run_id=parent_run_id,
+            run_id=f"swing_{args.stamp}_{(parent_run_id or 'noref')[-8:]}",
+            dataset_meta=DatasetMeta(
+                rubric_file_path=str(args.rubric_dir),
+                weight_normalisation_profile=args.weight_profile_base,
+            ),
+        )
         rows_by_pair, _verdicts, _countries = load_pairs(
             session, weight_profile_base=args.weight_profile_base
         )
         flat = [r for rs in rows_by_pair.values() for r in rs]
         ranges = observed_ranges(flat)
         pair_count = len(rows_by_pair)
-    swing = swing_normalised_weights(declared, ranges)
-
-    rows = _build_rows(bundle, declared, swing, ranges)
+        swing = swing_normalised_weights(declared, ranges)
+        rows = _build_rows(bundle, declared, swing, ranges)
+        persist_swing_weights(session, run_id=handle.run_id, rows=rows)
+        complete_run(session, handle, status="completed")
     _write_csv(rows, csv_path)
     _write_markdown(
         rows,

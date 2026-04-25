@@ -37,6 +37,7 @@ load_dotenv(_PROJECT_ROOT / ".env", override=False)
 
 from atoms_vs_ashes.config import Settings  # noqa: E402
 from atoms_vs_ashes.db.engine import init_engine, session_scope  # noqa: E402
+from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run  # noqa: E402
 from atoms_vs_ashes.logging import configure_logging, new_run_id  # noqa: E402
 from scripts._phase_1_6_extended_stages import (  # noqa: E402
     ExtendedStagesResult,
@@ -104,14 +105,30 @@ def _run(args: argparse.Namespace) -> ExtendedStagesResult:
     report_dir = Path(args.report_dir) / stamp
 
     with session_scope() as session:
-        return run_extended_stages(
+        handle = start_run(
             session,
-            baseline_label=args.baseline_label,
-            audit_dir=audit_dir,
-            report_dir=report_dir,
-            stamp=stamp,
-            generate_figures=not args.no_figures,
+            run_kind="extended_analysis",
+            cli_command=" ".join(sys.argv),
+            run_id=run_id,
+            dataset_meta=DatasetMeta(
+                weight_normalisation_profile=args.baseline_label,
+            ),
         )
+        try:
+            result = run_extended_stages(
+                session,
+                baseline_label=args.baseline_label,
+                audit_dir=audit_dir,
+                report_dir=report_dir,
+                stamp=stamp,
+                generate_figures=not args.no_figures,
+                run_id=run_id,
+            )
+        except Exception as exc:
+            complete_run(session, handle, status="failed", notes=f"err={exc!r}")
+            raise
+        complete_run(session, handle, status="completed")
+        return result
 
 
 def _summary(result: ExtendedStagesResult) -> dict[str, object]:

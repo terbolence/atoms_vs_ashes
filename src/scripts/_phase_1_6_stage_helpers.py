@@ -13,9 +13,11 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.db.analytics_writers import persist_site_bands
 from atoms_vs_ashes.scoring._country_summary import CountrySummaryRow
 from atoms_vs_ashes.scoring._suite_banding import (
     BandingRunResult,
+    compute_bands,
     run_banding_stage,
 )
 from scripts._phase_1_6_country_report import write_country_report
@@ -62,6 +64,29 @@ def attach_band_counts(
     return out
 
 
+def _persist_bands_for_scope(
+    session: Session,
+    *,
+    run_id: str | None,
+    baseline_label: str,
+    smr_filter: str | None,
+    country_filter: str | None,
+) -> None:
+    """Re-run :func:`compute_bands` for the scope and persist the result."""
+    if not run_id:
+        return
+    bands, _scenarios = compute_bands(
+        session,
+        baseline_label=baseline_label,
+        smr_filter=smr_filter,
+        country_filter=country_filter,
+    )
+    persist_site_bands(
+        session, run_id=run_id, bands=bands,
+        smr_filter=smr_filter, country_filter=country_filter,
+    )
+
+
 def compute_regional_bands(
     session: Session,
     *,
@@ -70,19 +95,23 @@ def compute_regional_bands(
     nuscale_key: str,
     smr_keys: tuple[str, ...],
     stamp: str | None = None,
+    run_id: str | None = None,
 ) -> tuple[BandingRunResult, BandingRunResult, dict[str, BandingRunResult]]:
     regional = run_banding_stage(
-        session,
-        audit_dir=audit_dir,
-        baseline_label=baseline_label,
-        stamp=stamp,
+        session, audit_dir=audit_dir,
+        baseline_label=baseline_label, stamp=stamp,
+    )
+    _persist_bands_for_scope(
+        session, run_id=run_id, baseline_label=baseline_label,
+        smr_filter=None, country_filter=None,
     )
     nuscale = run_banding_stage(
-        session,
-        audit_dir=audit_dir,
-        baseline_label=baseline_label,
-        smr_filter=nuscale_key,
-        stamp=stamp,
+        session, audit_dir=audit_dir, baseline_label=baseline_label,
+        smr_filter=nuscale_key, stamp=stamp,
+    )
+    _persist_bands_for_scope(
+        session, run_id=run_id, baseline_label=baseline_label,
+        smr_filter=nuscale_key, country_filter=None,
     )
     per_smr: dict[str, BandingRunResult] = {}
     for smr_key in smr_keys:
@@ -90,11 +119,12 @@ def compute_regional_bands(
             per_smr[smr_key] = nuscale
             continue
         per_smr[smr_key] = run_banding_stage(
-            session,
-            audit_dir=audit_dir,
-            baseline_label=baseline_label,
-            smr_filter=smr_key,
-            stamp=stamp,
+            session, audit_dir=audit_dir, baseline_label=baseline_label,
+            smr_filter=smr_key, stamp=stamp,
+        )
+        _persist_bands_for_scope(
+            session, run_id=run_id, baseline_label=baseline_label,
+            smr_filter=smr_key, country_filter=None,
         )
     return regional, nuscale, per_smr
 
@@ -107,19 +137,21 @@ def compute_country_bands(
     countries: list[str],
     smr_filter: str | None,
     stamp: str | None = None,
+    run_id: str | None = None,
 ) -> dict[str, Path]:
     out: dict[str, Path] = {}
     for code in countries:
         result = run_banding_stage(
-            session,
-            audit_dir=audit_dir,
+            session, audit_dir=audit_dir,
             baseline_label=baseline_label,
-            smr_filter=smr_filter,
-            country_filter=code,
-            stamp=stamp,
+            smr_filter=smr_filter, country_filter=code, stamp=stamp,
         )
         if result.sites_total > 0:
             out[code] = result.csv_path
+            _persist_bands_for_scope(
+                session, run_id=run_id, baseline_label=baseline_label,
+                smr_filter=smr_filter, country_filter=code,
+            )
             continue
         try:
             result.csv_path.unlink()

@@ -33,6 +33,7 @@ from atoms_vs_ashes.db.models import (
     Site,
     SmrDesign,
 )
+from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run
 from atoms_vs_ashes.logging import get_logger, new_run_id
 from atoms_vs_ashes.scoring._codes import check_rubric_coverage
 from atoms_vs_ashes.scoring._ranking_row import make_ranking_row
@@ -186,13 +187,10 @@ class ScoringEngine:
             return summary
 
         self._check_code_coverage(summary)
-
+        run_handle = self._open_run(run_id, sites, smrs)
         log.info(
-            "scoring_run_start",
-            run_id=run_id,
-            sites=len(sites),
-            smrs=len(smrs),
-            criteria=len(self.bundle),
+            "scoring_run_start", run_id=run_id, sites=len(sites),
+            smrs=len(smrs), criteria=len(self.bundle),
             weight_profile=self.weight_profile,
         )
 
@@ -204,14 +202,9 @@ class ScoringEngine:
             for smr in smrs:
                 pair = (site.site_id, smr.smr_key)
                 for cid, criterion in self.bundle.items():
-                    ctx = site_ctxs[cid]
-                    result = site_values.get(cid)
                     verdicts, row = self._process_criterion(
-                        site=site,
-                        smr=smr,
-                        criterion=criterion,
-                        ctx=ctx,
-                        result=result,
+                        site=site, smr=smr, criterion=criterion,
+                        ctx=site_ctxs[cid], result=site_values.get(cid),
                         run_id=run_id,
                     )
                     verdicts_by_pair[pair].extend(verdicts)
@@ -222,32 +215,38 @@ class ScoringEngine:
 
         for pair, rows in rows_by_pair.items():
             composite = compute_composite_for_site_smr(
-                site_id=pair[0],
-                smr_key=pair[1],
-                ranking_rows=rows,
+                site_id=pair[0], smr_key=pair[1], ranking_rows=rows,
                 verdicts=verdicts_by_pair.get(pair, []),
-                weights=self.weights,
-                criteria=self.bundle,
+                weights=self.weights, criteria=self.bundle,
             )
-            self.session.merge(
-                build_composite_row(
-                    composite, run_id=run_id, weight_profile=self.weight_profile
-                )
-            )
+            self.session.merge(build_composite_row(
+                composite, run_id=run_id, weight_profile=self.weight_profile,
+            ))
             summary.composite_rows += 1
             if not composite.passed_exclusionary:
                 summary.excluded_pairs += 1
 
         self._write_audit(summary)
+        complete_run(self.session, run_handle, status="completed")
         log.info(
-            "scoring_run_complete",
-            run_id=run_id,
-            ranking_rows=summary.ranking_rows,
-            verdict_rows=summary.verdict_rows,
-            composite_rows=summary.composite_rows,
-            excluded=summary.excluded_pairs,
+            "scoring_run_complete", run_id=run_id,
+            ranking_rows=summary.ranking_rows, verdict_rows=summary.verdict_rows,
+            composite_rows=summary.composite_rows, excluded=summary.excluded_pairs,
         )
         return summary
+
+    def _open_run(self, run_id: str, sites, smrs):
+        return start_run(
+            self.session, run_kind="scoring", run_id=run_id,
+            dataset_meta=DatasetMeta(
+                rubric_file_path=self.rubric_dir,
+                n_sites_total=len(sites), n_smrs=len(smrs),
+                n_criteria_ranking=sum(
+                    1 for c in self.bundle.values() if c.is_ranking
+                ),
+                weight_normalisation_profile=self.weight_profile,
+            ),
+        )
 
     def _check_code_coverage(self, summary: ScoringSummary) -> None:
         """Warn if the loaded rubric drifts from the E1-E9 / A1-A15 catalog."""

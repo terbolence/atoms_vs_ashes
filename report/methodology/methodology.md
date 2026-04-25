@@ -202,6 +202,35 @@ All 363 sites were enriched with `quality = medium`. This is correct: the monthl
 
 ---
 
+## 2.99 Persisted analytics tables (Alembic 034)
+
+From Alembic revision `034_persist_analytics` onward, every numeric artefact emitted by the scoring/sensitivity pipeline is persisted to PostgreSQL alongside its CSV/Markdown counterpart. The DB is the regulator-grade audit surface; CSVs are kept as a frozen snapshot for the historical `20260423` / `20260425` runs and as a portable hand-off format.
+
+Each row carries a `run_id String(60)` foreign key into the new `runs` table, which in turn captures `run_kind` (`scoring` | `sensitivity` | `failure_analysis` | `correlation` | `swing_audit`), `started_at` / `completed_at`, the originating CLI command, the git SHA, and an optional `parent_run_id` so a failure-analysis run can be traced back to the scoring run it analyses. A sibling `dataset_snapshot` row pins the rubric file path + SHA-256 and the criterion / SMR / site counts that the run used.
+
+| Table | Producer | Granularity |
+| --- | --- | --- |
+| `runs`, `dataset_snapshot` | `src/atoms_vs_ashes/db/runs.py` (`start_run` / `complete_run`) | one row per pipeline invocation |
+| `composite_score_components` | `scoring/composite.py` + `_composite_components.py` | per `(run_id, site_id, smr_key, weight_profile, criterion_id)` |
+| `site_bands` | `scoring/_suite_banding.py` | per `(run_id, site_id, smr_key, scope_country_code?)` (NULL ⇒ regional pool) |
+| `country_rankings_summary` | `scoring/_country_summary.py` | per `(run_id, country_code, smr_key)` |
+| `country_site_rankings` | `scripts/_phase_1_6_country_site_rankings.py` | per `(run_id, country_code, smr_key, site_id)` with national + regional rank, band, acceptability flag |
+| `oat_importance` | `scoring/_suite_importance.py` | per `(run_id, criterion_id)` |
+| `weight_profile_stability` | `scripts/_phase_1_6_audit.py` + `_phase_1_6_stability_db.py` | per `(run_id, weight_profile)` |
+| `threshold_sensitivity` | `scoring/_threshold_rollup.py` | per `(run_id, criterion_id, direction)` (direction enum `plus_25` / `minus_25`) |
+| `failure_outcomes`, `failure_aggregates` | `scripts/_phase_1_6_failure_db.py` | per `(run_id, site_id, smr_key)` and per `(run_id, axis, key, scope_smr_key?)` |
+| `swing_weights` | `scripts/generate_swing_weight_audit.py` | per `(run_id, criterion_id)` |
+| `criterion_correlations` | `scripts/_phase_1_6_figures_correlation.py` | per `(run_id, criterion_a, criterion_b)` with `a < b` |
+| `country_balance_check` | `scoring/_suite_persist.py::persist_country_balanced` | per `(run_id, country_code)` |
+
+All writers are idempotent on `(run_id, scope_*)` — re-running a `run_id` wipes the previous slice before re-inserting, so partial failures never leave the table half-populated.
+
+Existing tables `composite_rankings`, `ranking_scores`, and `screening_verdicts` were extended in revision 034 with a `NOT VALID` foreign key onto `runs.run_id`. Pre-034 rows pre-date `runs` and remain valid (they are never `VALIDATE`d); post-034 rows must `INSERT` into `runs` first. Forward-only by design: the `20260423` / `20260425` CSV trees stay authoritative for those snapshots, and only subsequent pipeline runs populate the new tables.
+
+Querying is done via `src/atoms_vs_ashes/db/queries.py` (`top_n_per_country`, `site_criterion_scores`, `site_sensitivity_profile`, `failure_explanation`, `threshold_summary`) or the `python -m scripts.inspect_run` CLI documented in the project README.
+
+---
+
 ## 3. Method A vs. Method B Reliability Assessment
 
 *(Original analysis — 2026-03-10)*

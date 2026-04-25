@@ -20,6 +20,7 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.db.analytics_writers import persist_oat_importance
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.scoring._progress import ProgressReporter
 from atoms_vs_ashes.scoring._suite_persist import load_pairs
@@ -54,6 +55,27 @@ class OATRunResult:
     top_criterion: str | None
     top_importance: float
     csv_path: Path
+
+
+class _ImportanceRow:
+    """Adapter exposing the field names :func:`persist_oat_importance` expects."""
+
+    __slots__ = (
+        "criterion_id", "family", "criterion_name",
+        "mean_abs_rank_change", "importance_score", "pairs_compared",
+    )
+
+    def __init__(
+        self, imp: OATImportance, criteria: dict[str, Criterion]
+    ) -> None:
+        self.criterion_id = imp.criterion_id
+        self.family = imp.family
+        self.criterion_name = (
+            criteria[imp.criterion_id].name if imp.criterion_id in criteria else ""
+        )
+        self.mean_abs_rank_change = imp.mean_abs_rank_change
+        self.importance_score = imp.importance_score
+        self.pairs_compared = imp.pairs_compared
 
 
 def _ordered_rows(
@@ -101,6 +123,7 @@ def run_oat_stage(
     rubric_dir: str,
     audit_dir: Path,
     progress_enabled: bool = True,
+    run_id: str | None = None,
 ) -> OATRunResult:
     """Execute the OAT importance stage end-to-end and write the CSV."""
     bundle = load_rubric_bundle(rubric_dir)
@@ -125,6 +148,10 @@ def run_oat_stage(
 
     csv_path = write_importance_csv(audit_dir, importances, bundle)
     top = next(iter(_ordered_rows(importances, bundle)), None)
+    persist_oat_importance(
+        session, run_id=run_id,
+        rows=[_ImportanceRow(imp, bundle) for imp in importances.values()],
+    )
 
     log.info(
         "oat_stage_complete",

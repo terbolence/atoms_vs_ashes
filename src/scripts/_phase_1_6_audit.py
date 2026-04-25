@@ -13,15 +13,13 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from scripts._phase_1_6_analytics import (
-    PhaseAnalytics,
-    ProfileStats,
-)
+from sqlalchemy.orm import Session
+
+from scripts._phase_1_6_analytics import PhaseAnalytics, ProfileStats
 from scripts._phase_1_6_audit_tables import (
-    append_banding_table,
-    append_country_summary_table,
-    append_importance_table,
+    append_banding_table, append_country_summary_table, append_importance_table,
 )
+from scripts._phase_1_6_stability_db import persist_stability
 from atoms_vs_ashes.scoring.suite import SensitivitySuiteResult
 
 
@@ -36,6 +34,7 @@ def write_consolidated_audit(
     bands_csv: Path | None = None,
     nuscale_bands_csv: Path | None = None,
     country_summary_csv: Path | None = None,
+    db_session: Session | None = None,
 ) -> Path:
     """Write ``<audit_dir>/<YYYYMMDD>_phase1_6_sensitivity.md``.
 
@@ -89,6 +88,7 @@ def write_consolidated_audit(
     _append_json_block(lines, stages)
 
     path.write_text("\n".join(lines), encoding="utf-8")
+    persist_stability(db_session, run_id, analytics)
     return path
 
 

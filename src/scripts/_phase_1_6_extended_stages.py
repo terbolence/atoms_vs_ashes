@@ -14,10 +14,14 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.db.analytics_writers import persist_country_summary
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.scoring._country_summary import (
     compute_country_summary,
     write_country_summary_csv,
+)
+from scripts._phase_1_6_country_site_rankings import (
+    persist_country_site_rankings_from_db,
 )
 from scripts._phase_1_6_figures_correlation import (
     CorrelationArtefacts,
@@ -72,15 +76,12 @@ def run_extended_stages(
     report_dir: Path,
     stamp: str,
     generate_figures: bool = True,
+    run_id: str | None = None,
 ) -> ExtendedStagesResult:
     """Run the full extended banding + country analysis pipeline."""
     regional, nuscale, per_smr = compute_regional_bands(
-        session,
-        baseline_label=baseline_label,
-        audit_dir=audit_dir,
-        nuscale_key=NUSCALE_KEY,
-        smr_keys=SMR_KEYS,
-        stamp=stamp,
+        session, baseline_label=baseline_label, audit_dir=audit_dir,
+        nuscale_key=NUSCALE_KEY, smr_keys=SMR_KEYS, stamp=stamp, run_id=run_id,
     )
     countries = countries_from_csv(regional.csv_path)
     log.info(
@@ -90,62 +91,60 @@ def run_extended_stages(
     )
 
     per_country_bands = compute_country_bands(
-        session,
-        baseline_label=baseline_label,
-        audit_dir=audit_dir,
-        countries=countries,
-        smr_filter=None,
-        stamp=stamp,
+        session, baseline_label=baseline_label, audit_dir=audit_dir,
+        countries=countries, smr_filter=None, stamp=stamp, run_id=run_id,
     )
     per_country_ns_bands = compute_country_bands(
-        session,
-        baseline_label=baseline_label,
-        audit_dir=audit_dir,
-        countries=countries,
-        smr_filter=NUSCALE_KEY,
-        stamp=stamp,
+        session, baseline_label=baseline_label, audit_dir=audit_dir,
+        countries=countries, smr_filter=NUSCALE_KEY, stamp=stamp, run_id=run_id,
     )
 
     summary_rows = compute_country_summary(
         session, baseline_label=baseline_label
     )
     country_summary_csv = write_country_summary_csv(
-        audit_dir,
-        summary_rows,
+        audit_dir, summary_rows,
         extra_columns=attach_band_counts(summary_rows, per_country_bands),
         stamp=stamp,
+    )
+    persist_country_summary(
+        session, run_id=run_id, rows=summary_rows, smr_filter=None,
     )
 
     summary_rows_ns = compute_country_summary(
         session, baseline_label=baseline_label, smr_filter=NUSCALE_KEY
     )
     country_summary_ns_csv = write_country_summary_csv(
-        audit_dir,
-        summary_rows_ns,
-        smr_filter=NUSCALE_KEY,
+        audit_dir, summary_rows_ns, smr_filter=NUSCALE_KEY,
         extra_columns=attach_band_counts(summary_rows_ns, per_country_ns_bands),
         stamp=stamp,
     )
+    persist_country_summary(
+        session, run_id=run_id, rows=summary_rows_ns, smr_filter=NUSCALE_KEY,
+    )
+
+    if run_id is not None:
+        per_smr_bands_paths = {k: v.csv_path for k, v in per_smr.items()}
+        persist_country_site_rankings_from_db(
+            session, run_id=run_id, baseline_label=baseline_label,
+            per_smr_bands=per_smr_bands_paths,
+        )
 
     figures: dict[str, Path] = {}
     per_country_figures: dict[str, Path] = {}
     correlation: CorrelationArtefacts | None = None
     if generate_figures:
         figures = make_regional_figures(
-            regional.csv_path,
-            nuscale.csv_path,
-            report_dir / "figures",
+            regional.csv_path, nuscale.csv_path, report_dir / "figures",
         )
         per_country_figures = make_country_figures(
             per_country_bands, report_dir / "national" / "figures"
         )
         correlation = build_correlation_artefacts(
-            session,
-            audit_dir=audit_dir,
+            session, audit_dir=audit_dir,
             figures_dir=report_dir / "figures" / "correlation",
             flagged_md_path=report_dir / "criterion_correlation.md",
-            baseline_label=baseline_label,
-            stamp=stamp,
+            baseline_label=baseline_label, stamp=stamp, run_id=run_id,
         )
 
     regional_report = write_regional_report(

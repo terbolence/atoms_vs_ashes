@@ -218,8 +218,20 @@ def aggregate_failures(
     *,
     country_by_site: Mapping[uuid.UUID, str],
     criterion_names: Mapping[str, str],
+    smr_filter: str | None = None,
 ) -> FailureBreakdown:
-    """Build a :class:`FailureBreakdown` from pre-loaded verdicts."""
+    """Build a :class:`FailureBreakdown` from pre-loaded verdicts.
+
+    When ``smr_filter`` is set, only pairs whose ``smr_key`` matches
+    are aggregated. The resulting bundle is identical in shape to the
+    global one and can be passed to the same CSV / figure / methodology
+    renderers; this is the entry point used by the per-SMR pack loop.
+    """
+    if smr_filter is not None:
+        verdicts_by_pair = {
+            pair: rows for pair, rows in verdicts_by_pair.items()
+            if pair[1] == smr_filter
+        }
     pair_failures = _collect_pair_failures(verdicts_by_pair)
     outcomes: list[PairOutcome] = []
     for pair, (hard, floor) in pair_failures.items():

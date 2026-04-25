@@ -1,1 +1,13 @@
-# man_hours: 0.1
+# man_hours: 0.2
+"""Database package.
+
+Importing this package side-effect-registers the ORM models declared in
+``models_analytics`` and ``models_analytics_part2`` on the same
+``Base.metadata`` exposed by ``models``. Alembic's autogenerate and
+``Base.metadata.create_all`` therefore see the full schema without the
+calling code having to import the analytics modules explicitly.
+"""
+
+from atoms_vs_ashes.db import models  # noqa: F401
+from atoms_vs_ashes.db import models_analytics  # noqa: F401
+from atoms_vs_ashes.db import models_analytics_part2  # noqa: F401
