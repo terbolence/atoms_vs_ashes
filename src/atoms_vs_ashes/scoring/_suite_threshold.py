@@ -26,7 +26,7 @@ weight-sensitivity persistence pattern.
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
-from typing import Iterable
+from typing import TYPE_CHECKING, Iterable
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
@@ -41,6 +41,9 @@ from atoms_vs_ashes.scoring.exclusionary import evaluate_exclusionary_for_site
 from atoms_vs_ashes.scoring.merge_resolver import build_context_for_site
 from atoms_vs_ashes.scoring.rubric import Criterion
 from atoms_vs_ashes.scoring.sensitivity import scale_numeric_context
+
+if TYPE_CHECKING:  # pragma: no cover - import cycle guard
+    from atoms_vs_ashes.runtime import RunScope
 
 log = get_logger(__name__)
 
@@ -59,7 +62,7 @@ class ThresholdSensitivityResult:
     composites: list[CompositeResult]
 
 
-def _load_sites(session: Session) -> list[Site]:
+def _load_sites(session: Session, scope: "RunScope | None" = None) -> list[Site]:
     stmt = (
         select(Site)
         .options(
@@ -71,11 +74,18 @@ def _load_sites(session: Session) -> list[Site]:
         )
         .order_by(Site.country_code, Site.name)
     )
+    if scope is not None:
+        stmt = scope.apply_to_sites(stmt)
     return list(session.execute(stmt).scalars().all())
 
 
-def _load_smr_designs(session: Session) -> list[SmrDesign]:
-    return list(session.execute(select(SmrDesign)).scalars().all())
+def _load_smr_designs(
+    session: Session, scope: "RunScope | None" = None
+) -> list[SmrDesign]:
+    stmt = select(SmrDesign)
+    if scope is not None:
+        stmt = scope.apply_to_smrs(stmt)
+    return list(session.execute(stmt).scalars().all())
 
 
 def _evaluate_pair(
@@ -168,10 +178,11 @@ def run_threshold_direction(
     factor: float,
     run_id: str,
     progress_cb=None,
+    scope: "RunScope | None" = None,
 ) -> ThresholdSensitivityResult:
     """Run one direction (e.g. ``threshold_plus_25``) across every pair."""
-    sites = _load_sites(session)
-    smrs = _load_smr_designs(session)
+    sites = _load_sites(session, scope=scope)
+    smrs = _load_smr_designs(session, scope=scope)
     composites: list[CompositeResult] = []
     for site in sites:
         site_ctxs, site_values = _precompute_site_scaled(
@@ -210,6 +221,7 @@ def run_threshold_sensitivity(
     run_id: str,
     directions: Iterable[tuple[str, float]] | None = None,
     progress_cb=None,
+    scope: "RunScope | None" = None,
 ) -> dict[str, ThresholdSensitivityResult]:
     """Run ±25 % threshold sensitivity for every configured direction."""
     directions = directions or list(THRESHOLD_DIRECTIONS.items())
@@ -223,6 +235,7 @@ def run_threshold_sensitivity(
             factor=factor,
             run_id=run_id,
             progress_cb=progress_cb,
+            scope=scope,
         )
     log.info(
         "threshold_sensitivity_complete",

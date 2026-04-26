@@ -1,0 +1,147 @@
+# Radiological impact (RI) scoring rubric. Source: report/sites_evaluation/05_criteria_radiological.md.
+# Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
+family: ri
+pass_mark_default: 5.0
+criteria:
+  - criterion_id: RI-01
+    name: Atmospheric dispersion (wind, stability, BLH)
+    phases: [ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    db_fields: {api: [site_radiological.wind_rose_json, site_radiological.pg_class_f_fraction, site_radiological.pg_class_e_fraction, site_radiological.mean_mixing_height_m], llm: ri01_dispersion_text}
+    aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
+    sub_scores:
+      - key: wind_rose_favourability
+        weight: 0.40
+        primary_metric: wind_city_offset_deg
+        bands:
+          - {score_range: [9, 10], condition_expr: "wind_city_offset_deg >= 135", descriptor: "Offset >= 135 deg."}
+          - {score_range: [7, 8], condition_expr: "wind_city_offset_deg >= 90", descriptor: "90-135 deg."}
+          - {score_range: [5, 6], condition_expr: "wind_city_offset_deg >= 45", descriptor: "45-90 deg."}
+          - {score_range: [3, 4], condition_expr: "wind_city_offset_deg >= 22", descriptor: "22-45 deg."}
+          - {score_range: [1, 2], condition_expr: "wind_city_offset_deg < 22", descriptor: "< 22 deg."}
+      - key: stable_atmosphere_pct
+        weight: 0.35
+        primary_metric: pg_fe_fraction
+        bands:
+          - {score_range: [9, 10], condition_expr: "pg_fe_fraction < 10", descriptor: "< 10 % F+E hours."}
+          - {score_range: [7, 8], condition_expr: "pg_fe_fraction < 20", descriptor: "10-20 %."}
+          - {score_range: [5, 6], condition_expr: "pg_fe_fraction < 30", descriptor: "20-30 %."}
+          - {score_range: [3, 4], condition_expr: "pg_fe_fraction < 40", descriptor: "30-40 %."}
+          - {score_range: [1, 2], condition_expr: "pg_fe_fraction >= 40", descriptor: "> 40 %."}
+      - key: mean_mixing_height
+        weight: 0.25
+        primary_metric: mean_mixing_height_m
+        bands:
+          - {score_range: [9, 10], condition_expr: "mean_mixing_height_m > 800", descriptor: "> 800 m."}
+          - {score_range: [7, 8], condition_expr: "mean_mixing_height_m >= 600", descriptor: "600-800 m."}
+          - {score_range: [5, 6], condition_expr: "mean_mixing_height_m >= 400", descriptor: "400-600 m."}
+          - {score_range: [3, 4], condition_expr: "mean_mixing_height_m >= 200", descriptor: "200-400 m."}
+          - {score_range: [1, 2], condition_expr: "mean_mixing_height_m < 200", descriptor: "< 200 m."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: RI-02
+    name: Surface water dispersion
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: cooling_flow_m3s
+    db_fields: {api: [site_infrastructure_v2.cooling_flow_m3s], llm: ri02_surface_water_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "cooling_flow_m3s > 500", descriptor: "> 500 m3/s."}
+      - {score_range: [7, 8], condition_expr: "cooling_flow_m3s >= 100", descriptor: "100-500 m3/s."}
+      - {score_range: [5, 6], condition_expr: "cooling_flow_m3s >= 30", descriptor: "30-100 m3/s."}
+      - {score_range: [3, 4], condition_expr: "cooling_flow_m3s >= 10", descriptor: "10-30 m3/s."}
+      - {score_range: [1, 2], condition_expr: "cooling_flow_m3s < 10", descriptor: "< 10 m3/s."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: RI-03
+    name: Groundwater dispersion
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: groundwater_vulnerability_class
+    db_fields: {api: [site_radiological.aquifer_type, site_radiological.groundwater_vulnerability_class], llm: ri03_groundwater_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "aquifer_type == 'confined' or no_aquifer_in_5km == true", descriptor: "Confined aquifer with strong retardation OR no major aquifer in 5 km."}
+      - {score_range: [7, 8], condition_expr: "groundwater_vulnerability_class == 'low' and sensitive_wells_10km == 0", descriptor: "Low-vulnerability unconfined; no proximate sensitive wells."}
+      - {score_range: [5, 6], condition_expr: "groundwater_vulnerability_class == 'moderate'", descriptor: "Moderate vulnerability; standard monitoring sufficient."}
+      - {score_range: [3, 4], condition_expr: "groundwater_vulnerability_class == 'high'", descriptor: "High vulnerability; sensitive wells within 10 km; dedicated GW programme."}
+      - {score_range: [1, 2], condition_expr: "aquifer_type == 'karst' or groundwater_vulnerability_class == 'very_high'", descriptor: "Karst / highly conductive with sensitive downstream uses proximate."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: RI-04
+    name: Population density (EPZ rings)
+    phases: [avoidance, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    db_fields: {api: [site_radiological.pop_density_5km, site_radiological.pop_density_16km, site_radiological.pop_density_25km, site_radiological.pop_density_80km], llm: ri04_population_text}
+    aggregation: {method: min_of_sub_scores}
+    sub_scores:
+      - key: ring_5km
+        primary_metric: pop_density_5km
+        bands:
+          - {score_range: [9, 10], condition_expr: "pop_density_5km < 25", descriptor: "< 25 /km2."}
+          - {score_range: [7, 8], condition_expr: "pop_density_5km < 100", descriptor: "25-100."}
+          - {score_range: [5, 6], condition_expr: "pop_density_5km < 250", descriptor: "100-250."}
+          - {score_range: [3, 4], condition_expr: "pop_density_5km < 500", descriptor: "250-500."}
+          - {score_range: [1, 2], condition_expr: "pop_density_5km >= 500", descriptor: "> 500."}
+      - key: ring_16km
+        primary_metric: pop_density_16km
+        bands:
+          - {score_range: [9, 10], condition_expr: "pop_density_16km < 50", descriptor: "< 50 /km2."}
+          - {score_range: [7, 8], condition_expr: "pop_density_16km < 150", descriptor: "50-150."}
+          - {score_range: [5, 6], condition_expr: "pop_density_16km < 300", descriptor: "150-300."}
+          - {score_range: [3, 4], condition_expr: "pop_density_16km < 600", descriptor: "300-600."}
+          - {score_range: [1, 2], condition_expr: "pop_density_16km >= 600", descriptor: "> 600."}
+      - key: ring_25km
+        primary_metric: pop_density_25km
+        bands:
+          - {score_range: [9, 10], condition_expr: "pop_density_25km < 50", descriptor: "< 50 /km2."}
+          - {score_range: [7, 8], condition_expr: "pop_density_25km < 150", descriptor: "50-150."}
+          - {score_range: [5, 6], condition_expr: "pop_density_25km < 300", descriptor: "150-300."}
+          - {score_range: [3, 4], condition_expr: "pop_density_25km < 600", descriptor: "300-600."}
+          - {score_range: [1, 2], condition_expr: "pop_density_25km >= 600", descriptor: "> 600."}
+      - key: ring_80km
+        primary_metric: pop_density_80km
+        bands:
+          - {score_range: [9, 10], condition_expr: "pop_density_80km < 25", descriptor: "< 25 /km2."}
+          - {score_range: [7, 8], condition_expr: "pop_density_80km < 75", descriptor: "25-75."}
+          - {score_range: [5, 6], condition_expr: "pop_density_80km < 150", descriptor: "75-150."}
+          - {score_range: [3, 4], condition_expr: "pop_density_80km < 300", descriptor: "150-300."}
+          - {score_range: [1, 2], condition_expr: "pop_density_80km >= 300", descriptor: "> 300."}
+    fail_conditions:
+      - {code: A12, action: avoidance_penalty, condition_expr: "pop_density_5km > 500 or pop_density_16km > 600 or pop_density_25km > 600 or pop_density_80km > 300", descriptor: "Project A12: population thresholds per RI-04/RI-05."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: RI-05
+    name: Distance to large population centres (>50 k)
+    phases: [avoidance, ranking]
+    weight_factor: 10
+    normalised_weight_pct: 3.5
+    primary_metric: composite
+    db_fields: {api: [site_radiological.nearest_city_pop_25k_km, site_radiological.nearest_city_pop_100k_km, site_radiological.nearest_city_pop_500k_km, site_radiological.nearest_city_pop_1M_km], llm: ri05_population_centres_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_city_pop_25k_km >= 12 and nearest_city_pop_100k_km >= 24 and nearest_city_pop_500k_km >= 48 and nearest_city_pop_1M_km >= 72", descriptor: "All thresholds exceeded by >= 50 % margin."}
+      - {score_range: [7, 8], condition_expr: "nearest_city_pop_25k_km >= 10 and nearest_city_pop_100k_km >= 20 and nearest_city_pop_500k_km >= 40 and nearest_city_pop_1M_km >= 60", descriptor: "All thresholds met with 25-50 % margin."}
+      - {score_range: [5, 6], condition_expr: "nearest_city_pop_25k_km >= 8 and nearest_city_pop_100k_km >= 16 and nearest_city_pop_500k_km >= 32 and nearest_city_pop_1M_km >= 48", descriptor: "All project thresholds met (pass mark)."}
+      - {score_range: [3, 4], condition_expr: "project_threshold_violations == 1 and max_violation_pct <= 25", descriptor: "One threshold violated by <= 25 %."}
+      - {score_range: [1, 2], condition_expr: "project_threshold_violations >= 2", descriptor: "Multiple thresholds violated."}
+      - {score_range: [0, 0], condition_expr: "nearest_city_pop_1M_km < 5", descriptor: "Site embedded in a > 1 M city (no remedy)."}
+    fail_conditions:
+      - {code: A12, action: avoidance_penalty, condition_expr: "nearest_city_pop_25k_km < 8 or nearest_city_pop_100k_km < 16 or nearest_city_pop_500k_km < 32 or nearest_city_pop_1M_km < 48", descriptor: "Project thresholds: 25k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: RI-06
+    name: Population projections (60-yr design life)
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: pop_growth_rate_pct
+    db_fields: {api: [site_radiological.pop_growth_rate_pct, site_radiological.projected_pop_25km_60yr], llm: ri06_pop_projections_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "pop_growth_rate_pct < -0.5", descriptor: "Declining (< -0.5 %/yr)."}
+      - {score_range: [7, 8], condition_expr: "pop_growth_rate_pct < 0", descriptor: "-0.5 % to 0 %."}
+      - {score_range: [5, 6], condition_expr: "pop_growth_rate_pct <= 0.3", descriptor: "0 % to +0.3 %."}
+      - {score_range: [3, 4], condition_expr: "pop_growth_rate_pct <= 1.0", descriptor: "+0.3 % to +1.0 %."}
+      - {score_range: [1, 2], condition_expr: "pop_growth_rate_pct > 1.0", descriptor: "> +1.0 %."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}

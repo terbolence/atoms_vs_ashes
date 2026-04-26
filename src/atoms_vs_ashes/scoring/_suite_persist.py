@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -24,6 +25,9 @@ from atoms_vs_ashes.scoring._suite_threshold import ThresholdSensitivityResult
 from atoms_vs_ashes.scoring._threshold_rollup import persist_threshold_rollup
 from atoms_vs_ashes.scoring.composite import build_composite_row
 from atoms_vs_ashes.scoring.sensitivity import MonteCarloSummary
+
+if TYPE_CHECKING:  # pragma: no cover - import cycle guard
+    from atoms_vs_ashes.runtime import RunScope
 
 log = get_logger(__name__)
 
@@ -66,6 +70,7 @@ def load_pairs(
     *,
     weight_profile_base: str,
     run_id_filter: str | None = None,
+    scope: "RunScope | None" = None,
 ) -> tuple[
     dict[tuple, list[RankingScore]],
     dict[tuple, list[ScreeningVerdict]],
@@ -93,6 +98,25 @@ def load_pairs(
         ranking_stmt = ranking_stmt.where(RankingScore.run_id == baseline_run_id)
         verdict_stmt = verdict_stmt.where(ScreeningVerdict.run_id == baseline_run_id)
 
+    allowed_sites: frozenset[str] | None = None
+    allowed_smrs: frozenset[str] | None = None
+    if scope is not None and not scope.is_unrestricted():
+        allowed_sites, allowed_smrs = scope.resolve(session)
+        if allowed_sites is not None:
+            ranking_stmt = ranking_stmt.where(
+                RankingScore.site_id.in_(list(allowed_sites))
+            )
+            verdict_stmt = verdict_stmt.where(
+                ScreeningVerdict.site_id.in_(list(allowed_sites))
+            )
+        if allowed_smrs is not None:
+            ranking_stmt = ranking_stmt.where(
+                RankingScore.smr_key.in_(list(allowed_smrs))
+            )
+            verdict_stmt = verdict_stmt.where(
+                ScreeningVerdict.smr_key.in_(list(allowed_smrs))
+            )
+
     rows_by_pair: dict[tuple, list[RankingScore]] = defaultdict(list)
     for row in session.execute(ranking_stmt).scalars().all():
         rows_by_pair[(row.site_id, row.smr_key)].append(row)
@@ -109,6 +133,7 @@ def load_pairs(
         pairs=len(rows_by_pair),
         profile=weight_profile_base,
         baseline_run_id=baseline_run_id,
+        scoped=scope is not None and not scope.is_unrestricted(),
     )
     return rows_by_pair, verdicts_by_pair, country_by_pair
 
@@ -117,11 +142,18 @@ def load_baseline_composites(
     session: Session,
     *,
     weight_profile_base: str,
+    scope: "RunScope | None" = None,
 ) -> dict[tuple, CompositeRanking]:
     """Return the latest composite row per (site, SMR) for a profile."""
     stmt = select(CompositeRanking).where(
         CompositeRanking.weight_profile == weight_profile_base
     )
+    if scope is not None and not scope.is_unrestricted():
+        allowed_sites, allowed_smrs = scope.resolve(session)
+        if allowed_sites is not None:
+            stmt = stmt.where(CompositeRanking.site_id.in_(list(allowed_sites)))
+        if allowed_smrs is not None:
+            stmt = stmt.where(CompositeRanking.smr_key.in_(list(allowed_smrs)))
     rows = session.execute(stmt).scalars().all()
     rows_sorted = sorted(rows, key=lambda r: r.ranked_at or datetime.min)
     out: dict[tuple, CompositeRanking] = {}

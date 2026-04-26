@@ -5,8 +5,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from atoms_vs_ashes.scoring.sensitivity import MC_DEFAULT_ITERATIONS
+
+if TYPE_CHECKING:  # pragma: no cover - import cycle guard
+    from atoms_vs_ashes.runtime import RunScope
 
 INCLUDE_CHOICES = ("weights", "mc", "threshold", "country")
 DEFAULT_AUDIT_DIR = Path("audit/post_processing/06_scoring")
@@ -29,6 +33,8 @@ class SensitivitySuiteConfig:
     audit_dir: Path = field(default_factory=lambda: DEFAULT_AUDIT_DIR)
     progress_enabled: bool = True
     top_n_country: int = 20
+    scope: "RunScope | None" = None
+    provenance_md: str | None = None
 
 
 @dataclass

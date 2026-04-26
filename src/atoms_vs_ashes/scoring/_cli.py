@@ -1,15 +1,11 @@
 # man_hours: 2.0
-"""Click ``score`` group — entry point for the sensitivity suite CLI.
+"""Click ``score`` group — entry point for scoring + sensitivity CLI.
 
-Registered on the top-level CLI via ``main.add_command(score_group)``
-in :mod:`atoms_vs_ashes.cli`. All siting / scoring CLI work is hosted
-in this submodule so :mod:`atoms_vs_ashes.cli` can stay focused on
-pipeline wiring and respect the repository's per-file size rules.
-
-Help text documents how ``--mc-draws`` / ``--preset`` flow end-to-end
-into :func:`atoms_vs_ashes.scoring.sensitivity.run_mc_suite`'s
-``iterations`` parameter and on to the single
-``for _ in range(iterations)`` loop in :func:`run_monte_carlo`.
+``--mc-draws`` / ``--preset`` flow into :func:`run_mc_suite`'s
+``iterations`` parameter; ``--cancel-flag`` and ``--heartbeat-path``
+plug into the GUI-facing cancellation + heartbeat surface (plan §7).
+The ``preview`` command lives in :mod:`._cli_preview` to respect the
+per-file size budget.
 """
 
 from __future__ import annotations
@@ -21,6 +17,13 @@ import click
 
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.runtime import install_sigint_handler
+from atoms_vs_ashes.scoring._cli_preview import preview_command
+from atoms_vs_ashes.scoring._cli_runtime import (
+    arm_cancel_flag,
+    make_cancellation_token,
+    make_heartbeat_writer,
+)
 from atoms_vs_ashes.scoring.engine import run_scoring
 from atoms_vs_ashes.scoring.sensitivity import MC_DEFAULT_ITERATIONS, MC_PRESETS
 from atoms_vs_ashes.scoring.suite import (
@@ -37,13 +40,7 @@ log = get_logger(__name__)
 def _resolve_iterations(
     preset: str | None, mc_draws: int | None
 ) -> tuple[int, str | None]:
-    """Resolve ``(iterations, preset_label)`` from mutually-exclusive flags.
-
-    - Neither set → ``(MC_DEFAULT_ITERATIONS, None)``.
-    - Preset only → look up in :data:`MC_PRESETS`.
-    - ``--mc-draws`` only → use the explicit value, no preset label.
-    - Both set → raise :class:`click.UsageError`.
-    """
+    """Resolve ``(iterations, preset_label)`` from the mutually-exclusive flags."""
     if preset is not None and mc_draws is not None:
         raise click.UsageError(
             "--preset and --mc-draws are mutually exclusive; pass one or neither."
@@ -88,21 +85,34 @@ def score_group() -> None:
     show_default=True,
     help="Directory with scoring rubric YAML files.",
 )
+@click.option(
+    "--heartbeat-path", type=click.Path(dir_okay=False), default=None,
+    help="JSONL file the engine appends progress ticks to (GUI live feed).",
+)
+@click.option(
+    "--cancel-flag", type=click.Path(dir_okay=False), default=None,
+    help="Sentinel file to poll; the engine cancels when the file appears.",
+)
 @click.pass_context
-def score_run(ctx: click.Context, weight_profile: str, rubric_dir: str) -> None:
-    """Persist ranking_scores, composite_rankings and screening_verdicts.
-
-    Uses the session bound to the active ``--db-profile`` so a single
-    command can be pointed at the API DB, the LLM DB, or the merged DB.
-    Prints a JSON summary (run_id, row counts, warnings) on completion.
-    """
+def score_run(
+    ctx: click.Context, weight_profile: str, rubric_dir: str,
+    heartbeat_path: str | None, cancel_flag: str | None,
+) -> None:
+    """Persist ranking_scores, composite_rankings and screening_verdicts."""
     run_id = (ctx.obj or {}).get("run_id")
-    with session_scope() as session:
+    token = make_cancellation_token(cancel_flag)
+    with (
+        session_scope() as session,
+        make_heartbeat_writer(heartbeat_path) as hb,
+        install_sigint_handler(token),
+    ):
         summary = run_scoring(
             session,
             rubric_dir=rubric_dir,
             weight_profile=weight_profile,
             run_id=run_id,
+            cancellation=token,
+            heartbeat=hb,
         )
     click.echo(
         json.dumps(
@@ -189,6 +199,14 @@ def score_run(ctx: click.Context, weight_profile: str, rubric_dir: str) -> None:
     default=False,
     help="Disable the rich progress bar (forces structured-log fallback).",
 )
+@click.option(
+    "--heartbeat-path", type=click.Path(dir_okay=False), default=None,
+    help="JSONL file the suite appends progress ticks to (GUI live feed).",
+)
+@click.option(
+    "--cancel-flag", type=click.Path(dir_okay=False), default=None,
+    help="Sentinel file to poll; the suite cancels when the file appears.",
+)
 @click.pass_context
 def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
     ctx: click.Context,
@@ -201,6 +219,8 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
     audit_dir: str,
     top_n_country: int,
     no_progress: bool,
+    heartbeat_path: str | None,
+    cancel_flag: str | None,
 ) -> None:
     """Run the sensitivity suite against the currently-selected DB."""
     iterations, preset_label = _resolve_iterations(preset, mc_draws)
@@ -237,7 +257,39 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
         ),
     )
 
-    with session_scope() as session:
-        result = run_sensitivity_suite(session, cfg, run_id=run_id)
+    token = make_cancellation_token(cancel_flag)
+    with (
+        session_scope() as session,
+        make_heartbeat_writer(heartbeat_path) as hb,
+        install_sigint_handler(token),
+    ):
+        result = run_sensitivity_suite(
+            session, cfg, run_id=run_id,
+            cancellation=token, heartbeat=hb,
+        )
 
     click.echo(json.dumps(result.to_dict(), indent=2, default=str))
+
+
+@score_group.command(
+    "cancel",
+    help=(
+        "Cancel an in-flight scoring or sensitivity run by writing the "
+        "sentinel file the running process polls. Pair with --cancel-flag "
+        "on `score run` / `score sensitivity` (plan §7)."
+    ),
+)
+@click.option(
+    "--cancel-flag",
+    "cancel_flag",
+    type=click.Path(dir_okay=False),
+    required=True,
+    help="Path to the sentinel file the running process is watching.",
+)
+def score_cancel(cancel_flag: str) -> None:
+    """Touch the sentinel so the running engine cancels at its next safe point."""
+    path = arm_cancel_flag(cancel_flag)
+    click.echo(json.dumps({"cancel_flag": str(path), "status": "armed"}, indent=2))
+
+
+score_group.add_command(preview_command)

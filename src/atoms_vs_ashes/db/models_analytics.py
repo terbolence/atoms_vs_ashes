@@ -94,6 +94,13 @@ class DatasetSnapshot(Base):
     n_criteria_avoidance: Mapped[int | None] = mapped_column(Integer)
     n_criteria_ranking: Mapped[int | None] = mapped_column(Integer)
     weight_normalisation_profile: Mapped[str | None] = mapped_column(String(30))
+    run_profile_path: Mapped[str | None] = mapped_column(Text)
+    run_profile_sha256: Mapped[str | None] = mapped_column(String(64))
+    spec_bundle_path: Mapped[str | None] = mapped_column(Text)
+    spec_bundle_sha256: Mapped[str | None] = mapped_column(String(64))
+    n_countries_in_scope: Mapped[int | None] = mapped_column(Integer)
+    n_smrs_in_scope: Mapped[int | None] = mapped_column(Integer)
+    scope_summary: Mapped[dict | None] = mapped_column(JSONB)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_utcnow, nullable=False
     )

@@ -40,8 +40,19 @@ def top_n_per_country(
     smr_key: str,
     n: int = 10,
     country_code: str | None = None,
+    qualification_mode: str = "normal",
+    composites_run_id: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Return the ``n`` best sites per country for one SMR, ranked by composite."""
+    """Return the ``n`` best sites per country for one SMR, ranked by composite.
+
+    ``qualification_mode`` follows the RunProfile semantic (plan §6 +
+    §9): ``normal`` keeps the existing acceptability-flag gate (hard
+    E-codes + safety floor), ``strict`` additionally filters out sites
+    whose ``CompositeRanking.passed_avoidance`` is False — i.e. sites
+    triggering at least one avoidance penalty are excluded from the
+    shortlist. ``composites_run_id`` defaults to ``run_id`` when not
+    supplied, matching the in-process scoring/sensitivity orchestrator.
+    """
     stmt = (
         select(
             CountrySiteRanking.country_code,
@@ -68,6 +79,15 @@ def top_n_per_country(
     )
     if country_code:
         stmt = stmt.where(CountrySiteRanking.country_code == country_code)
+    if qualification_mode == "strict":
+        composites_run = composites_run_id or run_id
+        stmt = stmt.join(
+            CompositeRanking,
+            (CompositeRanking.site_id == CountrySiteRanking.site_id)
+            & (CompositeRanking.smr_key == CountrySiteRanking.smr_key)
+            & (CompositeRanking.run_id == composites_run)
+            & (CompositeRanking.weight_profile == "baseline"),
+        ).where(CompositeRanking.passed_avoidance.is_(True))
     return [dict(r._mapping) for r in session.execute(stmt).all()]
 
 

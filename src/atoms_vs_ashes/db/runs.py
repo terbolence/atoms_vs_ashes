@@ -64,6 +64,13 @@ class DatasetMeta:
     n_criteria_avoidance: int | None = None
     n_criteria_ranking: int | None = None
     weight_normalisation_profile: str | None = None
+    run_profile_path: str | None = None
+    run_profile_sha256: str | None = None
+    spec_bundle_path: str | None = None
+    spec_bundle_sha256: str | None = None
+    n_countries_in_scope: int | None = None
+    n_smrs_in_scope: int | None = None
+    scope_summary: dict | None = None
 
 
 def _git_sha() -> str | None:
@@ -146,6 +153,13 @@ def start_run(
             n_criteria_avoidance=dataset_meta.n_criteria_avoidance,
             n_criteria_ranking=dataset_meta.n_criteria_ranking,
             weight_normalisation_profile=dataset_meta.weight_normalisation_profile,
+            run_profile_path=dataset_meta.run_profile_path,
+            run_profile_sha256=dataset_meta.run_profile_sha256,
+            spec_bundle_path=dataset_meta.spec_bundle_path,
+            spec_bundle_sha256=dataset_meta.spec_bundle_sha256,
+            n_countries_in_scope=dataset_meta.n_countries_in_scope,
+            n_smrs_in_scope=dataset_meta.n_smrs_in_scope,
+            scope_summary=dataset_meta.scope_summary,
         )
         session.add(snap)
     session.flush()

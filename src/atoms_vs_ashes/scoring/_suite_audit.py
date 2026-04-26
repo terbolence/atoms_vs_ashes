@@ -21,8 +21,18 @@ def write_audit_md(
     cfg: SensitivitySuiteConfig,
     result: SensitivitySuiteResult,
     country_report: CountryBalanceReport | None,
+    *,
+    provenance_block: str | None = None,
 ) -> Path:
-    """Write ``<audit_dir>/<YYYYMMDD>_sensitivity.md`` (≤ 500 lines)."""
+    """Write ``<audit_dir>/<YYYYMMDD>_sensitivity.md`` (≤ 500 lines).
+
+    ``provenance_block`` is the optional ``## Provenance`` markdown
+    block emitted by
+    :func:`atoms_vs_ashes.runprofile.render_provenance_md`; when
+    supplied it is inserted directly after the run-header so audit
+    MDs disclose run-profile/spec hashes alongside the existing
+    sensitivity metadata.
+    """
     cfg.audit_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
     suffix = f"_{result.mc_label}" if cfg.include_mc else ""
@@ -38,6 +48,9 @@ def write_audit_md(
     lines.append(f"- Weight profile base: `{cfg.weight_profile_base}`")
     lines.append(f"- Rubric dir: `{cfg.rubric_dir}`")
     lines.append("")
+    if provenance_block:
+        lines.append(provenance_block.rstrip())
+        lines.append("")
     lines.append("## Config")
     lines.append("")
     lines.append("```json")

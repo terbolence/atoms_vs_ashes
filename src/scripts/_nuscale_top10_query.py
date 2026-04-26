@@ -39,10 +39,20 @@ def load_top_n(
     run_id: str,
     smr_key: str,
     n: int = 10,
+    qualification_mode: str = "normal",
+    composites_run_id: str | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
-    """Return ``{country_code: [row, …]}`` where rows are top-N per country."""
+    """Return ``{country_code: [row, …]}`` where rows are top-N per country.
+
+    ``qualification_mode`` follows the RunProfile semantic: ``strict``
+    additionally drops sites whose ``CompositeRanking.passed_avoidance``
+    is False, so the shortlist matches the user's threshold-tuning
+    intent (plan §6 + §9).
+    """
     rows = top_n_per_country(
         session, run_id=run_id, smr_key=smr_key, n=n,
+        qualification_mode=qualification_mode,
+        composites_run_id=composites_run_id,
     )
     grouped: dict[str, list[dict[str, Any]]] = {}
     for r in rows:

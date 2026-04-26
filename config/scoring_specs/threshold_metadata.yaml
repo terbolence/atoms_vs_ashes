@@ -1,0 +1,222 @@
+# User-controllable failure thresholds — IAEA / SSG / NUREG anchors.
+#
+# This sidecar is merged into config/scoring_specs/*.yaml at load time
+# (see atoms_vs_ashes.criterion_spec.loader.load_template_bundle).
+# Keys: <criterion_id>.<code> -> ThresholdSpec.
+#
+# Each entry adds a `threshold` block to the matching `fail_condition`
+# without modifying the rubric YAMLs themselves. This preserves byte-
+# exact rubric parity (test_compiler_parity) while still surfacing
+# user-controllable variables to the GUI / preview service.
+#
+# Codes WITHOUT an entry below are treated as fixed best-practice
+# envelopes (categorical screens, multi-clause expressions, composite
+# subscores) and the run-profile validator will reject overrides on
+# them.
+
+NH-01:
+  A10:
+    metric: pga_2475yr_g
+    op: ">"
+    default_value: 0.5
+    units: g
+    label: "PGA (2475 yr) avoidance ceiling"
+    kind: numeric
+    recommended:
+      value: 0.5
+      rationale: >
+        Project Phase-2 avoidance threshold; aligns with NUREG-0800 §2.5.2
+        design-basis envelopes for non-LWR small modular reactors.
+      sources: ["IAEA SSG-9 §6.18", "NUREG-0800 §2.5.2"]
+    bounds: {min: 0.2, max: 1.5}
+
+NH-02:
+  E1:
+    metric: nearest_fault_km
+    op: "<"
+    default_value: 5.0
+    units: km
+    label: "Capable fault separation"
+    kind: numeric
+    recommended:
+      value: 5.0
+      rationale: >
+        IAEA SSG-9 / SSG-35 require avoidance of capable faults; the project
+        adopts a 5 km buffer (8 km under SSG-35) consistent with NUREG-0800
+        §2.5.3 site characterisation envelopes. Overriding this value
+        regenerates only the simple separation expression; the slip-rate
+        clause is a fixed best-practice envelope and is not user-tunable.
+      sources: ["IAEA SSG-9 §6.21", "IAEA SSG-35 §3.18-3.22", "NUREG-0800 §2.5.3"]
+    bounds: {min: 1.0, max: 25.0}
+
+NH-04:
+  E3:
+    metric: slope_angle_deg
+    op: ">="
+    default_value: 25
+    units: degrees
+    label: "Maximum acceptable slope angle"
+    kind: numeric
+    recommended:
+      value: 25
+      rationale: >
+        IAEA SSG-9 §6.34 and NUREG-0800 §2.5.5 treat slopes > 25 deg on
+        competent rock (or any catastrophic-class slope) as effectively
+        non-mitigable for safety-related foundations. The catastrophic
+        slope-stability clause is fixed best practice.
+      sources: ["IAEA SSG-9 §6.34", "NUREG-0800 §2.5.5"]
+    bounds: {min: 10, max: 45}
+
+NH-07:
+  E4:
+    metric: nearest_volcano_km
+    op: "<"
+    default_value: 50
+    units: km
+    label: "Minimum distance to Holocene volcano"
+    kind: numeric
+    recommended:
+      value: 50
+      rationale: >
+        Project default per IAEA SSG-21 §3.5-3.7 / SSG-9 §6.36: 50 km buffer
+        from a Holocene volcano captures the credible pyroclastic-density-
+        current envelope. The pyroclastic-zone clause is a separate map-
+        based check that remains as a best-practice envelope.
+      sources: ["IAEA SSG-9 §6.36", "IAEA SSG-21 §3.5"]
+    bounds: {min: 25, max: 200}
+
+NH-08:
+  A9:
+    metric: coast_distance_km
+    op: "<"
+    default_value: 10
+    units: km
+    label: "Coastal avoidance distance"
+    kind: numeric
+    recommended:
+      value: 10
+      rationale: >
+        Project A9 avoidance: 10 km from sea OR 50 m AMSL elevation balances
+        storm-surge and tsunami modelling envelopes. Aligns with IAEA SSG-18
+        §3.20 historical-tsunami trace and NUREG-0800 §2.4.6. The elevation
+        clause is a fixed best-practice envelope.
+      sources: ["IAEA SSG-18 §3.20", "NUREG-0800 §2.4.6"]
+    bounds: {min: 2, max: 30}
+
+NH-09:
+  A11:
+    metric: river_distance_km
+    op: "<"
+    default_value: 4
+    units: km
+    label: "River avoidance distance"
+    kind: numeric
+    recommended:
+      value: 4
+      rationale: >
+        Project A11 avoidance: 4 km river separation OR 30.5 m (100 ft)
+        vertical separation. Mirrors IAEA SSG-18 §3.16 design-basis flood
+        envelopes for inland riverine sites; the vertical-separation
+        clause is fixed best practice.
+      sources: ["IAEA SSG-18 §3.16", "NUREG-0800 §2.4.3"]
+    bounds: {min: 1, max: 15}
+
+NH-10:
+  project_wind_envelope:
+    metric: max_wind_speed_ms
+    op: ">"
+    default_value: 49
+    units: m/s
+    label: "Project wind envelope"
+    kind: numeric
+    recommended:
+      value: 49
+      rationale: >
+        Project wind envelope corresponds to ~177 km/h (Fujita-equivalent
+        EF2 boundary). Higher values require enhanced wind-load design
+        that the project SMR designs do not envelope.
+      sources: ["IAEA SSG-9 §6.49", "EN 1991-1-4"]
+    bounds: {min: 35, max: 80}
+
+NS-02:
+  A13:
+    metric: grid_export_capacity_mw
+    op: "<"
+    default_value: 462
+    units: MW
+    label: "Minimum grid export capacity"
+    kind: numeric
+    recommended:
+      value: 462
+      rationale: >
+        Project A13 anchors transmission headroom to the reference SMR
+        net electrical output (NuScale VOYGR-6 = 462 MWe). Adjust to the
+        net rating of the dominant SMR design under evaluation.
+      sources: ["IAEA NS-G-1.13 §5.18", "Project SMR design assumptions"]
+    bounds: {min: 100, max: 1500}
+
+NS-05:
+  A15:
+    metric: largest_contiguous_ha
+    op: "<"
+    default_value: 14
+    units: ha
+    label: "Minimum contiguous land"
+    kind: numeric
+    recommended:
+      value: 14
+      rationale: >
+        Project A15: 14 ha contiguous industrial land matches the standard
+        NuScale 4-pack footprint with associated balance-of-plant + ISFSI
+        envelope.
+      sources: ["IAEA SSG-35 §3.30", "NuScale SDA Tier 2 §1.2"]
+    bounds: {min: 5, max: 50}
+
+EP-01:
+  E8:
+    metric: ep01_composite_score
+    op: "<"
+    default_value: 30
+    units: points
+    label: "EP-01 composite minimum"
+    kind: numeric
+    recommended:
+      value: 30
+      rationale: >
+        Phase-2 hard floor for emergency-planning composite (DRV-02). The
+        secondary trauma-centre clause is a fixed best-practice envelope
+        and is not user-tunable here.
+      sources: ["IAEA GSR Part 7", "Project DRV-02 schema"]
+    bounds: {min: 10, max: 60}
+
+HI-02:
+  A7:
+    metric: nearest_seveso_km
+    op: "<"
+    default_value: 5
+    units: km
+    label: "Major-hazard storage avoidance"
+    kind: numeric
+    recommended:
+      value: 5
+      rationale: >
+        Project A7: 5 km buffer from Seveso / IED facilities aligns with
+        IAEA NS-G-3.1 §3.13 explosion-overpressure envelopes.
+      sources: ["IAEA NS-G-3.1 §3.13", "EU Seveso III Directive"]
+    bounds: {min: 2, max: 15}
+
+HI-03:
+  A8:
+    metric: nearest_toxic_source_km
+    op: "<"
+    default_value: 8
+    units: km
+    label: "Hazardous cloud source avoidance"
+    kind: numeric
+    recommended:
+      value: 8
+      rationale: >
+        Project A8: 8 km buffer from toxic / hazardous-cloud release
+        sources reflects worst-case dispersion under Pasquill F stability.
+      sources: ["IAEA NS-G-3.1 §3.27", "NUREG-0800 §2.2.3"]
+    bounds: {min: 3, max: 25}

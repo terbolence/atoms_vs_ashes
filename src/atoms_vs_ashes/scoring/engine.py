@@ -1,14 +1,11 @@
 # man_hours: 8.0
 """Scoring orchestrator — Phase 1.3 of the siting report plan.
 
-For every site × SMR × criterion: build a merged context, evaluate
-exclusionary + avoidance ``fail_conditions`` (persisting verdicts), and
-if the criterion is ranking, evaluate bands / sub-scores and write a
-``ranking_scores`` row. After every SMR pass the composite is computed
-and a ``composite_rankings`` row is written with the supplied
-``weight_profile``. The engine is idempotent thanks to ``merge()`` on
-the unique constraints — re-running with the same rubric + data +
-run_id reproduces every score exactly (Phase 1.7 acceptance).
+The orchestrator owns the run lifecycle (load scope + bundle, open
+the run handle, drive progress + heartbeat + cancellation, finalise
+audit) and delegates the per-site / per-composite work to
+:mod:`atoms_vs_ashes.scoring._engine_loop`. Idempotent thanks to
+``merge()`` on the unique constraints (Phase 1.7 acceptance).
 """
 from __future__ import annotations
 
@@ -20,30 +17,38 @@ from sqlalchemy.orm import Session, selectinload
 
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.db.models import (
-    AuditLog,
     RankingScore,
     ScreeningVerdict,
     Site,
     SmrDesign,
 )
-from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run
+from atoms_vs_ashes.db.runs import DatasetMeta, complete_run
 from atoms_vs_ashes.logging import get_logger, new_run_id
-from atoms_vs_ashes.scoring._codes import check_rubric_coverage
+from atoms_vs_ashes.scoring._engine_loop import (
+    build_composites,
+    end_heartbeat,
+    score_sites,
+)
+from atoms_vs_ashes.scoring._engine_provenance import (
+    check_code_coverage,
+    open_scoring_run,
+    write_scoring_audit,
+)
 from atoms_vs_ashes.scoring._ranking_row import make_ranking_row
 from atoms_vs_ashes.scoring.avoidance import evaluate_avoidance_for_site
 from atoms_vs_ashes.scoring.bands import BandResult, evaluate_criterion_value
-from atoms_vs_ashes.scoring._composite_components import (
-    persist_composite_components,
-)
-from atoms_vs_ashes.scoring.composite import (
-    build_composite_row,
-    compute_composite_for_site_smr,
-)
 from atoms_vs_ashes.scoring.exclusionary import evaluate_exclusionary_for_site
 from atoms_vs_ashes.scoring.merge_resolver import (
     MergedContext,
     build_context_for_site,
 )
+from atoms_vs_ashes.runtime.cancellation import (
+    CancellationRequested,
+    CancellationToken,
+)
+from atoms_vs_ashes.runtime.heartbeat import HeartbeatWriter
+from atoms_vs_ashes.runtime.scope import RunScope
+from atoms_vs_ashes.scoring._progress import ProgressReporter
 from atoms_vs_ashes.scoring.rubric import Criterion, load_rubric_bundle, weight_normalisation
 
 log = get_logger(__name__)
@@ -74,15 +79,29 @@ class ScoringEngine:
         *,
         rubric_dir: str | None = None,
         weight_profile: str = "baseline",
+        scope: RunScope | None = None,
+        bundle: dict[str, Criterion] | None = None,
+        weights: dict[str, float] | None = None,
+        dataset_meta: DatasetMeta | None = None,
+        cancellation: CancellationToken | None = None,
+        heartbeat: HeartbeatWriter | None = None,
+        progress_enabled: bool = True,
     ) -> None:
         self.session = session
         self.settings = settings or Settings()
         self.rubric_dir = rubric_dir or "config/scoring_rubrics"
         self.weight_profile = weight_profile
-        self.bundle: dict[str, Criterion] = load_rubric_bundle(self.rubric_dir)
-        self.weights: dict[str, float] = weight_normalisation(
+        self.scope = scope or RunScope()
+        self.bundle = bundle if bundle is not None else load_rubric_bundle(
+            self.rubric_dir
+        )
+        self.weights = weights if weights is not None else weight_normalisation(
             self.bundle, profile=weight_profile
         )
+        self.dataset_meta = dataset_meta
+        self.cancellation = cancellation
+        self.heartbeat = heartbeat
+        self.progress_enabled = progress_enabled
 
     # --- internal helpers ------------------------------------------------
 
@@ -98,10 +117,12 @@ class ScoringEngine:
             )
             .order_by(Site.country_code, Site.name)
         )
+        stmt = self.scope.apply_to_sites(stmt)
         return list(self.session.execute(stmt).scalars().all())
 
     def _load_smr_designs(self) -> list[SmrDesign]:
-        return list(self.session.execute(select(SmrDesign)).scalars().all())
+        stmt = self.scope.apply_to_smrs(select(SmrDesign))
+        return list(self.session.execute(stmt).scalars().all())
 
     def _precompute_site(
         self, site: Site
@@ -182,105 +203,72 @@ class ScoringEngine:
             summary.warnings.append("no_sites_or_smr_designs")
             return summary
 
-        self._check_code_coverage(summary)
-        run_handle = self._open_run(run_id, sites, smrs)
+        check_code_coverage(self.bundle, summary)
+        run_handle = open_scoring_run(
+            self.session,
+            run_id=run_id,
+            rubric_dir=self.rubric_dir,
+            bundle=self.bundle,
+            sites=sites,
+            smrs=smrs,
+            weight_profile=self.weight_profile,
+            dataset_meta=self.dataset_meta,
+        )
         log.info(
             "scoring_run_start", run_id=run_id, sites=len(sites),
             smrs=len(smrs), criteria=len(self.bundle),
             weight_profile=self.weight_profile,
         )
-
-        rows_by_pair: dict[tuple, list[RankingScore]] = defaultdict(list)
-        verdicts_by_pair: dict[tuple, list[ScreeningVerdict]] = defaultdict(list)
-
-        for site in sites:
-            site_ctxs, site_values = self._precompute_site(site)
-            for smr in smrs:
-                pair = (site.site_id, smr.smr_key)
-                for cid, criterion in self.bundle.items():
-                    verdicts, row = self._process_criterion(
-                        site=site, smr=smr, criterion=criterion,
-                        ctx=site_ctxs[cid], result=site_values.get(cid),
-                        run_id=run_id,
-                    )
-                    verdicts_by_pair[pair].extend(verdicts)
-                    summary.verdict_rows += len(verdicts)
-                    if row is not None:
-                        rows_by_pair[pair].append(row)
-                        summary.ranking_rows += 1
-
-        composite_results = []
-        for pair, rows in rows_by_pair.items():
-            composite = compute_composite_for_site_smr(
-                site_id=pair[0], smr_key=pair[1], ranking_rows=rows,
-                verdicts=verdicts_by_pair.get(pair, []),
-                weights=self.weights, criteria=self.bundle,
+        per_site_units = max(1, len(smrs)) * max(1, len(self.bundle))
+        total_units = len(sites) * per_site_units
+        try:
+            with ProgressReporter(
+                total=total_units,
+                description=f"Scoring ({len(sites)} sites × {len(smrs)} SMRs)",
+                enabled=self.progress_enabled,
+            ) as reporter:
+                rows_by_pair, verdicts_by_pair = score_sites(
+                    self,
+                    sites=sites, smrs=smrs, run_id=run_id,
+                    summary=summary, reporter=reporter,
+                    cancellation=self.cancellation,
+                    heartbeat=self.heartbeat,
+                )
+            build_composites(
+                self,
+                rows_by_pair=rows_by_pair,
+                verdicts_by_pair=verdicts_by_pair,
+                run_id=run_id, summary=summary,
+                cancellation=self.cancellation,
             )
-            self.session.merge(build_composite_row(
-                composite, run_id=run_id, weight_profile=self.weight_profile,
-            ))
-            composite_results.append(composite)
-            summary.composite_rows += 1
-            if not composite.passed_exclusionary:
-                summary.excluded_pairs += 1
-        persist_composite_components(
-            self.session, composite_results,
-            run_id=run_id, weight_profile=self.weight_profile,
+            write_scoring_audit(self.session, summary)
+            complete_run(self.session, run_handle, status="completed")
+        except CancellationRequested as exc:
+            self.session.flush()
+            write_scoring_audit(self.session, summary)
+            complete_run(self.session, run_handle, status="cancelled")
+            summary.warnings.append(f"cancelled:{exc.reason or 'requested'}")
+            log.warning(
+                "scoring_run_cancelled", run_id=run_id, reason=exc.reason,
+                ranking_rows=summary.ranking_rows,
+                verdict_rows=summary.verdict_rows,
+            )
+            end_heartbeat(
+                self.heartbeat, stage="scoring",
+                processed=summary.ranking_rows + summary.verdict_rows,
+                total=total_units, message="cancelled",
+            )
+            return summary
+        end_heartbeat(
+            self.heartbeat, stage="scoring",
+            processed=total_units, total=total_units, message="completed",
         )
-        self._write_audit(summary)
-        complete_run(self.session, run_handle, status="completed")
         log.info(
             "scoring_run_complete", run_id=run_id,
             ranking_rows=summary.ranking_rows, verdict_rows=summary.verdict_rows,
             composite_rows=summary.composite_rows, excluded=summary.excluded_pairs,
         )
         return summary
-
-    def _open_run(self, run_id: str, sites, smrs):
-        meta = DatasetMeta(
-            rubric_file_path=self.rubric_dir,
-            n_sites_total=len(sites), n_smrs=len(smrs),
-            n_criteria_ranking=sum(
-                1 for c in self.bundle.values() if c.is_ranking
-            ),
-            weight_normalisation_profile=self.weight_profile,
-        )
-        return start_run(
-            self.session, run_kind="scoring", run_id=run_id, dataset_meta=meta,
-        )
-
-    def _check_code_coverage(self, summary: ScoringSummary) -> None:
-        """Warn if the loaded rubric drifts from the E1-E9 / A1-A15 catalog."""
-        rubric_codes = {
-            fc.code
-            for c in self.bundle.values()
-            for fc in c.fail_conditions
-            if fc.action in ("exclude", "avoidance_penalty")
-        }
-        missing, extra = check_rubric_coverage(rubric_codes)
-        if missing:
-            summary.warnings.append(
-                f"catalog_codes_missing_from_rubric={sorted(missing)}"
-            )
-            log.warning("scoring_catalog_mismatch", missing=sorted(missing))
-        if extra:
-            summary.warnings.append(f"rubric_codes_not_in_catalog={sorted(extra)}")
-            log.warning("scoring_catalog_mismatch", extra=sorted(extra))
-
-    def _write_audit(self, summary: ScoringSummary) -> None:
-        self.session.add(
-            AuditLog(
-                operation="scoring",
-                table_name="ranking_scores",
-                run_id=summary.run_id,
-                message=(
-                    f"profile={summary.weight_profile} "
-                    f"sites={summary.sites_processed} smrs={summary.smr_designs} "
-                    f"rows={summary.ranking_rows} verdicts={summary.verdict_rows} "
-                    f"composites={summary.composite_rows} excluded={summary.excluded_pairs}"
-                ),
-            )
-        )
 
 
 def run_scoring(
@@ -290,10 +278,22 @@ def run_scoring(
     weight_profile: str = "baseline",
     run_id: str | None = None,
     settings: Settings | None = None,
+    scope: RunScope | None = None,
+    bundle: dict[str, Criterion] | None = None,
+    weights: dict[str, float] | None = None,
+    dataset_meta: DatasetMeta | None = None,
+    cancellation: CancellationToken | None = None,
+    heartbeat: HeartbeatWriter | None = None,
+    progress_enabled: bool = True,
 ) -> ScoringSummary:
     """Top-level helper wrapping :class:`ScoringEngine`."""
     engine = ScoringEngine(
         session, settings=settings,
         rubric_dir=rubric_dir, weight_profile=weight_profile,
+        scope=scope, bundle=bundle, weights=weights,
+        dataset_meta=dataset_meta,
+        cancellation=cancellation,
+        heartbeat=heartbeat,
+        progress_enabled=progress_enabled,
     )
     return engine.run(run_id=run_id)

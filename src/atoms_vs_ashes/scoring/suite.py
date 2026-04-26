@@ -27,6 +27,11 @@ from pathlib import Path
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.runtime.cancellation import (
+    CancellationRequested,
+    CancellationToken,
+)
+from atoms_vs_ashes.runtime.heartbeat import HeartbeatWriter
 from atoms_vs_ashes.scoring._progress import ProgressReporter
 from atoms_vs_ashes.scoring._suite_audit import write_audit_md
 from atoms_vs_ashes.scoring._suite_config import (
@@ -91,6 +96,8 @@ def run_sensitivity_suite(
     cfg: SensitivitySuiteConfig,
     *,
     run_id: str,
+    cancellation: CancellationToken | None = None,
+    heartbeat: HeartbeatWriter | None = None,
 ) -> SensitivitySuiteResult:
     """Execute the requested sensitivity subset and persist its rows.
 
@@ -98,15 +105,25 @@ def run_sensitivity_suite(
     from there to :func:`run_monte_carlo`, feeding the single
     ``for _ in range(iterations)`` loop. No other default lives on that
     hot path.
+
+    ``cancellation`` is checked between independent stages (weights,
+    MC, country, threshold) — the user can stop a multi-stage run
+    without losing rows already committed by an earlier stage. When
+    ``heartbeat`` is supplied, each stage emits start / tick /
+    end ticks the GUI consumes (plan §10).
     """
     bundle: dict[str, Criterion] = load_rubric_bundle(cfg.rubric_dir)
     weights = weight_normalisation(bundle, profile=cfg.weight_profile_base)
 
     rows_by_pair, verdicts_by_pair, country_by_pair = load_pairs(
-        session, weight_profile_base=cfg.weight_profile_base
+        session,
+        weight_profile_base=cfg.weight_profile_base,
+        scope=cfg.scope,
     )
     baseline_rows = load_baseline_composites(
-        session, weight_profile_base=cfg.weight_profile_base
+        session,
+        weight_profile_base=cfg.weight_profile_base,
+        scope=cfg.scope,
     )
 
     notes: list[str] = []
@@ -114,66 +131,117 @@ def run_sensitivity_suite(
     weight_rows = 0
     mc_rows = 0
     country_rows = 0
+    threshold_rows = 0
     country_report: CountryBalanceReport | None = None
 
-    if cfg.include_weights:
-        weight_results = run_weight_sensitivity(
-            rows_by_pair,
-            verdicts_by_pair,
-            weights=weights,
-            criteria=bundle,
-        )
-        weight_rows = persist_weight_results(session, weight_results, run_id=run_id)
-    else:
-        notes.append("weights_skipped")
+    def _check_cancel() -> None:
+        if cancellation is not None:
+            cancellation.raise_if_cancelled()
 
-    if cfg.include_mc:
-        with ProgressReporter(
-            total=len(rows_by_pair),
-            description=f"Monte Carlo ({cfg.iterations} draws)",
-            enabled=cfg.progress_enabled,
-        ) as reporter:
-            mc = run_mc_suite(
-                rows_by_pair,
-                verdicts_by_pair,
-                weights=weights,
-                iterations=cfg.iterations,
-                seed=cfg.seed,
-                progress_cb=reporter.advance,
-                preset_label=cfg.preset_label,
+    cancelled_reason: str | None = None
+    try:
+        if cfg.include_weights:
+            _check_cancel()
+            weight_results = run_weight_sensitivity(
+                rows_by_pair, verdicts_by_pair,
+                weights=weights, criteria=bundle,
             )
-        mc_rows = persist_mc_summaries(
-            session, mc, baseline_rows, run_id=run_id, label=mc_label
-        )
-    else:
-        notes.append("mc_skipped")
-
-    if cfg.include_country:
-        ranked = _build_ranked_country_list(country_by_pair, baseline_rows)
-        country_report = country_balance_test(ranked, top_n=cfg.top_n_country)
-        country_rows = persist_country_balanced(
-            session, baseline_rows, run_id=run_id, country_by_pair=country_by_pair,
-        )
-    else:
-        notes.append("country_skipped")
-
-    threshold_rows = 0
-    if cfg.include_threshold:
-        with ProgressReporter(
-            total=len(rows_by_pair) * len(THRESHOLD_DIRECTIONS),
-            description="Threshold ±25",
-            enabled=cfg.progress_enabled,
-        ) as reporter:
-            threshold_results = run_threshold_sensitivity(
-                session,
-                bundle,
-                weights=weights,
-                run_id=run_id,
-                progress_cb=reporter.advance,
+            weight_rows = persist_weight_results(
+                session, weight_results, run_id=run_id
             )
-        threshold_rows = persist_threshold_results(
-            session, threshold_results, run_id=run_id,
-            baseline_rows=baseline_rows,
+        else:
+            notes.append("weights_skipped")
+
+        if cfg.include_mc:
+            _check_cancel()
+            if heartbeat is not None:
+                heartbeat.start_stage(
+                    "sensitivity:mc", total=len(rows_by_pair),
+                    message=f"draws={cfg.iterations}",
+                )
+            with ProgressReporter(
+                total=len(rows_by_pair),
+                description=f"Monte Carlo ({cfg.iterations} draws)",
+                enabled=cfg.progress_enabled,
+            ) as reporter:
+                def _mc_advance(n: int = 1) -> None:
+                    reporter.advance(n)
+                    if cancellation is not None and cancellation.is_cancelled:
+                        raise CancellationRequested(cancellation.reason)
+                    if heartbeat is not None:
+                        heartbeat.tick(
+                            "sensitivity:mc",
+                            processed=reporter._done,
+                            total=len(rows_by_pair),
+                        )
+                mc = run_mc_suite(
+                    rows_by_pair, verdicts_by_pair,
+                    weights=weights, iterations=cfg.iterations,
+                    seed=cfg.seed, progress_cb=_mc_advance,
+                    preset_label=cfg.preset_label,
+                )
+            mc_rows = persist_mc_summaries(
+                session, mc, baseline_rows, run_id=run_id, label=mc_label
+            )
+            if heartbeat is not None:
+                heartbeat.end_stage(
+                    "sensitivity:mc", processed=len(rows_by_pair),
+                    total=len(rows_by_pair), message="completed",
+                )
+        else:
+            notes.append("mc_skipped")
+
+        if cfg.include_country:
+            _check_cancel()
+            ranked = _build_ranked_country_list(country_by_pair, baseline_rows)
+            country_report = country_balance_test(ranked, top_n=cfg.top_n_country)
+            country_rows = persist_country_balanced(
+                session, baseline_rows, run_id=run_id,
+                country_by_pair=country_by_pair,
+            )
+        else:
+            notes.append("country_skipped")
+
+        if cfg.include_threshold:
+            _check_cancel()
+            total = len(rows_by_pair) * len(THRESHOLD_DIRECTIONS)
+            if heartbeat is not None:
+                heartbeat.start_stage(
+                    "sensitivity:threshold", total=total, message="global±25",
+                )
+            with ProgressReporter(
+                total=total, description="Threshold ±25",
+                enabled=cfg.progress_enabled,
+            ) as reporter:
+                def _t_advance(n: int = 1) -> None:
+                    reporter.advance(n)
+                    if cancellation is not None and cancellation.is_cancelled:
+                        raise CancellationRequested(cancellation.reason)
+                    if heartbeat is not None:
+                        heartbeat.tick(
+                            "sensitivity:threshold",
+                            processed=reporter._done, total=total,
+                        )
+                threshold_results = run_threshold_sensitivity(
+                    session, bundle, weights=weights, run_id=run_id,
+                    progress_cb=_t_advance, scope=cfg.scope,
+                )
+            threshold_rows = persist_threshold_results(
+                session, threshold_results, run_id=run_id,
+                baseline_rows=baseline_rows,
+            )
+            if heartbeat is not None:
+                heartbeat.end_stage(
+                    "sensitivity:threshold", processed=total, total=total,
+                    message="completed",
+                )
+    except CancellationRequested as exc:
+        cancelled_reason = exc.reason or "requested"
+        notes.append(f"cancelled:{cancelled_reason}")
+        log.warning(
+            "sensitivity_suite_cancelled", run_id=run_id, reason=cancelled_reason,
+            weight_rows=weight_rows, mc_rows=mc_rows,
+            country_rows=country_rows, threshold_rows=threshold_rows,
         )
 
     session.flush()
@@ -202,7 +270,9 @@ def run_sensitivity_suite(
         mc_label=mc_label,
         notes=notes,
     )
-    result.audit_path = write_audit_md(cfg, result, country_report)
+    result.audit_path = write_audit_md(
+        cfg, result, country_report, provenance_block=cfg.provenance_md,
+    )
     log.info(
         "sensitivity_suite_complete",
         run_id=run_id,

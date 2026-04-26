@@ -34,7 +34,12 @@ from sqlalchemy.orm import Session
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.models import ScreeningVerdict, Site
 from atoms_vs_ashes.db.runs import DatasetMeta, complete_run, start_run
+from atoms_vs_ashes.runprofile import parse_run_profile
 from scripts._phase_1_6_failure_db import persist_breakdown
+from scripts._phase_1_6_metrics import (
+    emit_metrics_bundle,
+    maybe_load_template_bundle,
+)
 from atoms_vs_ashes.scoring._suite_persist import (
     _resolve_baseline_run_id,  # type: ignore[attr-defined]
 )
@@ -56,6 +61,7 @@ DB_PROFILES = {
     "merged": "atoms_vs_ashes_merged",
 }
 DEFAULT_RUBRIC_DIR = Path("config/scoring_rubrics")
+DEFAULT_SPEC_DIR = Path("config/scoring_specs")
 DEFAULT_AUDIT_DIR = Path("audit/post_processing/06_scoring")
 DEFAULT_REPORT_ROOT = Path("report/output/sensitivity")
 DEFAULT_METHOD_PATH = Path("report/methodology/failure_analysis.md")
@@ -144,6 +150,18 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--rubric-dir", type=Path, default=DEFAULT_RUBRIC_DIR)
     parser.add_argument(
+        "--spec-dir", type=Path, default=DEFAULT_SPEC_DIR,
+        help="CriterionSpec template directory (used to compute failure margins).",
+    )
+    parser.add_argument(
+        "--run-profile", type=Path, default=None,
+        help=(
+            "Optional RunProfile YAML; supplies fail_thresholds, "
+            "qualification_mode, top_n_per_country and near_miss_gap_pct "
+            "to the metrics bundle."
+        ),
+    )
+    parser.add_argument(
         "--skip-global", action="store_true",
         help="Skip the global pack (per-SMR packs only).",
     )
@@ -155,6 +173,14 @@ def main(argv: list[str] | None = None) -> int:
     with session_scope() as session:
         bundle = load_rubric_bundle(args.rubric_dir)
         criterion_names = {cid: c.name for cid, c in bundle.items()}
+        template_bundle = maybe_load_template_bundle(args.spec_dir)
+        run_profile = None
+        if args.run_profile is not None:
+            run_profile, _ = parse_run_profile(args.run_profile)
+        scoring_opts = run_profile.scoring if run_profile is not None else None
+        fail_thresholds = (
+            dict(run_profile.fail_thresholds) if run_profile else {}
+        )
         smr_meta = load_smr_meta(session)
         verdicts_by_pair, country_by_site, run_id = _load(
             session, baseline_label=args.baseline_label,
@@ -202,6 +228,28 @@ def main(argv: list[str] | None = None) -> int:
                 country_by_site=country_by_site,
                 scope_smr_key=None,
             )
+            emit_metrics_bundle(
+                session,
+                breakdown=art.breakdown,
+                country_by_site=country_by_site,
+                composites_run_id=run_id,
+                run_id=handle.run_id,
+                audit_dir=args.audit_dir,
+                stamp=args.stamp,
+                smr_key=None,
+                verdicts_by_pair=verdicts_by_pair,
+                template_bundle=template_bundle,
+                fail_thresholds=fail_thresholds,
+                near_miss_gap_pct=(
+                    scoring_opts.near_miss_gap_pct if scoring_opts else 10.0
+                ),
+                qualification_mode=(
+                    scoring_opts.qualification_mode if scoring_opts else "normal"
+                ),
+                top_n_per_country=(
+                    scoring_opts.top_n_per_country if scoring_opts else 10
+                ),
+            )
             artefacts.append(art)
 
         for smr_key in _selected_smr_keys(args):
@@ -223,6 +271,28 @@ def main(argv: list[str] | None = None) -> int:
                 breakdown=art.breakdown,
                 country_by_site=country_by_site,
                 scope_smr_key=smr_key,
+            )
+            emit_metrics_bundle(
+                session,
+                breakdown=art.breakdown,
+                country_by_site=country_by_site,
+                composites_run_id=run_id,
+                run_id=handle.run_id,
+                audit_dir=args.audit_dir,
+                stamp=args.stamp,
+                smr_key=smr_key,
+                verdicts_by_pair=verdicts_by_pair,
+                template_bundle=template_bundle,
+                fail_thresholds=fail_thresholds,
+                near_miss_gap_pct=(
+                    scoring_opts.near_miss_gap_pct if scoring_opts else 10.0
+                ),
+                qualification_mode=(
+                    scoring_opts.qualification_mode if scoring_opts else "normal"
+                ),
+                top_n_per_country=(
+                    scoring_opts.top_n_per_country if scoring_opts else 10
+                ),
             )
             artefacts.append(art)
         complete_run(session, handle, status="completed")

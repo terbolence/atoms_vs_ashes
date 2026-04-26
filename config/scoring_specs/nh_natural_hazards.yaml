@@ -1,0 +1,307 @@
+# Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
+# Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
+family: nh
+pass_mark_default: 5.0
+criteria:
+  - criterion_id: BF-01
+    name: Grid export / connection adequacy
+    phases: [basic_filter, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: bf01_grid_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_substation_km <= 5 and hv_line_voltage_kv >= 400 and grid_export_capacity_mw >= 600", descriptor: "Substation <= 5 km, >= 400 kV, headroom >= 600 MW."}
+      - {score_range: [7, 8], condition_expr: "nearest_substation_km <= 15 and hv_line_voltage_kv >= 220 and grid_export_capacity_mw >= 462", descriptor: "Substation 5-15 km, 220-399 kV, headroom >= ref SMR net MWe."}
+      - {score_range: [5, 6], condition_expr: "nearest_substation_km <= 30 or hv_line_voltage_kv >= 110", descriptor: "Substation 15-30 km OR 110-219 kV; reinforcement plausible."}
+      - {score_range: [3, 4], condition_expr: "nearest_substation_km > 30 and hv_line_voltage_kv < 220", descriptor: "Distance > 30 km AND voltage < 220 kV."}
+      - {score_range: [1, 2], condition_expr: "default", descriptor: "No credible substation route."}
+      - {score_range: [0, 0], condition_expr: "grid_export_capacity_mw == 0 and nearest_substation_km > 60", descriptor: "No grid pathway (rare)."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: BF-02
+    name: Land / nuclear-island footprint
+    phases: [basic_filter, ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    db_fields: {api: [site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, sites.site_area_ha], llm: bf02_land_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "largest_contiguous_ha >= 25 and buildable_area_ha >= 50", descriptor: "Contiguous >= 25 ha, buildable >= 50 ha, favourable geometry."}
+      - {score_range: [7, 8], condition_expr: "largest_contiguous_ha >= 14 and buildable_area_ha >= 25", descriptor: "Contiguous >= 14 ha; buildable >= 25 ha; standard NuScale footprint."}
+      - {score_range: [5, 6], condition_expr: "largest_contiguous_ha >= 10 or buildable_area_ha >= 14", descriptor: "Contiguous 10-14 ha OR buildable 14-25 ha; tight but feasible."}
+      - {score_range: [3, 4], condition_expr: "largest_contiguous_ha >= 5 or buildable_area_ha >= 8", descriptor: "Contiguous 5-10 ha OR buildable 8-14 ha; phased layout."}
+      - {score_range: [1, 2], condition_expr: "largest_contiguous_ha < 5 and buildable_area_ha < 8", descriptor: "Insufficient for nuclear island."}
+      - {score_range: [0, 0], condition_expr: "buildable_area_ha == 0", descriptor: "No useable land."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-01
+    name: Seismic ground motion (PGA)
+    phases: [ranking, avoidance]
+    weight_factor: 9
+    normalised_weight_pct: 3.2
+    primary_metric: pga_475yr_g
+    db_fields: {api: [site_natural_hazards.nh01_pga_475yr_g, site_natural_hazards.nh01_pga_2475yr_g, site_natural_hazards.vs30_ms], llm: nh01_seismic_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "pga_475yr_g < 0.05", descriptor: "Stable craton; minimal seismic premium."}
+      - {score_range: [7, 8], condition_expr: "pga_475yr_g < 0.10", descriptor: "Low seismicity; standard structural design."}
+      - {score_range: [5, 6], condition_expr: "pga_475yr_g < 0.20", descriptor: "Moderate; preferred ceiling < 0.20 g."}
+      - {score_range: [3, 4], condition_expr: "pga_475yr_g < 0.30", descriptor: "High; significant cost; expert review mandatory."}
+      - {score_range: [1, 2], condition_expr: "pga_475yr_g <= 0.50", descriptor: "Very high; SMR envelope likely exceeded."}
+      - {score_range: [0, 0], condition_expr: "pga_475yr_g > 0.50", descriptor: "Outside any reasonable SMR envelope."}
+    fail_conditions:
+      - {code: A10, action: avoidance_penalty, condition_expr: "pga_2475yr_g > 0.5", descriptor: "Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."}
+      - {code: data_review_pga, action: review_flag, condition_expr: "pga_2475yr_g > 0.9", descriptor: "Likely data artefact; flag for data-validity review."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-02
+    name: Seismic surface rupture (capable faults)
+    phases: [exclusionary, ranking]
+    weight_factor: 9
+    normalised_weight_pct: 3.2
+    primary_metric: nearest_fault_km
+    db_fields: {api: [site_natural_hazards.nearest_fault_km, site_natural_hazards.fault_name, site_natural_hazards.fault_slip_rate_mm_yr], llm: nh02_fault_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_fault_km > 100", descriptor: "Stable; no capable structures in the wide search radius."}
+      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 40", descriptor: "High band; well beyond buffer on quality mapping."}
+      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 15", descriptor: "Medium band; standard provisions adequate."}
+      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 5", descriptor: "Low band; detailed paleoseismology and design uplift."}
+      - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 5 and has_remedy == true", descriptor: "Borderline near 5 km; only with documented remedy."}
+      - {score_range: [0, 0], condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", descriptor: "Excluded: within project E1 buffer."}
+    fail_conditions:
+      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", pass_mark: 5.0, descriptor: "Capable fault within 5 km (project) / 8 km (SSG-35)."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-03
+    name: Geotechnical - settlement and liquefaction
+    phases: [exclusionary, ranking]
+    weight_factor: 7
+    normalised_weight_pct: 2.5
+    primary_metric: liquefaction_suscept
+    db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa], llm: nh03_liquefaction_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none'] and depth_to_bedrock_m <= 0.6", descriptor: "Negligible susceptibility; rock within 0.6 m."}
+      - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low' and bearing_capacity_kpa > 200", descriptor: "Low susceptibility; competent strata 0.6-2 m; bearing > 200 kPa."}
+      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)", descriptor: "Moderate susceptibility or GW 0-3 m with low PGA."}
+      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and has_remedy == true", descriptor: "High but mitigation plausible; data weak."}
+      - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high'", descriptor: "Very high with high PGA and shallow GW; remedy uncertain."}
+      - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "E2 confirmed."}
+    fail_conditions:
+      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-04
+    name: Geotechnical - slope stability
+    phases: [exclusionary, ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: slope_angle_deg
+    db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class], llm: nh04_slope_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "slope_angle_deg < 1", descriptor: "Optimal flat ground."}
+      - {score_range: [7, 8], condition_expr: "slope_angle_deg < 3", descriptor: "Gentle; minimal earthworks."}
+      - {score_range: [5, 6], condition_expr: "slope_angle_deg < 8", descriptor: "Moderate; routine grading; 5% cap at 5-6 boundary."}
+      - {score_range: [3, 4], condition_expr: "slope_angle_deg < 15", descriptor: "Significant slopes; stability study required."}
+      - {score_range: [1, 2], condition_expr: "slope_angle_deg < 25", descriptor: "Major instability risk; runout inventory must clear."}
+      - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 25", descriptor: "E3 triggered."}
+    fail_conditions:
+      - {code: E3, action: exclude, condition_expr: "slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'", pass_mark: 5.0, descriptor: "Catastrophic landslide / slope > 25 deg."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-05
+    name: Subsidence / karst / mining / oil & gas
+    phases: [exclusionary, ranking]
+    weight_factor: 7
+    normalised_weight_pct: 2.5
+    # Bands aligned to the columns currently materialised in
+    # ``site_natural_hazards`` (karst_severity, karst_present,
+    # karst_formation_type, mining_void_present, subsidence_risk_class).
+    # The aspirational metrics (karst_depth_m, mining_void_distance_km,
+    # oil_gas_extraction_flag) are tracked as TODO enrichments in the
+    # assumption register; bands fall back to "unscored" when data is
+    # absent so the safety floor never fires on missing evidence (see
+    # report/methodology/exclusionary_floors.md).
+    db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'", descriptor: "No karst, no mining voids, subsidence risk none."}
+      - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']", descriptor: "No karst on site; no mining voids; low subsidence risk."}
+      - {score_range: [5, 6], condition_expr: "karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']", descriptor: "Mild karst at most; no mining voids; subsidence low-to-moderate."}
+      - {score_range: [3, 4], condition_expr: "(karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate'", descriptor: "Moderate karst or moderate subsidence; mining absent."}
+      - {score_range: [1, 2], condition_expr: "mining_void_present == true or subsidence_risk_class == 'high'", descriptor: "Mining voids present or high subsidence risk; remedy plausible."}
+      - {score_range: [0, 0], condition_expr: "karst_severity == 'high'", descriptor: "E5 confirmed: high karst severity."}
+    fail_conditions:
+      - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", pass_mark: 5.0, descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
+      - {code: E6, action: exclude, condition_expr: "mining_void_present == true", pass_mark: 5.0, descriptor: "Mining voids present beneath / adjacent to site."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-06
+    name: Foundation conditions (bearing, bedrock, groundwater)
+    phases: [ranking]
+    weight_factor: 5
+    normalised_weight_pct: 1.8
+    primary_metric: bearing_capacity_kpa
+    db_fields: {api: [site_natural_hazards.bearing_capacity_kpa, site_natural_hazards.depth_to_bedrock_m, site_natural_hazards.groundwater_depth_m], llm: nh06_foundation_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "bearing_capacity_kpa > 200 and depth_to_bedrock_m < 5 and groundwater_depth_m > 5", descriptor: "Bearing > 200 kPa; bedrock < 5 m; GW > 5 m."}
+      - {score_range: [7, 8], condition_expr: "bearing_capacity_kpa >= 150 and depth_to_bedrock_m <= 10 and groundwater_depth_m >= 3", descriptor: "Bearing 150-200 kPa; bedrock 5-10 m; GW 3-5 m."}
+      - {score_range: [5, 6], condition_expr: "bearing_capacity_kpa >= 80", descriptor: "Typical European mixed conditions (bearing 80-150 kPa)."}
+      - {score_range: [3, 4], condition_expr: "bearing_capacity_kpa >= 50 or depth_to_bedrock_m > 20 or groundwater_depth_m < 2", descriptor: "Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m."}
+      - {score_range: [1, 2], condition_expr: "bearing_capacity_kpa < 50", descriptor: "Bearing < 50 kPa or persistent artesian GW."}
+      - {score_range: [0, 0], condition_expr: "default", descriptor: "Reserved (cross-link to NH-03/NH-05 exclusions only)."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-07
+    name: Volcanism
+    phases: [exclusionary, ranking]
+    weight_factor: 10
+    normalised_weight_pct: 3.5
+    primary_metric: nearest_volcano_km
+    db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name], llm: nh07_volcanism_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nearest_volcano_km > 1000", descriptor: "No plausible pathway."}
+      - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 500", descriptor: "Distant; ashfall climatology benign."}
+      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 300", descriptor: "Meets project minimum (>= 300 km)."}
+      - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 200", descriptor: "Sub-threshold; specialist study required."}
+      - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 50", descriptor: "Elevated risk; mitigation uncertain."}
+      - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 50", descriptor: "E4 triggered."}
+    fail_conditions:
+      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50 or in_pyroclastic_zone == true", pass_mark: 5.0, descriptor: "< 50 km Holocene volcano or in mapped hazard zone."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-08
+    name: Coastal flooding (storm surge, tsunami)
+    phases: [avoidance, ranking]
+    weight_factor: 6
+    normalised_weight_pct: 2.1
+    primary_metric: coast_distance_km
+    db_fields: {api: [site_natural_hazards.coast_distance_km, site_natural_hazards.storm_surge_class, site_natural_hazards.tsunami_zone_flag, sites.elevation_m], llm: nh08_coastal_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL."}
+      - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in ['none', 'low']", descriptor: ">= 10 km from coast, low surge class."}
+      - {score_range: [5, 6], condition_expr: "coast_distance_km >= 5", descriptor: "5-10 km from coast; mitigation feasible."}
+      - {score_range: [3, 4], condition_expr: "coast_distance_km >= 2", descriptor: "2-5 km from coast; high surge/tsunami trace."}
+      - {score_range: [1, 2], condition_expr: "coast_distance_km < 2", descriptor: "In 100-yr inundation extent without defensible mitigation."}
+      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and has_remedy == false", descriptor: "Indefensible coastal hazard."}
+    fail_conditions:
+      - {code: A9, action: avoidance_penalty, condition_expr: "coast_distance_km < 10 and elevation_m < 50", descriptor: ">= 10 km from sea / >= 1 km from lake, or elevation >= 50 m AMSL."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-09
+    name: River flooding
+    phases: [avoidance, ranking]
+    weight_factor: 8
+    normalised_weight_pct: 2.8
+    primary_metric: river_distance_km
+    db_fields: {api: [site_natural_hazards.river_distance_km, site_natural_hazards.elevation_above_design_flood_m, site_natural_hazards.flood_zone_class_500yr], llm: nh09_river_flood_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5", descriptor: "Outside 1000-yr extent; separation >= 30.5 m or distance >= 10 km."}
+      - {score_range: [7, 8], condition_expr: "river_distance_km >= 4 or elevation_above_design_flood_m >= 30.5", descriptor: "Outside 500-yr extent; meets project A11."}
+      - {score_range: [5, 6], condition_expr: "flood_zone_class_500yr in ['none', 'low'] or river_distance_km >= 2", descriptor: "100-500 yr event; mitigation routine."}
+      - {score_range: [3, 4], condition_expr: "flood_zone_class_500yr == 'moderate'", descriptor: "Within 100-yr extent; defenses required."}
+      - {score_range: [1, 2], condition_expr: "flood_zone_class_500yr == 'high'", descriptor: "Within 10-yr extent or unmitigated dam-break path."}
+      - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and has_remedy == false", descriptor: "No viable flood-defence pathway."}
+    fail_conditions:
+      - {code: A11, action: avoidance_penalty, condition_expr: "river_distance_km < 4 and elevation_above_design_flood_m < 30.5", descriptor: "Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-10
+    name: Extreme winds
+    phases: [ranking]
+    weight_factor: 3
+    normalised_weight_pct: 1.1
+    primary_metric: max_wind_speed_ms
+    db_fields: {api: [site_natural_hazards.max_wind_speed_ms, site_natural_hazards.extreme_wind_ms], llm: nh10_winds_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 25", descriptor: "Low wind region; standard EN 1991-1-4."}
+      - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 30", descriptor: "Moderate (CEE typical)."}
+      - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 36", descriptor: "Elevated; coastal or storm-track exposure."}
+      - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 42", descriptor: "High; enhanced wind-load design."}
+      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads."}
+      - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h)."}
+    fail_conditions:
+      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", pass_mark: 5.0, descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-11
+    name: Extreme precipitation (rain, snow, drought)
+    phases: [ranking]
+    weight_factor: 3
+    normalised_weight_pct: 1.1
+    db_fields: {api: [site_natural_hazards.spi12_min, site_natural_hazards.snow_months_per_year, site_natural_hazards.mean_annual_precip_mm, site_natural_hazards.extreme_precip_mm, site_natural_hazards.freezing_days_per_year], llm: nh11_precip_text}
+    aggregation: {method: mean_of_sub_scores, round_to: 1, cap_if_any_sub_score_below: {threshold: 3, cap_score: 5}}
+    sub_scores:
+      - key: drought_spi12
+        weight: 0.333
+        primary_metric: spi12_min
+        bands:
+          - {score_range: [9, 10], condition_expr: "spi12_min > -1.0", descriptor: "SPI-12 > -1.0."}
+          - {score_range: [7, 8], condition_expr: "spi12_min > -1.5", descriptor: "-1.5 to -1.0."}
+          - {score_range: [5, 6], condition_expr: "spi12_min > -2.0", descriptor: "-2.0 to -1.5."}
+          - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
+          - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5."}
+      - key: snow_burden
+        weight: 0.333
+        primary_metric: snow_months_per_year
+        bands:
+          - {score_range: [9, 10], condition_expr: "snow_months_per_year <= 1", descriptor: "Negligible."}
+          - {score_range: [7, 8], condition_expr: "snow_months_per_year <= 3", descriptor: "Mild winter zone."}
+          - {score_range: [5, 6], condition_expr: "snow_months_per_year <= 5", descriptor: "CEE typical."}
+          - {score_range: [3, 4], condition_expr: "snow_months_per_year <= 7", descriptor: "Significant winter constraint."}
+          - {score_range: [1, 2], condition_expr: "snow_months_per_year >= 8", descriptor: "Arctic-grade design."}
+      - key: annual_precip
+        weight: 0.334
+        primary_metric: mean_annual_precip_mm
+        bands:
+          - {score_range: [9, 10], condition_expr: "mean_annual_precip_mm >= 400 and mean_annual_precip_mm <= 800", descriptor: "Optimal."}
+          - {score_range: [7, 8], condition_expr: "(mean_annual_precip_mm >= 300 and mean_annual_precip_mm < 400) or (mean_annual_precip_mm > 800 and mean_annual_precip_mm <= 1000)", descriptor: "Manageable."}
+          - {score_range: [5, 6], condition_expr: "(mean_annual_precip_mm >= 200 and mean_annual_precip_mm < 300) or (mean_annual_precip_mm > 1000 and mean_annual_precip_mm <= 1500)", descriptor: "Tail risks emerging."}
+          - {score_range: [3, 4], condition_expr: "(mean_annual_precip_mm >= 100 and mean_annual_precip_mm < 200) or (mean_annual_precip_mm > 1500 and mean_annual_precip_mm <= 2500)", descriptor: "Significant adaptation."}
+          - {score_range: [1, 2], condition_expr: "mean_annual_precip_mm < 100 or mean_annual_precip_mm > 2500", descriptor: "Severe."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-12
+    name: Extreme temperatures
+    phases: [ranking]
+    weight_factor: 4
+    normalised_weight_pct: 1.4
+    db_fields: {api: [site_natural_hazards.extreme_temp_max_c, site_natural_hazards.extreme_temp_min_c], llm: nh12_temperature_text}
+    aggregation: {method: min_of_sub_scores}
+    sub_scores:
+      - key: tmax
+        primary_metric: extreme_temp_max_c
+        bands:
+          - {score_range: [9, 10], condition_expr: "extreme_temp_max_c < 33", descriptor: "Tmax < 33 C."}
+          - {score_range: [7, 8], condition_expr: "extreme_temp_max_c < 36", descriptor: "33-36 C."}
+          - {score_range: [5, 6], condition_expr: "extreme_temp_max_c < 39", descriptor: "36-39 C."}
+          - {score_range: [3, 4], condition_expr: "extreme_temp_max_c <= 42", descriptor: "39-42 C."}
+          - {score_range: [1, 2], condition_expr: "extreme_temp_max_c > 42", descriptor: "> 42 C."}
+      - key: tmin
+        primary_metric: extreme_temp_min_c
+        bands:
+          - {score_range: [9, 10], condition_expr: "extreme_temp_min_c > -15", descriptor: "Tmin > -15 C."}
+          - {score_range: [7, 8], condition_expr: "extreme_temp_min_c > -20", descriptor: "-15 to -20 C."}
+          - {score_range: [5, 6], condition_expr: "extreme_temp_min_c > -25", descriptor: "-20 to -25 C."}
+          - {score_range: [3, 4], condition_expr: "extreme_temp_min_c >= -30", descriptor: "-25 to -30 C."}
+          - {score_range: [1, 2], condition_expr: "extreme_temp_min_c < -30", descriptor: "< -30 C."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-13
+    name: Forest / wildfire
+    phases: [ranking]
+    weight_factor: 3
+    normalised_weight_pct: 1.1
+    primary_metric: combustible_veg_pct
+    db_fields: {api: [site_natural_hazards.combustible_veg_pct], llm: nh13_wildfire_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "combustible_veg_pct < 5", descriptor: "< 5% forest/grassland; no fire scars."}
+      - {score_range: [7, 8], condition_expr: "combustible_veg_pct < 15", descriptor: "5-15%; < 1 large fire/decade."}
+      - {score_range: [5, 6], condition_expr: "combustible_veg_pct < 35", descriptor: "15-35%; 1-3 fires/decade."}
+      - {score_range: [3, 4], condition_expr: "combustible_veg_pct <= 60", descriptor: "35-60%; 3-6 fires/decade."}
+      - {score_range: [1, 2], condition_expr: "combustible_veg_pct > 60", descriptor: "> 60%; > 6 fires/decade."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}
+  - criterion_id: NH-14
+    name: Combined hazards
+    phases: [ranking]
+    weight_factor: 3
+    normalised_weight_pct: 1.1
+    primary_metric: nh14_combined_index
+    db_fields: {api: [site_natural_hazards.nh14_combined_index], llm: nh14_combined_text}
+    bands:
+      - {score_range: [9, 10], condition_expr: "nh14_combined_index == 'none'", descriptor: "No material interaction across NH-01/03/04/08/09/10/11."}
+      - {score_range: [7, 8], condition_expr: "nh14_combined_index == 'one_pair_high'", descriptor: "One pair correlated, both >= 7."}
+      - {score_range: [5, 6], condition_expr: "nh14_combined_index == 'one_pair_moderate'", descriptor: "One pair at 5-6 OR a single pair at 4-7."}
+      - {score_range: [3, 4], condition_expr: "nh14_combined_index == 'multiple_moderate'", descriptor: "Multiple moderate hazards interacting unfavourably."}
+      - {score_range: [1, 2], condition_expr: "nh14_combined_index == 'severe'", descriptor: "Credible severe integrated risk combinations."}
+      - {score_range: [0, 0], condition_expr: "nh14_combined_index == 'e_level'", descriptor: "Combined consequence reaches E-level threshold."}
+    fail_conditions: []
+    quality_floor: {low_quality_uncertainty_bands: 1}

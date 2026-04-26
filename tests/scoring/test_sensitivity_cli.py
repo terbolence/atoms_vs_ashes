@@ -59,9 +59,11 @@ class TestPresetAndOverride:
     def _invoke(self, *extra_args: str):
         captured: dict = {}
 
-        def _fake_run(session, cfg, *, run_id):
+        def _fake_run(session, cfg, *, run_id, cancellation=None, heartbeat=None):
             captured["cfg"] = cfg
             captured["run_id"] = run_id
+            captured["cancellation"] = cancellation
+            captured["heartbeat"] = heartbeat
             return _fake_suite_result(cfg)
 
         runner = CliRunner()
