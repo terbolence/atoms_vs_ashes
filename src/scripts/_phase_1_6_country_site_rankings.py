@@ -28,13 +28,20 @@ from sqlalchemy.orm import Session
 from atoms_vs_ashes.db.analytics_writers import persist_country_site_rankings
 from atoms_vs_ashes.db.models import CompositeRanking, Site
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.scoring._suite_persist import _resolve_baseline_run_id
 
 log = get_logger(__name__)
 
 
 def _load_baseline_pairs(
-    session: Session, *, baseline_label: str
+    session: Session,
+    *,
+    baseline_label: str,
+    scoring_run_id: str | None = None,
 ) -> list[dict[str, object]]:
+    resolved_run_id = scoring_run_id or _resolve_baseline_run_id(
+        session, weight_profile_base=baseline_label,
+    )
     stmt = (
         select(
             CompositeRanking.site_id,
@@ -48,6 +55,8 @@ def _load_baseline_pairs(
         .join(Site, Site.site_id == CompositeRanking.site_id)
         .where(CompositeRanking.weight_profile == baseline_label)
     )
+    if resolved_run_id:
+        stmt = stmt.where(CompositeRanking.run_id == resolved_run_id)
     rows: list[dict[str, object]] = []
     for r in session.execute(stmt).all():
         rows.append({
@@ -109,9 +118,12 @@ def compute_country_site_rankings(
     *,
     baseline_label: str,
     per_smr_bands: dict[str, Path] | None = None,
+    scoring_run_id: str | None = None,
 ) -> list[dict[str, object]]:
     """Materialise the long-form ``country_site_rankings`` rows."""
-    pairs = _load_baseline_pairs(session, baseline_label=baseline_label)
+    pairs = _load_baseline_pairs(
+        session, baseline_label=baseline_label, scoring_run_id=scoring_run_id,
+    )
     band_indexes: dict[str, dict[str, tuple[str, float]]] = {
         smr: _read_band_index(path) for smr, path in (per_smr_bands or {}).items()
     }
@@ -148,10 +160,12 @@ def persist_country_site_rankings_from_db(
     run_id: str,
     baseline_label: str,
     per_smr_bands: dict[str, Path] | None = None,
+    scoring_run_id: str | None = None,
 ) -> int:
     """Compute + persist; returns row count written."""
     rows = compute_country_site_rankings(
-        session, baseline_label=baseline_label, per_smr_bands=per_smr_bands,
+        session, baseline_label=baseline_label,
+        per_smr_bands=per_smr_bands, scoring_run_id=scoring_run_id,
     )
     if not rows:
         return 0

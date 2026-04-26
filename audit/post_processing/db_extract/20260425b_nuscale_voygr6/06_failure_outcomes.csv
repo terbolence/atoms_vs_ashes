@@ -1,0 +1,364 @@
+run_id,site_id,smr_key,country_code,bucket,n_hard,n_floor,n_distinct_failures,hard_criteria,floor_criteria,created_at,site_name,country_code
+fail_20260425b_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,BY,survived,0,0,0,,,2026-04-25 14:20:46.515394+00:00,Zelwa power station,BY
+fail_20260425b_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,PL,survived,0,0,0,,,2026-04-25 14:20:46.520025+00:00,Dolna Odra power station,PL
+fail_20260425b_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,PL,survived,0,0,0,,,2026-04-25 14:20:46.520025+00:00,Opalenie power station,PL
+fail_20260425b_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,PL,survived,0,0,0,,,2026-04-25 14:20:46.523462+00:00,Puchaczow power station,PL
+fail_20260425b_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,PL,survived,0,0,0,,,2026-04-25 14:20:46.521276+00:00,Zarnowiec power station,PL
+fail_20260425b_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,RO,survived,0,0,0,,,2026-04-25 14:20:46.524801+00:00,Braila power station,RO
+fail_20260425b_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,RO,survived,0,0,0,,,2026-04-25 14:20:46.524800+00:00,Braila power station,RO
+fail_20260425b_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,RO,survived,0,0,0,,,2026-04-25 14:20:46.526293+00:00,Romag Termo power station,RO
+fail_20260425b_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,RO,survived,0,0,0,,,2026-04-25 14:20:46.524801+00:00,Turceni power station,RO
+fail_20260425b_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,RS,survived,0,0,0,,,2026-04-25 14:20:46.527314+00:00,Kostolac power station,RS
+fail_20260425b_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,RS,survived,0,0,0,,,2026-04-25 14:20:46.527075+00:00,Kovin power station,RS
+fail_20260425b_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.532956+00:00,Akdeniz Enerji power station,TR
+fail_20260425b_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.535509+00:00,Alpu power station,TR
+fail_20260425b_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.530084+00:00,Biga power station,TR
+fail_20260425b_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.539680+00:00,Çebi Enerji power station,TR
+fail_20260425b_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.533839+00:00,Çoban Yıldız power station,TR
+fail_20260425b_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.538205+00:00,Diler (Akbayir) Elbistan power station,TR
+fail_20260425b_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.529247+00:00,Eren-1 power station,TR
+fail_20260425b_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.540334+00:00,Güreci power station,TR
+fail_20260425b_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.538946+00:00,İÇDAŞ Bekirli power station,TR
+fail_20260425b_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.532956+00:00,Kıvanç power station,TR
+fail_20260425b_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.536536+00:00,Konya Karapınar power station,TR
+fail_20260425b_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.538565+00:00,Meda power station,TR
+fail_20260425b_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.532956+00:00,Namal power station,TR
+fail_20260425b_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.530974+00:00,Selena power station,TR
+fail_20260425b_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,TR,survived,0,0,0,,,2026-04-25 14:20:46.540335+00:00,Yeşilovacık power station,TR
+fail_20260425b_ff84d75e,e6ecead0-54d1-41fe-8268-1253d0d7ef3e,nuscale_voygr6,AL,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-03', 'NH-05']",2026-04-25 14:20:46.511600+00:00,Porto Romano Power Station,AL
+fail_20260425b_ff84d75e,021c723b-98af-4b72-8f6c-ade538885f10,nuscale_voygr6,AT,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.511603+00:00,St Andrae power station,AT
+fail_20260425b_ff84d75e,33d83e11-cfcd-47cb-be5e-82ca0fc352cc,nuscale_voygr6,AT,both,1,1,2,['NH-04'],['NH-02'],2026-04-25 14:20:46.512302+00:00,Zeltweg power station,AT
+fail_20260425b_ff84d75e,82011c29-a3d3-4a81-a27b-019d2649a251,nuscale_voygr6,BA,both,1,4,4,['NH-05'],"['EP-01', 'NH-02', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512923+00:00,Banovici power station,BA
+fail_20260425b_ff84d75e,67e5a20f-e3ab-4c18-9864-cf4591d6e15f,nuscale_voygr6,BA,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512923+00:00,Bugojno Thermal Power Project,BA
+fail_20260425b_ff84d75e,85257083-08d1-4560-b198-a9df414da4a9,nuscale_voygr6,BA,both,1,4,4,['NH-05'],"['EP-01', 'NH-02', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512923+00:00,Gacko Thermal Power Plant,BA
+fail_20260425b_ff84d75e,e2d645e3-c829-4aac-8f6f-d6a5507fd5fa,nuscale_voygr6,BA,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512924+00:00,Glinica power station,BA
+fail_20260425b_ff84d75e,e671be33-8b91-40bd-b563-b833293654aa,nuscale_voygr6,BA,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512924+00:00,Kakanj Thermal Power Plant,BA
+fail_20260425b_ff84d75e,344e0e9a-558e-4749-bb66-cd746be50cbd,nuscale_voygr6,BA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.512922+00:00,Kamengrad Thermal Power Plant,BA
+fail_20260425b_ff84d75e,0155b913-765f-4d44-89f5-c176b6867cef,nuscale_voygr6,BA,both,1,2,3,['NH-02'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.512921+00:00,Kongora Thermal Power Plant,BA
+fail_20260425b_ff84d75e,aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9,nuscale_voygr6,BA,both,1,3,3,['NH-05'],"['NH-02', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512924+00:00,Miljevina power station,BA
+fail_20260425b_ff84d75e,e75c63e5-ef2f-4e08-8f8c-3da41215af9d,nuscale_voygr6,BA,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.512924+00:00,Stanari Thermal Power Plant,BA
+fail_20260425b_ff84d75e,0fb50bcc-5616-40d8-9109-8136a958f18d,nuscale_voygr6,BA,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.512922+00:00,Tuzla Thermal Power Plant,BA
+fail_20260425b_ff84d75e,a23d073a-cbbd-469a-b134-380945fd3f4c,nuscale_voygr6,BA,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.512923+00:00,Ugljevik power station,BA
+fail_20260425b_ff84d75e,fee1d5b3-827f-4172-8492-a3e114a3c39e,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.515144+00:00,Brikel power station,BG
+fail_20260425b_ff84d75e,398cc0f2-25d5-428a-93c9-5e4859680e86,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.514018+00:00,Deven power station,BG
+fail_20260425b_ff84d75e,d12d7173-8595-4b53-92af-75b44b5a2fb7,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.514752+00:00,Maritsa Iztok-1 power station,BG
+fail_20260425b_ff84d75e,b1bcb7d3-cd40-40c9-9c59-a01fa71053b3,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.514751+00:00,Maritsa Iztok-4 power station,BG
+fail_20260425b_ff84d75e,33a015dd-51e0-497e-b0d3-4b1b3f070438,nuscale_voygr6,BG,both,1,2,3,['EP-01'],"['NH-02', 'NH-04']",2026-04-25 14:20:46.514018+00:00,Republika power station,BG
+fail_20260425b_ff84d75e,93685558-3355-4da2-9a4a-4cccd89f9269,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.514376+00:00,Sliven power station,BG
+fail_20260425b_ff84d75e,85c56b15-450b-4bb1-b75e-5ea00ee51cb2,nuscale_voygr6,BG,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.514375+00:00,Varna power station,BG
+fail_20260425b_ff84d75e,d762ceeb-514f-43a6-9f91-a2d422ed6c60,nuscale_voygr6,CZ,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.515613+00:00,Chvaletice power station,CZ
+fail_20260425b_ff84d75e,a733fc13-11a4-4722-b62d-85c85a4f8ef3,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515612+00:00,Detmarovice power station,CZ
+fail_20260425b_ff84d75e,180880c2-7284-4723-b02a-a62348b9b40b,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515608+00:00,Hodonin power station,CZ
+fail_20260425b_ff84d75e,43e5b2b4-2ccf-46ab-b01e-e3d480146455,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515610+00:00,Karvina power station,CZ
+fail_20260425b_ff84d75e,f1d2bca1-a7a9-4404-84c1-34fc8a59dab7,nuscale_voygr6,CZ,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515613+00:00,Kladno power station,CZ
+fail_20260425b_ff84d75e,274ec928-e527-44cf-86c5-b6eddc09d0f7,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515609+00:00,Komorany power station,CZ
+fail_20260425b_ff84d75e,2fe0a0b3-4108-427e-8e54-f77e1ea7227c,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515609+00:00,Ledvice power station,CZ
+fail_20260425b_ff84d75e,1c059a42-608c-4753-8fcf-ba797d94f900,nuscale_voygr6,CZ,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.515608+00:00,Malesice power station,CZ
+fail_20260425b_ff84d75e,cbd67443-4a4e-44fd-a9ed-20ba9574c99e,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515613+00:00,Marianske Hory power station,CZ
+fail_20260425b_ff84d75e,f3523341-daaa-4573-a856-becb2e1bb9e3,nuscale_voygr6,CZ,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515614+00:00,Melnik power station,CZ
+fail_20260425b_ff84d75e,e299922a-1670-4aff-acda-fd80600af9af,nuscale_voygr6,CZ,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515613+00:00,Mondi Steti power station,CZ
+fail_20260425b_ff84d75e,4eb7914c-e000-403c-b5a5-c350de67bb83,nuscale_voygr6,CZ,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.515610+00:00,Mostecka Power Station,CZ
+fail_20260425b_ff84d75e,44d40276-5847-41d1-ab9b-887bbdc1bcfe,nuscale_voygr6,CZ,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.515610+00:00,Olomouc power station,CZ
+fail_20260425b_ff84d75e,05daa6b2-bb29-4c26-a459-855626673955,nuscale_voygr6,CZ,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515607+00:00,Opatovice power station,CZ
+fail_20260425b_ff84d75e,9c4291f1-173b-467e-ae26-8cb01312c605,nuscale_voygr6,CZ,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.515612+00:00,Plana Nad Luznici power station,CZ
+fail_20260425b_ff84d75e,97ed917e-acfa-4002-be89-4ec44972ab45,nuscale_voygr6,CZ,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.515611+00:00,Plzen CHP power station,CZ
+fail_20260425b_ff84d75e,a6bf9980-016e-47ea-b40a-82e384a9eb43,nuscale_voygr6,CZ,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.515612+00:00,Plzenska energetika ELU III power station,CZ
+fail_20260425b_ff84d75e,32484f7b-18a4-4b21-8e6a-6d68ae099d02,nuscale_voygr6,CZ,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.515610+00:00,Pocerady power station,CZ
+fail_20260425b_ff84d75e,20bce4f5-ca0b-4145-87e5-0a0694343f31,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515609+00:00,Porici power station,CZ
+fail_20260425b_ff84d75e,60baaa73-dd8c-4865-bb18-6c73d63a4052,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515611+00:00,Prerov power station,CZ
+fail_20260425b_ff84d75e,0ae8917b-a70b-41e5-82de-e4963a7686e3,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515607+00:00,Pribram power station,CZ
+fail_20260425b_ff84d75e,b0ba194f-3c80-4725-b1e7-fa5277b38833,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515613+00:00,Prunerov power station,CZ
+fail_20260425b_ff84d75e,20c9d02d-e9e8-40b3-a11e-7a2e01018d8c,nuscale_voygr6,CZ,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.515609+00:00,Sko-Energo power station,CZ
+fail_20260425b_ff84d75e,14e88076-ce0e-4693-bca4-e80f3f013c7f,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515608+00:00,Tisova power station,CZ
+fail_20260425b_ff84d75e,66c3f077-1ee6-41d7-8e6c-da374bb45139,nuscale_voygr6,CZ,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.515611+00:00,Trebovice power station,CZ
+fail_20260425b_ff84d75e,63601ccc-3f20-4cbd-95cb-0fbeaf821c6a,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515611+00:00,Trinec-E3 power station,CZ
+fail_20260425b_ff84d75e,287cbb48-bb08-40dd-82c5-cfe1530dfbb9,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515609+00:00,Tusimice power station,CZ
+fail_20260425b_ff84d75e,5f4ed23c-cea2-41ef-a3e8-ac863e1bdcd6,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515611+00:00,Vresova TPS power station,CZ
+fail_20260425b_ff84d75e,aa38441d-aec7-4ae9-b4c3-68c5bf567db3,nuscale_voygr6,CZ,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515612+00:00,Zlin power station,CZ
+fail_20260425b_ff84d75e,7af0e000-3d19-4e5e-b504-f74897f1510c,nuscale_voygr6,HR,both,2,2,3,"['NH-02', 'NH-05']","['EP-01', 'NH-05']",2026-04-25 14:20:46.515614+00:00,Ploče power station,HR
+fail_20260425b_ff84d75e,ab151830-e5bd-46de-8400-01aa4c165366,nuscale_voygr6,HR,both,1,3,3,['NH-05'],"['NH-04', 'NH-05', 'NS-08']",2026-04-25 14:20:46.515614+00:00,Plomin power station,HR
+fail_20260425b_ff84d75e,ef325d90-6d2d-4f8f-89f2-3bc98beb149b,nuscale_voygr6,HU,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515616+00:00,Bakony power station,HU
+fail_20260425b_ff84d75e,f2b3a729-602a-4b6b-acc9-004244f2e556,nuscale_voygr6,HU,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515616+00:00,Banhida-II power station,HU
+fail_20260425b_ff84d75e,f7dcdb63-26e6-44cd-b440-ec14fe507d90,nuscale_voygr6,HU,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515616+00:00,Borsod power station,HU
+fail_20260425b_ff84d75e,28b36531-865d-42ae-afb3-b8bad86f7014,nuscale_voygr6,HU,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515614+00:00,Matra power station,HU
+fail_20260425b_ff84d75e,903d6b94-cd9d-4c32-b7e2-4bbfbee929df,nuscale_voygr6,HU,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.515615+00:00,Matraterenye power station,HU
+fail_20260425b_ff84d75e,34d88ce8-d49c-4b19-af2d-6efcb1b72149,nuscale_voygr6,HU,both,1,4,4,['NH-05'],"['EP-01', 'NH-04', 'NH-05', 'NS-08']",2026-04-25 14:20:46.515615+00:00,Mecsek Hills power station,HU
+fail_20260425b_ff84d75e,997474f6-9bfd-4abd-a2ac-d8618db8f0b4,nuscale_voygr6,HU,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.515615+00:00,Mohacs power station,HU
+fail_20260425b_ff84d75e,651839d3-4e8f-4214-89aa-1f96ea221121,nuscale_voygr6,HU,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.515615+00:00,Oroszlány power station,HU
+fail_20260425b_ff84d75e,e1649639-2e45-4226-9c7a-783d2dcb6724,nuscale_voygr6,HU,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.515616+00:00,Pecs power station,HU
+fail_20260425b_ff84d75e,5de5f907-98e7-42d3-a7dd-cb65f839697b,nuscale_voygr6,HU,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.515615+00:00,Tiszapalkonya power station,HU
+fail_20260425b_ff84d75e,059b3ad4-7196-4e6b-b169-8605ceeed841,nuscale_voygr6,HU,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.515614+00:00,Torony power station,HU
+fail_20260425b_ff84d75e,b3eb5dd2-98cf-40c4-b9ee-2a86fd066093,nuscale_voygr6,MD,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.517778+00:00,Kuchurgan power station,MD
+fail_20260425b_ff84d75e,e77a7e7f-11ba-4e61-98da-f44471bc52ab,nuscale_voygr6,ME,both,1,2,3,['EP-01'],"['NH-02', 'NH-04']",2026-04-25 14:20:46.518029+00:00,Berane power station,ME
+fail_20260425b_ff84d75e,a851b5f3-8392-4766-82b9-379c6c04fe5d,nuscale_voygr6,ME,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.518029+00:00,Maoce Power Station,ME
+fail_20260425b_ff84d75e,a9385c82-79b7-4f8d-b609-0a12ed946fe6,nuscale_voygr6,ME,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.518029+00:00,Pljevlja power station,ME
+fail_20260425b_ff84d75e,d3b5a049-6bff-400b-9312-96985f03acea,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.523112+00:00,Bedzin power station,PL
+fail_20260425b_ff84d75e,73fe8f06-c53b-4877-9c1d-5caf3d8f2749,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.520442+00:00,Bielsko-Biala power station,PL
+fail_20260425b_ff84d75e,a91dfe3d-93e0-43a1-99d2-41abdd1fc2ce,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.521611+00:00,Chorzow Elcho power station,PL
+fail_20260425b_ff84d75e,b789a244-7d29-4be3-afe4-2f45d7f11eab,nuscale_voygr6,PL,both,1,2,3,['EP-01'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.522218+00:00,Czestochowa CHP power station,PL
+fail_20260425b_ff84d75e,416aab55-6fd9-4a0a-b8f8-796fb62d86a5,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.519722+00:00,Gliwice Works power station,PL
+fail_20260425b_ff84d75e,29479c3f-8db8-4f62-90e8-59ad6739f90b,nuscale_voygr6,PL,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.518929+00:00,Halemba power station,PL
+fail_20260425b_ff84d75e,c4d7f628-c108-4496-ac02-6076ea3ae448,nuscale_voygr6,PL,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.522562+00:00,Jaworzno power station,PL
+fail_20260425b_ff84d75e,399668d6-bfed-4e5b-bf38-9ee5902101c3,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.519239+00:00,Katowice PKE power station,PL
+fail_20260425b_ff84d75e,27fc89b3-ee57-44ac-8073-a700bc8d12e8,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.518929+00:00,Lagisza power station,PL
+fail_20260425b_ff84d75e,0b187a1d-55de-47cf-96a3-06abc8ff2476,nuscale_voygr6,PL,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.518554+00:00,Leczna Power Station (Bogdanka SA),PL
+fail_20260425b_ff84d75e,29a58981-aaf7-4450-ad41-49dd6d786168,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.519238+00:00,Lodz-2 power station,PL
+fail_20260425b_ff84d75e,8dd8db4c-b62d-4f6b-a2ee-70a9ed785e7a,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.520742+00:00,Lodz-3 power station,PL
+fail_20260425b_ff84d75e,ef2ee2ae-e73e-490c-aa07-746543fe20e6,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.524408+00:00,Lodz-4 power station,PL
+fail_20260425b_ff84d75e,c42c5942-264d-43a1-a9eb-95b00480eb1a,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.522561+00:00,Miechowice power station,PL
+fail_20260425b_ff84d75e,5a57ae0a-6f91-46f4-a1f5-56a6b37596e9,nuscale_voygr6,PL,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.520193+00:00,Murcki-Staszic power station,PL
+fail_20260425b_ff84d75e,cd84938d-eea8-47a1-8ea6-2e9f943e5914,nuscale_voygr6,PL,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.522862+00:00,Turów power station,PL
+fail_20260425b_ff84d75e,3d2d4c37-eb9d-4b35-a8b1-b3f485bc3e3f,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.519239+00:00,Tychy power station,PL
+fail_20260425b_ff84d75e,dc87cdf1-9936-4a59-a5e9-b5e360173490,nuscale_voygr6,PL,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.523578+00:00,Wroclaw power station,PL
+fail_20260425b_ff84d75e,2da9dab9-7b4e-46e7-b1c8-70eeb329c177,nuscale_voygr6,PL,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.519239+00:00,Zabrze power station,PL
+fail_20260425b_ff84d75e,b24c9876-5a4d-4b83-b442-af2f4b0d1047,nuscale_voygr6,PL,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.521961+00:00,Zofiowka Mine power station,PL
+fail_20260425b_ff84d75e,729f8d17-57c0-4d9a-adab-4b612d4abde5,nuscale_voygr6,RO,both,1,1,2,['EP-01'],['NH-05'],2026-04-25 14:20:46.525466+00:00,Brasov power station,RO
+fail_20260425b_ff84d75e,52a7babe-313f-493b-86b9-bd0c4aece4c3,nuscale_voygr6,RO,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.525127+00:00,Mintia-Deva power station,RO
+fail_20260425b_ff84d75e,6c428b2a-ad09-448b-b24c-22465929d69c,nuscale_voygr6,RO,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.525465+00:00,Oradea power station,RO
+fail_20260425b_ff84d75e,0182ec25-0df9-4e4b-9861-d76a332bc282,nuscale_voygr6,RS,both,1,3,3,['NH-05'],"['EP-01', 'NH-02', 'NH-05']",2026-04-25 14:20:46.526778+00:00,Kolubara A power station,RS
+fail_20260425b_ff84d75e,d30af109-79cb-4ab5-a878-6f574b58116a,nuscale_voygr6,RS,both,1,2,2,['NH-05'],"['NH-02', 'NH-05']",2026-04-25 14:20:46.527569+00:00,Kolubara B power station,RS
+fail_20260425b_ff84d75e,0750b80c-a54b-4ea5-b3e5-9dfb7309eca2,nuscale_voygr6,SI,both,2,3,4,"['NH-02', 'NH-05']","['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.527570+00:00,Sostanj power station,SI
+fail_20260425b_ff84d75e,4cf7f820-7ad9-411e-bf39-2bbef290aaf6,nuscale_voygr6,SI,both,3,1,3,"['EP-01', 'NH-02', 'NH-05']",['NH-05'],2026-04-25 14:20:46.527570+00:00,Te-Tol power station,SI
+fail_20260425b_ff84d75e,008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd,nuscale_voygr6,SI,both,3,3,5,"['NH-02', 'NH-04', 'NH-05']","['EP-01', 'NH-05', 'NS-08']",2026-04-25 14:20:46.527570+00:00,Trbovlje power station,SI
+fail_20260425b_ff84d75e,66edd8f5-e60a-412d-9b80-56496d1407b1,nuscale_voygr6,SK,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.527571+00:00,Kosice power station,SK
+fail_20260425b_ff84d75e,06defca3-9105-437f-afd4-52f5603d9b8e,nuscale_voygr6,SK,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.527571+00:00,Martinska power station,SK
+fail_20260425b_ff84d75e,c97125b3-20ed-4e21-a853-b928644ec7dd,nuscale_voygr6,SK,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.527572+00:00,Novaky power station,SK
+fail_20260425b_ff84d75e,1719d38b-61e8-4b01-844b-3a2f85c8a186,nuscale_voygr6,SK,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.527571+00:00,Trebisov power station,SK
+fail_20260425b_ff84d75e,a2d8261c-3d08-4015-946c-47dbddbd0b98,nuscale_voygr6,SK,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.527572+00:00,U.S. Steel Kosice Works power station,SK
+fail_20260425b_ff84d75e,770f1d3c-e5fd-493c-a376-e708d2abec6c,nuscale_voygr6,SK,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.527571+00:00,Vojany I power station,SK
+fail_20260425b_ff84d75e,992a4bf0-3ff0-4f12-bb89-50dc9e8d7d35,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.535748+00:00,Aksa Akrilik power station,TR
+fail_20260425b_ff84d75e,bcb86777-4a54-4891-bb26-35b201bbd57d,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.537486+00:00,Aliağa Enka power station,TR
+fail_20260425b_ff84d75e,c7afd455-7beb-4d23-8d3b-e9a102782d2b,nuscale_voygr6,TR,both,1,2,3,['EP-01'],"['NH-02', 'NH-04']",2026-04-25 14:20:46.538440+00:00,Avdan power station,TR
+fail_20260425b_ff84d75e,ba1f1f36-18b4-49ae-9882-f90418dc88ce,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.537168+00:00,Bandırma Elektrik power station,TR
+fail_20260425b_ff84d75e,bb2453b0-c76d-40ea-bcc4-870391f05b2f,nuscale_voygr6,TR,both,1,1,2,['EP-01'],['NH-02'],2026-04-25 14:20:46.537486+00:00,Bandırma Karat power station,TR
+fail_20260425b_ff84d75e,e894ba3e-e397-47c9-b0b9-a72cfb6bd680,nuscale_voygr6,TR,both,1,1,2,['EP-01'],['NH-04'],2026-04-25 14:20:46.541281+00:00,Çerkezköy power station,TR
+fail_20260425b_ff84d75e,59f96677-d42b-4ae1-a3e9-32f3dc396a83,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.532658+00:00,Dinar power station,TR
+fail_20260425b_ff84d75e,161660e7-3ccf-4704-b452-b126599700a0,nuscale_voygr6,TR,both,1,2,3,['EP-01'],"['NH-02', 'NH-04']",2026-04-25 14:20:46.529387+00:00,DOSAB cogeneration plant,TR
+fail_20260425b_ff84d75e,28baef4d-44e3-4b2e-bbe3-75f736371553,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.530387+00:00,Enyat Samsun power station,TR
+fail_20260425b_ff84d75e,b90e80f9-66f3-4290-8aa2-518b8422aba0,nuscale_voygr6,TR,both,1,1,2,['EP-01'],['NH-02'],2026-04-25 14:20:46.537168+00:00,Eti Maden Bandirma power station,TR
+fail_20260425b_ff84d75e,0ca0b969-c519-48f3-97ab-7173d3aa6085,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.528744+00:00,Gönen power station,TR
+fail_20260425b_ff84d75e,d110df11-ad8e-44dc-8a32-af692ca46c6f,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.539549+00:00,Güneybatı Anadolu power station,TR
+fail_20260425b_ff84d75e,80179871-04fa-4806-9385-caf739b8a171,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.534268+00:00,Habaş power station,TR
+fail_20260425b_ff84d75e,47c1271c-e2b2-42f5-99ee-f616bbef5b7e,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.531804+00:00,Ilgın power station,TR
+fail_20260425b_ff84d75e,d19ed873-b20a-43fd-b7e8-62e985c88820,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.539914+00:00,İzdemir Enerji power station,TR
+fail_20260425b_ff84d75e,8e7f6abf-e420-4f40-b9da-9ea76ccedfb1,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.535127+00:00,Kemerköy power station,TR
+fail_20260425b_ff84d75e,7defe42d-669b-489f-aff5-d1b83436607d,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.534268+00:00,Kınık power station,TR
+fail_20260425b_ff84d75e,80b922cb-9e78-49aa-9d28-1dc84b1affef,nuscale_voygr6,TR,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.534268+00:00,Orhaneli power station,TR
+fail_20260425b_ff84d75e,86996d34-c6e5-4097-ac28-ad2e5467f783,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.534737+00:00,Petkim power station,TR
+fail_20260425b_ff84d75e,c13aeeb7-05e5-4f00-9b4b-654e73e5150d,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['NH-04'],2026-04-25 14:20:46.538078+00:00,Sanko Gölbaşı power station,TR
+fail_20260425b_ff84d75e,e05ff795-8984-4170-9874-5355b70985b1,nuscale_voygr6,TR,both,1,1,2,['NH-04'],['EP-01'],2026-04-25 14:20:46.540771+00:00,Silopi (Şırnak) power station,TR
+fail_20260425b_ff84d75e,4ca3c560-6d90-4bcf-b131-4e39b6b4f0de,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.532185+00:00,Soma power station,TR
+fail_20260425b_ff84d75e,021d1717-149a-4a32-af7b-5955ff593e45,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.528418+00:00,Star Refinery Socar power station,TR
+fail_20260425b_ff84d75e,0ada7b2a-f928-4c21-b082-4c7345094245,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['NH-04'],2026-04-25 14:20:46.528744+00:00,Tekirdağ Malkara power station,TR
+fail_20260425b_ff84d75e,fd4f7f8c-0d23-450d-9ea0-1b8e52e9a8af,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.541871+00:00,Yatağan power station,TR
+fail_20260425b_ff84d75e,61b7e396-5c25-4591-9da1-eb54475f1805,nuscale_voygr6,TR,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.533168+00:00,Zorlu Soma power station,TR
+fail_20260425b_ff84d75e,c47eb6a3-49c1-4879-95b6-9bcd53b7af04,nuscale_voygr6,UA,both,1,1,2,['NH-05'],['EP-01'],2026-04-25 14:20:46.543215+00:00,Burshtyn power station,UA
+fail_20260425b_ff84d75e,95872473-c476-4ceb-bcf5-54cfdf415e42,nuscale_voygr6,UA,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.543215+00:00,Cherkasy power station,UA
+fail_20260425b_ff84d75e,e4c6a713-99e6-4fdf-afaa-d456779c504c,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.543216+00:00,Chernihiv power station,UA
+fail_20260425b_ff84d75e,038d42e9-769b-4b22-9513-dccff48b42cd,nuscale_voygr6,UA,both,2,1,2,"['EP-01', 'NH-05']",['NH-05'],2026-04-25 14:20:46.542213+00:00,Darnytska power station,UA
+fail_20260425b_ff84d75e,5ed0a674-a292-44bc-997f-5c1990da1235,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['NH-04', 'NH-05']",2026-04-25 14:20:46.542804+00:00,Dobrotvir power station,UA
+fail_20260425b_ff84d75e,fb7d4d9a-3f27-4b50-9941-6a8fccd25e9a,nuscale_voygr6,UA,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.543216+00:00,Kalush power station,UA
+fail_20260425b_ff84d75e,d3b9e403-7744-44c5-b5c3-999c4c1911d8,nuscale_voygr6,UA,both,2,2,3,"['EP-01', 'NH-05']","['NH-04', 'NH-05']",2026-04-25 14:20:46.543216+00:00,Kramatorskaya power station,UA
+fail_20260425b_ff84d75e,83fede8b-5f92-429d-920d-9a8928a74780,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.543214+00:00,Kryvorizka power station,UA
+fail_20260425b_ff84d75e,cec871bd-c7f6-4444-b0da-9b3a9ecc6963,nuscale_voygr6,UA,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.543215+00:00,Ladyzhyn power station,UA
+fail_20260425b_ff84d75e,4e45df00-0d28-44d0-9697-3fa33d76fc88,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.542804+00:00,Luganskaya power station,UA
+fail_20260425b_ff84d75e,3bd2a957-ff3b-4bfd-9dba-808279edccb9,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.542214+00:00,Myronivskyi power station,UA
+fail_20260425b_ff84d75e,02253fcc-4fc6-42d4-a6a8-42365487302f,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.542213+00:00,Prydniprovska power station,UA
+fail_20260425b_ff84d75e,70781f2c-24c2-486c-8b32-310c36ba1238,nuscale_voygr6,UA,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.542805+00:00,Slavyansk power station,UA
+fail_20260425b_ff84d75e,447a9ea1-47fa-48a3-93f2-a77cbd629ac7,nuscale_voygr6,UA,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.542214+00:00,Starobesheve power station,UA
+fail_20260425b_ff84d75e,cdb6adfb-52ff-4631-939a-001080b20450,nuscale_voygr6,UA,both,1,3,3,['NH-05'],"['EP-01', 'NH-04', 'NH-05']",2026-04-25 14:20:46.543215+00:00,Trypilska power station,UA
+fail_20260425b_ff84d75e,3657989a-61ae-4fe3-9e8b-6ba7e68f8c59,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.542214+00:00,Vuglegirska power station,UA
+fail_20260425b_ff84d75e,29b3a802-7ef1-4722-ad59-b1511b1b0075,nuscale_voygr6,UA,both,1,2,2,['NH-05'],"['EP-01', 'NH-05']",2026-04-25 14:20:46.542213+00:00,Zmiivska power station,UA
+fail_20260425b_ff84d75e,f2c061de-66ad-4fce-b911-7f1899f25b75,nuscale_voygr6,UA,both,1,1,1,['NH-05'],['NH-05'],2026-04-25 14:20:46.543216+00:00,Zuevskaya power station,UA
+fail_20260425b_ff84d75e,d9f32912-81f1-4b1c-a2b1-f04298217cec,nuscale_voygr6,XK,both,1,2,3,['NH-02'],"['EP-01', 'NH-04']",2026-04-25 14:20:46.543799+00:00,Istok power station,XK
+fail_20260425b_ff84d75e,28be296b-6ef5-4c7e-a604-3af01af45d17,nuscale_voygr6,XK,both,1,1,2,['NH-02'],['EP-01'],2026-04-25 14:20:46.543217+00:00,Kosovo A power station,XK
+fail_20260425b_ff84d75e,6e7fc4d8-636d-411a-baef-e138a5a07acc,nuscale_voygr6,AT,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.512456+00:00,Duernrohr power station,AT
+fail_20260425b_ff84d75e,532bfb42-0d4c-42cf-a81a-287f2b3a75bf,nuscale_voygr6,AT,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.512455+00:00,Enns Power Station,AT
+fail_20260425b_ff84d75e,90820fe3-9889-4faf-9906-7c528f8d7bc5,nuscale_voygr6,AT,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.512456+00:00,Mellach power station,AT
+fail_20260425b_ff84d75e,660d9d71-6733-4294-951b-1c58614d58cf,nuscale_voygr6,AT,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.512456+00:00,Riedersbach power station,AT
+fail_20260425b_ff84d75e,2dcd2c6d-f375-4408-9492-7910662fac03,nuscale_voygr6,AT,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.512114+00:00,Timelkam power station,AT
+fail_20260425b_ff84d75e,99d712ac-7993-4186-8a0e-2e88bae7e90f,nuscale_voygr6,AT,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.512457+00:00,Voitsberg power station,AT
+fail_20260425b_ff84d75e,b01fe781-dbc7-40f8-a544-946288020042,nuscale_voygr6,BG,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.514551+00:00,Bobov Dol power station,BG
+fail_20260425b_ff84d75e,30c9e377-b575-46fa-880f-922c46e6500a,nuscale_voygr6,BG,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.513840+00:00,Lom Power Station,BG
+fail_20260425b_ff84d75e,3bb6666f-de2f-4c6f-a28e-c3bddb71b54a,nuscale_voygr6,BG,floor_only,0,2,2,,"['EP-01', 'NH-02']",2026-04-25 14:20:46.514198+00:00,Maritsa 3 power station,BG
+fail_20260425b_ff84d75e,ec5f337a-ca52-4b86-a0f4-4933eac349e3,nuscale_voygr6,BG,floor_only,0,2,2,,"['EP-01', 'NH-02']",2026-04-25 14:20:46.514998+00:00,Maritsa Iztok-2 power station,BG
+fail_20260425b_ff84d75e,704ef487-f600-4f23-b06e-a0f81b627597,nuscale_voygr6,BG,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.514198+00:00,Ruse Iztok power station,BG
+fail_20260425b_ff84d75e,2fb27566-cc7b-4530-8ff9-e55e3a1985bd,nuscale_voygr6,BG,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.513840+00:00,Svilosa power station,BG
+fail_20260425b_ff84d75e,a064c7ae-e699-4a94-a18c-79bdfe42bce3,nuscale_voygr6,BG,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.514551+00:00,Vidin Works power station,BG
+fail_20260425b_ff84d75e,68aabff9-e662-4b9f-b37d-4c2ebc5f7539,nuscale_voygr6,BY,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.515272+00:00,Lelchitsy power station,BY
+fail_20260425b_ff84d75e,1a5b8f8f-f4be-4514-8738-755d25e19b41,nuscale_voygr6,LV,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.517638+00:00,Kurzeme power station,LV
+fail_20260425b_ff84d75e,3795824b-cb76-48dd-a65c-764c757ddc76,nuscale_voygr6,ME,floor_only,0,2,2,,"['EP-01', 'NH-02']",2026-04-25 14:20:46.517900+00:00,Bar power station,ME
+fail_20260425b_ff84d75e,1739b1b7-a6f3-466c-9dfa-3d1de9d5b6db,nuscale_voygr6,MK,floor_only,0,1,1,,['NH-02'],2026-04-25 14:20:46.518266+00:00,Bitola power station,MK
+fail_20260425b_ff84d75e,7bff5ef2-646d-4b83-83b0-7f3da32f0254,nuscale_voygr6,MK,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.518267+00:00,Mariovo power station,MK
+fail_20260425b_ff84d75e,83d3abe4-2049-47ad-a66b-46034edb7569,nuscale_voygr6,MK,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.518267+00:00,Negotino power station,MK
+fail_20260425b_ff84d75e,756218bb-3f16-443e-b6c6-400cd0ce2f87,nuscale_voygr6,MK,floor_only,0,4,4,,"['EP-01', 'NH-02', 'NH-04', 'NH-05']",2026-04-25 14:20:46.518267+00:00,Oslomej power station,MK
+fail_20260425b_ff84d75e,e4e3b5f0-7038-47a5-84e3-04eb07b3c4d7,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.523941+00:00,Adamow power station,PL
+fail_20260425b_ff84d75e,8e485f8a-5c68-4541-ab1d-77783f6fcb2d,nuscale_voygr6,PL,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.520873+00:00,Belchatow power station,PL
+fail_20260425b_ff84d75e,06641fea-8997-4b69-a618-6afa34b82591,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.518268+00:00,Bialystok power station,PL
+fail_20260425b_ff84d75e,ccc15bde-1c5a-40bf-8f09-2fcb1e896ce5,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.522742+00:00,Blachownia power station,PL
+fail_20260425b_ff84d75e,a6b51b4f-ba1d-49cd-bc99-8898acdbeb78,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.521396+00:00,Czeczott power station,PL
+fail_20260425b_ff84d75e,917008f5-fba1-4ef7-b82d-9aded2b69267,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.520874+00:00,Gubin Power Project,PL
+fail_20260425b_ff84d75e,239ea0eb-a9c4-43cc-ac5f-35271bdc6613,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.518686+00:00,Kedzierzyn CCS Project,PL
+fail_20260425b_ff84d75e,c39819ef-6798-4c01-9a82-9eead65b5f56,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.522347+00:00,Konin power station,PL
+fail_20260425b_ff84d75e,4411a22e-4e8a-4715-b000-1aae34494b68,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.519850+00:00,Kozienice power station,PL
+fail_20260425b_ff84d75e,de6735bd-7a79-43c8-baad-1fe23d50d6f0,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.523700+00:00,Laziska power station,PL
+fail_20260425b_ff84d75e,ebc0f461-acfa-47da-8094-5b15ea3e25a0,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.524202+00:00,Leczna Power Station (Enea),PL
+fail_20260425b_ff84d75e,187b4fd7-6a61-4e94-8ed4-495ac6dfc317,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.518686+00:00,Legnica Power Station,PL
+fail_20260425b_ff84d75e,d60b377c-9bb4-4fd5-adb7-a9a9ba98ae76,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.523348+00:00,Lublin Power Station,PL
+fail_20260425b_ff84d75e,1d19dce6-c458-4656-901d-6a8d3c548761,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.518686+00:00,Opole power station,PL
+fail_20260425b_ff84d75e,b8bc6544-1571-4906-95e0-314d62c78a24,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.522347+00:00,Ostrołęka power station,PL
+fail_20260425b_ff84d75e,ab57f5c3-8699-46f9-970f-3007dfc58af4,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NS-08']",2026-04-25 14:20:46.521731+00:00,Patnow power station,PL
+fail_20260425b_ff84d75e,8a9d5c87-7edc-49c3-85a2-d97727b9c9b2,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.520570+00:00,Piast Ruch Power Station,PL
+fail_20260425b_ff84d75e,2981a12d-3444-4301-96ba-a63ef50bec3e,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.519115+00:00,Polaniec power station,PL
+fail_20260425b_ff84d75e,b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.522089+00:00,Pólnoc power station,PL
+fail_20260425b_ff84d75e,cdc888ad-fd51-4710-a5ab-3cd0fe9ddb48,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.522995+00:00,Pulawy power station (Grupa Azoty),PL
+fail_20260425b_ff84d75e,a19228ce-f25a-4ffd-a249-9d01403e6b81,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.521162+00:00,Pulawy power station (Vattenfall),PL
+fail_20260425b_ff84d75e,ee332928-87b2-4e7b-9203-20e402bc551f,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.524203+00:00,Pulawy ZAP Works power station,PL
+fail_20260425b_ff84d75e,b8a00967-90a3-4a4e-9979-6b8651d87380,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.522346+00:00,Rybnik power station,PL
+fail_20260425b_ff84d75e,a7eeee6e-e14a-40ba-80b6-75ed2e170b20,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.521396+00:00,Siechnice power station,PL
+fail_20260425b_ff84d75e,a67255dd-8134-418e-9377-e28516c53722,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.521395+00:00,Siekierki power station,PL
+fail_20260425b_ff84d75e,47be3ec4-7abe-4f4c-ac3d-b7f753b8514a,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.519850+00:00,Siersza power station,PL
+fail_20260425b_ff84d75e,f5be4e73-938d-4fe2-b585-5090ec780670,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.524537+00:00,Skawina power station,PL
+fail_20260425b_ff84d75e,66bdc30c-4179-480b-a55a-5d15be5ac66b,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.520314+00:00,Stalowa Wola power station,PL
+fail_20260425b_ff84d75e,7fc17ab0-ce24-4830-a938-b8424d1e9368,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.520570+00:00,Swiecie Pulp Mill power station,PL
+fail_20260425b_ff84d75e,f8f9f43d-6a3b-445d-818e-ca82a90ace65,nuscale_voygr6,PL,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.524538+00:00,Szczecin power station,PL
+fail_20260425b_ff84d75e,202d797d-b0f9-4cd0-bbac-d7bb06805c09,nuscale_voygr6,PL,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.518686+00:00,ZW Nowa power station,PL
+fail_20260425b_ff84d75e,5a33e5f0-6d86-4eab-adea-6c6bad7f3f45,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.525254+00:00,Arad power station,RO
+fail_20260425b_ff84d75e,dac2a974-a2de-46c5-b581-03985a9ae7d0,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.526414+00:00,Bacau CHP power station,RO
+fail_20260425b_ff84d75e,3bef37a3-239e-498d-a160-77452a6a9b79,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.525004+00:00,Bucharest North East power station,RO
+fail_20260425b_ff84d75e,aff5ffe6-fe7a-4de7-afad-9d4645a64cd9,nuscale_voygr6,RO,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.526174+00:00,Doicesti power station,RO
+fail_20260425b_ff84d75e,18ecb024-ee4f-4045-8254-5e95d61dea8c,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.524538+00:00,FPCU Feldioara,RO
+fail_20260425b_ff84d75e,6aed2eac-1c97-40c5-b842-fb15fd510f35,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.525255+00:00,Giurgiu power station,RO
+fail_20260425b_ff84d75e,825dc024-9a53-4237-bf59-cbe0af0cf87d,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.525641+00:00,Govora power station,RO
+fail_20260425b_ff84d75e,1d8be6d0-f3a5-4b32-9d46-3526289731f8,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.524538+00:00,Iasi-2 power station,RO
+fail_20260425b_ff84d75e,e073b3f8-4312-4d34-b322-6289a3121af1,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.526414+00:00,Isalnita power station,RO
+fail_20260425b_ff84d75e,9825e28e-fd6e-460d-9caf-0342563f9060,nuscale_voygr6,RO,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.525885+00:00,Paroseni power station,RO
+fail_20260425b_ff84d75e,958e4d82-853a-41f1-a442-94b4c4314221,nuscale_voygr6,RO,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.525885+00:00,Rovinari power station,RO
+fail_20260425b_ff84d75e,d498ded8-449c-4672-8bb9-0ed6c8fef775,nuscale_voygr6,RO,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.526413+00:00,Slatina power station,RO
+fail_20260425b_ff84d75e,693d9b73-f9fc-4502-9b94-be020c5d21fb,nuscale_voygr6,RO,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.525254+00:00,Suceava power station,RO
+fail_20260425b_ff84d75e,e43af28e-a3d3-4047-a9cf-f3b0990754b4,nuscale_voygr6,RO,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.526414+00:00,Târgu Jiu Thermal Plant,RO
+fail_20260425b_ff84d75e,2b03f2e2-64ac-4262-bbff-7a536bda5722,nuscale_voygr6,RS,floor_only,0,1,1,,['NH-02'],2026-04-25 14:20:46.526905+00:00,Morava power station,RS
+fail_20260425b_ff84d75e,c8f15aca-174b-4be6-a6d9-abfa4685d10d,nuscale_voygr6,RS,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.527425+00:00,Nikola Tesla power station,RS
+fail_20260425b_ff84d75e,296282b1-d079-4c1e-b2df-12c25128b963,nuscale_voygr6,RS,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.526904+00:00,Štavalj Power Station,RS
+fail_20260425b_ff84d75e,d48d2f39-d58f-4299-9b2f-56d194d2d13b,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.540155+00:00,Ada Yesildag Enerji power station,TR
+fail_20260425b_ff84d75e,4b11cac9-4fe0-4a2a-9c09-4fe9a0ac6015,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.531952+00:00,Ada Yumurtalık power station,TR
+fail_20260425b_ff84d75e,8a5dc384-e272-41ed-9868-a0686ac3fc7e,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.534872+00:00,Adana Ceyhan power station,TR
+fail_20260425b_ff84d75e,e9bc02be-cf10-4b27-9b8a-0d4a954720e4,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.541464+00:00,Afşin-Elbistan power stations,TR
+fail_20260425b_ff84d75e,ce39538c-997e-4a7d-bc32-f164f50f9aa0,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.539093+00:00,Ağan power station,TR
+fail_20260425b_ff84d75e,cb825b0f-e315-4221-b194-43d5b472382d,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.538691+00:00,Albayrak Varaka Paper power station,TR
+fail_20260425b_ff84d75e,9163ca37-1b31-409d-974f-9e7ed5e5f33d,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.535262+00:00,Amasra Bartın power station,TR
+fail_20260425b_ff84d75e,8782d6f2-5f9f-4c67-b9f2-6756857bd200,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.534872+00:00,Ant Enerji power station,TR
+fail_20260425b_ff84d75e,b5a75ec8-a2fe-42ad-b33e-ea32e20ebdfb,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.536883+00:00,Astoria Ceyhan power station,TR
+fail_20260425b_ff84d75e,c6b846cb-3a01-4e17-9d51-da4b58fd1827,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.538324+00:00,Atakaş power station,TR
+fail_20260425b_ff84d75e,1ce7624e-1d72-4293-8ff4-09096b56ddd2,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.529664+00:00,Atlas Enerji İskenderun power station,TR
+fail_20260425b_ff84d75e,7a805295-0cd2-48be-972e-5282c996549c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.534040+00:00,Ayas power station,TR
+fail_20260425b_ff84d75e,b8875ff2-9e9d-4520-8879-c71468e9cc50,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.536884+00:00,Babadere power station,TR
+fail_20260425b_ff84d75e,fecb62d9-6fb8-4f8d-83e3-78a7c75adb6e,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.542040+00:00,Bandırma III power station,TR
+fail_20260425b_ff84d75e,1289753b-43db-4058-8fe1-6e38b5fb01b5,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.528935+00:00,Barbaros-1 power station,TR
+fail_20260425b_ff84d75e,75f807aa-8278-43a3-8654-730713b96001,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.533315+00:00,Bingöl power station,TR
+fail_20260425b_ff84d75e,2b6a65d3-efb0-44d8-b88b-9aad311f4ac4,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.530651+00:00,Bolu Göynük power station,TR
+fail_20260425b_ff84d75e,7b4d3f8f-a644-48a3-93f9-cd3c154dc5c2,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.534041+00:00,Burnaz power station,TR
+fail_20260425b_ff84d75e,3bc834ed-5c2b-47d6-b555-2e20b9044053,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.531102+00:00,Bursa power station,TR
+fail_20260425b_ff84d75e,e71ec827-7143-48dd-8c8a-8e81705fa971,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.541090+00:00,Çalışkan Ceyhan power station,TR
+fail_20260425b_ff84d75e,28980273-0ba6-4c8c-b080-7ff9b33cc4c9,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-02']",2026-04-25 14:20:46.530218+00:00,Çan-2 power station,TR
+fail_20260425b_ff84d75e,dd413ee8-a6f2-4e7c-8e6c-6d0ed8637d83,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-02'],2026-04-25 14:20:46.540515+00:00,Çankırı Orta power station,TR
+fail_20260425b_ff84d75e,fc307877-758b-4dbf-afbe-abfc4a778155,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.541465+00:00,Çankırı Yıldızlar power station,TR
+fail_20260425b_ff84d75e,8b16dc60-1a2b-4b2c-bcad-1c334d246ae3,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.534873+00:00,Çatalağzı power station,TR
+fail_20260425b_ff84d75e,674deb4f-110c-4120-bea0-5f0711da3ea1,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.533313+00:00,Çayırhan power station,TR
+fail_20260425b_ff84d75e,a4af3789-2c40-41fc-a3ec-3b8d2fc6c645,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.535878+00:00,Çelikler Yumurtalık power station,TR
+fail_20260425b_ff84d75e,a96dc545-41a9-4b0d-a7a3-f40ef711e5e3,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.536278+00:00,Cenal power station,TR
+fail_20260425b_ff84d75e,5067ece3-b204-495e-81c1-90a523252547,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.532329+00:00,DETES 1 power station,TR
+fail_20260425b_ff84d75e,3f1ad930-cffb-4991-badd-773db74b890c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.531353+00:00,EMBA Hunutlu power station,TR
+fail_20260425b_ff84d75e,f92bc907-9b9b-4d21-92fd-1705bd71128c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.541465+00:00,Ergene power station,TR
+fail_20260425b_ff84d75e,17568f0f-91fd-4efe-b4df-2c7cc5d80b7d,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.529663+00:00,Evrese power station,TR
+fail_20260425b_ff84d75e,cb08e7b6-0af3-45d9-95c3-3832e7e2677c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.538690+00:00,Filyos power station,TR
+fail_20260425b_ff84d75e,829f61ff-0ad1-4288-8dd9-e41abbd0b6a7,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.534492+00:00,Gebze Çolakoğlu power station,TR
+fail_20260425b_ff84d75e,e780e4ac-0506-4186-9b58-0f378f878345,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.541090+00:00,Gerze power station,TR
+fail_20260425b_ff84d75e,c9c85786-eb26-4e7b-b280-83a54b7e834f,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.538690+00:00,Gölovası power station,TR
+fail_20260425b_ff84d75e,53481b7f-5b85-4bab-be04-4866c2e72c12,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.532330+00:00,Güney Akdeniz power station,TR
+fail_20260425b_ff84d75e,5a19f424-1a15-44e6-bf1b-c2c5886ac1bf,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.532828+00:00,Gürmin Enerji Amasya power station,TR
+fail_20260425b_ff84d75e,0947a4c8-4fc1-492f-9c66-2c9a993c7fb0,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.528569+00:00,HEMA Amasra power station,TR
+fail_20260425b_ff84d75e,746fc66e-d31f-4c5d-bf5c-ab5031b04b15,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.533315+00:00,İÇDAŞ Biga power station,TR
+fail_20260425b_ff84d75e,3819acc8-761d-49ba-89e7-967d3d37ec0e,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.530652+00:00,Irmak power station,TR
+fail_20260425b_ff84d75e,6ddc2960-3d72-4d5f-b358-56d1c54f47e0,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.533314+00:00,İsken Sugözü power station,TR
+fail_20260425b_ff84d75e,56b8e2a3-1885-431f-9fd1-4cd3bebfad61,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.532330+00:00,Iztek Ceyhan Komur power station,TR
+fail_20260425b_ff84d75e,55cfe45b-6357-40f9-8623-e9916f91f839,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.532330+00:00,Kahramanmaraş Anadolu power station,TR
+fail_20260425b_ff84d75e,ca423571-d2ab-44d4-b5ce-3e649d9cc776,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.538690+00:00,Kandilli power station,TR
+fail_20260425b_ff84d75e,bfadbe66-971d-4f64-b222-604a7ee6ac6b,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.537930+00:00,Kangal Etyemez power station,TR
+fail_20260425b_ff84d75e,0248611c-b745-404f-ad50-c2870882c7a1,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.528568+00:00,Kangal power station,TR
+fail_20260425b_ff84d75e,0fec985c-c66e-40af-a123-a9ba4db269bb,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.528935+00:00,Karaburun power station,TR
+fail_20260425b_ff84d75e,a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.535878+00:00,Karapinar Konya Şeker power station,TR
+fail_20260425b_ff84d75e,8dd46a05-6e0c-4009-90ad-bd5909c25622,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.534873+00:00,Kardemir Karabük Demir Çelik power station,TR
+fail_20260425b_ff84d75e,d020ac37-4f23-41b1-8f1e-b425b5769424,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.539410+00:00,Kirazlıdere power complex,TR
+fail_20260425b_ff84d75e,76cd9b7f-7613-4fd4-95ab-bf534a2e2f5e,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.533315+00:00,Kireçlik power station,TR
+fail_20260425b_ff84d75e,2a3aad60-2bff-4206-8275-f6e2029f9278,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.530651+00:00,Kütahya Domaniç power station,TR
+fail_20260425b_ff84d75e,bac4a081-83dc-4aba-8076-b67bfc55f54c,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.537351+00:00,Lüminer Enerji power station,TR
+fail_20260425b_ff84d75e,1820429d-bd95-4e56-a6db-d9bb57e2ae07,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.529664+00:00,Mersin Gülnar power station,TR
+fail_20260425b_ff84d75e,42d5b3fd-7d07-409b-9154-4441695b7901,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.531353+00:00,Mert power station,TR
+fail_20260425b_ff84d75e,166f5fcc-1cc4-4cf5-9e52-59e7ce1557c6,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.529663+00:00,METES power station,TR
+fail_20260425b_ff84d75e,b588126a-42d6-49dc-b227-9283af5a2578,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.536883+00:00,Misis Adana power station,TR
+fail_20260425b_ff84d75e,0049a899-af5f-41cd-86ae-2ba729b6365f,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.528263+00:00,Muğla power station,TR
+fail_20260425b_ff84d75e,21ccc44f-3244-4e7f-9654-eae424288200,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.529664+00:00,Naren Karabiga power station,TR
+fail_20260425b_ff84d75e,f2e65fcf-afc4-4443-ac14-f15c8ffe48f3,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-02'],2026-04-25 14:20:46.541464+00:00,Orta Anadolu power station,TR
+fail_20260425b_ff84d75e,231565d3-4f56-43ee-a357-1f4451c6fbc3,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.529665+00:00,Polat power station,TR
+fail_20260425b_ff84d75e,2ed9363f-a9fe-46e5-8b92-c50b47a9077a,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.530652+00:00,Saltukova power station,TR
+fail_20260425b_ff84d75e,db87ce6a-3802-44c5-945f-8a95d3cf111b,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.540515+00:00,Saray Tekirdağ power station,TR
+fail_20260425b_ff84d75e,d1863136-5ff4-4b4d-a9c0-6219e92d637d,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.539794+00:00,Sarp Golvasi power station,TR
+fail_20260425b_ff84d75e,b5ff798e-e059-4d8b-a903-00a1fefc62ab,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.536884+00:00,Sedef II TES power station,TR
+fail_20260425b_ff84d75e,0ca4ff78-4113-4ad9-ac04-0fd541d42338,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.528934+00:00,Şevketiye Lapseki power station,TR
+fail_20260425b_ff84d75e,94a5c55f-c499-41b1-81da-deaa36686399,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.535262+00:00,Seyitömer power station,TR
+fail_20260425b_ff84d75e,e03c394f-1c08-4101-b1fe-f6662fe4b424,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.540516+00:00,Sinop Akfen power station,TR
+fail_20260425b_ff84d75e,cf9150af-0325-44d8-bbaf-493e742f2e2b,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.539094+00:00,Şırnak Galata power station,TR
+fail_20260425b_ff84d75e,98019711-a8c3-424a-870e-00d4fea75ed1,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.535626+00:00,Şırnak Silopi (CİNER) power station,TR
+fail_20260425b_ff84d75e,9a6447f2-2887-4cce-a115-dc773d7f6eb1,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.535877+00:00,Soma Kolin power station,TR
+fail_20260425b_ff84d75e,96129c93-83a6-4b1c-929b-bfccba86a796,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.535263+00:00,Suluova power station,TR
+fail_20260425b_ff84d75e,43f99d45-6635-4392-a522-4a06445fdaf2,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.531354+00:00,Teyo Tufanbeyli power station,TR
+fail_20260425b_ff84d75e,44362378-9c74-44af-8a08-be4877f50e97,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.531354+00:00,Tosyalı İskenderun power station,TR
+fail_20260425b_ff84d75e,9eb693f6-6994-4937-bc4d-e8213baa5d47,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.535878+00:00,Trakya Emba power station,TR
+fail_20260425b_ff84d75e,6c9571c4-5d3b-4f88-a7be-fa8c21425eeb,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.533314+00:00,Tufanbeyli power station,TR
+fail_20260425b_ff84d75e,2ec95392-978d-4a43-85b9-af3282c212ba,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.530651+00:00,Tunçbilek power station,TR
+fail_20260425b_ff84d75e,ddc8bb9c-bf77-4075-b38c-600fb072acf8,nuscale_voygr6,TR,floor_only,0,2,2,,"['NH-02', 'NH-04']",2026-04-25 14:20:46.540516+00:00,Uluköy power station,TR
+fail_20260425b_ff84d75e,d3f986d9-a023-4d43-a0fb-03361f310873,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.540155+00:00,Umut power station,TR
+fail_20260425b_ff84d75e,381221dd-76da-4adf-9b19-5da9f0779c22,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.530652+00:00,Vize power station,TR
+fail_20260425b_ff84d75e,52028d4f-7796-4463-832e-cff2e439c96a,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.532330+00:00,Yenidere power station,TR
+fail_20260425b_ff84d75e,737b6d06-1d0c-4ae6-9683-ab3fea192b32,nuscale_voygr6,TR,floor_only,0,3,3,,"['EP-01', 'NH-02', 'NH-04']",2026-04-25 14:20:46.533314+00:00,Yeniköy power station,TR
+fail_20260425b_ff84d75e,e8b6e342-2011-4343-b415-a8bf08501499,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.541464+00:00,Yeniyurt power station,TR
+fail_20260425b_ff84d75e,225656d9-8709-4c2f-9992-1e4f20a6fce8,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-02'],2026-04-25 14:20:46.529665+00:00,Yıldırım Elazığ power station,TR
+fail_20260425b_ff84d75e,57c0c830-725f-46ee-9322-0a4a3ad9efda,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.532331+00:00,Yüksek Gölovası power station,TR
+fail_20260425b_ff84d75e,91f28dbb-16bd-449b-a20a-dc2b70cf2e66,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.535262+00:00,Yumurtalık IC İçtaş power station,TR
+fail_20260425b_ff84d75e,48149515-0774-404d-b273-790b660a8d90,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.531952+00:00,Yunus Emre power station,TR
+fail_20260425b_ff84d75e,772e2484-419b-47de-9739-924ac371ad10,nuscale_voygr6,TR,floor_only,0,1,1,,['NH-04'],2026-04-25 14:20:46.533315+00:00,Zafer power station,TR
+fail_20260425b_ff84d75e,1f305180-6bbf-4758-9a98-78bc9e96e195,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.529664+00:00,ZETES power stations,TR
+fail_20260425b_ff84d75e,fa6b7ac3-c1bf-478f-8d0a-1f357ea480cf,nuscale_voygr6,TR,floor_only,0,2,2,,"['EP-01', 'NH-04']",2026-04-25 14:20:46.541465+00:00,Zonguldak Modern power station,TR
+fail_20260425b_ff84d75e,7cc9cffa-e4e4-4546-902d-c8f4800dbdb2,nuscale_voygr6,TR,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.534041+00:00,Zorlu Akçakoca power station,TR
+fail_20260425b_ff84d75e,46b96bc3-b190-4045-9c86-eb674e2ea35e,nuscale_voygr6,UA,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.542653+00:00,Kurakhov power station,UA
+fail_20260425b_ff84d75e,725406d6-860f-4ca0-9c6a-425675bac381,nuscale_voygr6,UA,floor_only,0,1,1,,['EP-01'],2026-04-25 14:20:46.543056+00:00,Zaporizhia power station,UA
+fail_20260425b_ff84d75e,0e860f58-416b-4116-836d-04edf8ded225,nuscale_voygr6,BG,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.513677+00:00,Maritsa Iztok-3 power station,BG
+fail_20260425b_ff84d75e,9f4a0d6c-e2fa-4e9b-b412-d779d4abf82c,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.521040+00:00,Bydgoszcz power station,PL
+fail_20260425b_ff84d75e,e9a1ae49-ff79-462c-af4e-7c6843221d36,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.524075+00:00,Gdansk-2 power station,PL
+fail_20260425b_ff84d75e,ad7a9c00-0c75-411f-8f89-859e603df1e6,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.521848+00:00,Gdynia-3 power station,PL
+fail_20260425b_ff84d75e,40650551-0c9c-45ea-bac6-befdb0cb5909,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.519514+00:00,Gorzow power station,PL
+fail_20260425b_ff84d75e,409dde58-5df1-44d9-b5ec-f8e2edd86786,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.519515+00:00,Krakow-Leg power station,PL
+fail_20260425b_ff84d75e,e2c23866-db1e-4316-82b5-7e3fe50c3c09,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.523818+00:00,Pomorzany power station,PL
+fail_20260425b_ff84d75e,40b4334a-7ba4-4ed8-aa8e-3c405599fbd7,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.519515+00:00,Poznan Karolin power station,PL
+fail_20260425b_ff84d75e,d40cdaf1-49e4-4c59-a6c8-2402cd2bf006,nuscale_voygr6,PL,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.523232+00:00,Zeran power station,PL
+fail_20260425b_ff84d75e,f1f65cf9-996c-4922-97bd-76e38c032331,nuscale_voygr6,RO,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.526652+00:00,Brăila-Chișcani Thermal Power Plant,RO
+fail_20260425b_ff84d75e,a4fa3246-27d6-4740-898c-bdf9dadcb88c,nuscale_voygr6,RO,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.526059+00:00,Craiova II power station,RO
+fail_20260425b_ff84d75e,8781d874-5923-4795-9c9f-b2a6c709025a,nuscale_voygr6,RO,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.525765+00:00,Galati Power Station,RO
+fail_20260425b_ff84d75e,5d53da59-04c8-43e6-b29e-220bea4d9eb7,nuscale_voygr6,RS,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.527198+00:00,Despotovac power station,RS
+fail_20260425b_ff84d75e,44698c12-3c50-4602-8104-dafa5fd215b6,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.531671+00:00,Adana Akdeniz power station,TR
+fail_20260425b_ff84d75e,ad1e8841-e4e4-413b-820a-8c14e09da5a0,nuscale_voygr6,TR,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.536653+00:00,Çan (18 Mart) power station,TR
+fail_20260425b_ff84d75e,bddb4fb7-c01d-4b71-bc30-1896b88298bf,nuscale_voygr6,TR,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.537750+00:00,Çırpılar power station,TR
+fail_20260425b_ff84d75e,28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.530517+00:00,Demirtaş power station,TR
+fail_20260425b_ff84d75e,a70bbc9a-1469-4d56-be56-f282ed4130a8,nuscale_voygr6,TR,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.536137+00:00,Deniz power station,TR
+fail_20260425b_ff84d75e,aa336cdc-f6fe-4b08-b46d-69e852c501bf,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.536415+00:00,Ece power station,TR
+fail_20260425b_ff84d75e,adeb10a5-aaae-4e2c-b426-3db1c3d9bd5b,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.536653+00:00,Hakan Enerji power station,TR
+fail_20260425b_ff84d75e,82aac38c-3037-466c-9b37-bff9da707645,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.534618+00:00,Hakan Kömür power station,TR
+fail_20260425b_ff84d75e,e10aae79-05b7-4ad9-9d69-60ce190b4444,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.540906+00:00,Hande power station,TR
+fail_20260425b_ff84d75e,e0e73325-5b32-4fef-b925-f0bb91114450,nuscale_voygr6,TR,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.540906+00:00,Helvacı power station,TR
+fail_20260425b_ff84d75e,1624a526-07d8-44a4-8ed7-3b035b748f03,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.529517+00:00,İskenderun power station,TR
+fail_20260425b_ff84d75e,d21335d4-0a3d-4464-85e0-352745a38db4,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.540033+00:00,Kilikya power station,TR
+fail_20260425b_ff84d75e,cf918ba6-6226-479f-b04c-b3c67885c0ba,nuscale_voygr6,TR,hard_only,2,0,2,"['EP-01', 'NH-02']",,2026-04-25 14:20:46.539284+00:00,Kipas MMP power station,TR
+fail_20260425b_ff84d75e,3e5f4317-6f40-44fb-bfa2-e21dc4d9922d,nuscale_voygr6,TR,hard_only,1,0,1,['EP-01'],,2026-04-25 14:20:46.531222+00:00,Sanko Yumurtalık power station,TR
+fail_20260425b_ff84d75e,76eba99c-dade-46dc-9130-478e43aa6202,nuscale_voygr6,XK,hard_only,1,0,1,['NH-02'],,2026-04-25 14:20:46.543652+00:00,Kosovo B power station,XK
+fail_20260425b_ff84d75e,d28fa85d-4f6c-4b26-a585-cb0bed226ecb,nuscale_voygr6,XK,hard_only,2,0,2,"['EP-01', 'NH-02']",,2026-04-25 14:20:46.543652+00:00,Kosovo C power station,XK

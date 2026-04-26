@@ -98,6 +98,9 @@ def _dispatch(args) -> object:
 def _json_default(obj):
     if isinstance(obj, uuid.UUID):
         return str(obj)
+    from decimal import Decimal
+    if isinstance(obj, Decimal):
+        return float(obj)
     raise TypeError(f"non-serialisable {type(obj)}")
 
 

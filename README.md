@@ -187,6 +187,23 @@ python -m scripts.inspect_run \
 
 Forward-only: pre-`034` runs (notably the `20260423` and `20260425` reference snapshots) remain CSV-only by design — see [`assumption_register.md`](report/methodology/assumption_register.md). The DB tables fill in from the next pipeline invocation. Implementation: [`src/atoms_vs_ashes/db/queries.py`](src/atoms_vs_ashes/db/queries.py), [`src/scripts/inspect_run.py`](src/scripts/inspect_run.py).
 
+### Consolidated SMR top-N report
+
+The DB-backed top-N-per-country pack is assembled by `build_nuscale_top10_report`. It joins `country_site_rankings`, `composite_rankings`, `composite_score_components`, `site_bands`, `country_rankings_summary` and `weight_profile_stability` for the chosen SMR, emits per-country PNGs (`<CC>_composite_top10.png`, `<CC>_family_heatmap.png`) plus a single consolidated markdown:
+
+```bash
+python -m scripts.build_nuscale_top10_report \
+  --db-profile merged \
+  --stamp 20260425b \
+  --sensitivity-run-id <sensitivity_run_id> \
+  --scoring-run-id <scoring_run_id> \
+  --smr-key nuscale_voygr6 --top-n 10
+# → report/output/sensitivity/20260425b/nuscale_top10.md
+# → report/output/sensitivity/20260425b/nuscale_top10/figures/<CC>_*.png
+```
+
+Reference snapshot: [`report/output/sensitivity/20260425b/nuscale_top10.md`](report/output/sensitivity/20260425b/nuscale_top10.md). Implementation: [`src/scripts/build_nuscale_top10_report.py`](src/scripts/build_nuscale_top10_report.py) plus the `_nuscale_top10_query.py`, `_nuscale_top10_md.py`, `_nuscale_top10_figures.py` helpers in the same package.
+
 ---
 
 ## Data acquisition — connectors

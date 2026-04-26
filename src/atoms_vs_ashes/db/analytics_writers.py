@@ -44,6 +44,12 @@ from atoms_vs_ashes.logging import get_logger
 
 log = get_logger(__name__)
 
+# Sentinels used in NOT-NULL PK columns when a row spans every SMR design
+# or every country (the regional / cross-design summary). The country
+# sentinel respects the ``String(2)`` width of ``scope_country_code``.
+ALL_SMR_SENTINEL = "_all_"
+ALL_COUNTRIES_SENTINEL = "XX"
+
 
 def _wipe(session: Session, model, **filters) -> None:
     """Remove prior rows matching ``filters`` so the writer is idempotent."""
@@ -64,18 +70,22 @@ def persist_site_bands(
     """Insert one ``site_bands`` row per band record."""
     if session is None or run_id is None:
         return 0
+    smr_value = smr_filter if smr_filter is not None else ALL_SMR_SENTINEL
+    country_value = (
+        country_filter if country_filter is not None else ALL_COUNTRIES_SENTINEL
+    )
     _wipe(
         session, SiteBandORM,
         run_id=run_id,
-        smr_key=smr_filter,
-        scope_country_code=country_filter,
+        smr_key=smr_value,
+        scope_country_code=country_value,
     )
     rows = [
         SiteBandORM(
             run_id=run_id,
             site_id=b.site_id,
-            smr_key=smr_filter,
-            scope_country_code=country_filter,
+            smr_key=smr_value,
+            scope_country_code=country_value,
             band=b.band,
             top5pct_hit_rate=b.top5pct_hit_rate,
             top10pct_hit_rate=b.top10pct_hit_rate,
@@ -98,15 +108,16 @@ def persist_country_summary(
 ) -> int:
     if session is None or run_id is None:
         return 0
+    smr_value = smr_filter if smr_filter is not None else ALL_SMR_SENTINEL
     _wipe(
         session, CountryRankingsSummary,
-        run_id=run_id, smr_key=smr_filter,
+        run_id=run_id, smr_key=smr_value,
     )
     objs = [
         CountryRankingsSummary(
             run_id=run_id,
             country_code=r.country_code,
-            smr_key=smr_filter,
+            smr_key=smr_value,
             n_sites=r.n_sites,
             k_value=r.K,
             scenarios_compared=r.scenarios_compared,

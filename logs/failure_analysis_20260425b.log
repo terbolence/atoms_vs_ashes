@@ -1,0 +1,86 @@
+2026-04-25 17:20:45 [info     ] run_started                    parent_run_id=20260425T140231_ff84d75e run_id=fail_20260425b_ff84d75e run_kind=failure_analysis
+2026-04-25 17:20:49 [info     ] run_completed                  run_id=fail_20260425b_ff84d75e run_kind=failure_analysis status=completed
+
+Rendered 9 pack(s) for stamp=20260425b.
+
+[pack] global
+  summary CSV    : audit/post_processing/06_scoring/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/20260425b_failure_per_country.csv
+  per-SMR        : audit/post_processing/06_scoring/20260425b_failure_per_smr.csv
+  per-pair       : audit/post_processing/06_scoring/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure
+  methodology MD : report/methodology/failure_analysis.md
+  breakdown      : total=2904 survived=208 hard_only=232 floor_only=1288 both=1176
+
+[pack] nuscale_voygr6
+  summary CSV    : audit/post_processing/06_scoring/per_smr/nuscale_voygr6/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/nuscale_voygr6/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/nuscale_voygr6/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/nuscale_voygr6/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/nuscale_voygr6
+  methodology MD : report/methodology/failure_analysis_nuscale_voygr6.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] bwrx_300
+  summary CSV    : audit/post_processing/06_scoring/per_smr/bwrx_300/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/bwrx_300/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/bwrx_300/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/bwrx_300/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/bwrx_300
+  methodology MD : report/methodology/failure_analysis_bwrx_300.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] holtec_smr300
+  summary CSV    : audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/holtec_smr300
+  methodology MD : report/methodology/failure_analysis_holtec_smr300.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] oklo_aurora
+  summary CSV    : audit/post_processing/06_scoring/per_smr/oklo_aurora/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/oklo_aurora/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/oklo_aurora/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/oklo_aurora/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/oklo_aurora
+  methodology MD : report/methodology/failure_analysis_oklo_aurora.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] rolls_royce_smr
+  summary CSV    : audit/post_processing/06_scoring/per_smr/rolls_royce_smr/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/rolls_royce_smr/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/rolls_royce_smr/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/rolls_royce_smr/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/rolls_royce_smr
+  methodology MD : report/methodology/failure_analysis_rolls_royce_smr.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] xe_100
+  summary CSV    : audit/post_processing/06_scoring/per_smr/xe_100/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/xe_100/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/xe_100/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/xe_100/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/xe_100
+  methodology MD : report/methodology/failure_analysis_xe_100.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] natrium_nominal
+  summary CSV    : audit/post_processing/06_scoring/per_smr/natrium_nominal/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/natrium_nominal/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/natrium_nominal/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/natrium_nominal/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/natrium_nominal
+  methodology MD : report/methodology/failure_analysis_natrium_nominal.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147
+
+[pack] natrium_peak
+  summary CSV    : audit/post_processing/06_scoring/per_smr/natrium_peak/20260425b_failure_summary.csv
+  per-criterion  : audit/post_processing/06_scoring/per_smr/natrium_peak/20260425b_failure_per_criterion.csv
+  per-country    : audit/post_processing/06_scoring/per_smr/natrium_peak/20260425b_failure_per_country.csv
+  per-pair       : audit/post_processing/06_scoring/per_smr/natrium_peak/20260425b_failure_per_pair.csv
+  figures dir    : report/output/sensitivity/20260425b/figures/failure/per_smr/natrium_peak
+  methodology MD : report/methodology/failure_analysis_natrium_peak.md
+  breakdown      : total=363 survived=26 hard_only=29 floor_only=161 both=147

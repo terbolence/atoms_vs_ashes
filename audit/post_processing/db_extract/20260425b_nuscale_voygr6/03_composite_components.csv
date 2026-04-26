@@ -1,0 +1,543 @@
+run_id,site_id,smr_key,weight_profile,criterion_id,score_0_10,weight_normalised,weighted_contribution,category,created_at,site_name,country_code
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097670+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.097670+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097671+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.097671+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-01,9.5,0.0318,0.3021,NH,2026-04-25 14:03:25.097671+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097671+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097672+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-05,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.097672+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097672+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097672+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097673+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097673+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.097673+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097673+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NS-03,9.0,0.0283,0.2544,NS,2026-04-25 14:03:25.097673+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.097674+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,NS-05,3.5,0.0177,0.0618,NS,2026-04-25 14:03:25.097674+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097674+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.097674+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,fac3d0b5-36a5-48ae-8494-f2f08e4342f4,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.097675+00:00,Zelwa power station,BY
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097710+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.097710+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097710+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,HI-03,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097710+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.097710+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-01,9.5,0.0318,0.3021,NH,2026-04-25 14:03:25.097711+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097711+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.097711+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097711+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.097712+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097712+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097712+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097712+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097712+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097713+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097713+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-03,9.0,0.0283,0.2544,NS,2026-04-25 14:03:25.097713+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-04,5.5,0.0212,0.1166,NS,2026-04-25 14:03:25.097713+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.097714+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097714+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097714+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097714+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,558e7bff-5b5d-4666-9ca3-ec02f2269aab,nuscale_voygr6,baseline,RI-06,5.5,0.0177,0.0972,RI,2026-04-25 14:03:25.097714+00:00,Dolna Odra power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097749+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.097749+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,HI-01,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.097749+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,HI-03,7.5,0.0247,0.1855,HI,2026-04-25 14:03:25.097749+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.097750+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-01,9.5,0.0318,0.3021,NH,2026-04-25 14:03:25.097750+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097750+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097750+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.097751+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097751+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097751+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097751+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097751+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097752+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-02,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.097752+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.097752+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-04,5.5,0.0212,0.1166,NS,2026-04-25 14:03:25.097752+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.097753+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097753+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097753+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097753+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,52db4dae-b014-45a4-96c4-49f80c1fdd11,nuscale_voygr6,baseline,RI-06,5.5,0.0177,0.0972,RI,2026-04-25 14:03:25.097753+00:00,Opalenie power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097792+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.097793+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,HI-01,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.097793+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,HI-03,7.5,0.0247,0.1855,HI,2026-04-25 14:03:25.097793+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.097793+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-01,9.5,0.0318,0.3021,NH,2026-04-25 14:03:25.097794+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097794+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.097794+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097794+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-05,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.097794+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097795+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097795+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097795+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097795+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097796+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097796+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.097796+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.097796+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.097796+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097797+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097797+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097797+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,dadadad9-b67e-44b8-a9ab-4cbf116da20b,nuscale_voygr6,baseline,RI-06,7.5,0.0177,0.1325,RI,2026-04-25 14:03:25.097797+00:00,Puchaczow power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097833+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.097833+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097833+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,HI-02,9.5,0.0247,0.235,HI,2026-04-25 14:03:25.097833+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,HI-04,9.5,0.0212,0.2014,HI,2026-04-25 14:03:25.097834+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.097834+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-01,9.5,0.0318,0.3021,NH,2026-04-25 14:03:25.097834+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097834+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097834+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.097835+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097835+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097835+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097835+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097836+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097836+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097836+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-03,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.097836+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-04,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097836+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-05,1.5,0.0177,0.0265,NS,2026-04-25 14:03:25.097837+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,NS-08,5.5,0.0212,0.1166,NS,2026-04-25 14:03:25.097837+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097837+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097837+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,a55e3643-8ed4-434b-b14f-2d549d09c0d9,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.097838+00:00,Zarnowiec power station,PL
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097873+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097911+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,EP-02,1.5,0.0212,0.0318,EP,2026-04-25 14:03:25.097873+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,EP-02,1.5,0.0212,0.0318,EP,2026-04-25 14:03:25.097912+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097912+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097873+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,HI-03,7.5,0.0247,0.1855,HI,2026-04-25 14:03:25.097912+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,HI-03,7.5,0.0247,0.1855,HI,2026-04-25 14:03:25.097873+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.097912+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.097874+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-01,3.5,0.0318,0.1113,NH,2026-04-25 14:03:25.097874+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-01,3.5,0.0318,0.1113,NH,2026-04-25 14:03:25.097912+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097874+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097913+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.097913+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.097874+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.097875+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.097913+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097913+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097875+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097914+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097875+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097875+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097914+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097875+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097914+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.097876+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.097914+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097914+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097876+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.097876+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.097915+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-04,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097876+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-04,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097915+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-05,7.5,0.0177,0.1325,NS,2026-04-25 14:03:25.097877+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-05,7.5,0.0177,0.1325,NS,2026-04-25 14:03:25.097915+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097877+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097915+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097916+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097877+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097877+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.097916+00:00,Braila power station,RO
+20260425T140231_ff84d75e,29836b52-a882-4921-95a7-6417e636d9a2,nuscale_voygr6,baseline,RI-06,7.5,0.0177,0.1325,RI,2026-04-25 14:03:25.097877+00:00,Braila power station,RO
+20260425T140231_ff84d75e,323cdbf0-c4a8-467a-af76-e2e3df0b537f,nuscale_voygr6,baseline,RI-06,7.5,0.0177,0.1325,RI,2026-04-25 14:03:25.097916+00:00,Braila power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097951+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.097951+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,HI-01,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.097951+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,HI-03,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.097951+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.097952+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-01,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097952+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097952+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097952+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.097952+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097953+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097953+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097953+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097953+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097953+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097954+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-03,9.0,0.0283,0.2544,NS,2026-04-25 14:03:25.097954+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-04,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097954+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.097954+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097954+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097955+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,RI-04,3.5,0.0283,0.0989,RI,2026-04-25 14:03:25.097955+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,c3790475-3d3b-4e2b-92ae-24503fe03e6b,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.097955+00:00,Romag Termo power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.097988+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.097988+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.097988+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.097989+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-01,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097989+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.097989+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097989+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.097989+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.097990+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.097990+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.097990+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.097990+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.097990+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.097991+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.097991+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.097991+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.097991+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,NS-08,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.097992+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.097992+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.097992+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,345fb795-170a-4fb5-833c-f6bcf2eb450c,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.097992+00:00,Turceni power station,RO
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098025+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098025+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,HI-01,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.098026+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.098026+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098026+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098026+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098026+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098027+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098027+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098027+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098027+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098028+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098028+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098028+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098028+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098028+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.098029+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,NS-05,7.5,0.0177,0.1325,NS,2026-04-25 14:03:25.098029+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098029+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098029+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,993ccce2-d5e1-498d-827d-8dbfeb42582b,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.098029+00:00,Kostolac power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098061+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098062+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,HI-01,3.5,0.0247,0.0866,HI,2026-04-25 14:03:25.098062+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.098062+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098062+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098062+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098063+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.098063+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.098063+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-06,3.5,0.0177,0.0618,NH,2026-04-25 14:03:25.098063+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098063+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098064+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098064+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098064+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098064+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098065+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NS-04,7.5,0.0212,0.159,NS,2026-04-25 14:03:25.098065+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,NS-05,3.5,0.0177,0.0618,NS,2026-04-25 14:03:25.098065+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098065+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098065+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5d4aee8d-9e73-4987-907a-d092e0ba92ed,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.098066+00:00,Kovin power station,RS
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098098+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098098+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098098+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098098+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098098+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098099+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098099+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098099+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098099+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098099+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098100+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098100+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098100+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098100+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NS-03,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.098101+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.098101+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098101+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098101+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098101+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,5fa0dfa9-c272-444e-8e70-80ab55b5d36c,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.098102+00:00,Akdeniz Enerji power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098132+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098132+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098133+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098133+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-01,3.5,0.0318,0.1113,NH,2026-04-25 14:03:25.098133+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098133+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098134+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.098134+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098134+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098134+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098134+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098135+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098135+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098135+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NS-03,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098135+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098135+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098136+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098136+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098136+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,9699244b-14c0-4e27-afd1-105494fccd60,nuscale_voygr6,baseline,RI-06,1.5,0.0177,0.0265,RI,2026-04-25 14:03:25.098136+00:00,Alpu power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098168+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,EP-02,1.5,0.0212,0.0318,EP,2026-04-25 14:03:25.098168+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098168+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098169+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098169+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098169+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098169+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098169+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098170+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098170+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098170+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098170+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098170+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098171+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098171+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NS-04,1.5,0.0212,0.0318,NS,2026-04-25 14:03:25.098171+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,NS-05,7.5,0.0177,0.1325,NS,2026-04-25 14:03:25.098171+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098172+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098172+00:00,Biga power station,TR
+20260425T140231_ff84d75e,2350bab4-9869-43f1-b62f-a4d5aea77ef5,nuscale_voygr6,baseline,RI-06,1.5,0.0177,0.0265,RI,2026-04-25 14:03:25.098172+00:00,Biga power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098204+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.098204+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098204+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.098204+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098205+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098205+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098205+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098205+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098205+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098206+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098206+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098206+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098206+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.098207+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NS-02,7.5,0.0283,0.212,NS,2026-04-25 14:03:25.098207+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.098207+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098207+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098207+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098208+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,RI-04,1.5,0.0283,0.0424,RI,2026-04-25 14:03:25.098208+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,d12e7ffc-4cd3-4ff4-81da-ae360d59409b,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098208+00:00,Çebi Enerji power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,EP-01,7.5,0.0283,0.212,EP,2026-04-25 14:03:25.098238+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098238+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098239+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098239+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098239+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-04,9.5,0.0177,0.1678,NH,2026-04-25 14:03:25.098239+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098239+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098240+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098240+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098240+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098240+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098241+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.098241+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098241+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098241+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098241+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098242+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,778e0750-19f9-426e-a6c7-e0e30645fb97,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098242+00:00,Çoban Yıldız power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098272+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098272+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098272+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-01,3.5,0.0318,0.1113,NH,2026-04-25 14:03:25.098272+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098273+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098273+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098273+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.098273+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098273+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098274+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098274+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098274+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098274+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098274+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NS-03,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098275+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098275+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098275+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098275+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098276+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,c657c5c3-38a2-472d-8962-9e7cefcd2c1e,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098276+00:00,Diler (Akbayir) Elbistan power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098308+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.098308+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098309+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098309+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098309+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098309+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098310+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.098310+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098310+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098310+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098310+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098311+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098311+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NS-01,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.098311+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098311+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098312+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098312+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098312+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098312+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098312+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,142cad75-648a-495d-8c10-792351e72126,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098313+00:00,Eren-1 power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098345+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.098345+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098345+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.098346+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098346+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098346+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098346+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.098346+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098347+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098347+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098347+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098347+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098348+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098348+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NS-02,7.5,0.0283,0.212,NS,2026-04-25 14:03:25.098348+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NS-03,8.0,0.0283,0.2261,NS,2026-04-25 14:03:25.098348+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NS-04,1.5,0.0212,0.0318,NS,2026-04-25 14:03:25.098348+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,NS-05,3.5,0.0177,0.0618,NS,2026-04-25 14:03:25.098349+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098349+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098349+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,d5151598-5a1a-4697-8147-592845ffef6c,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098349+00:00,Güreci power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098381+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098382+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098382+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098382+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098382+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098382+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098383+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098383+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098383+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098383+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098384+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098384+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098384+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NS-02,7.5,0.0283,0.212,NS,2026-04-25 14:03:25.098384+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098384+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NS-04,1.5,0.0212,0.0318,NS,2026-04-25 14:03:25.098385+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098385+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098385+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098385+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,cc635340-954c-4428-9fa1-14383c7faceb,nuscale_voygr6,baseline,RI-06,1.5,0.0177,0.0265,RI,2026-04-25 14:03:25.098385+00:00,İÇDAŞ Bekirli power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098415+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098415+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098415+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098416+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098416+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098416+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-05,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098416+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098417+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098417+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098417+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098417+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098417+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098418+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NS-03,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098418+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.098418+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,NS-05,1.5,0.0177,0.0265,NS,2026-04-25 14:03:25.098418+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098419+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098419+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,5b6be56c-d981-470c-a979-13a8764a34b8,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098419+00:00,Kıvanç power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098449+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098449+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098449+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098450+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098450+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-04,9.5,0.0177,0.1678,NH,2026-04-25 14:03:25.098450+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-05,7.5,0.0247,0.1855,NH,2026-04-25 14:03:25.098450+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098450+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098451+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098451+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098451+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098451+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098452+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NS-03,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098452+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NS-04,9.5,0.0212,0.2014,NS,2026-04-25 14:03:25.098452+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098452+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098452+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098453+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,ad0c8590-c672-43f2-a813-1217a10f7d2d,nuscale_voygr6,baseline,RI-06,7.5,0.0177,0.1325,RI,2026-04-25 14:03:25.098453+00:00,Konya Karapınar power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098484+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098484+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098485+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.098485+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098485+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098485+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098485+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.098486+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098486+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098486+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098486+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098486+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098487+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NS-01,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098487+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098487+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NS-03,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.098487+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NS-04,5.5,0.0212,0.1166,NS,2026-04-25 14:03:25.098488+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098488+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098488+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,RI-04,3.5,0.0283,0.0989,RI,2026-04-25 14:03:25.098488+00:00,Meda power station,TR
+20260425T140231_ff84d75e,c8e1cc12-080a-4e01-925d-8fd6e4334856,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098489+00:00,Meda power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098521+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.098521+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098521+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,HI-06,1.5,0.0212,0.0318,HI,2026-04-25 14:03:25.098521+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-01,1.5,0.0318,0.0477,NH,2026-04-25 14:03:25.098522+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098523+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098523+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-04,7.5,0.0177,0.1325,NH,2026-04-25 14:03:25.098523+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098524+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098524+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098524+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098524+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098525+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098525+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NS-02,7.5,0.0283,0.212,NS,2026-04-25 14:03:25.098525+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098525+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NS-04,1.5,0.0212,0.0318,NS,2026-04-25 14:03:25.098525+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,NS-05,3.5,0.0177,0.0618,NS,2026-04-25 14:03:25.098526+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098526+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,RI-04,5.5,0.0283,0.1555,RI,2026-04-25 14:03:25.098526+00:00,Namal power station,TR
+20260425T140231_ff84d75e,5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098526+00:00,Namal power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098557+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,EP-02,5.5,0.0212,0.1166,EP,2026-04-25 14:03:25.098558+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098558+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,HI-06,3.5,0.0212,0.0742,HI,2026-04-25 14:03:25.098558+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-01,3.5,0.0318,0.1113,NH,2026-04-25 14:03:25.098558+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-02,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098558+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-04,9.5,0.0177,0.1678,NH,2026-04-25 14:03:25.098559+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098559+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-06,0.0,0.0177,0.0,NH,2026-04-25 14:03:25.098559+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098559+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098559+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098560+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098560+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NS-02,7.5,0.0283,0.212,NS,2026-04-25 14:03:25.098560+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NS-03,6.0,0.0283,0.1696,NS,2026-04-25 14:03:25.098560+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.098561+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,NS-05,7.5,0.0177,0.1325,NS,2026-04-25 14:03:25.098561+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098561+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,RI-04,3.5,0.0283,0.0989,RI,2026-04-25 14:03:25.098561+00:00,Selena power station,TR
+20260425T140231_ff84d75e,3a06636d-c742-4b72-b9cd-21a4537c331b,nuscale_voygr6,baseline,RI-06,3.5,0.0177,0.0618,RI,2026-04-25 14:03:25.098561+00:00,Selena power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,EP-01,5.5,0.0283,0.1555,EP,2026-04-25 14:03:25.098593+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,EP-02,3.5,0.0212,0.0742,EP,2026-04-25 14:03:25.098593+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,HI-01,5.5,0.0247,0.136,HI,2026-04-25 14:03:25.098594+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,HI-06,5.5,0.0212,0.1166,HI,2026-04-25 14:03:25.098594+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-01,5.5,0.0318,0.1749,NH,2026-04-25 14:03:25.098594+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-02,7.5,0.0318,0.2385,NH,2026-04-25 14:03:25.098594+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-03,5.5,0.0247,0.136,NH,2026-04-25 14:03:25.098594+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-04,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098595+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-05,9.5,0.0247,0.235,NH,2026-04-25 14:03:25.098595+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-06,5.5,0.0177,0.0972,NH,2026-04-25 14:03:25.098595+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-10,9.5,0.0106,0.1007,NH,2026-04-25 14:03:25.098595+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-11,4.0,0.0106,0.0424,NH,2026-04-25 14:03:25.098595+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NH-12,9.5,0.0141,0.1343,NH,2026-04-25 14:03:25.098596+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NS-01,5.0,0.0283,0.1413,NS,2026-04-25 14:03:25.098596+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NS-02,5.5,0.0283,0.1555,NS,2026-04-25 14:03:25.098596+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NS-03,7.0,0.0283,0.1979,NS,2026-04-25 14:03:25.098596+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NS-04,3.5,0.0212,0.0742,NS,2026-04-25 14:03:25.098597+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,NS-05,9.5,0.0177,0.1678,NS,2026-04-25 14:03:25.098598+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,RI-01,5.0,0.0212,0.106,RI,2026-04-25 14:03:25.098598+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,RI-04,7.5,0.0283,0.212,RI,2026-04-25 14:03:25.098598+00:00,Yeşilovacık power station,TR
+20260425T140231_ff84d75e,d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,nuscale_voygr6,baseline,RI-06,9.5,0.0177,0.1678,RI,2026-04-25 14:03:25.098598+00:00,Yeşilovacık power station,TR

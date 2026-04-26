@@ -1,0 +1,19 @@
+{"positional_args": ["merged", "atoms_vs_ashes_merged"], "event": "Using database profile '%s' \u2192 %s", "run_id": "20260425T140231_ff84d75e", "level": "info", "timestamp": "2026-04-25T14:02:31.316788Z"}
+{"extra": ["project_wind_envelope"], "event": "scoring_catalog_mismatch", "run_id": "20260425T140231_ff84d75e", "level": "warning", "timestamp": "2026-04-25T14:02:31.753414Z"}
+{"run_id": "20260425T140231_ff84d75e", "run_kind": "scoring", "parent_run_id": null, "event": "run_started", "level": "info", "timestamp": "2026-04-25T14:02:31.773096Z"}
+{"run_id": "20260425T140231_ff84d75e", "sites": 363, "smrs": 8, "criteria": 48, "weight_profile": "baseline", "event": "scoring_run_start", "level": "info", "timestamp": "2026-04-25T14:02:31.773158Z"}
+{"run_id": "20260425T140231_ff84d75e", "run_kind": "scoring", "status": "completed", "event": "run_completed", "level": "info", "timestamp": "2026-04-25T14:03:25.226054Z"}
+{"run_id": "20260425T140231_ff84d75e", "ranking_rows": 139392, "verdict_rows": 79672, "composite_rows": 2904, "excluded": 2696, "event": "scoring_run_complete", "level": "info", "timestamp": "2026-04-25T14:03:25.226087Z"}
+{
+  "run_id": "20260425T140231_ff84d75e",
+  "weight_profile": "baseline",
+  "sites_processed": 363,
+  "smr_designs": 8,
+  "verdict_rows": 79672,
+  "ranking_rows": 139392,
+  "composite_rows": 2904,
+  "excluded_pairs": 2696,
+  "warnings": [
+    "rubric_codes_not_in_catalog=['project_wind_envelope']"
+  ]
+}

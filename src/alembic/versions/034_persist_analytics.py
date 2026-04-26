@@ -78,9 +78,6 @@ _SOFT_FK_TARGETS = (
 
 def upgrade() -> None:
     bind = op.get_bind()
-    _RUN_KIND.create(bind, checkfirst=True)
-    _THRESHOLD_DIRECTION.create(bind, checkfirst=True)
-    _FAILURE_AXIS.create(bind, checkfirst=True)
 
     provenance_tables.create_runs(_RUN_KIND)
     provenance_tables.create_dataset_snapshot()

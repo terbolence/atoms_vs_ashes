@@ -1,9 +1,9 @@
-# Phase 1.6 failure-mode analysis — 20260425 — Holtec SMR-300
+# Phase 1.6 failure-mode analysis — 20260425b — Holtec SMR-300
 
 > Holtec SMR-300 — 300 MWe
 
-- Run ID: `20260425T073743_20d0478d`
-- Stamp: **20260425**
+- Run ID: `20260425T140231_ff84d75e`
+- Stamp: **20260425b**
 - Universe: **363** site × technology evaluations.
 
 > **TL;DR (Holtec SMR-300)**
@@ -13,10 +13,10 @@
 > - **Floor share**: **91.4%** of failed pairings are caught by the safety floor (alone or together with a hard E-code).
 
 Source artefacts:
-- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425_failure_summary.csv` — top-level counts.
-- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425_failure_per_criterion.csv` — per-criterion fails.
-- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425_failure_per_country.csv` — per-country fails.
-- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425_failure_per_pair.csv` — one row per (site, SMR).
+- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_summary.csv` — top-level counts.
+- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_criterion.csv` — per-criterion fails.
+- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_country.csv` — per-country fails.
+- `audit/post_processing/06_scoring/per_smr/holtec_smr300/20260425b_failure_per_pair.csv` — one row per (site, SMR).
 
 Two failure mechanisms are tracked side by side: a **hard E-code** rubric expression triggering, and a **safety floor** breach where the 0–10 ranking score for an exclusionary criterion is below its `pass_mark` (5.0). See [`exclusionary_floors.md`](./exclusionary_floors.md). Both produce `passed_exclusionary = False` and `composite_score = NULL`. Per-criterion ranking rows are kept on disk for transparency, so the audit can show *why* a site failed without contaminating the suitable-site ranking.
 
@@ -37,7 +37,7 @@ Two failure mechanisms are tracked side by side: a **hard E-code** rubric expres
 
 ## 1. Funnel — universe → survivors
 
-![Failure funnel](../output/sensitivity/20260425/figures/failure/per_smr/holtec_smr300/failure_funnel.png)
+![Failure funnel](../output/sensitivity/20260425b/figures/failure/per_smr/holtec_smr300/failure_funnel.png)
 
 ## 2. Failures by exclusionary criterion
 
@@ -60,7 +60,7 @@ Counts are unique pairs (a pair that triggers both `EP-01` hard and `EP-01:floor
 `NS-08` Ecological sensitivity (Natura 2000 / WDPA)  
 `NH-03` Geotechnical - settlement and liquefaction
 
-![Failures by criterion](../output/sensitivity/20260425/figures/failure/per_smr/holtec_smr300/failures_by_criterion.png)
+![Failures by criterion](../output/sensitivity/20260425b/figures/failure/per_smr/holtec_smr300/failures_by_criterion.png)
 
 ## 3. Failures by country
 
@@ -89,7 +89,7 @@ ISO codes follow ISO 3166-1 alpha-2. *Survival rate* is the share of evaluations
 | LV | Latvia | 1 | 1 | 0 | 0.0% | 0 | 0 | 1 | 0 |
 | MD | Moldova | 1 | 1 | 0 | 0.0% | 0 | 1 | 0 | 0 |
 
-![Per-country outcomes](../output/sensitivity/20260425/figures/failure/per_smr/holtec_smr300/failures_by_country.png)
+![Per-country outcomes](../output/sensitivity/20260425b/figures/failure/per_smr/holtec_smr300/failures_by_country.png)
 
 ## 5. Compound vs. single-criterion failures
 
@@ -101,7 +101,7 @@ ISO codes follow ISO 3166-1 alpha-2. *Survival rate* is the share of evaluations
 | 4 | 12 | 3.6% |
 | 5 | 1 | 0.3% |
 
-![Multi-failure histogram](../output/sensitivity/20260425/figures/failure/per_smr/holtec_smr300/multi_failure_histogram.png)
+![Multi-failure histogram](../output/sensitivity/20260425b/figures/failure/per_smr/holtec_smr300/multi_failure_histogram.png)
 
 ## 6. How to read this
 

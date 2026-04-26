@@ -72,22 +72,19 @@ def _parse_args() -> argparse.Namespace:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--no-progress", action="store_true")
     p.add_argument(
-        "--mc-stages",
-        nargs="+",
-        type=int,
+        "--mc-stages", nargs="+", type=int,
         default=list(MC_ITERATION_STAGES),
         help="Monte Carlo iteration stages (default: 10000).",
     )
     p.add_argument("--skip-threshold", action="store_true")
     p.add_argument("--skip-oat", action="store_true")
-    p.add_argument(
-        "--skip-banding",
-        action="store_true",
-        help="Skip the extended banding + national analysis stage.",
-    )
+    p.add_argument("--skip-banding", action="store_true",
+                   help="Skip the extended banding + national analysis stage.")
     p.add_argument("--report-dir", default=DEFAULT_REPORT_DIR)
     p.add_argument("--no-figures", action="store_true")
     p.add_argument("--run-id", default=None)
+    p.add_argument("--stamp", default=None,
+                   help="Override the YYYYMMDD output stamp (default: today UTC).")
     return p.parse_args()
 
 
@@ -251,7 +248,7 @@ def main() -> int:
         "top_n_country": args.top_n_country,
     }
 
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+    stamp = args.stamp or datetime.now(timezone.utc).strftime("%Y%m%d")
     handle = _open_run(args, run_id)
 
     try:

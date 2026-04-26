@@ -26,12 +26,14 @@ def persist_stability(
     rows = [
         {
             "weight_profile": p.label,
-            "n_pairs": p.pairs_drift_compared,
+            "scored_pairs": int(p.scored_rows),
             "top5_overlap_jaccard": p.top5pct_jaccard,
             "top10_overlap_jaccard": p.top10pct_jaccard,
+            "top5_overlap_count": int(p.top5pct_overlap),
+            "top10_overlap_count": int(p.top10pct_overlap),
             "mean_abs_score_delta": p.mean_abs_drift,
-            "max_abs_rank_change": None,
-            "country_count_changed": None,
+            "max_abs_score_delta": p.max_abs_drift,
+            "pairs_drift_compared": int(p.pairs_drift_compared),
         }
         for p in analytics.profiles
     ]

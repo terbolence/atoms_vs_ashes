@@ -1,0 +1,364 @@
+site_id,name,country_code,country_name,latitude,longitude,plant_type,status,region,elevation_m,installed_capacity_mw,site_area_ha
+e6ecead0-54d1-41fe-8268-1253d0d7ef3e,Porto Romano Power Station,AL,Albania,41.371141,19.425201,coal,cancelled,Europe,-0.17,800.0,5.75
+6e7fc4d8-636d-411a-baef-e138a5a07acc,Duernrohr power station,AT,Austria,48.32611,15.923333,coal,retired,Europe,192.34,802.0,10.15
+532bfb42-0d4c-42cf-a81a-287f2b3a75bf,Enns Power Station,AT,Austria,48.21309,14.475222,coal,cancelled,Europe,268.33,800.0,5.71
+90820fe3-9889-4faf-9906-7c528f8d7bc5,Mellach power station,AT,Austria,46.90819,15.49231,coal,retired,Europe,306.05,246.0,5.36
+660d9d71-6733-4294-951b-1c58614d58cf,Riedersbach power station,AT,Austria,48.031769,12.843122,coal,retired,Europe,403.59,220.0,12.76
+021c723b-98af-4b72-8f6c-ade538885f10,St Andrae power station,AT,Austria,46.75,14.816667,lignite,retired,Europe,454.03,192.0,39.03
+2dcd2c6d-f375-4408-9492-7910662fac03,Timelkam power station,AT,Austria,48.0122,13.5895,coal,retired,Europe,452.04,66.0,30.65
+99d712ac-7993-4186-8a0e-2e88bae7e90f,Voitsberg power station,AT,Austria,47.0475,15.160278,lignite,retired,Europe,404.55,330.0,41.4
+33d83e11-cfcd-47cb-be5e-82ca0fc352cc,Zeltweg power station,AT,Austria,47.25,15.166667,coal,retired,Europe,906.93,137.0,
+82011c29-a3d3-4a81-a27b-019d2649a251,Banovici power station,BA,Bosnia and Herzegovina,44.4,18.5333,lignite,cancelled,Europe,434.15,350.0,
+67e5a20f-e3ab-4c18-9864-cf4591d6e15f,Bugojno Thermal Power Project,BA,Bosnia and Herzegovina,44.05,17.45,lignite,cancelled,Europe,572.48,600.0,6.8
+85257083-08d1-4560-b198-a9df414da4a9,Gacko Thermal Power Plant,BA,Bosnia and Herzegovina,43.172137,18.511555,lignite,operating,Europe,950.57,650.0,96.78
+e2d645e3-c829-4aac-8f6f-d6a5507fd5fa,Glinica power station,BA,Bosnia and Herzegovina,43.333,17.8,lignite,cancelled,Europe,139.69,500.0,
+e671be33-8b91-40bd-b563-b833293654aa,Kakanj Thermal Power Plant,BA,Bosnia and Herzegovina,44.089633,18.113865,lignite,operating,Europe,393.45,1050.0,0.67
+344e0e9a-558e-4749-bb66-cd746be50cbd,Kamengrad Thermal Power Plant,BA,Bosnia and Herzegovina,44.766667,16.666667,lignite,cancelled,Europe,161.65,430.0,1.32
+0155b913-765f-4d44-89f5-c176b6867cef,Kongora Thermal Power Plant,BA,Bosnia and Herzegovina,43.64611,17.33139,lignite,cancelled,Europe,919.18,550.0,
+aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9,Miljevina power station,BA,Bosnia and Herzegovina,43.518304,18.652091,lignite,cancelled,Europe,627.63,220.0,
+e75c63e5-ef2f-4e08-8f8c-3da41215af9d,Stanari Thermal Power Plant,BA,Bosnia and Herzegovina,44.753861,17.792444,lignite,operating,Europe,166.5,300.0,26.63
+0fb50bcc-5616-40d8-9109-8136a958f18d,Tuzla Thermal Power Plant,BA,Bosnia and Herzegovina,44.52104,18.606443,lignite,operating,Europe,211.51,1640.0,6.27
+a23d073a-cbbd-469a-b134-380945fd3f4c,Ugljevik power station,BA,Bosnia and Herzegovina,44.683446,18.968516,lignite,operating,Europe,171.38,1000.0,47.15
+b01fe781-dbc7-40f8-a544-946288020042,Bobov Dol power station,BG,Bulgaria,42.285818,23.03283,coal,operating,Europe,524.37,1030.0,114.19
+fee1d5b3-827f-4172-8492-a3e114a3c39e,Brikel power station,BG,Bulgaria,42.154555,25.906814,lignite,operating,Europe,121.21,300.0,16.8
+398cc0f2-25d5-428a-93c9-5e4859680e86,Deven power station,BG,Bulgaria,43.196354,27.632675,coal,operating,Europe,20.87,174.0,27.26
+30c9e377-b575-46fa-880f-922c46e6500a,Lom Power Station,BG,Bulgaria,43.7825,23.2175,lignite,cancelled,Europe,58.48,400.0,9.66
+3bb6666f-de2f-4c6f-a28e-c3bddb71b54a,Maritsa 3 power station,BG,Bulgaria,42.051942,25.623344,lignite,mothballed,Europe,96.85,120.0,18.87
+d12d7173-8595-4b53-92af-75b44b5a2fb7,Maritsa Iztok-1 power station,BG,Bulgaria,42.1573,25.9084,lignite,operating,Europe,119.23,690.0,57.27
+ec5f337a-ca52-4b86-a0f4-4933eac349e3,Maritsa Iztok-2 power station,BG,Bulgaria,42.254053,26.134007,lignite,operating,Europe,149.63,2162.0,169.61
+0e860f58-416b-4116-836d-04edf8ded225,Maritsa Iztok-3 power station,BG,Bulgaria,42.14502,26.003009,lignite,operating,Europe,136.04,1608.0,124.34
+b1bcb7d3-cd40-40c9-9c59-a01fa71053b3,Maritsa Iztok-4 power station,BG,Bulgaria,42.1444,26.0033,lignite,cancelled,Europe,122.44,600.0,124.34
+33a015dd-51e0-497e-b0d3-4b1b3f070438,Republika power station,BG,Bulgaria,42.607124,23.078699,lignite,operating,Europe,710.47,105.0,232.26
+704ef487-f600-4f23-b06e-a0f81b627597,Ruse Iztok power station,BG,Bulgaria,43.866654,26.010002,coal,operating,Europe,59.36,400.0,31.99
+93685558-3355-4da2-9a4a-4cccd89f9269,Sliven power station,BG,Bulgaria,42.654762,26.325853,lignite,operating,Europe,221.25,60.0,15.13
+2fb27566-cc7b-4530-8ff9-e55e3a1985bd,Svilosa power station,BG,Bulgaria,43.642272,25.305007,coal,retired,Europe,26.61,120.0,135.71
+85c56b15-450b-4bb1-b75e-5ea00ee51cb2,Varna power station,BG,Bulgaria,43.19477,27.765472,coal,retired,Europe,6.12,1260.0,12.26
+a064c7ae-e699-4a94-a18c-79bdfe42bce3,Vidin Works power station,BG,Bulgaria,43.948363,22.850904,coal,mothballed,Europe,36.92,120.0,156.34
+68aabff9-e662-4b9f-b37d-4c2ebc5f7539,Lelchitsy power station,BY,Belarus,51.789444,28.321389,lignite,cancelled,Europe,140.99,400.0,11.01
+fac3d0b5-36a5-48ae-8494-f2f08e4342f4,Zelwa power station,BY,Belarus,53.15,24.8167,coal,cancelled,Europe,141.06,1000.0,6.18
+d762ceeb-514f-43a6-9f91-a2d422ed6c60,Chvaletice power station,CZ,Czech Republic,50.028062,15.450504,lignite,operating,Europe,211.16,820.0,93.87
+a733fc13-11a4-4722-b62d-85c85a4f8ef3,Detmarovice power station,CZ,Czech Republic,49.907184,18.464559,coal,retired,Europe,211.67,800.0,63.92
+180880c2-7284-4723-b02a-a62348b9b40b,Hodonin power station,CZ,Czech Republic,48.847759,17.120129,lignite,operating,Europe,170.21,107.0,24.5
+43e5b2b4-2ccf-46ab-b01e-e3d480146455,Karvina power station,CZ,Czech Republic,49.823463,18.480287,coal,operating,Europe,260.63,125.0,81.16
+f1d2bca1-a7a9-4404-84c1-34fc8a59dab7,Kladno power station,CZ,Czech Republic,50.1535,14.12858,lignite,operating,Europe,331.61,405.6,12.73
+274ec928-e527-44cf-86c5-b6eddc09d0f7,Komorany power station,CZ,Czech Republic,50.522288,13.572102,lignite,operating,Europe,249.66,197.0,39.28
+2fe0a0b3-4108-427e-8e54-f77e1ea7227c,Ledvice power station,CZ,Czech Republic,50.57658,13.779761,lignite,operating,Europe,202.64,990.0,116.76
+1c059a42-608c-4753-8fcf-ba797d94f900,Malesice power station,CZ,Czech Republic,50.084967,14.525273,coal,operating,Europe,237.28,110.0,189.19
+cbd67443-4a4e-44fd-a9ed-20ba9574c99e,Marianske Hory power station,CZ,Czech Republic,49.86,18.27,coal,retired,Europe,206.58,30.0,49.32
+f3523341-daaa-4573-a856-becb2e1bb9e3,Melnik power station,CZ,Czech Republic,50.413132,14.41582,lignite,operating,Europe,165.14,1070.0,123.68
+e299922a-1670-4aff-acda-fd80600af9af,Mondi Steti power station,CZ,Czech Republic,50.460918,14.375854,lignite,operating,Europe,162.54,94.0,180.77
+4eb7914c-e000-403c-b5a5-c350de67bb83,Mostecka Power Station,CZ,Czech Republic,50.503,13.63617,coal,cancelled,Europe,279.85,1200.0,6.65
+44d40276-5847-41d1-ab9b-887bbdc1bcfe,Olomouc power station,CZ,Czech Republic,49.570879,17.304121,coal,operating,Europe,219.05,50.0,24.21
+05daa6b2-bb29-4c26-a459-855626673955,Opatovice power station,CZ,Czech Republic,50.12283,15.790765,lignite,operating,Europe,226.38,360.0,57.17
+9c4291f1-173b-467e-ae26-8cb01312c605,Plana Nad Luznici power station,CZ,Czech Republic,49.368459,14.702139,lignite,retired,Europe,418.83,46.5,10.59
+97ed917e-acfa-4002-be89-4ec44972ab45,Plzen CHP power station,CZ,Czech Republic,49.754333,13.398754,lignite,operating,Europe,318.52,137.0,123.88
+a6bf9980-016e-47ea-b40a-82e384a9eb43,Plzenska energetika ELU III power station,CZ,Czech Republic,49.739529,13.345461,lignite,operating,Europe,345.94,65.0,5.56
+32484f7b-18a4-4b21-8e6a-6d68ae099d02,Pocerady power station,CZ,Czech Republic,50.4267,13.6747,lignite,operating,Europe,215.31,1000.0,90.76
+20bce4f5-ca0b-4145-87e5-0a0694343f31,Porici power station,CZ,Czech Republic,50.572812,15.963992,lignite,operating,Europe,395.59,165.0,24.51
+60baaa73-dd8c-4865-bb18-6c73d63a4052,Prerov power station,CZ,Czech Republic,49.445061,17.428525,lignite,retired,Europe,214.46,41.0,171.62
+0ae8917b-a70b-41e5-82de-e4963a7686e3,Pribram power station,CZ,Czech Republic,49.696,14.003,lignite,operating,Europe,484.58,38.0,41.44
+b0ba194f-3c80-4725-b1e7-fa5277b38833,Prunerov power station,CZ,Czech Republic,50.415122,13.255958,lignite,operating,Europe,353.15,2240.0,73.96
+20c9d02d-e9e8-40b3-a11e-7a2e01018d8c,Sko-Energo power station,CZ,Czech Republic,50.41721,14.93293,coal,operating,Europe,213.41,70.0,30.05
+14e88076-ce0e-4693-bca4-e80f3f013c7f,Tisova power station,CZ,Czech Republic,50.149402,12.610338,lignite,operating,Europe,417.81,276.0,37.5
+66c3f077-1ee6-41d7-8e6c-da374bb45139,Trebovice power station,CZ,Czech Republic,49.831905,18.211305,coal,operating,Europe,218.02,177.0,38.58
+63601ccc-3f20-4cbd-95cb-0fbeaf821c6a,Trinec-E3 power station,CZ,Czech Republic,49.677778,18.672778,lignite,operating,Europe,315.84,32.0,58.7
+287cbb48-bb08-40dd-82c5-cfe1530dfbb9,Tusimice power station,CZ,Czech Republic,50.381868,13.339973,lignite,operating,Europe,313.81,800.0,104.46
+5f4ed23c-cea2-41ef-a3e8-ac863e1bdcd6,Vresova TPS power station,CZ,Czech Republic,50.255816,12.695936,lignite,retired,Europe,484.58,400.0,106.98
+aa38441d-aec7-4ae9-b4c3-68c5bf567db3,Zlin power station,CZ,Czech Republic,49.225,17.654,lignite,operating,Europe,214.0,30.0,11.63
+7af0e000-3d19-4e5e-b504-f74897f1510c,Ploče power station,HR,Croatia,43.05,17.433333,coal,cancelled,Europe,1.59,800.0,238.74
+ab151830-e5bd-46de-8400-01aa4c165366,Plomin power station,HR,Croatia,45.136764,14.162702,coal,operating,Europe,5.88,842.0,21.14
+ef325d90-6d2d-4f8f-89f2-3bc98beb149b,Bakony power station,HU,Hungary,47.0956,17.558444,coal,retired,Europe,248.97,60.0,10.79
+f2b3a729-602a-4b6b-acc9-004244f2e556,Banhida-II power station,HU,Hungary,47.571057,18.365557,coal,retired,Europe,152.6,100.0,6.88
+f7dcdb63-26e6-44cd-b440-ec14fe507d90,Borsod power station,HU,Hungary,47.904814,21.055306,lignite,cancelled,Europe,102.51,420.0,66.01
+28b36531-865d-42ae-afb3-b8bad86f7014,Matra power station,HU,Hungary,47.79027,20.06358,lignite,operating,Europe,168.34,1384.0,7.63
+903d6b94-cd9d-4c32-b7e2-4bbfbee929df,Matraterenye power station,HU,Hungary,48.016667,19.95,coal,cancelled,Europe,223.0,49.9,1.17
+34d88ce8-d49c-4b19-af2d-6efcb1b72149,Mecsek Hills power station,HU,Hungary,46.1,18.083333,coal,cancelled,Europe,311.05,400.0,3.54
+997474f6-9bfd-4abd-a2ac-d8618db8f0b4,Mohacs power station,HU,Hungary,45.99593,18.67985,coal,cancelled,Europe,94.58,1200.0,30.16
+651839d3-4e8f-4214-89aa-1f96ea221121,Oroszlány power station,HU,Hungary,47.501741,18.271075,lignite,mothballed,Europe,175.27,250.0,43.26
+e1649639-2e45-4226-9c7a-783d2dcb6724,Pecs power station,HU,Hungary,46.064103,18.263048,coal,retired,Europe,156.04,60.0,1.69
+5de5f907-98e7-42d3-a7dd-cb65f839697b,Tiszapalkonya power station,HU,Hungary,47.916826,21.075933,coal,retired,Europe,95.41,265.0,18.77
+059b3ad4-7196-4e6b-b169-8605ceeed841,Torony power station,HU,Hungary,47.23626,16.53706,coal,cancelled,Europe,235.08,600.0,7.89
+1a5b8f8f-f4be-4514-8738-755d25e19b41,Kurzeme power station,LV,Latvia,57.409408,21.594695,coal,cancelled,Europe,9.95,435.0,8.7
+b3eb5dd2-98cf-40c4-b9ee-2a86fd066093,Kuchurgan power station,MD,Moldova,46.629027,29.939714,coal,mothballed,Europe,11.51,1400.0,186.16
+3795824b-cb76-48dd-a65c-764c757ddc76,Bar power station,ME,Montenegro,42.1,19.1,coal,cancelled,Europe,11.9,800.0,9.68
+e77a7e7f-11ba-4e61-98da-f44471bc52ab,Berane power station,ME,Montenegro,42.84,19.86,lignite,cancelled,Europe,701.5,110.0,
+a851b5f3-8392-4766-82b9-379c6c04fe5d,Maoce Power Station,ME,Montenegro,43.36,19.36,coal,cancelled,Europe,774.79,500.0,43.45
+a9385c82-79b7-4f8d-b609-0a12ed946fe6,Pljevlja power station,ME,Montenegro,43.334574,19.32714,lignite,operating,Europe,767.47,479.0,29.88
+1739b1b7-a6f3-466c-9dfa-3d1de9d5b6db,Bitola power station,MK,North Macedonia,41.05832,21.484266,lignite,operating,Europe,596.74,699.0,145.73
+7bff5ef2-646d-4b83-83b0-7f3da32f0254,Mariovo power station,MK,North Macedonia,41.122815,21.805115,lignite,cancelled,Europe,921.12,300.0,
+83d3abe4-2049-47ad-a66b-46034edb7569,Negotino power station,MK,North Macedonia,41.483333,22.1,lignite,cancelled,Europe,179.16,300.0,5.25
+756218bb-3f16-443e-b6c6-400cd0ce2f87,Oslomej power station,MK,North Macedonia,41.582133,21.000288,coal,operating,Europe,698.47,254.5,18.84
+e4e3b5f0-7038-47a5-84e3-04eb07b3c4d7,Adamow power station,PL,Poland,52.012307,18.546212,lignite,retired,Europe,119.62,600.0,5.96
+d3b5a049-6bff-400b-9312-96985f03acea,Bedzin power station,PL,Poland,50.303889,19.137778,coal,operating,Europe,260.72,81.5,13.42
+8e485f8a-5c68-4541-ab1d-77783f6fcb2d,Belchatow power station,PL,Poland,51.266389,19.330556,lignite,operating,Europe,215.27,6258.0,231.1
+06641fea-8997-4b69-a618-6afa34b82591,Bialystok power station,PL,Poland,53.147965,23.169649,coal,operating,Europe,136.71,175.0,27.13
+73fe8f06-c53b-4877-9c1d-5caf3d8f2749,Bielsko-Biala power station,PL,Poland,49.811696,19.052943,coal,operating,Europe,332.78,166.0,63.06
+ccc15bde-1c5a-40bf-8f09-2fcb1e896ce5,Blachownia power station,PL,Poland,50.783333,18.966667,coal,cancelled,Europe,261.13,1075.0,10.39
+9f4a0d6c-e2fa-4e9b-b412-d779d4abf82c,Bydgoszcz power station,PL,Poland,53.09918,18.0889,coal,operating,Europe,63.28,227.0,40.66
+a91dfe3d-93e0-43a1-99d2-41abdd1fc2ce,Chorzow Elcho power station,PL,Poland,50.307464,18.969459,coal,operating,Europe,307.33,226.0,169.89
+a6b51b4f-ba1d-49cd-bc99-8898acdbeb78,Czeczott power station,PL,Poland,49.966667,18.95,coal,cancelled,Europe,257.48,1000.0,9.03
+b789a244-7d29-4be3-afe4-2f45d7f11eab,Czestochowa CHP power station,PL,Poland,50.794406,19.14242,coal,operating,Europe,252.8,64.0,6.92
+558e7bff-5b5d-4666-9ca3-ec02f2269aab,Dolna Odra power station,PL,Poland,53.20778,14.46722,coal,operating,Europe,10.84,1792.0,76.1
+e9a1ae49-ff79-462c-af4e-7c6843221d36,Gdansk-2 power station,PL,Poland,54.378201,18.641284,coal,operating,Europe,9.4,217.8,143.61
+ad7a9c00-0c75-411f-8f89-859e603df1e6,Gdynia-3 power station,PL,Poland,54.553355,18.480791,coal,operating,Europe,22.59,105.2,141.25
+416aab55-6fd9-4a0a-b8f8-796fb62d86a5,Gliwice Works power station,PL,Poland,50.317682,18.626547,coal,operating,Europe,225.27,32.0,58.3
+40650551-0c9c-45ea-bac6-befdb0cb5909,Gorzow power station,PL,Poland,52.7504,15.2712,coal,operating,Europe,78.24,62.0,22.65
+917008f5-fba1-4ef7-b82d-9aded2b69267,Gubin Power Project,PL,Poland,51.948982,14.728458,lignite,cancelled,Europe,48.31,3000.0,0.05
+29479c3f-8db8-4f62-90e8-59ad6739f90b,Halemba power station,PL,Poland,50.2325,18.851944,coal,cancelled,Europe,237.58,640.0,59.94
+c4d7f628-c108-4496-ac02-6076ea3ae448,Jaworzno power station,PL,Poland,50.213351,19.22806,coal,operating,Europe,264.52,2455.0,58.1
+399668d6-bfed-4e5b-bf38-9ee5902101c3,Katowice PKE power station,PL,Poland,50.28568,19.05438,coal,operating,Europe,273.18,135.0,37.34
+239ea0eb-a9c4-43cc-ac5f-35271bdc6613,Kedzierzyn CCS Project,PL,Poland,50.34988,18.226184,lignite,cancelled,Europe,182.02,910.0,5.34
+c39819ef-6798-4c01-9a82-9eead65b5f56,Konin power station,PL,Poland,52.283657,18.269475,lignite,retired,Europe,100.43,165.0,28.33
+4411a22e-4e8a-4715-b000-1aae34494b68,Kozienice power station,PL,Poland,51.58293,21.54779,coal,operating,Europe,116.39,5069.0,8.76
+409dde58-5df1-44d9-b5ec-f8e2edd86786,Krakow-Leg power station,PL,Poland,50.054021,20.006018,coal,operating,Europe,206.33,460.0,46.63
+27fc89b3-ee57-44ac-8073-a700bc8d12e8,Lagisza power station,PL,Poland,50.35016,19.14351,coal,operating,Europe,270.91,1180.0,48.44
+de6735bd-7a79-43c8-baad-1fe23d50d6f0,Laziska power station,PL,Poland,50.134526,18.844352,coal,operating,Europe,290.21,1155.0,43.16
+0b187a1d-55de-47cf-96a3-06abc8ff2476,Leczna Power Station (Bogdanka SA),PL,Poland,51.3009,22.88211,coal,cancelled,Europe,173.2,500.0,1.01
+ebc0f461-acfa-47da-8094-5b15ea3e25a0,Leczna Power Station (Enea),PL,Poland,51.3,22.883333,coal,cancelled,Europe,174.96,500.0,1.01
+187b4fd7-6a61-4e94-8ed4-495ac6dfc317,Legnica Power Station,PL,Poland,51.207007,16.155323,lignite,cancelled,Europe,122.98,800.0,6.25
+29a58981-aaf7-4450-ad41-49dd6d786168,Lodz-2 power station,PL,Poland,51.742023,19.448746,coal,retired,Europe,200.3,87.0,6.39
+8dd8db4c-b62d-4f6b-a2ee-70a9ed785e7a,Lodz-3 power station,PL,Poland,51.798357,19.420734,coal,operating,Europe,203.75,198.0,14.67
+ef2ee2ae-e73e-490c-aa07-746543fe20e6,Lodz-4 power station,PL,Poland,51.74564,19.53963,coal,operating,Europe,225.62,215.0,50.7
+d60b377c-9bb4-4fd5-adb7-a9a9ba98ae76,Lublin Power Station,PL,Poland,51.209986,22.554122,coal,cancelled,Europe,200.34,1600.0,25.3
+c42c5942-264d-43a1-a9eb-95b00480eb1a,Miechowice power station,PL,Poland,50.349073,18.841853,coal,retired,Europe,295.06,110.0,5.22
+5a57ae0a-6f91-46f4-a1f5-56a6b37596e9,Murcki-Staszic power station,PL,Poland,50.180556,19.007222,coal,cancelled,Europe,293.03,40.0,5.97
+52db4dae-b014-45a4-96c4-49f80c1fdd11,Opalenie power station,PL,Poland,53.742222,18.823056,coal,cancelled,Europe,21.01,1660.0,
+1d19dce6-c458-4656-901d-6a8d3c548761,Opole power station,PL,Poland,50.75182,17.88196,coal,operating,Europe,155.87,3332.0,159.67
+b8bc6544-1571-4906-95e0-314d62c78a24,Ostrołęka power station,PL,Poland,53.103611,21.6125,coal,operating,Europe,98.89,1681.1,32.05
+ab57f5c3-8699-46f9-970f-3007dfc58af4,Patnow power station,PL,Poland,52.302,18.237,lignite,operating,Europe,100.14,1718.0,53.08
+8a9d5c87-7edc-49c3-85a2-d97727b9c9b2,Piast Ruch Power Station,PL,Poland,50.016287,19.096709,coal,cancelled,Europe,247.62,800.0,57.24
+2981a12d-3444-4301-96ba-a63ef50bec3e,Polaniec power station,PL,Poland,50.437685,21.33769,coal,operating,Europe,164.78,1882.0,116.37
+b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c,Pólnoc power station,PL,Poland,53.962892,18.711758,coal,cancelled,Europe,56.77,1600.0,5.46
+e2c23866-db1e-4316-82b5-7e3fe50c3c09,Pomorzany power station,PL,Poland,53.390996,14.524786,coal,operating,Europe,23.79,134.0,5.74
+40b4334a-7ba4-4ed8-aa8e-3c405599fbd7,Poznan Karolin power station,PL,Poland,52.436416,16.988658,coal,operating,Europe,82.35,313.0,7.53
+dadadad9-b67e-44b8-a9ab-4cbf116da20b,Puchaczow power station,PL,Poland,51.3,22.966667,coal,cancelled,Europe,173.39,800.0,
+cdc888ad-fd51-4710-a5ab-3cd0fe9ddb48,Pulawy power station (Grupa Azoty),PL,Poland,51.416443,21.969309,coal,construction,Europe,138.41,100.0,0.37
+a19228ce-f25a-4ffd-a249-9d01403e6b81,Pulawy power station (Vattenfall),PL,Poland,51.416443,21.969309,coal,cancelled,Europe,138.41,1620.0,0.37
+ee332928-87b2-4e7b-9203-20e402bc551f,Pulawy ZAP Works power station,PL,Poland,51.457211,21.973811,coal,operating,Europe,131.79,92.0,273.47
+b8a00967-90a3-4a4e-9979-6b8651d87380,Rybnik power station,PL,Poland,50.13406,18.52196,coal,operating,Europe,227.83,2685.0,7.34
+a7eeee6e-e14a-40ba-80b6-75ed2e170b20,Siechnice power station,PL,Poland,51.03794,17.15095,coal,retired,Europe,125.33,132.0,5.08
+a67255dd-8134-418e-9377-e28516c53722,Siekierki power station,PL,Poland,52.191456,21.086218,coal,operating,Europe,85.93,991.0,56.74
+47be3ec4-7abe-4f4c-ac3d-b7f753b8514a,Siersza power station,PL,Poland,50.208043,19.460943,coal,operating,Europe,351.02,1697.0,70.3
+f5be4e73-938d-4fe2-b585-5090ec780670,Skawina power station,PL,Poland,49.977425,19.805132,coal,operating,Europe,220.56,540.0,50.6
+66bdc30c-4179-480b-a55a-5d15be5ac66b,Stalowa Wola power station,PL,Poland,50.55386,22.0791,coal,retired,Europe,164.8,350.0,45.54
+7fc17ab0-ce24-4830-a938-b8424d1e9368,Swiecie Pulp Mill power station,PL,Poland,53.393629,18.374224,coal,operating,Europe,44.86,113.0,9.3
+f8f9f43d-6a3b-445d-818e-ca82a90ace65,Szczecin power station,PL,Poland,53.411271,14.585981,coal,operating,Europe,11.74,141.0,9.61
+cd84938d-eea8-47a1-8ea6-2e9f943e5914,Turów power station,PL,Poland,50.947717,14.91171,lignite,operating,Europe,254.89,2754.0,75.96
+3d2d4c37-eb9d-4b35-a8b1-b3f485bc3e3f,Tychy power station,PL,Poland,50.106,19.014,coal,operating,Europe,263.12,105.0,14.09
+dc87cdf1-9936-4a59-a5e9-b5e360173490,Wroclaw power station,PL,Poland,51.123715,17.02457,coal,operating,Europe,129.67,263.0,17.64
+2da9dab9-7b4e-46e7-b1c8-70eeb329c177,Zabrze power station,PL,Poland,50.324928,18.785719,coal,operating,Europe,265.22,108.0,5.06
+a55e3643-8ed4-434b-b14f-2d549d09c0d9,Zarnowiec power station,PL,Poland,54.787416,18.085672,coal,cancelled,Europe,35.3,1600.0,1.9
+d40cdaf1-49e4-4c59-a6c8-2402cd2bf006,Zeran power station,PL,Poland,52.2947,20.99334,coal,operating,Europe,90.05,586.0,25.72
+b24c9876-5a4d-4b83-b442-af2f4b0d1047,Zofiowka Mine power station,PL,Poland,49.964162,18.626794,coal,operating,Europe,288.67,145.0,8.29
+202d797d-b0f9-4cd0-bbac-d7bb06805c09,ZW Nowa power station,PL,Poland,50.347756,19.278159,coal,operating,Europe,311.31,105.0,314.13
+5a33e5f0-6d86-4eab-adea-6c6bad7f3f45,Arad power station,RO,Romania,46.222424,21.328771,lignite,retired,Europe,115.25,100.0,70.86
+dac2a974-a2de-46c5-b581-03985a9ae7d0,Bacau CHP power station,RO,Romania,46.530524,26.940874,coal,retired,Europe,147.8,60.0,86.07
+29836b52-a882-4921-95a7-6417e636d9a2,Braila power station,RO,Romania,45.165033,27.923383,coal,retired,Europe,13.51,850.0,41.78
+323cdbf0-c4a8-467a-af76-e2e3df0b537f,Braila power station,RO,Romania,45.165033,27.923383,coal,cancelled,Europe,13.51,800.0,41.78
+f1f65cf9-996c-4922-97bd-76e38c032331,Brăila-Chișcani Thermal Power Plant,RO,Romania,45.2744,27.9291,thermal,operating,,16.23,,72.99
+729f8d17-57c0-4d9a-adab-4b612d4abde5,Brasov power station,RO,Romania,45.662296,25.646845,lignite,retired,Europe,575.27,130.0,72.35
+3bef37a3-239e-498d-a160-77452a6a9b79,Bucharest North East power station,RO,Romania,44.4325,26.103889,coal,cancelled,Europe,79.35,400.0,1.9
+a4fa3246-27d6-4740-898c-bdf9dadcb88c,Craiova II power station,RO,Romania,44.34294,23.81076,lignite,operating,Europe,133.55,450.0,120.84
+aff5ffe6-fe7a-4de7-afad-9d4645a64cd9,Doicesti power station,RO,Romania,45.002896,25.397236,lignite,cancelled,Europe,335.06,1400.0,0.16
+18ecb024-ee4f-4045-8254-5e95d61dea8c,FPCU Feldioara,RO,Romania,45.7917,25.5889,thermal,operating,,493.49,,8.16
+8781d874-5923-4795-9c9f-b2a6c709025a,Galati Power Station,RO,Romania,45.423333,28.0425,coal,cancelled,Europe,17.21,800.0,0.71
+6aed2eac-1c97-40c5-b842-fb15fd510f35,Giurgiu power station,RO,Romania,43.879766,25.926778,lignite,retired,Europe,23.51,150.0,114.97
+825dc024-9a53-4237-bf59-cbe0af0cf87d,Govora power station,RO,Romania,45.039047,24.287572,lignite,operating,Europe,223.19,200.0,22.14
+1d8be6d0-f3a5-4b32-9d46-3526289731f8,Iasi-2 power station,RO,Romania,47.147296,27.717157,coal,retired,Europe,38.62,110.0,64.11
+e073b3f8-4312-4d34-b322-6289a3121af1,Isalnita power station,RO,Romania,44.38763,23.718195,lignite,mothballed,Europe,102.44,1130.0,159.43
+52a7babe-313f-493b-86b9-bd0c4aece4c3,Mintia-Deva power station,RO,Romania,45.912791,22.826129,coal,retired,Europe,191.41,1285.0,0.01
+6c428b2a-ad09-448b-b24c-22465929d69c,Oradea power station,RO,Romania,47.084677,21.892868,lignite,retired,Europe,118.88,100.0,11.23
+9825e28e-fd6e-460d-9caf-0342563f9060,Paroseni power station,RO,Romania,45.366101,23.261351,coal,operating,Europe,619.98,350.0,82.67
+c3790475-3d3b-4e2b-92ae-24503fe03e6b,Romag Termo power station,RO,Romania,44.677808,22.685995,lignite,cancelled,Europe,88.31,1065.0,95.28
+958e4d82-853a-41f1-a442-94b4c4314221,Rovinari power station,RO,Romania,44.910633,23.134754,lignite,operating,Europe,162.2,1920.0,62.94
+d498ded8-449c-4672-8bb9-0ed6c8fef775,Slatina power station,RO,Romania,44.429722,24.364167,lignite,cancelled,Europe,176.62,100.0,11.51
+693d9b73-f9fc-4502-9b94-be020c5d21fb,Suceava power station,RO,Romania,47.651873,26.298268,coal,retired,Europe,277.91,100.0,75.56
+e43af28e-a3d3-4047-a9cf-f3b0990754b4,Târgu Jiu Thermal Plant,RO,Romania,45.034167,23.274722,lignite,cancelled,Europe,210.28,100.0,0.08
+345fb795-170a-4fb5-833c-f6bcf2eb450c,Turceni power station,RO,Romania,44.669722,23.407778,lignite,operating,Europe,136.94,2640.0,169.78
+5d53da59-04c8-43e6-b29e-220bea4d9eb7,Despotovac power station,RS,Serbia,44.05,21.26,lignite,cancelled,Europe,106.2,320.0,
+0182ec25-0df9-4e4b-9861-d76a332bc282,Kolubara A power station,RS,Serbia,44.480312,20.293538,lignite,operating,Europe,88.8,271.0,51.45
+d30af109-79cb-4ab5-a878-6f574b58116a,Kolubara B power station,RS,Serbia,44.4675,20.28444,lignite,cancelled,Europe,97.88,725.0,51.45
+993ccce2-d5e1-498d-827d-8dbfeb42582b,Kostolac power station,RS,Serbia,44.723674,21.171605,lignite,operating,Europe,80.22,1360.0,36.95
+5d4aee8d-9e73-4987-907a-d092e0ba92ed,Kovin power station,RS,Serbia,44.75,20.966667,lignite,cancelled,Europe,79.04,700.0,7.86
+2b03f2e2-64ac-4262-bbff-7a536bda5722,Morava power station,RS,Serbia,44.223826,21.163148,lignite,operating,Europe,100.68,120.0,11.41
+c8f15aca-174b-4be6-a6d9-abfa4685d10d,Nikola Tesla power station,RS,Serbia,44.671341,20.158418,lignite,operating,Europe,76.26,3816.0,52.59
+296282b1-d079-4c1e-b2df-12c25128b963,Štavalj Power Station,RS,Serbia,43.27305,19.99944,lignite,cancelled,Europe,1008.93,300.0,1.84
+0750b80c-a54b-4ea5-b3e5-9dfb7309eca2,Sostanj power station,SI,Slovenia,46.3723,15.0534,lignite,operating,Europe,374.73,1355.0,76.89
+4cf7f820-7ad9-411e-bf39-2bbef290aaf6,Te-Tol power station,SI,Slovenia,46.05796,14.54513,coal,operating,Europe,292.61,124.0,5.48
+008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd,Trbovlje power station,SI,Slovenia,46.126132,15.061808,lignite,retired,Europe,208.87,125.0,7.17
+66edd8f5-e60a-412d-9b80-56496d1407b1,Kosice power station,SK,Slovakia,48.698047,21.271726,coal,operating,Europe,206.8,121.0,64.19
+06defca3-9105-437f-afd4-52f5603d9b8e,Martinska power station,SK,Slovakia,49.059218,18.907019,lignite,retired,Europe,423.89,32.0,252.87
+c97125b3-20ed-4e21-a853-b928644ec7dd,Novaky power station,SK,Slovakia,48.698823,18.533458,lignite,retired,Europe,242.06,472.0,198.93
+1719d38b-61e8-4b01-844b-3a2f85c8a186,Trebisov power station,SK,Slovakia,48.627778,21.717222,coal,cancelled,Europe,108.75,885.0,8.91
+a2d8261c-3d08-4015-946c-47dbddbd0b98,U.S. Steel Kosice Works power station,SK,Slovakia,48.615945,21.194562,coal,operating,Europe,239.02,208.0,11.95
+770f1d3c-e5fd-493c-a376-e708d2abec6c,Vojany I power station,SK,Slovakia,48.5525,21.972625,coal,retired,Europe,110.49,660.0,89.48
+d48d2f39-d58f-4299-9b2f-56d194d2d13b,Ada Yesildag Enerji power station,TR,Türkiye,36.3761,33.9322,coal,cancelled,Asia,21.56,1200.0,14.0
+4b11cac9-4fe0-4a2a-9c09-4fe9a0ac6015,Ada Yumurtalık power station,TR,Türkiye,36.843,35.86,coal,cancelled,Asia,64.04,1320.0,171.87
+44698c12-3c50-4602-8104-dafa5fd215b6,Adana Akdeniz power station,TR,Türkiye,36.8178,35.86216,coal,cancelled,Asia,32.25,600.0,74.83
+8a5dc384-e272-41ed-9868-a0686ac3fc7e,Adana Ceyhan power station,TR,Türkiye,37.0333,35.8167,coal,cancelled,Asia,26.35,800.0,19.4
+e9bc02be-cf10-4b27-9b8a-0d4a954720e4,Afşin-Elbistan power stations,TR,Türkiye,38.347211,37.026002,lignite,operating,Asia,1208.51,9283.0,109.83
+ce39538c-997e-4a7d-bc32-f164f50f9aa0,Ağan power station,TR,Türkiye,40.449823,27.304356,coal,cancelled,Asia,35.91,1580.0,
+5fa0dfa9-c272-444e-8e70-80ab55b5d36c,Akdeniz Enerji power station,TR,Türkiye,36.201759,33.671397,lignite,cancelled,Asia,11.88,1600.0,
+992a4bf0-3ff0-4f12-bb89-50dc9e8d7d35,Aksa Akrilik power station,TR,Türkiye,40.691129,29.405596,coal,operating,Asia,9.43,100.0,72.58
+cb825b0f-e315-4221-b194-43d5b472382d,Albayrak Varaka Paper power station,TR,Türkiye,39.559474,27.969536,coal,operating,Asia,121.14,40.0,76.74
+bcb86777-4a54-4891-bb26-35b201bbd57d,Aliağa Enka power station,TR,Türkiye,38.746,26.912,coal,cancelled,Asia,51.36,800.0,11.75
+9699244b-14c0-4e27-afd1-105494fccd60,Alpu power station,TR,Türkiye,39.897,30.862,lignite,cancelled,Asia,857.77,1080.0,
+9163ca37-1b31-409d-974f-9e7ed5e5f33d,Amasra Bartın power station,TR,Türkiye,41.72704,32.34971,coal,cancelled,Asia,116.03,1200.0,11.35
+8782d6f2-5f9f-4c67-b9f2-6756857bd200,Ant Enerji power station,TR,Türkiye,37.366667,28.033333,lignite,cancelled,Asia,531.68,160.0,
+b5a75ec8-a2fe-42ad-b33e-ea32e20ebdfb,Astoria Ceyhan power station,TR,Türkiye,36.90659,35.96236,coal,cancelled,Asia,58.37,1320.0,21.33
+c6b846cb-3a01-4e17-9d51-da4b58fd1827,Atakaş power station,TR,Türkiye,36.6971,36.2042,coal,cancelled,Asia,7.88,660.0,41.26
+1ce7624e-1d72-4293-8ff4-09096b56ddd2,Atlas Enerji İskenderun power station,TR,Türkiye,36.69028,36.20909,coal,operating,Asia,8.06,1200.0,9.98
+c7afd455-7beb-4d23-8d3b-e9a102782d2b,Avdan power station,TR,Türkiye,37.750237,29.094284,lignite,cancelled,Asia,446.94,300.0,9.78
+7a805295-0cd2-48be-972e-5282c996549c,Ayas power station,TR,Türkiye,36.82211,35.86753,coal,cancelled,Asia,5.81,625.5,74.83
+b8875ff2-9e9d-4520-8879-c71468e9cc50,Babadere power station,TR,Türkiye,39.609,26.189,coal,cancelled,Asia,76.9,1600.0,
+ba1f1f36-18b4-49ae-9882-f90418dc88ce,Bandırma Elektrik power station,TR,Türkiye,40.30593,27.7272,coal,cancelled,Asia,40.22,1600.0,
+fecb62d9-6fb8-4f8d-83e3-78a7c75adb6e,Bandırma III power station,TR,Türkiye,39.385,27.533,coal,cancelled,Asia,544.08,810.0,
+bb2453b0-c76d-40ea-bcc4-870391f05b2f,Bandırma Karat power station,TR,Türkiye,40.357,27.975,coal,cancelled,Asia,47.42,1200.0,0.92
+1289753b-43db-4058-8fe1-6e38b5fb01b5,Barbaros-1 power station,TR,Türkiye,41.803,35.194,coal,cancelled,Asia,29.17,610.0,
+2350bab4-9869-43f1-b62f-a4d5aea77ef5,Biga power station,TR,Türkiye,40.47233,27.28625,coal,cancelled,Asia,17.9,1540.0,
+75f807aa-8278-43a3-8654-730713b96001,Bingöl power station,TR,Türkiye,39.31575,40.889156,lignite,cancelled,Asia,2450.17,150.0,
+2b6a65d3-efb0-44d8-b88b-9aad311f4ac4,Bolu Göynük power station,TR,Türkiye,40.2514,30.8129,lignite,operating,Asia,585.56,270.0,14.08
+7b4d3f8f-a644-48a3-93f9-cd3c154dc5c2,Burnaz power station,TR,Türkiye,36.491859,36.192092,coal,cancelled,Asia,493.99,300.0,
+3bc834ed-5c2b-47d6-b555-2e20b9044053,Bursa power station,TR,Türkiye,39.90331,29.17746,lignite,cancelled,Asia,1068.39,270.0,
+e71ec827-7143-48dd-8c8a-8e81705fa971,Çalışkan Ceyhan power station,TR,Türkiye,36.93815,35.99446,coal,cancelled,Asia,74.31,1320.0,35.9
+ad1e8841-e4e4-413b-820a-8c14e09da5a0,Çan (18 Mart) power station,TR,Türkiye,40.02324,26.976837,lignite,operating,Asia,131.57,320.0,81.2
+28980273-0ba6-4c8c-b080-7ff9b33cc4c9,Çan-2 power station,TR,Türkiye,40.034352,26.950574,lignite,operating,Asia,149.28,330.0,28.48
+dd413ee8-a6f2-4e7c-8e6c-6d0ed8637d83,Çankırı Orta power station,TR,Türkiye,40.623886,33.112751,lignite,cancelled,Asia,1255.57,150.0,
+fc307877-758b-4dbf-afbe-abfc4a778155,Çankırı Yıldızlar power station,TR,Türkiye,40.6078,33.3202,lignite,cancelled,Asia,1503.47,399.0,
+8b16dc60-1a2b-4b2c-bcad-1c334d246ae3,Çatalağzı power station,TR,Türkiye,41.517402,31.900198,lignite,operating,Asia,14.58,974.0,20.71
+674deb4f-110c-4120-bea0-5f0711da3ea1,Çayırhan power station,TR,Türkiye,40.097,31.695,lignite,operating,Asia,525.82,1420.0,28.73
+d12e7ffc-4cd3-4ff4-81da-ae360d59409b,Çebi Enerji power station,TR,Türkiye,41.013446,27.961648,coal,cancelled,Asia,55.17,700.0,64.35
+a4af3789-2c40-41fc-a3ec-3b8d2fc6c645,Çelikler Yumurtalık power station,TR,Türkiye,36.86788,35.90949,coal,cancelled,Asia,14.84,1320.0,
+a96dc545-41a9-4b0d-a7a3-f40ef711e5e3,Cenal power station,TR,Türkiye,40.4167,27.31829,coal,operating,Asia,57.31,1320.0,93.05
+e894ba3e-e397-47c9-b0b9-a72cfb6bd680,Çerkezköy power station,TR,Türkiye,41.283333,28.0,lignite,cancelled,Asia,156.7,990.0,5.45
+bddb4fb7-c01d-4b71-bc30-1896b88298bf,Çırpılar power station,TR,Türkiye,39.816777,27.339752,lignite,cancelled,Asia,225.57,200.0,
+778e0750-19f9-426e-a6c7-e0e30645fb97,Çoban Yıldız power station,TR,Türkiye,37.557261,32.847995,lignite,operating,Asia,1008.51,37.0,230.66
+28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc,Demirtaş power station,TR,Türkiye,36.780693,35.735779,coal,cancelled,Asia,39.36,119.0,
+a70bbc9a-1469-4d56-be56-f282ed4130a8,Deniz power station,TR,Türkiye,38.746,26.912,coal,cancelled,Asia,51.36,1320.0,11.75
+5067ece3-b204-495e-81c1-90a523252547,DETES 1 power station,TR,Türkiye,41.498,31.868,lignite,cancelled,Asia,11.86,160.0,23.37
+c657c5c3-38a2-472d-8962-9e7cefcd2c1e,Diler (Akbayir) Elbistan power station,TR,Türkiye,38.17,37.37,coal,cancelled,Asia,1265.85,400.0,
+59f96677-d42b-4ae1-a3e9-32f3dc396a83,Dinar power station,TR,Türkiye,38.064,30.167,lignite,cancelled,Asia,866.38,500.0,
+161660e7-3ccf-4704-b452-b126599700a0,DOSAB cogeneration plant,TR,Türkiye,40.243172,28.96442,lignite,cancelled,Asia,85.26,50.0,11.2
+aa336cdc-f6fe-4b08-b46d-69e852c501bf,Ece power station,TR,Türkiye,36.780693,35.735779,coal,cancelled,Asia,39.36,600.0,
+3f1ad930-cffb-4991-badd-773db74b890c,EMBA Hunutlu power station,TR,Türkiye,36.81609,35.85481,coal,operating,Asia,56.16,1320.0,74.83
+28baef4d-44e3-4b2e-bbe3-75f736371553,Enyat Samsun power station,TR,Türkiye,40.97,35.67,lignite,cancelled,Asia,620.62,150.0,0.39
+142cad75-648a-495d-8c10-792351e72126,Eren-1 power station,TR,Türkiye,41.632,27.03,lignite,cancelled,Asia,127.73,490.0,
+f92bc907-9b9b-4d21-92fd-1705bd71128c,Ergene power station,TR,Türkiye,41.2408,27.6967,coal,cancelled,Asia,100.93,170.0,5.15
+b90e80f9-66f3-4290-8aa2-518b8422aba0,Eti Maden Bandirma power station,TR,Türkiye,40.328921,27.990415,lignite,operating,Asia,53.7,46.7,50.83
+17568f0f-91fd-4efe-b4df-2c7cc5d80b7d,Evrese power station,TR,Türkiye,40.416667,26.666667,lignite,cancelled,Asia,32.15,135.0,11.23
+cb08e7b6-0af3-45d9-95c3-3832e7e2677c,Filyos power station,TR,Türkiye,41.57543,32.05965,coal,cancelled,Asia,1.83,1600.0,243.22
+829f61ff-0ad1-4288-8dd9-e41abbd0b6a7,Gebze Çolakoğlu power station,TR,Türkiye,40.77758,29.538564,coal,operating,Asia,10.15,190.0,19.82
+e780e4ac-0506-4186-9b58-0f378f878345,Gerze power station,TR,Türkiye,41.86621,35.12424,lignite,cancelled,Asia,39.86,1200.0,
+c9c85786-eb26-4e7b-b280-83a54b7e834f,Gölovası power station,TR,Türkiye,36.85356,35.89809,coal,cancelled,Asia,19.13,660.0,171.87
+0ca0b969-c519-48f3-97ab-7173d3aa6085,Gönen power station,TR,Türkiye,40.1,27.65,lignite,cancelled,Asia,42.81,300.0,29.27
+53481b7f-5b85-4bab-be04-4866c2e72c12,Güney Akdeniz power station,TR,Türkiye,36.416667,35.883333,coal,cancelled,Asia,0.0,1320.0,
+d110df11-ad8e-44dc-8a32-af692ca46c6f,Güneybatı Anadolu power station,TR,Türkiye,37.31,27.78,coal,cancelled,Asia,59.15,660.0,8.39
+d5151598-5a1a-4697-8147-592845ffef6c,Güreci power station,TR,Türkiye,40.343889,26.683611,coal,cancelled,Asia,7.51,1320.0,
+5a19f424-1a15-44e6-bf1b-c2c5886ac1bf,Gürmin Enerji Amasya power station,TR,Türkiye,40.889,35.597,lignite,cancelled,Asia,653.16,300.0,
+80179871-04fa-4806-9385-caf739b8a171,Habaş power station,TR,Türkiye,38.77273,26.94599,coal,cancelled,Asia,38.17,600.0,87.42
+adeb10a5-aaae-4e2c-b426-3db1c3d9bd5b,Hakan Enerji power station,TR,Türkiye,36.84343,35.886929,coal,cancelled,Asia,3.54,100.0,171.87
+82aac38c-3037-466c-9b37-bff9da707645,Hakan Kömür power station,TR,Türkiye,37.0333,35.8167,coal,cancelled,Asia,26.35,100.0,19.4
+e10aae79-05b7-4ad9-9d69-60ce190b4444,Hande power station,TR,Türkiye,36.780693,35.735779,coal,cancelled,Asia,39.36,600.0,
+e0e73325-5b32-4fef-b925-f0bb91114450,Helvacı power station,TR,Türkiye,40.08,27.168,coal,cancelled,Asia,66.1,270.0,
+0947a4c8-4fc1-492f-9c66-2c9a993c7fb0,HEMA Amasra power station,TR,Türkiye,41.723,32.349,coal,cancelled,Asia,75.26,1320.0,11.35
+cc635340-954c-4428-9fa1-14383c7faceb,İÇDAŞ Bekirli power station,TR,Türkiye,40.39953,27.04973,lignite,operating,Asia,31.68,1200.0,84.85
+746fc66e-d31f-4c5d-bf5c-ab5031b04b15,İÇDAŞ Biga power station,TR,Türkiye,40.4438,27.13067,lignite,operating,Asia,32.41,405.0,11.38
+47c1271c-e2b2-42f5-99ee-f616bbef5b7e,Ilgın power station,TR,Türkiye,38.26,31.91,lignite,shelved,Asia,1034.84,500.0,
+3819acc8-761d-49ba-89e7-967d3d37ec0e,Irmak power station,TR,Türkiye,39.79,26.3325,coal,cancelled,Asia,48.78,1320.0,1.58
+6ddc2960-3d72-4d5f-b358-56d1c54f47e0,İsken Sugözü power station,TR,Türkiye,36.83502,35.879104,coal,operating,Asia,9.3,1210.0,171.87
+1624a526-07d8-44a4-8ed7-3b035b748f03,İskenderun power station,TR,Türkiye,36.587,36.173,coal,cancelled,Asia,8.92,2000.0,
+d19ed873-b20a-43fd-b7e8-62e985c88820,İzdemir Enerji power station,TR,Türkiye,38.74173,26.92917,coal,operating,Asia,17.82,720.0,11.75
+56b8e2a3-1885-431f-9fd1-4cd3bebfad61,Iztek Ceyhan Komur power station,TR,Türkiye,37.0333,35.8167,coal,cancelled,Asia,26.35,600.0,19.4
+55cfe45b-6357-40f9-8623-e9916f91f839,Kahramanmaraş Anadolu power station,TR,Türkiye,38.350818,37.00706,lignite,cancelled,Asia,1202.55,1200.0,250.0
+ca423571-d2ab-44d4-b5ce-3e649d9cc776,Kandilli power station,TR,Türkiye,41.33935,31.51114,coal,cancelled,Asia,190.93,150.0,7.23
+bfadbe66-971d-4f64-b222-604a7ee6ac6b,Kangal Etyemez power station,TR,Türkiye,39.07743,37.29562,lignite,cancelled,Asia,1478.39,135.0,30.05
+0248611c-b745-404f-ad50-c2870882c7a1,Kangal power station,TR,Türkiye,39.077483,37.294973,lignite,operating,Asia,1474.38,457.0,30.05
+0fec985c-c66e-40af-a123-a9ba4db269bb,Karaburun power station,TR,Türkiye,40.446,27.287,coal,cancelled,Asia,144.67,1320.0,
+a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c,Karapinar Konya Şeker power station,TR,Türkiye,37.716,33.554,coal,cancelled,Asia,990.54,2000.0,5.09
+8dd46a05-6e0c-4009-90ad-bd5909c25622,Kardemir Karabük Demir Çelik power station,TR,Türkiye,41.514274,31.909608,coal,operating,Asia,4.28,77.5,19.41
+8e7f6abf-e420-4f40-b9da-9ea76ccedfb1,Kemerköy power station,TR,Türkiye,37.035362,27.900592,lignite,operating,Asia,14.3,630.0,42.17
+d21335d4-0a3d-4464-85e0-352745a38db4,Kilikya power station,TR,Türkiye,36.82786,35.87151,coal,cancelled,Asia,32.05,660.0,171.87
+cf918ba6-6226-479f-b04c-b3c67885c0ba,Kipas MMP power station,TR,Türkiye,37.767197,27.445695,lignite,operating,Asia,10.83,55.0,
+d020ac37-4f23-41b1-8f1e-b425b5769424,Kirazlıdere power complex,TR,Türkiye,40.38227,26.99455,coal,cancelled,Asia,40.46,1600.0,
+76cd9b7f-7613-4fd4-95ab-bf534a2e2f5e,Kireçlik power station,TR,Türkiye,41.368944,31.587836,coal,cancelled,Asia,8.31,1200.0,
+7defe42d-669b-489f-aff5-d1b83436607d,Kınık power station,TR,Türkiye,39.084,27.45,lignite,cancelled,Asia,121.34,700.0,
+5b6be56c-d981-470c-a979-13a8764a34b8,Kıvanç power station,TR,Türkiye,36.34,33.4,coal,cancelled,Asia,964.15,825.0,1.71
+ad0c8590-c672-43f2-a813-1217a10f7d2d,Konya Karapınar power station,TR,Türkiye,37.614187,33.591193,lignite,cancelled,Asia,1004.23,1000.0,
+2a3aad60-2bff-4206-8275-f6e2029f9278,Kütahya Domaniç power station,TR,Türkiye,39.8,29.61,lignite,cancelled,Asia,872.3,300.0,6.68
+bac4a081-83dc-4aba-8076-b67bfc55f54c,Lüminer Enerji power station,TR,Türkiye,40.892,26.901,lignite,cancelled,Asia,279.28,160.0,0.02
+c8e1cc12-080a-4e01-925d-8fd6e4334856,Meda power station,TR,Türkiye,40.972709,27.876831,coal,cancelled,Asia,31.24,770.0,
+1820429d-bd95-4e56-a6db-d9bb57e2ae07,Mersin Gülnar power station,TR,Türkiye,36.33,33.4,coal,cancelled,Asia,1010.89,373.0,1.71
+42d5b3fd-7d07-409b-9154-4441695b7901,Mert power station,TR,Türkiye,36.953333,36.203333,coal,cancelled,Asia,178.75,1200.0,
+166f5fcc-1cc4-4cf5-9e52-59e7ce1557c6,METES power station,TR,Türkiye,36.24,33.75,coal,cancelled,Asia,112.38,2000.0,
+b588126a-42d6-49dc-b227-9283af5a2578,Misis Adana power station,TR,Türkiye,36.843,35.86,coal,cancelled,Asia,64.04,815.0,
+0049a899-af5f-41cd-86ae-2ba729b6365f,Muğla power station,TR,Türkiye,37.15,27.805,coal,cancelled,Asia,204.66,300.0,
+5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,Namal power station,TR,Türkiye,40.343889,26.683611,coal,cancelled,Asia,7.51,1000.0,
+21ccc44f-3244-4e7f-9654-eae424288200,Naren Karabiga power station,TR,Türkiye,40.458066,27.254994,coal,cancelled,Asia,9.12,1960.0,
+80b922cb-9e78-49aa-9d28-1dc84b1affef,Orhaneli power station,TR,Türkiye,39.950224,28.870214,lignite,operating,Asia,354.32,210.0,69.64
+f2e65fcf-afc4-4443-ac14-f15c8ffe48f3,Orta Anadolu power station,TR,Türkiye,40.623886,33.112751,lignite,cancelled,Asia,1255.57,135.0,
+86996d34-c6e5-4097-ac28-ad2e5467f783,Petkim power station,TR,Türkiye,38.795,26.970278,coal,cancelled,Asia,32.52,205.0,23.3
+231565d3-4f56-43ee-a357-1f4451c6fbc3,Polat power station,TR,Türkiye,39.616008,29.442904,lignite,operating,Asia,833.48,351.0,11.03
+2ed9363f-a9fe-46e5-8b92-c50b47a9077a,Saltukova power station,TR,Türkiye,41.519,32.094,coal,cancelled,Asia,12.54,350.0,
+c13aeeb7-05e5-4f00-9b4b-654e73e5150d,Sanko Gölbaşı power station,TR,Türkiye,37.819719,37.718512,coal,cancelled,Asia,1074.64,150.0,
+3e5f4317-6f40-44fb-bfa2-e21dc4d9922d,Sanko Yumurtalık power station,TR,Türkiye,36.876,35.894,coal,cancelled,Asia,43.7,1600.0,800.17
+db87ce6a-3802-44c5-945f-8a95d3cf111b,Saray Tekirdağ power station,TR,Türkiye,41.445,27.921,lignite,cancelled,Asia,164.53,300.0,13.14
+d1863136-5ff4-4b4d-a9c0-6219e92d637d,Sarp Golvasi power station,TR,Türkiye,37.368333,35.706111,coal,cancelled,Asia,112.21,1200.0,
+b5ff798e-e059-4d8b-a903-00a1fefc62ab,Sedef II TES power station,TR,Türkiye,36.843,35.86,coal,cancelled,Asia,64.04,600.0,171.87
+3a06636d-c742-4b72-b9cd-21a4537c331b,Selena power station,TR,Türkiye,36.921472,36.04753,coal,cancelled,Asia,2.58,900.0,35.18
+0ca4ff78-4113-4ad9-ac04-0fd541d42338,Şevketiye Lapseki power station,TR,Türkiye,40.395,26.792,coal,cancelled,Asia,26.08,1320.0,
+94a5c55f-c499-41b1-81da-deaa36686399,Seyitömer power station,TR,Türkiye,39.572967,29.88164,lignite,operating,Asia,1132.99,600.0,67.42
+e05ff795-8984-4170-9874-5355b70985b1,Silopi (Şırnak) power station,TR,Türkiye,37.352619,42.552728,lignite,cancelled,Asia,1100.43,135.0,
+e03c394f-1c08-4101-b1fe-f6662fe4b424,Sinop Akfen power station,TR,Türkiye,41.953,34.83,coal,cancelled,Asia,158.99,1600.0,
+cf9150af-0325-44d8-bbaf-493e742f2e2b,Şırnak Galata power station,TR,Türkiye,37.468,42.391,lignite,cancelled,Asia,810.97,270.0,
+98019711-a8c3-424a-870e-00d4fea75ed1,Şırnak Silopi (CİNER) power station,TR,Türkiye,37.310025,42.594696,lignite,operating,Asia,837.41,405.0,44.28
+9a6447f2-2887-4cce-a115-dc773d7f6eb1,Soma Kolin power station,TR,Türkiye,39.316608,27.748899,lignite,operating,Asia,583.31,510.0,82.32
+4ca3c560-6d90-4bcf-b131-4e39b6b4f0de,Soma power station,TR,Türkiye,39.194462,27.635204,lignite,operating,Asia,144.11,990.0,126.98
+021d1717-149a-4a32-af7b-5955ff593e45,Star Refinery Socar power station,TR,Türkiye,38.817,26.9103,coal,cancelled,Asia,26.04,672.0,35.94
+96129c93-83a6-4b1c-929b-bfccba86a796,Suluova power station,TR,Türkiye,40.859186,35.651886,lignite,cancelled,Asia,647.01,270.0,19.06
+0ada7b2a-f928-4c21-b082-4c7345094245,Tekirdağ Malkara power station,TR,Türkiye,40.638726,27.004295,coal,shelved,Asia,371.8,1000.0,
+43f99d45-6635-4392-a522-4a06445fdaf2,Teyo Tufanbeyli power station,TR,Türkiye,38.2299,36.2481,lignite,cancelled,Asia,1374.49,700.0,0.21
+44362378-9c74-44af-8a08-be4877f50e97,Tosyalı İskenderun power station,TR,Türkiye,36.6971,36.2042,coal,cancelled,Asia,7.88,1200.0,41.26
+9eb693f6-6994-4937-bc4d-e8213baa5d47,Trakya Emba power station,TR,Türkiye,41.948092,28.04148,coal,cancelled,Asia,25.32,1200.0,
+6c9571c4-5d3b-4f88-a7be-fa8c21425eeb,Tufanbeyli power station,TR,Türkiye,38.18562,36.26994,lignite,operating,Asia,1451.63,450.0,
+2ec95392-978d-4a43-85b9-af3282c212ba,Tunçbilek power station,TR,Türkiye,39.619778,29.465881,lignite,operating,Asia,828.38,665.0,
+ddc8bb9c-bf77-4075-b38c-600fb072acf8,Uluköy power station,TR,Türkiye,38.199984,30.27055,lignite,cancelled,Asia,1210.94,640.0,
+d3f986d9-a023-4d43-a0fb-03361f310873,Umut power station,TR,Türkiye,41.133,37.156,coal,cancelled,Asia,20.32,660.0,
+381221dd-76da-4adf-9b19-5da9f0779c22,Vize power station,TR,Türkiye,41.572996,27.811652,coal,cancelled,Asia,303.34,660.0,
+fd4f7f8c-0d23-450d-9ea0-1b8e52e9a8af,Yatağan power station,TR,Türkiye,37.330905,28.102377,lignite,operating,Asia,343.58,630.0,
+52028d4f-7796-4463-832e-cff2e439c96a,Yenidere power station,TR,Türkiye,37.458403,28.674831,lignite,shelved,Asia,885.54,200.0,
+737b6d06-1d0c-4ae6-9683-ab3fea192b32,Yeniköy power station,TR,Türkiye,37.14019,27.87154,lignite,operating,Asia,281.89,420.0,
+e8b6e342-2011-4343-b415-a8bf08501499,Yeniyurt power station,TR,Türkiye,36.886,36.151,coal,cancelled,Asia,32.93,300.0,
+d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,Yeşilovacık power station,TR,Türkiye,36.200611,33.663742,coal,cancelled,Asia,11.89,1254.0,
+225656d9-8709-4c2f-9992-1e4f20a6fce8,Yıldırım Elazığ power station,TR,Türkiye,38.662,39.772,coal,cancelled,Asia,868.93,200.0,
+57c0c830-725f-46ee-9322-0a4a3ad9efda,Yüksek Gölovası power station,TR,Türkiye,37.368333,35.706111,coal,cancelled,Asia,112.21,1200.0,
+91f28dbb-16bd-449b-a20a-dc2b70cf2e66,Yumurtalık IC İçtaş power station,TR,Türkiye,36.77,35.79,coal,cancelled,Asia,25.37,1200.0,
+48149515-0774-404d-b273-790b660a8d90,Yunus Emre power station,TR,Türkiye,39.984309,31.635639,lignite,operating,Asia,507.45,290.0,
+772e2484-419b-47de-9739-924ac371ad10,Zafer power station,TR,Türkiye,41.604444,32.511111,coal,cancelled,Asia,417.03,1320.0,
+1f305180-6bbf-4758-9a98-78bc9e96e195,ZETES power stations,TR,Türkiye,41.507471,31.894912,coal,operating,Asia,21.89,3450.0,
+fa6b7ac3-c1bf-478f-8d0a-1f357ea480cf,Zonguldak Modern power station,TR,Türkiye,41.498,31.868,coal,cancelled,Asia,11.86,320.0,
+7cc9cffa-e4e4-4546-902d-c8f4800dbdb2,Zorlu Akçakoca power station,TR,Türkiye,41.087,31.12,coal,cancelled,Asia,47.17,1220.0,
+61b7e396-5c25-4591-9da1-eb54475f1805,Zorlu Soma power station,TR,Türkiye,39.186,27.608,coal,cancelled,Asia,153.42,1220.0,
+c47eb6a3-49c1-4879-95b6-9bcd53b7af04,Burshtyn power station,UA,Ukraine,49.210383,24.666536,coal,mothballed,Europe,251.17,3166.0,
+95872473-c476-4ceb-bcf5-54cfdf415e42,Cherkasy power station,UA,Ukraine,49.390543,32.067372,coal,operating,Europe,95.0,180.0,
+e4c6a713-99e6-4fdf-afaa-d456779c504c,Chernihiv power station,UA,Ukraine,51.45496,31.260173,coal,retired,Europe,124.29,220.0,
+038d42e9-769b-4b22-9513-dccff48b42cd,Darnytska power station,UA,Ukraine,50.447771,30.642949,coal,operating,Europe,106.51,160.0,
+5ed0a674-a292-44bc-997f-5c1990da1235,Dobrotvir power station,UA,Ukraine,50.214293,24.374654,coal,mothballed,Europe,209.28,1110.0,
+fb7d4d9a-3f27-4b50-9941-6a8fccd25e9a,Kalush power station,UA,Ukraine,49.07049,24.318522,coal,mothballed,Europe,302.13,200.0,
+d3b9e403-7744-44c5-b5c3-999c4c1911d8,Kramatorskaya power station,UA,Ukraine,48.747705,37.572339,coal,mothballed,Europe,65.71,120.0,
+83fede8b-5f92-429d-920d-9a8928a74780,Kryvorizka power station,UA,Ukraine,47.543204,33.659513,coal,mothballed,Europe,93.43,2925.0,
+46b96bc3-b190-4045-9c86-eb674e2ea35e,Kurakhov power station,UA,Ukraine,47.994514,37.237077,coal,retired,Europe,121.71,1532.0,
+cec871bd-c7f6-4444-b0da-9b3a9ecc6963,Ladyzhyn power station,UA,Ukraine,48.705825,29.218668,coal,mothballed,Europe,182.36,1800.0,
+4e45df00-0d28-44d0-9697-3fa33d76fc88,Luganskaya power station,UA,Ukraine,48.749346,39.261917,coal,mothballed,Europe,52.31,1420.0,
+3bd2a957-ff3b-4bfd-9dba-808279edccb9,Myronivskyi power station,UA,Ukraine,48.479778,38.284834,coal,mothballed,Europe,154.22,275.0,
+02253fcc-4fc6-42d4-a6a8-42365487302f,Prydniprovska power station,UA,Ukraine,48.405291,35.111749,coal,mothballed,Europe,66.79,2455.0,
+70781f2c-24c2-486c-8b32-310c36ba1238,Slavyansk power station,UA,Ukraine,48.870681,37.765621,coal,mothballed,Europe,65.26,1540.0,
+447a9ea1-47fa-48a3-93f2-a77cbd629ac7,Starobesheve power station,UA,Ukraine,47.800786,38.005422,coal,operating,Europe,101.03,2010.0,
+cdb6adfb-52ff-4631-939a-001080b20450,Trypilska power station,UA,Ukraine,50.133377,30.74667,coal,mothballed,Europe,97.57,1225.0,
+3657989a-61ae-4fe3-9e8b-6ba7e68f8c59,Vuglegirska power station,UA,Ukraine,48.464745,38.20266,coal,mothballed,Europe,172.91,1200.0,
+725406d6-860f-4ca0-9c6a-425675bac381,Zaporizhia power station,UA,Ukraine,47.507238,34.625478,coal,mothballed,Europe,26.17,1250.0,
+29b3a802-7ef1-4722-ad59-b1511b1b0075,Zmiivska power station,UA,Ukraine,49.586013,36.523875,coal,mothballed,Europe,102.02,2270.0,
+f2c061de-66ad-4fce-b911-7f1899f25b75,Zuevskaya power station,UA,Ukraine,48.034804,38.285213,coal,operating,Europe,191.25,1290.0,
+d9f32912-81f1-4b1c-a2b1-f04298217cec,Istok power station,XK,Kosovo,42.783333,20.483333,lignite,cancelled,Europe,464.85,330.0,
+28be296b-6ef5-4c7e-a604-3af01af45d17,Kosovo A power station,XK,Kosovo,42.676454,21.085922,lignite,operating,Europe,542.17,800.0,
+76eba99c-dade-46dc-9130-478e43aa6202,Kosovo B power station,XK,Kosovo,42.69312,21.056002,lignite,operating,Europe,531.52,715.0,
+d28fa85d-4f6c-4b26-a585-cb0bed226ecb,Kosovo C power station,XK,Kosovo,42.666667,21.166667,lignite,cancelled,Europe,604.05,500.0,

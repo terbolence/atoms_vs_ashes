@@ -46,7 +46,7 @@ def top_n_per_country(
         select(
             CountrySiteRanking.country_code,
             CountrySiteRanking.site_id,
-            Site.site_name,
+            Site.name.label("site_name"),
             CountrySiteRanking.national_rank,
             CountrySiteRanking.regional_rank,
             CountrySiteRanking.composite_score,
@@ -147,7 +147,7 @@ def site_sensitivity_profile(
         "stability_profiles": [
             {
                 "weight_profile": s.weight_profile,
-                "n_pairs": s.n_pairs,
+                "n_pairs": s.scored_pairs,
                 "top5_overlap_jaccard": float(s.top5_overlap_jaccard or 0),
                 "top10_overlap_jaccard": float(s.top10_overlap_jaccard or 0),
                 "mean_abs_score_delta": (

@@ -1,0 +1,42 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+52db4dae-b014-45a4-96c4-49f80c1fdd11,Opalenie power station,PL,A,1.0,1.0,1.0,15,15
+2981a12d-3444-4301-96ba-a63ef50bec3e,Polaniec power station,PL,B,0.3333,0.9333,0.9333,15,14
+dadadad9-b67e-44b8-a9ab-4cbf116da20b,Puchaczow power station,PL,D,0.0,0.0,1.0,15,15
+558e7bff-5b5d-4666-9ca3-ec02f2269aab,Dolna Odra power station,PL,D,0.0,0.0,0.9333,15,15
+a55e3643-8ed4-434b-b14f-2d549d09c0d9,Zarnowiec power station,PL,D,0.0,0.0,0.8667,15,15
+a67255dd-8134-418e-9377-e28516c53722,Siekierki power station,PL,H,0.0,0.1333,0.1333,15,14
+f5be4e73-938d-4fe2-b585-5090ec780670,Skawina power station,PL,H,0.0,0.1333,0.1333,15,14
+1d19dce6-c458-4656-901d-6a8d3c548761,Opole power station,PL,H,0.0,0.0,0.2,15,14
+202d797d-b0f9-4cd0-bbac-d7bb06805c09,ZW Nowa power station,PL,H,0.0,0.0,0.1333,15,14
+b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c,Pólnoc power station,PL,H,0.0,0.0,0.1333,15,14
+c39819ef-6798-4c01-9a82-9eead65b5f56,Konin power station,PL,H,0.0,0.0,0.1333,15,14
+ee332928-87b2-4e7b-9203-20e402bc551f,Pulawy ZAP Works power station,PL,H,0.0,0.0,0.1333,15,14
+917008f5-fba1-4ef7-b82d-9aded2b69267,Gubin Power Project,PL,H,0.0,0.0,0.0667,15,14
+ab57f5c3-8699-46f9-970f-3007dfc58af4,Patnow power station,PL,H,0.0,0.0,0.0667,15,14
+06641fea-8997-4b69-a618-6afa34b82591,Bialystok power station,PL,H,0.0,0.0,0.0,15,14
+0b187a1d-55de-47cf-96a3-06abc8ff2476,Leczna Power Station (Bogdanka SA),PL,H,0.0,0.0,0.0,15,14
+187b4fd7-6a61-4e94-8ed4-495ac6dfc317,Legnica Power Station,PL,H,0.0,0.0,0.0,15,14
+239ea0eb-a9c4-43cc-ac5f-35271bdc6613,Kedzierzyn CCS Project,PL,H,0.0,0.0,0.0,15,14
+29479c3f-8db8-4f62-90e8-59ad6739f90b,Halemba power station,PL,H,0.0,0.0,0.0,15,14
+4411a22e-4e8a-4715-b000-1aae34494b68,Kozienice power station,PL,H,0.0,0.0,0.0,15,14
+47be3ec4-7abe-4f4c-ac3d-b7f753b8514a,Siersza power station,PL,H,0.0,0.0,0.0,15,14
+5a57ae0a-6f91-46f4-a1f5-56a6b37596e9,Murcki-Staszic power station,PL,H,0.0,0.0,0.0,15,14
+66bdc30c-4179-480b-a55a-5d15be5ac66b,Stalowa Wola power station,PL,H,0.0,0.0,0.0,15,14
+7fc17ab0-ce24-4830-a938-b8424d1e9368,Swiecie Pulp Mill power station,PL,H,0.0,0.0,0.0,15,14
+8a9d5c87-7edc-49c3-85a2-d97727b9c9b2,Piast Ruch Power Station,PL,H,0.0,0.0,0.0,15,14
+8e485f8a-5c68-4541-ab1d-77783f6fcb2d,Belchatow power station,PL,H,0.0,0.0,0.0,15,14
+a19228ce-f25a-4ffd-a249-9d01403e6b81,Pulawy power station (Vattenfall),PL,H,0.0,0.0,0.0,15,14
+a6b51b4f-ba1d-49cd-bc99-8898acdbeb78,Czeczott power station,PL,H,0.0,0.0,0.0,15,14
+a7eeee6e-e14a-40ba-80b6-75ed2e170b20,Siechnice power station,PL,H,0.0,0.0,0.0,15,14
+b24c9876-5a4d-4b83-b442-af2f4b0d1047,Zofiowka Mine power station,PL,H,0.0,0.0,0.0,15,14
+b8a00967-90a3-4a4e-9979-6b8651d87380,Rybnik power station,PL,H,0.0,0.0,0.0,15,14
+b8bc6544-1571-4906-95e0-314d62c78a24,Ostrołęka power station,PL,H,0.0,0.0,0.0,15,14
+c4d7f628-c108-4496-ac02-6076ea3ae448,Jaworzno power station,PL,H,0.0,0.0,0.0,15,14
+ccc15bde-1c5a-40bf-8f09-2fcb1e896ce5,Blachownia power station,PL,H,0.0,0.0,0.0,15,14
+cd84938d-eea8-47a1-8ea6-2e9f943e5914,Turów power station,PL,H,0.0,0.0,0.0,15,14
+cdc888ad-fd51-4710-a5ab-3cd0fe9ddb48,Pulawy power station (Grupa Azoty),PL,H,0.0,0.0,0.0,15,14
+d60b377c-9bb4-4fd5-adb7-a9a9ba98ae76,Lublin Power Station,PL,H,0.0,0.0,0.0,15,14
+de6735bd-7a79-43c8-baad-1fe23d50d6f0,Laziska power station,PL,H,0.0,0.0,0.0,15,14
+e4e3b5f0-7038-47a5-84e3-04eb07b3c4d7,Adamow power station,PL,H,0.0,0.0,0.0,15,14
+ebc0f461-acfa-47da-8094-5b15ea3e25a0,Leczna Power Station (Enea),PL,H,0.0,0.0,0.0,15,14
+f8f9f43d-6a3b-445d-818e-ca82a90ace65,Szczecin power station,PL,H,0.0,0.0,0.0,15,14

@@ -1,21 +1,14 @@
 # man_hours: 8.0
 """Scoring orchestrator — Phase 1.3 of the siting report plan.
 
-For every site × SMR × criterion:
-
-1. Build a merged context via :mod:`merge_resolver`.
-2. Evaluate exclusionary + avoidance ``fail_conditions`` and persist
-   ``screening_verdicts`` rows.
-3. If the criterion is in the ranking phase, evaluate its bands /
-   sub-scores (:mod:`bands`) and write a ``ranking_scores`` row.
-4. After every SMR pass, compute the composite (:mod:`composite`) and
-   write a ``composite_rankings`` row with the supplied
-   ``weight_profile``.
-
-The engine is idempotent thanks to ORM ``merge()`` on the existing
-unique constraints (``uq_verdict_…``, ``uq_ranking_…``,
-``uq_composite_…``). Re-running with the same rubric + data + run_id
-reproduces all scores exactly (Phase 1.7 acceptance criterion).
+For every site × SMR × criterion: build a merged context, evaluate
+exclusionary + avoidance ``fail_conditions`` (persisting verdicts), and
+if the criterion is ranking, evaluate bands / sub-scores and write a
+``ranking_scores`` row. After every SMR pass the composite is computed
+and a ``composite_rankings`` row is written with the supplied
+``weight_profile``. The engine is idempotent thanks to ``merge()`` on
+the unique constraints — re-running with the same rubric + data +
+run_id reproduces every score exactly (Phase 1.7 acceptance).
 """
 from __future__ import annotations
 
@@ -39,6 +32,9 @@ from atoms_vs_ashes.scoring._codes import check_rubric_coverage
 from atoms_vs_ashes.scoring._ranking_row import make_ranking_row
 from atoms_vs_ashes.scoring.avoidance import evaluate_avoidance_for_site
 from atoms_vs_ashes.scoring.bands import BandResult, evaluate_criterion_value
+from atoms_vs_ashes.scoring._composite_components import (
+    persist_composite_components,
+)
 from atoms_vs_ashes.scoring.composite import (
     build_composite_row,
     compute_composite_for_site_smr,
@@ -213,6 +209,7 @@ class ScoringEngine:
                         rows_by_pair[pair].append(row)
                         summary.ranking_rows += 1
 
+        composite_results = []
         for pair, rows in rows_by_pair.items():
             composite = compute_composite_for_site_smr(
                 site_id=pair[0], smr_key=pair[1], ranking_rows=rows,
@@ -222,10 +219,14 @@ class ScoringEngine:
             self.session.merge(build_composite_row(
                 composite, run_id=run_id, weight_profile=self.weight_profile,
             ))
+            composite_results.append(composite)
             summary.composite_rows += 1
             if not composite.passed_exclusionary:
                 summary.excluded_pairs += 1
-
+        persist_composite_components(
+            self.session, composite_results,
+            run_id=run_id, weight_profile=self.weight_profile,
+        )
         self._write_audit(summary)
         complete_run(self.session, run_handle, status="completed")
         log.info(
@@ -236,16 +237,16 @@ class ScoringEngine:
         return summary
 
     def _open_run(self, run_id: str, sites, smrs):
-        return start_run(
-            self.session, run_kind="scoring", run_id=run_id,
-            dataset_meta=DatasetMeta(
-                rubric_file_path=self.rubric_dir,
-                n_sites_total=len(sites), n_smrs=len(smrs),
-                n_criteria_ranking=sum(
-                    1 for c in self.bundle.values() if c.is_ranking
-                ),
-                weight_normalisation_profile=self.weight_profile,
+        meta = DatasetMeta(
+            rubric_file_path=self.rubric_dir,
+            n_sites_total=len(sites), n_smrs=len(smrs),
+            n_criteria_ranking=sum(
+                1 for c in self.bundle.values() if c.is_ranking
             ),
+            weight_normalisation_profile=self.weight_profile,
+        )
+        return start_run(
+            self.session, run_kind="scoring", run_id=run_id, dataset_meta=meta,
         )
 
     def _check_code_coverage(self, summary: ScoringSummary) -> None:
@@ -292,9 +293,7 @@ def run_scoring(
 ) -> ScoringSummary:
     """Top-level helper wrapping :class:`ScoringEngine`."""
     engine = ScoringEngine(
-        session,
-        settings=settings,
-        rubric_dir=rubric_dir,
-        weight_profile=weight_profile,
+        session, settings=settings,
+        rubric_dir=rubric_dir, weight_profile=weight_profile,
     )
     return engine.run(run_id=run_id)

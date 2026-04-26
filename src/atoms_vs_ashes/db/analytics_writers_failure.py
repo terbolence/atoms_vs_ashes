@@ -168,15 +168,17 @@ def persist_failure_aggregates(
 ) -> int:
     if session is None or run_id is None:
         return 0
+    from atoms_vs_ashes.db.analytics_writers import ALL_SMR_SENTINEL
+    scope_value = scope_smr_key if scope_smr_key is not None else ALL_SMR_SENTINEL
     _wipe(
         session, FailureAggregate,
-        run_id=run_id, scope_smr_key=scope_smr_key,
+        run_id=run_id, scope_smr_key=scope_value,
     )
     objs = [
         FailureAggregate(
             run_id=run_id,
             axis=r["axis"],
-            scope_smr_key=scope_smr_key,
+            scope_smr_key=scope_value,
             key=r["key"],
             metric=r["metric"],
             value=r.get("value"),
