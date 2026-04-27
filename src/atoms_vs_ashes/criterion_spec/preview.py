@@ -184,7 +184,7 @@ def _criterion_preview(
     exclusion_pass_mark: float | None = None
     if is_exclusionary:
         pms = [float(fc.pass_mark) for fc in exclude_fcs if fc.pass_mark is not None]
-        exclusion_pass_mark = pms[0] if pms else float(pass_mark_default)
+        exclusion_pass_mark = pms[0] if pms else None
     return CriterionPreview(
         criterion_id=template.criterion_id,
         name=template.name,

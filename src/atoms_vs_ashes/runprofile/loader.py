@@ -27,6 +27,7 @@ from sqlalchemy import distinct, select
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.criterion_spec.compiler import CompiledBundle, compile_bundle
+from atoms_vs_ashes.criterion_spec.db_loader import load_template_bundle_from_db
 from atoms_vs_ashes.criterion_spec.loader import (
     TemplateBundle,
     load_template_bundle,
@@ -186,7 +187,10 @@ def load_run_profile(
             }
         )
     spec_dir = Path(spec_dir_override or profile.spec_dir)
-    template_bundle = load_template_bundle(spec_dir)
+    if session is not None:
+        template_bundle = load_template_bundle_from_db(session, spec_dir=spec_dir)
+    else:
+        template_bundle = load_template_bundle(spec_dir)
     warnings = validate_against_specs(profile, template_bundle)
     if session is not None:
         warnings.extend(validate_against_db(profile, session))

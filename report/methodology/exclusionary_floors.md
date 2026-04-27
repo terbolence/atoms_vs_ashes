@@ -26,12 +26,10 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 | E-code | Criterion | Source YAML | Hard fail expression | pass_mark | Min metric to clear floor |
 | --- | --- | --- | --- | --- | --- |
-| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)` | 5.0 | `nearest_fault_km >= 15` |
+| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)` | 5.0 | `nearest_fault_km >= 8.0` |
 | `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` |
 | `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'` | 5.0 | `slope_angle_deg < 8` |
 | `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50 or in_pyroclastic_zone == true` | 5.0 | `nearest_volcano_km >= 300` |
-| `E5` | NH-05 — Subsidence / karst / mining / oil & gas | nh_natural_hazards.yaml | `karst_severity == 'high'` | 5.0 | `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']` |
-| `E6` | NH-05 — Subsidence / karst / mining / oil & gas | nh_natural_hazards.yaml | `mining_void_present == true` | 5.0 | `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']` |
 | `E7` | NS-08 — Ecological sensitivity (Natura 2000 / WDPA) | ns_non_safety.yaml | `site_within_strict_protected == true` | 5.0 | `n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50` |
 | `E8` | EP-01 — Emergency-plan feasibility (composite) | ep_emergency_planning.yaml | `ep01_composite_score < 30 or nearest_trauma_center_km > 60` | 5.0 | `ep01_composite_score >= 55` |
 | `E9` | NS-01 — Cooling water / ultimate heat sink | ns_non_safety.yaml | `cooling_source_type in ['none', null] and dry_cooling_viable == false` | 5.0 | `source_type: strahler_order == 3 or cooling_source_type == 'canal'` |
@@ -43,19 +41,19 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)`
-- **Hard fail descriptor**: Capable fault within 5 km (project) / 8 km (SSG-35).
+- **Hard fail expression**: `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)`
+- **Hard fail descriptor**: Capable fault within 8 km.
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `nearest_fault_km >= 15`
+- **Min metric to clear floor (band 5-6)**: `nearest_fault_km >= 8.0`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
-| **9-10** | `nearest_fault_km > 100` | Stable; no capable structures in the wide search radius. |
-| **7-8** | `nearest_fault_km >= 40` | High band; well beyond buffer on quality mapping. |
-| **5-6** | `nearest_fault_km >= 15` | Medium band; standard provisions adequate. |
-| **3-4** | `nearest_fault_km >= 5` | Low band; detailed paleoseismology and design uplift. |
-| **1-2** | `nearest_fault_km >= 5 and has_remedy == true` | Borderline near 5 km; only with documented remedy. |
-| **0** | `nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)` | Excluded: within project E1 buffer. |
+| **9-10** | `nearest_fault_km >= 5 * 8.0` | [recipe] well above the score-5 boundary |
+| **7-8** | `nearest_fault_km >= 2 * 8.0` | [recipe] high band vs boundary |
+| **5-6** | `nearest_fault_km >= 8.0` | [recipe] at/above normative boundary (score 5–6) |
+| **3-4** | `nearest_fault_km >= 0.5 * 8.0` | [recipe] below boundary but not extreme |
+| **1-2** | `nearest_fault_km >= 0.2 * 8.0` | [recipe] marginal |
+| **0** | `nearest_fault_km < 0.2 * 8.0` | [recipe] well inside hazard / insufficient margin |
 
 ### E2 — NH-03 Geotechnical - settlement and liquefaction
 
@@ -110,42 +108,6 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | **3-4** | `nearest_volcano_km >= 200` | Sub-threshold; specialist study required. |
 | **1-2** | `nearest_volcano_km >= 50` | Elevated risk; mitigation uncertain. |
 | **0** | `nearest_volcano_km < 50` | E4 triggered. |
-
-### E5 — NH-05 Subsidence / karst / mining / oil & gas
-
-- **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
-- **Phases**: exclusionary, ranking
-- **Hard fail expression**: `karst_severity == 'high'`
-- **Hard fail descriptor**: High karst severity (proxy for on-site voids until karst_depth_m enrichment lands).
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| **9-10** | `karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'` | No karst, no mining voids, subsidence risk none. |
-| **7-8** | `karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']` | No karst on site; no mining voids; low subsidence risk. |
-| **5-6** | `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']` | Mild karst at most; no mining voids; subsidence low-to-moderate. |
-| **3-4** | `(karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate'` | Moderate karst or moderate subsidence; mining absent. |
-| **1-2** | `mining_void_present == true or subsidence_risk_class == 'high'` | Mining voids present or high subsidence risk; remedy plausible. |
-| **0** | `karst_severity == 'high'` | E5 confirmed: high karst severity. |
-
-### E6 — NH-05 Subsidence / karst / mining / oil & gas
-
-- **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
-- **Phases**: exclusionary, ranking
-- **Hard fail expression**: `mining_void_present == true`
-- **Hard fail descriptor**: Mining voids present beneath / adjacent to site.
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| **9-10** | `karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'` | No karst, no mining voids, subsidence risk none. |
-| **7-8** | `karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']` | No karst on site; no mining voids; low subsidence risk. |
-| **5-6** | `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']` | Mild karst at most; no mining voids; subsidence low-to-moderate. |
-| **3-4** | `(karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate'` | Moderate karst or moderate subsidence; mining absent. |
-| **1-2** | `mining_void_present == true or subsidence_risk_class == 'high'` | Mining voids present or high subsidence risk; remedy plausible. |
-| **0** | `karst_severity == 'high'` | E5 confirmed: high karst severity. |
 
 ### E7 — NS-08 Ecological sensitivity (Natura 2000 / WDPA)
 

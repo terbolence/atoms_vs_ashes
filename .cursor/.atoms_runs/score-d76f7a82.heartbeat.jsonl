@@ -1,0 +1,12 @@
+{"ts":"2026-04-27T21:30:30Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-27T21:30:30Z","stage":"scoring","processed":1,"total":362,"eta_s":19.55,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-27T21:30:31Z","stage":"scoring","processed":38,"total":362,"eta_s":9.16,"message":"site=CZ-Chvaletice power station","unit":"sites"}
+{"ts":"2026-04-27T21:30:32Z","stage":"scoring","processed":76,"total":362,"eta_s":7.82,"message":"site=HU-Oroszl\u00e1ny power station","unit":"sites"}
+{"ts":"2026-04-27T21:30:33Z","stage":"scoring","processed":117,"total":362,"eta_s":6.47,"message":"site=PL-Legnica Power Station","unit":"sites"}
+{"ts":"2026-04-27T21:30:34Z","stage":"scoring","processed":158,"total":362,"eta_s":5.31,"message":"site=RO-Bucharest North East pow","unit":"sites"}
+{"ts":"2026-04-27T21:30:35Z","stage":"scoring","processed":200,"total":362,"eta_s":4.15,"message":"site=TR-Aksa Akrilik power stati","unit":"sites"}
+{"ts":"2026-04-27T21:30:36Z","stage":"scoring","processed":240,"total":362,"eta_s":3.12,"message":"site=TR-Ece power station","unit":"sites"}
+{"ts":"2026-04-27T21:30:37Z","stage":"scoring","processed":282,"total":362,"eta_s":2.03,"message":"site=TR-K\u0131n\u0131k power station","unit":"sites"}
+{"ts":"2026-04-27T21:30:38Z","stage":"scoring","processed":319,"total":362,"eta_s":1.1,"message":"site=TR-Trakya Emba power statio","unit":"sites"}
+{"ts":"2026-04-27T21:30:39Z","stage":"scoring","processed":361,"total":362,"eta_s":0.03,"message":"site=XK-Kosovo B power station","unit":"sites"}
+{"ts":"2026-04-27T21:30:39Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

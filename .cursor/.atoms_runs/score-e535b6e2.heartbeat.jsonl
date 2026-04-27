@@ -1,0 +1,11 @@
+{"ts":"2026-04-27T22:02:45Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-27T22:02:45Z","stage":"scoring","processed":1,"total":362,"eta_s":16.89,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-27T22:02:46Z","stage":"scoring","processed":40,"total":362,"eta_s":8.54,"message":"site=CZ-Hodonin power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:47Z","stage":"scoring","processed":80,"total":362,"eta_s":7.27,"message":"site=LV-Kurzeme power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:48Z","stage":"scoring","processed":122,"total":362,"eta_s":6.04,"message":"site=PL-Miechowice power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:49Z","stage":"scoring","processed":163,"total":362,"eta_s":4.98,"message":"site=RO-Giurgiu power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:50Z","stage":"scoring","processed":205,"total":362,"eta_s":3.89,"message":"site=TR-Ant Enerji power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:51Z","stage":"scoring","processed":246,"total":362,"eta_s":2.87,"message":"site=TR-Evrese power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:52Z","stage":"scoring","processed":287,"total":362,"eta_s":1.86,"message":"site=TR-Meda power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:53Z","stage":"scoring","processed":324,"total":362,"eta_s":0.95,"message":"site=TR-Vize power station","unit":"sites"}
+{"ts":"2026-04-27T22:02:54Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

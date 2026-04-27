@@ -1,23 +1,10 @@
 # man_hours: 4.0
-"""Deterministic compiler: ``(template + user fail_thresholds)`` → ``Criterion``.
+"""Compile spec templates plus user controls into runtime criteria.
 
-The compiler is the only place that knows how to translate a
-:class:`CriterionTemplate` into the runtime
-:class:`atoms_vs_ashes.scoring.rubric.Criterion`. Two contracts:
-
-1. **Parity**: with an empty ``fail_thresholds`` map every compiled
-   criterion is structurally identical to today's
-   :func:`load_rubric_bundle` output (same ``condition_expr`` strings on
-   bands and fail_conditions, same ``score_range`` tuples, same
-   ``weight_factor``). This is what guards the verbatim migration of the
-   five rubric YAMLs.
-2. **Targeted overrides**: when a user supplies a value in
-   ``fail_thresholds[criterion_id][code]`` *and* the matching
-   :class:`FailConditionSpec` carries a structured ``threshold`` block,
-   the compiler regenerates *only* that fail_condition's
-   ``condition_expr`` from ``"{metric} {op} {value}"``. Bands are never
-   re-derived from threshold edits in this iteration (per plan §13 out
-   of scope).
+Structured fail-threshold edits regenerate the matching fail-condition
+expression. Criteria that declare ``band_recipe`` also rebuild their
+0-10 bands from the same threshold pivot, including the recommended
+default when the user has not overridden it.
 """
 
 from __future__ import annotations
@@ -84,26 +71,7 @@ def compile_bundle(
     smr_key: str | None = None,
     smr_grid_export_mw: float | None = None,
 ) -> CompiledBundle:
-    """Compile templates + user fail_thresholds into a runtime bundle.
-
-    Args:
-        template_bundle: Output of
-            :func:`atoms_vs_ashes.criterion_spec.loader.load_template_bundle`.
-        fail_thresholds: ``{criterion_id: {code: value}}`` user override
-            map. Anything missing falls back to the template's
-            ``threshold.default_value`` (which equals
-            ``recommended.value`` in the v1 templates).
-        weight_overrides: ``{criterion_id: int}`` integer 1..10 weight
-            overrides. Applied before normalisation.
-        weight_profile: ``baseline | w_plus_20 | w_minus_20`` — same
-            semantics as today's :func:`weight_normalisation`.
-        expert_override: Allow out-of-bounds threshold values. Without
-            this flag any out-of-bounds value raises :class:`ValueError`.
-
-    Raises:
-        ValueError: unknown criterion_id, unknown code, or out-of-bounds
-            value when ``expert_override`` is False.
-    """
+    """Compile templates + user fail_thresholds into a runtime bundle."""
     fail_thresholds = fail_thresholds or {}
     weight_overrides = weight_overrides or {}
 
@@ -159,20 +127,8 @@ def _compile_criterion(
         )
         for fc in template.fail_conditions
     ]
-    if (
-        template.band_recipe is not None
-        and template.band_recipe.fail_code in crit_overrides
-    ):
-        raw = _resolve_code_override(
-            crit_overrides, template.band_recipe.fail_code, smr_key
-        )
-    else:
-        raw = None
-    if (
-        template.band_recipe is not None
-        and raw is not None
-        and isinstance(raw, (int, float))
-    ):
+    raw = _band_recipe_pivot(template, crit_overrides, smr_key)
+    if template.band_recipe is not None and isinstance(raw, (int, float)):
         bspecs = bands_from_recipe(
             template,
             template.band_recipe,
@@ -215,6 +171,23 @@ def _compile_criterion(
             )
         ),
     )
+
+
+def _band_recipe_pivot(
+    template: CriterionTemplate,
+    crit_overrides: dict[str, Any],
+    smr_key: str | None,
+) -> Any:
+    if template.band_recipe is None:
+        return None
+    code = template.band_recipe.fail_code
+    raw = _resolve_code_override(crit_overrides, code, smr_key)
+    if raw is not None:
+        return raw
+    for fc in template.fail_conditions:
+        if fc.code == code and fc.threshold is not None:
+            return fc.threshold.default_value
+    return None
 
 
 def _resolve_code_override(

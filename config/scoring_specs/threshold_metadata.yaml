@@ -34,15 +34,15 @@ NH-02:
   E1:
     metric: nearest_fault_km
     op: "<"
-    default_value: 5.0
+    default_value: 8.0
     units: km
     label: "Capable fault separation"
     kind: numeric
     recommended:
-      value: 5.0
+      value: 8.0
       rationale: >
         IAEA SSG-9 / SSG-35 require avoidance of capable faults; the project
-        adopts a 5 km buffer (8 km under SSG-35) consistent with NUREG-0800
+        adopts an 8 km buffer consistent with SSG-35 and NUREG-0800
         §2.5.3 site characterisation envelopes. Overriding this value
         regenerates only the simple separation expression; the slip-rate
         clause is a fixed best-practice envelope and is not user-tunable.

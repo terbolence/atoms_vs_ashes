@@ -1,0 +1,17 @@
+{"ts":"2026-04-27T21:33:12Z","stage":"sensitivity:mc","processed":0,"total":362,"eta_s":null,"message":"draws=5000","unit":"items"}
+{"ts":"2026-04-27T21:33:12Z","stage":"sensitivity:mc","processed":1,"total":362,"eta_s":0.08,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:13Z","stage":"sensitivity:mc","processed":132,"total":362,"eta_s":2.03,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:13Z","stage":"sensitivity:mc","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"items"}
+{"ts":"2026-04-27T21:33:13Z","stage":"sensitivity:threshold","processed":0,"total":724,"eta_s":null,"message":"global\u00b125","unit":"items"}
+{"ts":"2026-04-27T21:33:14Z","stage":"sensitivity:threshold","processed":1,"total":724,"eta_s":75.87,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:15Z","stage":"sensitivity:threshold","processed":91,"total":724,"eta_s":7.7,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:16Z","stage":"sensitivity:threshold","processed":166,"total":724,"eta_s":7.12,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:17Z","stage":"sensitivity:threshold","processed":233,"total":724,"eta_s":6.58,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:18Z","stage":"sensitivity:threshold","processed":303,"total":724,"eta_s":5.75,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:19Z","stage":"sensitivity:threshold","processed":368,"total":724,"eta_s":4.97,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:20Z","stage":"sensitivity:threshold","processed":439,"total":724,"eta_s":3.99,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:21Z","stage":"sensitivity:threshold","processed":512,"total":724,"eta_s":2.96,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:22Z","stage":"sensitivity:threshold","processed":581,"total":724,"eta_s":2.01,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:23Z","stage":"sensitivity:threshold","processed":648,"total":724,"eta_s":1.07,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:24Z","stage":"sensitivity:threshold","processed":719,"total":724,"eta_s":0.07,"message":"","unit":"items"}
+{"ts":"2026-04-27T21:33:24Z","stage":"sensitivity:threshold","processed":724,"total":724,"eta_s":0.0,"message":"completed","unit":"items"}

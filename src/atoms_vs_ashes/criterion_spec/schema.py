@@ -30,6 +30,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 BandRecipeKind = Literal[
     "higher_is_better",
     "lower_is_better",
+    "score_percent_higher_is_better",
     "capacity_margin",
     "flood_distance_or_elevation",
 ]

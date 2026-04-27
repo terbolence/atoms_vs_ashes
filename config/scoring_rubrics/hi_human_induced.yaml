@@ -9,7 +9,7 @@ criteria:
     weight_factor: 7
     normalised_weight_pct: 2.5
     primary_metric: composite
-    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_military_airfield_km], llm: hi01_aircraft_text}
+    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_military_airfield_km, site_human_induced.flight_path_distance_km], llm: hi01_aircraft_text}
     bands:
       - {score_range: [9, 10], condition_expr: "nearest_airport_km > 30 and nearest_military_airfield_km > 60", descriptor: "No airport within 30 km AND no military within 60 km."}
       - {score_range: [7, 8], condition_expr: "nearest_airport_km >= 15 and nearest_military_airfield_km >= 30 and under_flight_path == false", descriptor: "Civilian 15-30 km, military 30-60 km; no flight path overhead."}

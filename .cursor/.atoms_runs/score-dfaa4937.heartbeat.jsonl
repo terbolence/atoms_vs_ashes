@@ -1,0 +1,12 @@
+{"ts":"2026-04-27T21:32:51Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-27T21:32:51Z","stage":"scoring","processed":1,"total":362,"eta_s":16.56,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-27T21:32:52Z","stage":"scoring","processed":38,"total":362,"eta_s":8.95,"message":"site=CZ-Chvaletice power station","unit":"sites"}
+{"ts":"2026-04-27T21:32:53Z","stage":"scoring","processed":75,"total":362,"eta_s":7.9,"message":"site=HU-Mohacs power station","unit":"sites"}
+{"ts":"2026-04-27T21:32:54Z","stage":"scoring","processed":112,"total":362,"eta_s":6.88,"message":"site=PL-Krakow-Leg power station","unit":"sites"}
+{"ts":"2026-04-27T21:32:55Z","stage":"scoring","processed":152,"total":362,"eta_s":5.67,"message":"site=PL-ZW Nowa power station","unit":"sites"}
+{"ts":"2026-04-27T21:32:56Z","stage":"scoring","processed":193,"total":362,"eta_s":4.48,"message":"site=TR-Ada Yesildag Enerji powe","unit":"sites"}
+{"ts":"2026-04-27T21:32:57Z","stage":"scoring","processed":233,"total":362,"eta_s":3.4,"message":"site=TR-\u00c7oban Y\u0131ld\u0131z power stati","unit":"sites"}
+{"ts":"2026-04-27T21:32:58Z","stage":"scoring","processed":272,"total":362,"eta_s":2.36,"message":"site=TR-Kangal Etyemez power sta","unit":"sites"}
+{"ts":"2026-04-27T21:32:59Z","stage":"scoring","processed":311,"total":362,"eta_s":1.34,"message":"site=TR-\u015e\u0131rnak Silopi (C\u0130NER) po","unit":"sites"}
+{"ts":"2026-04-27T21:33:00Z","stage":"scoring","processed":353,"total":362,"eta_s":0.23,"message":"site=UA-Starobesheve power stati","unit":"sites"}
+{"ts":"2026-04-27T21:33:01Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

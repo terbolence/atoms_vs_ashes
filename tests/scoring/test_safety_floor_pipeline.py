@@ -100,6 +100,22 @@ class TestSafetyFloorTransparency:
         fails = [v for v in verdicts if v.verdict == "fail"]
         assert fails == []
 
+    def test_nh05_moderate_areal_subsidence_is_not_exclusionary(self, bundle):
+        nh05 = bundle["NH-05"]
+        ctx = {
+            "karst_severity": "moderate",
+            "mining_void_present": False,
+            "subsidence_risk_class": "moderate",
+        }
+
+        verdicts, band_result = _eval_floor_for(nh05, ctx)
+
+        assert band_result.score >= 5.0
+        assert band_result.matched_band is not None
+        assert band_result.matched_band.score_range == (5.0, 6.0)
+        fails = [v for v in verdicts if v.verdict == "fail"]
+        assert fails == []
+
 
 class TestSafetyFloorGating:
     def test_floor_fail_yields_null_composite(self, bundle):

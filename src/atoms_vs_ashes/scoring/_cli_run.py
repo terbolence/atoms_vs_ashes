@@ -83,6 +83,7 @@ def execute_score_run(
             weight_profile=weight_profile, run_id=run_id,
             cancellation=token, heartbeat=hb,
             smr_bundles=smr_bundles, weights=w,
+            threshold_overrides=dict(loaded.profile.fail_thresholds),
             scope=runscope,
         )
     return run_scoring(

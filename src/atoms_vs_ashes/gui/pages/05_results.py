@@ -101,8 +101,8 @@ def _control_row(
             value=st.session_state.get(_INCLUDE_KEY, True),
             key=_INCLUDE_KEY,
             help=(
-                "On: ledger shows pass / floor-fail / hard-fail rows. "
-                "Off: shortlist only — pairs that pass both floors."
+                "On: ledger shows pass / avoidance-flag / hard-fail rows. "
+                "Off: shortlist only — pairs that clear exclusionary and avoidance flags."
             ),
         )
     return country, include

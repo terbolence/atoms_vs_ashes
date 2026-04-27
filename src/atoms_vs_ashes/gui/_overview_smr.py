@@ -3,7 +3,8 @@
 
 Shows only the four required ``smr_designs`` fields (``smr_key``,
 ``name``, ``capacity_mwe``, ``land_requirement_ha``) for whichever SMR
-keys are in the active scope. The full catalogue editor (with optional
+keys are in the active scope. Empty SMR scope means "all designs", matching
+the scoring engine. The full catalogue editor (with optional
 fields like EPZ radius, cooling type, regulatory status) remains on
 page 01 — this widget is intentionally minimal.
 
@@ -29,24 +30,21 @@ _REQUIRED_COLS = ["smr_key", "name", "capacity_mwe", "land_requirement_ha"]
 
 def render_smr_subeditor(selected_keys: list[str]) -> pd.DataFrame | None:
     """Render the mini editor; return the edited DataFrame (or ``None``)."""
+    with session_scope() as session:
+        stmt = select(
+            SmrDesign.smr_key,
+            SmrDesign.name,
+            SmrDesign.capacity_mwe,
+            SmrDesign.land_requirement_ha,
+        ).order_by(SmrDesign.smr_key)
+        if selected_keys:
+            stmt = stmt.where(SmrDesign.smr_key.in_(selected_keys))
+        rows = session.execute(stmt).all()
+
     if not selected_keys:
         st.caption(
-            "Pick at least one SMR design above and its core specs will "
-            "be editable right here."
+            "No SMR technology filter is active, so all designs are shown."
         )
-        return None
-
-    with session_scope() as session:
-        rows = session.execute(
-            select(
-                SmrDesign.smr_key,
-                SmrDesign.name,
-                SmrDesign.capacity_mwe,
-                SmrDesign.land_requirement_ha,
-            )
-            .where(SmrDesign.smr_key.in_(selected_keys))
-            .order_by(SmrDesign.smr_key)
-        ).all()
 
     if not rows:
         st.warning(

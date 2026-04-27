@@ -1,6 +1,6 @@
 # Sensitivity run — 20260427
 
-- Run ID: `sens-2e121597`
+- Run ID: `sens-aec56513`
 - Iterations: **5000**
 - Preset: `custom`
 - Seed: `42`
@@ -22,26 +22,26 @@
 
 ## Rows persisted
 
-- Pairs processed: 194
-- Weight-sensitivity rows: 2134
-- Monte Carlo rows (`mc_5000`): 194
-- Threshold (±25 %) rows: 388
-- Country-balanced rows: 194
+- Pairs processed: 362
+- Weight-sensitivity rows: 3982
+- Monte Carlo rows (`mc_5000`): 362
+- Threshold (±25 %) rows: 724
+- Country-balanced rows: 362
 
 ## Country balance
 
-- Total sites ranked: 7
-- Top-N: 7
-- Max share: 0.2857
-- Flagged: **False**
+- Total sites ranked: 166
+- Top-N: 20
+- Max share: 0.55
+- Flagged: **True**
 
 | Country | Count |
 | --- | ---: |
-| TR | 2 |
-| RO | 2 |
-| PL | 1 |
-| RS | 1 |
-| MK | 1 |
+| TR | 11 |
+| PL | 4 |
+| RO | 3 |
+| BG | 1 |
+| AT | 1 |
 
 ## Notes
 

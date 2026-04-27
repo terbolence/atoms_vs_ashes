@@ -7,17 +7,15 @@ flows but should not crowd the home screen for typical operators:
 * ``weight_profile`` — preset ±20% weight stress tests.
 * ``expert_override`` — bypass threshold bounds (dangerous).
 * ``notes`` — free-form annotation.
-* ``scope.site_ids`` — explicit site allow-list.
 * ``scoring.unscored_fallback_score`` and the ``unscored_fraction_*``
   pair — confidence-floor knobs.
 * ``scoring.weight_overrides`` — per-criterion weight tweaks.
 * ``output.stamp`` — manual audit-dir suffix.
 
 Other ``RunProfile`` fields (``run_label``, ``db_profile``, ``spec_dir``,
-``output.audit_dir``, ``output.report_dir``, every ``sensitivity.*``
-field, and ``scope.site_status_in``) are deliberately **not** exposed
-here — they are pinned to their existing values and edited only on
-page 02 / page 07 when needed.
+``output.audit_dir``, ``output.report_dir`` and every ``sensitivity.*``)
+are deliberately **not** exposed here — they are pinned to their existing
+values and edited only on page 02 / page 07 when needed.
 """
 
 from __future__ import annotations
@@ -94,19 +92,6 @@ def render_advanced(profile: RunProfile) -> dict[str, Any]:
             ),
             height=70,
         )
-        site_ids_text = st.text_area(
-            "Site IDs allow-list (one per line, empty = all)",
-            value="\n".join(profile.scope.site_ids),
-            height=70,
-            help=(
-                "Optional explicit allow-list of ``site_id`` values that "
-                "**must** appear in the run, regardless of country / status. "
-                "Empty = no allow-list. Useful for regression tests against "
-                "a fixed sample."
-            ),
-        )
-        site_ids = [s.strip() for s in site_ids_text.splitlines() if s.strip()]
-
         cols2 = st.columns(2)
         warn = cols2[0].slider(
             "Unscored fraction WARN",
@@ -180,7 +165,6 @@ def render_advanced(profile: RunProfile) -> dict[str, Any]:
         "weight_profile": weight_profile,
         "expert_override": bool(expert_override),
         "notes": notes,
-        "site_ids": site_ids,
         "unscored_fraction_warn": float(warn),
         "unscored_fraction_hard": float(hard),
         "unscored_fallback_score": float(fallback),

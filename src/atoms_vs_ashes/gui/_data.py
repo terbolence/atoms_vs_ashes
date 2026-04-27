@@ -11,15 +11,17 @@ snappy.
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 import streamlit as st
 from sqlalchemy import distinct, select
 
+from atoms_vs_ashes.criterion_spec.db_loader import (
+    db_definition_revision,
+    load_template_bundle_from_db,
+)
 from atoms_vs_ashes.criterion_spec.loader import (
     TemplateBundle,
-    load_template_bundle,
 )
 from atoms_vs_ashes.criterion_spec.preview import PreviewBundle, build_preview
 from atoms_vs_ashes.db.engine import session_scope
@@ -81,15 +83,28 @@ def list_site_statuses() -> list[str]:
     return sorted({s for s in rows if s})
 
 
+def _definition_fingerprint(spec_dir: str) -> tuple[int, str | None]:
+    with session_scope() as session:
+        load_template_bundle_from_db(session, spec_dir=spec_dir)
+        return db_definition_revision(session)
+
+
 @st.cache_resource(show_spinner=False)
-def load_template_bundle_cached(spec_dir: str) -> TemplateBundle:
-    """Cached :func:`load_template_bundle` keyed on the spec dir path."""
-    return load_template_bundle(Path(spec_dir))
+def load_template_bundle_cached(
+    spec_dir: str,
+    fingerprint: tuple[int, str | None],
+) -> TemplateBundle:
+    """Cached DB scoring definitions keyed by definition revision."""
+    _ = fingerprint
+    with session_scope() as session:
+        return load_template_bundle_from_db(
+            session, spec_dir=spec_dir, seed_if_empty=False
+        )
 
 
 def build_live_preview(profile: RunProfile, spec_dir: str) -> PreviewBundle:
-    """Re-compile the rubric for the current profile state. No DB hit."""
-    bundle = load_template_bundle_cached(spec_dir)
+    """Re-compile the rubric from DB definitions for the current profile state."""
+    bundle = load_template_bundle_cached(spec_dir, _definition_fingerprint(spec_dir))
     return build_preview(bundle, profile, spec_dir=spec_dir)
 
 

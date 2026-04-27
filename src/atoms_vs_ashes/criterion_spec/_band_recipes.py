@@ -16,7 +16,8 @@ def bands_from_recipe(
     """Return 0–10 band ladder expression strings derived from the pivot value.
 
     * ``higher_is_better`` — e.g. distance/headroom: score 5–6 at ``>= pivot``.
-    * ``lower_is_better`` — e.g. hazard intensity: score 5–6 at ``< pivot``.
+    * ``lower_is_better`` — e.g. hazard intensity: score 5–6 at ``<= pivot``.
+    * ``score_percent_higher_is_better`` — 0-100 composite score with 5+ at pivot.
     * ``flood_distance_or_elevation`` — same metric names as NH-09 in rubric YAML.
     * ``capacity_margin`` — compares ``grid_export_capacity_mw`` to SMR export in MW.
     """
@@ -27,6 +28,9 @@ def bands_from_recipe(
     if k == "lower_is_better":
         m = _metric_for_recipe(template, recipe)
         return _lower_is_better(m, float(pivot))
+    if k == "score_percent_higher_is_better":
+        m = _metric_for_recipe(template, recipe)
+        return _score_percent_higher_is_better(m, float(pivot))
     if k == "flood_distance_or_elevation":
         f = max(float(pivot), 0.1)
         el = float(recipe.elevation_pass_m or 30.5)
@@ -93,17 +97,17 @@ def _lower_is_better(metric: str, f: float) -> list[BandSpec]:
     return [
         BandSpec(
             score_range=(9, 10),
-            condition_expr=f"{metric} < 0.2 * {f}",
+            condition_expr=f"{metric} <= 0.2 * {f}",
             descriptor="[recipe] well below risk pivot",
         ),
         BandSpec(
             score_range=(7, 8),
-            condition_expr=f"{metric} < 0.4 * {f}",
+            condition_expr=f"{metric} <= 0.4 * {f}",
             descriptor="[recipe] low risk",
         ),
         BandSpec(
             score_range=(5, 6),
-            condition_expr=f"{metric} < {f}",
+            condition_expr=f"{metric} <= {f}",
             descriptor="[recipe] at/below risk boundary (score 5–6)",
         ),
         BandSpec(
@@ -120,6 +124,47 @@ def _lower_is_better(metric: str, f: float) -> list[BandSpec]:
             score_range=(0, 0),
             condition_expr=f"{metric} >= 2.0 * {f}",
             descriptor="[recipe] above acceptance",
+        ),
+    ]
+
+
+def _score_percent_higher_is_better(metric: str, f: float) -> list[BandSpec]:
+    f = min(max(float(f), 0.0), 99.0)
+    span = 100.0 - f
+    t9 = f + 0.75 * span
+    t7 = f + 0.50 * span
+    t3 = 0.75 * f
+    t1 = 0.50 * f
+    return [
+        BandSpec(
+            score_range=(9, 10),
+            condition_expr=f"{metric} >= {t9:.6g}",
+            descriptor="[recipe] high composite margin above boundary",
+        ),
+        BandSpec(
+            score_range=(7, 8),
+            condition_expr=f"{metric} >= {t7:.6g}",
+            descriptor="[recipe] clear composite margin above boundary",
+        ),
+        BandSpec(
+            score_range=(5, 6),
+            condition_expr=f"{metric} >= {f:.6g}",
+            descriptor="[recipe] at/above composite boundary (score 5–6)",
+        ),
+        BandSpec(
+            score_range=(3, 4),
+            condition_expr=f"{metric} >= {t3:.6g}",
+            descriptor="[recipe] below boundary but recoverable",
+        ),
+        BandSpec(
+            score_range=(1, 2),
+            condition_expr=f"{metric} >= {t1:.6g}",
+            descriptor="[recipe] materially below boundary",
+        ),
+        BandSpec(
+            score_range=(0, 0),
+            condition_expr=f"{metric} < {t1:.6g}",
+            descriptor="[recipe] far below boundary",
         ),
     ]
 

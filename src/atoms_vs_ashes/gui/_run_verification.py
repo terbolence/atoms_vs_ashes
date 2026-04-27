@@ -33,6 +33,7 @@ from atoms_vs_ashes.db.models_analytics_part2 import (
     CountryBalanceCheck,
     ThresholdSensitivity,
 )
+from atoms_vs_ashes.gui._metric_grid import render_metric_grid
 
 
 @dataclass
@@ -174,96 +175,94 @@ def render_verification_panel(run_id: str) -> None:
         )
         return
     with st.expander("Run verification (DB rows persisted)", expanded=True):
-        head_cols = st.columns(3)
-        head_cols[0].metric("DB status", verif.status or "—")
-        head_cols[1].metric(
+        items = _base_metric_items(verif)
+        if verif.run_kind == "sensitivity":
+            items.extend(_sensitivity_metric_items(verif))
+        else:
+            items.extend(_scoring_metric_items(verif))
+        render_metric_grid(items, columns=3)
+        if verif.run_kind == "sensitivity" and verif.composite_by_profile:
+            st.caption(
+                "weight_profile breakdown: "
+                + ", ".join(
+                    f"`{label}`={count:,}"
+                    for label, count in sorted(verif.composite_by_profile.items())
+                )
+            )
+
+
+def _base_metric_items(verif: RunVerification) -> list[tuple[str, str, str | None]]:
+    return [
+        ("DB status", verif.status or "—", None),
+        (
             "DB duration",
             f"{verif.duration_s:.1f} s" if verif.duration_s else "—",
-        )
-        head_cols[2].metric("Run kind", verif.run_kind or "—")
-        if verif.run_kind == "sensitivity":
-            _render_sensitivity_metrics(verif)
-        else:
-            _render_scoring_metrics(verif)
+            None,
+        ),
+        ("Run kind", verif.run_kind or "—", None),
+    ]
 
 
-def _render_sensitivity_metrics(verif: RunVerification) -> None:
-    cols = st.columns(4)
-    cols[0].metric(
-        "MC iterations (DB)",
-        f"{verif.mc_iterations:,}" if verif.mc_iterations else "—",
-        help=(
+def _sensitivity_metric_items(
+    verif: RunVerification,
+) -> list[tuple[str, str, str | None]]:
+    return [
+        (
+            "MC iterations (DB)",
+            f"{verif.mc_iterations:,}" if verif.mc_iterations else "—",
             "Read from the highest ``mc_<N>`` ``weight_profile`` label "
             "found on this run's ``composite_rankings`` rows. Confirms "
             "the requested iteration count actually ran."
         ),
-    )
-    cols[1].metric(
-        "MC ranking rows",
-        f"{verif.mc_rows:,}",
-        help=(
+        (
+            "MC ranking rows",
+            f"{verif.mc_rows:,}",
             "Number of ``composite_rankings`` rows tagged "
             "``mc_<iterations>`` — one per (site × SMR) pair the "
             "Monte-Carlo summary wrote."
         ),
-    )
-    cols[2].metric(
-        "Weight-perturbation rows",
-        f"{verif.weight_perturbation_rows:,}",
-        help=(
+        (
+            "Weight-perturbation rows",
+            f"{verif.weight_perturbation_rows:,}",
             "``composite_rankings`` rows for sensitivity weight profiles "
             "(``w_plus_20``, ``w_minus_20``, …). One row per profile × "
             "(site × SMR)."
         ),
-    )
-    cols[3].metric(
-        "Baseline rows",
-        f"{verif.baseline_rows:,}",
-        help=(
+        (
+            "Baseline rows",
+            f"{verif.baseline_rows:,}",
             "``composite_rankings`` rows tagged ``baseline`` — written "
             "by the country-balance stage so downstream queries have a "
             "stable reference set."
         ),
-    )
-    cols2 = st.columns(2)
-    cols2[0].metric(
-        "Country-balance rows",
-        f"{verif.country_balance_rows:,}",
-        help="``country_balance_check`` rows — one per country in scope.",
-    )
-    cols2[1].metric(
-        "Threshold-sweep rows",
-        f"{verif.threshold_sensitivity_rows:,}",
-        help=(
+        (
+            "Country-balance rows",
+            f"{verif.country_balance_rows:,}",
+            "``country_balance_check`` rows — one per country in scope.",
+        ),
+        (
+            "Threshold-sweep rows",
+            f"{verif.threshold_sensitivity_rows:,}",
             "``threshold_sensitivity`` rows — one per (site × SMR × "
             "direction) entry in the ±25 % threshold sweep."
         ),
-    )
-    if verif.composite_by_profile:
-        st.caption(
-            "weight_profile breakdown: "
-            + ", ".join(
-                f"`{label}`={count:,}"
-                for label, count in sorted(verif.composite_by_profile.items())
-            )
-        )
+    ]
 
 
-def _render_scoring_metrics(verif: RunVerification) -> None:
-    cols = st.columns(2)
-    cols[0].metric(
-        "Composite rows",
-        f"{verif.baseline_rows:,}",
-        help="``composite_rankings`` rows tagged ``baseline``.",
-    )
-    cols[1].metric(
-        "Per-criterion ranking rows",
-        f"{verif.ranking_score_rows:,}",
-        help=(
+def _scoring_metric_items(verif: RunVerification) -> list[tuple[str, str, str | None]]:
+    return [
+        (
+            "Composite rows",
+            f"{verif.baseline_rows:,}",
+            "``composite_rankings`` rows tagged ``baseline``.",
+        ),
+        (
+            "Per-criterion ranking rows",
+            f"{verif.ranking_score_rows:,}",
             "``ranking_scores`` rows — one per (site × SMR × "
             "criterion) the engine evaluated."
         ),
-    )
+    ]
 
 
 __all__ = [

@@ -20,6 +20,7 @@ criteria:
     fail_conditions:
       - {code: E8, action: exclude, condition_expr: "ep01_composite_score < 30 or nearest_trauma_center_km > 60", pass_mark: 5.0, descriptor: "DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km."}
       - {code: hospital_overlay, action: screen_flag, condition_expr: "nearest_hospital_km > 25", descriptor: "Project healthcare overlay: nearest hospital > 25 km triggers EP-01 sub-band penalty."}
+    band_recipe: {kind: score_percent_higher_is_better, fail_code: E8}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: EP-02
     name: Evacuation routes (road network)

@@ -32,7 +32,19 @@ SensitivityStage = Literal[
 # up. Kept here so legacy profiles still load: the field-validator on
 # ``SensitivityBlock.enabled`` silently drops them on read.
 _LEGACY_SENSITIVITY_STAGES = frozenset({"oat"})
-SiteStatus = Literal["operating", "retired", "mothballed", "construction", "cancelled"]
+SiteStatus = Literal[
+    "announced",
+    "pre_permit",
+    "permitted",
+    "construction",
+    "operating",
+    "planned_closure",
+    "retired",
+    "mothballed",
+    "shelved",
+    "cancelled",
+    "other",
+]
 
 
 class ScopeBlock(BaseModel):
@@ -48,7 +60,19 @@ class ScopeBlock(BaseModel):
     countries: list[str] = Field(default_factory=list)
     smr_keys: list[str] = Field(default_factory=list)
     site_status_in: list[SiteStatus] = Field(
-        default_factory=lambda: ["operating", "retired", "mothballed"]
+        default_factory=lambda: [
+            "announced",
+            "pre_permit",
+            "permitted",
+            "construction",
+            "operating",
+            "planned_closure",
+            "retired",
+            "mothballed",
+            "shelved",
+            "cancelled",
+            "other",
+        ]
     )
     site_ids: list[str] = Field(default_factory=list)
 

@@ -22,7 +22,12 @@ from atoms_vs_ashes.gui._state import (
 )
 from atoms_vs_ashes.gui._threshold_editor_palette import (
     AVOID_ROW_BG,
+    DARK_AVOID_ROW_BG,
+    DARK_EXCL_ROW_BG,
+    DARK_NEUTRAL_ROW_BG,
+    DARK_ROW_TEXT,
     EXCL_ROW_BG,
+    LIGHT_ROW_TEXT,
     NEUTRAL_ROW_BG,
     action_kind_label,
     criterion_expander_label,
@@ -78,17 +83,18 @@ def _input_label(fc: FailConditionPreview) -> str:
 
 
 def _style_norms_table(df: pd.DataFrame) -> Any:
+    dark = st.get_option("theme.base") == "dark"
+    backgrounds = {
+        "exclusionary": DARK_EXCL_ROW_BG if dark else EXCL_ROW_BG,
+        "avoidance": DARK_AVOID_ROW_BG if dark else AVOID_ROW_BG,
+        "ranking-only": DARK_NEUTRAL_ROW_BG if dark else NEUTRAL_ROW_BG,
+    }
+    text = DARK_ROW_TEXT if dark else LIGHT_ROW_TEXT
+
     def row_colors(row: pd.Series) -> list[str]:
-        k = row["kind"]
-        if k == "exclusionary":
-            bg = f"background-color: {EXCL_ROW_BG}"
-        elif k == "avoidance":
-            bg = f"background-color: {AVOID_ROW_BG}"
-        elif k == "ranking-only":
-            bg = f"background-color: {NEUTRAL_ROW_BG}"
-        else:
-            bg = ""
-        return [bg] * len(row)
+        bg = backgrounds.get(row["kind"])
+        style = f"background-color: {bg}; color: {text};" if bg else f"color: {text};"
+        return [style] * len(row)
 
     return df.style.apply(row_colors, axis=1)  # type: ignore[union-attr]
 

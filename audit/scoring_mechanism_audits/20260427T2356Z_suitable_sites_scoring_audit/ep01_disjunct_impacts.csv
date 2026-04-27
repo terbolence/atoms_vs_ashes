@@ -1,0 +1,3 @@
+bucket,rows,distinct_sites,countries
+composite_score_lt_30,456,57,11
+no_failure_or_missing_trauma_distance,2448,306,20

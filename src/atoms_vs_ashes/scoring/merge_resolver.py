@@ -39,6 +39,10 @@ from atoms_vs_ashes.db.models import (
     SiteRadiological,
 )
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.scoring.merge_context_derivations import (
+    apply_derived_context_values,
+    column_aliases,
+)
 from atoms_vs_ashes.scoring.rubric import Criterion
 
 log = get_logger(__name__)
@@ -107,9 +111,20 @@ def resolve_scalar(site: Site, table: str, column: str) -> Any:
     if attr is None:
         return None
     if attr == "site":
-        return _lookup_attr(site, column)
+        return _lookup_with_aliases(site, table, column)
     instance = getattr(site, attr, None)
-    return _lookup_attr(instance, column)
+    return _lookup_with_aliases(instance, table, column)
+
+
+def _lookup_with_aliases(instance: Any, table: str, column: str) -> Any:
+    value = _lookup_attr(instance, column)
+    if value is not None:
+        return value
+    for alias in column_aliases(table, column):
+        value = _lookup_attr(instance, alias)
+        if value is not None:
+            return value
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -214,6 +229,8 @@ def build_context_for_site(
     # (``site_area_ha``, ``elevation_m``). Expose them eagerly.
     for attr in ("site_area_ha", "elevation_m", "installed_capacity_mw", "country_code"):
         ctx.values.setdefault(attr, getattr(site, attr, None))
+
+    apply_derived_context_values(ctx.values)
 
     ctx.used_llm = _apply_llm_overrides(session, site.site_id, criterion, ctx.values)
     ctx.quality = _quality_from_criterion(site, criterion)

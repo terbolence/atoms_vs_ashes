@@ -30,8 +30,8 @@ _TOOLTIPS = {
         "Sites blocked by at least one exclusionary criterion (red pile)."
     ),
     "avoid": (
-        "Sites that pass exclusionary but miss the avoidance floor "
-        "(amber pile / near-miss territory)."
+        "Sites that pass exclusionary but trigger at least one avoidance "
+        "caution (amber pile / near-miss territory)."
     ),
     "countries": (
         "Number of countries with at least one survivor / total "

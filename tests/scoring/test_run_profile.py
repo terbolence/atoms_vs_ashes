@@ -226,6 +226,26 @@ def test_uppercase_country_codes(tmp_path: Path):
     assert profile.scope.countries == ["BG", "MD", "RO"]
 
 
+def test_db_site_status_enum_values_load(tmp_path: Path):
+    p = _write(
+        tmp_path,
+        """
+        run_label: all_statuses
+        scope:
+          site_status_in: [cancelled, construction, mothballed, operating, retired, shelved]
+        """,
+    )
+    profile, _ = parse_run_profile(p)
+    assert profile.scope.site_status_in == [
+        "cancelled",
+        "construction",
+        "mothballed",
+        "operating",
+        "retired",
+        "shelved",
+    ]
+
+
 def test_canonical_dict_is_stable(baseline_profile_path: Path):
     out = load_run_profile(baseline_profile_path)
     a = out.profile.to_canonical_dict()

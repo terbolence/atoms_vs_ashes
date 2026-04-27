@@ -25,7 +25,7 @@ from atoms_vs_ashes.gui._results_data_detail import (
 
 
 _STATUS_COLOUR = {
-    "pass": "#2e7d32", "floor-fail": "#e9a73a", "hard-fail": "#c0392b",
+    "pass": "#2e7d32", "avoidance-flag": "#e9a73a", "hard-fail": "#c0392b",
 }
 _SEVERITY_COLOUR = {
     "exclusionary": "#c0392b", "avoidance": "#e9a73a",

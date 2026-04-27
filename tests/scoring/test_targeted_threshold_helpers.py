@@ -56,8 +56,8 @@ def test_targets_skip_categorical_and_pickup_numeric(template_bundle):
     assert nh02_e1 is not None
     assert nh02_e1.metric == "nearest_fault_km"
     assert nh02_e1.op == "<"
-    assert nh02_e1.base_value == pytest.approx(5.0)
-    assert nh02_e1.recommended_value == pytest.approx(5.0)
+    assert nh02_e1.base_value == pytest.approx(8.0)
+    assert nh02_e1.recommended_value == pytest.approx(8.0)
 
 
 def test_user_override_becomes_base_value(template_bundle):
@@ -68,7 +68,7 @@ def test_user_override_becomes_base_value(template_bundle):
     targets = list_targeted_thresholds(template_bundle, profile)
     nh02_e1 = next(t for t in targets if t.criterion_id == "NH-02" and t.code == "E1")
     assert nh02_e1.base_value == pytest.approx(7.5)
-    assert nh02_e1.recommended_value == pytest.approx(5.0)
+    assert nh02_e1.recommended_value == pytest.approx(8.0)
 
 
 def test_perturb_value_signed_correctly():

@@ -8,6 +8,7 @@ together with a focused mini-editor for the in-scope SMR designs.
 What is editable:
 
 * ``scope.countries`` — multiselect.
+* ``scope.site_status_in`` and ``scope.site_ids`` — site filters.
 * ``scope.smr_keys`` — multiselect; selected designs feed the SMR
   sub-editor below for ``name`` / ``capacity_mwe`` / ``land_requirement_ha``.
 * ``scoring.qualification_mode`` — ``normal`` / ``strict`` (with a
@@ -16,14 +17,14 @@ What is editable:
 * ``scoring.near_miss_gap_pct`` — slider (with a rich info-icon
   explanation).
 * The Advanced expander surfaces ``weight_profile``, ``expert_override``,
-  ``notes``, ``scope.site_ids``, the ``unscored_*`` knobs,
-  ``weight_overrides``, and ``output.stamp``.
+  ``notes``, the ``unscored_*`` knobs, ``weight_overrides``, and
+  ``output.stamp``.
 
 Hidden / passed through unchanged: ``run_label``, ``db_profile`` (always
 ``merged``), ``spec_dir``, ``output.audit_dir``, ``output.report_dir``,
-all ``sensitivity.*``, and ``scope.site_status_in``. They are persisted
-verbatim from the existing DB row when Save is clicked. Edit them on
-page 02 (Run Profile) when truly needed.
+and all ``sensitivity.*``. They are persisted verbatim from the existing
+DB row when Save is clicked. Edit them on page 02 (Run Profile) when
+truly needed.
 """
 
 from __future__ import annotations
@@ -33,8 +34,8 @@ from typing import Any
 
 import streamlit as st
 
-from atoms_vs_ashes.gui._data import list_countries, list_smrs
 from atoms_vs_ashes.gui._overview_advanced import render_advanced
+from atoms_vs_ashes.gui._overview_scope import render_scope_sections
 from atoms_vs_ashes.gui._overview_smr import (
     render_smr_subeditor,
     save_smr_subeditor,
@@ -71,49 +72,6 @@ _NEAR_MISS_HELP = (
     "Recommended: **10%** — surfaces only the close calls. Raising the "
     "value (e.g. 25%) widens the net to also include borderline fails."
 )
-
-
-def _scope_section(profile: RunProfile) -> dict[str, Any]:
-    st.subheader("Scope")
-    countries = list_countries()
-    smrs = list_smrs()
-
-    country_codes = [c["country_code"] for c in countries]
-    country_labels = {
-        c["country_code"]: f"{c['country_code']} ({c['n_sites']} sites)"
-        for c in countries
-    }
-    smr_keys_avail = [s["smr_key"] for s in smrs]
-    smr_labels = {
-        s["smr_key"]: f"{s['smr_key']} — {s['name']}"
-        for s in smrs
-    }
-
-    cols = st.columns(2)
-    chosen_countries = cols[0].multiselect(
-        "Countries (empty = all)",
-        options=country_codes,
-        default=[c for c in profile.scope.countries if c in country_codes],
-        format_func=lambda c: country_labels.get(c, c),
-        help=(
-            "ISO-2 country codes. **Empty = no filter** (every country "
-            "in the DB participates). Filter early to keep run times "
-            "down during exploration; expand later for a final ranking pass."
-        ),
-    )
-    chosen_smrs = cols[1].multiselect(
-        "SMR designs (empty = all)",
-        options=smr_keys_avail,
-        default=[k for k in profile.scope.smr_keys if k in smr_keys_avail],
-        format_func=lambda k: smr_labels.get(k, k),
-        help=(
-            "Which SMR designs the engine evaluates. **Empty = all** "
-            "designs. Recommended starting point: pick one design "
-            "(e.g. ``nuscale_voygr6``) so the SMR sub-editor below and "
-            "the Threshold rubric stay focused."
-        ),
-    )
-    return {"countries": chosen_countries, "smr_keys": chosen_smrs}
 
 
 def _scoring_section(profile: RunProfile) -> dict[str, Any]:
@@ -167,8 +125,8 @@ def _build_candidate(
             "scope": ScopeBlock(
                 countries=scope["countries"],
                 smr_keys=scope["smr_keys"],
-                site_status_in=list(profile.scope.site_status_in),
-                site_ids=advanced["site_ids"],
+                site_status_in=scope["site_status_in"],
+                site_ids=scope["site_ids"],
             ),
             "scoring": ScoringBlock(
                 qualification_mode=scoring["qualification_mode"],
@@ -198,11 +156,12 @@ def _profiles_differ(a: RunProfile, b: RunProfile) -> bool:
 
 
 def _summary_metrics(scope: dict[str, Any], scoring: dict[str, Any]) -> None:
-    cols = st.columns(4)
+    cols = st.columns(5)
     cols[0].metric("Countries", len(scope["countries"]) or "all")
-    cols[1].metric("SMRs", len(scope["smr_keys"]) or "all")
-    cols[2].metric("Qualification", scoring["qualification_mode"])
-    cols[3].metric("Top-N / country", scoring["top_n_per_country"])
+    cols[1].metric("Site statuses", len(scope["site_status_in"]) or "all")
+    cols[2].metric("SMRs", len(scope["smr_keys"]) or "all")
+    cols[3].metric("Qualification", scoring["qualification_mode"])
+    cols[4].metric("Top-N / country", scoring["top_n_per_country"])
 
 
 def _save_controls(
@@ -255,7 +214,7 @@ def render() -> None:
         )
         return
 
-    scope = _scope_section(profile)
+    scope = render_scope_sections(profile)
 
     st.subheader("SMR design parameters (in scope)")
     st.caption(

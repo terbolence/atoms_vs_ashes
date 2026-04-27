@@ -261,7 +261,7 @@ def _build_ledger_row(
     failed = verdicts_by_pair.get((cr.site_id, cr.smr_key), [])
     status = (
         "hard-fail" if not cr.passed_exclusionary
-        else "floor-fail" if not cr.passed_avoidance
+        else "avoidance-flag" if not cr.passed_avoidance
         else "pass"
     )
     worst: ScreeningVerdict | None = None

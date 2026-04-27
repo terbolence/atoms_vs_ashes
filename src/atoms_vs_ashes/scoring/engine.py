@@ -50,6 +50,9 @@ from atoms_vs_ashes.runtime.heartbeat import HeartbeatWriter
 from atoms_vs_ashes.runtime.scope import RunScope
 from atoms_vs_ashes.scoring._progress import ProgressReporter
 from atoms_vs_ashes.scoring.rubric import Criterion, load_rubric_bundle, weight_normalisation
+from atoms_vs_ashes.scoring.scoring_definition_snapshots import (
+    persist_compiled_scoring_snapshot,
+)
 
 log = get_logger(__name__)
 
@@ -84,6 +87,7 @@ class ScoringEngine:
         smr_bundles: dict[str, dict[str, Criterion]] | None = None,
         weights: dict[str, float] | None = None,
         dataset_meta: DatasetMeta | None = None,
+        threshold_overrides: dict | None = None,
         cancellation: CancellationToken | None = None,
         heartbeat: HeartbeatWriter | None = None,
         progress_enabled: bool = True,
@@ -104,6 +108,7 @@ class ScoringEngine:
             weight_normalisation(self.bundle, profile=weight_profile)
         )
         self.dataset_meta = dataset_meta
+        self.threshold_overrides = threshold_overrides or {}
         self.cancellation = cancellation
         self.heartbeat = heartbeat
         self.progress_enabled = progress_enabled
@@ -222,6 +227,12 @@ class ScoringEngine:
             weight_profile=self.weight_profile,
             dataset_meta=self.dataset_meta,
         )
+        persist_compiled_scoring_snapshot(
+            self.session,
+            run_id=run_id,
+            bundles_by_smr=self.smr_bundles or {"__default__": self.bundle},
+            threshold_overrides=self.threshold_overrides,
+        )
         log.info(
             "scoring_run_start", run_id=run_id, sites=len(sites), smrs=len(smrs),
             criteria=len(self.bundle), weight_profile=self.weight_profile,
@@ -285,6 +296,7 @@ def run_scoring(
     smr_bundles: dict[str, dict[str, Criterion]] | None = None,
     weights: dict[str, float] | None = None,
     dataset_meta: DatasetMeta | None = None,
+    threshold_overrides: dict | None = None,
     cancellation: CancellationToken | None = None,
     heartbeat: HeartbeatWriter | None = None,
     progress_enabled: bool = True,
@@ -294,6 +306,7 @@ def run_scoring(
         session, settings=settings, rubric_dir=rubric_dir,
         weight_profile=weight_profile, scope=scope, bundle=bundle,
         smr_bundles=smr_bundles, weights=weights, dataset_meta=dataset_meta,
+        threshold_overrides=threshold_overrides,
         cancellation=cancellation, heartbeat=heartbeat,
         progress_enabled=progress_enabled,
     )

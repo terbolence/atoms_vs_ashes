@@ -160,7 +160,7 @@ def _status_label(cr: CompositeRanking) -> str:
     if not cr.passed_exclusionary:
         return "hard-fail"
     if not cr.passed_avoidance:
-        return "floor-fail"
+        return "avoidance-flag"
     return "pass"
 
 

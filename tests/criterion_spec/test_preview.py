@@ -60,7 +60,7 @@ def test_modified_threshold_appears_in_diff(template_bundle):
     e1 = next(fc for fc in nh02.fail_codes if fc.code == "E1")
     assert e1.modified_from_recommended is True
     assert e1.value == 4.5
-    assert e1.recommended_value == 5.0
+    assert e1.recommended_value == 8.0
     assert any(d["code"] == "E1" for d in bundle.diff_vs_recommended)
 
 
@@ -71,3 +71,14 @@ def test_unknown_code_is_warning_not_error(template_bundle):
     )
     bundle = build_preview(template_bundle, profile, spec_dir=str(SPEC_DIR))
     assert any(w.startswith("unknown_code=") for w in bundle.warnings)
+
+
+def test_hard_expression_only_exclusion_shows_no_floor_pass_mark(template_bundle):
+    bundle = build_preview(
+        template_bundle,
+        RunProfile(run_label="baseline"),
+        spec_dir=str(SPEC_DIR),
+    )
+    nh05 = next(c for c in bundle.criteria if c.criterion_id == "NH-05")
+    assert nh05.is_exclusionary is True
+    assert nh05.exclusion_pass_mark is None

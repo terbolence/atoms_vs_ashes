@@ -63,14 +63,14 @@ criteria:
     primary_metric: nearest_fault_km
     db_fields: {api: [site_natural_hazards.nearest_fault_km, site_natural_hazards.fault_name, site_natural_hazards.fault_slip_rate_mm_yr], llm: nh02_fault_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_fault_km > 100", descriptor: "Stable; no capable structures in the wide search radius."}
-      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 40", descriptor: "High band; well beyond buffer on quality mapping."}
-      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 15", descriptor: "Medium band; standard provisions adequate."}
-      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 5", descriptor: "Low band; detailed paleoseismology and design uplift."}
-      - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 5 and has_remedy == true", descriptor: "Borderline near 5 km; only with documented remedy."}
-      - {score_range: [0, 0], condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", descriptor: "Excluded: within project E1 buffer."}
+      - {score_range: [9, 10], condition_expr: "nearest_fault_km >= 5 * 8.0", descriptor: "[recipe] well above the score-5 boundary"}
+      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 2 * 8.0", descriptor: "[recipe] high band vs boundary"}
+      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 8.0", descriptor: "[recipe] at/above normative boundary (score 5–6)"}
+      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 0.5 * 8.0", descriptor: "[recipe] below boundary but not extreme"}
+      - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 0.2 * 8.0", descriptor: "[recipe] marginal"}
+      - {score_range: [0, 0], condition_expr: "nearest_fault_km < 0.2 * 8.0", descriptor: "[recipe] well inside hazard / insufficient margin"}
     fail_conditions:
-      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", pass_mark: 5.0, descriptor: "Capable fault within 5 km (project) / 8 km (SSG-35)."}
+      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)", pass_mark: 5.0, descriptor: "Capable fault within 8 km."}
     band_recipe: {kind: higher_is_better, fail_code: E1}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-03
@@ -106,6 +106,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 25", descriptor: "E3 triggered."}
     fail_conditions:
       - {code: E3, action: exclude, condition_expr: "slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'", pass_mark: 5.0, descriptor: "Catastrophic landslide / slope > 25 deg."}
+    band_recipe: {kind: lower_is_better, fail_code: E3}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-05
     name: Subsidence / karst / mining / oil & gas
@@ -124,13 +125,13 @@ criteria:
     bands:
       - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'", descriptor: "No karst, no mining voids, subsidence risk none."}
       - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']", descriptor: "No karst on site; no mining voids; low subsidence risk."}
-      - {score_range: [5, 6], condition_expr: "karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']", descriptor: "Mild karst at most; no mining voids; subsidence low-to-moderate."}
-      - {score_range: [3, 4], condition_expr: "(karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate'", descriptor: "Moderate karst or moderate subsidence; mining absent."}
+      - {score_range: [5, 6], condition_expr: "((karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate' or (karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low'])) and karst_severity != 'high' and mining_void_present != true", descriptor: "Moderate areal subsidence / karst proxy; no confirmed high karst or mining void exclusion."}
+      - {score_range: [3, 4], condition_expr: "subsidence_risk_class == 'high' and karst_severity != 'high' and mining_void_present != true", descriptor: "High areal subsidence risk; geotechnical review required."}
       - {score_range: [1, 2], condition_expr: "mining_void_present == true or subsidence_risk_class == 'high'", descriptor: "Mining voids present or high subsidence risk; remedy plausible."}
       - {score_range: [0, 0], condition_expr: "karst_severity == 'high'", descriptor: "E5 confirmed: high karst severity."}
     fail_conditions:
-      - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", pass_mark: 5.0, descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
-      - {code: E6, action: exclude, condition_expr: "mining_void_present == true", pass_mark: 5.0, descriptor: "Mining voids present beneath / adjacent to site."}
+      - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
+      - {code: E6, action: exclude, condition_expr: "mining_void_present == true", descriptor: "Mining voids present beneath / adjacent to site."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-06
     name: Foundation conditions (bearing, bedrock, groundwater)
@@ -218,6 +219,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h)."}
     fail_conditions:
       - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", pass_mark: 5.0, descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
+    band_recipe: {kind: lower_is_better, fail_code: project_wind_envelope}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-11
     name: Extreme precipitation (rain, snow, drought)

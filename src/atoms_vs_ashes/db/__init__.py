@@ -11,3 +11,4 @@ calling code having to import the analytics modules explicitly.
 from atoms_vs_ashes.db import models  # noqa: F401
 from atoms_vs_ashes.db import models_analytics  # noqa: F401
 from atoms_vs_ashes.db import models_analytics_part2  # noqa: F401
+from atoms_vs_ashes.db import models_scoring_definitions  # noqa: F401

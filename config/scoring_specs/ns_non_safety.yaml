@@ -149,6 +149,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "zoning_hard_block == true", descriptor: "Legal / zoning hard-block at screening."}
     fail_conditions:
       - {code: A15, action: avoidance_penalty, condition_expr: "largest_contiguous_ha < 14", descriptor: "Project A15: >= 14 ha contiguous industrial land."}
+    band_recipe: {kind: higher_is_better, fail_code: A15, metric: largest_contiguous_ha}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-06
     name: Existing infrastructure reuse

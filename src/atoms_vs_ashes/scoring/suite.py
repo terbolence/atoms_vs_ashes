@@ -57,8 +57,11 @@ from atoms_vs_ashes.scoring._suite_threshold import (
 )
 from atoms_vs_ashes.scoring.rubric import (
     Criterion,
-    load_rubric_bundle,
     weight_normalisation,
+)
+from atoms_vs_ashes.scoring.scoring_definition_snapshots import (
+    link_run_to_snapshot,
+    load_bundle_for_run_snapshot,
 )
 from atoms_vs_ashes.scoring.sensitivity import (
     CountryBalanceReport,
@@ -119,7 +122,15 @@ def run_sensitivity_suite(
         session, run_kind="sensitivity", run_id=run_id,
         parent_run_id=baseline_parent_run_id,
     )
-    bundle: dict[str, Criterion] = load_rubric_bundle(cfg.rubric_dir)
+    bundle, inherited_snapshot_id = load_bundle_for_run_snapshot(
+        session,
+        parent_run_id=baseline_parent_run_id,
+        weight_profile=cfg.weight_profile_base,
+        rubric_dir=cfg.rubric_dir,
+    )
+    link_run_to_snapshot(
+        session, run_id=run_id, snapshot_id=inherited_snapshot_id
+    )
     weights = weight_normalisation(bundle, profile=cfg.weight_profile_base)
 
     rows_by_pair, verdicts_by_pair, country_by_pair = load_pairs(

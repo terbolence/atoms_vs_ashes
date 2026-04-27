@@ -5,8 +5,7 @@ asserts the on-disk doc matches byte-for-byte. Failure means the YAMLs
 were edited without re-running ``python -m scripts.generate_exclusionary_floors``.
 
 Also asserts every ``action: exclude`` fail condition declares a
-``pass_mark`` so the safety floor cannot be silently disabled by a YAML
-edit.
+``pass_mark`` unless it has an explicit hard-expression-only waiver.
 """
 
 from __future__ import annotations
@@ -23,6 +22,10 @@ from scripts.generate_exclusionary_floors import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+NO_FLOOR_WAIVERS = {
+    "NH-05/E5",
+    "NH-05/E6",
+}
 
 
 def test_exclusionary_floors_doc_matches_generator() -> None:
@@ -49,7 +52,12 @@ def test_every_exclude_condition_declares_pass_mark() -> None:
     missing: list[str] = []
     for crit in bundle.values():
         for fc in crit.fail_conditions:
-            if fc.action == "exclude" and fc.pass_mark is None:
+            key = f"{crit.criterion_id}/{fc.code}"
+            if (
+                fc.action == "exclude"
+                and fc.pass_mark is None
+                and key not in NO_FLOOR_WAIVERS
+            ):
                 missing.append(f"{crit.criterion_id}/{fc.code}")
     assert not missing, (
         "Every action: exclude condition must declare pass_mark "

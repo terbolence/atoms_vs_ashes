@@ -16,6 +16,11 @@ AVOID_BAR = "hsl(28, 56%, 46%)"
 EXCL_ROW_BG = "hsl(4, 38%, 96%)"
 AVOID_ROW_BG = "hsl(28, 38%, 96%)"
 NEUTRAL_ROW_BG = "hsl(210, 14%, 97%)"
+DARK_EXCL_ROW_BG = "hsl(4, 42%, 22%)"
+DARK_AVOID_ROW_BG = "hsl(28, 44%, 22%)"
+DARK_NEUTRAL_ROW_BG = "hsl(210, 22%, 20%)"
+DARK_ROW_TEXT = "hsl(210, 40%, 96%)"
+LIGHT_ROW_TEXT = "hsl(222, 47%, 11%)"
 
 CriterionImportance = Literal["exclusionary", "avoidance", "ranking"]
 
@@ -62,8 +67,13 @@ def criterion_expander_label(crit: CriterionPreview) -> str:
 __all__ = [
     "AVOID_BAR",
     "AVOID_ROW_BG",
+    "DARK_AVOID_ROW_BG",
+    "DARK_EXCL_ROW_BG",
+    "DARK_NEUTRAL_ROW_BG",
+    "DARK_ROW_TEXT",
     "EXCL_BAR",
     "EXCL_ROW_BG",
+    "LIGHT_ROW_TEXT",
     "NEUTRAL_ROW_BG",
     "action_kind_label",
     "criterion_expander_label",

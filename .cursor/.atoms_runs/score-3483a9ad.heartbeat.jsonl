@@ -1,0 +1,11 @@
+{"ts":"2026-04-27T21:18:56Z","stage":"scoring","processed":0,"total":194,"eta_s":null,"message":"sites=194 smrs=1","unit":"sites"}
+{"ts":"2026-04-27T21:18:56Z","stage":"scoring","processed":1,"total":194,"eta_s":20.7,"message":"site=AT-Duernrohr power station","unit":"sites"}
+{"ts":"2026-04-27T21:18:57Z","stage":"scoring","processed":13,"total":194,"eta_s":16.01,"message":"site=BG-Bobov Dol power station","unit":"sites"}
+{"ts":"2026-04-27T21:18:59Z","stage":"scoring","processed":29,"total":194,"eta_s":12.48,"message":"site=CZ-Karvina power station","unit":"sites"}
+{"ts":"2026-04-27T21:19:00Z","stage":"scoring","processed":41,"total":194,"eta_s":11.95,"message":"site=CZ-Plzenska energetika ELU ","unit":"sites"}
+{"ts":"2026-04-27T21:19:01Z","stage":"scoring","processed":55,"total":194,"eta_s":10.66,"message":"site=HU-Bakony power station","unit":"sites"}
+{"ts":"2026-04-27T21:19:02Z","stage":"scoring","processed":72,"total":194,"eta_s":8.9,"message":"site=PL-Czestochowa CHP power st","unit":"sites"}
+{"ts":"2026-04-27T21:19:03Z","stage":"scoring","processed":109,"total":194,"eta_s":4.88,"message":"site=PL-Zofiowka Mine power stat","unit":"sites"}
+{"ts":"2026-04-27T21:19:04Z","stage":"scoring","processed":148,"total":194,"eta_s":2.26,"message":"site=TR-Cenal power station","unit":"sites"}
+{"ts":"2026-04-27T21:19:05Z","stage":"scoring","processed":188,"total":194,"eta_s":0.26,"message":"site=UA-Trypilska power station","unit":"sites"}
+{"ts":"2026-04-27T21:19:05Z","stage":"scoring","processed":194,"total":194,"eta_s":0.0,"message":"completed","unit":"sites"}

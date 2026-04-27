@@ -23,7 +23,7 @@ from atoms_vs_ashes.gui._results_render_drawer import render_site_detail
 from atoms_vs_ashes.runtime.scope import RunScope
 
 
-_STATUS_EMOJI = {"pass": "✅", "floor-fail": "🟧", "hard-fail": "🟥"}
+_STATUS_EMOJI = {"pass": "✅", "avoidance-flag": "🟧", "hard-fail": "🟥"}
 
 
 def render_sites_tab(

@@ -95,9 +95,10 @@ def _nav_specs() -> list[tuple[Any, str, bool]]:
         url_path="",
     )
     overview_help = (
-        "Sites & SMR Setup (home): edit the active profile inline — countries, SMRs in scope, "
-        "qualification mode, top-N, near-miss gap. SMR design specs (capacity, "
-        "land) are editable here too. Save persists to the DB."
+        "Sites & SMR Setup (home): edit the active profile inline — countries, "
+        "site filters, SMR technologies, qualification mode, top-N, near-miss "
+        "gap. SMR design specs (capacity, land) are editable here too. Save "
+        "persists to the DB."
     )
     specs: list[tuple[Any, str, bool]] = [(overview, overview_help, False)]
     for fname, title, blurb, hidden in _SCREEN_PAGES:
