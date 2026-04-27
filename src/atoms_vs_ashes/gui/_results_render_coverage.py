@@ -40,24 +40,6 @@ def render_coverage_tab(
     rows = country_coverage_matrix(
         run_id, weight_profile=weight_profile, scope=scope,
     )
-    # region agent log
-    from atoms_vs_ashes.gui._dbg_log import dbg as _dbg
-    _dbg(
-        "_results_render_coverage.py:render_coverage_tab",
-        "coverage rows reaching renderer",
-        {
-            "run_id": run_id,
-            "weight_profile": weight_profile,
-            "n_country_rows": len(rows),
-            "country_codes": [r.country_code for r in rows],
-            "scope_country_codes": (
-                list(scope.country_codes) if scope and scope.country_codes
-                else None
-            ),
-        },
-        "H8",
-    )
-    # endregion agent log
     if not rows:
         st.info(
             "No `composite_rankings` rows for this run × weight profile. "

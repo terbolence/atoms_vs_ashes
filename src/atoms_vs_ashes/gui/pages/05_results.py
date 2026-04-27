@@ -200,29 +200,6 @@ def render() -> None:
     n_smrs_in_scope = (
         len(scope.smr_keys) if scope.smr_keys is not None else None
     )
-    # region agent log
-    from atoms_vs_ashes.gui._dbg_log import dbg as _dbg
-    _dbg(
-        "pages/05_results.py:render",
-        "scope-from-active-profile",
-        {
-            "run_id": run.run_id,
-            "baseline_run_id": baseline_run_id,
-            "scope_country_codes": (
-                list(scope.country_codes)
-                if scope.country_codes is not None else None
-            ),
-            "scope_site_ids_n": (
-                len(scope.site_ids) if scope.site_ids is not None else None
-            ),
-            "scope_smr_keys": (
-                list(scope.smr_keys) if scope.smr_keys is not None else None
-            ),
-            "n_smrs_in_scope_displayed": n_smrs_in_scope,
-        },
-        "H7",
-    )
-    # endregion agent log
 
     country, include_eliminated = _control_row(
         baseline_run_id, baseline_weight_profile, scope=scope,

@@ -23,7 +23,6 @@ from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.models import CompositeRanking, ScreeningVerdict, Site
-from atoms_vs_ashes.gui._dbg_log import probe_verdict_source as _probe  # debug-only
 from atoms_vs_ashes.gui._region import scope_region_codes
 from atoms_vs_ashes.gui._results_data_detail import (
     CriterionBarRow,
@@ -251,9 +250,6 @@ def _load_failed_verdicts(
     out: dict[tuple[uuid.UUID, str], list[ScreeningVerdict]] = defaultdict(list)
     for v in rows:
         out[(v.site_id, v.smr_key)].append(v)
-    # region agent log
-    _probe(session, run_id, sites, smrs, pair_list, len(rows))
-    # endregion agent log
     return out
 
 
