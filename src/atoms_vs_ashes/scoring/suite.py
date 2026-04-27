@@ -43,6 +43,7 @@ from atoms_vs_ashes.scoring._suite_config import (
     SensitivitySuiteResult,
 )
 from atoms_vs_ashes.scoring._suite_persist import (
+    _resolve_baseline_run_id,
     load_baseline_composites,
     load_pairs,
     persist_country_balanced,
@@ -100,23 +101,24 @@ def run_sensitivity_suite(
     cancellation: CancellationToken | None = None,
     heartbeat: HeartbeatWriter | None = None,
 ) -> SensitivitySuiteResult:
-    """Execute the requested sensitivity subset and persist its rows.
+    """Run the requested sensitivity subset and persist its rows.
 
-    ``cfg.iterations`` is forwarded verbatim to :func:`run_mc_suite` and
-    from there to :func:`run_monte_carlo`, feeding the single
-    ``for _ in range(iterations)`` loop. No other default lives on that
-    hot path.
-
-    ``cancellation`` is checked between independent stages (weights,
-    MC, country, threshold) — the user can stop a multi-stage run
-    without losing rows already committed by an earlier stage. When
-    ``heartbeat`` is supplied, each stage emits start / tick /
-    end ticks the GUI consumes (plan §10).
+    ``cfg.iterations`` flows to :func:`run_mc_suite`/:func:`run_monte_carlo`.
+    ``cancellation`` is checked between stages so partial work survives.
+    ``heartbeat`` (when set) emits start/tick/end events for the GUI.
     """
-    # Insert the parent ``runs`` row up-front so every analytics-table
-    # FK (``country_balance_check``, ``threshold_sensitivity``, …) can
-    # attach. Mirrors ``open_scoring_run`` for ``score run``.
-    run_handle = start_run(session, run_kind="sensitivity", run_id=run_id)
+    # Resolve the baseline scoring ``run_id`` first and persist it as
+    # ``runs.parent_run_id`` so the GUI Results page can route the
+    # Coverage / Sites / Regional / Stability tabs back to the run that
+    # owns the matching ``screening_verdicts``. Without this link the
+    # tabs render ``status=hard-fail`` with ``n_failed_criteria=0``.
+    baseline_parent_run_id = _resolve_baseline_run_id(
+        session, weight_profile_base=cfg.weight_profile_base,
+    )
+    run_handle = start_run(
+        session, run_kind="sensitivity", run_id=run_id,
+        parent_run_id=baseline_parent_run_id,
+    )
     bundle: dict[str, Criterion] = load_rubric_bundle(cfg.rubric_dir)
     weights = weight_normalisation(bundle, profile=cfg.weight_profile_base)
 

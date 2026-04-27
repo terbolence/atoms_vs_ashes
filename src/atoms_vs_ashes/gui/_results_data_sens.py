@@ -10,13 +10,15 @@ metrics bundle.
 
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.db.engine import session_scope
-from atoms_vs_ashes.db.models import CompositeRanking
+from atoms_vs_ashes.db.models import CompositeRanking, Site
+from atoms_vs_ashes.db.models_analytics import SiteBand
 from atoms_vs_ashes.db.models_analytics_part2 import (
     CountryBalanceCheck,
     ThresholdSensitivity,
@@ -118,4 +120,151 @@ def _threshold_sensitivity_rows(session: Session, run_id: str) -> list[dict]:
     ]
 
 
-__all__ = ["SensitivitySnapshot", "sensitivity_snapshot"]
+@dataclass
+class StabilityRow:
+    """One row of the stability ledger (Tool 6)."""
+
+    site_id: uuid.UUID
+    site_name: str
+    country_code: str
+    smr_key: str | None
+    scope_country_code: str | None
+    band: str
+    top5pct_hit_rate: float | None
+    top10pct_hit_rate: float | None
+    top30pct_hit_rate: float | None
+    scenarios_total: int
+    scenarios_scored: int
+    mc_mean: float | None
+    mc_low: float | None
+    mc_high: float | None
+
+
+def site_stability_ledger(run_id: str) -> list[StabilityRow]:
+    """Per-site stability bands joined with the MC composite stats.
+
+    Pulls every ``site_bands`` row for ``run_id`` and joins to the
+    matching ``composite_rankings`` row produced by the Monte-Carlo
+    weight profile (``mc_<N>``). The MC stats are taken from the
+    largest ``mc_<N>`` profile available, which is the canonical
+    Monte-Carlo summary surface for the run.
+
+    Returns an empty list for non-sensitivity runs (``site_bands``
+    is sensitivity-only).
+    """
+    with session_scope() as session:
+        mc_profile = _largest_mc_profile(session, run_id)
+        return _stability_rows(session, run_id, mc_profile)
+
+
+def _largest_mc_profile(session: Session, run_id: str) -> str | None:
+    """Pick the ``mc_<N>`` weight profile with the highest N."""
+    rows = session.execute(
+        select(CompositeRanking.weight_profile)
+        .where(CompositeRanking.run_id == run_id)
+        .distinct()
+    ).all()
+    candidates: list[tuple[int, str]] = []
+    for (label,) in rows:
+        if not isinstance(label, str) or not label.startswith("mc_"):
+            continue
+        try:
+            candidates.append((int(label.split("_", 1)[1]), label))
+        except ValueError:
+            continue
+    if not candidates:
+        return None
+    candidates.sort()
+    return candidates[-1][1]
+
+
+def _stability_rows(
+    session: Session, run_id: str, mc_profile: str | None,
+) -> list[StabilityRow]:
+    stmt = (
+        select(
+            SiteBand.site_id,
+            Site.name,
+            Site.country_code,
+            SiteBand.smr_key,
+            SiteBand.scope_country_code,
+            SiteBand.band,
+            SiteBand.top5pct_hit_rate,
+            SiteBand.top10pct_hit_rate,
+            SiteBand.top30pct_hit_rate,
+            SiteBand.scenarios_total,
+            SiteBand.scenarios_scored,
+        )
+        .join(Site, Site.site_id == SiteBand.site_id)
+        .where(SiteBand.run_id == run_id)
+        .order_by(
+            SiteBand.band, Site.country_code, Site.name,
+        )
+    )
+    rows = session.execute(stmt).all()
+    mc_lookup = _mc_lookup(session, run_id, mc_profile)
+    out: list[StabilityRow] = []
+    for r in rows:
+        key = (r[0], r[3])
+        mc = mc_lookup.get(key, (None, None, None))
+        out.append(
+            StabilityRow(
+                site_id=r[0], site_name=str(r[1]),
+                country_code=str(r[2]),
+                smr_key=str(r[3]) if r[3] is not None else None,
+                scope_country_code=(
+                    str(r[4]) if r[4] is not None else None
+                ),
+                band=str(r[5]),
+                top5pct_hit_rate=(
+                    float(r[6]) if r[6] is not None else None
+                ),
+                top10pct_hit_rate=(
+                    float(r[7]) if r[7] is not None else None
+                ),
+                top30pct_hit_rate=(
+                    float(r[8]) if r[8] is not None else None
+                ),
+                scenarios_total=int(r[9]),
+                scenarios_scored=int(r[10]),
+                mc_mean=mc[0], mc_low=mc[1], mc_high=mc[2],
+            )
+        )
+    return out
+
+
+def _mc_lookup(
+    session: Session, run_id: str, mc_profile: str | None,
+) -> dict[tuple[uuid.UUID, str | None], tuple[float | None, ...]]:
+    """Pre-fetch MC composite stats for the (site, smr) pairs."""
+    if mc_profile is None:
+        return {}
+    rows = session.execute(
+        select(
+            CompositeRanking.site_id,
+            CompositeRanking.smr_key,
+            CompositeRanking.composite_score,
+            CompositeRanking.composite_score_low,
+            CompositeRanking.composite_score_high,
+        )
+        .where(
+            (CompositeRanking.run_id == run_id)
+            & (CompositeRanking.weight_profile == mc_profile)
+        )
+    ).all()
+    return {
+        (sid, str(smr) if smr is not None else None): (
+            float(mean) if mean is not None else None,
+            float(low) if low is not None else None,
+            float(high) if high is not None else None,
+        )
+        for sid, smr, mean, low, high in rows
+    }
+
+
+__all__ = [
+    "SensitivitySnapshot",
+    "StabilityRow",
+    "sensitivity_snapshot",
+    "site_stability_ledger",
+]

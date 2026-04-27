@@ -207,6 +207,7 @@ def start_sensitivity_run(
         "--weight-profile-base", weight,
         "--rubric-dir", str(Path(active.spec_dir)),
         "--audit-dir", audit, "--seed", str(seed_val),
+        "--profile", str(yaml_path.resolve()),
     ]
     if iterations is not None:
         cmd += ["--mc-draws", str(iterations)]

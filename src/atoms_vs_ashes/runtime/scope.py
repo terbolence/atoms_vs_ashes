@@ -53,6 +53,29 @@ class RunScope:
             stmt = stmt.where(SmrDesign.smr_key.in_(list(self.smr_keys)))
         return stmt
 
+    def apply_to_composite_query(self, stmt: Select) -> Select:
+        """Narrow a CompositeRanking × Site select to the active scope.
+
+        Used by the Results page so Coverage / Sites / Regional / KPI
+        all stay consistent with the active project setup (Sites & SMR
+        Setup → SMR catalogue / Site Selection Criteria). The ``Site``
+        join is assumed to already be present in ``stmt``.
+        """
+        from atoms_vs_ashes.db.models import CompositeRanking
+        if self.country_codes is not None:
+            stmt = stmt.where(Site.country_code.in_(list(self.country_codes)))
+        if self.site_ids is not None:
+            stmt = stmt.where(
+                CompositeRanking.site_id.in_(list(self.site_ids))
+            )
+        if self.smr_keys is not None:
+            stmt = stmt.where(
+                CompositeRanking.smr_key.in_(list(self.smr_keys))
+            )
+        if self.site_status_in is not None:
+            stmt = stmt.where(Site.status.in_(list(self.site_status_in)))
+        return stmt
+
     def is_unrestricted(self) -> bool:
         return (
             self.country_codes is None

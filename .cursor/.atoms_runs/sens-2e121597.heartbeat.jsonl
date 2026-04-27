@@ -1,0 +1,11 @@
+{"ts":"2026-04-27T18:50:49Z","stage":"sensitivity:mc","processed":0,"total":194,"eta_s":null,"message":"draws=5000","unit":"items"}
+{"ts":"2026-04-27T18:50:49Z","stage":"sensitivity:mc","processed":1,"total":194,"eta_s":0.05,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:50Z","stage":"sensitivity:mc","processed":153,"total":194,"eta_s":0.3,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:50Z","stage":"sensitivity:mc","processed":194,"total":194,"eta_s":0.0,"message":"completed","unit":"items"}
+{"ts":"2026-04-27T18:50:50Z","stage":"sensitivity:threshold","processed":0,"total":388,"eta_s":null,"message":"global\u00b125","unit":"items"}
+{"ts":"2026-04-27T18:50:50Z","stage":"sensitivity:threshold","processed":1,"total":388,"eta_s":35.84,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:51Z","stage":"sensitivity:threshold","processed":100,"total":388,"eta_s":3.16,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:52Z","stage":"sensitivity:threshold","processed":179,"total":388,"eta_s":2.46,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:54Z","stage":"sensitivity:threshold","processed":250,"total":388,"eta_s":1.72,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:55Z","stage":"sensitivity:threshold","processed":320,"total":388,"eta_s":0.87,"message":"","unit":"items"}
+{"ts":"2026-04-27T18:50:55Z","stage":"sensitivity:threshold","processed":388,"total":388,"eta_s":0.0,"message":"completed","unit":"items"}

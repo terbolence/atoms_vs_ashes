@@ -27,6 +27,11 @@ from atoms_vs_ashes.gui._results_data_sens import (
     SensitivitySnapshot,
     sensitivity_snapshot,
 )
+from atoms_vs_ashes.runtime.scope import RunScope
+
+
+def _scope_filter(stmt, scope: RunScope | None):
+    return stmt if scope is None else scope.apply_to_composite_query(stmt)
 
 
 @dataclass
@@ -122,6 +127,20 @@ def default_weight_profile(profiles: list[str]) -> str | None:
     return profiles[0]
 
 
+def is_single_smr(run_id: str, *, scope: RunScope | None = None) -> bool:
+    """True when ``run_id`` (intersected with ``scope``) has one SMR."""
+    with session_scope() as session:
+        stmt = (
+            select(CompositeRanking.smr_key)
+            .join(Site, Site.site_id == CompositeRanking.site_id)
+            .where(CompositeRanking.run_id == run_id)
+            .distinct()
+            .limit(2)
+        )
+        rows = session.execute(_scope_filter(stmt, scope)).all()
+    return len(rows) == 1
+
+
 def country_breakdown(
     run_id: str, *, weight_profile: str = "baseline",
 ) -> list[CountryRow]:
@@ -196,6 +215,8 @@ class TopSiteRow:
     composite_score_high: float | None
     passed_exclusionary: bool
     passed_avoidance: bool
+    latitude: float | None = None
+    longitude: float | None = None
 
 
 def top_sites(
@@ -204,12 +225,12 @@ def top_sites(
     limit: int = 50,
     only_passed: bool = True,
     weight_profile: str = "baseline",
+    scope: RunScope | None = None,
 ) -> list[TopSiteRow]:
     """Top-ranked composite rows for ``run_id`` under ``weight_profile``.
 
-    ``only_passed=True`` (default) restricts to rows that cleared both
-    floors — the typical "shortlist" view; pass ``False`` to include
-    excluded / avoidance-failed pairs too.
+    ``only_passed`` filters to rows that cleared both floors;
+    ``scope`` narrows to the active project setup.
     """
     with session_scope() as session:
         stmt = (
@@ -223,6 +244,8 @@ def top_sites(
                 CompositeRanking.composite_score_high,
                 CompositeRanking.passed_exclusionary,
                 CompositeRanking.passed_avoidance,
+                Site.latitude,
+                Site.longitude,
             )
             .join(Site, Site.site_id == CompositeRanking.site_id)
             .where(
@@ -234,6 +257,7 @@ def top_sites(
             )
             .limit(limit)
         )
+        stmt = _scope_filter(stmt, scope)
         if only_passed:
             stmt = stmt.where(
                 (CompositeRanking.passed_exclusionary == True)  # noqa: E712
@@ -251,8 +275,10 @@ def top_sites(
             composite_score_high=float(hi) if hi is not None else None,
             passed_exclusionary=bool(pe),
             passed_avoidance=bool(pa),
+            latitude=float(lat) if lat is not None else None,
+            longitude=float(lon) if lon is not None else None,
         )
-        for rk, smr, name, cc, cs, lo, hi, pe, pa in rows
+        for rk, smr, name, cc, cs, lo, hi, pe, pa, lat, lon in rows
     ]
 
 
@@ -263,6 +289,7 @@ __all__ = [
     "TopSiteRow",
     "country_breakdown",
     "default_weight_profile",
+    "is_single_smr",
     "list_recent_runs",
     "list_weight_profiles",
     "sensitivity_snapshot",

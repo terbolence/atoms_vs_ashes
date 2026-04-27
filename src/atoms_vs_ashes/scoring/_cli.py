@@ -23,6 +23,7 @@ from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.runtime import install_sigint_handler
 from atoms_vs_ashes.scoring._cli_preview import preview_command
 from atoms_vs_ashes.scoring._cli_run import (
+    apply_profile_scope_to_sensitivity_cfg,
     emit_cancelled_payload,
     emit_summary_payload,
     execute_score_run,
@@ -141,68 +142,42 @@ def score_run(
 
 @score_group.command("sensitivity", help=_HELP)
 @click.option(
-    "--preset",
-    type=click.Choice(sorted(MC_PRESETS.keys())),
-    default=None,
-    help=(
-        "Named iteration preset (test → 1000, medium → 3000, "
-        "production → 10000). Mutually exclusive with --mc-draws."
-    ),
+    "--preset", type=click.Choice(sorted(MC_PRESETS.keys())), default=None,
+    help="Named iteration preset (test → 1000, medium → 3000, "
+    "production → 10000). Mutually exclusive with --mc-draws.",
 )
 @click.option(
-    "--mc-draws",
-    type=int,
-    default=None,
-    help=(
-        "Explicit Monte Carlo iteration count (int >= 1). "
-        f"Defaults to {MC_DEFAULT_ITERATIONS} when neither --preset nor "
-        "--mc-draws is given."
-    ),
+    "--mc-draws", type=int, default=None,
+    help="Explicit Monte Carlo iteration count (int >= 1). "
+    f"Defaults to {MC_DEFAULT_ITERATIONS} when neither flag is given.",
 )
 @click.option(
-    "--include",
-    "include",
-    type=click.Choice(list(INCLUDE_CHOICES)),
-    multiple=True,
-    default=("weights", "mc", "country"),
-    show_default=True,
-    help=(
-        "Which sensitivity stages to run. 'threshold' is accepted for "
-        "forward-compat but not yet driven (see plan §8)."
-    ),
+    "--include", "include", type=click.Choice(list(INCLUDE_CHOICES)),
+    multiple=True, default=("weights", "mc", "country"), show_default=True,
+    help="Which sensitivity stages to run. 'threshold' is accepted for "
+    "forward-compat but not yet driven (see plan §8).",
 )
 @click.option(
-    "--weight-profile-base",
-    default="baseline",
-    show_default=True,
+    "--weight-profile-base", default="baseline", show_default=True,
     help="Weight profile to load baseline ranking_scores / composites for.",
 )
 @click.option("--seed", type=int, default=42, show_default=True)
 @click.option(
-    "--rubric-dir",
-    type=click.Path(file_okay=False, exists=False),
-    default=DEFAULT_RUBRIC_DIR,
-    show_default=True,
+    "--rubric-dir", type=click.Path(file_okay=False, exists=False),
+    default=DEFAULT_RUBRIC_DIR, show_default=True,
     help="Directory with scoring rubric YAML files.",
 )
 @click.option(
-    "--audit-dir",
-    type=click.Path(file_okay=False),
-    default=str(DEFAULT_AUDIT_DIR),
-    show_default=True,
+    "--audit-dir", type=click.Path(file_okay=False),
+    default=str(DEFAULT_AUDIT_DIR), show_default=True,
     help="Directory for the audit markdown output.",
 )
 @click.option(
-    "--top-n-country",
-    type=int,
-    default=20,
-    show_default=True,
+    "--top-n-country", type=int, default=20, show_default=True,
     help="Top-N window for the country-balance check.",
 )
 @click.option(
-    "--no-progress",
-    is_flag=True,
-    default=False,
+    "--no-progress", is_flag=True, default=False,
     help="Disable the rich progress bar (forces structured-log fallback).",
 )
 @click.option(
@@ -212,6 +187,12 @@ def score_run(
 @click.option(
     "--cancel-flag", type=click.Path(dir_okay=False), default=None,
     help="Sentinel file to poll; the suite cancels when the file appears.",
+)
+@click.option(
+    "--profile", "profile_path",
+    type=click.Path(exists=True, dir_okay=False), default=None,
+    help="Run profile YAML; when set, profile.scope is applied so the "
+    "suite uses the same in-scope subset as ``score run --profile``.",
 )
 @click.pass_context
 def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
@@ -227,6 +208,7 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
     no_progress: bool,
     heartbeat_path: str | None,
     cancel_flag: str | None,
+    profile_path: str | None,
 ) -> None:
     """Run the sensitivity suite against the currently-selected DB."""
     iterations, preset_label = _resolve_iterations(preset, mc_draws)
@@ -251,6 +233,7 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
             "include": sorted(include_set),
             "weight_profile_base": cfg.weight_profile_base,
             "progress_enabled": cfg.progress_enabled,
+            "profile": profile_path,
         },
         indent=2,
     ))
@@ -262,6 +245,11 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
             make_heartbeat_writer(heartbeat_path) as hb,
             install_sigint_handler(token),
         ):
+            if profile_path is not None:
+                apply_profile_scope_to_sensitivity_cfg(
+                    cfg, profile_path, session=session,
+                    default_rubric_dir=DEFAULT_RUBRIC_DIR,
+                )
             result = run_sensitivity_suite(
                 session, cfg, run_id=run_id,
                 cancellation=token, heartbeat=hb,
