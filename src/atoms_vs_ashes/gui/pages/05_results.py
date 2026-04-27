@@ -32,6 +32,9 @@ from atoms_vs_ashes.gui._results_data import (
     RunSummary,
     list_recent_runs,
 )
+from atoms_vs_ashes.gui._results_render_exclusion_diag import (
+    render_exclusion_diagnostics_tab,
+)
 from atoms_vs_ashes.gui._results_render_coverage import render_coverage_tab
 from atoms_vs_ashes.gui._results_render_kpi import render_kpi_strip
 from atoms_vs_ashes.gui._results_render_regional import render_regional_tab
@@ -209,9 +212,10 @@ def render() -> None:
         scope=scope, n_smrs_in_scope=n_smrs_in_scope,
     )
     metrics = _auto_load_metrics(audit_dir)
-    tabs = st.tabs(
-        ["Coverage", "Sites", "Regional", "Stability", "Sensitivity"]
-    )
+    tabs = st.tabs([
+        "Coverage", "Sites", "Failure Diagnostics",
+        "Regional", "Stability", "Sensitivity",
+    ])
     with tabs[0]:
         render_coverage_tab(
             run_id=baseline_run_id,
@@ -226,13 +230,24 @@ def render() -> None:
             scope=scope,
         )
     with tabs[2]:
+        render_exclusion_diagnostics_tab(
+            run_id=baseline_run_id,
+            weight_profile=baseline_weight_profile,
+            scope=scope,
+            country_code=country,
+            fail_thresholds=profile.fail_thresholds if profile else {},
+            near_miss_gap_pct=(
+                float(profile.scoring.near_miss_gap_pct) if profile else 10.0
+            ),
+        )
+    with tabs[3]:
         render_regional_tab(
             run_id=baseline_run_id,
             weight_profile=baseline_weight_profile, scope=scope,
         )
-    with tabs[3]:
-        render_stability_tab(run=run)
     with tabs[4]:
+        render_stability_tab(run=run)
+    with tabs[5]:
         render_sensitivity_tab(run, metrics)
 
 

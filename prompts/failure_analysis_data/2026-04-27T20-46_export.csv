@@ -1,0 +1,40 @@
+﻿site,country,smr,criterion,code,measured,threshold,units,relaxation_pct,justification
+Sko-Energo power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,27.8,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Czestochowa CHP power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,27.7,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Katowice PKE power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.9,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Miechowice power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,29.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Zabrze power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,27.8,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Te-Tol power station,Slovenia (SI),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,25.9,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Plzen CHP power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.7,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Plzenska energetika ELU III power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.9,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Trebovice power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.7,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Bedzin power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Gdynia-3 power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,29.2,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Republika power station,Bulgaria (BG),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.8,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Krakow-Leg power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Malesice power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Olomouc power station,Czechia (CZ),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.3,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Lodz-2 power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Pecs power station,Hungary (HU),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,29.7,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Lodz-4 power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,26.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Chorzow Elcho power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Poznan Karolin power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.7,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Gorzow power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.4,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Lodz-3 power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Wroclaw power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Craiova II power station,Romania (RO),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Oradea power station,Romania (RO),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,28.9,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Eti Maden Bandirma power station,Türkiye (TR),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,29.2,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Kramatorskaya power station,Ukraine (UA),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,27.9,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Cherkasy power station,Ukraine (UA),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,27.3,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Darnytska power station,Ukraine (UA),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,24.5,24,points,0,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Maritsa Iztok-2 power station,Bulgaria (BG),nuscale_voygr6,NH-02 — Seismic: Surface Rupture,E1,7.94,8,km,0.7499999999999951,TRIGGERED: E1 — Capable fault within 5 km (project) / 8 km (SSG-35).
+Morava power station,Serbia (RS),nuscale_voygr6,NH-02 — Seismic: Surface Rupture,E1,7.77,8,km,2.8750000000000053,TRIGGERED: E1 — Capable fault within 5 km (project) / 8 km (SSG-35).
+Zeltweg power station,Austria (AT),nuscale_voygr6,NH-04 — Geotechnical: Slope Stability,E3,26.02,25,degrees,4.079999999999998,TRIGGERED: E3 — Catastrophic landslide / slope > 25 deg.
+Kipas MMP power station,Türkiye (TR),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,22.8,24,points,4.9999999999999964,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Lagisza power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,22.4,24,points,6.666666666666672,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Trbovlje power station,Slovenia (SI),nuscale_voygr6,NH-04 — Geotechnical: Slope Stability,E3,27.25,25,degrees,9,TRIGGERED: E3 — Catastrophic landslide / slope > 25 deg.
+Eti Maden Bandirma power station,Türkiye (TR),nuscale_voygr6,NH-02 — Seismic: Surface Rupture,E1,6.92,8,km,13.5,TRIGGERED: E1 — Capable fault within 5 km (project) / 8 km (SSG-35).
+Pomorzany power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,20,24,points,16.666666666666664,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Gdansk-2 power station,Poland (PL),nuscale_voygr6,EP-01 — Emergency Planning Feasibility,E8,19,24,points,20.833333333333336,TRIGGERED: E8 — DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
+Gacko Thermal Power Plant,Bosnia and Herzegovina (BA),nuscale_voygr6,NH-02 — Seismic: Surface Rupture,E1,6.14,8,km,23.250000000000004,TRIGGERED: E1 — Capable fault within 5 km (project) / 8 km (SSG-35).
