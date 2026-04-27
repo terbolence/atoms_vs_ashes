@@ -95,7 +95,8 @@ streamlit run src/atoms_vs_ashes/gui/app.py \
 - Repository cloned locally.
 - **Python 3.11+** (the project declares `requires-python = ">=3.11"`).
 - A terminal (**zsh** on macOS is fine; note the quoting rules in step 4).
-- For pages that load countries / SMRs from the database: a working **PostgreSQL** connection in **`.env`** (same as for `atoms-vs-ashes`). Pages that only edit YAML / preview the rubric can work without DB access until you hit a DB-backed widget.
+- A working **PostgreSQL** connection in **`.env`** (same as for `atoms-vs-ashes`). The GUI is now DB-backed end-to-end: countries, SMR designs, **and** the active run profile all live in Postgres, so a reachable database is required for the app to boot.
+- Apply migrations once (and again any time you pull): `./.venv/bin/python -m alembic upgrade head`. Alembic revision **039** seeds the singleton `active_run_profile` row that powers the **Run Profile** page.
 
 ---
 
@@ -226,7 +227,12 @@ If that fails, use the exact **Local URL** line Streamlit printed in the termina
 
 **Sidebar pages (Streamlit multipage)**
 
-The home view is the landing text. Use the **sidebar** (left) to switch between pages such as **SMR Catalogue**, **Run Profile**, **Threshold editor**, **Run dashboard**, and so on.
+The home view is the **Overview** screen — that is also the primary editor for the active run profile (countries, SMR designs in scope, qualification mode, top-N, near-miss gap, and a focused per-SMR mini-editor). Use the **sidebar** (left) to switch to **Threshold Editor**, **Run Dashboard**, **Country Drill-Down**, **Near Miss**, or **Sensitivity**. Each screen name is a link; a single **i**-style info icon on the right shows the full description on **hover** (native browser tooltip; no separate help chip, no click). The sidebar also shows a **read-only summary** of the currently active run profile (run label, scope, weight profile) — there is no longer a profile picker, because the active profile is now a DB row you edit on the Overview screen (see [§9 Run profile management](#9-run-profile-management-db-backed)).
+
+Two screens are intentionally hidden from the sidebar to keep the day-to-day surface tight, but stay reachable by URL when you need the long form:
+
+- **Run Profile (advanced)** — `http://localhost:8501/run_profile` — every `RunProfile` field, including sensitivity defaults and `run_label`.
+- **SMR Catalogue (advanced)** — `http://localhost:8501/smr_catalogue` — every `smr_designs` field (cooling, EPZ, regulatory status, …) for every design, in scope or not.
 
 **Use a different port** (e.g. 8501 is already taken)
 
@@ -248,9 +254,9 @@ Then open **http://localhost:8501** on your **local** machine while the app runs
 
 ---
 
-## 8. Database (when you need live country / SMR lists)
+## 8. Database (required for the GUI)
 
-The **Run profile** page queries Postgres for countries and SMR designs. Ensure:
+The GUI talks to Postgres for **every** page now: country / SMR catalogues, threshold overrides, **and** the active run profile. Ensure:
 
 1. `.env` in the repo root contains your DB settings (see project `README.md`).
 2. You export anything your deployment needs, e.g.:
@@ -259,7 +265,60 @@ The **Run profile** page queries Postgres for countries and SMR designs. Ensure:
    export POSTGRES_DB=atoms_vs_ashes_merged
    ```
 
-3. Start the GUI **from the repo root** with the venv activated so relative paths like `config/run_profiles/` resolve correctly.
+3. Run migrations the first time and after every pull:
+
+   ```bash
+   ./.venv/bin/python -m alembic upgrade head
+   ```
+
+   Alembic revision **039** creates and seeds the singleton `active_run_profile` row that backs the **Run Profile** page.
+
+4. Start the GUI **from the repo root** with the venv activated so relative paths like `audit/.runtime/` resolve correctly.
+
+---
+
+## 9. Run profile management (DB-backed)
+
+The repo no longer ships hand-edited `config/run_profiles/*.yaml` presets. The **active run profile** is one row in the `active_run_profile` Postgres table (alembic 039). The GUI is the source of truth: every page reads from the row, and **Overview** (with *Run Profile (advanced)* as a fallback) is the only writer.
+
+### Workflow — Overview screen (primary)
+
+1. Open **Overview** (the home screen, also reachable via `http://localhost:8501/`).
+2. Edit the day-to-day knobs inline:
+   - **Scope**: `Countries` and `SMR designs` multiselects (empty = all).
+   - **SMR design parameters (in scope)**: a focused `data_editor` for the four required `smr_designs` fields — `smr_key` (read-only), `name`, `capacity (MWe)`, `land (ha)`. Edit and click **Save SMR designs** to persist to the `smr_designs` table.
+   - **Scoring**: `Qualification mode` (radio with rich info-icon explanation), `Top-N per country` (number input), `Near-miss gap %` (slider with rich info-icon explanation).
+   - **Advanced (rare)** expander — `weight_profile`, `expert_override`, `notes`, `scope.site_ids`, the `unscored_*` knobs, `weight_overrides`, and the `output.stamp` slug. Most users never open this.
+3. The page shows an **Unsaved changes** badge when widget values diverge from the DB row.
+4. Click **Save active profile**. The new profile is validated (Pydantic + bounds) and upserted into the DB. Other pages re-read on their next render.
+5. Click **Discard changes & reload from DB** to throw away unsaved widget edits and pull the live row again.
+
+The Overview hides — and persists unchanged — the fields that have a single sensible value: `run_label` (auto-stamped slug), `db_profile` (always `merged`), `spec_dir` (`config/scoring_specs`), `output.audit_dir`, `output.report_dir`, every `sensitivity.*` field, and `scope.site_status_in`. Edit them on *Run Profile (advanced)* if needed.
+
+### Workflow — Run Profile (advanced) screen (fallback)
+
+`http://localhost:8501/run_profile` shows the full inline editor for every `RunProfile` field, organised into expanders for *Run identity*, *Pipeline*, *Scope*, *Scoring*, *Sensitivity*, *Output*. It is hidden from the sidebar but still routable; use it when you need to edit a hidden field (e.g. tweak `mc_iterations` for a one-off sensitivity stress).
+
+`fail_thresholds` stays on the **Threshold Editor** page (it has its own per-row preview and bounds-checking).
+
+### How runs are launched
+
+The CLI engine still consumes a YAML profile. When you press **Start scoring** / **Start sensitivity** on the Run Dashboard, the GUI:
+
+1. Loads the live `active_run_profile` row from the DB.
+2. Serialises it to `audit/.runtime/active_profile.<run_id>.yaml`.
+3. Passes that path to `score run --profile …`.
+4. Prunes any `audit/.runtime/active_profile.*.yaml` files older than 24 h (in-flight runs are kept regardless).
+
+The transient YAML is what gets fingerprinted in run provenance, so audits stay byte-identical to a CLI run that pointed at the same content directly.
+
+### SMR Catalogue scope filter
+
+The **SMR Catalogue (advanced)** page (`/smr_catalogue`, hidden from the sidebar) defaults to showing only the SMRs in `scope.smr_keys` of the active profile. Toggle **Show all designs (out-of-scope)** at the top of the page to edit / inspect every row in the DB regardless of scope. A blue banner reminds you when the filter is active. For day-to-day edits to the four required fields (`name`, `capacity_mwe`, `land_requirement_ha`) of the in-scope designs, prefer the inline mini-editor on the Overview screen.
+
+### Recovering a broken row
+
+If the singleton row is somehow deleted or corrupted, every page surfaces an explicit error message. Re-seed by running `./.venv/bin/python -m alembic downgrade 038 && ./.venv/bin/python -m alembic upgrade head` (this re-applies revision 039 and re-inserts the seed payload).
 
 ---
 

@@ -111,7 +111,7 @@ def _country_balance_panel(rows: list[dict] | None) -> None:
 
 
 def render() -> None:
-    st.title("Sensitivity — four-panel view")
+    st.title("Sensitivity")
     profile = get_profile()
     audit_dir = (profile.output.audit_dir if profile else "audit/post_processing/06_scoring")
     chosen = metrics_picker_widget(audit_dir, key="sens_metrics_pick")

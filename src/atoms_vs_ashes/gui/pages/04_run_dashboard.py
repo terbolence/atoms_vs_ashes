@@ -1,10 +1,14 @@
 # man_hours: 1.5
-"""Page 4 — Start / stop scoring + sensitivity, live heartbeat progress."""
+"""Page 4 — Start / stop scoring + sensitivity, live heartbeat progress.
+
+The runner pulls the active :class:`RunProfile` from the DB on each
+launch and exports it to a transient YAML the engine can consume —
+the user no longer picks a YAML in the UI.
+"""
 
 from __future__ import annotations
 
 import time
-from pathlib import Path
 
 import streamlit as st
 
@@ -53,6 +57,8 @@ def _render_handle(label: str, handle_key: str) -> None:
         f"**Run id:** `{handle.run_id}`  •  PID `{handle.pid}`  •  "
         f"started {time.strftime('%H:%M:%S', time.localtime(handle.started_at))}"
     )
+    if handle.profile_path is not None:
+        st.caption(f"Run profile snapshot: `{handle.profile_path}`")
     running = handle.is_running()
     cols = st.columns(3)
     cols[0].metric("Status", "running" if running else "finished")
@@ -77,11 +83,20 @@ def _render_handle(label: str, handle_key: str) -> None:
             st.rerun()
 
 
-def _scoring_section(profile_path: Path) -> None:
+def _in_flight_run_ids() -> list[str]:
+    out: list[str] = []
+    for key in ("score_handle", "sens_handle"):
+        h: RunHandle | None = st.session_state.get(key)
+        if h is not None and h.is_running():
+            out.append(h.run_id)
+    return out
+
+
+def _scoring_section() -> None:
     st.subheader("Scoring run")
     profile = get_profile()
     if profile is None:
-        st.warning("No profile loaded.")
+        st.warning("No active profile loaded from DB.")
         return
     cols = st.columns([2, 1])
     weight = cols[0].text_input(
@@ -91,7 +106,10 @@ def _scoring_section(profile_path: Path) -> None:
     )
     if cols[1].button("Start scoring", type="primary"):
         try:
-            handle = start_score_run(profile_path, weight_profile=weight)
+            handle = start_score_run(
+                weight_profile=weight,
+                keep_run_ids=_in_flight_run_ids(),
+            )
             st.session_state["score_handle"] = handle
             st.toast(f"Started {handle.run_id}")
         except Exception as exc:  # noqa: BLE001
@@ -99,7 +117,7 @@ def _scoring_section(profile_path: Path) -> None:
     _render_handle("scoring", "score_handle")
 
 
-def _sensitivity_section(profile_path: Path) -> None:
+def _sensitivity_section() -> None:
     st.subheader("Sensitivity run")
     profile = get_profile()
     if profile is None:
@@ -128,12 +146,12 @@ def _sensitivity_section(profile_path: Path) -> None:
     if st.button("Start sensitivity", type="primary"):
         try:
             handle = start_sensitivity_run(
-                profile_path,
                 weight_profile=weight,
                 iterations=int(iterations),
                 include=include,
                 seed=int(seed),
                 audit_dir=profile.output.audit_dir,
+                keep_run_ids=_in_flight_run_ids(),
             )
             st.session_state["sens_handle"] = handle
             st.toast(f"Started {handle.run_id}")
@@ -143,18 +161,24 @@ def _sensitivity_section(profile_path: Path) -> None:
 
 
 def render() -> None:
-    st.title("Run dashboard")
+    st.title("Run Dashboard")
     _ensure_run_state()
     profile = get_profile()
     if profile is None:
-        st.info("Load a Run Profile to enable the run buttons.")
+        st.error(
+            "Active run profile is missing from the database. "
+            "Run `./.venv/bin/python -m alembic upgrade head` to seed it."
+        )
         return
-    profile_path = Path(st.session_state.get("profile_path") or "config/run_profiles/baseline.yaml")
-    st.caption(f"Profile: `{profile_path}`")
+    st.caption(
+        "Active profile is loaded from the `active_run_profile` DB row. "
+        "Edit it on the **Run Profile** page; each run launch writes a "
+        "transient YAML snapshot under `audit/.runtime/`."
+    )
 
-    _scoring_section(profile_path)
+    _scoring_section()
     st.divider()
-    _sensitivity_section(profile_path)
+    _sensitivity_section()
 
     if st.toggle("Auto-refresh every 3s", value=False):
         time.sleep(3)

@@ -13,26 +13,30 @@ from sqlalchemy.orm import Session
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.models import SmrDesign
 from atoms_vs_ashes.gui import _data as gui_data
+from atoms_vs_ashes.gui._state import get_profile
 
 
-def _load_df(session: Session) -> pd.DataFrame:
-    rows = session.execute(
-        select(
-            SmrDesign.smr_key,
-            SmrDesign.name,
-            SmrDesign.capacity_mwe,
-            SmrDesign.land_requirement_ha,
-            SmrDesign.thermal_output_mwt,
-            SmrDesign.epz_radius_km,
-            SmrDesign.module_weight_t,
-            SmrDesign.cooling_type,
-            SmrDesign.design_life_yr,
-            SmrDesign.regulatory_status,
-            SmrDesign.exclusion_zone_radius_m,
-            SmrDesign.cooling_water_demand_m3_per_h,
-            SmrDesign.notes,
-        ).order_by(SmrDesign.smr_key)
-    ).all()
+def _load_df(
+    session: Session, *, smr_keys: list[str] | None = None
+) -> pd.DataFrame:
+    stmt = select(
+        SmrDesign.smr_key,
+        SmrDesign.name,
+        SmrDesign.capacity_mwe,
+        SmrDesign.land_requirement_ha,
+        SmrDesign.thermal_output_mwt,
+        SmrDesign.epz_radius_km,
+        SmrDesign.module_weight_t,
+        SmrDesign.cooling_type,
+        SmrDesign.design_life_yr,
+        SmrDesign.regulatory_status,
+        SmrDesign.exclusion_zone_radius_m,
+        SmrDesign.cooling_water_demand_m3_per_h,
+        SmrDesign.notes,
+    ).order_by(SmrDesign.smr_key)
+    if smr_keys:
+        stmt = stmt.where(SmrDesign.smr_key.in_(smr_keys))
+    rows = session.execute(stmt).all()
     if not rows:
         return pd.DataFrame(
             columns=[
@@ -96,15 +100,47 @@ def _validate_row(
 
 
 def render() -> None:
-    st.title("SMR catalogue")
+    st.title("SMR Catalogue")
     st.caption(
         "DB is the source-of-truth for SMR specs. Edit values here; "
         "Run Profile, Threshold Editor, and BF-01/BF-02 screening re-read "
         "on the next action."
     )
 
+    profile = get_profile()
+    scope_keys = list(profile.scope.smr_keys) if profile is not None else []
+
+    show_all = st.toggle(
+        "Show all designs (out-of-scope)",
+        value=not bool(scope_keys),
+        help=(
+            "Default view shows only the SMR designs in the active run "
+            "profile's scope. Toggle on to edit / inspect every row in the "
+            "database, regardless of scope."
+        ),
+        key="smr_cat_show_all",
+    )
+    apply_filter = bool(scope_keys) and not show_all
+    if apply_filter:
+        st.info(
+            "Filtered to active scope: "
+            + ", ".join(f"`{k}`" for k in scope_keys)
+            + ". Toggle **Show all designs** above to edit out-of-scope rows."
+        )
+    elif scope_keys and show_all:
+        st.caption(
+            "Showing every SMR design — active scope keeps "
+            f"{len(scope_keys)} key(s): "
+            + ", ".join(f"`{k}`" for k in scope_keys)
+        )
+    else:
+        st.caption("No SMR scope set on the active profile — showing every design.")
+
     with session_scope() as session:
-        df0 = _load_df(session)
+        df0 = _load_df(
+            session,
+            smr_keys=scope_keys if apply_filter else None,
+        )
 
     st.subheader("Designs")
     edited = st.data_editor(
@@ -140,7 +176,7 @@ def render() -> None:
             "regulatory_status": st.column_config.TextColumn("regulatory", max_chars=200),
             "notes": st.column_config.TextColumn("notes", max_chars=2000),
         },
-        key="smr_cat_editor",
+        key=f"smr_cat_editor_{'scoped' if apply_filter else 'all'}",
     )
 
     c1, c2 = st.columns(2)
@@ -211,3 +247,6 @@ def _s_or_none(v: object) -> str | None:
         return None
     s = str(v).strip()
     return s or None
+
+
+render()

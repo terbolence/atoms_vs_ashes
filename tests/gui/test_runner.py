@@ -1,21 +1,31 @@
-# man_hours: 0.5
-"""Unit tests for the GUI subprocess runner contract."""
+# man_hours: 1.0
+"""Unit tests for the GUI subprocess runner contract.
+
+Covers the heartbeat/log helpers (unchanged) and the DB→YAML profile
+export plus runtime cleanup added when the GUI moved to the
+``active_run_profile`` DB row (alembic 039).
+"""
 
 from __future__ import annotations
 
 import json
 import os
+import time
 from pathlib import Path
 
 import pytest
+import yaml
 
 from atoms_vs_ashes.gui import _runner
 from atoms_vs_ashes.gui._runner import (
     RunHandle,
     cancel_run,
+    cleanup_stale_runtime_profiles,
+    export_active_profile_to_yaml,
     read_heartbeat,
     read_log_tail,
 )
+from atoms_vs_ashes.runprofile.schema import RunProfile, ScopeBlock
 
 
 def _make_handle(tmp_path: Path) -> RunHandle:
@@ -23,8 +33,20 @@ def _make_handle(tmp_path: Path) -> RunHandle:
     cancel = tmp_path / "cancel"
     log = tmp_path / "log.txt"
     return RunHandle(
-        run_id="run-x", cmd=["echo"], pid=os.getpid(),
-        heartbeat_path=hb, cancel_flag_path=cancel, log_path=log,
+        run_id="run-x",
+        cmd=["echo"],
+        pid=os.getpid(),
+        heartbeat_path=hb,
+        cancel_flag_path=cancel,
+        log_path=log,
+    )
+
+
+def _profile_for_test() -> RunProfile:
+    return RunProfile(
+        run_label="ro_focus_test",
+        scope=ScopeBlock(countries=["RO"], smr_keys=["nuscale_voygr6"]),
+        notes="from test_runner",
     )
 
 
@@ -73,18 +95,6 @@ def test_handle_running_check_uses_pid(tmp_path: Path) -> None:
     assert handle.is_running() is False
 
 
-def test_resolve_spec_dir_falls_back_for_invalid_yaml(tmp_path: Path) -> None:
-    bad = tmp_path / "broken.yaml"
-    bad.write_text("not: a profile\n")
-    assert _runner._resolve_spec_dir(bad) == Path("config/scoring_rubrics")
-
-
-def test_resolve_spec_dir_uses_profile_field(tmp_path: Path) -> None:
-    yaml_path = tmp_path / "p.yaml"
-    yaml_path.write_text("run_label: t\nspec_dir: config/scoring_specs\n")
-    assert _runner._resolve_spec_dir(yaml_path) == Path("config/scoring_specs")
-
-
 def test_new_run_id_is_unique() -> None:
     a = _runner._new_run_id("score")
     b = _runner._new_run_id("score")
@@ -92,8 +102,49 @@ def test_new_run_id_is_unique() -> None:
     assert a.startswith("score-")
 
 
-def test_runs_root_creates_directory(tmp_path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_runs_root_creates_directory(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.chdir(tmp_path)
     root = _runner._runs_root()
     assert root.is_dir()
     assert root == Path(".cursor/.atoms_runs")
+
+
+def test_export_active_profile_writes_round_trippable_yaml(tmp_path: Path) -> None:
+    profile = _profile_for_test()
+    path = export_active_profile_to_yaml(
+        "score-deadbeef", profile=profile, runtime_dir=tmp_path
+    )
+    assert path.is_file()
+    assert path.name == "active_profile.score-deadbeef.yaml"
+    payload = yaml.safe_load(path.read_text())
+    reloaded = RunProfile.model_validate(payload)
+    assert reloaded.run_label == "ro_focus_test"
+    assert reloaded.scope.countries == ["RO"]
+    assert reloaded.notes == "from test_runner"
+
+
+def test_cleanup_removes_stale_files_but_keeps_active_runs(tmp_path: Path) -> None:
+    fresh = export_active_profile_to_yaml(
+        "score-fresh", profile=_profile_for_test(), runtime_dir=tmp_path
+    )
+    stale = tmp_path / "active_profile.score-stale.yaml"
+    stale.write_text("placeholder")
+    very_old = time.time() - 25 * 3600
+    os.utime(stale, (very_old, very_old))
+    in_flight = tmp_path / "active_profile.score-inflight.yaml"
+    in_flight.write_text("placeholder")
+    os.utime(in_flight, (very_old, very_old))
+
+    removed = cleanup_stale_runtime_profiles(
+        runtime_dir=tmp_path,
+        keep_run_ids={"score-inflight"},
+    )
+    assert stale not in [p for p in tmp_path.iterdir()]
+    assert in_flight in list(tmp_path.iterdir())
+    assert fresh in list(tmp_path.iterdir())
+    assert {p.name for p in removed} == {"active_profile.score-stale.yaml"}
+
+
+def test_cleanup_skips_when_directory_missing(tmp_path: Path) -> None:
+    missing = tmp_path / "nope"
+    assert cleanup_stale_runtime_profiles(runtime_dir=missing) == []

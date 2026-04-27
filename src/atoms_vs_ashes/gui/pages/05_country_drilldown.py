@@ -105,7 +105,7 @@ def _top_n_panel(metrics: LoadedMetrics, country: str) -> None:
 
 
 def render() -> None:
-    st.title("Country drill-down")
+    st.title("Country Drill-Down")
     profile = get_profile()
     audit_dir = (profile.output.audit_dir if profile else "audit/post_processing/06_scoring")
     chosen = metrics_picker_widget(audit_dir, key="drill_metrics_pick")

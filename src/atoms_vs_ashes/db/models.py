@@ -212,6 +212,29 @@ class ThresholdOverride(Base):
     updated_by: Mapped[str | None] = mapped_column(String(200))
 
 
+class ActiveRunProfile(Base):
+    """Singleton DB row holding the GUI's current ``RunProfile`` (JSONB).
+
+    The GUI is the only writer; on each Save the entire serialized
+    ``RunProfile`` is upserted under ``id='active'``. The CLI engine
+    keeps consuming YAML — :mod:`atoms_vs_ashes.gui._runner` exports
+    this row to a transient YAML at run-launch.
+    """
+
+    __tablename__ = "active_run_profile"
+
+    id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    profile: Mapped[dict] = mapped_column(JSONB, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_utcnow, onupdate=_utcnow
+    )
+    updated_by: Mapped[str | None] = mapped_column(String(200))
+
+    __table_args__ = (
+        CheckConstraint("id = 'active'", name="ck_active_run_profile_singleton"),
+    )
+
+
 # ---------------------------------------------------------------------------
 # Core tables
 # ---------------------------------------------------------------------------

@@ -84,7 +84,7 @@ criteria:
       - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none'] and depth_to_bedrock_m <= 0.6", descriptor: "Negligible susceptibility; rock within 0.6 m."}
       - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low' and bearing_capacity_kpa > 200", descriptor: "Low susceptibility; competent strata 0.6-2 m; bearing > 200 kPa."}
       - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)", descriptor: "Moderate susceptibility or GW 0-3 m with low PGA."}
-      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and has_remedy == true", descriptor: "High but mitigation plausible; data weak."}
+      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'high' and has_remedy == true", descriptor: "High susceptibility with documented mitigation; viable but cost/risk penalty."}
       - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high'", descriptor: "Very high with high PGA and shallow GW; remedy uncertain."}
       - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "E2 confirmed."}
     fail_conditions:

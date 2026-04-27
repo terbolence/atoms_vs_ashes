@@ -93,19 +93,10 @@ def build_live_preview(profile: RunProfile, spec_dir: str) -> PreviewBundle:
     return build_preview(bundle, profile, spec_dir=spec_dir)
 
 
-def list_run_profiles() -> list[Path]:
-    """All ``config/run_profiles/*.yaml`` under the repo root."""
-    root = Path("config/run_profiles")
-    if not root.is_dir():
-        return []
-    return sorted(root.glob("*.yaml"))
-
-
 __all__ = [
     "build_live_preview",
     "discover_metrics_files",
     "list_countries",
-    "list_run_profiles",
     "list_site_statuses",
     "list_smrs",
     "load_template_bundle_cached",

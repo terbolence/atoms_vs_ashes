@@ -15,7 +15,7 @@ from atoms_vs_ashes.gui._state import get_profile
 
 
 def render() -> None:
-    st.title("Near-miss sites")
+    st.title("Near Miss")
     profile = get_profile()
     audit_dir = (profile.output.audit_dir if profile else "audit/post_processing/06_scoring")
     chosen = metrics_picker_widget(audit_dir, key="near_miss_pick")

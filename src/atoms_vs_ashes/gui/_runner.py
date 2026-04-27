@@ -7,6 +7,15 @@ trivial: the GUI writes the sentinel file via the
 ``FileWatchedCancellationToken`` protocol the engine already polls
 (plan §7). The Streamlit page only consumes the heartbeat JSONL the
 child appends to disk, leaving the engine code untouched.
+
+Profile transport
+=================
+The engine still consumes a YAML run profile. The GUI keeps the live
+profile in the ``active_run_profile`` DB row (alembic 039); on each
+run-launch we serialise that row to
+``audit/.runtime/active_profile.<run_id>.yaml`` and pass the path to
+``score run --profile``. Stale transients (older than 24h) are pruned
+on every launch so the directory stays tidy.
 """
 
 from __future__ import annotations
@@ -22,6 +31,17 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable
 
+import yaml
+
+from atoms_vs_ashes.db.active_profile import load_active_profile
+from atoms_vs_ashes.db.engine import session_scope
+from atoms_vs_ashes.runprofile.schema import RunProfile
+
+_RUNTIME_DIR = Path("audit/.runtime")
+_RUNTIME_PROFILE_PREFIX = "active_profile."
+_RUNTIME_PROFILE_SUFFIX = ".yaml"
+_RUNTIME_TTL_SECONDS = 24 * 60 * 60
+
 
 @dataclass
 class RunHandle:
@@ -33,6 +53,7 @@ class RunHandle:
     heartbeat_path: Path
     cancel_flag_path: Path
     log_path: Path
+    profile_path: Path | None = None
     started_at: float = field(default_factory=time.time)
     returncode: int | None = None
 
@@ -54,43 +75,124 @@ def _runs_root() -> Path:
     return root
 
 
+def _runtime_root() -> Path:
+    _RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+    return _RUNTIME_DIR
+
+
 def _new_run_id(prefix: str) -> str:
     return f"{prefix}-{uuid.uuid4().hex[:8]}"
 
 
-def start_score_run(profile_path: Path, *, weight_profile: str) -> RunHandle:
-    """Launch ``score run`` as a detached child process."""
+def _load_active_profile() -> RunProfile:
+    """Pull the live :class:`RunProfile` from the DB singleton row."""
+    with session_scope() as session:
+        return load_active_profile(session)
+
+
+def export_active_profile_to_yaml(
+    run_id: str,
+    *,
+    profile: RunProfile | None = None,
+    runtime_dir: Path | None = None,
+) -> Path:
+    """Serialise the active DB profile to a per-run YAML the engine can read.
+
+    ``profile`` may be passed in for tests; in normal use the runner
+    pulls the row from the DB itself. Returns the path to the written
+    YAML — caller is responsible for treating it as transient.
+    """
+    p = profile if profile is not None else _load_active_profile()
+    target_dir = runtime_dir if runtime_dir is not None else _runtime_root()
+    target_dir.mkdir(parents=True, exist_ok=True)
+    path = target_dir / f"{_RUNTIME_PROFILE_PREFIX}{run_id}{_RUNTIME_PROFILE_SUFFIX}"
+    payload = p.model_dump(mode="json")
+    path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
+    return path
+
+
+def cleanup_stale_runtime_profiles(
+    *,
+    runtime_dir: Path | None = None,
+    ttl_seconds: float = _RUNTIME_TTL_SECONDS,
+    keep_run_ids: Iterable[str] = (),
+) -> list[Path]:
+    """Delete transient ``active_profile.*.yaml`` files older than ``ttl_seconds``.
+
+    Returns the list of removed paths. ``keep_run_ids`` always survives
+    regardless of age (so an in-flight run keeps its YAML).
+    """
+    target_dir = runtime_dir if runtime_dir is not None else _RUNTIME_DIR
+    if not target_dir.is_dir():
+        return []
+    keep = {str(rid) for rid in keep_run_ids}
+    now = time.time()
+    removed: list[Path] = []
+    for entry in target_dir.glob(f"{_RUNTIME_PROFILE_PREFIX}*{_RUNTIME_PROFILE_SUFFIX}"):
+        rid = entry.name[
+            len(_RUNTIME_PROFILE_PREFIX) : -len(_RUNTIME_PROFILE_SUFFIX)
+        ]
+        if rid in keep:
+            continue
+        try:
+            age = now - entry.stat().st_mtime
+        except OSError:
+            continue
+        if age >= ttl_seconds:
+            try:
+                entry.unlink()
+                removed.append(entry)
+            except OSError:
+                continue
+    return removed
+
+
+def start_score_run(
+    *,
+    weight_profile: str | None = None,
+    profile: RunProfile | None = None,
+    keep_run_ids: Iterable[str] = (),
+) -> RunHandle:
+    """Launch ``score run`` against the active DB profile."""
     run_id = _new_run_id("score")
-    return _start_command(
+    yaml_path = export_active_profile_to_yaml(run_id, profile=profile)
+    cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
+    weight = weight_profile or (profile or _load_active_profile()).weight_profile
+    cmd = [
+        sys.executable,
+        "-m",
+        "atoms_vs_ashes",
+        "--run-id",
         run_id,
-        [
-            sys.executable,
-            "-m",
-            "atoms_vs_ashes",
-            "--run-id",
-            run_id,
-            "score",
-            "run",
-            "--weight-profile",
-            weight_profile,
-            "--profile",
-            str(profile_path.resolve()),
-        ],
-    )
+        "score",
+        "run",
+        "--weight-profile",
+        weight,
+        "--profile",
+        str(yaml_path.resolve()),
+    ]
+    return _start_command(run_id, cmd, profile_path=yaml_path)
 
 
 def start_sensitivity_run(
-    profile_path: Path,
     *,
-    weight_profile: str,
+    weight_profile: str | None = None,
+    profile: RunProfile | None = None,
     iterations: int | None = None,
     include: Iterable[str] = ("weights", "mc", "country"),
-    seed: int = 42,
-    audit_dir: str = "audit/post_processing/06_scoring",
+    seed: int | None = None,
+    audit_dir: str | None = None,
     no_progress: bool = True,
+    keep_run_ids: Iterable[str] = (),
 ) -> RunHandle:
-    """Launch ``score sensitivity`` as a detached child process."""
+    """Launch ``score sensitivity`` against the active DB profile."""
     run_id = _new_run_id("sens")
+    active = profile if profile is not None else _load_active_profile()
+    yaml_path = export_active_profile_to_yaml(run_id, profile=active)
+    cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
+    weight = weight_profile or active.weight_profile
+    seed_val = seed if seed is not None else int(active.sensitivity.mc_seed)
+    audit = audit_dir or active.output.audit_dir
     cmd = [
         sys.executable,
         "-m",
@@ -100,13 +202,13 @@ def start_sensitivity_run(
         "score",
         "sensitivity",
         "--weight-profile-base",
-        weight_profile,
+        weight,
         "--rubric-dir",
-        str(_resolve_spec_dir(profile_path)),
+        str(Path(active.spec_dir)),
         "--audit-dir",
-        audit_dir,
+        audit,
         "--seed",
-        str(seed),
+        str(seed_val),
     ]
     if iterations is not None:
         cmd += ["--mc-draws", str(iterations)]
@@ -114,21 +216,15 @@ def start_sensitivity_run(
         cmd += ["--include", stage]
     if no_progress:
         cmd += ["--no-progress"]
-    return _start_command(run_id, cmd)
+    return _start_command(run_id, cmd, profile_path=yaml_path)
 
 
-def _resolve_spec_dir(profile_path: Path) -> Path:
-    """Best-effort spec/rubric dir lookup (falls back to legacy rubric dir)."""
-    try:
-        from atoms_vs_ashes.runprofile import parse_run_profile
-
-        profile, _ = parse_run_profile(profile_path)
-        return Path(profile.spec_dir)
-    except Exception:
-        return Path("config/scoring_rubrics")
-
-
-def _start_command(run_id: str, cmd: list[str]) -> RunHandle:
+def _start_command(
+    run_id: str,
+    cmd: list[str],
+    *,
+    profile_path: Path | None = None,
+) -> RunHandle:
     root = _runs_root()
     hb = root / f"{run_id}.heartbeat.jsonl"
     cancel = root / f"{run_id}.cancel"
@@ -148,6 +244,7 @@ def _start_command(run_id: str, cmd: list[str]) -> RunHandle:
         heartbeat_path=hb,
         cancel_flag_path=cancel,
         log_path=log,
+        profile_path=profile_path,
     )
 
 
@@ -198,6 +295,8 @@ def read_log_tail(handle: RunHandle, *, max_bytes: int = 4096) -> str:
 __all__ = [
     "RunHandle",
     "cancel_run",
+    "cleanup_stale_runtime_profiles",
+    "export_active_profile_to_yaml",
     "kill_run",
     "read_heartbeat",
     "read_log_tail",
