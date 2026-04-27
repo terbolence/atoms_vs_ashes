@@ -28,6 +28,7 @@ from atoms_vs_ashes.gui._threshold_editor_palette import (
     criterion_expander_label,
     fc_accent_bar,
 )
+from atoms_vs_ashes.gui._threshold_editor_weight import criterion_weight_input
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.threshold_overrides import save_threshold_rows
 from atoms_vs_ashes.runprofile.schema import RunProfile
@@ -241,6 +242,8 @@ def save_one_threshold(
 
 def criterion_card(crit: CriterionPreview, expert_override: bool) -> None:
     with st.expander(criterion_expander_label(crit), expanded=False):
+        criterion_weight_input(crit)
+        st.divider()
         editable = [fc for fc in crit.fail_codes if fc.user_editable]
         if not editable:
             st.caption("No user-editable fail-thresholds for this criterion.")

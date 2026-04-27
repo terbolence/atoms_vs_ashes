@@ -237,12 +237,15 @@ def run_sensitivity_suite(
                 )
     except CancellationRequested as exc:
         cancelled_reason = exc.reason or "requested"
-        notes.append(f"cancelled:{cancelled_reason}")
         log.warning(
             "sensitivity_suite_cancelled", run_id=run_id, reason=cancelled_reason,
             weight_rows=weight_rows, mc_rows=mc_rows,
             country_rows=country_rows, threshold_rows=threshold_rows,
         )
+        # Propagate so session_scope rolls back any partial sensitivity
+        # rows that were merged before the user hit Cancel — there is no
+        # "partial sensitivity result" the engine wants to persist.
+        raise
 
     session.flush()
 

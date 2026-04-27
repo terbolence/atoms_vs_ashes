@@ -100,8 +100,8 @@ class ScoringEngine:
             self.bundle = bundle
         else:
             self.bundle = load_rubric_bundle(self.rubric_dir)
-        self.weights = weights if weights is not None else weight_normalisation(
-            self.bundle, profile=weight_profile
+        self.weights = weights if weights is not None else (
+            weight_normalisation(self.bundle, profile=weight_profile)
         )
         self.dataset_meta = dataset_meta
         self.cancellation = cancellation
@@ -223,12 +223,12 @@ class ScoringEngine:
             dataset_meta=self.dataset_meta,
         )
         log.info(
-            "scoring_run_start", run_id=run_id, sites=len(sites),
-            smrs=len(smrs), criteria=len(self.bundle),
-            weight_profile=self.weight_profile,
+            "scoring_run_start", run_id=run_id, sites=len(sites), smrs=len(smrs),
+            criteria=len(self.bundle), weight_profile=self.weight_profile,
         )
         per_site_units = max(1, len(smrs)) * max(1, len(self.bundle))
         total_units = len(sites) * per_site_units
+        total_sites = len(sites)
         try:
             with ProgressReporter(
                 total=total_units,
@@ -252,24 +252,18 @@ class ScoringEngine:
             write_scoring_audit(self.session, summary)
             complete_run(self.session, run_handle, status="completed")
         except CancellationRequested as exc:
-            self.session.flush()
-            write_scoring_audit(self.session, summary)
-            complete_run(self.session, run_handle, status="cancelled")
-            summary.warnings.append(f"cancelled:{exc.reason or 'requested'}")
-            log.warning(
-                "scoring_run_cancelled", run_id=run_id, reason=exc.reason,
-                ranking_rows=summary.ranking_rows,
-                verdict_rows=summary.verdict_rows,
-            )
+            # Tick the GUI with "cancelled" first, then re-raise so
+            # session_scope rolls back every staged row.
+            log.warning("scoring_run_cancelled", run_id=run_id, reason=exc.reason)
             end_heartbeat(
-                self.heartbeat, stage="scoring",
-                processed=summary.ranking_rows + summary.verdict_rows,
-                total=total_units, message="cancelled",
+                self.heartbeat, stage="scoring", processed=0,
+                total=total_sites, message="cancelled", unit="sites",
             )
-            return summary
+            raise
         end_heartbeat(
             self.heartbeat, stage="scoring",
-            processed=total_units, total=total_units, message="completed",
+            processed=total_sites, total=total_sites,
+            message="completed", unit="sites",
         )
         log.info(
             "scoring_run_complete", run_id=run_id,
@@ -297,12 +291,10 @@ def run_scoring(
 ) -> ScoringSummary:
     """Top-level helper wrapping :class:`ScoringEngine`."""
     engine = ScoringEngine(
-        session, settings=settings,
-        rubric_dir=rubric_dir, weight_profile=weight_profile,
-        scope=scope, bundle=bundle, smr_bundles=smr_bundles, weights=weights,
-        dataset_meta=dataset_meta,
-        cancellation=cancellation,
-        heartbeat=heartbeat,
+        session, settings=settings, rubric_dir=rubric_dir,
+        weight_profile=weight_profile, scope=scope, bundle=bundle,
+        smr_bundles=smr_bundles, weights=weights, dataset_meta=dataset_meta,
+        cancellation=cancellation, heartbeat=heartbeat,
         progress_enabled=progress_enabled,
     )
     return engine.run(run_id=run_id)

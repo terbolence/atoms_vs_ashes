@@ -71,10 +71,12 @@ def score_sites(
         ),
     )
     total_units = len(sites) * per_site_units
+    total_sites = len(sites)
     if heartbeat is not None:
         heartbeat.start_stage(
-            "scoring", total=total_units,
-            message=f"sites={len(sites)} smrs={len(smrs)}",
+            "scoring", total=total_sites,
+            message=f"sites={total_sites} smrs={len(smrs)}",
+            unit="sites",
         )
     for idx, site in enumerate(sites, start=1):
         if cancellation is not None:
@@ -102,9 +104,10 @@ def score_sites(
         if heartbeat is not None:
             heartbeat.tick(
                 "scoring",
-                processed=idx * per_site_units,
-                total=total_units,
+                processed=idx,
+                total=total_sites,
                 message=f"site={site.country_code}-{(site.name or '')[:24]}",
+                unit="sites",
             )
     return rows_by_pair, verdicts_by_pair
 
@@ -162,6 +165,7 @@ def end_heartbeat(
     processed: int,
     total: int,
     message: str,
+    unit: str = "items",
 ) -> None:
     """Emit a final stage tick when ``heartbeat`` is configured.
 
@@ -171,7 +175,7 @@ def end_heartbeat(
     if heartbeat is None:
         return
     heartbeat.end_stage(
-        stage, processed=processed, total=total, message=message
+        stage, processed=processed, total=total, message=message, unit=unit,
     )
 
 

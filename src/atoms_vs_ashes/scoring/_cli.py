@@ -18,18 +18,20 @@ import click
 from sqlalchemy import select
 
 from atoms_vs_ashes.db.engine import session_scope
-from atoms_vs_ashes.db.models import SmrDesign
-from atoms_vs_ashes.runprofile.loader import load_run_profile
-from atoms_vs_ashes.scoring._smr_bundles import smr_aware_criteria_bundles
+from atoms_vs_ashes.runtime.cancellation import CancellationRequested
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.runtime import install_sigint_handler
 from atoms_vs_ashes.scoring._cli_preview import preview_command
+from atoms_vs_ashes.scoring._cli_run import (
+    emit_cancelled_payload,
+    emit_summary_payload,
+    execute_score_run,
+)
 from atoms_vs_ashes.scoring._cli_runtime import (
     arm_cancel_flag,
     make_cancellation_token,
     make_heartbeat_writer,
 )
-from atoms_vs_ashes.scoring.engine import run_scoring
 from atoms_vs_ashes.scoring.sensitivity import MC_DEFAULT_ITERATIONS, MC_PRESETS
 from atoms_vs_ashes.scoring.suite import (
     DEFAULT_AUDIT_DIR,
@@ -115,62 +117,26 @@ def score_run(
     """Persist ranking_scores, composite_rankings and screening_verdicts."""
     run_id = (ctx.obj or {}).get("run_id")
     token = make_cancellation_token(cancel_flag)
-    with (
-        session_scope() as session,
-        make_heartbeat_writer(heartbeat_path) as hb,
-        install_sigint_handler(token),
-    ):
-        if profile_path is not None:
-            loaded = load_run_profile(profile_path, session=session)
-            smrs = list(
-                session.execute(
-                    select(SmrDesign).order_by(SmrDesign.smr_key)
-                ).scalars()
-            )
-            smr_bundles = smr_aware_criteria_bundles(
-                loaded.template_bundle, loaded.profile, smrs
-            )
-            from atoms_vs_ashes.scoring.rubric import weight_normalisation
-
-            w = weight_normalisation(
-                next(iter(smr_bundles.values())), profile=weight_profile
-            )
-            summary = run_scoring(
-                session,
-                rubric_dir=loaded.profile.spec_dir,
+    try:
+        with (
+            session_scope() as session,
+            make_heartbeat_writer(heartbeat_path) as hb,
+            install_sigint_handler(token),
+        ):
+            summary = execute_score_run(
+                session=session,
                 weight_profile=weight_profile,
-                run_id=run_id,
-                cancellation=token,
-                heartbeat=hb,
-                smr_bundles=smr_bundles,
-                weights=w,
-            )
-        else:
-            summary = run_scoring(
-                session,
                 rubric_dir=rubric_dir,
-                weight_profile=weight_profile,
+                profile_path=profile_path,
                 run_id=run_id,
-                cancellation=token,
-                heartbeat=hb,
+                token=token,
+                hb=hb,
             )
-    click.echo(
-        json.dumps(
-            {
-                "run_id": summary.run_id,
-                "weight_profile": summary.weight_profile,
-                "sites_processed": summary.sites_processed,
-                "smr_designs": summary.smr_designs,
-                "verdict_rows": summary.verdict_rows,
-                "ranking_rows": summary.ranking_rows,
-                "composite_rows": summary.composite_rows,
-                "excluded_pairs": summary.excluded_pairs,
-                "warnings": summary.warnings,
-            },
-            indent=2,
-            default=str,
-        )
-    )
+    except CancellationRequested as exc:
+        emit_cancelled_payload(run_id, exc, kind="scoring")
+        ctx.exit(0)
+        return
+    emit_summary_payload(summary)
 
 
 @score_group.command("sensitivity", help=_HELP)
@@ -267,46 +233,43 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
 
     include_set = set(include)
     cfg = SensitivitySuiteConfig(
-        iterations=iterations,
-        preset_label=preset_label,
+        iterations=iterations, preset_label=preset_label,
         include_weights="weights" in include_set,
         include_mc="mc" in include_set,
         include_country="country" in include_set,
         include_threshold="threshold" in include_set,
-        weight_profile_base=weight_profile_base,
-        seed=seed,
-        rubric_dir=rubric_dir,
-        audit_dir=Path(audit_dir),
-        progress_enabled=not no_progress,
-        top_n_country=top_n_country,
+        weight_profile_base=weight_profile_base, seed=seed,
+        rubric_dir=rubric_dir, audit_dir=Path(audit_dir),
+        progress_enabled=not no_progress, top_n_country=top_n_country,
     )
 
     run_id = (ctx.obj or {}).get("run_id") or "sensitivity"
-    click.echo(
-        json.dumps(
-            {
-                "message": "sensitivity_suite_starting",
-                "run_id": run_id,
-                "iterations": cfg.iterations,
-                "preset": cfg.preset_label,
-                "include": sorted(include_set),
-                "weight_profile_base": cfg.weight_profile_base,
-                "progress_enabled": cfg.progress_enabled,
-            },
-            indent=2,
-        ),
-    )
+    click.echo(json.dumps(
+        {
+            "message": "sensitivity_suite_starting", "run_id": run_id,
+            "iterations": cfg.iterations, "preset": cfg.preset_label,
+            "include": sorted(include_set),
+            "weight_profile_base": cfg.weight_profile_base,
+            "progress_enabled": cfg.progress_enabled,
+        },
+        indent=2,
+    ))
 
     token = make_cancellation_token(cancel_flag)
-    with (
-        session_scope() as session,
-        make_heartbeat_writer(heartbeat_path) as hb,
-        install_sigint_handler(token),
-    ):
-        result = run_sensitivity_suite(
-            session, cfg, run_id=run_id,
-            cancellation=token, heartbeat=hb,
-        )
+    try:
+        with (
+            session_scope() as session,
+            make_heartbeat_writer(heartbeat_path) as hb,
+            install_sigint_handler(token),
+        ):
+            result = run_sensitivity_suite(
+                session, cfg, run_id=run_id,
+                cancellation=token, heartbeat=hb,
+            )
+    except CancellationRequested as exc:
+        emit_cancelled_payload(run_id, exc, kind="sensitivity")
+        ctx.exit(0)
+        return
 
     click.echo(json.dumps(result.to_dict(), indent=2, default=str))
 

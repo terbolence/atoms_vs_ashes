@@ -55,14 +55,29 @@ class RunHandle:
     log_path: Path
     profile_path: Path | None = None
     started_at: float = field(default_factory=time.time)
+    finished_at: float | None = None
     returncode: int | None = None
+    proc: subprocess.Popen | None = field(default=None, repr=False, compare=False)
+
+    def _mark_finished(self, rc: int | None = None) -> None:
+        if rc is not None:
+            self.returncode = rc
+        if self.finished_at is None:
+            self.finished_at = time.time()
 
     def is_running(self) -> bool:
         if self.pid is None or self.returncode is not None:
             return False
+        if self.proc is not None:
+            rc = self.proc.poll()
+            if rc is not None:
+                self._mark_finished(rc)
+                return False
+            return True
         try:
             os.kill(self.pid, 0)
         except ProcessLookupError:
+            self._mark_finished()
             return False
         except PermissionError:
             return True
@@ -159,17 +174,10 @@ def start_score_run(
     cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
     weight = weight_profile or (profile or _load_active_profile()).weight_profile
     cmd = [
-        sys.executable,
-        "-m",
-        "atoms_vs_ashes",
-        "--run-id",
-        run_id,
-        "score",
-        "run",
-        "--weight-profile",
-        weight,
-        "--profile",
-        str(yaml_path.resolve()),
+        sys.executable, "-m", "atoms_vs_ashes",
+        "--run-id", run_id, "score", "run",
+        "--weight-profile", weight,
+        "--profile", str(yaml_path.resolve()),
     ]
     return _start_command(run_id, cmd, profile_path=yaml_path)
 
@@ -194,21 +202,11 @@ def start_sensitivity_run(
     seed_val = seed if seed is not None else int(active.sensitivity.mc_seed)
     audit = audit_dir or active.output.audit_dir
     cmd = [
-        sys.executable,
-        "-m",
-        "atoms_vs_ashes",
-        "--run-id",
-        run_id,
-        "score",
-        "sensitivity",
-        "--weight-profile-base",
-        weight,
-        "--rubric-dir",
-        str(Path(active.spec_dir)),
-        "--audit-dir",
-        audit,
-        "--seed",
-        str(seed_val),
+        sys.executable, "-m", "atoms_vs_ashes",
+        "--run-id", run_id, "score", "sensitivity",
+        "--weight-profile-base", weight,
+        "--rubric-dir", str(Path(active.spec_dir)),
+        "--audit-dir", audit, "--seed", str(seed_val),
     ]
     if iterations is not None:
         cmd += ["--mc-draws", str(iterations)]
@@ -232,19 +230,12 @@ def _start_command(
     cmd = cmd + ["--heartbeat-path", str(hb), "--cancel-flag", str(cancel)]
     log_fh = open(log, "w", encoding="utf-8")
     proc = subprocess.Popen(
-        cmd,
-        stdout=log_fh,
-        stderr=subprocess.STDOUT,
-        start_new_session=True,
+        cmd, stdout=log_fh, stderr=subprocess.STDOUT, start_new_session=True,
     )
     return RunHandle(
-        run_id=run_id,
-        cmd=cmd,
-        pid=proc.pid,
-        heartbeat_path=hb,
-        cancel_flag_path=cancel,
-        log_path=log,
-        profile_path=profile_path,
+        run_id=run_id, cmd=cmd, pid=proc.pid, heartbeat_path=hb,
+        cancel_flag_path=cancel, log_path=log,
+        profile_path=profile_path, proc=proc,
     )
 
 
@@ -293,13 +284,7 @@ def read_log_tail(handle: RunHandle, *, max_bytes: int = 4096) -> str:
 
 
 __all__ = [
-    "RunHandle",
-    "cancel_run",
-    "cleanup_stale_runtime_profiles",
-    "export_active_profile_to_yaml",
-    "kill_run",
-    "read_heartbeat",
-    "read_log_tail",
-    "start_score_run",
-    "start_sensitivity_run",
+    "RunHandle", "cancel_run", "cleanup_stale_runtime_profiles",
+    "export_active_profile_to_yaml", "kill_run", "read_heartbeat",
+    "read_log_tail", "start_score_run", "start_sensitivity_run",
 ]

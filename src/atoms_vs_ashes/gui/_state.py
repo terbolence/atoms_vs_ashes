@@ -49,6 +49,7 @@ def _hydrate_session(profile: RunProfile) -> None:
     st.session_state["scoring_overrides"] = profile.scoring.model_dump(mode="json")
     st.session_state["scope_overrides"] = profile.scope.model_dump(mode="json")
     st.session_state["audit_dir"] = profile.output.audit_dir
+    st.session_state["weight_overrides_draft"] = dict(profile.scoring.weight_overrides)
 
 
 def _bootstrap_profile() -> None:
@@ -73,6 +74,11 @@ def _ensure_keys() -> None:
     st.session_state.setdefault("active_run_id", None)
     st.session_state.setdefault("metrics_dir", None)
     st.session_state.setdefault("audit_dir", "audit/post_processing/06_scoring")
+    if "weight_overrides_draft" not in st.session_state:
+        prof = st.session_state.get("profile")
+        st.session_state["weight_overrides_draft"] = (
+            dict(prof.scoring.weight_overrides) if prof is not None else {}
+        )
 
 
 def get_profile() -> RunProfile | None:
@@ -121,6 +127,58 @@ def reset_fail_threshold(criterion_id: str, code: str) -> None:
             del fts[criterion_id]
 
 
+def get_weight_overrides_draft() -> dict[str, int]:
+    """Return the in-memory ``scoring.weight_overrides`` draft (per-criterion)."""
+    _ensure_keys()
+    return st.session_state["weight_overrides_draft"]
+
+
+def set_weight_override(criterion_id: str, weight: int) -> None:
+    """Stage a weight (1..10) override for one criterion in the live draft."""
+    _ensure_keys()
+    overrides: dict[str, int] = st.session_state["weight_overrides_draft"]
+    overrides[criterion_id] = int(weight)
+
+
+def reset_weight_override(criterion_id: str) -> None:
+    """Drop the override so the spec/template weight is used again."""
+    _ensure_keys()
+    overrides: dict[str, int] = st.session_state["weight_overrides_draft"]
+    overrides.pop(criterion_id, None)
+
+
+def discard_weight_overrides_draft() -> None:
+    """Reset the draft to the values currently saved in the active profile."""
+    _ensure_keys()
+    profile: RunProfile | None = st.session_state.get("profile")
+    st.session_state["weight_overrides_draft"] = (
+        dict(profile.scoring.weight_overrides) if profile is not None else {}
+    )
+
+
+def commit_weight_overrides_draft(*, updated_by: str | None = None) -> RunProfile:
+    """Persist the draft ``scoring.weight_overrides`` to the active profile."""
+    _ensure_keys()
+    profile: RunProfile | None = st.session_state.get("profile")
+    if profile is None:
+        raise RuntimeError("No active profile loaded.")
+    overrides = dict(st.session_state["weight_overrides_draft"])
+    new_scoring = profile.scoring.model_copy(update={"weight_overrides": overrides})
+    new_profile = profile.model_copy(update={"scoring": new_scoring})
+    return commit_active_profile(new_profile, updated_by=updated_by)
+
+
+def has_weight_overrides_changes() -> bool:
+    """True iff the draft differs from ``profile.scoring.weight_overrides``."""
+    _ensure_keys()
+    profile: RunProfile | None = st.session_state.get("profile")
+    if profile is None:
+        return False
+    return dict(st.session_state["weight_overrides_draft"]) != dict(
+        profile.scoring.weight_overrides
+    )
+
+
 def set_active_run(run_id: str | None, metrics_dir: Path | None) -> None:
     _ensure_keys()
     st.session_state["active_run_id"] = run_id
@@ -140,12 +198,18 @@ def get_metrics_dir() -> Path | None:
 
 __all__ = [
     "commit_active_profile",
+    "commit_weight_overrides_draft",
+    "discard_weight_overrides_draft",
     "get_active_run_id",
     "get_fail_thresholds",
     "get_metrics_dir",
     "get_profile",
+    "get_weight_overrides_draft",
+    "has_weight_overrides_changes",
     "reload_active_profile",
     "reset_fail_threshold",
+    "reset_weight_override",
     "set_active_run",
+    "set_weight_override",
     "update_fail_threshold",
 ]

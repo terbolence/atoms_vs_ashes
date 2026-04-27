@@ -53,6 +53,7 @@ class HeartbeatRecord:
     message: str = ""
     ts: str = field(default_factory=_now_iso)
     eta_s: float | None = None
+    unit: str = "items"
 
     def to_json(self) -> str:
         return json.dumps(
@@ -63,6 +64,7 @@ class HeartbeatRecord:
                 "total": self.total,
                 "eta_s": self.eta_s,
                 "message": self.message,
+                "unit": self.unit,
             },
             separators=(",", ":"),
         )
@@ -102,7 +104,14 @@ class HeartbeatWriter:
             self._fh.close()
             self._fh = None
 
-    def start_stage(self, stage: str, *, total: int, message: str = "") -> None:
+    def start_stage(
+        self,
+        stage: str,
+        *,
+        total: int,
+        message: str = "",
+        unit: str = "items",
+    ) -> None:
         """Mark a stage as started and emit a 0/total tick.
 
         Resets the throttle so the next ``tick`` for this stage is
@@ -113,7 +122,10 @@ class HeartbeatWriter:
         self._stage_started[stage] = self._clock()
         self._stage_last_emit[stage] = -float("inf")
         self.emit(
-            HeartbeatRecord(stage=stage, processed=0, total=int(total), message=message)
+            HeartbeatRecord(
+                stage=stage, processed=0, total=int(total),
+                message=message, unit=unit,
+            )
         )
 
     def tick(
@@ -123,6 +135,7 @@ class HeartbeatWriter:
         processed: int,
         total: int,
         message: str = "",
+        unit: str = "items",
         force: bool = False,
     ) -> None:
         """Emit a tick subject to ``min_interval_s`` throttling.
@@ -145,11 +158,18 @@ class HeartbeatWriter:
                 total=int(total),
                 eta_s=eta,
                 message=message,
+                unit=unit,
             )
         )
 
     def end_stage(
-        self, stage: str, *, processed: int, total: int, message: str = ""
+        self,
+        stage: str,
+        *,
+        processed: int,
+        total: int,
+        message: str = "",
+        unit: str = "items",
     ) -> None:
         """Force a final tick so the GUI bar reaches 100 %."""
         self.tick(
@@ -157,6 +177,7 @@ class HeartbeatWriter:
             processed=processed,
             total=total,
             message=message or "stage_complete",
+            unit=unit,
             force=True,
         )
 
