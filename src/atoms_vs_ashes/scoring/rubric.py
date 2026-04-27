@@ -78,9 +78,15 @@ class FailCondition(BaseModel):
     verdict carrying ``code = "<code>:floor"``. See
     ``report/methodology/exclusionary_floors.md`` for the source-of-truth
     rule table.
+
+    ``extra='allow'`` mirrors :class:`Criterion`: the engine sometimes
+    receives the spec YAMLs (``config/scoring_specs/*.yaml``) directly
+    via ``--rubric-dir`` (see ``gui/_runner.py``), and those carry
+    spec-only fields like ``threshold`` and ``threshold_affects_expr``
+    that the runtime FailCondition simply ignores.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     code: str
     action: Literal["exclude", "avoidance_penalty", "screen_flag", "review_flag"]
@@ -185,6 +191,13 @@ class Rubric(BaseModel):
 # ---------------------------------------------------------------------------
 
 
+# Sidecar files that live alongside template/rubric YAMLs in
+# ``config/scoring_specs/`` but are NOT criterion families. Mirrors
+# ``criterion_spec.loader.THRESHOLD_METADATA_FILENAME``; keep in sync if
+# new sidecar shapes are introduced.
+_SIDECAR_FILENAMES = frozenset({"threshold_metadata.yaml"})
+
+
 def load_rubric_file(path: Path) -> Rubric:
     """Load + validate a single rubric YAML file."""
     with open(path) as f:
@@ -203,6 +216,8 @@ def load_rubric_bundle(rubric_dir: str | Path) -> dict[str, Criterion]:
         raise FileNotFoundError(f"Rubric directory not found: {root}")
     bundle: dict[str, Criterion] = {}
     for path in sorted(root.glob("*.yaml")):
+        if path.name in _SIDECAR_FILENAMES:
+            continue
         rubric = load_rubric_file(path)
         for crit in rubric.criteria:
             if crit.criterion_id in bundle:

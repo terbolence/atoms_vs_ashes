@@ -1,0 +1,114 @@
+{"positional_args": ["api", "atoms_vs_ashes"], "event": "Using database profile '%s' \u2192 %s", "run_id": "sens-180cb280", "level": "info", "timestamp": "2026-04-27T16:01:40.890523Z"}
+{
+  "message": "sensitivity_suite_starting",
+  "run_id": "sens-180cb280",
+  "iterations": 5000,
+  "preset": null,
+  "include": [
+    "country",
+    "mc",
+    "threshold",
+    "weights"
+  ],
+  "weight_profile_base": "baseline",
+  "progress_enabled": false
+}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/__main__.py", line 6, in <module>
+    main()
+    ~~~~^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/_cli.py", line 265, in sensitivity
+    result = run_sensitivity_suite(
+        session, cfg, run_id=run_id,
+        cancellation=token, heartbeat=hb,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/suite.py", line 115, in run_sensitivity_suite
+    bundle: dict[str, Criterion] = load_rubric_bundle(cfg.rubric_dir)
+                                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/rubric.py", line 263, in load_rubric_bundle
+    rubric = load_rubric_file(path)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/rubric.py", line 232, in load_rubric_file
+    return Rubric.model_validate(data)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/pydantic/main.py", line 716, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<5 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 17 validation errors for Rubric
+family
+  Field required [type=missing, input_value={'NH-01': {'A10': {'metri...'min': 1, 'max': 200}}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+criteria
+  Field required [type=missing, input_value={'NH-01': {'A10': {'metri...'min': 1, 'max': 200}}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+NH-01
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A10': {'metric': 'pga_2...min': 0.2, 'max': 1.5}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-02
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'E1': {'metric': 'neares...in': 1.0, 'max': 25.0}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-04
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'E3': {'metric': 'slope_...{'min': 10, 'max': 45}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-07
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'E4': {'metric': 'neares...'min': 25, 'max': 200}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-08
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A9': {'metric': 'coast_... {'min': 2, 'max': 30}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-09
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A11': {'metric': 'river... {'min': 1, 'max': 15}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NH-10
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'project_wind_envelope':...{'min': 35, 'max': 80}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NS-02
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A13': {'metric': 'grid_...in': 100, 'max': 1500}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+NS-05
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A15': {'metric': 'large... {'min': 5, 'max': 50}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+EP-01
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'E8': {'metric': 'ep01_c...{'min': 10, 'max': 60}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+HI-02
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A7': {'metric': 'neares... {'min': 2, 'max': 15}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+HI-03
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A8': {'metric': 'neares... {'min': 3, 'max': 25}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+HI-06
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'A5': {'metric': 'neares... {'min': 2, 'max': 50}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+BF-01
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'B1': {'metric': 'grid_e...min': 50, 'max': 2000}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+BF-02
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'B2': {'metric': 'larges...{'min': 1, 'max': 200}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden

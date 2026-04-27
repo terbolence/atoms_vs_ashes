@@ -23,7 +23,6 @@ from typing import Any
 import streamlit as st
 
 from atoms_vs_ashes.gui._overview import render as render_overview
-from atoms_vs_ashes.gui._state import get_profile, reload_active_profile
 
 _GUI_DIR = Path(__file__).resolve().parent
 _PAGES_DIR = _GUI_DIR / "pages"
@@ -73,73 +72,17 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
         False,
     ),
     (
-        "05_country_drilldown.py",
-        "Country Drill-Down",
+        "05_results.py",
+        "Results",
         (
-            "Per-country eliminators, shortlist counts, and top-N views for comparing how "
-            "sites fare within each country."
-        ),
-        False,
-    ),
-    (
-        "06_near_miss.py",
-        "Near Miss",
-        (
-            "Sites that failed screening or ranking by a small margin—useful for reviewing "
-            "borderline cases and threshold effects."
-        ),
-        False,
-    ),
-    (
-        "07_sensitivity.py",
-        "Sensitivity",
-        (
-            "Run or review sensitivity analysis: Monte Carlo, one-at-a-time thresholds, "
-            "weight perturbations, and country-balance stress tests."
+            "Consolidated DB-backed view of every persisted run: country breakdown, top "
+            "sites, near-miss roll-up, and sensitivity diagnostics (MC, threshold sweep, "
+            "country balance, weight perturbation). Optional ``*_metrics.json`` bundle "
+            "unlocks the heavier offline panels."
         ),
         False,
     ),
 )
-
-
-def _sidebar_profile_summary() -> None:
-    """Sidebar widget: read-only snapshot of the active DB run profile."""
-    st.sidebar.header("Active Run Profile")
-    st.sidebar.caption(
-        "Stored in the `active_run_profile` DB row. Edit on the "
-        "**Sites & SMR Setup** (or *Run Profile (advanced)* for the long "
-        "form); changes apply everywhere on Save."
-    )
-    profile = get_profile()
-    if profile is None:
-        st.sidebar.error(
-            "Could not load the active profile from the database. "
-            "Run `alembic upgrade head` to seed it."
-        )
-        return
-    st.sidebar.markdown(f"**Run label:** `{profile.run_label}`")
-    st.sidebar.markdown(f"**Spec dir:** `{profile.spec_dir}`")
-    st.sidebar.markdown(f"**Weight profile:** `{profile.weight_profile}`")
-    st.sidebar.markdown(f"**DB profile:** `{profile.db_profile}`")
-    countries = list(profile.scope.countries)
-    smr_keys = list(profile.scope.smr_keys)
-    st.sidebar.markdown(
-        f"**Countries in scope:** {', '.join(countries) if countries else '_all_'}"
-    )
-    st.sidebar.markdown(
-        f"**SMRs in scope:** {', '.join(smr_keys) if smr_keys else '_all_'}"
-    )
-    st.sidebar.markdown(
-        f"**Qualification mode:** `{profile.scoring.qualification_mode}`"
-    )
-    if st.sidebar.button(
-        "Reload from DB",
-        help="Discard any unsaved widget edits and pull the current row again.",
-        use_container_width=True,
-    ):
-        reload_active_profile()
-        st.toast("Active profile reloaded from DB.")
-        st.rerun()
 
 
 def _nav_specs() -> list[tuple[Any, str, bool]]:
@@ -209,7 +152,6 @@ def main() -> None:
     specs = _nav_specs()
     pg = st.navigation([s[0] for s in specs], position="hidden")
 
-    _sidebar_profile_summary()
     _sidebar_screen_nav(specs)
 
     pg.run()

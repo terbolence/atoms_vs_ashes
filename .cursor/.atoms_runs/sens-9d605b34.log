@@ -1,0 +1,5 @@
+{"positional_args": ["api", "atoms_vs_ashes"], "event": "Using database profile '%s' \u2192 %s", "run_id": "sens-9d605b34", "level": "info", "timestamp": "2026-04-27T15:42:51.424630Z"}
+Usage: python -m atoms_vs_ashes score sensitivity [OPTIONS]
+Try 'python -m atoms_vs_ashes score sensitivity --help' for help.
+
+Error: Invalid value for '--include': 'oat' is not one of 'weights', 'mc', 'threshold', 'country'.

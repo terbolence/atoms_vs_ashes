@@ -1,0 +1,222 @@
+{"positional_args": ["api", "atoms_vs_ashes"], "event": "Using database profile '%s' \u2192 %s", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:24.327508Z"}
+{
+  "message": "sensitivity_suite_starting",
+  "run_id": "sens-cd0fa23c",
+  "iterations": 5000,
+  "preset": null,
+  "include": [
+    "country",
+    "mc",
+    "threshold",
+    "weights"
+  ],
+  "weight_profile_base": "baseline",
+  "progress_enabled": false
+}
+{"pairs": 2896, "profile": "baseline", "baseline_run_id": "score-ef5ccab4", "scoped": false, "event": "sensitivity_pairs_loaded", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:28.022846Z"}
+{"pairs": 2896, "profiles": ["w_NH_plus_20", "w_NH_minus_20", "w_HI_plus_20", "w_HI_minus_20", "w_RI_plus_20", "w_RI_minus_20", "w_EP_plus_20", "w_EP_minus_20", "w_NS_plus_20", "w_NS_minus_20", "w_swing"], "event": "weight_sensitivity_complete", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:28.974064Z"}
+{"ts": "2026-04-27T16:04:34Z", "stage": "sensitivity:mc", "processed": 0, "total": 2896, "eta_s": null, "message": "draws=5000", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:34.215989Z"}
+{"description": "Monte Carlo (5000 draws)", "total": 2896, "mode": "log_fallback", "event": "progress_start", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:34.216092Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1, "total": 2896, "percent": 0, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:34.216122Z"}
+{"ts": "2026-04-27T16:04:34Z", "stage": "sensitivity:mc", "processed": 1, "total": 2896, "eta_s": 0.83, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:34.216162Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 145, "total": 2896, "percent": 5, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:34.216773Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 290, "total": 2896, "percent": 10, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:34.217508Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 435, "total": 2896, "percent": 15, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:34.382800Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 580, "total": 2896, "percent": 20, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:35.059479Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 724, "total": 2896, "percent": 25, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:35.060835Z"}
+{"ts": "2026-04-27T16:04:35Z", "stage": "sensitivity:mc", "processed": 731, "total": 2896, "eta_s": 3.06, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:35.248583Z"}
+{"ts": "2026-04-27T16:04:36Z", "stage": "sensitivity:mc", "processed": 824, "total": 2896, "eta_s": 5.25, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:36.303631Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 869, "total": 2896, "percent": 30, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:36.948762Z"}
+{"ts": "2026-04-27T16:04:37Z", "stage": "sensitivity:mc", "processed": 999, "total": 2896, "eta_s": 6.11, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:37.435496Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1014, "total": 2896, "percent": 35, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:38.254062Z"}
+{"ts": "2026-04-27T16:04:38Z", "stage": "sensitivity:mc", "processed": 1135, "total": 2896, "eta_s": 6.77, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:38.580656Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1159, "total": 2896, "percent": 40, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:38.743027Z"}
+{"ts": "2026-04-27T16:04:39Z", "stage": "sensitivity:mc", "processed": 1206, "total": 2896, "eta_s": 7.71, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:39.715630Z"}
+{"ts": "2026-04-27T16:04:40Z", "stage": "sensitivity:mc", "processed": 1265, "total": 2896, "eta_s": 8.57, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:40.862164Z"}
+{"ts": "2026-04-27T16:04:42Z", "stage": "sensitivity:mc", "processed": 1280, "total": 2896, "eta_s": 9.88, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:42.039436Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1304, "total": 2896, "percent": 45, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:42.857919Z"}
+{"ts": "2026-04-27T16:04:43Z", "stage": "sensitivity:mc", "processed": 1339, "total": 2896, "eta_s": 10.42, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:43.181513Z"}
+{"ts": "2026-04-27T16:04:44Z", "stage": "sensitivity:mc", "processed": 1435, "total": 2896, "eta_s": 10.3, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:44.329135Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1448, "total": 2896, "percent": 50, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:45.138248Z"}
+{"ts": "2026-04-27T16:04:45Z", "stage": "sensitivity:mc", "processed": 1470, "total": 2896, "eta_s": 10.91, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:45.460473Z"}
+{"ts": "2026-04-27T16:04:46Z", "stage": "sensitivity:mc", "processed": 1477, "total": 2896, "eta_s": 11.89, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:46.596639Z"}
+{"ts": "2026-04-27T16:04:47Z", "stage": "sensitivity:mc", "processed": 1488, "total": 2896, "eta_s": 12.78, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:47.725161Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1593, "total": 2896, "percent": 55, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:48.216340Z"}
+{"ts": "2026-04-27T16:04:48Z", "stage": "sensitivity:mc", "processed": 1642, "total": 2896, "eta_s": 11.19, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:48.862406Z"}
+{"ts": "2026-04-27T16:04:49Z", "stage": "sensitivity:mc", "processed": 1675, "total": 2896, "eta_s": 11.5, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:49.996843Z"}
+{"ts": "2026-04-27T16:04:51Z", "stage": "sensitivity:mc", "processed": 1705, "total": 2896, "eta_s": 11.82, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:51.143652Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1738, "total": 2896, "percent": 60, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:51.143823Z"}
+{"ts": "2026-04-27T16:04:52Z", "stage": "sensitivity:mc", "processed": 1818, "total": 2896, "eta_s": 10.72, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:52.299095Z"}
+{"ts": "2026-04-27T16:04:53Z", "stage": "sensitivity:mc", "processed": 1849, "total": 2896, "eta_s": 10.88, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:53.439360Z"}
+{"ts": "2026-04-27T16:04:54Z", "stage": "sensitivity:mc", "processed": 1881, "total": 2896, "eta_s": 10.99, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:54.574146Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1883, "total": 2896, "percent": 65, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:54.895455Z"}
+{"ts": "2026-04-27T16:04:55Z", "stage": "sensitivity:mc", "processed": 1915, "total": 2896, "eta_s": 11.02, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:55.722821Z"}
+{"ts": "2026-04-27T16:04:56Z", "stage": "sensitivity:mc", "processed": 1945, "total": 2896, "eta_s": 11.02, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:56.746762Z"}
+{"ts": "2026-04-27T16:04:57Z", "stage": "sensitivity:mc", "processed": 1984, "total": 2896, "eta_s": 10.88, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:57.887007Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2028, "total": 2896, "percent": 70, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:04:58.216099Z"}
+{"ts": "2026-04-27T16:04:59Z", "stage": "sensitivity:mc", "processed": 2059, "total": 2896, "eta_s": 10.09, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:04:59.028487Z"}
+{"ts": "2026-04-27T16:05:00Z", "stage": "sensitivity:mc", "processed": 2113, "total": 2896, "eta_s": 9.62, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:00.178601Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2172, "total": 2896, "percent": 75, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:00.506761Z"}
+{"ts": "2026-04-27T16:05:01Z", "stage": "sensitivity:mc", "processed": 2284, "total": 2896, "eta_s": 7.26, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:01.323847Z"}
+{"ts": "2026-04-27T16:05:02Z", "stage": "sensitivity:mc", "processed": 2302, "total": 2896, "eta_s": 7.26, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:02.341451Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2317, "total": 2896, "percent": 80, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:03.320082Z"}
+{"ts": "2026-04-27T16:05:03Z", "stage": "sensitivity:mc", "processed": 2345, "total": 2896, "eta_s": 6.88, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:03.482944Z"}
+{"ts": "2026-04-27T16:05:04Z", "stage": "sensitivity:mc", "processed": 2358, "total": 2896, "eta_s": 6.94, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:04.634202Z"}
+{"ts": "2026-04-27T16:05:05Z", "stage": "sensitivity:mc", "processed": 2381, "total": 2896, "eta_s": 6.83, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:05.778668Z"}
+{"ts": "2026-04-27T16:05:06Z", "stage": "sensitivity:mc", "processed": 2452, "total": 2896, "eta_s": 5.92, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:06.935254Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2462, "total": 2896, "percent": 85, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:07.100065Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2607, "total": 2896, "percent": 90, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:07.427246Z"}
+{"ts": "2026-04-27T16:05:08Z", "stage": "sensitivity:mc", "processed": 2650, "total": 2896, "eta_s": 3.14, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:08.089959Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2752, "total": 2896, "percent": 95, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:08.419276Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2896, "total": 2896, "percent": 100, "event": "progress_tick", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:08.420244Z"}
+{"pairs": 2896, "iterations": 5000, "preset": null, "event": "monte_carlo_complete", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:08.420276Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 2896, "total": 2896, "percent": 100, "event": "progress_done", "run_id": "sens-cd0fa23c", "level": "info", "timestamp": "2026-04-27T16:05:08.420291Z"}
+{"ts": "2026-04-27T16:05:08Z", "stage": "sensitivity:mc", "processed": 2896, "total": 2896, "eta_s": 0.0, "message": "completed", "unit": "items", "event": "heartbeat", "run_id": "sens-cd0fa23c", "level": "debug", "timestamp": "2026-04-27T16:05:08.938741Z"}
+Traceback (most recent call last):
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "country_balance_check" violates foreign key constraint "country_balance_check_run_id_fkey"
+DETAIL:  Key (run_id)=(sens-cd0fa23c) is not present in table "runs".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/__main__.py", line 6, in <module>
+    main()
+    ~~~~^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/_cli.py", line 265, in sensitivity
+    result = run_sensitivity_suite(
+        session, cfg, run_id=run_id,
+        cancellation=token, heartbeat=hb,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/suite.py", line 198, in run_sensitivity_suite
+    country_rows = persist_country_balanced(
+        session, baseline_rows, run_id=run_id,
+        country_by_pair=country_by_pair,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/scoring/_suite_persist.py", line 298, in persist_country_balanced
+    persist_country_balance_check(session, run_id=run_id, rows=rows)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/src/atoms_vs_ashes/db/analytics_writers_failure.py", line 125, in persist_country_balance_check
+    session.bulk_save_objects(objs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4564, in bulk_save_objects
+    self._bulk_save_mappings(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        mapper,
+        ^^^^^^^
+    ...<5 lines>...
+        render_nulls=False,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4741, in _bulk_save_mappings
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4730, in _bulk_save_mappings
+    bulk_persistence._bulk_insert(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mapper,
+        ^^^^^^^
+    ...<4 lines>...
+        render_nulls=render_nulls,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/orm/bulk_persistence.py", line 222, in _bulk_insert
+    result = persistence._emit_insert_statements(
+        base_mapper,
+    ...<6 lines>...
+        execution_options=execution_options,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/orm/persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2133, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e,
+        ^^
+    ...<4 lines>...
+        is_sub_exec=True,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.ForeignKeyViolation) insert or update on table "country_balance_check" violates foreign key constraint "country_balance_check_run_id_fkey"
+DETAIL:  Key (run_id)=(sens-cd0fa23c) is not present in table "runs".
+
+[SQL: INSERT INTO country_balance_check (run_id, country_code, baseline_count, balanced_count, delta, triggered_floor_swap, created_at) VALUES (%(run_id__0)s, %(country_code__0)s, %(baseline_count__0)s, %(balanced_count__0)s, %(delta__0)s, %(triggered_floo ... 515 characters truncated ... ine_count__4)s, %(balanced_count__4)s, %(delta__4)s, %(triggered_floor_swap__4)s, %(created_at__4)s)]
+[parameters: {'delta__0': 0, 'balanced_count__0': 8, 'triggered_floor_swap__0': False, 'created_at__0': datetime.datetime(2026, 4, 27, 16, 5, 9, 473537, tzinfo=datetime.timezone.utc), 'run_id__0': 'sens-cd0fa23c', 'country_code__0': 'MK', 'baseline_count__0': 8, 'delta__1': 0, 'balanced_count__1': 24, 'triggered_floor_swap__1': False, 'created_at__1': datetime.datetime(2026, 4, 27, 16, 5, 9, 473539, tzinfo=datetime.timezone.utc), 'run_id__1': 'sens-cd0fa23c', 'country_code__1': 'PL', 'baseline_count__1': 24, 'delta__2': 0, 'balanced_count__2': 32, 'triggered_floor_swap__2': False, 'created_at__2': datetime.datetime(2026, 4, 27, 16, 5, 9, 473540, tzinfo=datetime.timezone.utc), 'run_id__2': 'sens-cd0fa23c', 'country_code__2': 'RO', 'baseline_count__2': 32, 'delta__3': 0, 'balanced_count__3': 16, 'triggered_floor_swap__3': False, 'created_at__3': datetime.datetime(2026, 4, 27, 16, 5, 9, 473540, tzinfo=datetime.timezone.utc), 'run_id__3': 'sens-cd0fa23c', 'country_code__3': 'RS', 'baseline_count__3': 16, 'delta__4': 0, 'balanced_count__4': 128, 'triggered_floor_swap__4': False, 'created_at__4': datetime.datetime(2026, 4, 27, 16, 5, 9, 473540, tzinfo=datetime.timezone.utc), 'run_id__4': 'sens-cd0fa23c', 'country_code__4': 'TR', 'baseline_count__4': 128}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)

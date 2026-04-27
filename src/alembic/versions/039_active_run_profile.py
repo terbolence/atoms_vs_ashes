@@ -46,7 +46,7 @@ _BASELINE_PROFILE: dict = {
         "near_miss_gap_pct": 10.0,
     },
     "sensitivity": {
-        "enabled": ["weights", "mc", "threshold", "oat", "country"],
+        "enabled": ["weights", "mc", "threshold", "country"],
         "mc_iterations": 5000,
         "mc_seed": 42,
         "weight_perturbation_pct": 20.0,

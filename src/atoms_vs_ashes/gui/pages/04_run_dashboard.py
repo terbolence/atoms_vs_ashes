@@ -19,6 +19,7 @@ from atoms_vs_ashes.gui._runner import (
     start_sensitivity_run,
 )
 from atoms_vs_ashes.gui._state import get_profile
+from atoms_vs_ashes.scoring.suite import INCLUDE_CHOICES
 
 _HEADER_RATIO = (4, 1)
 _MC_HELP = (
@@ -31,12 +32,20 @@ _SEED_HELP = (
     "runs to keep sensitivity results reproducible; change it to "
     "regenerate independent samples."
 )
-_STAGE_HELP = {
+# Stage list MUST stay in lockstep with the CLI's --include choices
+# (atoms_vs_ashes.scoring._suite_config.INCLUDE_CHOICES). The dict is
+# keyed in the order we want to render the checkboxes; only stages
+# present in INCLUDE_CHOICES are exposed.
+_STAGE_HELP_BY_NAME = {
     "weights": "Per-criterion weight perturbation sweep.",
     "mc": "Monte-Carlo sampling around each criterion's score.",
     "country": "Country-balance check (caps top-N concentration).",
     "threshold": "±25 % fail-threshold sweep (one-at-a-time).",
-    "oat": "One-at-a-time sensitivity over individual inputs.",
+}
+_STAGE_HELP = {
+    name: _STAGE_HELP_BY_NAME[name]
+    for name in _STAGE_HELP_BY_NAME
+    if name in INCLUDE_CHOICES
 }
 
 

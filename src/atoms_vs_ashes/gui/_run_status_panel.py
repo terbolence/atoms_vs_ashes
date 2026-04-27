@@ -14,6 +14,7 @@ import time
 
 import streamlit as st
 
+from atoms_vs_ashes.gui._run_verification import render_verification_panel
 from atoms_vs_ashes.gui._runner import (
     RunHandle,
     cancel_run,
@@ -41,6 +42,23 @@ _PROGRESS_HELP_BY_UNIT = {
         "pair. Total = sites × SMR designs in scope."
     ),
 }
+
+_STAGE_LABELS: dict[str, str] = {
+    "scoring": "Scoring sites",
+    "sensitivity:weights": "Weight perturbation sweep",
+    "sensitivity:mc": "Monte-Carlo sampling",
+    "sensitivity:country": "Country-balance check",
+    "sensitivity:threshold": "Threshold sensitivity sweep",
+}
+
+
+def _friendly_stage(stage: str) -> str:
+    if stage in _STAGE_LABELS:
+        return _STAGE_LABELS[stage]
+    if ":" in stage:
+        family, _, sub = stage.partition(":")
+        return f"{sub.replace('_', ' ').capitalize()} ({family})"
+    return stage.replace("_", " ").capitalize()
 
 
 def _settled_flag_key(handle_key: str) -> str:
@@ -70,12 +88,18 @@ def _render_running_progress(ticks: list[dict]) -> None:
     )
     pct = (processed / total) if total > 0 else 0.0
     pct = max(0.0, min(1.0, pct))
+    friendly = _friendly_stage(stage)
+    st.markdown(
+        f"<div style='font-size:0.85rem;color:#5a5a5a;margin-bottom:0.25rem;'>"
+        f"<span style='font-weight:600;'>Stage:</span> {friendly}</div>",
+        unsafe_allow_html=True,
+    )
     st.progress(
         pct,
         text=(
-            f"{stage} — {processed:,} / {total:,} {unit} ({pct:.0%})"
+            f"{processed:,} / {total:,} {unit} ({pct:.0%})"
             if total
-            else f"{stage} — starting…"
+            else "starting…"
         ),
     )
     info_col, _ = st.columns([1, 20])
@@ -87,11 +111,10 @@ def _render_running_progress(ticks: list[dict]) -> None:
         "font-weight:700;cursor:help;'>i</span>",
         unsafe_allow_html=True,
     )
-    cols = st.columns(4)
-    cols[0].metric("Stage", stage)
-    cols[1].metric(f"Scored {unit}", f"{processed:,}")
-    cols[2].metric(f"Total {unit}", f"{total:,}" if total else "—")
-    cols[3].metric(
+    cols = st.columns(3)
+    cols[0].metric(f"Scored {unit}", f"{processed:,}")
+    cols[1].metric(f"Total {unit}", f"{total:,}" if total else "—")
+    cols[2].metric(
         "ETA",
         f"{float(eta_s):.0f} s" if isinstance(eta_s, (int, float)) else "—",
     )
@@ -181,6 +204,8 @@ def _render_handle_inner(label: str, handle_key: str) -> None:
         _render_run_details(handle)
     else:
         _render_finished_summary(handle, ticks)
+        if handle.returncode == 0:
+            render_verification_panel(handle.run_id)
         _render_run_details(handle)
         st.caption(
             f"This panel will be replaced when you start the next "

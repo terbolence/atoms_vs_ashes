@@ -227,7 +227,16 @@ If that fails, use the exact **Local URL** line Streamlit printed in the termina
 
 **Sidebar pages (Streamlit multipage)**
 
-The home view is **Sites & SMR Setup** — that is also the primary editor for the active run profile (countries, SMR designs in scope, qualification mode, top-N, near-miss gap, and a focused per-SMR mini-editor). Use the **sidebar** (left) to switch to **Site Selection Criteria**, **Scoring Engine**, **Country Drill-Down**, **Near Miss**, or **Sensitivity**. Each screen name is a link; a single **i**-style info icon on the right shows the full description on **hover** (native browser tooltip; no separate help chip, no click). The sidebar also shows a **read-only summary** of the currently active run profile (run label, scope, weight profile) — there is no longer a profile picker, because the active profile is now a DB row you edit on **Sites & SMR Setup** (see [§9 Run profile management](#9-run-profile-management-db-backed)).
+The home view is **Sites & SMR Setup** — that is also the primary editor for the active run profile (countries, SMR designs in scope, qualification mode, top-N, near-miss gap, and a focused per-SMR mini-editor). Use the **sidebar** (left) to switch to **Site Selection Criteria**, **Scoring Engine**, or **Results**. Each screen name is a link; a single **i**-style info icon on the right shows the full description on **hover** (native browser tooltip; no separate help chip, no click). There is no profile picker — the active profile is one DB row you edit on **Sites & SMR Setup** (see [§9 Run profile management](#9-run-profile-management-db-backed)); the live values surface on that page itself, so the sidebar stays reserved for navigation only.
+
+The **Results** page replaces the previous *Country Drill-Down*, *Near Miss*, and *Sensitivity* screens. It opens with a run-picker dropdown listing every persisted run (cancelled / rolled-back runs do not appear) and exposes four tabs:
+
+- **Country** — DB-backed per-country breakdown (pairs scored, pairs passed, mean composite). Augmented with the per-country margins and worst-offender chart when a metrics bundle is loaded.
+- **Top sites** — DB-backed ranking of (site × SMR) pairs by composite score, with toggles for "passed both floors only" and a row-limit slider.
+- **Near miss** — Reads the metrics bundle; shows a clear hint when none is present (this analysis is computed offline by `generate_failure_analysis.py`).
+- **Sensitivity** — DB-backed snapshot for sensitivity runs (MC iterations, weight-profile breakdown, country-balance, threshold sweep) plus optional metrics-bundle extras (per-pair MC distribution, OAT importance, weight-perturbation diff tables).
+
+Loading a `*_metrics.json` bundle is **optional** — every tab now renders meaningful content from the database after a successful run on **Scoring Engine**. The bundle simply unlocks the heavier offline panels.
 
 Two screens are intentionally hidden from the sidebar to keep the day-to-day surface tight, but stay reachable by URL when you need the long form:
 

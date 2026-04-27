@@ -26,8 +26,12 @@ DbProfile = Literal["api", "llm", "merged"]
 QualificationMode = Literal["normal", "strict"]
 WeightProfile = Literal["baseline", "w_plus_20", "w_minus_20"]
 SensitivityStage = Literal[
-    "weights", "mc", "threshold", "oat", "country"
+    "weights", "mc", "threshold", "country"
 ]
+# Stages that the schema previously allowed but the engine never wired
+# up. Kept here so legacy profiles still load: the field-validator on
+# ``SensitivityBlock.enabled`` silently drops them on read.
+_LEGACY_SENSITIVITY_STAGES = frozenset({"oat"})
 SiteStatus = Literal["operating", "retired", "mothballed", "construction", "cancelled"]
 
 
@@ -98,7 +102,7 @@ class SensitivityBlock(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
     enabled: list[SensitivityStage] = Field(
-        default_factory=lambda: ["weights", "mc", "threshold", "oat", "country"]
+        default_factory=lambda: ["weights", "mc", "threshold", "country"]
     )
     mc_iterations: int = Field(default=10_000, ge=100, le=1_000_000)
     mc_seed: int = 42
@@ -109,11 +113,22 @@ class SensitivityBlock(BaseModel):
     country_balance_max_share: float = Field(default=0.40, ge=0.0, le=1.0)
     mc_stability_band_width: float = Field(default=1.0, ge=0.0, le=10.0)
 
-    @field_validator("enabled")
+    @field_validator("enabled", mode="before")
     @classmethod
-    def _dedup_stages(cls, v: list[SensitivityStage]) -> list[SensitivityStage]:
-        seen: list[SensitivityStage] = []
+    def _dedup_stages(cls, v: list[str]) -> list[str]:
+        """Drop legacy / unsupported stages and de-duplicate, in order.
+
+        Runs in ``mode="before"`` so legacy values like ``"oat"`` are
+        filtered *before* Pydantic enforces the ``SensitivityStage``
+        Literal — that way an existing active-profile row carrying an
+        old default still loads instead of raising a validation error.
+        """
+        if not isinstance(v, list):
+            return v
+        seen: list[str] = []
         for s in v:
+            if s in _LEGACY_SENSITIVITY_STAGES:
+                continue
             if s not in seen:
                 seen.append(s)
         return seen

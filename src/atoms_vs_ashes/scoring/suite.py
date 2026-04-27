@@ -26,6 +26,7 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.db.runs import complete_run, start_run
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.runtime.cancellation import (
     CancellationRequested,
@@ -112,6 +113,10 @@ def run_sensitivity_suite(
     ``heartbeat`` is supplied, each stage emits start / tick /
     end ticks the GUI consumes (plan §10).
     """
+    # Insert the parent ``runs`` row up-front so every analytics-table
+    # FK (``country_balance_check``, ``threshold_sensitivity``, …) can
+    # attach. Mirrors ``open_scoring_run`` for ``score run``.
+    run_handle = start_run(session, run_kind="sensitivity", run_id=run_id)
     bundle: dict[str, Criterion] = load_rubric_bundle(cfg.rubric_dir)
     weights = weight_normalisation(bundle, profile=cfg.weight_profile_base)
 
@@ -248,6 +253,9 @@ def run_sensitivity_suite(
         raise
 
     session.flush()
+    # Flip ``runs.status`` so the GUI run-verification panel can read
+    # ``completed_at``; cancel/error paths let session_scope roll back.
+    complete_run(session, run_handle, status="completed")
 
     result = SensitivitySuiteResult(
         run_id=run_id,

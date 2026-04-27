@@ -37,7 +37,7 @@ from atoms_vs_ashes.runprofile.schema import (
 )
 
 
-_SENSITIVITY_STAGES = ["weights", "mc", "threshold", "oat", "country"]
+_SENSITIVITY_STAGES = ["weights", "mc", "threshold", "country"]
 _SITE_STATUSES_ALL = ["operating", "retired", "mothballed", "construction", "cancelled"]
 _DB_PROFILES = ["api", "llm", "merged"]
 _WEIGHT_PROFILES = ["baseline", "w_plus_20", "w_minus_20"]
