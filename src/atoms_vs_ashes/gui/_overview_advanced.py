@@ -1,5 +1,5 @@
 # man_hours: 1.0
-"""'Advanced (rare)' expander on the Overview screen.
+"""'Advanced (rare)' expander on the Sites & SMR Setup screen.
 
 Collects the run-profile knobs that exist for power-users / regression
 flows but should not crowd the home screen for typical operators:

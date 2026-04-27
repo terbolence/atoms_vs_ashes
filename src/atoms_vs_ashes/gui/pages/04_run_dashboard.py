@@ -1,5 +1,5 @@
 # man_hours: 1.5
-"""Page 4 — Start / stop scoring + sensitivity, live heartbeat progress.
+"""Page 4 (Scoring Engine) — Start / stop scoring + sensitivity, live heartbeat progress.
 
 The runner pulls the active :class:`RunProfile` from the DB on each
 launch and exports it to a transient YAML the engine can consume —
@@ -161,7 +161,7 @@ def _sensitivity_section() -> None:
 
 
 def render() -> None:
-    st.title("Run Dashboard")
+    st.title("Scoring Engine")
     _ensure_run_state()
     profile = get_profile()
     if profile is None:

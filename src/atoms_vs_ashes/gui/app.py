@@ -3,7 +3,7 @@
 
 The GUI no longer asks the user to pick a YAML — the active
 :class:`RunProfile` is the singleton row in the ``active_run_profile``
-DB table (alembic 039). The Overview screen exposes the user-meaningful
+DB table (alembic 039). The **Sites & SMR Setup** screen exposes the user-meaningful
 slice of that profile as inline forms; the deeper *Run Profile* screen
 (page 02) keeps the full editor for power-users and stays reachable by
 URL but is hidden from the sidebar.
@@ -35,8 +35,8 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
         "SMR Catalogue (advanced)",
         (
             "Full editor for every ``smr_designs`` field — cooling, EPZ radius, "
-            "regulatory status, etc. Hidden from the sidebar because the Overview "
-            "screen already exposes the four required fields (name, capacity, "
+            "regulatory status, etc. Hidden from the sidebar because **Sites & SMR Setup** "
+            "already exposes the four required fields (name, capacity, "
             "land) for the in-scope SMRs; reach this screen via the "
             "/smr_catalogue URL when you need the full row."
         ),
@@ -47,15 +47,15 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
         "Run Profile (advanced)",
         (
             "Full inline editor for every ``RunProfile`` field — sensitivity defaults, "
-            "output paths, ``run_label``, etc. Hidden from the sidebar because the "
-            "Overview screen already covers the day-to-day knobs; reachable via the "
+            "output paths, ``run_label``, etc. Hidden from the sidebar because "
+            "**Sites & SMR Setup** already covers the day-to-day knobs; reachable via the "
             "/run_profile URL when you need the long form."
         ),
         True,
     ),
     (
         "03_threshold_editor.py",
-        "Threshold Editor",
+        "Site Selection Criteria",
         (
             "Adjust fail thresholds with live rubric preview: recommended values, bounds, "
             "and diffs versus the template. Complements fail-threshold fields omitted from "
@@ -65,7 +65,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
     ),
     (
         "04_run_dashboard.py",
-        "Run Dashboard",
+        "Scoring Engine",
         (
             "Start and monitor scoring and sensitivity jobs: progress, logs, and run "
             "controls tied to the active profile."
@@ -107,7 +107,7 @@ def _sidebar_profile_summary() -> None:
     st.sidebar.header("Active Run Profile")
     st.sidebar.caption(
         "Stored in the `active_run_profile` DB row. Edit on the "
-        "**Overview** screen (or *Run Profile (advanced)* for the long "
+        "**Sites & SMR Setup** (or *Run Profile (advanced)* for the long "
         "form); changes apply everywhere on Save."
     )
     profile = get_profile()
@@ -146,13 +146,13 @@ def _nav_specs() -> list[tuple[Any, str, bool]]:
     """Build :class:`st.Page` objects paired with tooltip text and sidebar visibility."""
     overview = st.Page(
         render_overview,
-        title="Overview",
+        title="Sites & SMR Setup",
         icon=":material/home:",
         default=True,
         url_path="",
     )
     overview_help = (
-        "Home screen: edit the active profile inline — countries, SMRs in scope, "
+        "Sites & SMR Setup (home): edit the active profile inline — countries, SMRs in scope, "
         "qualification mode, top-N, near-miss gap. SMR design specs (capacity, "
         "land) are editable here too. Save persists to the DB."
     )

@@ -9,7 +9,7 @@ clicks **Save active profile**, at which point the new
 ``active_run_profile`` DB row via
 :func:`atoms_vs_ashes.gui._state.commit_active_profile`.
 
-``fail_thresholds`` deliberately stays on the Threshold Editor (page 03)
+``fail_thresholds`` deliberately stays on Site Selection Criteria (page 03)
 since that page already provides per-row preview, bounds-checking, and
 recommended-vs-current diffing.
 """

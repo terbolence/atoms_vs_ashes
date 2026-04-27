@@ -27,7 +27,7 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | E-code | Criterion | Source YAML | Hard fail expression | pass_mark | Min metric to clear floor |
 | --- | --- | --- | --- | --- | --- |
 | `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)` | 5.0 | `nearest_fault_km >= 15` |
-| `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` |
+| `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` |
 | `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'` | 5.0 | `slope_angle_deg < 8` |
 | `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50 or in_pyroclastic_zone == true` | 5.0 | `nearest_volcano_km >= 300` |
 | `E5` | NH-05 — Subsidence / karst / mining / oil & gas | nh_natural_hazards.yaml | `karst_severity == 'high'` | 5.0 | `karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low', 'moderate']` |
@@ -64,14 +64,14 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 - **Hard fail expression**: `liquefaction_suscept == 'very_high' and has_remedy == false`
 - **Hard fail descriptor**: Unacceptable liquefaction with no engineering remedy.
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `liquefaction_suscept == 'moderate' or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)`
+- **Min metric to clear floor (band 5-6)**: `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
 | **9-10** | `liquefaction_suscept in ['very_low', 'none'] and depth_to_bedrock_m <= 0.6` | Negligible susceptibility; rock within 0.6 m. |
 | **7-8** | `liquefaction_suscept == 'low' and bearing_capacity_kpa > 200` | Low susceptibility; competent strata 0.6-2 m; bearing > 200 kPa. |
-| **5-6** | `liquefaction_suscept == 'moderate' or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` | Moderate susceptibility or GW 0-3 m with low PGA. |
-| **3-4** | `liquefaction_suscept == 'high' and has_remedy == true` | High but mitigation plausible; data weak. |
+| **5-6** | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` | Moderate susceptibility, or high susceptibility with documented mitigation; viable but cost/risk penalty. |
+| **3-4** | `liquefaction_suscept == 'high' and has_remedy == false` | High susceptibility without documented mitigation; significant residual risk. |
 | **1-2** | `liquefaction_suscept == 'very_high'` | Very high with high PGA and shallow GW; remedy uncertain. |
 | **0** | `liquefaction_suscept == 'very_high' and has_remedy == false` | E2 confirmed. |
 

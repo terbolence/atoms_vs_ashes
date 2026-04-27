@@ -227,7 +227,7 @@ If that fails, use the exact **Local URL** line Streamlit printed in the termina
 
 **Sidebar pages (Streamlit multipage)**
 
-The home view is the **Overview** screen — that is also the primary editor for the active run profile (countries, SMR designs in scope, qualification mode, top-N, near-miss gap, and a focused per-SMR mini-editor). Use the **sidebar** (left) to switch to **Threshold Editor**, **Run Dashboard**, **Country Drill-Down**, **Near Miss**, or **Sensitivity**. Each screen name is a link; a single **i**-style info icon on the right shows the full description on **hover** (native browser tooltip; no separate help chip, no click). The sidebar also shows a **read-only summary** of the currently active run profile (run label, scope, weight profile) — there is no longer a profile picker, because the active profile is now a DB row you edit on the Overview screen (see [§9 Run profile management](#9-run-profile-management-db-backed)).
+The home view is **Sites & SMR Setup** — that is also the primary editor for the active run profile (countries, SMR designs in scope, qualification mode, top-N, near-miss gap, and a focused per-SMR mini-editor). Use the **sidebar** (left) to switch to **Site Selection Criteria**, **Scoring Engine**, **Country Drill-Down**, **Near Miss**, or **Sensitivity**. Each screen name is a link; a single **i**-style info icon on the right shows the full description on **hover** (native browser tooltip; no separate help chip, no click). The sidebar also shows a **read-only summary** of the currently active run profile (run label, scope, weight profile) — there is no longer a profile picker, because the active profile is now a DB row you edit on **Sites & SMR Setup** (see [§9 Run profile management](#9-run-profile-management-db-backed)).
 
 Two screens are intentionally hidden from the sidebar to keep the day-to-day surface tight, but stay reachable by URL when you need the long form:
 
@@ -279,11 +279,11 @@ The GUI talks to Postgres for **every** page now: country / SMR catalogues, thre
 
 ## 9. Run profile management (DB-backed)
 
-The repo no longer ships hand-edited `config/run_profiles/*.yaml` presets. The **active run profile** is one row in the `active_run_profile` Postgres table (alembic 039). The GUI is the source of truth: every page reads from the row, and **Overview** (with *Run Profile (advanced)* as a fallback) is the only writer.
+The repo no longer ships hand-edited `config/run_profiles/*.yaml` presets. The **active run profile** is one row in the `active_run_profile` Postgres table (alembic 039). The GUI is the source of truth: every page reads from the row, and **Sites & SMR Setup** (with *Run Profile (advanced)* as a fallback) is the only writer.
 
-### Workflow — Overview screen (primary)
+### Workflow — Sites & SMR Setup (primary)
 
-1. Open **Overview** (the home screen, also reachable via `http://localhost:8501/`).
+1. Open **Sites & SMR Setup** (the home screen, also reachable via `http://localhost:8501/`).
 2. Edit the day-to-day knobs inline:
    - **Scope**: `Countries` and `SMR designs` multiselects (empty = all).
    - **SMR design parameters (in scope)**: a focused `data_editor` for the four required `smr_designs` fields — `smr_key` (read-only), `name`, `capacity (MWe)`, `land (ha)`. Edit and click **Save SMR designs** to persist to the `smr_designs` table.
@@ -293,17 +293,17 @@ The repo no longer ships hand-edited `config/run_profiles/*.yaml` presets. The *
 4. Click **Save active profile**. The new profile is validated (Pydantic + bounds) and upserted into the DB. Other pages re-read on their next render.
 5. Click **Discard changes & reload from DB** to throw away unsaved widget edits and pull the live row again.
 
-The Overview hides — and persists unchanged — the fields that have a single sensible value: `run_label` (auto-stamped slug), `db_profile` (always `merged`), `spec_dir` (`config/scoring_specs`), `output.audit_dir`, `output.report_dir`, every `sensitivity.*` field, and `scope.site_status_in`. Edit them on *Run Profile (advanced)* if needed.
+**Sites & SMR Setup** hides — and persists unchanged — the fields that have a single sensible value: `run_label` (auto-stamped slug), `db_profile` (always `merged`), `spec_dir` (`config/scoring_specs`), `output.audit_dir`, `output.report_dir`, every `sensitivity.*` field, and `scope.site_status_in`. Edit them on *Run Profile (advanced)* if needed.
 
 ### Workflow — Run Profile (advanced) screen (fallback)
 
 `http://localhost:8501/run_profile` shows the full inline editor for every `RunProfile` field, organised into expanders for *Run identity*, *Pipeline*, *Scope*, *Scoring*, *Sensitivity*, *Output*. It is hidden from the sidebar but still routable; use it when you need to edit a hidden field (e.g. tweak `mc_iterations` for a one-off sensitivity stress).
 
-`fail_thresholds` stays on the **Threshold Editor** page (it has its own per-row preview and bounds-checking).
+`fail_thresholds` stays on **Site Selection Criteria** (it has its own per-row preview and bounds-checking).
 
 ### How runs are launched
 
-The CLI engine still consumes a YAML profile. When you press **Start scoring** / **Start sensitivity** on the Run Dashboard, the GUI:
+The CLI engine still consumes a YAML profile. When you press **Start scoring** / **Start sensitivity** on **Scoring Engine**, the GUI:
 
 1. Loads the live `active_run_profile` row from the DB.
 2. Serialises it to `audit/.runtime/active_profile.<run_id>.yaml`.
@@ -314,7 +314,7 @@ The transient YAML is what gets fingerprinted in run provenance, so audits stay 
 
 ### SMR Catalogue scope filter
 
-The **SMR Catalogue (advanced)** page (`/smr_catalogue`, hidden from the sidebar) defaults to showing only the SMRs in `scope.smr_keys` of the active profile. Toggle **Show all designs (out-of-scope)** at the top of the page to edit / inspect every row in the DB regardless of scope. A blue banner reminds you when the filter is active. For day-to-day edits to the four required fields (`name`, `capacity_mwe`, `land_requirement_ha`) of the in-scope designs, prefer the inline mini-editor on the Overview screen.
+The **SMR Catalogue (advanced)** page (`/smr_catalogue`, hidden from the sidebar) defaults to showing only the SMRs in `scope.smr_keys` of the active profile. Toggle **Show all designs (out-of-scope)** at the top of the page to edit / inspect every row in the DB regardless of scope. A blue banner reminds you when the filter is active. For day-to-day edits to the four required fields (`name`, `capacity_mwe`, `land_requirement_ha`) of the in-scope designs, prefer the inline mini-editor on **Sites & SMR Setup**.
 
 ### Recovering a broken row
 

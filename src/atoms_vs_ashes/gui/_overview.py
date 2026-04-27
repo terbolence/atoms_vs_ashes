@@ -1,5 +1,5 @@
 # man_hours: 1.5
-"""Overview / Home screen — primary control surface of the GUI.
+"""Sites & SMR Setup (home) — primary control surface of the GUI.
 
 This is the screen users land on. It exposes the *user-meaningful*
 slice of the active :class:`RunProfile` directly as inline widgets,
@@ -240,11 +240,11 @@ def _save_controls(
 
 
 def render() -> None:
-    st.title("Atoms vs Ashes — Scoring Console")
+    st.title("Sites & SMR Setup")
     st.caption(
-        "Pick countries and SMR designs, set the qualification mode and "
-        "shortlist size, then start a scoring run from the Run Dashboard. "
-        "Everything below writes to the active run profile in the database."
+        "Atoms vs Ashes — Scoring Console. Pick countries and SMR designs, set the "
+        "qualification mode and shortlist size, then start a scoring run from "
+        "**Scoring Engine**. Everything below writes to the active run profile in the database."
     )
 
     profile = get_profile()

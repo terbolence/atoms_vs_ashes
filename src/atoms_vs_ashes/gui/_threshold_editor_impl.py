@@ -1,5 +1,5 @@
 # man_hours: 0.5
-"""Threshold editor page shell: wires preview + palette legend to widget helpers."""
+"""Site Selection Criteria page: wires preview + palette legend to widget helpers."""
 
 from __future__ import annotations
 
@@ -52,7 +52,7 @@ def _save_all_to_profile_yaml(target: str | Path) -> None:
 
 
 def render() -> None:
-    st.title("Threshold Editor")
+    st.title("Site Selection Criteria")
     profile = get_profile()
     if profile is None:
         st.error(

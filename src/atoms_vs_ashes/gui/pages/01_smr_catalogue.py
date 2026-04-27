@@ -103,7 +103,7 @@ def render() -> None:
     st.title("SMR Catalogue")
     st.caption(
         "DB is the source-of-truth for SMR specs. Edit values here; "
-        "Run Profile, Threshold Editor, and BF-01/BF-02 screening re-read "
+        "Run Profile, Site Selection Criteria, and BF-01/BF-02 screening re-read "
         "on the next action."
     )
 

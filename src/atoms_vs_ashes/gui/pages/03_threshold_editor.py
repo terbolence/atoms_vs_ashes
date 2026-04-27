@@ -1,5 +1,5 @@
 # man_hours: 2.0
-"""Page 3 — Threshold editor with live rubric preview and (i) info icons.
+"""Page 3 — Site Selection Criteria (threshold editor) with live rubric preview and (i) info icons.
 
 Every input the user touches re-runs :func:`build_preview`, so the
 0–10 band table, normalised weights, and modified-from-recommended

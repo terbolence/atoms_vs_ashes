@@ -1,5 +1,5 @@
 # man_hours: 1.0
-"""Inline SMR sub-editor for the Overview screen.
+"""Inline SMR sub-editor for the Sites & SMR Setup screen.
 
 Shows only the four required ``smr_designs`` fields (``smr_key``,
 ``name``, ``capacity_mwe``, ``land_requirement_ha``) for whichever SMR
