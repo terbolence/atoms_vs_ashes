@@ -86,6 +86,8 @@ class CriterionPreview:
     weight_factor: int
     weight_normalised: float
     pass_mark: float
+    is_exclusionary: bool
+    exclusion_pass_mark: float | None
     bands: list[BandPreview]
     fail_codes: list[FailConditionPreview]
 
@@ -177,6 +179,12 @@ def _criterion_preview(
         )
         for fc, runtime_fc in zip(template.fail_conditions, runtime.fail_conditions)
     ]
+    exclude_fcs = [fc for fc in template.fail_conditions if fc.action == "exclude"]
+    is_exclusionary = bool(exclude_fcs)
+    exclusion_pass_mark: float | None = None
+    if is_exclusionary:
+        pms = [float(fc.pass_mark) for fc in exclude_fcs if fc.pass_mark is not None]
+        exclusion_pass_mark = pms[0] if pms else float(pass_mark_default)
     return CriterionPreview(
         criterion_id=template.criterion_id,
         name=template.name,
@@ -187,6 +195,8 @@ def _criterion_preview(
             template.criterion_id, 0.0
         ),
         pass_mark=pass_mark_default,
+        is_exclusionary=is_exclusionary,
+        exclusion_pass_mark=exclusion_pass_mark,
         bands=bands,
         fail_codes=fail_codes,
     )

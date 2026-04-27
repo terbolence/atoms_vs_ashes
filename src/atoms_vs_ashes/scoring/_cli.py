@@ -15,7 +15,12 @@ from pathlib import Path
 
 import click
 
+from sqlalchemy import select
+
 from atoms_vs_ashes.db.engine import session_scope
+from atoms_vs_ashes.db.models import SmrDesign
+from atoms_vs_ashes.runprofile.loader import load_run_profile
+from atoms_vs_ashes.scoring._smr_bundles import smr_aware_criteria_bundles
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.runtime import install_sigint_handler
 from atoms_vs_ashes.scoring._cli_preview import preview_command
@@ -93,10 +98,19 @@ def score_group() -> None:
     "--cancel-flag", type=click.Path(dir_okay=False), default=None,
     help="Sentinel file to poll; the engine cancels when the file appears.",
 )
+@click.option(
+    "--profile",
+    "profile_path",
+    type=click.Path(exists=True, dir_okay=False),
+    default=None,
+    help="Run profile YAML: loads spec_dir, fail_thresholds, DB threshold_overrides, "
+    "and compiles one rubric bundle per SMR design.",
+)
 @click.pass_context
 def score_run(
     ctx: click.Context, weight_profile: str, rubric_dir: str,
     heartbeat_path: str | None, cancel_flag: str | None,
+    profile_path: str | None,
 ) -> None:
     """Persist ranking_scores, composite_rankings and screening_verdicts."""
     run_id = (ctx.obj or {}).get("run_id")
@@ -106,14 +120,40 @@ def score_run(
         make_heartbeat_writer(heartbeat_path) as hb,
         install_sigint_handler(token),
     ):
-        summary = run_scoring(
-            session,
-            rubric_dir=rubric_dir,
-            weight_profile=weight_profile,
-            run_id=run_id,
-            cancellation=token,
-            heartbeat=hb,
-        )
+        if profile_path is not None:
+            loaded = load_run_profile(profile_path, session=session)
+            smrs = list(
+                session.execute(
+                    select(SmrDesign).order_by(SmrDesign.smr_key)
+                ).scalars()
+            )
+            smr_bundles = smr_aware_criteria_bundles(
+                loaded.template_bundle, loaded.profile, smrs
+            )
+            from atoms_vs_ashes.scoring.rubric import weight_normalisation
+
+            w = weight_normalisation(
+                next(iter(smr_bundles.values())), profile=weight_profile
+            )
+            summary = run_scoring(
+                session,
+                rubric_dir=loaded.profile.spec_dir,
+                weight_profile=weight_profile,
+                run_id=run_id,
+                cancellation=token,
+                heartbeat=hb,
+                smr_bundles=smr_bundles,
+                weights=w,
+            )
+        else:
+            summary = run_scoring(
+                session,
+                rubric_dir=rubric_dir,
+                weight_profile=weight_profile,
+                run_id=run_id,
+                cancellation=token,
+                heartbeat=hb,
+            )
     click.echo(
         json.dumps(
             {

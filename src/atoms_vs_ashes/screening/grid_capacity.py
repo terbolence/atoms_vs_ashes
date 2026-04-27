@@ -15,7 +15,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.config import Settings
-from atoms_vs_ashes.db.models import ScreeningVerdict, Site, SiteObservation
+from atoms_vs_ashes.db.models import ScreeningVerdict, Site, SiteObservation, SmrDesign
 from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.screening.base import ScreeningCheck, register_check
 
@@ -39,13 +39,43 @@ def _resolve_capacity(site: Site) -> float | None:
     return None
 
 
-def _smr_thresholds(settings: Settings) -> list[tuple[str, str, float]]:
-    """Return ``(key, display_name, capacity_mwe)`` sorted ascending by MWe."""
-    entries: list[tuple[str, str, float]] = []
-    for key, spec in settings.smr_types.items():
-        entries.append((key, spec["name"], float(spec["capacity_mwe"])))
-    entries.sort(key=lambda t: t[2])
-    return entries
+def _smr_rows_from_db(session: Session) -> list[tuple[str, str, float, float | None]]:
+    """``(key, name, capacity_mwe, land_ha)`` from :class:`SmrDesign`, sorted by MWe."""
+    rows = session.execute(
+        select(
+            SmrDesign.smr_key,
+            SmrDesign.name,
+            SmrDesign.capacity_mwe,
+            SmrDesign.land_requirement_ha,
+        ).order_by(SmrDesign.capacity_mwe, SmrDesign.smr_key)
+    ).all()
+    out: list[tuple[str, str, float, float | None]] = []
+    for k, n, c, h in rows:
+        out.append(
+            (
+                k,
+                n,
+                float(c),
+                float(h) if h is not None else None,
+            )
+        )
+    return out
+
+
+def evaluate_site(
+    site_value: float | None,
+    smrs: list[tuple[str, str, float]],
+) -> tuple[str, dict, str]:
+    """Partition *site_value* (MW) against a sorted SMR ``(key, name, mwe)`` list."""
+    from atoms_vs_ashes.screening import _site_smr_batch
+
+    return _site_smr_batch.evaluate_site(
+        site_value,
+        smrs,
+        site_key="site_capacity_mw",
+        unit_singular="capacity (MW)",
+        value_fmt="%.0f",
+    )
 
 
 def evaluate_site_for_smr(
@@ -91,7 +121,17 @@ class GridCapacityCheck(ScreeningCheck):
         settings: Settings,
         run_id: str,
     ) -> list[ScreeningVerdict]:
-        smrs = _smr_thresholds(settings)
+        smrs = _smr_rows_from_db(session)
+        if not smrs and settings.smr_types:
+            log.warning(
+                "no_smr_in_db_falling_back_to_config",
+                n_legacy=len(settings.smr_types),
+            )
+            smrs = [
+                (k, s["name"], float(s["capacity_mwe"]), None)
+                for k, s in settings.smr_types.items()
+            ]
+            smrs.sort(key=lambda t: t[2])
         if not smrs:
             log.warning("no_smr_types_configured")
             return []
@@ -103,7 +143,7 @@ class GridCapacityCheck(ScreeningCheck):
         for site in sites:
             capacity = _resolve_capacity(site)
 
-            for smr_key, smr_name, smr_mwe in smrs:
+            for smr_key, smr_name, smr_mwe, _land in smrs:
                 verdict, measured_value, justification = evaluate_site_for_smr(
                     capacity, smr_key, smr_name, smr_mwe,
                 )

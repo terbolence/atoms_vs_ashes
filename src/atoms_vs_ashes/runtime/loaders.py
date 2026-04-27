@@ -46,6 +46,8 @@ def load_rubric_with_overrides(
     weight_overrides: dict[str, int] | None = None,
     weight_profile: str = "baseline",
     expert_override: bool = False,
+    smr_key: str | None = None,
+    smr_grid_export_mw: float | None = None,
 ) -> CompiledBundle:
     """Compile a spec bundle with optional user fail-threshold overrides.
 
@@ -58,6 +60,8 @@ def load_rubric_with_overrides(
         weight_overrides=weight_overrides,
         weight_profile=weight_profile,
         expert_override=expert_override,
+        smr_key=smr_key,
+        smr_grid_export_mw=smr_grid_export_mw,
     )
 
 
@@ -68,6 +72,8 @@ def compile_rubric_with_overrides(
     weight_overrides: dict[str, int] | None = None,
     weight_profile: str = "baseline",
     expert_override: bool = False,
+    smr_key: str | None = None,
+    smr_grid_export_mw: float | None = None,
 ) -> CompiledBundle:
     """Internal helper used by both public adapters."""
     template_bundle = load_template_bundle(spec_dir)
@@ -77,6 +83,8 @@ def compile_rubric_with_overrides(
         weight_overrides=weight_overrides,
         weight_profile=weight_profile,
         expert_override=expert_override,
+        smr_key=smr_key,
+        smr_grid_export_mw=smr_grid_export_mw,
     )
 
 

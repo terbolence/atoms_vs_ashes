@@ -43,6 +43,7 @@ def test_all_tables_registered():
         "countries",
         "data_sources",
         "audit_log",
+        "threshold_overrides",
     }
     assert expected.issubset(table_names), f"Missing: {expected - table_names}"
 

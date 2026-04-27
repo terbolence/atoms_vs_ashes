@@ -73,8 +73,8 @@ def start_score_run(profile_path: Path, *, weight_profile: str) -> RunHandle:
             "run",
             "--weight-profile",
             weight_profile,
-            "--rubric-dir",
-            str(_resolve_spec_dir(profile_path)),
+            "--profile",
+            str(profile_path.resolve()),
         ],
     )
 

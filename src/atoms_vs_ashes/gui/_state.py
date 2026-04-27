@@ -19,7 +19,20 @@ import streamlit as st
 from atoms_vs_ashes.runprofile import parse_run_profile
 from atoms_vs_ashes.runprofile.schema import RunProfile
 
-DEFAULT_PROFILE_PATH = Path("config/run_profiles/default.yaml")
+DEFAULT_PROFILE_PATH = Path("config/run_profiles/baseline.yaml")
+
+
+def _merge_db_fail_thresholds(profile: RunProfile) -> RunProfile:
+    """Overlay :class:`ThresholdOverride` rows from Postgres (if reachable)."""
+    try:
+        from atoms_vs_ashes.db.engine import session_scope
+        from atoms_vs_ashes.db.threshold_overrides import merge_db_over_yaml
+
+        with session_scope() as session:
+            merged = merge_db_over_yaml(dict(profile.fail_thresholds), session)
+        return profile.model_copy(update={"fail_thresholds": merged})
+    except Exception:  # noqa: BLE001 — keep GUI usable without DB
+        return profile
 
 
 def _ensure_keys() -> None:
@@ -42,10 +55,11 @@ def get_profile() -> RunProfile | None:
 
 def set_profile(profile: RunProfile, sha: str, path: Path) -> None:
     _ensure_keys()
-    st.session_state["profile"] = profile
+    prof = _merge_db_fail_thresholds(profile)
+    st.session_state["profile"] = prof
     st.session_state["profile_sha"] = sha
     st.session_state["profile_path"] = str(path)
-    st.session_state["fail_thresholds"] = deepcopy(profile.fail_thresholds)
+    st.session_state["fail_thresholds"] = deepcopy(prof.fail_thresholds)
     st.session_state["expert_override"] = bool(profile.expert_override)
     st.session_state["scoring_overrides"] = profile.scoring.model_dump(mode="json")
     st.session_state["scope_overrides"] = profile.scope.model_dump(mode="json")

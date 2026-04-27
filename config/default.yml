@@ -33,15 +33,6 @@ ingestion:
     ownership_tracker_sheet: "Coal Plant Ownership"
 
   supplementary_sites:
-    - name: "Brăila-Chișcani Thermal Power Plant"
-      country_code: "RO"
-      country_name: "Romania"
-      latitude: 45.2744
-      longitude: 27.9291
-      plant_type: "thermal"
-      status: "operating"
-      subnational_unit: "Brăila"
-      location: "Chișcani, Brăila County"
     - name: "FPCU Feldioara"
       country_code: "RO"
       country_name: "Romania"

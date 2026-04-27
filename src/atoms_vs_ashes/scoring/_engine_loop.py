@@ -62,7 +62,14 @@ def score_sites(
     """
     rows_by_pair: dict[tuple, list[RankingScore]] = defaultdict(list)
     verdicts_by_pair: dict[tuple, list[ScreeningVerdict]] = defaultdict(list)
-    per_site_units = max(1, len(smrs)) * max(1, len(engine.bundle))
+    per_site_units = max(1, len(smrs)) * max(
+        1,
+        len(
+            next(iter(engine.smr_bundles.values()))
+            if engine.smr_bundles
+            else engine.bundle
+        ),
+    )
     total_units = len(sites) * per_site_units
     if heartbeat is not None:
         heartbeat.start_stage(
@@ -72,10 +79,15 @@ def score_sites(
     for idx, site in enumerate(sites, start=1):
         if cancellation is not None:
             cancellation.raise_if_cancelled()
-        site_ctxs, site_values = engine._precompute_site(site)
         for smr in smrs:
+            b = (
+                engine.smr_bundles[smr.smr_key]
+                if engine.smr_bundles
+                else engine.bundle
+            )
+            site_ctxs, site_values = engine._precompute_site(site, bundle=b)
             pair = (site.site_id, smr.smr_key)
-            for cid, criterion in engine.bundle.items():
+            for cid, criterion in b.items():
                 verdicts, row = engine._process_criterion(
                     site=site, smr=smr, criterion=criterion,
                     ctx=site_ctxs[cid], result=site_values.get(cid),
@@ -118,10 +130,15 @@ def build_composites(
     for pair, rows in rows_by_pair.items():
         if cancellation is not None:
             cancellation.raise_if_cancelled()
+        crit_for_pair = (
+            engine.smr_bundles[pair[1]]
+            if engine.smr_bundles
+            else engine.bundle
+        )
         composite = compute_composite_for_site_smr(
             site_id=pair[0], smr_key=pair[1], ranking_rows=rows,
             verdicts=verdicts_by_pair.get(pair, []),
-            weights=engine.weights, criteria=engine.bundle,
+            weights=engine.weights, criteria=crit_for_pair,
         )
         engine.session.merge(build_composite_row(
             composite, run_id=run_id, weight_profile=engine.weight_profile,

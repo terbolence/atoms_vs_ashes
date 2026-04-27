@@ -226,7 +226,7 @@ If that fails, use the exact **Local URL** line Streamlit printed in the termina
 
 **Sidebar pages (Streamlit multipage)**
 
-The home view is the landing text. Use the **sidebar** (left) to switch between pages such as **Run Profile**, **Threshold editor**, **Run dashboard**, and so on.
+The home view is the landing text. Use the **sidebar** (left) to switch between pages such as **SMR Catalogue**, **Run Profile**, **Threshold editor**, **Run dashboard**, and so on.
 
 **Use a different port** (e.g. 8501 is already taken)
 

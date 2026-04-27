@@ -25,6 +25,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from atoms_vs_ashes.criterion_spec._band_recipes import bands_from_recipe
 from atoms_vs_ashes.criterion_spec._compiler_helpers import (
     band_to_runtime,
     bundle_sha256,
@@ -80,6 +81,8 @@ def compile_bundle(
     weight_overrides: dict[str, int] | None = None,
     weight_profile: str = "baseline",
     expert_override: bool = False,
+    smr_key: str | None = None,
+    smr_grid_export_mw: float | None = None,
 ) -> CompiledBundle:
     """Compile templates + user fail_thresholds into a runtime bundle.
 
@@ -116,6 +119,8 @@ def compile_bundle(
             weight_factor=weight,
             overrides_log=overrides,
             expert_override=expert_override,
+            smr_key=smr_key,
+            smr_grid_export_mw=smr_grid_export_mw,
         )
 
     _validate_unknown_overrides(template_bundle, fail_thresholds)
@@ -139,6 +144,8 @@ def _compile_criterion(
     weight_factor: int,
     overrides_log: list[OverrideRecord],
     expert_override: bool,
+    smr_key: str | None,
+    smr_grid_export_mw: float | None,
 ) -> Criterion:
     """Translate one :class:`CriterionTemplate` into a runtime ``Criterion``."""
     fail_conditions = [
@@ -148,9 +155,33 @@ def _compile_criterion(
             crit_overrides,
             overrides_log=overrides_log,
             expert_override=expert_override,
+            smr_key=smr_key,
         )
         for fc in template.fail_conditions
     ]
+    if (
+        template.band_recipe is not None
+        and template.band_recipe.fail_code in crit_overrides
+    ):
+        raw = _resolve_code_override(
+            crit_overrides, template.band_recipe.fail_code, smr_key
+        )
+    else:
+        raw = None
+    if (
+        template.band_recipe is not None
+        and raw is not None
+        and isinstance(raw, (int, float))
+    ):
+        bspecs = bands_from_recipe(
+            template,
+            template.band_recipe,
+            float(raw),
+            smr_grid_export_mw=smr_grid_export_mw,
+        )
+        runtime_bands = [band_to_runtime(b) for b in bspecs]
+    else:
+        runtime_bands = [band_to_runtime(b) for b in template.bands]
     return Criterion(
         criterion_id=template.criterion_id,
         name=template.name,
@@ -162,7 +193,7 @@ def _compile_criterion(
             api=list(template.db_fields.api),
             llm=template.db_fields.llm,
         ),
-        bands=[band_to_runtime(b) for b in template.bands],
+        bands=runtime_bands,
         sub_scores=[sub_score_to_runtime(s) for s in template.sub_scores],
         aggregation=(
             Aggregation(
@@ -186,6 +217,22 @@ def _compile_criterion(
     )
 
 
+def _resolve_code_override(
+    crit_overrides: dict[str, Any], code: str, smr_key: str | None
+) -> Any:
+    if code not in crit_overrides:
+        return None
+    v = crit_overrides[code]
+    if smr_key and isinstance(v, dict) and v and all(isinstance(k, str) for k in v):
+        if smr_key in v:
+            return v[smr_key]
+        if "" in v:
+            return v[""]
+        if len(v) == 1:
+            return next(iter(v.values()))
+    return v
+
+
 def _compile_fail_condition(
     criterion_id: str,
     fc: FailConditionSpec,
@@ -193,9 +240,13 @@ def _compile_fail_condition(
     *,
     overrides_log: list[OverrideRecord],
     expert_override: bool,
+    smr_key: str | None = None,
 ) -> FailCondition:
     """Apply user override (if any) to a single fail_condition."""
-    user_value = crit_overrides.get(fc.code) if fc.code in crit_overrides else None
+    if fc.code in crit_overrides:
+        user_value = _resolve_code_override(crit_overrides, fc.code, smr_key)
+    else:
+        user_value = None
     expr = fc.condition_expr
 
     if user_value is not None:
@@ -210,7 +261,8 @@ def _compile_fail_condition(
                 f"outside bounds {fc.threshold.bounds.model_dump()}; "
                 f"set expert_override=true to bypass."
             )
-        expr = render_condition(fc.threshold, user_value)
+        if fc.threshold_affects_expr:
+            expr = render_condition(fc.threshold, user_value)
         overrides_log.append(
             _override_record(criterion_id, fc.code, fc.threshold, user_value)
         )
@@ -252,6 +304,8 @@ def _validate_unknown_overrides(
                 f"Unknown criterion_id '{cid}' in fail_thresholds"
             )
         known = {fc.code for fc in template.fail_conditions}
+        if template.band_recipe is not None:
+            known.add(template.band_recipe.fail_code)
         for code in codes:
             if code not in known:
                 raise ValueError(

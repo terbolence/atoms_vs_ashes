@@ -68,13 +68,39 @@ def _intro() -> None:
         )
         return
     cols = st.columns(4)
-    cols[0].metric("Countries", len(profile.scope.countries) or "all")
-    cols[1].metric("SMRs", len(profile.scope.smr_keys) or "all")
+    countries = list(profile.scope.countries)
+    smr_keys = list(profile.scope.smr_keys)
+    cols[0].metric(
+        "Countries",
+        len(countries) or "all",
+        help=("Filtered to: " + ", ".join(countries)) if countries else "No filter — all countries in DB.",
+    )
+    cols[1].metric(
+        "SMRs",
+        len(smr_keys) or "all",
+        help=("Filtered to: " + ", ".join(smr_keys)) if smr_keys else "No filter — all SMR designs in DB.",
+    )
     cols[2].metric(
         "Qualification",
         profile.scoring.qualification_mode,
+        help=(
+            "**normal** — a site is *qualified* if it passes every safety floor "
+            "(eliminator codes do not trip). All such sites compete for the top-N. "
+            "\n\n"
+            "**strict** — same safety floors **plus** sites with avoidance penalties "
+            "(soft-fail / risk-flag conditions) are dropped from the top-N shortlist, "
+            "even if they would otherwise rank well."
+        ),
     )
-    cols[3].metric("Top-N / country", profile.scoring.top_n_per_country)
+    cols[3].metric(
+        "Top-N / country",
+        profile.scoring.top_n_per_country,
+        help="Maximum number of sites kept per country in the shortlist.",
+    )
+    if smr_keys:
+        st.caption("**SMR designs in scope:** " + " · ".join(f"`{k}`" for k in smr_keys))
+    if countries:
+        st.caption("**Countries in scope:** " + " · ".join(f"`{c}`" for c in countries))
 
 
 def main() -> None:
@@ -88,6 +114,7 @@ def main() -> None:
     st.divider()
     st.markdown(
         "### Pages\n"
+        "- **SMR Catalogue** — edit `smr_designs` in the database (source of truth)\n"
         "- **Run Profile** — countries / SMRs / qualification mode / top-N\n"
         "- **Threshold Editor** — recommended values + (i) info icons + bounds\n"
         "- **Run Dashboard** — start / stop / progress for scoring + sensitivity\n"

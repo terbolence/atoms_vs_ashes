@@ -1,5 +1,5 @@
 # man_hours: 1.25
-"""Page 4 — Country drill-down: eliminators, top-N shortlist, margin charts."""
+"""Page 5 — Country drill-down: eliminators, top-N shortlist, margin charts."""
 
 from __future__ import annotations
 

@@ -48,23 +48,25 @@ def list_countries() -> list[dict[str, Any]]:
 
 @st.cache_data(show_spinner=False)
 def list_smrs() -> list[dict[str, Any]]:
-    """Return ``[{smr_key, name, capacity_mwe, regulatory_status}]``."""
+    """Return ``[{smr_key, name, capacity_mwe, land_requirement_ha, …}]``."""
     with session_scope() as session:
         rows = session.execute(
             select(
                 SmrDesign.smr_key,
                 SmrDesign.name,
                 SmrDesign.capacity_mwe,
+                SmrDesign.land_requirement_ha,
                 SmrDesign.regulatory_status,
             ).order_by(SmrDesign.smr_key)
         ).all()
     out = []
-    for smr_key, name, capacity, reg in rows:
+    for smr_key, name, capacity, land_ha, reg in rows:
         out.append(
             {
                 "smr_key": smr_key,
                 "name": name,
                 "capacity_mwe": float(capacity) if capacity is not None else None,
+                "land_requirement_ha": float(land_ha) if land_ha is not None else None,
                 "regulatory_status": reg,
             }
         )

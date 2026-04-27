@@ -77,6 +77,7 @@ criteria:
           - {score_range: [1, 2], condition_expr: "hv_line_voltage_kv < 33", descriptor: "< 33 kV or unknown."}
     fail_conditions:
       - {code: A13, action: avoidance_penalty, condition_expr: "grid_export_capacity_mw < 462", descriptor: "Project A13: transmission >= reference SMR net MWe within feasible distance."}
+    band_recipe: {kind: capacity_margin, fail_code: A13}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-03
     name: Transport access (heavy haul road / rail / port)

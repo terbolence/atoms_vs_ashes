@@ -7,13 +7,22 @@ spec_dir: config/scoring_specs
 weight_profile: baseline
 scope:
   countries: []     # empty = all countries in DB
-  smr_keys: []      # empty = all SMR designs in DB
+  # smr_keys:
+  #   - nuscale_voygr6    # Example: NuScale VOYGR-6 (reference SMR, see config/run_profiles/default.yaml for all options)
+  #   - xe_100            #        X-energy Xe-100
+  #   - bwrx_300          #        GE Hitachi BWRX-300
+  #   - holtec_smr300     #        Holtec SMR-300
+  #   - oklo_aurora       #        Oklo Aurora
+  #   - natrium_nominal   #        TerraPower Natrium (nominal)
+  #   - natrium_peak      #        TerraPower Natrium (peak)
+  #   - rolls_royce_smr   #        Rolls-Royce SMR
+  smr_keys: [nuscale_voygr6]      # empty = all SMR designs in DB
   site_status_in: [operating, retired, mothballed]
   site_ids: []
 fail_thresholds: {}
 expert_override: false
 scoring:
-  unscored_fallback_score: 3.0
+  unscored_fallback_score: 5.0
   unscored_fraction_warn: 0.05
   unscored_fraction_hard: 0.20
   weight_overrides: {}
@@ -22,7 +31,7 @@ scoring:
   near_miss_gap_pct: 10
 sensitivity:
   enabled: [weights, mc, threshold, oat, country]
-  mc_iterations: 10000
+  mc_iterations: 5000
   mc_seed: 42
   weight_perturbation_pct: 20
   threshold_targeted_pct: [10, 25]

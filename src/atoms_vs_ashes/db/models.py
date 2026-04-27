@@ -192,6 +192,24 @@ class SmrDesign(Base):
     cooling_type: Mapped[str | None] = mapped_column(String(60))
     design_life_yr: Mapped[int | None] = mapped_column(Integer)
     regulatory_status: Mapped[str | None] = mapped_column(String(200))
+    exclusion_zone_radius_m: Mapped[float | None] = mapped_column(Numeric(12, 2))
+    cooling_water_demand_m3_per_h: Mapped[float | None] = mapped_column(Numeric(14, 3))
+    notes: Mapped[str | None] = mapped_column(Text)
+
+
+class ThresholdOverride(Base):
+    """User-edited fail-threshold values; merged over RunProfile YAML on load."""
+
+    __tablename__ = "threshold_overrides"
+
+    criterion_id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    code: Mapped[str] = mapped_column(String(40), primary_key=True)
+    smr_key: Mapped[str] = mapped_column(String(30), primary_key=True, default="")
+    value: Mapped[object] = mapped_column(JSONB, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_utcnow, onupdate=_utcnow
+    )
+    updated_by: Mapped[str | None] = mapped_column(String(200))
 
 
 # ---------------------------------------------------------------------------

@@ -16,7 +16,9 @@ criteria:
       - {score_range: [3, 4], condition_expr: "nearest_substation_km > 30 and hv_line_voltage_kv < 220", descriptor: "Distance > 30 km AND voltage < 220 kV."}
       - {score_range: [1, 2], condition_expr: "default", descriptor: "No credible substation route."}
       - {score_range: [0, 0], condition_expr: "grid_export_capacity_mw == 0 and nearest_substation_km > 60", descriptor: "No grid pathway (rare)."}
-    fail_conditions: []
+    fail_conditions:
+      - {code: B1, action: screen_flag, condition_expr: "false", descriptor: "Scoring-band pivot; always false in engine.", threshold_affects_expr: false}
+    band_recipe: {kind: higher_is_better, fail_code: B1, metric: grid_export_capacity_mw}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: BF-02
     name: Land / nuclear-island footprint
@@ -31,7 +33,9 @@ criteria:
       - {score_range: [3, 4], condition_expr: "largest_contiguous_ha >= 5 or buildable_area_ha >= 8", descriptor: "Contiguous 5-10 ha OR buildable 8-14 ha; phased layout."}
       - {score_range: [1, 2], condition_expr: "largest_contiguous_ha < 5 and buildable_area_ha < 8", descriptor: "Insufficient for nuclear island."}
       - {score_range: [0, 0], condition_expr: "buildable_area_ha == 0", descriptor: "No useable land."}
-    fail_conditions: []
+    fail_conditions:
+      - {code: B2, action: screen_flag, condition_expr: "false", descriptor: "Scoring-band pivot; always false in engine.", threshold_affects_expr: false}
+    band_recipe: {kind: higher_is_better, fail_code: B2, metric: largest_contiguous_ha}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-01
     name: Seismic ground motion (PGA)
@@ -67,6 +71,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", descriptor: "Excluded: within project E1 buffer."}
     fail_conditions:
       - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 5)", pass_mark: 5.0, descriptor: "Capable fault within 5 km (project) / 8 km (SSG-35)."}
+    band_recipe: {kind: higher_is_better, fail_code: E1}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-03
     name: Geotechnical - settlement and liquefaction
@@ -159,6 +164,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 50", descriptor: "E4 triggered."}
     fail_conditions:
       - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50 or in_pyroclastic_zone == true", pass_mark: 5.0, descriptor: "< 50 km Holocene volcano or in mapped hazard zone."}
+    band_recipe: {kind: higher_is_better, fail_code: E4}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-08
     name: Coastal flooding (storm surge, tsunami)
@@ -176,6 +182,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and has_remedy == false", descriptor: "Indefensible coastal hazard."}
     fail_conditions:
       - {code: A9, action: avoidance_penalty, condition_expr: "coast_distance_km < 10 and elevation_m < 50", descriptor: ">= 10 km from sea / >= 1 km from lake, or elevation >= 50 m AMSL."}
+    band_recipe: {kind: higher_is_better, fail_code: A9}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-09
     name: River flooding
@@ -193,6 +200,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and has_remedy == false", descriptor: "No viable flood-defence pathway."}
     fail_conditions:
       - {code: A11, action: avoidance_penalty, condition_expr: "river_distance_km < 4 and elevation_above_design_flood_m < 30.5", descriptor: "Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."}
+    band_recipe: {kind: flood_distance_or_elevation, fail_code: A11, elevation_pass_m: 30.5}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-10
     name: Extreme winds

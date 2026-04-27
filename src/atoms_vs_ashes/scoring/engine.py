@@ -81,6 +81,7 @@ class ScoringEngine:
         weight_profile: str = "baseline",
         scope: RunScope | None = None,
         bundle: dict[str, Criterion] | None = None,
+        smr_bundles: dict[str, dict[str, Criterion]] | None = None,
         weights: dict[str, float] | None = None,
         dataset_meta: DatasetMeta | None = None,
         cancellation: CancellationToken | None = None,
@@ -92,9 +93,13 @@ class ScoringEngine:
         self.rubric_dir = rubric_dir or "config/scoring_rubrics"
         self.weight_profile = weight_profile
         self.scope = scope or RunScope()
-        self.bundle = bundle if bundle is not None else load_rubric_bundle(
-            self.rubric_dir
-        )
+        self.smr_bundles = smr_bundles
+        if smr_bundles:
+            self.bundle = next(iter(smr_bundles.values()))
+        elif bundle is not None:
+            self.bundle = bundle
+        else:
+            self.bundle = load_rubric_bundle(self.rubric_dir)
         self.weights = weights if weights is not None else weight_normalisation(
             self.bundle, profile=weight_profile
         )
@@ -125,11 +130,14 @@ class ScoringEngine:
         return list(self.session.execute(stmt).scalars().all())
 
     def _precompute_site(
-        self, site: Site
+        self,
+        site: Site,
+        bundle: dict[str, Criterion] | None = None,
     ) -> tuple[dict[str, MergedContext], dict[str, BandResult]]:
+        b = bundle if bundle is not None else self.bundle
         ctxs: dict[str, MergedContext] = {}
         values: dict[str, BandResult] = {}
-        for criterion in self.bundle.values():
+        for criterion in b.values():
             ctx = build_context_for_site(self.session, site, criterion)
             ctxs[criterion.criterion_id] = ctx
             if criterion.is_ranking or criterion.bands or criterion.sub_scores:
@@ -280,6 +288,7 @@ def run_scoring(
     settings: Settings | None = None,
     scope: RunScope | None = None,
     bundle: dict[str, Criterion] | None = None,
+    smr_bundles: dict[str, dict[str, Criterion]] | None = None,
     weights: dict[str, float] | None = None,
     dataset_meta: DatasetMeta | None = None,
     cancellation: CancellationToken | None = None,
@@ -290,7 +299,7 @@ def run_scoring(
     engine = ScoringEngine(
         session, settings=settings,
         rubric_dir=rubric_dir, weight_profile=weight_profile,
-        scope=scope, bundle=bundle, weights=weights,
+        scope=scope, bundle=bundle, smr_bundles=smr_bundles, weights=weights,
         dataset_meta=dataset_meta,
         cancellation=cancellation,
         heartbeat=heartbeat,

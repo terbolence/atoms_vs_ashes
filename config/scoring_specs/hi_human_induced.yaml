@@ -44,6 +44,7 @@ criteria:
       - {score_range: [0, 0], condition_expr: "nearest_seveso_km < 0.5 and has_mitigation == false", descriptor: "Direct adjacency with credible ignition and no mitigation."}
     fail_conditions:
       - {code: A7, action: avoidance_penalty, condition_expr: "nearest_seveso_km < 5", descriptor: "Project avoidance: >= 5 km from flammable/toxic/explosive storage."}
+    band_recipe: {kind: higher_is_better, fail_code: A7}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-03
     name: Toxic / gas releases
@@ -111,6 +112,7 @@ criteria:
     fail_conditions:
       - {code: A5, action: avoidance_penalty, condition_expr: "nearest_military_km < 30 and military_type in ['firing_range', 'bombing_range', 'practice_range']", descriptor: "Project A5: >= 30 km from practice/bombing/firing ranges."}
       - {code: A6, action: avoidance_penalty, condition_expr: "nearest_military_km < 8 and military_type == 'ammunition_storage'", descriptor: "Project A6: >= 8 km from ammunition storage."}
+    band_recipe: {kind: higher_is_better, fail_code: A5}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-07
     name: Electromagnetic interference

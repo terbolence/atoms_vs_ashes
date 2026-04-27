@@ -1,5 +1,5 @@
 # man_hours: 1.5
-"""Page 1 — RunProfile editor (countries, SMRs, qualification, top-N)."""
+"""Page 2 — RunProfile editor (countries, SMRs, qualification, top-N)."""
 
 from __future__ import annotations
 
@@ -34,7 +34,13 @@ def _scope_editor(profile: RunProfile) -> dict:
         for c in countries
     }
     smr_keys = [s["smr_key"] for s in smrs]
-    smr_labels = {s["smr_key"]: f"{s['smr_key']} — {s['name']}" for s in smrs}
+    smr_labels = {
+        s["smr_key"]: (
+            f"{s['smr_key']} — {s['name']} | {s['capacity_mwe']:.0f} MWe"
+            f" | {s.get('land_requirement_ha') or 0:.0f} ha"
+        )
+        for s in smrs
+    }
 
     chosen_countries = st.multiselect(
         "Countries (empty = all)",
@@ -97,15 +103,49 @@ def _scoring_editor(profile: RunProfile) -> dict:
         "Unscored fallback score (0–10)",
         min_value=0.0, max_value=10.0, step=0.5,
         value=float(profile.scoring.unscored_fallback_score),
+        help=(
+            "Placeholder score (0–10) used for criteria that have no data for "
+            "this site. The composite score is computed as a weighted average "
+            "over **scored** criteria; the **unscored** portion contributes "
+            "this fallback value, weighted by its share of the total weight.\n\n"
+            "**Lower values** (e.g. 0–3) → conservative: sites with lots of "
+            "missing data are pushed down, biasing the shortlist toward "
+            "well-documented sites.\n\n"
+            "**Mid values** (≈5) → neutral: missing data neither helps nor "
+            "hurts overall.\n\n"
+            "**Higher values** (e.g. 7–10) → optimistic: missing data is "
+            "treated as 'probably fine', which can be useful when the dataset "
+            "is sparse but should be paired with a tight HARD threshold below."
+        ),
     )
     cols2 = st.columns(2)
     warn = cols2[0].slider(
         "Unscored fraction WARN", 0.0, 1.0,
         float(profile.scoring.unscored_fraction_warn), 0.01,
+        help=(
+            "Soft warning threshold on the share of a site's total criterion "
+            "weight that is **unscored** (missing data).\n\n"
+            "If `unscored_fraction > WARN` (and ≤ HARD), the site is tagged "
+            "with `unscored_penalty_applied` in its notes and its confidence "
+            "is downgraded — but it still competes in the top-N.\n\n"
+            "Typical value: **0.05** (5%). Raise it if your dataset is "
+            "intrinsically sparse and you want fewer 'penalty' flags."
+        ),
     )
     hard = cols2[1].slider(
         "Unscored fraction HARD", 0.0, 1.0,
         float(profile.scoring.unscored_fraction_hard), 0.01,
+        help=(
+            "Hard threshold on the share of a site's total criterion weight "
+            "that is **unscored** (missing data).\n\n"
+            "If `unscored_fraction > HARD`, the site is tagged with "
+            "`high_unscored_fraction` and its composite confidence is forced "
+            "to **low**, which typically excludes it from the shortlist in "
+            "downstream consumers.\n\n"
+            "Must be **≥ WARN**. Typical value: **0.20** (20%). Lower it for "
+            "stricter data-completeness gating, raise it for exploratory runs "
+            "on partial datasets."
+        ),
     )
     if hard < warn:
         st.warning("HARD must be ≥ WARN — values will be clamped on save.")

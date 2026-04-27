@@ -16,7 +16,8 @@ criteria:
       - {score_range: [3, 4], condition_expr: "nearest_substation_km > 30 and hv_line_voltage_kv < 220", descriptor: "Distance > 30 km AND voltage < 220 kV."}
       - {score_range: [1, 2], condition_expr: "default", descriptor: "No credible substation route."}
       - {score_range: [0, 0], condition_expr: "grid_export_capacity_mw == 0 and nearest_substation_km > 60", descriptor: "No grid pathway (rare)."}
-    fail_conditions: []
+    fail_conditions:
+      - {code: B1, action: screen_flag, condition_expr: "false", descriptor: "Scoring-band pivot; always false in engine."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: BF-02
     name: Land / nuclear-island footprint
@@ -31,7 +32,8 @@ criteria:
       - {score_range: [3, 4], condition_expr: "largest_contiguous_ha >= 5 or buildable_area_ha >= 8", descriptor: "Contiguous 5-10 ha OR buildable 8-14 ha; phased layout."}
       - {score_range: [1, 2], condition_expr: "largest_contiguous_ha < 5 and buildable_area_ha < 8", descriptor: "Insufficient for nuclear island."}
       - {score_range: [0, 0], condition_expr: "buildable_area_ha == 0", descriptor: "No useable land."}
-    fail_conditions: []
+    fail_conditions:
+      - {code: B2, action: screen_flag, condition_expr: "false", descriptor: "Scoring-band pivot; always false in engine."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-01
     name: Seismic ground motion (PGA)

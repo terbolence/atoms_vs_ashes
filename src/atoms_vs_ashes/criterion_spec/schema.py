@@ -27,6 +27,32 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+BandRecipeKind = Literal[
+    "higher_is_better",
+    "lower_is_better",
+    "capacity_margin",
+    "flood_distance_or_elevation",
+]
+
+
+class BandRecipeSpec(BaseModel):
+    """When set, :func:`compile_bundle` can rebuild ``bands`` from a fail value."""
+
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    kind: BandRecipeKind
+    fail_code: str = Field(
+        ...,
+        description=(
+            "Key in fail_thresholds; may be band-only (no matching FailCondition row)."
+        ),
+    )
+    metric: str | None = Field(
+        default=None,
+        description="Metric for recipes when the template omits primary_metric (e.g. BF-01).",
+    )
+    elevation_pass_m: float | None = None
+
 
 class RecommendedValue(BaseModel):
     """IAEA / NUREG anchor + rationale shown by the GUI's (i) icon."""
@@ -163,6 +189,8 @@ class FailConditionSpec(BaseModel):
     descriptor: str = ""
     pass_mark: float | None = Field(default=None, ge=0.0, le=10.0)
     threshold: ThresholdSpec | None = None
+    threshold_affects_expr: bool = True
+    """If False, user threshold edits never rewrite ``condition_expr`` (band pivots)."""
 
 
 class QualityFloorSpec(BaseModel):
@@ -217,6 +245,7 @@ class CriterionTemplate(BaseModel):
     aggregation: AggregationSpec | None = None
     fail_conditions: list[FailConditionSpec] = Field(default_factory=list)
     quality_floor: QualityFloorSpec = Field(default_factory=QualityFloorSpec)
+    band_recipe: BandRecipeSpec | None = None
 
     @property
     def family(self) -> str:
@@ -244,6 +273,8 @@ class TemplateFile(BaseModel):
 __all__ = [
     "AggregationSpec",
     "BandKind",
+    "BandRecipeKind",
+    "BandRecipeSpec",
     "BandSpec",
     "CriterionTemplate",
     "DbFieldsSpec",

@@ -1,5 +1,5 @@
 # man_hours: 1.5
-"""Page 3 — Start / stop scoring + sensitivity, live heartbeat progress."""
+"""Page 4 — Start / stop scoring + sensitivity, live heartbeat progress."""
 
 from __future__ import annotations
 

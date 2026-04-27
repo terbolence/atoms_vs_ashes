@@ -1,5 +1,5 @@
 # man_hours: 1.0
-"""Page 6 — Sensitivity dashboard (MC, OAT, threshold, weights, country balance)."""
+"""Page 7 — Sensitivity dashboard (MC, OAT, threshold, weights, country balance)."""
 
 from __future__ import annotations
 

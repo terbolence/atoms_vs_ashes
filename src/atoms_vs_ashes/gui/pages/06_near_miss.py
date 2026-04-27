@@ -1,5 +1,5 @@
 # man_hours: 0.75
-"""Page 5 — Near-miss panel: sites that failed by a small margin."""
+"""Page 6 — Near-miss panel: sites that failed by a small margin."""
 
 from __future__ import annotations
 

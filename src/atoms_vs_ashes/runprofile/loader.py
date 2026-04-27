@@ -77,6 +77,8 @@ def validate_against_specs(
                 f"fail_thresholds references unknown criterion '{cid}'"
             )
         known = {fc.code for fc in template.fail_conditions}
+        if template.band_recipe is not None:
+            known.add(template.band_recipe.fail_code)
         for code, value in codes.items():
             if code not in known:
                 raise ValueError(
@@ -89,17 +91,27 @@ def validate_against_specs(
                     f"fail_thresholds[{cid}].{code} cannot be overridden "
                     f"— code is not user-controllable (no `threshold` block)"
                 )
-            if not spec.is_in_bounds(value) and not profile.expert_override:
-                raise ValueError(
-                    f"fail_thresholds[{cid}].{code}={value!r} is outside "
-                    f"bounds {spec.bounds.model_dump()}; set "
-                    f"expert_override=true to bypass."
-                )
-            if not spec.is_in_bounds(value) and profile.expert_override:
-                warnings.append(
-                    f"expert_override active for {cid}/{code}: {value} "
-                    f"outside {spec.bounds.model_dump()}"
-                )
+            to_check: list[Any]
+            if (
+                isinstance(value, dict)
+                and value
+                and all(isinstance(k, str) for k in value)
+            ):
+                to_check = list(value.values())
+            else:
+                to_check = [value]
+            for val in to_check:
+                if not spec.is_in_bounds(val) and not profile.expert_override:
+                    raise ValueError(
+                        f"fail_thresholds[{cid}].{code}={val!r} is outside "
+                        f"bounds {spec.bounds.model_dump()}; set "
+                        f"expert_override=true to bypass."
+                    )
+                if not spec.is_in_bounds(val) and profile.expert_override:
+                    warnings.append(
+                        f"expert_override active for {cid}/{code}: {val} "
+                        f"outside {spec.bounds.model_dump()}"
+                    )
     for cid in profile.scoring.weight_overrides:
         if cid not in template_bundle.by_id:
             raise ValueError(
@@ -163,6 +175,16 @@ def load_run_profile(
     if not p.is_file():
         raise FileNotFoundError(f"Run profile not found: {p}")
     profile, sha = parse_run_profile(p)
+    if session is not None:
+        from atoms_vs_ashes.db.threshold_overrides import merge_db_over_yaml
+
+        profile = profile.model_copy(
+            update={
+                "fail_thresholds": merge_db_over_yaml(
+                    dict(profile.fail_thresholds), session
+                )
+            }
+        )
     spec_dir = Path(spec_dir_override or profile.spec_dir)
     template_bundle = load_template_bundle(spec_dir)
     warnings = validate_against_specs(profile, template_bundle)
