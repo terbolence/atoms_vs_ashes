@@ -1,0 +1,150 @@
+{"positional_args": ["api", "atoms_vs_ashes"], "event": "Using database profile '%s' \u2192 %s", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:21.981293Z"}
+{
+  "message": "sensitivity_suite_starting",
+  "run_id": "sens-42c1a9aa",
+  "iterations": 5000,
+  "preset": null,
+  "include": [
+    "country",
+    "mc",
+    "threshold",
+    "weights"
+  ],
+  "weight_profile_base": "baseline",
+  "progress_enabled": false,
+  "profile": "/Users/terbolence/Library/CloudStorage/GoogleDrive-bogdan@fulcrum-web.com/My Drive/SNN/01_proiecte/atoms_vs_ashes/audit/.runtime/active_profile.sens-42c1a9aa.yaml"
+}
+{"run_id": "sens-42c1a9aa", "run_kind": "sensitivity", "parent_run_id": "score-e58d84f6", "event": "run_started", "level": "info", "timestamp": "2026-04-28T10:34:22.159707Z"}
+{"pairs": 362, "profile": "baseline", "baseline_run_id": "score-e58d84f6", "scoped": true, "event": "sensitivity_pairs_loaded", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:22.629404Z"}
+{"pairs": 362, "profiles": ["w_NH_plus_20", "w_NH_minus_20", "w_HI_plus_20", "w_HI_minus_20", "w_RI_plus_20", "w_RI_minus_20", "w_EP_plus_20", "w_EP_minus_20", "w_NS_plus_20", "w_NS_minus_20", "w_swing"], "event": "weight_sensitivity_complete", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:22.952784Z"}
+{"ts": "2026-04-28T10:34:23Z", "stage": "sensitivity:mc", "processed": 0, "total": 362, "eta_s": null, "message": "draws=5000", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:23.770823Z"}
+{"description": "Monte Carlo (5000 draws)", "total": 362, "mode": "log_fallback", "event": "progress_start", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:23.770905Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 1, "total": 362, "percent": 0, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:23.933373Z"}
+{"ts": "2026-04-28T10:34:23Z", "stage": "sensitivity:mc", "processed": 1, "total": 362, "eta_s": 58.73, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:23.933427Z"}
+{"ts": "2026-04-28T10:34:25Z", "stage": "sensitivity:mc", "processed": 13, "total": 362, "eta_s": 34.57, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:25.058527Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 19, "total": 362, "percent": 5, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:25.538416Z"}
+{"ts": "2026-04-28T10:34:26Z", "stage": "sensitivity:mc", "processed": 25, "total": 362, "eta_s": 32.6, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:26.189231Z"}
+{"ts": "2026-04-28T10:34:27Z", "stage": "sensitivity:mc", "processed": 34, "total": 362, "eta_s": 34.19, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:27.314445Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 37, "total": 362, "percent": 10, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:27.797556Z"}
+{"ts": "2026-04-28T10:34:28Z", "stage": "sensitivity:mc", "processed": 42, "total": 362, "eta_s": 35.56, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:28.438580Z"}
+{"ts": "2026-04-28T10:34:29Z", "stage": "sensitivity:mc", "processed": 50, "total": 362, "eta_s": 36.11, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:29.557979Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 55, "total": 362, "percent": 15, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:30.204979Z"}
+{"ts": "2026-04-28T10:34:30Z", "stage": "sensitivity:mc", "processed": 61, "total": 362, "eta_s": 34.13, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:30.686974Z"}
+{"ts": "2026-04-28T10:34:31Z", "stage": "sensitivity:mc", "processed": 70, "total": 362, "eta_s": 33.6, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:31.826580Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 73, "total": 362, "percent": 20, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:32.312147Z"}
+{"ts": "2026-04-28T10:34:32Z", "stage": "sensitivity:mc", "processed": 79, "total": 362, "eta_s": 32.91, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:32.956670Z"}
+{"ts": "2026-04-28T10:34:34Z", "stage": "sensitivity:mc", "processed": 88, "total": 362, "eta_s": 32.12, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:34.085765Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 91, "total": 362, "percent": 25, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:34.567150Z"}
+{"ts": "2026-04-28T10:34:35Z", "stage": "sensitivity:mc", "processed": 101, "total": 362, "eta_s": 29.57, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:35.214379Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 109, "total": 362, "percent": 30, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:36.179733Z"}
+{"ts": "2026-04-28T10:34:36Z", "stage": "sensitivity:mc", "processed": 111, "total": 362, "eta_s": 28.42, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:36.339470Z"}
+{"ts": "2026-04-28T10:34:37Z", "stage": "sensitivity:mc", "processed": 121, "total": 362, "eta_s": 27.29, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:37.471917Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 127, "total": 362, "percent": 35, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:38.287858Z"}
+{"ts": "2026-04-28T10:34:38Z", "stage": "sensitivity:mc", "processed": 129, "total": 362, "eta_s": 26.8, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:38.609170Z"}
+{"ts": "2026-04-28T10:34:39Z", "stage": "sensitivity:mc", "processed": 137, "total": 362, "eta_s": 26.22, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:39.737064Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 145, "total": 362, "percent": 40, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:40.706072Z"}
+{"ts": "2026-04-28T10:34:40Z", "stage": "sensitivity:mc", "processed": 147, "total": 362, "eta_s": 25.0, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:40.866648Z"}
+{"ts": "2026-04-28T10:34:41Z", "stage": "sensitivity:mc", "processed": 157, "total": 362, "eta_s": 23.8, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:41.995061Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 163, "total": 362, "percent": 45, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:42.641352Z"}
+{"ts": "2026-04-28T10:34:43Z", "stage": "sensitivity:mc", "processed": 167, "total": 362, "eta_s": 22.6, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:43.123723Z"}
+{"ts": "2026-04-28T10:34:44Z", "stage": "sensitivity:mc", "processed": 179, "total": 362, "eta_s": 20.94, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:44.257067Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 181, "total": 362, "percent": 50, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:44.576470Z"}
+{"ts": "2026-04-28T10:34:45Z", "stage": "sensitivity:mc", "processed": 190, "total": 362, "eta_s": 19.56, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:45.381652Z"}
+{"ts": "2026-04-28T10:34:46Z", "stage": "sensitivity:mc", "processed": 199, "total": 362, "eta_s": 18.63, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:46.514761Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 200, "total": 362, "percent": 55, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:46.675692Z"}
+{"ts": "2026-04-28T10:34:47Z", "stage": "sensitivity:mc", "processed": 209, "total": 362, "eta_s": 17.47, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:47.635561Z"}
+{"ts": "2026-04-28T10:34:48Z", "stage": "sensitivity:mc", "processed": 217, "total": 362, "eta_s": 16.7, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:48.761289Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 218, "total": 362, "percent": 60, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:48.761322Z"}
+{"ts": "2026-04-28T10:34:49Z", "stage": "sensitivity:mc", "processed": 226, "total": 362, "eta_s": 15.72, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:49.892872Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 236, "total": 362, "percent": 65, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:50.693673Z"}
+{"ts": "2026-04-28T10:34:51Z", "stage": "sensitivity:mc", "processed": 239, "total": 362, "eta_s": 14.02, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:51.014754Z"}
+{"ts": "2026-04-28T10:34:52Z", "stage": "sensitivity:mc", "processed": 250, "total": 362, "eta_s": 12.71, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:52.148783Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 254, "total": 362, "percent": 70, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:52.787432Z"}
+{"ts": "2026-04-28T10:34:53Z", "stage": "sensitivity:mc", "processed": 258, "total": 362, "eta_s": 11.89, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:53.266282Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 272, "total": 362, "percent": 75, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:54.394764Z"}
+{"ts": "2026-04-28T10:34:54Z", "stage": "sensitivity:mc", "processed": 272, "total": 362, "eta_s": 10.13, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:54.394848Z"}
+{"ts": "2026-04-28T10:34:55Z", "stage": "sensitivity:mc", "processed": 280, "total": 362, "eta_s": 9.3, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:55.514875Z"}
+{"ts": "2026-04-28T10:34:56Z", "stage": "sensitivity:mc", "processed": 287, "total": 362, "eta_s": 8.59, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:56.644201Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 290, "total": 362, "percent": 80, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:57.129447Z"}
+{"ts": "2026-04-28T10:34:57Z", "stage": "sensitivity:mc", "processed": 297, "total": 362, "eta_s": 7.44, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:57.774794Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 308, "total": 362, "percent": 85, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:34:58.579202Z"}
+{"ts": "2026-04-28T10:34:58Z", "stage": "sensitivity:mc", "processed": 310, "total": 362, "eta_s": 5.89, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:34:58.905281Z"}
+{"ts": "2026-04-28T10:35:00Z", "stage": "sensitivity:mc", "processed": 319, "total": 362, "eta_s": 4.89, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:00.044866Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 326, "total": 362, "percent": 90, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:00.527024Z"}
+{"ts": "2026-04-28T10:35:01Z", "stage": "sensitivity:mc", "processed": 334, "total": 362, "eta_s": 3.14, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:01.172522Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 344, "total": 362, "percent": 95, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:02.300839Z"}
+{"ts": "2026-04-28T10:35:02Z", "stage": "sensitivity:mc", "processed": 344, "total": 362, "eta_s": 2.02, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:02.300957Z"}
+{"ts": "2026-04-28T10:35:03Z", "stage": "sensitivity:mc", "processed": 352, "total": 362, "eta_s": 1.13, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:03.419361Z"}
+{"ts": "2026-04-28T10:35:04Z", "stage": "sensitivity:mc", "processed": 361, "total": 362, "eta_s": 0.11, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:04.550077Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 362, "total": 362, "percent": 100, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:04.550112Z"}
+{"pairs": 362, "iterations": 5000, "preset": null, "event": "monte_carlo_complete", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:04.550135Z"}
+{"description": "Monte Carlo (5000 draws)", "done": 362, "total": 362, "percent": 100, "event": "progress_done", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:04.550149Z"}
+{"ts": "2026-04-28T10:35:04Z", "stage": "sensitivity:mc", "processed": 362, "total": 362, "eta_s": 0.0, "message": "completed", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:04.635001Z"}
+{"ts": "2026-04-28T10:35:04Z", "stage": "sensitivity:threshold", "processed": 0, "total": 724, "eta_s": null, "message": "global\u00b125", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:04.706917Z"}
+{"description": "Threshold \u00b125", "total": 724, "mode": "log_fallback", "event": "progress_start", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:04.706977Z"}
+{"description": "Threshold \u00b125", "done": 1, "total": 724, "percent": 0, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:04.834383Z"}
+{"ts": "2026-04-28T10:35:04Z", "stage": "sensitivity:threshold", "processed": 1, "total": 724, "eta_s": 92.23, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:04.834461Z"}
+{"description": "Threshold \u00b125", "done": 37, "total": 724, "percent": 5, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:05.207486Z"}
+{"description": "Threshold \u00b125", "done": 73, "total": 724, "percent": 10, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:05.577334Z"}
+{"ts": "2026-04-28T10:35:05Z", "stage": "sensitivity:threshold", "processed": 97, "total": 724, "eta_s": 7.3, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:05.836315Z"}
+{"description": "Threshold \u00b125", "done": 109, "total": 724, "percent": 15, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:05.968981Z"}
+{"description": "Threshold \u00b125", "done": 145, "total": 724, "percent": 20, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:06.448670Z"}
+{"ts": "2026-04-28T10:35:06Z", "stage": "sensitivity:threshold", "processed": 172, "total": 724, "eta_s": 6.85, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:06.842282Z"}
+{"description": "Threshold \u00b125", "done": 181, "total": 724, "percent": 25, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:06.973971Z"}
+{"description": "Threshold \u00b125", "done": 218, "total": 724, "percent": 30, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:07.485347Z"}
+{"ts": "2026-04-28T10:35:07Z", "stage": "sensitivity:threshold", "processed": 243, "total": 724, "eta_s": 6.22, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:07.847078Z"}
+{"description": "Threshold \u00b125", "done": 254, "total": 724, "percent": 35, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:08.016380Z"}
+{"description": "Threshold \u00b125", "done": 290, "total": 724, "percent": 40, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:08.528420Z"}
+{"ts": "2026-04-28T10:35:08Z", "stage": "sensitivity:threshold", "processed": 315, "total": 724, "eta_s": 5.39, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:08.854767Z"}
+{"description": "Threshold \u00b125", "done": 326, "total": 724, "percent": 45, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:09.004577Z"}
+{"description": "Threshold \u00b125", "done": 362, "total": 724, "percent": 50, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:09.493180Z"}
+{"direction": "threshold_minus_25", "factor": 0.75, "pairs": 362, "event": "threshold_sensitivity_direction_complete", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:09.493298Z"}
+{"ts": "2026-04-28T10:35:09Z", "stage": "sensitivity:threshold", "processed": 373, "total": 724, "eta_s": 4.85, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:09.856529Z"}
+{"description": "Threshold \u00b125", "done": 399, "total": 724, "percent": 55, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:10.232662Z"}
+{"description": "Threshold \u00b125", "done": 435, "total": 724, "percent": 60, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:10.725369Z"}
+{"ts": "2026-04-28T10:35:10Z", "stage": "sensitivity:threshold", "processed": 445, "total": 724, "eta_s": 3.86, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:10.863314Z"}
+{"description": "Threshold \u00b125", "done": 471, "total": 724, "percent": 65, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:11.220222Z"}
+{"description": "Threshold \u00b125", "done": 507, "total": 724, "percent": 70, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:11.711326Z"}
+{"ts": "2026-04-28T10:35:11Z", "stage": "sensitivity:threshold", "processed": 517, "total": 724, "eta_s": 2.87, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:11.865867Z"}
+{"description": "Threshold \u00b125", "done": 543, "total": 724, "percent": 75, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:12.230771Z"}
+{"description": "Threshold \u00b125", "done": 580, "total": 724, "percent": 80, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:12.742454Z"}
+{"ts": "2026-04-28T10:35:12Z", "stage": "sensitivity:threshold", "processed": 590, "total": 724, "eta_s": 1.86, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:12.879551Z"}
+{"description": "Threshold \u00b125", "done": 616, "total": 724, "percent": 85, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:13.224671Z"}
+{"description": "Threshold \u00b125", "done": 652, "total": 724, "percent": 90, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:13.734367Z"}
+{"ts": "2026-04-28T10:35:13Z", "stage": "sensitivity:threshold", "processed": 662, "total": 724, "eta_s": 0.86, "message": "", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:13.890285Z"}
+{"description": "Threshold \u00b125", "done": 688, "total": 724, "percent": 95, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:14.263990Z"}
+{"description": "Threshold \u00b125", "done": 724, "total": 724, "percent": 100, "event": "progress_tick", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:14.754438Z"}
+{"direction": "threshold_plus_25", "factor": 1.25, "pairs": 362, "event": "threshold_sensitivity_direction_complete", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:14.754485Z"}
+{"directions": ["threshold_minus_25", "threshold_plus_25"], "event": "threshold_sensitivity_complete", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:14.759894Z"}
+{"description": "Threshold \u00b125", "done": 724, "total": 724, "percent": 100, "event": "progress_done", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:14.759934Z"}
+{"ts": "2026-04-28T10:35:15Z", "stage": "sensitivity:threshold", "processed": 724, "total": 724, "eta_s": 0.0, "message": "completed", "unit": "items", "event": "heartbeat", "run_id": "sens-42c1a9aa", "level": "debug", "timestamp": "2026-04-28T10:35:15.186048Z"}
+{"run_id": "sens-42c1a9aa", "run_kind": "sensitivity", "status": "completed", "event": "run_completed", "level": "info", "timestamp": "2026-04-28T10:35:15.187445Z"}
+{"path": "audit/post_processing/06_scoring/20260428_sensitivity_mc_5000.md", "event": "sensitivity_audit_written", "run_id": "sens-42c1a9aa", "level": "info", "timestamp": "2026-04-28T10:35:15.187709Z"}
+{"run_id": "sens-42c1a9aa", "pairs": 362, "iterations": 5000, "preset": null, "weight_rows": 3982, "mc_rows": 362, "country_rows": 362, "threshold_rows": 724, "event": "sensitivity_suite_complete", "level": "info", "timestamp": "2026-04-28T10:35:15.187729Z"}
+{
+  "run_id": "sens-42c1a9aa",
+  "pairs": 362,
+  "iterations": 5000,
+  "preset_label": null,
+  "weight_rows_persisted": 3982,
+  "mc_rows_persisted": 362,
+  "country_balanced_rows_persisted": 362,
+  "threshold_rows_persisted": 724,
+  "country_report": {
+    "total_sites": 253,
+    "top_n": 20,
+    "max_share": 0.45,
+    "flagged": true,
+    "country_counts": {
+      "PL": 5,
+      "TR": 9,
+      "HU": 2,
+      "RO": 2,
+      "SK": 1,
+      "UA": 1
+    }
+  },
+  "audit_path": "audit/post_processing/06_scoring/20260428_sensitivity_mc_5000.md",
+  "mc_label": "mc_5000",
+  "notes": []
+}

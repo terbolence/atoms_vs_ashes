@@ -64,7 +64,8 @@ def test_audit_catalogue_includes_all_live_ea_rules() -> None:
     codes = {(r.criterion_id, r.code, r.action) for r in rules}
 
     assert ("EP-01", "E8", "exclude") in codes
-    assert ("NH-05", "E5", "exclude") in codes
+    assert ("NH-05", "E5", "exclude") not in codes
+    assert ("NH-05", "E6", "exclude") not in codes
     assert ("RI-04", "A12", "avoidance_penalty") in codes
     assert ("NS-05", "A15", "avoidance_penalty") in codes
     assert any("dry_cooling_viable" in r.missing_context_names for r in rules)
@@ -74,7 +75,7 @@ def test_audit_status_expands_exclusionary_floors_and_avoidance_roles() -> None:
     rows = build_audit_status_rows(collect_audit_rules(), [])
     by_code = {r.code: r for r in rows}
 
-    assert "E8:floor" in by_code
+    assert "E1:floor" in by_code
     assert by_code["A15"].decision == "valid_as_risk_flag"
     assert by_code["A15"].suitability_role.startswith("avoidance caution")
 

@@ -35,7 +35,9 @@ _BAND_HELP = (
 )
 
 
-def render_stability_tab(*, run: RunSummary) -> None:
+def render_stability_tab(
+    *, run: RunSummary, country_code: str | None = None,
+) -> None:
     """Render the Stability ledger for a sensitivity run."""
     if run.run_kind != "sensitivity":
         st.info(
@@ -44,15 +46,24 @@ def render_stability_tab(*, run: RunSummary) -> None:
             "Pick a sensitivity run from the run-picker above."
         )
         return
-    rows = site_stability_ledger(run.run_id)
+    rows = site_stability_ledger(run.run_id, country_code=country_code)
     if not rows:
+        scope_msg = (
+            f" for {country_name(country_code)}" if country_code else ""
+        )
         st.info(
-            "No `site_bands` rows persisted for this run. The "
+            f"No `site_bands` rows persisted{scope_msg} for this run. The "
             "sensitivity suite may have been cancelled before the "
-            "stability stage, or the scope yielded no scored pairs."
+            "stability stage, or the selected scope yielded no scored pairs."
         )
         return
 
+    pool_label = _pool_label(country_code)
+    st.caption(f"Sensitivity pool: **{pool_label}**")
+    st.caption(
+        "Top 5% / 10% / 30% hit rates are computed within this selected "
+        "pool, not against a different regional or national universe."
+    )
     st.caption(_BAND_HELP)
     bands_present = sorted({r.band for r in rows})
     band_filter = st.multiselect(
@@ -71,12 +82,12 @@ def render_stability_tab(*, run: RunSummary) -> None:
         return
 
     counts_df = _band_counts(rows)
-    _render_band_counts(counts_df)
+    _render_band_counts(counts_df, country_code=country_code)
     st.markdown("##### Stability ledger")
     df = _to_dataframe(filtered)
     st.dataframe(
         df, hide_index=True, use_container_width=True,
-        column_config=_column_config(),
+        column_config=_column_config(country_code),
     )
 
 
@@ -87,10 +98,7 @@ def _to_dataframe(rows: list[StabilityRow]) -> pd.DataFrame:
             "site": r.site_name,
             "country": country_name(r.country_code),
             "smr_key": r.smr_key or "—",
-            "scope": (
-                country_name(r.scope_country_code)
-                if r.scope_country_code else "regional"
-            ),
+            "scope": _scope_label(r.scope_country_code),
             "top5%": r.top5pct_hit_rate,
             "top10%": r.top10pct_hit_rate,
             "top30%": r.top30pct_hit_rate,
@@ -105,6 +113,18 @@ def _to_dataframe(rows: list[StabilityRow]) -> pd.DataFrame:
     ])
 
 
+def _scope_label(scope_country_code: str | None) -> str:
+    if not scope_country_code or scope_country_code == "XX":
+        return "regional"
+    return country_name(scope_country_code)
+
+
+def _pool_label(country_code: str | None) -> str:
+    if country_code:
+        return f"National / {country_name(country_code)}"
+    return "Regional / All countries"
+
+
 def _band_counts(rows: list[StabilityRow]) -> pd.DataFrame:
     counts: dict[str, int] = {}
     for r in rows:
@@ -117,16 +137,22 @@ def _band_counts(rows: list[StabilityRow]) -> pd.DataFrame:
     )
 
 
-def _render_band_counts(df: pd.DataFrame) -> None:
+def _render_band_counts(
+    df: pd.DataFrame, *, country_code: str | None,
+) -> None:
     if df.empty:
         return
     st.markdown("##### Sites per band")
+    pool_title = (
+        f"# sites in {country_name(country_code)} pool"
+        if country_code else "# sites in regional pool"
+    )
     chart = (
         alt.Chart(df)
         .mark_bar()
         .encode(
             x=alt.X("band:N", title="Band"),
-            y=alt.Y("count:Q", title="# (site × SMR) pairs"),
+            y=alt.Y("count:Q", title=pool_title),
             color=alt.Color(
                 "band:N",
                 scale=alt.Scale(scheme="tableau10"),
@@ -139,7 +165,11 @@ def _render_band_counts(df: pd.DataFrame) -> None:
     st.altair_chart(chart, use_container_width=True)
 
 
-def _column_config() -> dict:
+def _column_config(country_code: str | None) -> dict:
+    pct_scope = (
+        f"within {country_name(country_code)}"
+        if country_code else "within regional pool"
+    )
     return {
         "band": st.column_config.TextColumn("Band"),
         "site": st.column_config.TextColumn("Site"),
@@ -149,19 +179,19 @@ def _column_config() -> dict:
             "Scope",
             help=(
                 "`regional` = ranking pool spans every country; "
-                "`<XX>` = pool restricted to country XX."
+                "`<country>` = pool restricted to that country."
             ),
         ),
         "top5%": st.column_config.ProgressColumn(
-            "Top 5% hit rate",
+            f"Top 5% hit rate ({pct_scope})",
             min_value=0.0, max_value=1.0, format="%.2f",
         ),
         "top10%": st.column_config.ProgressColumn(
-            "Top 10% hit rate",
+            f"Top 10% hit rate ({pct_scope})",
             min_value=0.0, max_value=1.0, format="%.2f",
         ),
         "top30%": st.column_config.ProgressColumn(
-            "Top 30% hit rate",
+            f"Top 30% hit rate ({pct_scope})",
             min_value=0.0, max_value=1.0, format="%.2f",
         ),
         "MC mean": st.column_config.NumberColumn("MC mean", format="%.2f"),

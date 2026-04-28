@@ -41,7 +41,8 @@ def render_exclusion_diagnostics_tab(
         return
     _summary_strip(diag)
     top_n, max_gap, near_only, show_points, unlock_metric = _controls(
-        near_miss_gap_pct, len(diag.pareto),
+        near_miss_gap_pct, len(diag.pareto), run_id=run_id,
+        country_code=country_code,
     )
     _render_pareto(diag)
     _render_gap_distribution(diag, top_n, max_gap, near_only, show_points)
@@ -64,15 +65,24 @@ def _summary_strip(diag: ExclusionDiagnostics) -> None:
 
 
 def _controls(
-    near_miss_gap_pct: float, n_criteria: int,
+    near_miss_gap_pct: float,
+    n_criteria: int,
+    *,
+    run_id: str,
+    country_code: str | None,
 ) -> tuple[int, float, bool, bool, str]:
     cols = st.columns([1, 1, 1, 1, 2])
+    max_top_n = min(20, max(1, n_criteria))
     with cols[0]:
-        top_n = st.slider(
-            "Top criteria", min_value=3, max_value=max(3, min(20, n_criteria)),
-            value=max(3, min(10, n_criteria)), step=1,
-            key="excl_diag_top_n",
-        )
+        if max_top_n <= 3:
+            top_n = max_top_n
+            st.caption(f"Top criteria: `{top_n}`")
+        else:
+            top_n = st.slider(
+                "Top criteria", min_value=3, max_value=max_top_n,
+                value=min(10, max_top_n), step=1,
+                key="excl_diag_top_n",
+            )
     with cols[1]:
         max_gap = st.slider(
             "Max gap shown (%)", 10.0, 200.0, 50.0, 5.0,

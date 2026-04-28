@@ -73,12 +73,15 @@ def test_unknown_code_is_warning_not_error(template_bundle):
     assert any(w.startswith("unknown_code=") for w in bundle.warnings)
 
 
-def test_hard_expression_only_exclusion_shows_no_floor_pass_mark(template_bundle):
+def test_nh05_ranking_only_shows_no_exclusionary_pass_mark(template_bundle):
     bundle = build_preview(
         template_bundle,
         RunProfile(run_label="baseline"),
         spec_dir=str(SPEC_DIR),
     )
     nh05 = next(c for c in bundle.criteria if c.criterion_id == "NH-05")
-    assert nh05.is_exclusionary is True
+    assert nh05.is_exclusionary is False
     assert nh05.exclusion_pass_mark is None
+    e6 = next(fc for fc in nh05.fail_codes if fc.code == "E6")
+    assert e6.user_editable is True
+    assert e6.action == "review_flag"

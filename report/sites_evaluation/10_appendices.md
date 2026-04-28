@@ -10,8 +10,8 @@
 | E2   | NH-03                        | Unacceptable liquefaction with no remedy.                   |
 | E3   | NH-04                        | Catastrophic landslide / slope > 25°.                       |
 | E4   | NH-07                        | < 50 km Holocene volcano or in mapped hazard zone.          |
-| E5   | NH-05 (karst)                | Karst voids on site or > 15 m deep formations.              |
-| E6   | NH-05 (mining / O&G)         | Mining beneath site OR historical on-site oil & gas.        |
+| E5   | NH-05 (karst)                | Review-only in current scoring; hard exclusion requires site-specific no-remedy collapse evidence. |
+| E6   | NH-05 (mining / O&G)         | Review-only in current scoring; EGDI mine-feature proximity is ranking-only. |
 | E7   | NS-08                        | Site within strict-category Natura 2000 / WDPA.             |
 | E8   | EP-01                        | DRV-02 composite < 30 / fundamentally infeasible EP.        |
 | E9   | NS-01                        | No viable cooling source AND dry cooling not viable.        |
@@ -25,7 +25,7 @@
 | A7    | HI-02                       | ≥ 5 km from major hazard storage. |
 | A8    | HI-03                       | ≥ 8 km from hazardous-cloud sources. |
 | A9    | NH-08                       | ≥ 10 km from sea / ≥ 1 km from lake or ≥ 50 m AMSL. |
-| A10   | NH-01                       | PGA within SMR design envelope. |
+| A10   | NH-01                       | `PGA(2475 yr) <= 0.5 g`; use as the score-5 design-envelope boundary. |
 | A11   | NH-09                       | River distance ≥ 4 km OR vertical separation ≥ 30.5 m. |
 | A12   | RI-04                       | Population thresholds per §4 RI-04 / RI-05 tables. |
 | A13   | NS-02 (also BF-01)          | Transmission ≥ reference SMR net MWe within feasible distance. |

@@ -28,7 +28,9 @@ CriterionImportance = Literal["exclusionary", "avoidance", "ranking"]
 def criterion_importance(crit: CriterionPreview) -> CriterionImportance:
     if crit.is_exclusionary:
         return "exclusionary"
-    if any(fc.action == "avoidance_penalty" for fc in crit.fail_codes):
+    if "avoidance" in crit.phases or any(
+        fc.action == "avoidance_penalty" for fc in crit.fail_codes
+    ):
         return "avoidance"
     return "ranking"
 

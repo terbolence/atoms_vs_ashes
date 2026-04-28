@@ -19,14 +19,19 @@ perturbation deltas.
 
 from __future__ import annotations
 
+from html import escape
+
 import streamlit as st
 
 from atoms_vs_ashes.gui._baseline import resolve_baseline_view
-from atoms_vs_ashes.gui._country_names import country_name
 from atoms_vs_ashes.gui._metrics_loader import (
     LoadedMetrics,
     load_metrics_file,
     pick_metrics_file,
+)
+from atoms_vs_ashes.gui._results_country_focus import (
+    render_country_focus,
+    render_include_eliminated_toggle,
 )
 from atoms_vs_ashes.gui._results_data import (
     RunSummary,
@@ -44,6 +49,7 @@ from atoms_vs_ashes.gui._results_render_stability import (
     render_stability_tab,
 )
 from atoms_vs_ashes.gui._state import get_profile
+from atoms_vs_ashes.gui._results_tab_style import inject_results_tab_style
 from atoms_vs_ashes.runtime.scope import RunScope, scope_from_run_profile
 
 
@@ -79,71 +85,6 @@ def _select_run() -> RunSummary | None:
     )
 
 
-def _control_row(
-    baseline_run_id: str, baseline_weight_profile: str,
-    *, scope: RunScope | None = None,
-) -> tuple[str | None, bool]:
-    """Sticky control row — country focus + include-eliminated toggle.
-
-    The weight-profile picker is intentionally hidden: the user edits
-    weights in the Scoring Engine page, and Coverage / Sites /
-    Regional always render the canonical baseline view. Sensitivity
-    perturbation profiles surface only inside the Sensitivity tab.
-    """
-    cols = st.columns([2, 2, 6])
-    with cols[0]:
-        country = _country_picker(
-            baseline_run_id, baseline_weight_profile, scope=scope,
-        )
-    with cols[1]:
-        include = st.toggle(
-            "Include eliminated sites",
-            value=st.session_state.get(_INCLUDE_KEY, True),
-            key=_INCLUDE_KEY,
-            help=(
-                "On: ledger shows pass / avoidance-flag / hard-fail rows. "
-                "Off: shortlist only — pairs that clear exclusionary and avoidance flags."
-            ),
-        )
-    return country, include
-
-
-def _country_picker(
-    run_id: str, weight_profile: str, *, scope: RunScope | None = None,
-) -> str | None:
-    """Country dropdown driven by Coverage's countries; persists in session."""
-    from atoms_vs_ashes.gui._results_data_failure import (
-        country_coverage_matrix,
-    )
-
-    rows = country_coverage_matrix(
-        run_id, weight_profile=weight_profile, scope=scope,
-    )
-    options = ["(All)"] + [r.country_code for r in rows]
-    persisted = st.session_state.get(_COUNTRY_KEY)
-    if persisted not in options:
-        persisted = None
-    default_idx = options.index(persisted) if persisted else 0
-    chosen = st.selectbox(
-        "Country focus",
-        options,
-        index=default_idx,
-        key="results_country_pick",
-        format_func=lambda c: "(All)" if c == "(All)" else country_name(c),
-        help=(
-            "Drives the Sites tab. Pick *(All)* to see a regional "
-            "top-100 fallback in the ledger when no country is "
-            "selected. Click a row in **Coverage** to set this from "
-            "the table."
-        ),
-    )
-    if chosen == "(All)":
-        st.session_state.pop(_COUNTRY_KEY, None)
-        return None
-    st.session_state[_COUNTRY_KEY] = chosen
-    return chosen
-
-
 def _auto_load_metrics(profile_audit_dir: str) -> LoadedMetrics | None:
     """Silently load the freshest ``*_metrics.json`` for the Sensitivity tab.
 
@@ -157,18 +98,44 @@ def _auto_load_metrics(profile_audit_dir: str) -> LoadedMetrics | None:
 
 
 def _render_run_header(run: RunSummary) -> None:
-    cols = st.columns(4)
-    cols[0].metric("Kind", run.run_kind)
-    cols[1].metric("Status", run.status)
-    cols[2].metric(
-        "Duration",
-        f"{run.duration_s:.1f} s" if run.duration_s else "—",
-    )
     when = run.completed_at or run.started_at
-    cols[3].metric(
-        "Finished at", when.strftime("%Y-%m-%d %H:%M") if when else "—",
+    duration = f"{run.duration_s:.1f} s" if run.duration_s else "—"
+    finished = when.strftime("%Y-%m-%d %H:%M") if when else "—"
+    st.markdown(
+        """
+<style>
+.results-run-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+  align-items: baseline;
+  margin: -0.25rem 0 0.45rem;
+  color: var(--text-color);
+  opacity: 0.78;
+  font-size: 0.82rem;
+}
+.results-run-meta span {
+  white-space: nowrap;
+}
+.results-run-meta b {
+  font-weight: 600;
+}
+</style>
+""",
+        unsafe_allow_html=True,
     )
-    st.caption(f"`run_id` = `{run.run_id}`")
+    st.markdown(
+        (
+            '<div class="results-run-meta">'
+            f"<span><b>Kind</b>: {escape(str(run.run_kind))}</span>"
+            f"<span><b>Status</b>: {escape(str(run.status))}</span>"
+            f"<span><b>Duration</b>: {escape(duration)}</span>"
+            f"<span><b>Finished</b>: {escape(finished)}</span>"
+            f"<span><b>Run</b>: <code>{escape(str(run.run_id))}</code></span>"
+            "</div>"
+        ),
+        unsafe_allow_html=True,
+    )
 
 
 def render() -> None:
@@ -204,14 +171,19 @@ def render() -> None:
         len(scope.smr_keys) if scope.smr_keys is not None else None
     )
 
-    country, include_eliminated = _control_row(
-        baseline_run_id, baseline_weight_profile, scope=scope,
-    )
     render_kpi_strip(
         run_id=baseline_run_id, weight_profile=baseline_weight_profile,
         scope=scope, n_smrs_in_scope=n_smrs_in_scope,
     )
+    country_focus = render_country_focus(
+        baseline_run_id,
+        baseline_weight_profile,
+        scope=scope,
+        country_session_key=_COUNTRY_KEY,
+        widget_key="results_country_focus",
+    )
     metrics = _auto_load_metrics(audit_dir)
+    inject_results_tab_style()
     tabs = st.tabs([
         "Coverage", "Sites", "Failure Diagnostics",
         "Regional", "Stability", "Sensitivity",
@@ -223,10 +195,14 @@ def render() -> None:
             country_session_key=_COUNTRY_KEY, scope=scope,
         )
     with tabs[1]:
+        include_eliminated = render_include_eliminated_toggle(
+            include_session_key=_INCLUDE_KEY,
+        )
         render_sites_tab(
             run_id=baseline_run_id,
             weight_profile=baseline_weight_profile,
-            country_code=country, include_eliminated=include_eliminated,
+            country_code=country_focus,
+            include_eliminated=include_eliminated,
             scope=scope,
         )
     with tabs[2]:
@@ -234,7 +210,7 @@ def render() -> None:
             run_id=baseline_run_id,
             weight_profile=baseline_weight_profile,
             scope=scope,
-            country_code=country,
+            country_code=country_focus,
             fail_thresholds=profile.fail_thresholds if profile else {},
             near_miss_gap_pct=(
                 float(profile.scoring.near_miss_gap_pct) if profile else 10.0
@@ -246,9 +222,13 @@ def render() -> None:
             weight_profile=baseline_weight_profile, scope=scope,
         )
     with tabs[4]:
-        render_stability_tab(run=run)
+        render_stability_tab(run=run, country_code=country_focus)
     with tabs[5]:
-        render_sensitivity_tab(run, metrics)
+        render_sensitivity_tab(
+            run, metrics,
+            country_code=country_focus,
+            baseline_weight_profile=baseline_weight_profile,
+        )
 
 
 render()

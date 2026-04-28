@@ -9,28 +9,25 @@ Selecting a row sets ``st.session_state["results_country"]`` so the
 
 from __future__ import annotations
 
-import altair as alt
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 
 from atoms_vs_ashes.gui._country_names import country_name
+from atoms_vs_ashes.gui._results_coverage_zero_notes import render_zero_sites_caption
 from atoms_vs_ashes.gui._results_data_failure import (
     CountryCoverage,
     country_coverage_matrix,
 )
+from atoms_vs_ashes.gui._live_text_input import live_text_input
+from atoms_vs_ashes.gui._results_render_coverage_chart import render_stacked_coverage_bar
+from atoms_vs_ashes.gui._results_site_status_palette import render_site_status_legend
 from atoms_vs_ashes.runtime.scope import RunScope
 
-_COVERAGE_CHART_HEIGHT = 720
-_COUNTRY_SLOT_PX = 92
-_VISIBLE_COUNTRIES = 10
-
-
 _COVERAGE_HELP = (
-    "Pick a row to focus the **Sites** tab on that country.\n\n"
-    "- 🟢 *Survivors*: pass both exclusionary and avoidance floors\n"
-    "- 🟧 *Near-miss*: pass exclusionary, miss avoidance\n"
-    "- 🟥 *Hard-fail*: blocked by an exclusionary criterion"
+    "Pick a row to focus the **Sites** tab on that country. "
+    "Chart segments use the same colours as the key above: "
+    "**Survivors** = full pass, **Near-miss** = avoidance flag, "
+    "**Hard-fail** = exclusionary failure."
 )
 
 
@@ -52,136 +49,20 @@ def render_coverage_tab(
         )
         return
 
+    render_site_status_legend()
     st.caption(_COVERAGE_HELP)
-    _render_stacked_bar(rows)
-    _render_zero_note(rows, scope)
+    render_stacked_coverage_bar(rows, scope)
+    render_zero_sites_caption(rows, scope)
     _render_dataframe(rows, run_id, country_session_key)
 
 
-def _render_zero_note(
-    rows: list[CountryCoverage], scope: RunScope | None,
-) -> None:
-    """Explain why some in-scope countries show zero sites.
-
-    Distinguishes two causes by querying the unfiltered ``sites``
-    table: (a) rows exist but all are excluded by the active
-    ``site_status_in`` filter, vs (b) the country has no rows at all
-    in the Merged DB (the GEM coal-plant tracker has no entries).
-    """
-    zero = [r.country_code for r in rows if r.n_sites == 0]
-    if not zero:
-        return
-    db_totals = _db_site_counts(zero)
-    no_db = [c for c in zero if db_totals.get(c, 0) == 0]
-    filtered = [c for c in zero if db_totals.get(c, 0) > 0]
-    bits: list[str] = []
-    if filtered:
-        status_in = (
-            ", ".join(scope.site_status_in)
-            if scope and scope.site_status_in else "—"
-        )
-        labels = ", ".join(
-            f"{country_name(c)} ({db_totals[c]} excluded)" for c in filtered
-        )
-        bits.append(
-            f"**Filtered out by `site_status_in = [{status_in}]`**: "
-            f"{labels}. Add `cancelled` / `shelved` / `pre-permit` etc. "
-            f"to the filter in **Site Selection Criteria** to include them."
-        )
-    if no_db:
-        labels = ", ".join(country_name(c) for c in no_db)
-        bits.append(
-            f"**Absent from the Merged DB**: {labels}. The GEM coal-plant "
-            f"tracker has no rows for these countries (verified against "
-            f"`Global-Coal-Plant-Tracker-January-2026.xlsx`)."
-        )
-    st.caption(
-        f"⚠️ {len(zero)} / {len(rows)} countries show **0 in-scope sites**. "
-        + " ".join(bits)
-    )
-
-
-def _db_site_counts(country_codes: list[str]) -> dict[str, int]:
-    """Distinct site counts per country, ignoring the active scope."""
-    from sqlalchemy import func, select
-    from atoms_vs_ashes.db.engine import session_scope
-    from atoms_vs_ashes.db.models import Site
-    if not country_codes:
-        return {}
-    with session_scope() as session:
-        rows = session.execute(
-            select(Site.country_code, func.count(Site.site_id))
-            .where(Site.country_code.in_(country_codes))
-            .group_by(Site.country_code)
-        ).all()
-    return {str(cc): int(n) for cc, n in rows}
-
-
-def _render_stacked_bar(rows: list[CountryCoverage]) -> None:
-    df = pd.DataFrame([
-        {
-            "country": country_name(r.country_code),
-            "country_code": r.country_code,
-            "survivors": r.n_survivors,
-            "near-miss": r.n_near_miss,
-            "hard-fail": r.n_hard_fail,
-        }
-        for r in rows
-    ])
-    melted = df.melt(
-        id_vars=["country", "country_code"],
-        value_vars=["survivors", "near-miss", "hard-fail"],
-        var_name="status",
-        value_name="n",
-    )
-    chart_width = max(
-        _VISIBLE_COUNTRIES * _COUNTRY_SLOT_PX,
-        len(df) * _COUNTRY_SLOT_PX,
-    )
-    chart = (
-        alt.Chart(melted)
-        .mark_bar()
-        .encode(
-            x=alt.X(
-                "country:N",
-                sort=alt.SortField("country"),
-                title=None,
-                axis=alt.Axis(labelAngle=-60, labelLimit=180),
-            ),
-            y=alt.Y("n:Q", title="# (site × SMR) pairs"),
-            color=alt.Color(
-                "status:N",
-                scale=alt.Scale(
-                    domain=["survivors", "near-miss", "hard-fail"],
-                    range=["#3a7", "#e9a73a", "#c0392b"],
-                ),
-                title=None,
-            ),
-            tooltip=["country", "country_code", "status", "n"],
-        )
-        .properties(width=chart_width, height=_COVERAGE_CHART_HEIGHT)
-    )
-    st.caption(
-        "Scroll horizontally to browse the region; about 10 countries "
-        "are visible at a time."
-    )
-    components.html(
-        _scrollable_chart_html(chart),
-        height=_COVERAGE_CHART_HEIGHT + 140,
-        scrolling=False,
-    )
-
-
-def _scrollable_chart_html(chart: alt.Chart) -> str:
-    chart_html = chart.to_html(
-        fullhtml=False,
-        embed_options={"actions": False},
-    )
-    return (
-        "<div style='width:100%;overflow-x:auto;overflow-y:hidden;'>"
-        f"{chart_html}"
-        "</div>"
-    )
+def _filter_coverage_df(df: pd.DataFrame, query: str) -> pd.DataFrame:
+    if not query.strip():
+        return df
+    q = query.strip().lower()
+    ctry = df["country"].astype(str).str.lower()
+    code = df["country_code"].astype(str).str.lower()
+    return df[ctry.str.contains(q, na=False) | code.str.contains(q, na=False)]
 
 
 def _render_dataframe(
@@ -200,9 +81,23 @@ def _render_dataframe(
         }
         for r in rows
     ])
+    q = live_text_input(
+        "Search countries",
+        key=f"_coverage_country_search::{run_id}",
+        placeholder="Filter by country name or ISO code…",
+        help=(
+            "Narrows the table as you type; the bar chart still shows the full region. "
+            "If nothing updates while typing, press Enter or click away, or install "
+            "streamlit-keyup (bundled in atoms-vs-ashes[gui])."
+        ),
+    )
+    view = _filter_coverage_df(df, q)
+    if view.empty and q.strip():
+        st.caption("No countries match that search. Clear the field to see all.")
+        return
     selection_state_key = f"_coverage_select::{run_id}"
     selection = st.dataframe(
-        df,
+        view,
         hide_index=True,
         use_container_width=True,
         column_order=[
@@ -213,9 +108,18 @@ def _render_dataframe(
             "country": st.column_config.TextColumn("Country"),
             "country_code": None,
             "n_sites": st.column_config.NumberColumn("# sites"),
-            "survivors": st.column_config.NumberColumn("✅ survivors"),
-            "near_miss": st.column_config.NumberColumn("🟧 near-miss"),
-            "hard_fail": st.column_config.NumberColumn("🟥 hard-fail"),
+            "survivors": st.column_config.NumberColumn(
+                "Survivors (full pass)",
+                help="Passed exclusionary and avoidance (same green segment as the chart).",
+            ),
+            "near_miss": st.column_config.NumberColumn(
+                "Near-miss (avoidance)",
+                help="Passed exclusionary, failed avoidance (same yellow segment as the chart).",
+            ),
+            "hard_fail": st.column_config.NumberColumn(
+                "Hard-fail",
+                help="Failed exclusionary screening (same red-orange segment as the chart).",
+            ),
             "max_composite_survivors": st.column_config.NumberColumn(
                 "Max composite (survivors)", format="%.2f",
             ),
@@ -230,17 +134,17 @@ def _render_dataframe(
         if hasattr(selection, "selection") else None
     )
     if rows_sel:
-        cc = str(df.iloc[rows_sel[0]]["country_code"])
+        cc = str(view.iloc[rows_sel[0]]["country_code"])
         st.session_state[session_key] = cc
         st.toast(f"Country focus set to {country_name(cc)}", icon="🌍")
 
 
 def _status_emoji(r: CountryCoverage) -> str:
     if r.n_survivors > 0:
-        return "🟢 has shortlist"
+        return "Has shortlist"
     if r.n_near_miss > 0:
-        return "🟧 near-miss only"
-    return "🟥 no coverage"
+        return "Avoidance-flag only"
+    return "No coverage"
 
 
 __all__ = ["render_coverage_tab"]

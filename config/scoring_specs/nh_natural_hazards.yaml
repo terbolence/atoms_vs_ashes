@@ -42,18 +42,19 @@ criteria:
     phases: [ranking, avoidance]
     weight_factor: 9
     normalised_weight_pct: 3.2
-    primary_metric: pga_475yr_g
+    primary_metric: pga_2475yr_g
     db_fields: {api: [site_natural_hazards.nh01_pga_475yr_g, site_natural_hazards.nh01_pga_2475yr_g, site_natural_hazards.vs30_ms], llm: nh01_seismic_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "pga_475yr_g < 0.05", descriptor: "Stable craton; minimal seismic premium."}
-      - {score_range: [7, 8], condition_expr: "pga_475yr_g < 0.10", descriptor: "Low seismicity; standard structural design."}
-      - {score_range: [5, 6], condition_expr: "pga_475yr_g < 0.20", descriptor: "Moderate; preferred ceiling < 0.20 g."}
-      - {score_range: [3, 4], condition_expr: "pga_475yr_g < 0.30", descriptor: "High; significant cost; expert review mandatory."}
-      - {score_range: [1, 2], condition_expr: "pga_475yr_g <= 0.50", descriptor: "Very high; SMR envelope likely exceeded."}
-      - {score_range: [0, 0], condition_expr: "pga_475yr_g > 0.50", descriptor: "Outside any reasonable SMR envelope."}
+      - {score_range: [9, 10], condition_expr: "pga_2475yr_g <= 0.10", descriptor: "Very low long-return seismic demand; strong margin to the A10 design-envelope boundary."}
+      - {score_range: [7, 8], condition_expr: "pga_2475yr_g <= 0.20", descriptor: "Low long-return seismic demand; clear margin to the A10 design-envelope boundary."}
+      - {score_range: [5, 6], condition_expr: "pga_2475yr_g <= 0.50", descriptor: "At or below the A10 score-5 design-envelope boundary; acceptable only with vendor-specific confirmation."}
+      - {score_range: [3, 4], condition_expr: "pga_2475yr_g < 0.75", descriptor: "Above the A10 boundary; specialist seismic review and likely avoidance penalty."}
+      - {score_range: [1, 2], condition_expr: "pga_2475yr_g < 1.00", descriptor: "High long-return seismic demand; little practical margin to any generic SMR envelope."}
+      - {score_range: [0, 0], condition_expr: "pga_2475yr_g >= 1.00", descriptor: "Extreme long-return seismic demand; outside generic screening envelope."}
     fail_conditions:
       - {code: A10, action: avoidance_penalty, condition_expr: "pga_2475yr_g > 0.5", descriptor: "Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."}
       - {code: data_review_pga, action: review_flag, condition_expr: "pga_2475yr_g > 0.9", descriptor: "Likely data artefact; flag for data-validity review."}
+    band_recipe: {kind: lower_is_better, fail_code: A10, metric: pga_2475yr_g}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-02
     name: Seismic surface rupture (capable faults)
@@ -63,15 +64,15 @@ criteria:
     primary_metric: nearest_fault_km
     db_fields: {api: [site_natural_hazards.nearest_fault_km, site_natural_hazards.fault_name, site_natural_hazards.fault_slip_rate_mm_yr], llm: nh02_fault_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_fault_km >= 5 * 8.0", descriptor: "[recipe] well above the score-5 boundary"}
-      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 2 * 8.0", descriptor: "[recipe] high band vs boundary"}
-      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 8.0", descriptor: "[recipe] at/above normative boundary (score 5–6)"}
-      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 0.5 * 8.0", descriptor: "[recipe] below boundary but not extreme"}
-      - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 0.2 * 8.0", descriptor: "[recipe] marginal"}
-      - {score_range: [0, 0], condition_expr: "nearest_fault_km < 0.2 * 8.0", descriptor: "[recipe] well inside hazard / insufficient margin"}
+      - {score_range: [9, 10], condition_expr: "nearest_fault_km >= 25.0", descriptor: "Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level."}
+      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 10.0", descriptor: "Clear separation from mapped capable faults; comfortably above the 5 km score boundary."}
+      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 5.0", descriptor: "Borderline acceptable separation: meets the 5 km score boundary; check against the 8 km conservative screen and local capability evidence."}
+      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 2.5", descriptor: "Below the 5 km score boundary; close enough to require detailed paleoseismic review and likely site rejection if the fault is capable."}
+      - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 1.0", descriptor: "Very close to a mapped fault; severe surface-rupture concern with little practical siting margin."}
+      - {score_range: [0, 0], condition_expr: "nearest_fault_km < 1.0", descriptor: "Within or adjacent to a mapped fault trace; surface rupture cannot be screened out."}
     fail_conditions:
       - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)", pass_mark: 5.0, descriptor: "Capable fault within 8 km."}
-    band_recipe: {kind: higher_is_better, fail_code: E1}
+    band_recipe: {kind: fault_distance_higher_is_better, fail_code: E1, score5_pivot: 5.0}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-03
     name: Geotechnical - settlement and liquefaction
@@ -110,27 +111,24 @@ criteria:
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-05
     name: Subsidence / karst / mining / oil & gas
-    phases: [exclusionary, ranking]
+    phases: [ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
-    # Bands aligned to the columns currently materialised in
-    # ``site_natural_hazards`` (karst_severity, karst_present,
-    # karst_formation_type, mining_void_present, subsidence_risk_class).
-    # The aspirational metrics (karst_depth_m, mining_void_distance_km,
-    # oil_gas_extraction_flag) are tracked as TODO enrichments in the
-    # assumption register; bands fall back to "unscored" when data is
-    # absent so the safety floor never fires on missing evidence (see
-    # report/methodology/exclusionary_floors.md).
-    db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
+    primary_metric: mining_void_distance_km
+    # Ranking-only geotechnical review signal: norms require evaluation of
+    # subsidence / collapse potential and remedy, not automatic exclusion
+    # from mapped EGDI mine-feature proximity alone.
+    db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.mining_void_distance_km, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'", descriptor: "No karst, no mining voids, subsidence risk none."}
-      - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present in [false, null] and subsidence_risk_class in [null, 'none', 'low']", descriptor: "No karst on site; no known mining voids; low or unknown subsidence risk."}
-      - {score_range: [5, 6], condition_expr: "karst_severity in [null, 'none', 'moderate'] and mining_void_present in [false, null] and subsidence_risk_class in [null, 'none', 'low', 'moderate', 'high']", descriptor: "Possible with geotechnical confirmation: moderate karst, areal subsidence risk, or incomplete subsidence/mining-void evidence; no confirmed hard-stop evidence."}
-      - {score_range: [1, 2], condition_expr: "mining_void_present == true and karst_severity != 'high'", descriptor: "Confirmed mining voids present; E6 hard-stop evidence."}
-      - {score_range: [0, 0], condition_expr: "karst_severity == 'high'", descriptor: "E5 confirmed: high karst severity."}
+      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_distance_km >= 10 and subsidence_risk_class in [null, 'none']", descriptor: "No karst; nearest mapped mine feature well beyond score-5 boundary; subsidence risk none/unknown."}
+      - {score_range: [7, 8], condition_expr: "karst_severity in [null, 'none'] and mining_void_distance_km >= 4 and subsidence_risk_class in [null, 'none', 'low']", descriptor: "No karst on site; clear mine-feature distance margin; low/unknown subsidence risk."}
+      - {score_range: [5, 6], condition_expr: "karst_severity in [null, 'none', 'moderate'] and (mining_void_distance_km is null or mining_void_distance_km >= 2) and subsidence_risk_class in [null, 'none', 'low', 'moderate', 'high']", descriptor: "Possible with geotechnical confirmation; mapped mine feature at/above acceptance pivot or unknown."}
+      - {score_range: [3, 4], condition_expr: "mining_void_distance_km >= 1 and mining_void_distance_km < 2 and karst_severity != 'high'", descriptor: "Below mine-distance pivot but not extreme; geotechnical review required, ranking penalty only."}
+      - {score_range: [1, 2], condition_expr: "mining_void_distance_km < 1 or karst_severity == 'high'", descriptor: "Close mine feature or high karst proxy; severe review signal, no exclusion without site-specific no-remedy evidence."}
     fail_conditions:
-      - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
-      - {code: E6, action: exclude, condition_expr: "mining_void_present == true", descriptor: "Mining voids present beneath / adjacent to site."}
+      - {code: E5, action: review_flag, condition_expr: "false", descriptor: "Review-only until site-specific karst-depth / under-footprint collapse evidence is available.", threshold_affects_expr: false}
+      - {code: E6, action: review_flag, condition_expr: "false", descriptor: "Editable mine-feature distance score pivot; not a hard exclusion without under-footprint void or no-remedy subsidence evidence.", threshold_affects_expr: false}
+    band_recipe: {kind: nh05_mine_composite, fail_code: E6, metric: mining_void_distance_km}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-06
     name: Foundation conditions (bearing, bedrock, groundwater)

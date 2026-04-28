@@ -13,6 +13,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 
 from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.models import (
@@ -23,6 +24,11 @@ from atoms_vs_ashes.db.models import (
     Site,
 )
 from atoms_vs_ashes.db.models_analytics import CompositeScoreComponent
+from atoms_vs_ashes.gui._results_site_detail_bars import (
+    fallback_criterion_ids,
+    load_bundle_criterion_ids_ordered,
+    merge_criterion_bar_semantics,
+)
 
 
 def _gap_pct(measured: float | None, threshold: float | None) -> float | None:
@@ -64,7 +70,8 @@ class StrengthCriterion:
 class CriterionBarRow:
     criterion_id: str
     family: str
-    score_0_10: float
+    score_0_10: float | None
+    chart_semantic: str
 
 
 @dataclass
@@ -87,6 +94,7 @@ class SiteDetail:
     composite_low: float | None
     composite_high: float | None
     failed_criteria: list[FailedCriterion] = field(default_factory=list)
+    avoidance_flags: list[FailedCriterion] = field(default_factory=list)
     strengths: list[StrengthCriterion] = field(default_factory=list)
     all_criterion_scores: list[CriterionBarRow] = field(default_factory=list)
     family_contributions: list[FamilyContribution] = field(default_factory=list)
@@ -128,12 +136,11 @@ def site_detail(
                 select(Criterion.criterion_id, Criterion.name, Criterion.category)
             ).all()
         }
-        verdicts = session.execute(
+        verdicts_all = session.execute(
             select(ScreeningVerdict).where(
                 (ScreeningVerdict.run_id == run_id)
                 & (ScreeningVerdict.site_id == site_id)
                 & (ScreeningVerdict.smr_key == smr_key)
-                & (ScreeningVerdict.verdict == "fail")
             )
         ).scalars().all()
         ranking = session.execute(
@@ -152,7 +159,9 @@ def site_detail(
             )
         ).scalars().all()
         return _assemble(
-            cr, site, criteria_meta, verdicts, ranking, components,
+            session,
+            cr, site, criteria_meta, verdicts_all, ranking, components,
+            run_id=run_id, smr_key=smr_key,
         )
 
 
@@ -165,13 +174,27 @@ def _status_label(cr: CompositeRanking) -> str:
 
 
 def _assemble(
+    session: Session,
     cr: CompositeRanking, site: Site,
     criteria_meta: dict[str, tuple[str, str]],
-    verdicts: list[ScreeningVerdict],
+    verdicts_all: list[ScreeningVerdict],
     ranking: list[RankingScore],
     components: list[CompositeScoreComponent],
+    *,
+    run_id: str,
+    smr_key: str,
 ) -> SiteDetail:
-    failed = [_to_failed(v, criteria_meta) for v in verdicts]
+    failed = [
+        _to_failed(v, criteria_meta)
+        for v in verdicts_all
+        if v.phase == "exclusionary" and v.verdict == "fail"
+    ]
+    avoidance_flags = [
+        _to_failed(v, criteria_meta)
+        for v in verdicts_all
+        if v.phase == "avoidance"
+        and v.verdict in ("fail", "caution")
+    ]
     strengths = [
         StrengthCriterion(
             criterion_id=str(r.criterion_id),
@@ -183,13 +206,22 @@ def _assemble(
         for r in ranking
         if r.score_0_10 is not None and float(r.score_0_10) >= 8.0
     ]
+    ordered = load_bundle_criterion_ids_ordered(session, run_id, smr_key)
+    if not ordered:
+        ordered = fallback_criterion_ids(ranking, verdicts_all)
+    merged = merge_criterion_bar_semantics(
+        ordered_ids=ordered,
+        ranking=ranking,
+        all_verdicts=verdicts_all,
+    )
     bars = [
         CriterionBarRow(
-            criterion_id=str(r.criterion_id),
-            family=_family(str(r.criterion_id)),
-            score_0_10=float(r.score_0_10) if r.score_0_10 is not None else 0.0,
+            criterion_id=cid,
+            family=fam,
+            score_0_10=score,
+            chart_semantic=sem,
         )
-        for r in ranking
+        for cid, fam, score, sem in merged
     ]
     fam: dict[str, float] = defaultdict(float)
     for c in components:
@@ -215,6 +247,7 @@ def _assemble(
         composite_low=float(cr.composite_score_low) if cr.composite_score_low is not None else None,
         composite_high=float(cr.composite_score_high) if cr.composite_score_high is not None else None,
         failed_criteria=failed,
+        avoidance_flags=avoidance_flags,
         strengths=strengths,
         all_criterion_scores=bars,
         family_contributions=family_contributions,

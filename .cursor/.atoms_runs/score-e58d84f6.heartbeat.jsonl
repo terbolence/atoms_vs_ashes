@@ -1,0 +1,15 @@
+{"ts":"2026-04-28T10:34:05Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-28T10:34:05Z","stage":"scoring","processed":1,"total":362,"eta_s":25.0,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-28T10:34:06Z","stage":"scoring","processed":14,"total":362,"eta_s":27.35,"message":"site=BA-Kakanj Thermal Power Pla","unit":"sites"}
+{"ts":"2026-04-28T10:34:07Z","stage":"scoring","processed":31,"total":362,"eta_s":22.69,"message":"site=BG-Ruse Iztok power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:08Z","stage":"scoring","processed":48,"total":362,"eta_s":20.73,"message":"site=CZ-Mondi Steti power statio","unit":"sites"}
+{"ts":"2026-04-28T10:34:09Z","stage":"scoring","processed":66,"total":362,"eta_s":18.97,"message":"site=CZ-Zlin power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:10Z","stage":"scoring","processed":81,"total":362,"eta_s":18.29,"message":"site=MD-Kuchurgan power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:11Z","stage":"scoring","processed":112,"total":362,"eta_s":14.05,"message":"site=PL-Krakow-Leg power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:12Z","stage":"scoring","processed":154,"total":362,"eta_s":9.87,"message":"site=RO-Bacau CHP power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:13Z","stage":"scoring","processed":195,"total":362,"eta_s":7.11,"message":"site=TR-Adana Akdeniz power stat","unit":"sites"}
+{"ts":"2026-04-28T10:34:14Z","stage":"scoring","processed":234,"total":362,"eta_s":5.09,"message":"site=TR-Demirta\u015f power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:15Z","stage":"scoring","processed":275,"total":362,"eta_s":3.27,"message":"site=TR-Karapinar Konya \u015eeker po","unit":"sites"}
+{"ts":"2026-04-28T10:34:16Z","stage":"scoring","processed":314,"total":362,"eta_s":1.73,"message":"site=TR-Star Refinery Socar powe","unit":"sites"}
+{"ts":"2026-04-28T10:34:17Z","stage":"scoring","processed":354,"total":362,"eta_s":0.28,"message":"site=UA-Trypilska power station","unit":"sites"}
+{"ts":"2026-04-28T10:34:18Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

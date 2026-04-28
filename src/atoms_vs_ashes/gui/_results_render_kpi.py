@@ -31,7 +31,7 @@ _TOOLTIPS = {
     ),
     "avoid": (
         "Sites that pass exclusionary but trigger at least one avoidance "
-        "caution (amber pile / near-miss territory)."
+        "caution (yellow / near-miss territory — still rankable)."
     ),
     "countries": (
         "Number of countries with at least one survivor / total "

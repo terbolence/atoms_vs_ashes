@@ -1,0 +1,54 @@
+{"positional_args": ["api", "atoms_vs_ashes"], "event": "Using database profile '%s' \u2192 %s", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:05.440479Z"}
+{"extra": ["project_wind_envelope"], "event": "scoring_catalog_mismatch", "run_id": "score-88160b85", "level": "warning", "timestamp": "2026-04-28T07:04:06.058387Z"}
+{"run_id": "score-88160b85", "run_kind": "scoring", "parent_run_id": null, "event": "run_started", "level": "info", "timestamp": "2026-04-28T07:04:06.075708Z"}
+{"run_id": "score-88160b85", "sites": 362, "smrs": 1, "criteria": 48, "weight_profile": "baseline", "event": "scoring_run_start", "level": "info", "timestamp": "2026-04-28T07:04:06.084494Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "total": 17376, "mode": "log_fallback", "event": "progress_start", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:06.084602Z"}
+{"ts": "2026-04-28T07:04:06Z", "stage": "scoring", "processed": 0, "total": 362, "eta_s": null, "message": "sites=362 smrs=1", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:06.084685Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 48, "total": 17376, "percent": 0, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:06.148461Z"}
+{"ts": "2026-04-28T07:04:06Z", "stage": "scoring", "processed": 1, "total": 362, "eta_s": 23.06, "message": "site=AL-Porto Romano Power Stati", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:06.148556Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 912, "total": 17376, "percent": 5, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:06.710115Z"}
+{"ts": "2026-04-28T07:04:07Z", "stage": "scoring", "processed": 36, "total": 362, "eta_s": 9.7, "message": "site=BY-Lelchitsy power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:07.156009Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 1776, "total": 17376, "percent": 10, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:07.185731Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 2640, "total": 17376, "percent": 15, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:07.638633Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 3504, "total": 17376, "percent": 20, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:08.076330Z"}
+{"ts": "2026-04-28T07:04:08Z", "stage": "scoring", "processed": 77, "total": 362, "eta_s": 7.74, "message": "site=HU-Pecs power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:08.175832Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 4368, "total": 17376, "percent": 25, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:08.517418Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 5232, "total": 17376, "percent": 30, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:08.955212Z"}
+{"ts": "2026-04-28T07:04:09Z", "stage": "scoring", "processed": 118, "total": 362, "eta_s": 6.43, "message": "site=PL-Lodz-2 power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:09.194869Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 6096, "total": 17376, "percent": 35, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:09.418278Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 6960, "total": 17376, "percent": 40, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:09.859162Z"}
+{"ts": "2026-04-28T07:04:10Z", "stage": "scoring", "processed": 159, "total": 362, "eta_s": 5.26, "message": "site=RO-Craiova II power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:10.201907Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 7824, "total": 17376, "percent": 45, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:10.298712Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 8688, "total": 17376, "percent": 50, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:10.738438Z"}
+{"ts": "2026-04-28T07:04:11Z", "stage": "scoring", "processed": 195, "total": 362, "eta_s": 4.42, "message": "site=TR-Adana Akdeniz power stat", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:11.247457Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 9600, "total": 17376, "percent": 55, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:11.379363Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 10464, "total": 17376, "percent": 60, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:11.825161Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 11328, "total": 17376, "percent": 65, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:12.263599Z"}
+{"ts": "2026-04-28T07:04:12Z", "stage": "scoring", "processed": 236, "total": 362, "eta_s": 3.3, "message": "site=TR-DETES 1 power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:12.263661Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 12192, "total": 17376, "percent": 70, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:12.704329Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 13056, "total": 17376, "percent": 75, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:13.157459Z"}
+{"ts": "2026-04-28T07:04:13Z", "stage": "scoring", "processed": 277, "total": 362, "eta_s": 2.21, "message": "site=TR-Kemerk\u00f6y power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:13.285286Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 13920, "total": 17376, "percent": 80, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:13.670945Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 14784, "total": 17376, "percent": 85, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:14.192241Z"}
+{"ts": "2026-04-28T07:04:14Z", "stage": "scoring", "processed": 312, "total": 362, "eta_s": 1.31, "message": "site=TR-Soma Kolin power station", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:14.290278Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 15648, "total": 17376, "percent": 90, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:14.630590Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 16512, "total": 17376, "percent": 95, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:15.066964Z"}
+{"ts": "2026-04-28T07:04:15Z", "stage": "scoring", "processed": 353, "total": 362, "eta_s": 0.24, "message": "site=UA-Starobesheve power stati", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:15.314013Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 17376, "total": 17376, "percent": 100, "event": "progress_tick", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:15.531570Z"}
+{"description": "Scoring (362 sites \u00d7 1 SMRs)", "done": 17376, "total": 17376, "percent": 100, "event": "progress_done", "run_id": "score-88160b85", "level": "info", "timestamp": "2026-04-28T07:04:15.531627Z"}
+{"run_id": "score-88160b85", "run_kind": "scoring", "status": "completed", "event": "run_completed", "level": "info", "timestamp": "2026-04-28T07:04:16.307874Z"}
+{"ts": "2026-04-28T07:04:16Z", "stage": "scoring", "processed": 362, "total": 362, "eta_s": 0.0, "message": "completed", "unit": "sites", "event": "heartbeat", "run_id": "score-88160b85", "level": "debug", "timestamp": "2026-04-28T07:04:16.308152Z"}
+{"run_id": "score-88160b85", "ranking_rows": 17376, "verdict_rows": 9413, "composite_rows": 362, "excluded": 155, "event": "scoring_run_complete", "level": "info", "timestamp": "2026-04-28T07:04:16.308205Z"}
+{
+  "run_id": "score-88160b85",
+  "weight_profile": "baseline",
+  "sites_processed": 362,
+  "smr_designs": 1,
+  "verdict_rows": 9413,
+  "ranking_rows": 17376,
+  "composite_rows": 362,
+  "excluded_pairs": 155,
+  "warnings": [
+    "rubric_codes_not_in_catalog=['project_wind_envelope']"
+  ]
+}

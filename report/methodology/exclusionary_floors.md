@@ -26,7 +26,7 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 | E-code | Criterion | Source YAML | Hard fail expression | pass_mark | Min metric to clear floor |
 | --- | --- | --- | --- | --- | --- |
-| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)` | 5.0 | `nearest_fault_km >= 8.0` |
+| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)` | 5.0 | `nearest_fault_km >= 5.0` |
 | `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` |
 | `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'` | 5.0 | `slope_angle_deg < 8` |
 | `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50 or in_pyroclastic_zone == true` | 5.0 | `nearest_volcano_km >= 300` |
@@ -40,16 +40,16 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 - **Hard fail expression**: `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)`
 - **Hard fail descriptor**: Capable fault within 8 km.
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `nearest_fault_km >= 8.0`
+- **Min metric to clear floor (band 5-6)**: `nearest_fault_km >= 5.0`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
-| **9-10** | `nearest_fault_km >= 5 * 8.0` | [recipe] well above the score-5 boundary |
-| **7-8** | `nearest_fault_km >= 2 * 8.0` | [recipe] high band vs boundary |
-| **5-6** | `nearest_fault_km >= 8.0` | [recipe] at/above normative boundary (score 5–6) |
-| **3-4** | `nearest_fault_km >= 0.5 * 8.0` | [recipe] below boundary but not extreme |
-| **1-2** | `nearest_fault_km >= 0.2 * 8.0` | [recipe] marginal |
-| **0** | `nearest_fault_km < 0.2 * 8.0` | [recipe] well inside hazard / insufficient margin |
+| **9-10** | `nearest_fault_km >= 25.0` | Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level. |
+| **7-8** | `nearest_fault_km >= 10.0` | Clear separation from mapped capable faults; comfortably above the 5 km score boundary. |
+| **5-6** | `nearest_fault_km >= 5.0` | Borderline acceptable separation: meets the 5 km score boundary; check against the 8 km conservative screen and local capability evidence. |
+| **3-4** | `nearest_fault_km >= 2.5` | Below the 5 km score boundary; close enough to require detailed paleoseismic review and likely site rejection if the fault is capable. |
+| **1-2** | `nearest_fault_km >= 1.0` | Very close to a mapped fault; severe surface-rupture concern with little practical siting margin. |
+| **0** | `nearest_fault_km < 1.0` | Within or adjacent to a mapped fault trace; surface rupture cannot be screened out. |
 
 ### E2 — NH-03 Geotechnical - settlement and liquefaction
 

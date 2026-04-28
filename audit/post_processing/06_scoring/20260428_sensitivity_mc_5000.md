@@ -1,6 +1,6 @@
 # Sensitivity run — 20260428
 
-- Run ID: `sens-55dcf9f6`
+- Run ID: `sens-e8d5ff91`
 - Iterations: **5000**
 - Preset: `custom`
 - Seed: `42`
@@ -30,17 +30,19 @@
 
 ## Country balance
 
-- Total sites ranked: 207
+- Total sites ranked: 253
 - Top-N: 20
-- Max share: 0.55
+- Max share: 0.45
 - Flagged: **True**
 
 | Country | Count |
 | --- | ---: |
-| TR | 11 |
-| PL | 7 |
-| RO | 1 |
-| BG | 1 |
+| TR | 9 |
+| PL | 5 |
+| HU | 2 |
+| RO | 2 |
+| SK | 1 |
+| UA | 1 |
 
 ## Notes
 

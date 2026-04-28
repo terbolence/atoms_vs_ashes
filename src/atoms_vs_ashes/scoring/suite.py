@@ -1,23 +1,8 @@
 # man_hours: 2.5
-"""Sensitivity-suite orchestrator used by ``ava score sensitivity``.
+"""Sensitivity-suite orchestrator for ``ava score sensitivity``.
 
-Public API re-exported at this module level (:class:`SensitivitySuiteConfig`,
-:class:`SensitivitySuiteResult`, :func:`run_sensitivity_suite`). The
-heavy lifting is split into sibling helpers so every file stays under
-the 300-line rule:
-
-- :mod:`._suite_config` — dataclasses + defaults.
-- :mod:`._suite_persist` — DB loaders + row-builders.
-- :mod:`._suite_audit` — markdown writer.
-
-End-to-end data flow of ``iterations``::
-
-    CLI --mc-draws N  (or --preset {test,medium,production})
-        -> SensitivitySuiteConfig.iterations
-        -> run_sensitivity_suite
-        -> run_mc_suite(..., iterations=cfg.iterations, progress_cb=reporter.advance)
-        -> run_monte_carlo(..., iterations=cfg.iterations)
-        -> for _ in range(iterations):   # single hot loop
+CLI ``--mc-draws N`` flows into :func:`run_sensitivity_suite` → MC loop.
+Public API: :class:`SensitivitySuiteConfig`, :func:`run_sensitivity_suite`.
 """
 
 from __future__ import annotations
@@ -41,6 +26,12 @@ from atoms_vs_ashes.scoring._suite_config import (
     INCLUDE_CHOICES,
     SensitivitySuiteConfig,
     SensitivitySuiteResult,
+)
+from atoms_vs_ashes.scoring._suite_sensitivity_helpers import (
+    build_ranked_country_list,
+)
+from atoms_vs_ashes.scoring._suite_sensitivity_site_bands_persist import (
+    persist_site_bands_for_sensitivity_run,
 )
 from atoms_vs_ashes.scoring._suite_persist import (
     _resolve_baseline_run_id,
@@ -80,20 +71,6 @@ __all__ = [
     "SensitivitySuiteResult",
     "run_sensitivity_suite",
 ]
-
-
-def _build_ranked_country_list(
-    country_by_pair: dict[tuple, str],
-    baseline_rows,
-) -> list[tuple[str, float]]:
-    ranked: list[tuple[str, float]] = []
-    for pair, base in baseline_rows.items():
-        if base.composite_score is None:
-            continue
-        country = country_by_pair.get(pair, "??")
-        ranked.append((country, float(base.composite_score)))
-    ranked.sort(key=lambda kv: kv[1], reverse=True)
-    return ranked
 
 
 def run_sensitivity_suite(
@@ -211,7 +188,7 @@ def run_sensitivity_suite(
 
         if cfg.include_country:
             _check_cancel()
-            ranked = _build_ranked_country_list(country_by_pair, baseline_rows)
+            ranked = build_ranked_country_list(country_by_pair, baseline_rows)
             country_report = country_balance_test(ranked, top_n=cfg.top_n_country)
             country_rows = persist_country_balanced(
                 session, baseline_rows, run_id=run_id,
@@ -266,6 +243,12 @@ def run_sensitivity_suite(
         raise
 
     session.flush()
+    site_band_summary = persist_site_bands_for_sensitivity_run(
+        session,
+        run_id=run_id,
+        baseline_label=cfg.weight_profile_base,
+        country_codes=tuple(country_by_pair.values()),
+    )
     # Flip ``runs.status`` so the GUI run-verification panel can read
     # ``completed_at``; cancel/error paths let session_scope roll back.
     complete_run(session, run_handle, status="completed")
@@ -307,5 +290,6 @@ def run_sensitivity_suite(
         mc_rows=result.mc_rows_persisted,
         country_rows=result.country_balanced_rows_persisted,
         threshold_rows=result.threshold_rows_persisted,
+        site_band_scopes=site_band_summary.rows_by_scope,
     )
     return result

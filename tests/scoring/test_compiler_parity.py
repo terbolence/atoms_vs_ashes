@@ -88,6 +88,7 @@ def test_threshold_override_regenerates_score5_band():
         fail_thresholds={
             "EP-01": {"E8": 24.0},
             "NH-04": {"E3": 20.0},
+            "NH-05": {"E6": 3.0},
         },
     )
     ep01 = out.criteria["EP-01"]
@@ -97,6 +98,64 @@ def test_threshold_override_regenerates_score5_band():
     nh04 = out.criteria["NH-04"]
     nh04_score5 = next(b for b in nh04.bands if b.score_range == (5.0, 6.0))
     assert nh04_score5.condition_expr == "slope_angle_deg <= 20.0"
+
+    nh05 = out.criteria["NH-05"]
+    nh05_score5 = next(b for b in nh05.bands if b.score_range == (5.0, 6.0))
+    assert "mining_void_distance_km >= 3.0" in nh05_score5.condition_expr
+
+
+def test_nh02_threshold_override_updates_bands_and_scoring_logic():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh02 = compile_bundle(
+        bundle,
+        fail_thresholds={"NH-02": {"E1": 8.0}},
+    ).criteria["NH-02"]
+    score5 = next(b for b in nh02.bands if b.score_range == (5.0, 6.0))
+    score3 = next(b for b in nh02.bands if b.score_range == (3.0, 4.0))
+    e1 = next(fc for fc in nh02.fail_conditions if fc.code == "E1")
+
+    assert score5.condition_expr == "nearest_fault_km >= 8.0"
+    assert score3.condition_expr == "nearest_fault_km >= 4.0"
+    assert e1.condition_expr == "nearest_fault_km < 8"
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 8.0}).score >= 5.0
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 7.9}).score < 5.0
+
+
+def test_exclusionary_numeric_recipes_emit_concrete_band_values():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    overrides = {
+        "EP-01": {"E8": 40.0},
+        "NH-02": {"E1": 8.0},
+        "NH-04": {"E3": 20.0},
+        "NH-07": {"E4": 80.0},
+        "NH-10": {"project_wind_envelope": 60.0},
+    }
+    compiled = compile_bundle(bundle, fail_thresholds=overrides).criteria
+    audited = ["EP-01", "NH-02", "NH-04", "NH-07", "NH-10"]
+
+    for cid in audited:
+        for band in compiled[cid].bands:
+            assert "[recipe]" not in band.descriptor
+            assert " * " not in band.condition_expr
+
+
+def test_nh05_mine_distance_pivot_is_score5_boundary():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh05 = compile_bundle(
+        bundle,
+        fail_thresholds={"NH-05": {"E6": 3.0}},
+    ).criteria["NH-05"]
+    base = {"karst_severity": "none", "subsidence_risk_class": "none"}
+
+    at_boundary = evaluate_criterion_value(
+        nh05, {**base, "mining_void_distance_km": 3.0},
+    )
+    below_boundary = evaluate_criterion_value(
+        nh05, {**base, "mining_void_distance_km": 2.9},
+    )
+
+    assert at_boundary.score >= 5.0
+    assert below_boundary.score < 5.0
 
 
 def test_recipe_defaults_also_anchor_score5_boundary():
@@ -109,9 +168,8 @@ def test_recipe_defaults_also_anchor_score5_boundary():
 
 def test_simple_numeric_thresholded_criteria_declare_band_recipe(template_bundle):
     missing: list[str] = []
-    waivers = {"NH-01"}  # A10 is PGA(2475yr), while ranking bands score PGA(475yr).
     for cid, template in template_bundle.by_id.items():
-        if cid in waivers or "ranking" not in template.phases or template.sub_scores:
+        if "ranking" not in template.phases or template.sub_scores:
             continue
         has_numeric_threshold = any(
             fc.threshold is not None and fc.threshold.kind == "numeric"

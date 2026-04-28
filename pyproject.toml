@@ -46,6 +46,7 @@ report_plots = [
 gui = [
     "streamlit>=1.30",
     "altair>=5.0",
+    "streamlit-keyup>=0.3",
 ]
 dev = [
     "pytest>=8.0",

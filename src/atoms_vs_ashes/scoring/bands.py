@@ -263,12 +263,31 @@ def evaluate_criterion_value(
     """
     uncertainty_bands = criterion.quality_floor.low_quality_uncertainty_bands
     if criterion.sub_scores:
-        return evaluate_sub_scores(
+        sub_result = evaluate_sub_scores(
             criterion.sub_scores,
             criterion.aggregation,
             context,
             quality=quality,
             uncertainty_bands=uncertainty_bands,
+        )
+        if not criterion.bands:
+            return sub_result
+        band_result = evaluate_bands(
+            criterion.bands,
+            context,
+            quality=quality,
+            uncertainty_bands=uncertainty_bands,
+        )
+        if band_result.matched_band is None or band_result.score >= sub_result.score:
+            return sub_result
+        return BandResult(
+            score=band_result.score,
+            score_low=min(sub_result.score_low, band_result.score_low),
+            score_high=min(sub_result.score_high, band_result.score_high),
+            matched_band=band_result.matched_band,
+            descriptor=f"{sub_result.descriptor}; capped by {band_result.descriptor}",
+            sub_results=sub_result.sub_results,
+            notes=sub_result.notes,
         )
     return evaluate_bands(
         criterion.bands,

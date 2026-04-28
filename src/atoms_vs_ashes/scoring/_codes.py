@@ -74,20 +74,6 @@ EXCLUSIONARY_CODES: tuple[ScreeningCode, ...] = (
         synopsis="< 50 km Holocene volcano or in mapped hazard zone.",
     ),
     ScreeningCode(
-        code="E5",
-        action="exclude",
-        anchor_criterion_id="NH-05",
-        anchor_aliases=("NH-05", "NH-05b"),
-        synopsis="Karst voids on site or > 15 m deep formations.",
-    ),
-    ScreeningCode(
-        code="E6",
-        action="exclude",
-        anchor_criterion_id="NH-05",
-        anchor_aliases=("NH-05", "NH-05b"),
-        synopsis="Mining beneath site OR historical on-site oil & gas.",
-    ),
-    ScreeningCode(
         code="E7",
         action="exclude",
         anchor_criterion_id="NS-08",

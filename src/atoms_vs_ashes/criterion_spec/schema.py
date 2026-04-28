@@ -29,10 +29,12 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 BandRecipeKind = Literal[
     "higher_is_better",
+    "fault_distance_higher_is_better",
     "lower_is_better",
     "score_percent_higher_is_better",
     "capacity_margin",
     "flood_distance_or_elevation",
+    "nh05_mine_composite",
 ]
 
 
@@ -52,6 +54,7 @@ class BandRecipeSpec(BaseModel):
         default=None,
         description="Metric for recipes when the template omits primary_metric (e.g. BF-01).",
     )
+    score5_pivot: float | None = None
     elevation_pass_m: float | None = None
 
 

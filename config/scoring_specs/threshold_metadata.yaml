@@ -67,6 +67,24 @@ NH-04:
       sources: ["IAEA SSG-9 §6.34", "NUREG-0800 §2.5.5"]
     bounds: {min: 10, max: 45}
 
+NH-05:
+  E6:
+    metric: mining_void_distance_km
+    op: "<"
+    default_value: 2.0
+    units: km
+    label: "Acceptable mapped mine-feature distance"
+    kind: numeric
+    recommended:
+      value: 2.0
+      rationale: >
+        Project review pivot for mapped EGDI mine/mining-heritage proximity.
+        IAEA geotechnical guidance requires evaluation of subsidence and
+        collapse potential plus practicable remedy; it does not set a
+        universal hard-exclusion distance for mapped mine features.
+      sources: ["IAEA SSR-1 Req. 8", "IAEA NS-G-3.6 §3.29-3.35", "Project geotechnical screening basis"]
+    bounds: {min: 0.0, max: 25.0}
+
 NH-07:
   E4:
     metric: nearest_volcano_km

@@ -1,0 +1,12 @@
+{"ts":"2026-04-28T07:04:06Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-28T07:04:06Z","stage":"scoring","processed":1,"total":362,"eta_s":23.06,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-28T07:04:07Z","stage":"scoring","processed":36,"total":362,"eta_s":9.7,"message":"site=BY-Lelchitsy power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:08Z","stage":"scoring","processed":77,"total":362,"eta_s":7.74,"message":"site=HU-Pecs power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:09Z","stage":"scoring","processed":118,"total":362,"eta_s":6.43,"message":"site=PL-Lodz-2 power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:10Z","stage":"scoring","processed":159,"total":362,"eta_s":5.26,"message":"site=RO-Craiova II power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:11Z","stage":"scoring","processed":195,"total":362,"eta_s":4.42,"message":"site=TR-Adana Akdeniz power stat","unit":"sites"}
+{"ts":"2026-04-28T07:04:12Z","stage":"scoring","processed":236,"total":362,"eta_s":3.3,"message":"site=TR-DETES 1 power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:13Z","stage":"scoring","processed":277,"total":362,"eta_s":2.21,"message":"site=TR-Kemerk\u00f6y power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:14Z","stage":"scoring","processed":312,"total":362,"eta_s":1.31,"message":"site=TR-Soma Kolin power station","unit":"sites"}
+{"ts":"2026-04-28T07:04:15Z","stage":"scoring","processed":353,"total":362,"eta_s":0.24,"message":"site=UA-Starobesheve power stati","unit":"sites"}
+{"ts":"2026-04-28T07:04:16Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

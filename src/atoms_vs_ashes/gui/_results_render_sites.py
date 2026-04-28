@@ -19,11 +19,13 @@ from atoms_vs_ashes.gui._results_data_failure import (
     SiteLedgerRow,
     country_site_ledger,
 )
+from atoms_vs_ashes.gui._live_text_input import live_text_input
 from atoms_vs_ashes.gui._results_render_drawer import render_site_detail
+from atoms_vs_ashes.gui._results_site_status_palette import (
+    STATUS_LEDGER_LABEL,
+    render_site_status_legend,
+)
 from atoms_vs_ashes.runtime.scope import RunScope
-
-
-_STATUS_EMOJI = {"pass": "✅", "avoidance-flag": "🟧", "hard-fail": "🟥"}
 
 
 def render_sites_tab(
@@ -50,10 +52,11 @@ def render_sites_tab(
         st.caption(
             "No country picked yet — showing top 100 (site × SMR) pairs "
             "across the whole run. Pick a country in **Coverage** or "
-            "in the page-level control row to drill into one."
+            "with the **Country focus** selector above to drill into one."
         )
 
     single_smr = is_single_smr(run_id, scope=scope)
+    render_site_status_legend()
     left, right = st.columns([0.55, 0.45])
     with left:
         selected = _render_ledger_table(rows, run_id, single_smr=single_smr)
@@ -68,6 +71,28 @@ def render_sites_tab(
                 site_id=selected.site_id, smr_key=selected.smr_key,
                 show_smr=not single_smr,
             )
+
+
+def _filter_ledger_rows(
+    rows: list[SiteLedgerRow], query: str,
+) -> list[SiteLedgerRow]:
+    """Case-insensitive substring match on site name, country, SMR, top blocker."""
+    if not (query and query.strip()):
+        return rows
+    q = query.strip().lower()
+    out: list[SiteLedgerRow] = []
+    for r in rows:
+        parts = [
+            r.name,
+            r.country_code,
+            country_name(r.country_code),
+            r.smr_key,
+            r.top_blocking_criterion_id or "",
+        ]
+        joined = " ".join(str(p) for p in parts if p is not None).lower()
+        if q in joined:
+            out.append(r)
+    return out
 
 
 def _no_rows_message(country_code: str | None, include_eliminated: bool) -> str:
@@ -85,7 +110,21 @@ def _no_rows_message(country_code: str | None, include_eliminated: bool) -> str:
 def _render_ledger_table(
     rows: list[SiteLedgerRow], run_id: str, *, single_smr: bool,
 ) -> SiteLedgerRow | None:
-    df = _to_dataframe(rows, single_smr=single_smr)
+    search = live_text_input(
+        "Search power plants",
+        key=f"_sites_ledger_search::{run_id}",
+        placeholder="Filter by site name, country, SMR, or top blocker…",
+        help=(
+            "Filters the ledger as you type. If it only updates after Enter "
+            "or defocus, add streamlit-keyup (atoms-vs-ashes[gui] includes it)."
+        ),
+    )
+    filtered = _filter_ledger_rows(rows, search)
+    if not filtered and search.strip():
+        st.caption("No sites match that search. Clear the field to see the full list.")
+        return None
+    ledger = filtered
+    df = _to_dataframe(ledger, single_smr=single_smr)
     column_config = _column_config(single_smr=single_smr)
     selection_state_key = f"_sites_ledger_select::{run_id}"
     selection = st.dataframe(
@@ -101,7 +140,7 @@ def _render_ledger_table(
     )
     if not rows_sel:
         return None
-    return rows[rows_sel[0]]
+    return ledger[rows_sel[0]]
 
 
 def _to_dataframe(rows: list[SiteLedgerRow], *, single_smr: bool) -> pd.DataFrame:
@@ -111,7 +150,7 @@ def _to_dataframe(rows: list[SiteLedgerRow], *, single_smr: bool) -> pd.DataFram
             "rank": r.rank_position,
             "name": r.name,
             "country": country_name(r.country_code),
-            "status": f"{_STATUS_EMOJI.get(r.status, '·')} {r.status}",
+            "status": STATUS_LEDGER_LABEL.get(r.status, r.status),
             "composite": r.composite,
             "MC band": _mc_band(r),
             "# failed": r.n_failed_criteria,

@@ -30,3 +30,22 @@ def test_merge_db_per_smr_merges_dict(monkeypatch: pytest.MonkeyPatch) -> None:
     base: dict = {"BF-01": {"B1": 462.0}}
     out = tro.merge_db_over_yaml(base, object())
     assert out["BF-01"]["B1"] == {"": 462.0, "nuscale_voygr6": 500.0}
+
+
+def test_delete_threshold_rows_removes_existing_override() -> None:
+    row = SimpleNamespace(criterion_id="NH-02", code="E1", smr_key="", value=8.0)
+    deleted: list[object] = []
+
+    class FakeSession:
+        def get(self, _model, key):
+            return row if key == ("NH-02", "E1", "") else None
+
+        def delete(self, obj):
+            deleted.append(obj)
+
+        def flush(self):
+            deleted.append("flushed")
+
+    tro.delete_threshold_rows(FakeSession(), [("NH-02", "E1", None)])
+
+    assert deleted == [row, "flushed"]

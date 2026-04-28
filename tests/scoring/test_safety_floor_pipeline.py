@@ -105,6 +105,7 @@ class TestSafetyFloorTransparency:
         ctx = {
             "karst_severity": "moderate",
             "mining_void_present": False,
+            "mining_void_distance_km": None,
             "subsidence_risk_class": "moderate",
         }
 
@@ -121,6 +122,7 @@ class TestSafetyFloorTransparency:
         ctx = {
             "karst_severity": "moderate",
             "mining_void_present": False,
+            "mining_void_distance_km": None,
             "subsidence_risk_class": "high",
         }
 
@@ -137,6 +139,7 @@ class TestSafetyFloorTransparency:
         ctx = {
             "karst_severity": "none",
             "mining_void_present": None,
+            "mining_void_distance_km": None,
             "subsidence_risk_class": None,
         }
 
@@ -144,25 +147,53 @@ class TestSafetyFloorTransparency:
 
         assert band_result.score >= 5.0
         assert band_result.matched_band is not None
-        assert band_result.matched_band.score_range == (7.0, 8.0)
+        assert band_result.matched_band.score_range == (5.0, 6.0)
         fails = [v for v in verdicts if v.verdict == "fail"]
         assert fails == []
 
-    def test_nh05_confirmed_mining_void_is_explicit_hard_fail(self, bundle):
+    def test_nh05_mining_boolean_alone_is_not_exclusionary(self, bundle):
         nh05 = bundle["NH-05"]
         ctx = {
             "karst_severity": "none",
             "mining_void_present": True,
+            "mining_void_distance_km": None,
             "subsidence_risk_class": None,
         }
 
         verdicts, band_result = _eval_floor_for(nh05, ctx)
 
-        assert band_result.score < 5.0
+        assert band_result.score >= 5.0
         assert band_result.matched_band is not None
-        assert band_result.matched_band.score_range == (1.0, 2.0)
         hard = [v for v in verdicts if v.prompt_key == "E6" and v.verdict == "fail"]
-        assert len(hard) == 1
+        assert hard == []
+
+    @pytest.mark.parametrize(
+        ("distance_km", "expected_range"),
+        [
+            (1.9, (3.0, 4.0)),
+            (2.0, (5.0, 6.0)),
+            (4.9, (7.0, 8.0)),
+        ],
+    )
+    def test_nh05_mine_distance_scores_from_two_km_pivot_without_exclusion(
+        self, bundle, distance_km, expected_range,
+    ):
+        nh05 = bundle["NH-05"]
+        ctx = {
+            "karst_severity": "none",
+            "mining_void_present": True,
+            "mining_void_distance_km": distance_km,
+            "subsidence_risk_class": "none",
+        }
+
+        verdicts, band_result = _eval_floor_for(nh05, ctx)
+
+        assert band_result.matched_band is not None
+        assert band_result.matched_band.score_range == expected_range
+        if distance_km >= 2.0:
+            assert band_result.score >= 5.0
+        fails = [v for v in verdicts if v.verdict == "fail"]
+        assert fails == []
 
     @pytest.mark.parametrize(
         ("criterion_id", "ctx"),

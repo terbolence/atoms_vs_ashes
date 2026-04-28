@@ -15,6 +15,7 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+from atoms_vs_ashes.gui._country_names import country_name
 from atoms_vs_ashes.gui._metrics_loader import LoadedMetrics
 from atoms_vs_ashes.gui._results_data import (
     RunSummary,
@@ -24,7 +25,11 @@ from atoms_vs_ashes.gui._results_data import (
 
 
 def render_sensitivity_tab(
-    run_summary: RunSummary, metrics: LoadedMetrics | None
+    run_summary: RunSummary,
+    metrics: LoadedMetrics | None,
+    *,
+    country_code: str | None = None,
+    baseline_weight_profile: str = "baseline",
 ) -> None:
     if run_summary.run_kind != "sensitivity":
         st.info(
@@ -34,19 +39,37 @@ def render_sensitivity_tab(
             "tab."
         )
         return
-    snap = sensitivity_snapshot(run_summary.run_id)
+    snap = sensitivity_snapshot(
+        run_summary.run_id,
+        country_code=country_code,
+        baseline_weight_profile=baseline_weight_profile,
+    )
+    _render_scope_caption(country_code)
     _render_db_overview(snap)
+    st.divider()
     if snap.country_balance:
-        st.divider()
         _render_country_balance_db(snap)
+    else:
+        st.caption("No country-balance rows for the selected scope.")
+    st.divider()
     if snap.threshold_sweep:
-        st.divider()
         _render_threshold_sweep_db(snap)
+    else:
+        st.caption("No threshold-sweep rows for the selected scope.")
     if metrics is not None:
         sens = metrics.sensitivity
         if sens:
             st.divider()
             _render_metrics_panels(sens)
+
+
+def _render_scope_caption(country_code: str | None) -> None:
+    if country_code is None:
+        st.caption("Sensitivity scope: **Regional / All countries**")
+    else:
+        st.caption(
+            f"Sensitivity scope: **National / {country_name(country_code)}**"
+        )
 
 
 def _render_db_overview(snap: SensitivitySnapshot) -> None:
@@ -85,7 +108,10 @@ def _render_db_overview(snap: SensitivitySnapshot) -> None:
 
 
 def _render_country_balance_db(snap: SensitivitySnapshot) -> None:
-    st.subheader("Country balance (DB)")
+    title = "Country balance (DB)"
+    if snap.country_code:
+        title += f" — {country_name(snap.country_code)}"
+    st.subheader(title)
     df = pd.DataFrame(snap.country_balance)
     melted = df.melt(
         id_vars=["country_code"],
@@ -116,7 +142,10 @@ def _render_country_balance_db(snap: SensitivitySnapshot) -> None:
 
 
 def _render_threshold_sweep_db(snap: SensitivitySnapshot) -> None:
-    st.subheader("Threshold ±25% sweep (DB)")
+    title = "Threshold ±25% sweep (DB)"
+    if snap.country_code:
+        title += " — derived for selected country"
+    st.subheader(title)
     df = pd.DataFrame(snap.threshold_sweep)
     # Drop entirely-null columns: altair can't infer a type from them
     # and raises ``Unable to determine data type`` in the tooltip.

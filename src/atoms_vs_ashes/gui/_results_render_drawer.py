@@ -2,10 +2,9 @@
 """Tool 4 — Site detail drawer (rendered in the right column of Sites).
 
 Answers the workshop question "*why did this site fail and by how
-much?*" with a header, red/amber failed-criteria cards (each with a
-tiny inline gauge so the gap is graspable at a glance), green
-strengths cards, a per-criterion bar across all rubric scores, and a
-single-row family-contribution stack.
+much?*" with a header, severity-coloured failed-criteria cards (each with a
+tiny inline gauge so the gap is graspable at a glance), strengths cards,
+a per-criterion bar across all rubric scores, and a single-row family-contribution stack.
 """
 
 from __future__ import annotations
@@ -22,14 +21,18 @@ from atoms_vs_ashes.gui._results_data_detail import (
     StrengthCriterion,
     site_detail,
 )
-
-
-_STATUS_COLOUR = {
-    "pass": "#2e7d32", "avoidance-flag": "#e9a73a", "hard-fail": "#c0392b",
-}
-_SEVERITY_COLOUR = {
-    "exclusionary": "#c0392b", "avoidance": "#e9a73a",
-}
+from atoms_vs_ashes.gui._results_site_detail_bars import (
+    SEMANTIC_AVOIDANCE,
+    SEMANTIC_EXCLUSION,
+    SEMANTIC_NO_RANK,
+)
+from atoms_vs_ashes.gui._results_site_status_palette import (
+    EXCLUSION_PASS_AVOIDANCE_FAIL_HEX,
+    FULL_PASS_HEX,
+    HARD_FAIL_HEX,
+    STATUS_HEX,
+    severity_hex,
+)
 
 
 def render_site_detail(
@@ -49,9 +52,16 @@ def render_site_detail(
 
     _render_header(detail, show_smr=show_smr)
     if detail.failed_criteria:
-        st.markdown("##### Failed criteria")
+        st.markdown("##### Failed criteria (exclusionary)")
         for fc in sorted(
             detail.failed_criteria,
+            key=lambda f: (-(f.gap_pct or 0.0), f.criterion_id),
+        ):
+            _render_failed_card(fc)
+    if detail.avoidance_flags:
+        st.markdown("##### Avoidance flags")
+        for fc in sorted(
+            detail.avoidance_flags,
             key=lambda f: (-(f.gap_pct or 0.0), f.criterion_id),
         ):
             _render_failed_card(fc)
@@ -61,6 +71,12 @@ def render_site_detail(
             _render_strength_card(s)
     if detail.all_criterion_scores:
         st.markdown("##### Per-criterion scores")
+        st.caption(
+            "Rubric family colours apply to criteria with a 0–10 ranking band. "
+            f"“{SEMANTIC_EXCLUSION}”, “{SEMANTIC_AVOIDANCE}”, and "
+            f"“{SEMANTIC_NO_RANK}” mark screening-only rows without a stored "
+            "rank score (or highlight exclusion / avoidance outcomes)."
+        )
         _render_criterion_bar(detail)
     if detail.family_contributions:
         st.markdown("##### Per-family contribution")
@@ -68,7 +84,7 @@ def render_site_detail(
 
 
 def _render_header(detail: SiteDetail, *, show_smr: bool) -> None:
-    colour = _STATUS_COLOUR.get(detail.status, "#666")
+    colour = STATUS_HEX.get(detail.status, "#666")
     smr_chip = (
         f" <span style='font-size:0.8rem;background:#eee;border-radius:4px;"
         f"padding:1px 6px;margin-left:6px;'>{detail.smr_key}</span>"
@@ -114,7 +130,7 @@ def _capacity_label(mw: float | None) -> str:
 
 
 def _render_failed_card(fc: FailedCriterion) -> None:
-    colour = _SEVERITY_COLOUR.get(fc.severity, "#888")
+    colour = severity_hex(fc.severity)
     measured = fc.measured_value or "—"
     units = fc.measured_units or ""
     threshold = fc.threshold or "—"
@@ -159,7 +175,7 @@ def _gauge_svg(measured: float | None, threshold: float | None, colour: str) -> 
 
 def _render_strength_card(s: StrengthCriterion) -> None:
     st.markdown(
-        f"<div style='border-left:4px solid #2e7d32;padding:0.3rem 0.6rem;"
+        f"<div style='border-left:4px solid {FULL_PASS_HEX};padding:0.3rem 0.6rem;"
         f"margin-bottom:0.3rem;background:#f4faf5;'>"
         f"<b>{s.criterion_id}</b> · {s.name}"
         f" · <b>{s.score_0_10:.1f}/10</b></div>",
@@ -167,17 +183,69 @@ def _render_strength_card(s: StrengthCriterion) -> None:
     )
 
 
+def _bar_fill_color(semantic: str) -> str:
+    specials = {
+        SEMANTIC_EXCLUSION: HARD_FAIL_HEX,
+        SEMANTIC_AVOIDANCE: EXCLUSION_PASS_AVOIDANCE_FAIL_HEX,
+        SEMANTIC_NO_RANK: "#aeb6bf",
+    }
+    if semantic in specials:
+        return specials[semantic]
+    palette = (
+        "#4e79a7",
+        "#f28e2b",
+        "#e15759",
+        "#76b7b2",
+        "#59a14f",
+        "#edc949",
+        "#af7aa1",
+        "#ff9da7",
+        "#9c755f",
+        "#bab0ab",
+    )
+    idx = sum(ord(c) for c in semantic) % len(palette)
+    return palette[idx]
+
+
 def _render_criterion_bar(detail: SiteDetail) -> None:
-    df = pd.DataFrame([
-        {"criterion_id": r.criterion_id, "score": r.score_0_10, "family": r.family}
-        for r in detail.all_criterion_scores
-    ])
+    records = []
+    for r in detail.all_criterion_scores:
+        sp = 0.0 if r.score_0_10 is None else float(r.score_0_10)
+        tip = "—" if r.score_0_10 is None else f"{float(r.score_0_10):.1f}"
+        records.append({
+            "criterion_id": r.criterion_id,
+            "score_plot": sp,
+            "chart_semantic": r.chart_semantic,
+            "score_tooltip": tip,
+        })
+    df = pd.DataFrame(records)
+    df = df.sort_values(
+        by=["score_plot", "criterion_id"], ascending=[False, True],
+    )
+    sort_order = df["criterion_id"].tolist()
+    domain: list[str] = []
+    for s in df["chart_semantic"]:
+        if s not in domain:
+            domain.append(s)
+    colors = [_bar_fill_color(s) for s in domain]
     chart = (
         alt.Chart(df).mark_bar().encode(
-            x=alt.X("score:Q", scale=alt.Scale(domain=[0, 10]), title="Score"),
-            y=alt.Y("criterion_id:N", sort="-x", title=None),
-            color=alt.Color("family:N", legend=alt.Legend(title="Family")),
-            tooltip=["criterion_id", "family", "score"],
+            x=alt.X(
+                "score_plot:Q",
+                scale=alt.Scale(domain=[0, 10]),
+                title="Score (screening-only rows shown at 0)",
+            ),
+            y=alt.Y("criterion_id:N", sort=sort_order, title=None),
+            color=alt.Color(
+                "chart_semantic:N",
+                legend=alt.Legend(title="Family / screening"),
+                scale=alt.Scale(domain=domain, range=colors),
+            ),
+            tooltip=[
+                alt.Tooltip("criterion_id:N", title="Criterion"),
+                alt.Tooltip("chart_semantic:N", title="Legend"),
+                alt.Tooltip("score_tooltip:N", title="0–10 score"),
+            ],
         ).properties(height=max(220, 14 * max(1, len(df))))
     )
     rule = (

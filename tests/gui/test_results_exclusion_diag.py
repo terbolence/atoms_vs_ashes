@@ -29,9 +29,9 @@ def test_margin_from_payload_uses_threshold_metadata() -> None:
     _, threshold, units, pct = margin_from_payload(
         "NH-02", "E1", measured,
     )
-    assert threshold == pytest.approx(5.0)
+    assert threshold == pytest.approx(8.0)
     assert units == "km"
-    assert pct == pytest.approx(10.0)
+    assert pct == pytest.approx(43.75)
 
 
 def test_margin_from_payload_handles_safety_floor() -> None:

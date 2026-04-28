@@ -28,7 +28,7 @@ def test_higher_is_better_fault_scaling():
     b = bands_from_recipe(t, r, 10.0)
     assert len(b) == 6
     assert "nearest_fault_km >= 10" in b[2].condition_expr
-    assert "nearest_fault_km >= 5 * 10" in b[0].condition_expr
+    assert "nearest_fault_km >= 50.0" in b[0].condition_expr
 
 
 def test_flood_recipe_uses_mixed_metrics():
@@ -41,9 +41,9 @@ def test_flood_recipe_uses_mixed_metrics():
     assert "30.5" in b[0].condition_expr
 
 
-def test_capacity_margin_uses_smr_mw():
+def test_capacity_margin_uses_active_threshold_pivot():
     t = _minimal_criterion(criterion_id="NS-02", primary_metric="grid_export_capacity_mw")
     r = BandRecipeSpec(kind="capacity_margin", fail_code="A13")
     b = bands_from_recipe(t, r, 999.0, smr_grid_export_mw=462.0)
     assert "grid_export_capacity_mw" in b[0].condition_expr
-    assert "1.2 * 462" in b[0].condition_expr
+    assert "1198.8" in b[0].condition_expr

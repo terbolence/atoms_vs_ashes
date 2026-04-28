@@ -27,8 +27,8 @@ from atoms_vs_ashes.gui._overview import render as render_overview
 _GUI_DIR = Path(__file__).resolve().parent
 _PAGES_DIR = _GUI_DIR / "pages"
 
-# (filename, sidebar label, tooltip for the info icon, hidden_from_sidebar)
-_SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
+# (filename, sidebar label, tooltip for the info icon, hidden_from_sidebar, material icon)
+_SCREEN_PAGES: tuple[tuple[str, str, str, bool, str], ...] = (
     (
         "01_smr_catalogue.py",
         "SMR Catalogue (advanced)",
@@ -40,6 +40,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
             "/smr_catalogue URL when you need the full row."
         ),
         True,
+        ":material/inventory_2:",
     ),
     (
         "02_run_profile.py",
@@ -51,6 +52,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
             "/run_profile URL when you need the long form."
         ),
         True,
+        ":material/article:",
     ),
     (
         "03_threshold_editor.py",
@@ -61,6 +63,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
             "Run profile."
         ),
         False,
+        ":material/tune:",
     ),
     (
         "04_run_dashboard.py",
@@ -70,6 +73,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
             "controls tied to the active profile."
         ),
         False,
+        ":material/calculate:",
     ),
     (
         "05_results.py",
@@ -81,6 +85,7 @@ _SCREEN_PAGES: tuple[tuple[str, str, str, bool], ...] = (
             "unlocks the heavier offline panels."
         ),
         False,
+        ":material/analytics:",
     ),
 )
 
@@ -101,10 +106,10 @@ def _nav_specs() -> list[tuple[Any, str, bool]]:
         "persists to the DB."
     )
     specs: list[tuple[Any, str, bool]] = [(overview, overview_help, False)]
-    for fname, title, blurb, hidden in _SCREEN_PAGES:
+    for fname, title, blurb, hidden, icon in _SCREEN_PAGES:
         specs.append(
             (
-                st.Page(_PAGES_DIR / fname, title=title),
+                st.Page(_PAGES_DIR / fname, title=title, icon=icon),
                 blurb,
                 hidden,
             )

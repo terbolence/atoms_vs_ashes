@@ -81,25 +81,28 @@ Every section follows the same template:
 
 - PGA and spectral acceleration drive SSC design, foundations, equipment qualification, and
   ultimately CAPEX premium for SMRs.
-- The SMR design envelope is **vendor-specific**; PGA exceedance is treated as exclusionary
-  at the design level (matrix rule).
+- Nuclear design-basis checks use long-return-period site-specific hazard outputs, not the
+  conventional 475-yr civil-building hazard level. `PGA(2475 yr)` is the project data proxy
+  for the required SL-2 / design-envelope screen until a `10^-4/year` hazard curve is available.
+- The SMR design envelope is **vendor-specific**; A10 exceedance is treated as an avoidance
+  penalty at the design-envelope level.
 - SHARE and EFEHR provide the European baseline; outside Europe, GEM is the fallback. Local
   national hazard maps may be stricter and override the screening result.
 
-**0–10 scoring (PGA at 475-yr return period)**
+**0–10 scoring (PGA at 2475-yr return period)**
 
-| Score | PGA 475 yr (g)              | Notes                                                           |
-| ----: | --------------------------- | --------------------------------------------------------------- |
-| 9–10  | < 0.05                       | Stable craton; minimal seismic premium.                         |
-| 7–8   | 0.05 – 0.10                  | Low seismicity; standard structural design.                     |
-| 5–6   | 0.10 – 0.20                  | Moderate; enhanced design provisions; **preferred ceiling** at < 0.20 g per project draft. |
-| 3–4   | 0.20 – 0.30                  | High; significant cost; expert review mandatory.                |
-| 1–2   | 0.30 – 0.50                  | Very high; SMR design envelope likely exceeded.                 |
-| 0     | > 0.50                       | Outside any reasonable SMR envelope → exclude.                  |
+| Score | PGA 2475 yr (g)              | Notes                                                           |
+| ----: | ---------------------------- | --------------------------------------------------------------- |
+| 9–10  | ≤ 0.10                       | Very low long-return demand; strong margin to A10.              |
+| 7–8   | 0.10 – 0.20                  | Low long-return demand; clear margin to A10.                    |
+| 5–6   | 0.20 – 0.50                  | At/below the A10 score-5 design-envelope boundary.              |
+| 3–4   | 0.50 – 0.75                  | Above A10; specialist seismic review and avoidance penalty.     |
+| 1–2   | 0.75 – 1.00                  | High long-return demand; little generic SMR margin.             |
+| 0     | ≥ 1.00                       | Extreme long-return demand; outside generic screening envelope. |
 
-**Project screening overlay (PGA 2475-yr)**
+**Project screening overlay**
 
-- `PGA(2475 yr) > 0.5 g` → Phase 2 fail (project rule).
+- `PGA(2475 yr) > 0.5 g` → Phase 2 avoidance penalty (A10 project rule).
 - `PGA(2475 yr) > 0.9 g` → flag for data-validity review (likely artefact / model error).
 
 **Soil class addendum (Vs30)**
@@ -199,30 +202,32 @@ populated), `vs30_ms`. LLM → `nh01_seismic_text`.
 
 #### NH-05 — Subsidence / karst / mining / oil & gas
 
-> Phase: **Screen + Rank** · Weight factor **7** · Normalised **2.5 %** · Pass ≥ 5.0.
+> Phase: **Rank / geotechnical review** · Weight factor **7** · Normalised **2.5 %**.
 
 **Why it matters**
 
 - Karst voids and worked mining seams threaten foundations and intake pipelines.
-- Project rules:
-  - **No karst formation deeper than 15 m** within the site footprint disqualifies.
-  - **No mining beneath the site boundary** — no mining within **1 km** of the site.
-  - **Any historical oil & gas extraction activity** at the site eliminates it (E6
-    analogue).
-- Mining-void avoidance band **5–10 km** for ranking penalty.
+- IAEA geotechnical guidance requires evaluation of collapse / subsidence potential
+  and practicable engineering remedy; it does not set a universal mine-distance
+  hard exclusion for mapped mine-feature proximity.
+- Current EGDI data locates mapped mine / mining-heritage features near the plant,
+  not confirmed voids beneath the safety footprint.
+- The project mine-distance pivot is therefore an editable **score-5 boundary**,
+  not an exclusionary gate. Default: **2 km**.
 
 **0–10 scoring**
 
 | Score | Condition                                                                                     |
 | ----: | --------------------------------------------------------------------------------------------- |
-| 9–10  | No karst / mining / hydrocarbon evidence in a 25 km radius.                                   |
-| 7–8   | Karst absent on site; nearest mining void 10 – 25 km away; no historic O&G.                   |
-| 5–6   | Karst features 5 – 25 km from site; mining void 5 – 10 km (avoidance band); no on-site O&G.   |
-| 3–4   | Karst within 5 km but no on-site features; mining 1 – 5 km; legacy O&G nearby.                |
-| 1–2   | Karst within 1 km of site; mining < 1 km; pressure-compaction risk on site.                   |
-| 0     | E5 (karst on site or formations > 15 m deep) **or** E6 (mining beneath the site) **or** any historical on-site oil & gas activity → **Excluded.** |
+| 9–10  | No karst proxy; mapped mine feature ≥ 5 × pivot; subsidence risk none/unknown.                |
+| 7–8   | No karst proxy; mapped mine feature ≥ 2 × pivot; low/unknown subsidence risk.                 |
+| 5–6   | Possible with geotechnical confirmation; mapped mine feature ≥ pivot or mine-distance unknown. |
+| 3–4   | Mapped mine feature between 0.5 × pivot and pivot; review penalty only.                       |
+| 1–2   | Mapped mine feature < 0.5 × pivot or high karst proxy; severe review signal.                  |
+| 0     | Not used by current proxy data. Reserved for future site-specific no-remedy evidence.         |
 
-**Pass / fail**: 0 if E5/E6; else ≥ 5.0.
+**Pass / fail**: no hard fail from current EGDI mine-proximity or WOKAM karst proxy data.
+Mine proximity is a ranking / diagnostic signal pending site-specific geotechnical evidence.
 
 **Data anchor**: API → `site_natural_hazards.karst_severity`, `mining_void_distance_km`,
 `oil_gas_extraction_flag`. LLM → `nh05_subsidence_text` (often the only signal for sparse

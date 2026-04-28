@@ -184,6 +184,8 @@ def _band_recipe_pivot(
     raw = _resolve_code_override(crit_overrides, code, smr_key)
     if raw is not None:
         return raw
+    if template.band_recipe.score5_pivot is not None:
+        return template.band_recipe.score5_pivot
     for fc in template.fail_conditions:
         if fc.code == code and fc.threshold is not None:
             return fc.threshold.default_value

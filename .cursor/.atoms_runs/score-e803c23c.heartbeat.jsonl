@@ -1,0 +1,14 @@
+{"ts":"2026-04-28T10:17:13Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-28T10:17:13Z","stage":"scoring","processed":1,"total":362,"eta_s":23.06,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-28T10:17:14Z","stage":"scoring","processed":29,"total":362,"eta_s":12.55,"message":"site=BG-Maritsa Iztok-4 power st","unit":"sites"}
+{"ts":"2026-04-28T10:17:15Z","stage":"scoring","processed":64,"total":362,"eta_s":9.84,"message":"site=CZ-Tusimice power station","unit":"sites"}
+{"ts":"2026-04-28T10:17:16Z","stage":"scoring","processed":103,"total":362,"eta_s":7.9,"message":"site=PL-Gliwice Works power stat","unit":"sites"}
+{"ts":"2026-04-28T10:17:17Z","stage":"scoring","processed":117,"total":362,"eta_s":8.69,"message":"site=PL-Legnica Power Station","unit":"sites"}
+{"ts":"2026-04-28T10:17:18Z","stage":"scoring","processed":133,"total":362,"eta_s":8.92,"message":"site=PL-Puchaczow power station","unit":"sites"}
+{"ts":"2026-04-28T10:17:19Z","stage":"scoring","processed":167,"total":362,"eta_s":7.22,"message":"site=RO-Mintia-Deva power statio","unit":"sites"}
+{"ts":"2026-04-28T10:17:20Z","stage":"scoring","processed":208,"total":362,"eta_s":5.33,"message":"site=TR-Atlas Enerji \u0130skenderun ","unit":"sites"}
+{"ts":"2026-04-28T10:17:21Z","stage":"scoring","processed":246,"total":362,"eta_s":3.87,"message":"site=TR-Evrese power station","unit":"sites"}
+{"ts":"2026-04-28T10:17:22Z","stage":"scoring","processed":287,"total":362,"eta_s":2.41,"message":"site=TR-Meda power station","unit":"sites"}
+{"ts":"2026-04-28T10:17:23Z","stage":"scoring","processed":322,"total":362,"eta_s":1.28,"message":"site=TR-Uluk\u00f6y power station","unit":"sites"}
+{"ts":"2026-04-28T10:17:24Z","stage":"scoring","processed":336,"total":362,"eta_s":0.88,"message":"site=TR-Zonguldak Modern power s","unit":"sites"}
+{"ts":"2026-04-28T10:17:25Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

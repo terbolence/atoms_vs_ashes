@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 from typing import Any
 
 import pandas as pd
@@ -16,9 +15,11 @@ from atoms_vs_ashes.criterion_spec.preview import (
 )
 from atoms_vs_ashes.gui._state import (
     get_fail_thresholds,
-    get_profile,
-    reset_fail_threshold,
     update_fail_threshold,
+)
+from atoms_vs_ashes.gui._threshold_editor_persistence import (
+    reset_one_threshold,
+    save_one_threshold,
 )
 from atoms_vs_ashes.gui._threshold_editor_palette import (
     AVOID_ROW_BG,
@@ -30,13 +31,10 @@ from atoms_vs_ashes.gui._threshold_editor_palette import (
     LIGHT_ROW_TEXT,
     NEUTRAL_ROW_BG,
     action_kind_label,
-    criterion_expander_label,
     fc_accent_bar,
 )
+from atoms_vs_ashes.gui._threshold_editor_criteria_header import criterion_summary_row
 from atoms_vs_ashes.gui._threshold_editor_weight import criterion_weight_input
-from atoms_vs_ashes.db.engine import session_scope
-from atoms_vs_ashes.db.threshold_overrides import save_threshold_rows
-from atoms_vs_ashes.runprofile.schema import RunProfile
 
 
 def _value_line_for_action(fc: FailConditionPreview) -> str:
@@ -146,6 +144,7 @@ def threshold_input(
         cols = st.columns([3, 1, 1])
         current = fc.value if fc.value is not None else fc.recommended_value
         key_base = f"{crit.criterion_id}_{fc.code}"
+        dirty_key = f"threshold_dirty_{crit.criterion_id}_{fc.code}"
         if isinstance(current, (int, float)):
             new_val = cols[0].number_input(
                 label,
@@ -171,14 +170,19 @@ def threshold_input(
                 key=key_base,
             )
         if cols[1].button("Reset", key=f"reset_{crit.criterion_id}_{fc.code}"):
-            reset_fail_threshold(crit.criterion_id, fc.code)
-            st.rerun()
-        if cols[2].button(
-            "Save", key=f"save_{crit.criterion_id}_{fc.code}", type="primary"
-        ):
-            save_one_threshold(crit, fc, expert_override)
+            reset_one_threshold(crit, fc)
+        dirty = bool(st.session_state.get(dirty_key, False))
+        if dirty:
+            if cols[2].button(
+                "Save", key=f"save_{crit.criterion_id}_{fc.code}", type="primary"
+            ):
+                save_one_threshold(crit, fc, expert_override)
+        else:
+            cols[2].success("Saved")
         if new_val != current:
             update_fail_threshold(crit.criterion_id, fc.code, new_val)
+            st.session_state[dirty_key] = True
+            st.rerun()
         if fc.modified_from_recommended:
             pct = (
                 f"{fc.deviation_pct:+.1f}%"
@@ -211,77 +215,35 @@ def threshold_input(
         _inputs_row()
 
 
-def save_one_threshold(
-    crit: CriterionPreview, fc: FailConditionPreview, expert_override: bool,
-) -> None:
-    """Validate, persist to DB, sync profile fail_thresholds in session."""
-    if not fc.user_editable:
-        st.error("This code is not user-editable.")
-        return
-    if not expert_override and fc.out_of_bounds:
-        st.error("Value out of bounds — enable expert_override or fix the value.")
-        return
-    profile = get_profile()
-    if profile is None:
-        st.error("No profile loaded.")
-        return
-    fts = get_fail_thresholds()
-    val = fts.get(crit.criterion_id, {}).get(fc.code, fc.recommended_value)
-    try:
-        with session_scope() as session:
-            save_threshold_rows(
-                session,
-                [(crit.criterion_id, fc.code, val, None)],
-            )
-    except Exception as exc:  # noqa: BLE001
-        st.error(f"Save failed: {exc}")
-        return
-    new_fts = deepcopy(fts)
-    new_fts.setdefault(crit.criterion_id, {})[fc.code] = val
-    st.session_state["fail_thresholds"] = new_fts
-    st.session_state["profile"] = profile.model_copy(
-        update={"fail_thresholds": deepcopy(new_fts)}
-    )
-    st.success(f"Saved {crit.criterion_id} / {fc.code} to database.")
-    st.rerun()
-
-
 def criterion_card(crit: CriterionPreview, expert_override: bool) -> None:
-    with st.expander(criterion_expander_label(crit), expanded=False):
-        criterion_weight_input(crit)
-        st.divider()
-        editable = [fc for fc in crit.fail_codes if fc.user_editable]
-        if not editable:
-            st.caption("No user-editable fail-thresholds for this criterion.")
-        for fc in editable:
-            threshold_input(crit, fc, expert_override)
-        if crit.bands:
-            st.markdown("**Scoring bands**")
-            st.dataframe(
-                [
-                    {
-                        "score": f"{b.score_range[0]:g}–{b.score_range[1]:g}",
-                        "descriptor": b.descriptor,
-                        "rule": b.condition_expr,
-                    }
-                    for b in crit.bands
-                ],
-                hide_index=True,
-                use_container_width=True,
-            )
-
-
-def diff_panel(preview: PreviewBundle) -> None:
-    if not preview.diff_vs_recommended:
-        st.success("All thresholds at recommended values (compiled audit).")
-        return
-    st.subheader("Modified from recommended (compiler audit)")
-    st.dataframe(preview.diff_vs_recommended, hide_index=True, use_container_width=True)
+    with st.container(border=True):
+        criterion_summary_row(crit)
+        with st.expander(f"{crit.criterion_id} details", expanded=False):
+            criterion_weight_input(crit)
+            st.divider()
+            editable = [fc for fc in crit.fail_codes if fc.user_editable]
+            if not editable:
+                st.caption("No user-editable fail-thresholds for this criterion.")
+            for fc in editable:
+                threshold_input(crit, fc, expert_override)
+            if crit.bands:
+                st.markdown("**Scoring bands**")
+                st.dataframe(
+                    [
+                        {
+                            "score": f"{b.score_range[0]:g}–{b.score_range[1]:g}",
+                            "descriptor": b.descriptor,
+                            "rule": b.condition_expr,
+                        }
+                        for b in crit.bands
+                    ],
+                    hide_index=True,
+                    use_container_width=True,
+                )
 
 
 __all__ = [
     "criterion_card",
-    "diff_panel",
     "norms_differences_table",
     "threshold_input",
 ]

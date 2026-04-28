@@ -67,6 +67,18 @@ def save_threshold_rows(
     session.flush()
 
 
+def delete_threshold_rows(
+    session: Session,
+    rows: list[tuple[str, str, str | None]],
+) -> None:
+    """Delete persisted overrides for ``(criterion_id, code, smr_key)`` rows."""
+    for criterion_id, code, smr_key in rows:
+        row = session.get(ThresholdOverride, (criterion_id, code, smr_key or ""))
+        if row is not None:
+            session.delete(row)
+    session.flush()
+
+
 def snapshot_to_profile_dict(
     profile_fail_thresholds: dict[str, dict[str, Any]],
     session: Session,
