@@ -1,0 +1,11 @@
+{"ts":"2026-04-28T06:48:28Z","stage":"sensitivity:mc","processed":0,"total":362,"eta_s":null,"message":"draws=5000","unit":"items"}
+{"ts":"2026-04-28T06:48:28Z","stage":"sensitivity:mc","processed":1,"total":362,"eta_s":57.9,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:29Z","stage":"sensitivity:mc","processed":24,"total":362,"eta_s":18.41,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:30Z","stage":"sensitivity:mc","processed":34,"total":362,"eta_s":22.51,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:31Z","stage":"sensitivity:mc","processed":41,"total":362,"eta_s":26.46,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:32Z","stage":"sensitivity:mc","processed":43,"total":362,"eta_s":32.52,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:33Z","stage":"sensitivity:mc","processed":48,"total":362,"eta_s":36.25,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:35Z","stage":"sensitivity:mc","processed":62,"total":362,"eta_s":32.43,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:36Z","stage":"sensitivity:mc","processed":70,"total":362,"eta_s":32.52,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:37Z","stage":"sensitivity:mc","processed":83,"total":362,"eta_s":30.11,"message":"","unit":"items"}
+{"ts":"2026-04-28T06:48:38Z","stage":"sensitivity:mc","processed":94,"total":362,"eta_s":28.79,"message":"","unit":"items"}

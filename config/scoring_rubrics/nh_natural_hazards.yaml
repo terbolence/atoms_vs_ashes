@@ -120,10 +120,9 @@ criteria:
     db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
     bands:
       - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class == 'none'", descriptor: "No karst, no mining voids, subsidence risk none."}
-      - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present == false and subsidence_risk_class in ['none', 'low']", descriptor: "No karst on site; no mining voids; low subsidence risk."}
-      - {score_range: [5, 6], condition_expr: "((karst_severity == 'moderate' and mining_void_present == false) or subsidence_risk_class == 'moderate' or (karst_severity in ['none', 'moderate'] and mining_void_present == false and subsidence_risk_class in ['none', 'low'])) and karst_severity != 'high' and mining_void_present != true", descriptor: "Moderate areal subsidence / karst proxy; no confirmed high karst or mining void exclusion."}
-      - {score_range: [3, 4], condition_expr: "subsidence_risk_class == 'high' and karst_severity != 'high' and mining_void_present != true", descriptor: "High areal subsidence risk; geotechnical review required."}
-      - {score_range: [1, 2], condition_expr: "mining_void_present == true or subsidence_risk_class == 'high'", descriptor: "Mining voids present or high subsidence risk; remedy plausible."}
+      - {score_range: [7, 8], condition_expr: "karst_severity == 'none' and mining_void_present in [false, null] and subsidence_risk_class in [null, 'none', 'low']", descriptor: "No karst on site; no known mining voids; low or unknown subsidence risk."}
+      - {score_range: [5, 6], condition_expr: "karst_severity in [null, 'none', 'moderate'] and mining_void_present in [false, null] and subsidence_risk_class in [null, 'none', 'low', 'moderate', 'high']", descriptor: "Possible with geotechnical confirmation: moderate karst, areal subsidence risk, or incomplete subsidence/mining-void evidence; no confirmed hard-stop evidence."}
+      - {score_range: [1, 2], condition_expr: "mining_void_present == true and karst_severity != 'high'", descriptor: "Confirmed mining voids present; E6 hard-stop evidence."}
       - {score_range: [0, 0], condition_expr: "karst_severity == 'high'", descriptor: "E5 confirmed: high karst severity."}
     fail_conditions:
       - {code: E5, action: exclude, condition_expr: "karst_severity == 'high'", descriptor: "High karst severity (proxy for on-site voids until karst_depth_m enrichment lands)."}
@@ -208,10 +207,10 @@ criteria:
       - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 30", descriptor: "Moderate (CEE typical)."}
       - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 36", descriptor: "Elevated; coastal or storm-track exposure."}
       - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 42", descriptor: "High; enhanced wind-load design."}
-      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads."}
+      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads within design envelope, ranking penalty only."}
       - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h)."}
     fail_conditions:
-      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", pass_mark: 5.0, descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
+      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-11
     name: Extreme precipitation (rain, snow, drought)

@@ -1,0 +1,15 @@
+{"ts":"2026-04-28T06:46:36Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-28T06:46:36Z","stage":"scoring","processed":1,"total":362,"eta_s":26.96,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-28T06:46:37Z","stage":"scoring","processed":14,"total":362,"eta_s":26.86,"message":"site=BA-Kakanj Thermal Power Pla","unit":"sites"}
+{"ts":"2026-04-28T06:46:38Z","stage":"scoring","processed":29,"total":362,"eta_s":23.89,"message":"site=BG-Maritsa Iztok-4 power st","unit":"sites"}
+{"ts":"2026-04-28T06:46:39Z","stage":"scoring","processed":45,"total":362,"eta_s":22.01,"message":"site=CZ-Malesice power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:40Z","stage":"scoring","processed":82,"total":362,"eta_s":14.17,"message":"site=ME-Bar power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:41Z","stage":"scoring","processed":119,"total":362,"eta_s":10.79,"message":"site=PL-Lodz-3 power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:42Z","stage":"scoring","processed":132,"total":362,"eta_s":10.95,"message":"site=PL-Poznan Karolin power sta","unit":"sites"}
+{"ts":"2026-04-28T06:46:43Z","stage":"scoring","processed":152,"total":362,"eta_s":10.2,"message":"site=PL-ZW Nowa power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:44Z","stage":"scoring","processed":190,"total":362,"eta_s":7.61,"message":"site=SK-Trebisov power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:45Z","stage":"scoring","processed":230,"total":362,"eta_s":5.4,"message":"site=TR-Cenal power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:46Z","stage":"scoring","processed":270,"total":362,"eta_s":3.55,"message":"site=TR-Kahramanmara\u015f Anadolu po","unit":"sites"}
+{"ts":"2026-04-28T06:46:47Z","stage":"scoring","processed":308,"total":362,"eta_s":2.0,"message":"site=TR-Silopi (\u015e\u0131rnak) power st","unit":"sites"}
+{"ts":"2026-04-28T06:46:48Z","stage":"scoring","processed":344,"total":362,"eta_s":0.65,"message":"site=UA-Kalush power station","unit":"sites"}
+{"ts":"2026-04-28T06:46:49Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

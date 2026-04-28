@@ -116,6 +116,105 @@ class TestSafetyFloorTransparency:
         fails = [v for v in verdicts if v.verdict == "fail"]
         assert fails == []
 
+    def test_nh05_high_areal_subsidence_is_possible_not_exclusionary(self, bundle):
+        nh05 = bundle["NH-05"]
+        ctx = {
+            "karst_severity": "moderate",
+            "mining_void_present": False,
+            "subsidence_risk_class": "high",
+        }
+
+        verdicts, band_result = _eval_floor_for(nh05, ctx)
+
+        assert band_result.score >= 5.0
+        assert band_result.matched_band is not None
+        assert band_result.matched_band.score_range == (5.0, 6.0)
+        fails = [v for v in verdicts if v.verdict == "fail"]
+        assert fails == []
+
+    def test_nh05_missing_mining_void_and_subsidence_data_passes(self, bundle):
+        nh05 = bundle["NH-05"]
+        ctx = {
+            "karst_severity": "none",
+            "mining_void_present": None,
+            "subsidence_risk_class": None,
+        }
+
+        verdicts, band_result = _eval_floor_for(nh05, ctx)
+
+        assert band_result.score >= 5.0
+        assert band_result.matched_band is not None
+        assert band_result.matched_band.score_range == (7.0, 8.0)
+        fails = [v for v in verdicts if v.verdict == "fail"]
+        assert fails == []
+
+    def test_nh05_confirmed_mining_void_is_explicit_hard_fail(self, bundle):
+        nh05 = bundle["NH-05"]
+        ctx = {
+            "karst_severity": "none",
+            "mining_void_present": True,
+            "subsidence_risk_class": None,
+        }
+
+        verdicts, band_result = _eval_floor_for(nh05, ctx)
+
+        assert band_result.score < 5.0
+        assert band_result.matched_band is not None
+        assert band_result.matched_band.score_range == (1.0, 2.0)
+        hard = [v for v in verdicts if v.prompt_key == "E6" and v.verdict == "fail"]
+        assert len(hard) == 1
+
+    @pytest.mark.parametrize(
+        ("criterion_id", "ctx"),
+        [
+            (
+                "EP-01",
+                {
+                    "ep01_composite_score": 35,
+                    "nearest_trauma_center_km": 40,
+                },
+            ),
+            (
+                "NH-10",
+                {"max_wind_speed_ms": 45},
+            ),
+            (
+                "NS-01",
+                {
+                    "cooling_source_type": "groundwater",
+                    "cooling_distance_km": 8,
+                    "dry_cooling_viable": False,
+                    "spi12_min": -3.0,
+                    "strahler_order": None,
+                    "water_stress_score": 4.5,
+                },
+            ),
+            (
+                "NS-08",
+                {
+                    "ecological_natural_pct": 90,
+                    "n2k_nearest_distance_km": 1,
+                    "site_within_strict_protected": False,
+                },
+            ),
+        ],
+    )
+    def test_low_score_hard_expression_only_criteria_do_not_floor_fail(
+        self, bundle, criterion_id, ctx,
+    ):
+        criterion = bundle[criterion_id]
+
+        verdicts, band_result = _eval_floor_for(criterion, ctx)
+
+        assert band_result.score < 5.0
+        floor_fails = [
+            v for v in verdicts
+            if v.verdict == "fail" and str(v.prompt_key).endswith(":floor")
+        ]
+        hard_fails = [v for v in verdicts if v.verdict == "fail"]
+        assert floor_fails == []
+        assert hard_fails == []
+
 
 class TestSafetyFloorGating:
     def test_floor_fail_yields_null_composite(self, bundle):

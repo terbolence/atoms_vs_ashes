@@ -30,10 +30,6 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)` |
 | `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'` | 5.0 | `slope_angle_deg < 8` |
 | `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50 or in_pyroclastic_zone == true` | 5.0 | `nearest_volcano_km >= 300` |
-| `E7` | NS-08 — Ecological sensitivity (Natura 2000 / WDPA) | ns_non_safety.yaml | `site_within_strict_protected == true` | 5.0 | `n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50` |
-| `E8` | EP-01 — Emergency-plan feasibility (composite) | ep_emergency_planning.yaml | `ep01_composite_score < 30 or nearest_trauma_center_km > 60` | 5.0 | `ep01_composite_score >= 55` |
-| `E9` | NS-01 — Cooling water / ultimate heat sink | ns_non_safety.yaml | `cooling_source_type in ['none', null] and dry_cooling_viable == false` | 5.0 | `source_type: strahler_order == 3 or cooling_source_type == 'canal'` |
-| `project_wind_envelope` | NH-10 — Extreme winds | nh_natural_hazards.yaml | `max_wind_speed_ms > 49` | 5.0 | `max_wind_speed_ms < 36` |
 
 ## Details
 
@@ -108,94 +104,3 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | **3-4** | `nearest_volcano_km >= 200` | Sub-threshold; specialist study required. |
 | **1-2** | `nearest_volcano_km >= 50` | Elevated risk; mitigation uncertain. |
 | **0** | `nearest_volcano_km < 50` | E4 triggered. |
-
-### E7 — NS-08 Ecological sensitivity (Natura 2000 / WDPA)
-
-- **Source**: `config/scoring_rubrics/ns_non_safety.yaml`
-- **Phases**: exclusionary, ranking
-- **Hard fail expression**: `site_within_strict_protected == true`
-- **Hard fail descriptor**: Site within strict-category Natura 2000 / WDPA.
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| **9-10** | `n2k_nearest_distance_km > 25 and ecological_natural_pct < 15` | > 25 km AND natural land < 15 %. |
-| **7-8** | `n2k_nearest_distance_km >= 10 or ecological_natural_pct <= 30` | 10-25 km OR natural land 15-30 %. |
-| **5-6** | `n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50` | 5-10 km OR natural land 30-50 %. |
-| **3-4** | `n2k_nearest_distance_km >= 2 or ecological_natural_pct <= 70` | 2-5 km OR natural land 50-70 %. |
-| **1-2** | `n2k_nearest_distance_km < 2 or ecological_natural_pct > 70` | < 2 km OR natural land > 70 %. |
-| **0** | `site_within_strict_protected == true` | E7: site within strict-category protected zone. |
-
-### E8 — EP-01 Emergency-plan feasibility (composite)
-
-- **Source**: `config/scoring_rubrics/ep_emergency_planning.yaml`
-- **Phases**: exclusionary, ranking
-- **Hard fail expression**: `ep01_composite_score < 30 or nearest_trauma_center_km > 60`
-- **Hard fail descriptor**: DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km.
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `ep01_composite_score >= 55`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| **9-10** | `ep01_composite_score >= 85` | >= 85. |
-| **7-8** | `ep01_composite_score >= 70` | 70-84. |
-| **5-6** | `ep01_composite_score >= 55` | 55-69. |
-| **3-4** | `ep01_composite_score >= 40` | 40-54. |
-| **1-2** | `ep01_composite_score >= 30` | < 40 (E8 review required). |
-| **0** | `ep01_composite_score < 30 or nearest_trauma_center_km > 60` | E8 confirmed. |
-
-### E9 — NS-01 Cooling water / ultimate heat sink
-
-- **Source**: `config/scoring_rubrics/ns_non_safety.yaml`
-- **Phases**: exclusionary, ranking
-- **Hard fail expression**: `cooling_source_type in ['none', null] and dry_cooling_viable == false`
-- **Hard fail descriptor**: No viable cooling source AND dry cooling not viable.
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `source_type: strahler_order == 3 or cooling_source_type == 'canal'`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| _sub-score: source_type_ |  |  |
-| **9-10** | `cooling_source_type in ['sea', 'large_lake'] or strahler_order >= 5` | Large river (Strahler >= 5) or sea/large lake. |
-| **7-8** | `strahler_order == 4 or cooling_source_type in ['medium_lake', 'reservoir']` | Medium river / medium lake / reservoir. |
-| **5-6** | `strahler_order == 3 or cooling_source_type == 'canal'` | Small river (Strahler 3) or canal. |
-| **3-4** | `strahler_order <= 2 or cooling_source_type == 'groundwater'` | Very small stream or groundwater only. |
-| **1-2** | `cooling_source_type in ['none', null] and cooling_distance_km > 10` | No identified water source within 10 km. |
-| **0** | `cooling_source_type == 'none' and dry_cooling_viable == false` | E9: no viable source AND dry cooling not viable. |
-| _sub-score: distance_to_source_ |  |  |
-| **9-10** | `cooling_distance_km < 0.5` | < 0.5 km. |
-| **7-8** | `cooling_distance_km < 2` | 0.5-2 km. |
-| **5-6** | `cooling_distance_km < 5` | 2-5 km. |
-| **3-4** | `cooling_distance_km <= 10` | 5-10 km. |
-| **1-2** | `cooling_distance_km > 10` | > 10 km. |
-| _sub-score: water_stress_ |  |  |
-| **9-10** | `water_stress_score < 1.0` | Low (< 1.0). |
-| **7-8** | `water_stress_score < 2.0` | Low-Med (1.0-2.0). |
-| **5-6** | `water_stress_score < 3.0` | Med-High (2.0-3.0). |
-| **3-4** | `water_stress_score < 4.0` | High (3.0-4.0). |
-| **1-2** | `water_stress_score >= 4.0` | Extremely High (>= 4.0). |
-| _sub-score: seasonal_drought_ |  |  |
-| **9-10** | `spi12_min > -1.0` | > -1.0. |
-| **7-8** | `spi12_min > -1.5` | -1.5 to -1.0. |
-| **5-6** | `spi12_min > -2.0` | -2.0 to -1.5. |
-| **3-4** | `spi12_min > -2.5` | -2.5 to -2.0. |
-| **1-2** | `spi12_min <= -2.5` | < -2.5. |
-
-### project_wind_envelope — NH-10 Extreme winds
-
-- **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
-- **Phases**: ranking
-- **Hard fail expression**: `max_wind_speed_ms > 49`
-- **Hard fail descriptor**: Fujita-equivalent gust > 49 m/s (177 km/h).
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `max_wind_speed_ms < 36`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| **9-10** | `max_wind_speed_ms < 25` | Low wind region; standard EN 1991-1-4. |
-| **7-8** | `max_wind_speed_ms < 30` | Moderate (CEE typical). |
-| **5-6** | `max_wind_speed_ms < 36` | Elevated; coastal or storm-track exposure. |
-| **3-4** | `max_wind_speed_ms < 42` | High; enhanced wind-load design. |
-| **1-2** | `max_wind_speed_ms <= 49` | Borderline acceptable; cyclone-class loads. |
-| **0** | `max_wind_speed_ms > 49` | Outside project envelope (> 177 km/h). |

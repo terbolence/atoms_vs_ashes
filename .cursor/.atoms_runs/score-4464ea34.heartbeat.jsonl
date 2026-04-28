@@ -1,0 +1,12 @@
+{"ts":"2026-04-27T22:16:31Z","stage":"scoring","processed":0,"total":362,"eta_s":null,"message":"sites=362 smrs=1","unit":"sites"}
+{"ts":"2026-04-27T22:16:31Z","stage":"scoring","processed":1,"total":362,"eta_s":18.36,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-27T22:16:32Z","stage":"scoring","processed":32,"total":362,"eta_s":10.86,"message":"site=BG-Sliven power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:33Z","stage":"scoring","processed":69,"total":362,"eta_s":8.79,"message":"site=HU-Bakony power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:34Z","stage":"scoring","processed":108,"total":362,"eta_s":7.25,"message":"site=PL-Katowice PKE power stati","unit":"sites"}
+{"ts":"2026-04-27T22:16:35Z","stage":"scoring","processed":147,"total":362,"eta_s":6.01,"message":"site=PL-Wroclaw power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:36Z","stage":"scoring","processed":187,"total":362,"eta_s":4.79,"message":"site=SK-Kosice power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:37Z","stage":"scoring","processed":226,"total":362,"eta_s":3.69,"message":"site=TR-\u00c7atala\u011fz\u0131 power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:38Z","stage":"scoring","processed":268,"total":362,"eta_s":2.5,"message":"site=TR-\u0130zdemir Enerji power sta","unit":"sites"}
+{"ts":"2026-04-27T22:16:39Z","stage":"scoring","processed":306,"total":362,"eta_s":1.49,"message":"site=TR-\u015eevketiye Lapseki power ","unit":"sites"}
+{"ts":"2026-04-27T22:16:40Z","stage":"scoring","processed":348,"total":362,"eta_s":0.37,"message":"site=UA-Ladyzhyn power station","unit":"sites"}
+{"ts":"2026-04-27T22:16:41Z","stage":"scoring","processed":362,"total":362,"eta_s":0.0,"message":"completed","unit":"sites"}

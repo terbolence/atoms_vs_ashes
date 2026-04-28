@@ -19,7 +19,7 @@ criteria:
           - {score_range: [7, 8], condition_expr: "strahler_order == 4 or cooling_source_type in ['medium_lake', 'reservoir']", descriptor: "Medium river / medium lake / reservoir."}
           - {score_range: [5, 6], condition_expr: "strahler_order == 3 or cooling_source_type == 'canal'", descriptor: "Small river (Strahler 3) or canal."}
           - {score_range: [3, 4], condition_expr: "strahler_order <= 2 or cooling_source_type == 'groundwater'", descriptor: "Very small stream or groundwater only."}
-          - {score_range: [1, 2], condition_expr: "cooling_source_type in ['none', null] and cooling_distance_km > 10", descriptor: "No identified water source within 10 km."}
+          - {score_range: [1, 2], condition_expr: "cooling_source_type in ['none', null] and cooling_distance_km > 10", descriptor: "No identified water source within 10 km; ranking penalty unless dry cooling is also not viable."}
           - {score_range: [0, 0], condition_expr: "cooling_source_type == 'none' and dry_cooling_viable == false", descriptor: "E9: no viable source AND dry cooling not viable."}
       - key: distance_to_source
         weight: 0.20
@@ -28,8 +28,8 @@ criteria:
           - {score_range: [9, 10], condition_expr: "cooling_distance_km < 0.5", descriptor: "< 0.5 km."}
           - {score_range: [7, 8], condition_expr: "cooling_distance_km < 2", descriptor: "0.5-2 km."}
           - {score_range: [5, 6], condition_expr: "cooling_distance_km < 5", descriptor: "2-5 km."}
-          - {score_range: [3, 4], condition_expr: "cooling_distance_km <= 10", descriptor: "5-10 km."}
-          - {score_range: [1, 2], condition_expr: "cooling_distance_km > 10", descriptor: "> 10 km."}
+          - {score_range: [3, 4], condition_expr: "cooling_distance_km <= 10", descriptor: "5-10 km; routing/pumping penalty, not exclusionary by itself."}
+          - {score_range: [1, 2], condition_expr: "cooling_distance_km > 10", descriptor: "> 10 km; severe distance penalty, not exclusionary by itself."}
       - key: water_stress
         weight: 0.25
         primary_metric: water_stress_score
@@ -37,8 +37,8 @@ criteria:
           - {score_range: [9, 10], condition_expr: "water_stress_score < 1.0", descriptor: "Low (< 1.0)."}
           - {score_range: [7, 8], condition_expr: "water_stress_score < 2.0", descriptor: "Low-Med (1.0-2.0)."}
           - {score_range: [5, 6], condition_expr: "water_stress_score < 3.0", descriptor: "Med-High (2.0-3.0)."}
-          - {score_range: [3, 4], condition_expr: "water_stress_score < 4.0", descriptor: "High (3.0-4.0)."}
-          - {score_range: [1, 2], condition_expr: "water_stress_score >= 4.0", descriptor: "Extremely High (>= 4.0)."}
+          - {score_range: [3, 4], condition_expr: "water_stress_score < 4.0", descriptor: "High (3.0-4.0); ranking penalty, not exclusionary by itself."}
+          - {score_range: [1, 2], condition_expr: "water_stress_score >= 4.0", descriptor: "Extremely High (>= 4.0); severe ranking penalty, not exclusionary by itself."}
       - key: seasonal_drought
         weight: 0.20
         primary_metric: spi12_min
@@ -47,9 +47,9 @@ criteria:
           - {score_range: [7, 8], condition_expr: "spi12_min > -1.5", descriptor: "-1.5 to -1.0."}
           - {score_range: [5, 6], condition_expr: "spi12_min > -2.0", descriptor: "-2.0 to -1.5."}
           - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
-          - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5."}
+          - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5; severe drought penalty, not exclusionary by itself."}
     fail_conditions:
-      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", pass_mark: 5.0, descriptor: "No viable cooling source AND dry cooling not viable."}
+      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", descriptor: "No viable cooling source AND dry cooling not viable."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-02
     name: Grid connection (detailed)
@@ -190,11 +190,11 @@ criteria:
       - {score_range: [9, 10], condition_expr: "n2k_nearest_distance_km > 25 and ecological_natural_pct < 15", descriptor: "> 25 km AND natural land < 15 %."}
       - {score_range: [7, 8], condition_expr: "n2k_nearest_distance_km >= 10 or ecological_natural_pct <= 30", descriptor: "10-25 km OR natural land 15-30 %."}
       - {score_range: [5, 6], condition_expr: "n2k_nearest_distance_km >= 5 or ecological_natural_pct <= 50", descriptor: "5-10 km OR natural land 30-50 %."}
-      - {score_range: [3, 4], condition_expr: "n2k_nearest_distance_km >= 2 or ecological_natural_pct <= 70", descriptor: "2-5 km OR natural land 50-70 %."}
-      - {score_range: [1, 2], condition_expr: "n2k_nearest_distance_km < 2 or ecological_natural_pct > 70", descriptor: "< 2 km OR natural land > 70 %."}
+      - {score_range: [3, 4], condition_expr: "n2k_nearest_distance_km >= 2 or ecological_natural_pct <= 70", descriptor: "2-5 km OR natural land 50-70 %; ecological review penalty, not exclusionary by itself."}
+      - {score_range: [1, 2], condition_expr: "n2k_nearest_distance_km < 2 or ecological_natural_pct > 70", descriptor: "< 2 km OR natural land > 70 %; severe ecology penalty, not exclusionary unless inside a strict protected area."}
       - {score_range: [0, 0], condition_expr: "site_within_strict_protected == true", descriptor: "E7: site within strict-category protected zone."}
     fail_conditions:
-      - {code: E7, action: exclude, condition_expr: "site_within_strict_protected == true", pass_mark: 5.0, descriptor: "Site within strict-category Natura 2000 / WDPA."}
+      - {code: E7, action: exclude, condition_expr: "site_within_strict_protected == true", descriptor: "Site within strict-category Natura 2000 / WDPA."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-09
     name: Socioeconomic impact

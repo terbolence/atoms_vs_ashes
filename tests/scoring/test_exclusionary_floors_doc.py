@@ -23,8 +23,12 @@ from scripts.generate_exclusionary_floors import (
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 NO_FLOOR_WAIVERS = {
+    "EP-01/E8",
     "NH-05/E5",
     "NH-05/E6",
+    "NH-10/project_wind_envelope",
+    "NS-01/E9",
+    "NS-08/E7",
 }
 
 
