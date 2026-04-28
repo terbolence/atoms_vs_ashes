@@ -90,6 +90,67 @@ streamlit run src/atoms_vs_ashes/gui/app.py \
 
 ---
 
+## GUI development strategy
+
+Roadmap for evolving the Streamlit application alongside data ingestion, connector batches, and LLM assessments. Treat each track with the **same quality bar** as the scoring engine: automated tests, audit artefacts, explicit operator consent for any live external calls, and documented **run_id** provenance.
+
+### 1. Adding new sites in scope for the database
+
+**Objective.** Expand the canonical site catalogue in PostgreSQL so new coal-plant / conversion candidates appear in run-profile scope, scoring, and **Results** without one-off SQL.
+
+**Product / engineering direction**
+
+- Align GUI workflows (or documented CLI companions) with established ingestion paths (GEM XLSX, supplementary YAML-defined sites, screening) described in **`README.md`** and **`src/architecture/specs/03_backend_services.md`**. Every new site needs stable identifiers, geometry, and merge inputs consumed by **`merge_resolver`**.
+- Make the distinction explicit in the UI: **rows present in the DB** versus **sites included in the active run profile** (`scope.country_codes`, `scope.site_ids`, `site_status_in`, SMR keys) so operators do not confuse catalogue growth with “in current run”.
+- After bulk adds, run screening / merge validation; reconcile counts and file summaries under **`audit/post_processing/`** when appropriate.
+
+**Checks and gold-standard practices**
+
+- Schema changes via **Alembic** only; apply **`./.venv/bin/python -m alembic upgrade head`** in every environment.
+- Idempotent loads, transactional batches, and clear audit trails for bulk inserts.
+- **`pytest`** for modules that touch schemas, merge paths, or GUI data loaders (`tests/gui`, relevant `tests/` packages).
+- Refresh **`report/methodology/`** or connector notes when new attributes affect scoring inputs.
+
+### 2. Orchestrated API sweep across all connectors
+
+**Objective.** Drive the full **data-acquisition / enrichment batch** in a single coordinated plan: health checks, phased connector execution, rate limiting, and summarised outcomes — not ad-hoc per-slug runs — matching the intent of **`src/ava_client/runner.py`** and **`src/ava_client/README.md`**.
+
+**Product / engineering direction**
+
+- Define a **sweep manifest** (ordered connectors, skip sets, concurrency) derived from **`config/default.yml`** and operational guidance in **`prompts/runAPIs.md`** (`atoms-vs-ashes enrich <slug>`, `--run-id`, `--db-profile api`).
+- Surface orchestration from the GUI or a single CLI wrapper with **one run_id**, structured logging, resume-friendly behaviour, and optional **heartbeat / cancel** patterns consistent with **`src/atoms_vs_ashes/gui/_runner.py`** (Scoring Engine).
+- Wire **post-sweep verification**: e.g. **`python -m scripts.scan_api_db_anomalies`** (Phase 1 sanity bounds), enrichment coverage reports, and **`connector_errors`** review — with outputs linked or summarised for operators.
+
+**Checks and gold-standard practices**
+
+- **`prompts/runAPIs.md`** escalation (dry-run → smoke → small batch → larger scopes): obtain **explicit consent** before live batches per **`.cursor/rules/live-api-safety.mdc`**.
+- Respect **raw-response logging** policy where connectors persist payloads (**`.cursor/rules/raw-response-logging.mdc`**).
+- Never bypass rate limits without updating **`config/default.yml`** and documenting the change.
+
+### 3. Orchestrated LLM sweep across servers / tiers
+
+**Objective.** Run the **LLM assessment pipeline** comprehensively — all configured criterion keys and tiers that the orchestrator supports — with deduplication and observability comparable to API enrichment.
+
+**Product / engineering direction**
+
+- Integrate **`LlmOrchestrator`** parameters (`tier`, `site_ids`, `country_codes`, `dry_run`, `force_rerun` per **`src/atoms_vs_ashes/llm/orchestrator.py`**) into a repeatable “full sweep” preset for staging and production.
+- Provide GUI or CLI entry points that mirror scoring ergonomics: start, **heartbeat**/log tail, cancellation, and a clear completion summary (**AssessmentSummary**).
+- Plan **merge / promotion** steps and **post-LLM anomaly sweeps** on the merged database (`atoms_vs_ashes_merged`) following patterns in **`audit/post_processing/`** so Results reflect promoted fields.
+
+**Checks and gold-standard practices**
+
+- Follow **`.cursor/rules/llm-dedup-safety.mdc`** and project dedup strategy (**`src/architecture/plans/smart_run_dedup_strategy.md`**) to avoid duplicate spend and inconsistent verdicts.
+- Regression-test prompt / context changes; keep batch **run_id** traceability and audit markdown.
+
+### 4. Cross-cutting quality bar (all GUI roadmap items)
+
+- **Automated tests:** `python -m pytest tests/gui -v` for Streamlit regressions; extend to **`tests/scoring`** / **`tests/criterion_spec`** when profile loading or DB-backed definitions change.
+- **Migrations and environments:** Same `.env` and **`POSTGRES_DB`** conventions as **`README.md`**; document any new GUI dependency under **`pyproject.toml`** `[gui]` extras.
+- **Documentation:** Update this file’s operational sections when shipping new controls; keep methodology artefacts consistent when published metrics move.
+- **Security:** No secrets in Streamlit session state; credentials only via environment / deployment configuration.
+
+---
+
 ## 0. What you need
 
 - Repository cloned locally.

@@ -12,6 +12,7 @@ from __future__ import annotations
 import altair as alt
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
 from atoms_vs_ashes.gui._country_names import country_name
 from atoms_vs_ashes.gui._results_data_failure import (
@@ -19,6 +20,10 @@ from atoms_vs_ashes.gui._results_data_failure import (
     country_coverage_matrix,
 )
 from atoms_vs_ashes.runtime.scope import RunScope
+
+_COVERAGE_CHART_HEIGHT = 720
+_COUNTRY_SLOT_PX = 92
+_VISIBLE_COUNTRIES = 10
 
 
 _COVERAGE_HELP = (
@@ -129,11 +134,20 @@ def _render_stacked_bar(rows: list[CountryCoverage]) -> None:
         var_name="status",
         value_name="n",
     )
+    chart_width = max(
+        _VISIBLE_COUNTRIES * _COUNTRY_SLOT_PX,
+        len(df) * _COUNTRY_SLOT_PX,
+    )
     chart = (
         alt.Chart(melted)
         .mark_bar()
         .encode(
-            x=alt.X("country:N", sort=alt.SortField("country")),
+            x=alt.X(
+                "country:N",
+                sort=alt.SortField("country"),
+                title=None,
+                axis=alt.Axis(labelAngle=-60, labelLimit=180),
+            ),
             y=alt.Y("n:Q", title="# (site × SMR) pairs"),
             color=alt.Color(
                 "status:N",
@@ -145,9 +159,29 @@ def _render_stacked_bar(rows: list[CountryCoverage]) -> None:
             ),
             tooltip=["country", "country_code", "status", "n"],
         )
-        .properties(height=240)
+        .properties(width=chart_width, height=_COVERAGE_CHART_HEIGHT)
     )
-    st.altair_chart(chart, use_container_width=True)
+    st.caption(
+        "Scroll horizontally to browse the region; about 10 countries "
+        "are visible at a time."
+    )
+    components.html(
+        _scrollable_chart_html(chart),
+        height=_COVERAGE_CHART_HEIGHT + 140,
+        scrolling=False,
+    )
+
+
+def _scrollable_chart_html(chart: alt.Chart) -> str:
+    chart_html = chart.to_html(
+        fullhtml=False,
+        embed_options={"actions": False},
+    )
+    return (
+        "<div style='width:100%;overflow-x:auto;overflow-y:hidden;'>"
+        f"{chart_html}"
+        "</div>"
+    )
 
 
 def _render_dataframe(
