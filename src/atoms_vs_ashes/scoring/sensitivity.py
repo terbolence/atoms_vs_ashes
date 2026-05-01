@@ -94,7 +94,10 @@ def run_oat_importance(
         _composites_for_weights(sites_rows, verdicts_by_pair, weights, criteria)
     )
     n_pairs = len(baseline_ranks) or 1
-    ranking_ids = [cid for cid, c in criteria.items() if c.is_ranking and cid in weights]
+    ranking_ids = [
+        cid for cid, c in criteria.items()
+        if c.participates_in_composite and cid in weights
+    ]
     out: dict[str, OATImportance] = {}
     for cid in ranking_ids:
         perturbed = {k: (0.0 if k == cid else v) for k, v in weights.items()}
@@ -122,11 +125,6 @@ def run_oat_importance(
             progress_cb(1)
     log.info("oat_importance_complete", pairs=n_pairs, criteria=len(out))
     return out
-
-
-# ---------------------------------------------------------------------------
-# Monte Carlo score-band sampling
-# ---------------------------------------------------------------------------
 
 
 @dataclass
@@ -158,6 +156,7 @@ def run_monte_carlo(
     rows: list[RankingScore],
     verdicts: list[ScreeningVerdict],
     weights: dict[str, float],
+    criteria: dict[str, Criterion] | None = None,
     *,
     iterations: int = MC_DEFAULT_ITERATIONS,
     seed: int = 42,
@@ -178,7 +177,14 @@ def run_monte_carlo(
         return _empty("excluded_by_E_code")
 
     rng = random.Random(f"{site_id}:{smr_key}:{seed}")
-    usable = [r for r in rows if r.criterion_id in weights]
+    eligible_ids = (
+        {cid for cid, c in criteria.items() if c.participates_in_composite}
+        if criteria is not None else set(weights)
+    )
+    usable = [
+        r for r in rows
+        if r.criterion_id in weights and r.criterion_id in eligible_ids
+    ]
     if not usable:
         return _empty("no_scored_criteria")
 
@@ -216,6 +222,7 @@ def run_mc_suite(
     verdicts_by_pair: dict[tuple, list[ScreeningVerdict]],
     *,
     weights: dict[str, float],
+    criteria: dict[str, Criterion] | None = None,
     iterations: int = MC_DEFAULT_ITERATIONS,
     seed: int = 42,
     progress_cb: Callable[[int], None] | None = None,
@@ -231,18 +238,13 @@ def run_mc_suite(
     for pair, rows in sites_rows.items():
         results[pair] = run_monte_carlo(
             pair[0], pair[1], rows, verdicts_by_pair.get(pair, []),
-            weights, iterations=iterations, seed=seed,
+            weights, criteria, iterations=iterations, seed=seed,
         )
         if progress_cb is not None:
             progress_cb(1)
     log.info("monte_carlo_complete", pairs=len(sites_rows),
              iterations=iterations, preset=preset_label)
     return results
-
-
-# ---------------------------------------------------------------------------
-# Threshold perturbation helper
-# ---------------------------------------------------------------------------
 
 
 def scale_numeric_context(context: dict[str, object], factor: float) -> dict[str, object]:

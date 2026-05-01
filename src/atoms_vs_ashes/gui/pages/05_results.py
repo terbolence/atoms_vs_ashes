@@ -50,6 +50,7 @@ from atoms_vs_ashes.gui._results_render_stability import (
 )
 from atoms_vs_ashes.gui._state import get_profile
 from atoms_vs_ashes.gui._results_tab_style import inject_results_tab_style
+from atoms_vs_ashes.gui.reports.ui import render_reports_popover
 from atoms_vs_ashes.runtime.scope import RunScope, scope_from_run_profile
 
 
@@ -170,6 +171,16 @@ def render() -> None:
     n_smrs_in_scope = (
         len(scope.smr_keys) if scope.smr_keys is not None else None
     )
+    if profile:
+        render_reports_popover(
+            run_id=run.run_id,
+            run_kind=run.run_kind,
+            baseline_run_id=baseline_run_id,
+            weight_profile=baseline_weight_profile,
+            profile=profile,
+            scope=scope,
+            sensitivity_run_id=view.sensitivity_run_id,
+        )
 
     render_kpi_strip(
         run_id=baseline_run_id, weight_profile=baseline_weight_profile,

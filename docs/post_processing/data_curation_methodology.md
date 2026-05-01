@@ -115,6 +115,12 @@ and the comment shape:
 and `favourable_area_method` directly when they build the comment; the
 backfill is therefore only needed once.
 
+**Merged DB site-area resolution:** after API and LLM promotion, run
+`src/scripts/resolve_site_area_merged.py` to set the merged `sites.site_area_ha`
+from the best available signal: LLM footprint >10 ha, then API footprint >10 ha,
+then `favourable_area_ha` >10 ha. If every signal is below 1 ha, the script
+clears the merged area and records "area could not be identified".
+
 **Output report:**
 `audit/post_processing/02_data_verification/2_5_targeted_checks/20260420_2_5_1_favourable_area_review.md`
 

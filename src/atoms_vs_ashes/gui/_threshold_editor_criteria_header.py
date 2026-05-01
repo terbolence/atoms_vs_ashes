@@ -21,7 +21,7 @@ def criteria_table_header() -> None:
     cols = st.columns([0.9, 4.4, 1.1, 1.4])
     for col, label in zip(
         cols,
-        ("Code", "Name", "Weight score", "Percentage weight"),
+        ("Code", "Name", "Scoring weight", "Scoring share"),
         strict=True,
     ):
         col.caption(f"**{label}**")
@@ -49,8 +49,12 @@ def criterion_summary_row(crit: CriterionPreview) -> None:
         f"<span style='font-size:0.78rem;color:{color}'>{role_label}</span>",
         unsafe_allow_html=True,
     )
-    cols[2].markdown(f"`{crit.weight_factor:g}`")
-    cols[3].markdown(f"`{crit.weight_normalised:.1%}`")
+    if crit.is_exclusionary:
+        cols[2].markdown("`—`")
+        cols[3].markdown("`gate only`")
+    else:
+        cols[2].markdown(f"`{crit.weight_factor:g}`")
+        cols[3].markdown(f"`{crit.weight_normalised:.1%}`")
 
 
 __all__ = ["criteria_table_header", "criterion_summary_row"]

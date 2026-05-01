@@ -7,8 +7,7 @@ Rules (see ``report/sites_evaluation/01_framework.md`` §2.4 and
 - If **any** exclusionary verdict fails for the (site, SMR), the
   composite is **not** computed; the site is recorded with
   ``passed_exclusionary = False`` and ``composite_score = NULL``.
-- Otherwise compute ``S = Σ wᵢ · cᵢ`` on the ranking criteria where a
-  ``ranking_scores`` row exists.
+- Otherwise compute ``S = Σ wᵢ · cᵢ`` on non-exclusionary ranking rows.
 - When the normalised weight of unscored criteria exceeds 5 %, produce
   BOTH ``S_known`` (weights renormalised over scored only) and
   ``S_pessimistic`` (unscored cᵢ = 3). The stored ``composite_score``
@@ -109,9 +108,9 @@ def compute_composite_for_site_smr(
 ) -> CompositeResult:
     """Compute the composite for one (site, SMR) pair.
 
-    ``weights`` must be the normalised decimal weights (Σ=1). Rows for
-    criteria not present in ``weights`` are ignored (e.g. basic
-    filters). If ``ranking_rows`` is empty the result is all-null.
+    ``weights`` must be normalised over non-exclusionary ranking criteria.
+    Rows outside that scoring pool are ignored even if historical data
+    carries a score for them.
     """
     passed_excl = _passed_exclusionary(verdicts)
     passed_avoid = _passed_avoidance(verdicts)
@@ -132,8 +131,11 @@ def compute_composite_for_site_smr(
             notes=["excluded_by_E_code"],
         )
 
-    # Restrict to criteria that are in the ranking weight set.
-    usable_rows = [r for r in ranking_rows if r.criterion_id in weights]
+    eligible_ids = {
+        cid for cid, c in criteria.items()
+        if c.participates_in_composite and cid in weights
+    }
+    usable_rows = [r for r in ranking_rows if r.criterion_id in eligible_ids]
 
     scored_weight = 0.0
     unscored_weight = 0.0
@@ -170,14 +172,13 @@ def compute_composite_for_site_smr(
             )
         )
 
-    # Pick up criteria in the weight set but missing from ranking_rows.
-    missing_ids = set(weights.keys()) - {r.criterion_id for r in usable_rows}
+    missing_ids = eligible_ids - {r.criterion_id for r in usable_rows}
     for cid in missing_ids:
         unscored_weight += weights[cid]
 
     total_weight = scored_weight + unscored_weight
     unscored_fraction = unscored_weight / total_weight if total_weight else 0.0
-    coverage_pct = 100.0 * (len(scored_ids) / max(1, len(weights)))
+    coverage_pct = 100.0 * (len(scored_ids) / max(1, len(eligible_ids)))
 
     notes: list[str] = []
     if unscored_fraction > UNSCORED_FRACTION_HARD:

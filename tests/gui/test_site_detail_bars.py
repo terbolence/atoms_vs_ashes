@@ -10,6 +10,7 @@ from atoms_vs_ashes.gui._results_site_detail_bars import (
     SEMANTIC_AVOIDANCE,
     SEMANTIC_EXCLUSION,
     SEMANTIC_NO_RANK,
+    chart_semantic_legend_label,
     merge_criterion_bar_semantics,
 )
 
@@ -75,6 +76,13 @@ def test_merge_exclusion_over_avoidance_for_bar_colour() -> None:
         all_verdicts=verdicts,
     )
     assert rows[0][3] == SEMANTIC_EXCLUSION
+
+
+def test_chart_semantic_legend_label_includes_full_family_names() -> None:
+    assert chart_semantic_legend_label("nh") == "Natural hazards (NH)"
+    assert chart_semantic_legend_label("NH") == "Natural hazards (NH)"
+    assert chart_semantic_legend_label("ep") == "Emergency planning (EP)"
+    assert chart_semantic_legend_label(SEMANTIC_EXCLUSION) == SEMANTIC_EXCLUSION
 
 
 def test_merge_no_rank_when_no_score_no_screen() -> None:

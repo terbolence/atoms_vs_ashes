@@ -10,8 +10,8 @@ on every rerun, so the **relative share** (``weight_normalised``)
 shown next to every criterion recomputes immediately when one weight
 moves.
 
-Saving is intentionally section-level — every weight participates in
-the normalisation, so a single ``Save weights`` click commits the
+Saving is intentionally section-level — scoring weights share one
+normalisation pool, so a single ``Save weights`` click commits the
 whole draft to the active :class:`RunProfile` row in Postgres via
 :func:`commit_weight_overrides_draft`. ``Discard weight changes``
 rolls the draft back to the values currently persisted in the DB.
@@ -34,8 +34,8 @@ from atoms_vs_ashes.gui._state import (
 
 _WEIGHT_HELP = (
     "Importance weight (1–10). The percentage shown next to each "
-    "criterion is its weight divided by the sum of all criterion "
-    "weights, so editing this value re-balances the rubric's "
+    "criterion is its weight divided by the sum of non-exclusionary "
+    "ranking weights, so editing this value re-balances the rubric's "
     "relative shares immediately. **Reset to spec** drops the override "
     "for this criterion; **Save weights** persists the active profile."
 )
@@ -55,6 +55,16 @@ def criterion_weight_input(crit: CriterionPreview) -> None:
     cid = crit.criterion_id
     overrides = get_weight_overrides_draft()
     has_override = cid in overrides
+    if crit.is_exclusionary:
+        st.caption("Exclusionary gate only — not included in scoring weights.")
+        if has_override and st.button(
+            "Remove unused weight override",
+            key=f"weight_reset_{cid}",
+            help="Drop this override; exclusionary weights no longer affect scoring.",
+        ):
+            reset_weight_override(cid)
+            st.rerun()
+        return
     current = int(overrides.get(cid, crit.weight_factor))
     cols = st.columns([3, 1])
     new_val = cols[0].number_input(

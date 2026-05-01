@@ -83,10 +83,14 @@ def normalise_weights(
             f"Expected one of {sorted(multipliers)}."
         )
     mult = multipliers[profile]
-    raw = {cid: c.weight_factor * mult for cid, c in compiled.items()}
+    raw = {
+        cid: c.weight_factor * mult
+        for cid, c in compiled.items()
+        if c.participates_in_composite
+    }
     total = sum(raw.values())
     if total <= 0:
-        raise ValueError("Compiled bundle has zero total weight factor.")
+        raise ValueError("Compiled bundle has no composite scoring weight.")
     return {cid: w / total for cid, w in raw.items()}
 
 

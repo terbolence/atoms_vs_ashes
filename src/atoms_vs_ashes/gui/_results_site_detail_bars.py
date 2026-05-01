@@ -70,6 +70,24 @@ SEMANTIC_EXCLUSION = "Exclusion"
 SEMANTIC_AVOIDANCE = "Avoidance"
 SEMANTIC_NO_RANK = "No 0–10 score"
 
+# Two-letter prefixes from criterion IDs (e.g. NH-02 → nh) → legend text for charts.
+_FAMILY_LEGEND_LABELS: dict[str, str] = {
+    "bf": "Basic filters (BF)",
+    "nh": "Natural hazards (NH)",
+    "hi": "Human-induced hazards (HI)",
+    "ri": "Radiological impact (RI)",
+    "ep": "Emergency planning (EP)",
+    "ns": "Non-safety & site (NS)",
+}
+
+
+def chart_semantic_legend_label(semantic: str) -> str:
+    """Map rubric family code or screening token to a human-readable legend label."""
+    if semantic in (SEMANTIC_EXCLUSION, SEMANTIC_AVOIDANCE, SEMANTIC_NO_RANK):
+        return semantic
+    key = semantic.strip().lower()
+    return _FAMILY_LEGEND_LABELS.get(key, semantic)
+
 
 def merge_criterion_bar_semantics(
     *,
@@ -111,6 +129,7 @@ __all__ = [
     "SEMANTIC_AVOIDANCE",
     "SEMANTIC_EXCLUSION",
     "SEMANTIC_NO_RANK",
+    "chart_semantic_legend_label",
     "fallback_criterion_ids",
     "load_bundle_criterion_ids_ordered",
     "merge_criterion_bar_semantics",

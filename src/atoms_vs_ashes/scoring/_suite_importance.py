@@ -132,7 +132,10 @@ def run_oat_stage(
         session, weight_profile_base=weight_profile_base
     )
 
-    ranking_ids = [cid for cid, c in bundle.items() if c.is_ranking and cid in weights]
+    ranking_ids = [
+        cid for cid, c in bundle.items()
+        if c.participates_in_composite and cid in weights
+    ]
     with ProgressReporter(
         total=len(ranking_ids),
         description="OAT importance (zero-out per criterion)",

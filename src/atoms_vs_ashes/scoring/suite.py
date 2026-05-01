@@ -171,7 +171,7 @@ def run_sensitivity_suite(
                         )
                 mc = run_mc_suite(
                     rows_by_pair, verdicts_by_pair,
-                    weights=weights, iterations=cfg.iterations,
+                    weights=weights, criteria=bundle, iterations=cfg.iterations,
                     seed=cfg.seed, progress_cb=_mc_advance,
                     preset_label=cfg.preset_label,
                 )

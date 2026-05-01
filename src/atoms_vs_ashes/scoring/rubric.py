@@ -153,6 +153,11 @@ class Criterion(BaseModel):
         return "ranking" in self.phases
 
     @property
+    def participates_in_composite(self) -> bool:
+        """True for criteria whose scores enter the weighted composite."""
+        return self.is_ranking and not self.is_exclusionary
+
+    @property
     def exclusion_pass_marks(self) -> dict[str, float]:
         """E-code -> pass_mark for every ``action: exclude`` condition.
 
@@ -237,8 +242,8 @@ def weight_normalisation(
 ) -> dict[str, float]:
     """Return normalised decimal weights keyed by criterion_id.
 
-    ``profile`` is ``baseline`` (weight_factor as-is), ``w_plus_20``
-    (×1.2), or ``w_minus_20`` (×0.8). Other values raise ``KeyError``.
+    Exclusionary criteria are gate-only; only non-exclusionary ranking
+    criteria participate in the denominator.
     """
     multipliers = {
         "baseline": 1.0,
@@ -251,8 +256,12 @@ def weight_normalisation(
             f"Expected one of {sorted(multipliers)}."
         )
     mult = multipliers[profile]
-    perturbed = {cid: c.weight_factor * mult for cid, c in bundle.items()}
+    perturbed = {
+        cid: c.weight_factor * mult
+        for cid, c in bundle.items()
+        if c.participates_in_composite
+    }
     total = sum(perturbed.values())
     if total <= 0:
-        raise ValueError("Rubric bundle has zero total weight factor — cannot normalise")
+        raise ValueError("Rubric bundle has no composite scoring weight to normalise")
     return {cid: w / total for cid, w in perturbed.items()}

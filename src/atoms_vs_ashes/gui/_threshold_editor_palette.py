@@ -52,10 +52,9 @@ def fc_accent_bar(fc: FailConditionPreview) -> str | None:
 
 
 def criterion_expander_label(crit: CriterionPreview) -> str:
-    core = (
-        f"**{crit.criterion_id}** — {crit.name}  "
-        f"  weight: {crit.weight_factor} ({crit.weight_normalised:.1%})"
-    )
+    core = f"**{crit.criterion_id}** — {crit.name}"
+    if not crit.is_exclusionary:
+        core += f"  weight: {crit.weight_factor} ({crit.weight_normalised:.1%})"
     if crit.is_exclusionary and crit.exclusion_pass_mark is not None:
         core += f"  pass-mark (floor): {crit.exclusion_pass_mark:g}"
     imp = criterion_importance(crit)

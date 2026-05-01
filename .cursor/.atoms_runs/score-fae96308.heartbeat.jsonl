@@ -1,0 +1,14 @@
+{"ts":"2026-04-29T20:05:22Z","stage":"scoring","processed":0,"total":361,"eta_s":null,"message":"sites=361 smrs=1","unit":"sites"}
+{"ts":"2026-04-29T20:05:22Z","stage":"scoring","processed":1,"total":361,"eta_s":28.28,"message":"site=AL-Porto Romano Power Stati","unit":"sites"}
+{"ts":"2026-04-29T20:05:23Z","stage":"scoring","processed":16,"total":361,"eta_s":24.25,"message":"site=BA-Kongora Thermal Power Pl","unit":"sites"}
+{"ts":"2026-04-29T20:05:25Z","stage":"scoring","processed":29,"total":361,"eta_s":25.26,"message":"site=BG-Maritsa Iztok-4 power st","unit":"sites"}
+{"ts":"2026-04-29T20:05:26Z","stage":"scoring","processed":42,"total":361,"eta_s":24.64,"message":"site=CZ-Kladno power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:27Z","stage":"scoring","processed":68,"total":361,"eta_s":18.32,"message":"site=HR-Plomin power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:28Z","stage":"scoring","processed":104,"total":361,"eta_s":13.02,"message":"site=PL-Gorzow power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:29Z","stage":"scoring","processed":141,"total":361,"eta_s":9.8,"message":"site=PL-Skawina power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:30Z","stage":"scoring","processed":180,"total":361,"eta_s":7.35,"message":"site=RS-Morava power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:31Z","stage":"scoring","processed":219,"total":361,"eta_s":5.4,"message":"site=TR-Bursa power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:32Z","stage":"scoring","processed":257,"total":361,"eta_s":3.77,"message":"site=TR-Hakan K\u00f6m\u00fcr power statio","unit":"sites"}
+{"ts":"2026-04-29T20:05:33Z","stage":"scoring","processed":297,"total":361,"eta_s":2.24,"message":"site=TR-Polat power station","unit":"sites"}
+{"ts":"2026-04-29T20:05:34Z","stage":"scoring","processed":334,"total":361,"eta_s":0.92,"message":"site=TR-ZETES power stations","unit":"sites"}
+{"ts":"2026-04-29T20:05:35Z","stage":"scoring","processed":361,"total":361,"eta_s":0.0,"message":"completed","unit":"sites"}

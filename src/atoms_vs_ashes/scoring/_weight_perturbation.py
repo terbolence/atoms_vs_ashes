@@ -75,7 +75,7 @@ def _swing_weights_from_pool(
     """
     flat: list[RankingScore] = []
     for rows in sites_rows.values():
-        flat.extend(rows)
+        flat.extend(r for r in rows if r.criterion_id in weights)
     return swing_normalised_weights(weights, observed_ranges(flat))
 
 

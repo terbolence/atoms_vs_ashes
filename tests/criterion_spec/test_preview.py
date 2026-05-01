@@ -46,6 +46,12 @@ def test_baseline_preview_structure(template_bundle):
     assert bundle.criteria, "expected at least one criterion in the preview"
     weight_sum = sum(c.weight_normalised for c in bundle.criteria)
     assert weight_sum == pytest.approx(1.0, abs=1e-6)
+    scored_sum = sum(
+        c.weight_normalised for c in bundle.criteria if not c.is_exclusionary
+    )
+    assert scored_sum == pytest.approx(1.0, abs=1e-6)
+    nh02 = next(c for c in bundle.criteria if c.criterion_id == "NH-02")
+    assert nh02.weight_normalised == 0.0
     assert bundle.warnings == []
     assert bundle.diff_vs_recommended == []
 

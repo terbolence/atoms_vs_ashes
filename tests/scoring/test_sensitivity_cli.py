@@ -126,7 +126,8 @@ class TestRunMcSuiteForwardsIterations:
         calls: list[int] = []
 
         def _fake_run_monte_carlo(
-            site_id, smr_key, rows, verdicts, weights, *, iterations, seed
+            site_id, smr_key, rows, verdicts, weights, criteria=None,
+            *, iterations, seed
         ):
             calls.append(iterations)
             return SimpleNamespace(

@@ -25,6 +25,7 @@ from atoms_vs_ashes.gui._results_site_detail_bars import (
     SEMANTIC_AVOIDANCE,
     SEMANTIC_EXCLUSION,
     SEMANTIC_NO_RANK,
+    chart_semantic_legend_label,
 )
 from atoms_vs_ashes.gui._results_site_status_palette import (
     EXCLUSION_PASS_AVOIDANCE_FAIL_HEX,
@@ -80,6 +81,7 @@ def render_site_detail(
         _render_criterion_bar(detail)
     if detail.family_contributions:
         st.markdown("##### Per-family contribution")
+        st.caption("Weighted contribution excludes exclusionary gate criteria.")
         _render_family_stack(detail)
 
 
@@ -223,11 +225,15 @@ def _render_criterion_bar(detail: SiteDetail) -> None:
         by=["score_plot", "criterion_id"], ascending=[False, True],
     )
     sort_order = df["criterion_id"].tolist()
-    domain: list[str] = []
-    for s in df["chart_semantic"]:
-        if s not in domain:
-            domain.append(s)
-    colors = [_bar_fill_color(s) for s in domain]
+    df["legend_label"] = df["chart_semantic"].map(chart_semantic_legend_label)
+    domain_labels: list[str] = []
+    first_sem_for_label: dict[str, str] = {}
+    for sem in df["chart_semantic"]:
+        lab = chart_semantic_legend_label(sem)
+        if lab not in first_sem_for_label:
+            first_sem_for_label[lab] = sem
+            domain_labels.append(lab)
+    colors = [_bar_fill_color(first_sem_for_label[lab]) for lab in domain_labels]
     chart = (
         alt.Chart(df).mark_bar().encode(
             x=alt.X(
@@ -237,13 +243,13 @@ def _render_criterion_bar(detail: SiteDetail) -> None:
             ),
             y=alt.Y("criterion_id:N", sort=sort_order, title=None),
             color=alt.Color(
-                "chart_semantic:N",
+                "legend_label:N",
                 legend=alt.Legend(title="Family / screening"),
-                scale=alt.Scale(domain=domain, range=colors),
+                scale=alt.Scale(domain=domain_labels, range=colors),
             ),
             tooltip=[
                 alt.Tooltip("criterion_id:N", title="Criterion"),
-                alt.Tooltip("chart_semantic:N", title="Legend"),
+                alt.Tooltip("legend_label:N", title="Family / screening"),
                 alt.Tooltip("score_tooltip:N", title="0–10 score"),
             ],
         ).properties(height=max(220, 14 * max(1, len(df))))
@@ -261,17 +267,30 @@ def _render_family_stack(detail: SiteDetail) -> None:
         {"family": f.family, "contribution": f.weighted_contribution}
         for f in detail.family_contributions
     ])
+    df["legend_label"] = df["family"].map(chart_semantic_legend_label)
     df["row"] = "Composite"
+    domain_labels: list[str] = []
+    first_fam_for_label: dict[str, str] = {}
+    for fam in df["family"]:
+        lab = chart_semantic_legend_label(fam)
+        if lab not in first_fam_for_label:
+            first_fam_for_label[lab] = fam
+            domain_labels.append(lab)
+    colors = [_bar_fill_color(first_fam_for_label[lab]) for lab in domain_labels]
     chart = (
         alt.Chart(df).mark_bar().encode(
             x=alt.X(
                 "contribution:Q",
                 stack="zero",
-                title="Weighted contribution",
+                title="Weighted contribution (scored criteria only)",
             ),
             y=alt.Y("row:N", title=None),
-            color=alt.Color("family:N", legend=alt.Legend(title="Family")),
-            tooltip=["family", "contribution"],
+            color=alt.Color(
+                "legend_label:N",
+                legend=alt.Legend(title="Family"),
+                scale=alt.Scale(domain=domain_labels, range=colors),
+            ),
+            tooltip=["legend_label", "contribution"],
         ).properties(height=80)
     )
     st.altair_chart(chart, use_container_width=True)
