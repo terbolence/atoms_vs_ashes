@@ -1,39 +1,7 @@
-Acronyms and Abbreviations
+# Master table of contents
 
-1. Introduction
-2. Summary of Site Screening and Site Selection Process 1. Introduction to Site Screening and Site Selection Process 2. Site Screening Process 3. Determination of Candidate Sites 4. Description of Candidate Sites 1. An intro on the history and use of the site - mention all infrastructure and terrain features (rivers, etc) 2. Place a Google Maps picture with contour 5. Evaluation of Candidate Sites 1. We need to score for each criteria 2. A - Safety Related Criteria - Natural hazards 1. Proximity to faults: 1. Sites within 5 km of faults are failed 2. Low: closer to 15 km to one or more faults 3. Medium: 15-40 km 4. High: 40-100km 5. Create a ranking method for these and explain it. 6. Weight factor: 9 2. Seismic Hazards 1. < 0.2 pga is rated higher 2. < 0.3 pga is acceptable 3. > 0.5 pga is unacceptable 4. weight factor: 9 3. Slope instability: 1. Slopes less than: 5% 2. Weight factor: 5 4. Settlement and Liquefaction: 1. Preferred: little or no potential for liquefaction 2. Rock strata beginning between: 0.3-0.6m 3. Weight factor: 7 5. Karst, Sinkholes and subsidence: 1. Any formation deeper than 15 m is eliminated from consideration 2. Weight factor: 7 3. No mining within 1km of the site 6. Extensive oil and gas extraction history 1. Weight factor: 6 2. Any historical oil and gas activity eliminates the site 7. Mining activity: 1. Weight factor: 6 2. No mining activity beneath its boundary is allowed 8. Volcanism: 1. Requirement: Minimum 300 km from any holocene volcano 2. Weight factor: 10 9. Flood Protection: 1. Weight factor: 8 2. Distance to river: min 4 km or 3. Height difference: 30.5 m 10. High straight winds: 1. Weight factor: 3 2. No more than 105-177 km/h on the Fujita scale 11. Precipitation events: 1. Weight factor: 3 12. Forest fires: 1. Weight factor: 3 3. Safety-Related Criteria - Human Induced Hazards 1. Aircraft Hazards 1. Weight factor: 7 2. Proximity to hazardous land uses and contaminated properties 1. Weight factor: 7 3. Proximity to publicly accessible roads, waterways or rail 1. Weight factor: 6 4. Safety-Related Criteria - Radioactive Material and Emergency Planning 1. Air Dispersion 1. Weight factor: 6 2. Access to emergency health care 1. Weight factor: 6 2. The closer the facility the better 3. Low Population Zone 1. Weight factor: 8 4. Exclusion Zone: 1. Weight factor: 5 5. Non-Safety Related Criteria 1. Site Utilities 1. Weight factor: 8 2. Topography 1. Weight factor: 6 3. Transport - Highways: 1. Weight factor: 8 4. Transport - Railroad and Port 1. Weight factor: 5 5. Grid Availability: 1. Weight factor: 8 2. Score higher the higher grid voltage and higher grid power 6. Cooling water: 1. Weight factor: 8 7. Foundation, Earthwork and pipe installation conditions: 1. Weight factor: 5 8. Proximity to Natura 2000 sites 1. Weight factor: 6 6. Land use, socioeconomics and community acceptance 1. Proximity to population centres 1. Weight factor: 10 2. Sites further away from population centres are rated higher 3. 8 km - 25 000 people 4. 16km - 100 000 people 5. 32km - 500 000 people 6. 48km - 1 000 000 people 7. Other considerations for scoring various criteria: “Cadru de scoring:” 8. 1. fail/pass - good, excellent, outstanding 2. Criteriu seismic Screening: La pga 2475 > 0,5 fail 3. falie de slip rate de 2 mm/an sa nu fie mai aproape de 5km 4. Soil type: soft (300 m/s), medium (300-800), hard (800+) se clasifica dupa viteza de propagare a undelor (secundare) 5. nh slope: 5% 6. pga 2475 - > 0,9 - check for validity 7. karst: nimic sub 5 km - mining void: 5-10km 8. bearing capacity numbers are low - check if ok
-   In precipitations I need the annual precipitations from nh_nh-11_comment to get the data.
-   sub 30 km fata de airporturi militare
-   sub 15 km fata de civile 9. populatie: 5 si 25 km zones” 1. Data limitations 1. Results and Conclusions 1. Recommendations for Detailed Site Evaluation 2.
-3. Supplemental information
-   1. Geology, Geotechnical Engineering and Seismic Hazard
-   2. Geotechnical Data
-   3. Data on Site Vicinity Faults
-   4. Seismic Hazard
-   5. Consideration of dispersion of released radioactivity in the environment
-   6. Feasibility of the emergency plan
-   7. Dispersion of radioactivity in the environment - flooding
-   8. Dispersion of radioactivity in the environment - exhaustiveness of criteria
-   9. Human induced hazards - Aircraft Crash, Air Traffic, others
-   10. Proximity to Roads, Railways, Pipelines, Industrial Establishments, etc
-4. Final Remarks
-5. References
+The rolling master ToC for the final report lives in:
 
----
+**[writing plan/tableOfContents.md](./writing%20plan/tableOfContents.md)**
 
-## Methodology artefacts (regulator-facing, ready for the final report)
-
-These artefacts are auto-generated and stay in sync with the rubric; cite them under §2 (Site Screening) or §1 (Data limitations) as needed.
-
-| Artefact | Path | Generator |
-| --- | --- | --- |
-| Sensitivity method + reference run | [`report/methodology/sensitivity_analysis.md`](../methodology/sensitivity_analysis.md) | `scripts.run_phase_1_6_sensitivity` (numbers); manual narrative |
-| Failure-mode analysis (why sites failed scoring) — global pack | [`report/methodology/failure_analysis.md`](../methodology/failure_analysis.md) | `scripts.generate_failure_analysis` |
-| Failure-mode analysis — NuScale VOYGR-6 pack ★ featured | [`report/methodology/failure_analysis_nuscale_voygr6.md`](../methodology/failure_analysis_nuscale_voygr6.md) | `scripts.generate_failure_analysis --smr-nuscale` |
-| Failure-mode analysis — other 7 vendor packs | `report/methodology/failure_analysis_<smr_key>.md` (8 in total) | `scripts.generate_failure_analysis --smr-<vendor>` |
-| Exclusionary thresholds + safety-floor rules | [`report/methodology/exclusionary_floors.md`](../methodology/exclusionary_floors.md) | `scripts.generate_exclusionary_floors` |
-| Swing-weight audit (declared vs observed-range) | [`report/methodology/swing_weight_audit.md`](../methodology/swing_weight_audit.md) | `scripts.generate_swing_weight_audit` |
-| Criterion correlation flag list (|ρ| ≥ 0.7) | [`report/methodology/criterion_correlation.md`](../methodology/criterion_correlation.md) | `scripts._phase_1_6_figures_correlation` |
-| IAEA SSR-1 ↔ project criterion traceability | [`report/methodology/ssr1_traceability.md`](../methodology/ssr1_traceability.md) | `scripts.generate_ssr1_traceability` |
-| Project-wide assumption register | [`report/methodology/assumption_register.md`](../methodology/assumption_register.md) | manual (versioned with the rubric) |
-| Regional + per-country sensitivity reports | [`report/output/sensitivity/<stamp>/`](sensitivity/) | `scripts.run_phase_1_6_extended_analysis` |
+This stub exists so paths such as `report/output/tableOfContents.md` (referenced in project rules and plans) resolve without breaking bookmarks.

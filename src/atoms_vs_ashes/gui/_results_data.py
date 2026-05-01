@@ -18,7 +18,6 @@ from sqlalchemy import case, func, select
 
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.db.models import CompositeRanking, Site
-from atoms_vs_ashes.db.models_analytics import Run
 
 # Re-exported for callers that still import sensitivity helpers from
 # this module; the implementation lives in ``_results_data_sens`` to
@@ -57,29 +56,10 @@ class RunSummary:
         return f"{self.run_kind} • {self.run_id} • {self.status} • {when}"
 
 
-def list_recent_runs(limit: int = 30) -> list[RunSummary]:
-    """Return runs ordered by ``started_at`` DESC.
-
-    Filters to runs that *did* persist a ``runs`` row — cancelled /
-    rolled-back runs do not appear here, which matches the user's
-    expectation that this page only lists results worth analysing.
-    """
-    with session_scope() as session:
-        rows = session.execute(
-            select(
-                Run.run_id, Run.run_kind, Run.status,
-                Run.started_at, Run.completed_at,
-            )
-            .order_by(Run.started_at.desc())
-            .limit(limit)
-        ).all()
-    return [
-        RunSummary(
-            run_id=run_id, run_kind=run_kind, status=status,
-            started_at=started_at, completed_at=completed_at,
-        )
-        for run_id, run_kind, status, started_at, completed_at in rows
-    ]
+from atoms_vs_ashes.gui._results_runs_list import (  # noqa: E402 — after RunSummary
+    list_recent_runs,
+    list_recent_runs_for_kind,
+)
 
 
 @dataclass
@@ -291,6 +271,7 @@ __all__ = [
     "default_weight_profile",
     "is_single_smr",
     "list_recent_runs",
+    "list_recent_runs_for_kind",
     "list_weight_profiles",
     "sensitivity_snapshot",
     "top_sites",

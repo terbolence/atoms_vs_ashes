@@ -169,10 +169,15 @@ def _render_threshold_sweep_db(snap: SensitivitySnapshot) -> None:
 
 def _render_metrics_panels(sens: dict) -> None:
     st.subheader("Metrics-bundle extras")
-    extra_tabs = st.tabs(["MC", "Threshold (targeted)", "OAT", "Weights"])
-    with extra_tabs[0]:
+    section = st.radio(
+        "Bundle section",
+        ["MC", "Threshold (targeted)", "OAT", "Weights"],
+        horizontal=True,
+        key="results_sensitivity_metrics_bundle_section",
+    )
+    if section == "MC":
         _mc_extras(sens.get("mc"))
-    with extra_tabs[1]:
+    elif section == "Threshold (targeted)":
         _threshold_targeted(sens.get("threshold_targeted"))
         global_rows = sens.get("threshold_global_stress")
         if global_rows:
@@ -181,9 +186,9 @@ def _render_metrics_panels(sens: dict) -> None:
                 pd.DataFrame(global_rows), hide_index=True,
                 use_container_width=True,
             )
-    with extra_tabs[2]:
+    elif section == "OAT":
         _oat_extras(sens.get("oat_top5"))
-    with extra_tabs[3]:
+    else:
         _weights_extras(sens.get("weights"))
 
 

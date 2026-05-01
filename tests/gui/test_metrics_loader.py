@@ -12,6 +12,7 @@ from atoms_vs_ashes.gui._metrics_loader import (
     discover_metrics_files,
     load_metrics_file,
     pick_metrics_file,
+    pick_metrics_file_for_run,
 )
 
 
@@ -72,3 +73,19 @@ def test_pick_metrics_file_returns_newest(tmp_path: Path) -> None:
     time.sleep(0.01)
     _write_metrics(b)
     assert pick_metrics_file(tmp_path) == b
+
+
+def test_pick_metrics_file_for_run_prefers_matching_payload(tmp_path: Path) -> None:
+    older = tmp_path / "20260101_metrics.json"
+    newer = tmp_path / "20260202_metrics.json"
+    _write_metrics(older, run_id="run-old")
+    time.sleep(0.01)
+    _write_metrics(newer, run_id="run-new")
+    assert pick_metrics_file_for_run(tmp_path, "run-old") == older
+    assert pick_metrics_file_for_run(tmp_path, "run-new") == newer
+
+
+def test_pick_metrics_file_for_run_returns_none_when_no_match(tmp_path: Path) -> None:
+    p = tmp_path / "x_metrics.json"
+    _write_metrics(p, run_id="solo")
+    assert pick_metrics_file_for_run(tmp_path, "other") is None

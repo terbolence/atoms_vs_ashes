@@ -37,7 +37,7 @@ logs/llm/
 logs/seismic/
 logs/entso_e/
 
-# Large downloaded / cached geodata (see docs/large_assets.md)
+# Large downloaded / cached geodata (see docs/large_local_assets.md and docs/large_assets.md)
 sources/wdpa/**/*.zip
 sources/wdpa/**/*.shp
 sources/wdpa/**/*.dbf
@@ -77,8 +77,8 @@ alembic/__pycache__/
 ~$*.xlsx
 
 # -----------------------------------------------------------------------------
-# Large local artefacts (>1 MB typical) — never commit
-# See also docs/large_assets.md for rationale on geodata mirrors.
+# Large local artefacts (>1 MB typical) — never commit.
+# Stewardship: docs/large_local_assets.md — generated manifest: docs/large_assets.md
 # -----------------------------------------------------------------------------
 
 # Spreadsheet exports (multi‑MB database dumps; keep README/scripts tracked)
@@ -150,3 +150,9 @@ export/**/*.xlsx
 
 # Local scoring run logs (reproducible via CLI)
 logs/scoring_runs/
+
+# macOS / Google Drive folder icon stub files (Icon + CR)
+Icon?
+
+# Cursor local agent run telemetry (not project source)
+.cursor/.atoms_runs/

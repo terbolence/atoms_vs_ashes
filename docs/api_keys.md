@@ -32,7 +32,7 @@ WFS/WMS, CORINE CLC (EEA), OSM Overpass, Natura 2000 WFS (EEA), GFMS flood.
 | ---------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `reports/coverage_latest.md` | `python scripts/report_enrichment_coverage.py --write-report` | Read-only Postgres; uses `POSTGRES_*` from `.env` (`--db-profile api` or `llm`). Add `--print-report` to echo markdown to stdout.                                                |
 | `reports/effort_latest.md`   | `python scripts/report_effort_metrics.py --write-report`      | No database; sums `# man_hours:` tags. Add `--scan-logs` for REST/LLM log aggregates, `--loc` for tracked-Python `wc -l`, `--with-cloc` for `cloc`, `--print-report` for stdout. |
-| `docs/large_assets.md`       | `python scripts/list_large_files.py --write-doc`              | Files ≥ 2 MiB under the repo (data/cache)                                                                                                                                        |
+| `docs/large_assets.md`       | `python src/scripts/list_large_files.py --write-doc`          | Files ≥ 2 MiB on disk; see `docs/large_local_assets.md`; optional verify via `docs/large_assets_required.txt`                                                                                                        |
 
 ---
 

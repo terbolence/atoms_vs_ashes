@@ -1,0 +1,6 @@
+# Human-maintained checklist of local assets that must exist for full report writing
+# or reproducibility on this branch. Paths are repo-relative (forward slashes).
+# Lines starting with # are ignored. Verify: python src/scripts/list_large_files.py --verify
+
+# Cited in report/output/writing plan/01_introduction.md (coal-to-nuclear context).
+sources/regulations/dos/Coal-to-Nuclear Transitions An Information Guide.pdf

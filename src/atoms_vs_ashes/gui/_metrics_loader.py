@@ -93,6 +93,25 @@ def pick_metrics_file(audit_dir: str | Path) -> Path | None:
     return files[0] if files else None
 
 
+def pick_metrics_file_for_run(
+    audit_dir: str | Path,
+    run_id: str,
+    *,
+    max_candidates: int = 30,
+) -> Path | None:
+    """Return newest ``*_metrics.json`` whose payload ``run_id`` matches.
+
+    Scans ``discover_metrics_files`` (newest first), parses each candidate
+    until a match is found or ``max_candidates`` is exhausted.
+    """
+    files = discover_metrics_files(audit_dir)
+    for path in files[:max_candidates]:
+        loaded = load_metrics_file(path)
+        if str(loaded.data.get("run_id", "")) == str(run_id):
+            return path
+    return None
+
+
 def metrics_picker_widget(audit_dir: str | Path, *, key: str) -> Path | None:
     """Streamlit-friendly file picker for metrics JSONs.
 
@@ -124,4 +143,5 @@ __all__ = [
     "load_metrics_file",
     "metrics_picker_widget",
     "pick_metrics_file",
+    "pick_metrics_file_for_run",
 ]
