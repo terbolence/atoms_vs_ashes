@@ -1,0 +1,599 @@
+2026-05-02 09:59:28.479 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.49:8501
+
+  For better performance, install the Watchdog module:
+
+  $ xcode-select --install
+  $ pip install watchdog
+            
+[31m──[0m[31m────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────[0m[31m──[0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:143 in __init__                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 140 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 141 [0m[2m│   │   [0m[94mif[0m connection [95mis[0m [94mNone[0m:                                        [31m [0m
+[31m [0m   [2m 142 [0m[2m│   │   │   [0m[94mtry[0m:                                                      [31m [0m
+[31m [0m [31m❱ [0m 143 [2m│   │   │   │   [0m[96mself[0m._dbapi_connection = engine.raw_connection()      [31m [0m
+[31m [0m   [2m 144 [0m[2m│   │   │   [0m[94mexcept[0m dialect.loaded_dbapi.Error [94mas[0m err:                 [31m [0m
+[31m [0m   [2m 145 [0m[2m│   │   │   │   [0m[1;4mConnection._handle_dbapi_exception_noconnection([0m      [31m [0m
+[31m [0m   [2m 146 [0m[2m│   │   │   │   │   [0m[1;4merr, dialect, engine[0m                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:3317 in raw_connection                                    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m3314 [0m[2;33m│   │   │   [0m[33m:ref:`dbapi_connections`[0m                                  [31m [0m
+[31m [0m   [2m3315 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m3316 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m [31m❱ [0m3317 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m.pool.connect()[0m                                    [31m [0m
+[31m [0m   [2m3318 [0m                                                                      [31m [0m
+[31m [0m   [2m3319 [0m                                                                      [31m [0m
+[31m [0m   [2m3320 [0m[94mclass[0m[90m [0m[4;92mOptionEngineMixin[0m(log.Identified):                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:448 in connect                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 445 [0m[2;33m│   │   [0m[33mthe pool.[0m                                                     [31m [0m
+[31m [0m   [2m 446 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 447 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m [31m❱ [0m 448 [2m│   │   [0m[94mreturn[0m [1;4m_ConnectionFairy._checkout([0m[1;4;96mself[0m[1;4m)[0m                       [31m [0m
+[31m [0m   [2m 449 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 450 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_return_conn[0m([96mself[0m, record: ConnectionPoolEntry) -> [94mNone[0m:      [31m [0m
+[31m [0m   [2m 451 [0m[2;90m│   │   [0m[33m"""Given a _ConnectionRecord, return it to the :class:`_pool.[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:1272 in _checkout                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m1269 [0m[2m│   │   [0mfairy: Optional[_ConnectionFairy] = [94mNone[0m,                     [31m [0m
+[31m [0m   [2m1270 [0m[2m│   [0m) -> _ConnectionFairy:                                            [31m [0m
+[31m [0m   [2m1271 [0m[2m│   │   [0m[94mif[0m [95mnot[0m fairy:                                                 [31m [0m
+[31m [0m [31m❱ [0m1272 [2m│   │   │   [0mfairy = [1;4m_ConnectionRecord.checkout(pool)[0m                  [31m [0m
+[31m [0m   [2m1273 [0m[2m│   │   │   [0m                                                          [31m [0m
+[31m [0m   [2m1274 [0m[2m│   │   │   [0m[94mif[0m threadconns [95mis[0m [95mnot[0m [94mNone[0m:                               [31m [0m
+[31m [0m   [2m1275 [0m[2m│   │   │   │   [0mthreadconns.current = weakref.ref(fairy)              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:712 in checkout                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 709 [0m[2m│   │   [0m[94mif[0m TYPE_CHECKING:                                             [31m [0m
+[31m [0m   [2m 710 [0m[2m│   │   │   [0mrec = cast(_ConnectionRecord, pool._do_get())             [31m [0m
+[31m [0m   [2m 711 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m [31m❱ [0m 712 [2m│   │   │   [0mrec = [1;4mpool._do_get()[0m                                      [31m [0m
+[31m [0m   [2m 713 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 714 [0m[2m│   │   [0m[94mtry[0m:                                                          [31m [0m
+[31m [0m   [2m 715 [0m[2m│   │   │   [0mdbapi_connection = rec.get_connection()                   [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mimpl.py[0m:177 in _do_get                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m174 [0m[2m│   │   │   [0m[94mtry[0m:                                                       [31m [0m
+[31m [0m   [2m175 [0m[2m│   │   │   │   [0m[94mreturn[0m [96mself[0m._create_connection()                       [31m [0m
+[31m [0m   [2m176 [0m[2m│   │   │   [0m[94mexcept[0m:                                                    [31m [0m
+[31m [0m [31m❱ [0m177 [2m│   │   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                              [31m [0m
+[31m [0m   [2m178 [0m[2m│   │   │   │   │   [0m[96mself[0m._dec_overflow()                               [31m [0m
+[31m [0m   [2m179 [0m[2m│   │   │   │   [0m[94mraise[0m                                                  [31m [0m
+[31m [0m   [2m180 [0m[2m│   │   [0m[94melse[0m:                                                          [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/util/[0m[1mlanghelpers.py[0m:121 in __exit__                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 118 [0m[2m│   │   │   [0mexc_type, exc_value, exc_tb = [96mself[0m._exc_info              [31m [0m
+[31m [0m   [2m 119 [0m[2m│   │   │   [0m[94massert[0m exc_value [95mis[0m [95mnot[0m [94mNone[0m                              [31m [0m
+[31m [0m   [2m 120 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m [31m❱ [0m 121 [2m│   │   │   [0m[1;4;94mraise[0m[1;4m exc_value.with_traceback(exc_tb)[0m                    [31m [0m
+[31m [0m   [2m 122 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 123 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m   [2m 124 [0m[2m│   │   │   [0m[94massert[0m value [95mis[0m [95mnot[0m [94mNone[0m                                  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mimpl.py[0m:175 in _do_get                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m172 [0m[2m│   │   [0m                                                               [31m [0m
+[31m [0m   [2m173 [0m[2m│   │   [0m[94mif[0m [96mself[0m._inc_overflow():                                       [31m [0m
+[31m [0m   [2m174 [0m[2m│   │   │   [0m[94mtry[0m:                                                       [31m [0m
+[31m [0m [31m❱ [0m175 [2m│   │   │   │   [0m[94mreturn[0m [96mself[0m._create_connection()                       [31m [0m
+[31m [0m   [2m176 [0m[2m│   │   │   [0m[94mexcept[0m:                                                    [31m [0m
+[31m [0m   [2m177 [0m[2m│   │   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                              [31m [0m
+[31m [0m   [2m178 [0m[2m│   │   │   │   │   [0m[96mself[0m._dec_overflow()                               [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:389 in _create_connection                                   [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 386 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_create_connection[0m([96mself[0m) -> ConnectionPoolEntry:              [31m [0m
+[31m [0m   [2m 387 [0m[2;90m│   │   [0m[33m"""Called by subclasses to create a new ConnectionRecord."""[0m  [31m [0m
+[31m [0m   [2m 388 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m [31m❱ [0m 389 [2m│   │   [0m[94mreturn[0m [1;4m_ConnectionRecord([0m[1;4;96mself[0m[1;4m)[0m                                [31m [0m
+[31m [0m   [2m 390 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 391 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_invalidate[0m(                                                  [31m [0m
+[31m [0m   [2m 392 [0m[2m│   │   [0m[96mself[0m,                                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:674 in __init__                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 671 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 672 [0m[2m│   │   [0m[96mself[0m.__pool = pool                                            [31m [0m
+[31m [0m   [2m 673 [0m[2m│   │   [0m[94mif[0m connect:                                                   [31m [0m
+[31m [0m [31m❱ [0m 674 [2m│   │   │   [0m[1;4;96mself[0m[1;4m.__connect()[0m                                          [31m [0m
+[31m [0m   [2m 675 [0m[2m│   │   [0m[96mself[0m.finalize_callback = deque()                              [31m [0m
+[31m [0m   [2m 676 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 677 [0m[2m│   [0mdbapi_connection: Optional[DBAPIConnection]                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:900 in __connect                                            [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 897 [0m[2m│   │   │   [0mpool.logger.debug([33m"[0m[33mCreated new connection [0m[33m%r[0m[33m"[0m, connection [31m [0m
+[31m [0m   [2m 898 [0m[2m│   │   │   [0m[96mself[0m.fresh = [94mTrue[0m                                         [31m [0m
+[31m [0m   [2m 899 [0m[2m│   │   [0m[94mexcept[0m [96mBaseException[0m [94mas[0m e:                                    [31m [0m
+[31m [0m [31m❱ [0m 900 [2m│   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                                 [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   │   │   [0mpool.logger.debug([33m"[0m[33mError on connect(): [0m[33m%s[0m[33m"[0m, e)        [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 903 [0m[2m│   │   │   [0m[2m# in SQLAlchemy 1.4 the first_connect event is not used b[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/util/[0m[1mlanghelpers.py[0m:121 in __exit__                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 118 [0m[2m│   │   │   [0mexc_type, exc_value, exc_tb = [96mself[0m._exc_info              [31m [0m
+[31m [0m   [2m 119 [0m[2m│   │   │   [0m[94massert[0m exc_value [95mis[0m [95mnot[0m [94mNone[0m                              [31m [0m
+[31m [0m   [2m 120 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m [31m❱ [0m 121 [2m│   │   │   [0m[1;4;94mraise[0m[1;4m exc_value.with_traceback(exc_tb)[0m                    [31m [0m
+[31m [0m   [2m 122 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 123 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m   [2m 124 [0m[2m│   │   │   [0m[94massert[0m value [95mis[0m [95mnot[0m [94mNone[0m                                  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:896 in __connect                                            [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 893 [0m[2m│   │   [0m[96mself[0m.dbapi_connection = [94mNone[0m                                  [31m [0m
+[31m [0m   [2m 894 [0m[2m│   │   [0m[94mtry[0m:                                                          [31m [0m
+[31m [0m   [2m 895 [0m[2m│   │   │   [0m[96mself[0m.starttime = time.time()                              [31m [0m
+[31m [0m [31m❱ [0m 896 [2m│   │   │   [0m[96mself[0m.dbapi_connection = connection = pool._invoke_creator [31m [0m
+[31m [0m   [2m 897 [0m[2m│   │   │   [0mpool.logger.debug([33m"[0m[33mCreated new connection [0m[33m%r[0m[33m"[0m, connection [31m [0m
+[31m [0m   [2m 898 [0m[2m│   │   │   [0m[96mself[0m.fresh = [94mTrue[0m                                         [31m [0m
+[31m [0m   [2m 899 [0m[2m│   │   [0m[94mexcept[0m [96mBaseException[0m [94mas[0m e:                                    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mcreate.py[0m:667 in connect                                          [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m664 [0m[2m│   │   │   │   │   │   [0m[94mreturn[0m connection                              [31m [0m
+[31m [0m   [2m665 [0m[2m│   │   │   │   [0m[94mreturn[0m dialect.connect(*mutable_cargs, **mutable_cpara [31m [0m
+[31m [0m   [2m666 [0m[2m│   │   │   [0m[94melse[0m:                                                      [31m [0m
+[31m [0m [31m❱ [0m667 [2m│   │   │   │   [0m[94mreturn[0m [1;4mdialect.connect(*cargs_tup, **cparams)[0m          [31m [0m
+[31m [0m   [2m668 [0m[2m│   │   [0m                                                               [31m [0m
+[31m [0m   [2m669 [0m[2m│   │   [0mcreator = pop_kwarg([33m"[0m[33mcreator[0m[33m"[0m, connect)                        [31m [0m
+[31m [0m   [2m670 [0m                                                                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mdefault.py[0m:630 in connect                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 627 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 628 [0m[2m│   [0m[94mdef[0m[90m [0m[92mconnect[0m([96mself[0m, *cargs: Any, **cparams: Any) -> DBAPIConnection [31m [0m
+[31m [0m   [2m 629 [0m[2m│   │   [0m[2m# inherits the docstring from interfaces.Dialect.connect[0m      [31m [0m
+[31m [0m [31m❱ [0m 630 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m.loaded_dbapi.connect(*cargs, **cparams)[0m  [2m# type: [0m [31m [0m
+[31m [0m   [2m 631 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 632 [0m[2m│   [0m[94mdef[0m[90m [0m[92mcreate_connect_args[0m([96mself[0m, url: URL) -> ConnectArgsType:       [31m [0m
+[31m [0m   [2m 633 [0m[2m│   │   [0m[2m# inherits the docstring from interfaces.Dialect.create_conne[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/psycopg[0m [31m [0m
+[31m [0m [2m2/[0m[1m__init__.py[0m:122 in connect                                                 [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m119 [0m[2m│   │   [0mkwasync[[33m'[0m[33masync_[0m[33m'[0m] = kwargs.pop([33m'[0m[33masync_[0m[33m'[0m)                       [31m [0m
+[31m [0m   [2m120 [0m[2m│   [0m                                                                   [31m [0m
+[31m [0m   [2m121 [0m[2m│   [0mdsn = _ext.make_dsn(dsn, **kwargs)                                 [31m [0m
+[31m [0m [31m❱ [0m122 [2m│   [0mconn = [1;4m_connect(dsn, connection_factory=connection_factory, **kwas[0m [31m [0m
+[31m [0m   [2m123 [0m[2m│   [0m[94mif[0m cursor_factory [95mis[0m [95mnot[0m [94mNone[0m:                                     [31m [0m
+[31m [0m   [2m124 [0m[2m│   │   [0mconn.cursor_factory = cursor_factory                           [31m [0m
+[31m [0m   [2m125 [0m                                                                       [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mOperationalError: [0mconnection to server at [32m"localhost"[0m [1m([0m::[1;36m1[0m[1m)[0m, port [1;36m5432[0m failed: 
+FATAL:  Postgres.app failed to verify [32m"trust"[0m authentication
+DETAIL:  The helper application terminated with signal [1;36m6[0m. For more information 
+see [4;94mhttps://postgresapp.com/l/app-permissions/[0m
+HINT:  You may be able to connect by editing app permission in Postgres.app 
+settings. Please report this error to 
+[4;94mhttps://github.com/PostgresApp/PostgresApp/issues[0m
+
+
+[3mThe above exception was the direct cause of the following exception:[0m
+
+[31m──[0m[31m────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────[0m[31m──[0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/streaml[0m [31m [0m
+[31m [0m [2mit/runtime/scriptrunner/[0m[1mexec_code.py[0m:129 in exec_func_with_error_handling    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/streaml[0m [31m [0m
+[31m [0m [2mit/runtime/scriptrunner/[0m[1mscript_runner.py[0m:687 in code_to_exec                 [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/streaml[0m [31m [0m
+[31m [0m [2mit/runtime/scriptrunner/[0m[1mscript_runner.py[0m:166 in _mpa_v1                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/streaml[0m [31m [0m
+[31m [0m [2mit/navigation/[0m[1mpage.py[0m:490 in run                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1mapp.py[0m:167  [31m [0m
+[31m [0m in <module>                                                                  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m164 [0m                                                                       [31m [0m
+[31m [0m   [2m165 [0m                                                                       [31m [0m
+[31m [0m   [2m166 [0m[94mif[0m [91m__name__[0m == [33m"[0m[33m__main__[0m[33m"[0m:                                             [31m [0m
+[31m [0m [31m❱ [0m167 [2m│   [0m[1;4mmain()[0m                                                             [31m [0m
+[31m [0m   [2m168 [0m                                                                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1mapp.py[0m:163  [31m [0m
+[31m [0m in main                                                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m160 [0m[2m│   [0m                                                                   [31m [0m
+[31m [0m   [2m161 [0m[2m│   [0m_sidebar_screen_nav(specs)                                         [31m [0m
+[31m [0m   [2m162 [0m[2m│   [0m                                                                   [31m [0m
+[31m [0m [31m❱ [0m163 [2m│   [0m[1;4mpg.run()[0m                                                           [31m [0m
+[31m [0m   [2m164 [0m                                                                       [31m [0m
+[31m [0m   [2m165 [0m                                                                       [31m [0m
+[31m [0m   [2m166 [0m[94mif[0m [91m__name__[0m == [33m"[0m[33m__main__[0m[33m"[0m:                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/streaml[0m [31m [0m
+[31m [0m [2mit/navigation/[0m[1mpage.py[0m:494 in run                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1m_overview.p[0m [31m [0m
+[31m [0m [1my[0m:209 in render                                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m206 [0m[2m│   │   [0m[33m"[0m[33m**Scoring Engine**. Everything below writes to the active run[0m [31m [0m
+[31m [0m   [2m207 [0m[2m│   [0m)                                                                  [31m [0m
+[31m [0m   [2m208 [0m[2m│   [0m                                                                   [31m [0m
+[31m [0m [31m❱ [0m209 [2m│   [0mprofile = [1;4mget_profile()[0m                                            [31m [0m
+[31m [0m   [2m210 [0m[2m│   [0m[94mif[0m profile [95mis[0m [94mNone[0m:                                                [31m [0m
+[31m [0m   [2m211 [0m[2m│   │   [0mst.error(                                                      [31m [0m
+[31m [0m   [2m212 [0m[2m│   │   │   [0m[33m"[0m[33mActive run profile is missing from the database. [0m[33m"[0m        [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1m_state.py[0m:8 [31m [0m
+[31m [0m 6 in get_profile                                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 83 [0m                                                                       [31m [0m
+[31m [0m   [2m 84 [0m[94mdef[0m[90m [0m[92mget_profile[0m() -> RunProfile | [94mNone[0m:                                [31m [0m
+[31m [0m   [2m 85 [0m[2;90m│   [0m[33m"""Return the active :class:`RunProfile`. Always non-None in norma[0m [31m [0m
+[31m [0m [31m❱ [0m 86 [2m│   [0m[1;4m_ensure_keys()[0m                                                     [31m [0m
+[31m [0m   [2m 87 [0m[2m│   [0m[94mreturn[0m st.session_state.get([33m"[0m[33mprofile[0m[33m"[0m)                             [31m [0m
+[31m [0m   [2m 88 [0m                                                                       [31m [0m
+[31m [0m   [2m 89 [0m                                                                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1m_state.py[0m:6 [31m [0m
+[31m [0m 9 in _ensure_keys                                                            [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 66 [0m                                                                       [31m [0m
+[31m [0m   [2m 67 [0m[94mdef[0m[90m [0m[92m_ensure_keys[0m() -> [94mNone[0m:                                            [31m [0m
+[31m [0m   [2m 68 [0m[2m│   [0m[94mif[0m [33m"[0m[33mprofile[0m[33m"[0m [95mnot[0m [95min[0m st.session_state [95mor[0m st.session_state.get([33m"[0m[33mprof[0m [31m [0m
+[31m [0m [31m❱ [0m 69 [2m│   │   [0m[1;4m_bootstrap_profile()[0m                                           [31m [0m
+[31m [0m   [2m 70 [0m[2m│   [0mst.session_state.setdefault([33m"[0m[33mfail_thresholds[0m[33m"[0m, {})                 [31m [0m
+[31m [0m   [2m 71 [0m[2m│   [0mst.session_state.setdefault([33m"[0m[33mexpert_override[0m[33m"[0m, [94mFalse[0m)              [31m [0m
+[31m [0m   [2m 72 [0m[2m│   [0mst.session_state.setdefault([33m"[0m[33mscoring_overrides[0m[33m"[0m, {})               [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/gui/[0m[1m_state.py[0m:6 [31m [0m
+[31m [0m 2 in _bootstrap_profile                                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 59 [0m[2;33m│   [0m[33mthe module) never triggers a connection.[0m                           [31m [0m
+[31m [0m   [2m 60 [0m[2;33m│   [0m[33m"""[0m                                                                [31m [0m
+[31m [0m   [2m 61 [0m[2m│   [0m[94mwith[0m session_scope() [94mas[0m session:                                   [31m [0m
+[31m [0m [31m❱ [0m 62 [2m│   │   [0mprofile = [1;4mload_active_profile(session)[0m                         [31m [0m
+[31m [0m   [2m 63 [0m[2m│   [0mprofile = _merge_db_fail_thresholds(profile)                       [31m [0m
+[31m [0m   [2m 64 [0m[2m│   [0m_hydrate_session(profile)                                          [31m [0m
+[31m [0m   [2m 65 [0m                                                                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/projects/atoms_vs_ashes/src/atoms_vs_ashes/db/[0m[1mactive_profi[0m [31m [0m
+[31m [0m [1mle.py[0m:26 in load_active_profile                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m23 [0m[2;33m│   [0m[33mseeds it on every fresh DB so callers should never see this in[0m      [31m [0m
+[31m [0m   [2m24 [0m[2;33m│   [0m[33mpractice; treat it as a corrupted-install signal.[0m                   [31m [0m
+[31m [0m   [2m25 [0m[2;33m│   [0m[33m"""[0m                                                                 [31m [0m
+[31m [0m [31m❱ [0m26 [2m│   [0mrow = [1;4msession.get(ActiveRunProfile, ACTIVE_PROFILE_ID)[0m              [31m [0m
+[31m [0m   [2m27 [0m[2m│   [0m[94mif[0m row [95mis[0m [94mNone[0m:                                                     [31m [0m
+[31m [0m   [2m28 [0m[2m│   │   [0m[94mraise[0m [96mRuntimeError[0m(                                             [31m [0m
+[31m [0m   [2m29 [0m[2m│   │   │   [0m[33m"[0m[33mactive_run_profile row is missing — run `alembic upgrade h[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:3680 in get                                               [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m3677 [0m[2;33m│   │   [0m[33m:return: The object instance, or ``None``.[0m                    [31m [0m
+[31m [0m   [2m3678 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m3679 [0m[2;33m│   │   [0m[33m"""[0m  [2m# noqa: E501[0m                                             [31m [0m
+[31m [0m [31m❱ [0m3680 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m._get_impl([0m                                        [31m [0m
+[31m [0m   [2m3681 [0m[2m│   │   │   [0m[1;4mentity,[0m                                                   [31m [0m
+[31m [0m   [2m3682 [0m[2m│   │   │   [0m[1;4mident,[0m                                                    [31m [0m
+[31m [0m   [2m3683 [0m[2m│   │   │   [0m[1;4mloading.load_on_pk_identity,[0m                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:3859 in _get_impl                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m3856 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m3857 [0m[2m│   │   [0m[94mif[0m options:                                                   [31m [0m
+[31m [0m   [2m3858 [0m[2m│   │   │   [0mstatement = statement.options(*options)                   [31m [0m
+[31m [0m [31m❱ [0m3859 [2m│   │   [0m[94mreturn[0m [1;4mdb_load_fn([0m                                            [31m [0m
+[31m [0m   [2m3860 [0m[2m│   │   │   [0m[1;4;96mself[0m[1;4m,[0m                                                     [31m [0m
+[31m [0m   [2m3861 [0m[2m│   │   │   [0m[1;4mstatement,[0m                                                [31m [0m
+[31m [0m   [2m3862 [0m[2m│   │   │   [0m[1;4mprimary_key_identity,[0m                                     [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1mloading.py[0m:695 in load_on_pk_identity                                [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 692 [0m[2m│   │   [0mexecution_options, {[33m"[0m[33m_sa_orm_load_options[0m[33m"[0m: load_options}     [31m [0m
+[31m [0m   [2m 693 [0m[2m│   [0m)                                                                 [31m [0m
+[31m [0m   [2m 694 [0m[2m│   [0mresult = (                                                        [31m [0m
+[31m [0m [31m❱ [0m 695 [2m│   │   [0m[1;4msession.execute([0m                                              [31m [0m
+[31m [0m   [2m 696 [0m[2m│   │   │   [0m[1;4mq,[0m                                                        [31m [0m
+[31m [0m   [2m 697 [0m[2m│   │   │   [0m[1;4mparams=params,[0m                                            [31m [0m
+[31m [0m   [2m 698 [0m[2m│   │   │   [0m[1;4mexecution_options=execution_options,[0m                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:2351 in execute                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m2348 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m2349 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m2350 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m [31m❱ [0m2351 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m._execute_internal([0m                                [31m [0m
+[31m [0m   [2m2352 [0m[2m│   │   │   [0m[1;4mstatement,[0m                                                [31m [0m
+[31m [0m   [2m2353 [0m[2m│   │   │   [0m[1;4mparams,[0m                                                   [31m [0m
+[31m [0m   [2m2354 [0m[2m│   │   │   [0m[1;4mexecution_options=execution_options,[0m                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:2239 in _execute_internal                                 [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m2236 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m2237 [0m[2m│   │   [0mbind = [96mself[0m.get_bind(**bind_arguments)                        [31m [0m
+[31m [0m   [2m2238 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m [31m❱ [0m2239 [2m│   │   [0mconn = [1;4;96mself[0m[1;4m._connection_for_bind(bind)[0m                        [31m [0m
+[31m [0m   [2m2240 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m2241 [0m[2m│   │   [0m[94mif[0m _scalar_result [95mand[0m [95mnot[0m compile_state_cls:                  [31m [0m
+[31m [0m   [2m2242 [0m[2m│   │   │   [0m[94mif[0m TYPE_CHECKING:                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:2108 in _connection_for_bind                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m2105 [0m[2m│   │   [0mtrans = [96mself[0m._transaction                                     [31m [0m
+[31m [0m   [2m2106 [0m[2m│   │   [0m[94mif[0m trans [95mis[0m [94mNone[0m:                                             [31m [0m
+[31m [0m   [2m2107 [0m[2m│   │   │   [0mtrans = [96mself[0m._autobegin_t()                               [31m [0m
+[31m [0m [31m❱ [0m2108 [2m│   │   [0m[94mreturn[0m [1;4mtrans._connection_for_bind(engine, execution_options)[0m  [31m [0m
+[31m [0m   [2m2109 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m2110 [0m[2m│   [0m[1;95m@overload[0m                                                         [31m [0m
+[31m [0m   [2m2111 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_execute_internal[0m(                                            [31m [0m
+[31m [0m in _connection_for_bind:2                                                    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1mstate_changes.py[0m:137 in _go                                          [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m134 [0m[2m│   │   │   [0m[96mself[0m._current_fn = fn                                      [31m [0m
+[31m [0m   [2m135 [0m[2m│   │   │   [0m[96mself[0m._next_state = _StateChangeStates.CHANGE_IN_PROGRESS   [31m [0m
+[31m [0m   [2m136 [0m[2m│   │   │   [0m[94mtry[0m:                                                       [31m [0m
+[31m [0m [31m❱ [0m137 [2m│   │   │   │   [0mret_value = fn([96mself[0m, *arg, **kw)                       [31m [0m
+[31m [0m   [2m138 [0m[2m│   │   │   [0m[94mexcept[0m:                                                    [31m [0m
+[31m [0m   [2m139 [0m[2m│   │   │   │   [0m[94mraise[0m                                                  [31m [0m
+[31m [0m   [2m140 [0m[2m│   │   │   [0m[94melse[0m:                                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/orm/[0m[1msession.py[0m:1187 in _connection_for_bind                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m1184 [0m[2m│   │   │   │   │   │   │   [0m[33m"[0m[33mfor the given Connection[0m[33m'[0m[33ms Engine[0m[33m"[0m       [31m [0m
+[31m [0m   [2m1185 [0m[2m│   │   │   │   │   │   [0m)                                             [31m [0m
+[31m [0m   [2m1186 [0m[2m│   │   │   │   [0m[94melse[0m:                                                 [31m [0m
+[31m [0m [31m❱ [0m1187 [2m│   │   │   │   │   [0mconn = bind.connect()                             [31m [0m
+[31m [0m   [2m1188 [0m[2m│   │   │   │   │   [0mlocal_connect = [94mTrue[0m                              [31m [0m
+[31m [0m   [2m1189 [0m[2m│   │   │   [0m                                                          [31m [0m
+[31m [0m   [2m1190 [0m[2m│   │   │   [0m[94mtry[0m:                                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:3293 in connect                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m3290 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m3291 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m   [2m3292 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m [31m❱ [0m3293 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m._connection_cls([0m[1;4;96mself[0m[1;4m)[0m                             [31m [0m
+[31m [0m   [2m3294 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m3295 [0m[2m│   [0m[94mdef[0m[90m [0m[92mraw_connection[0m([96mself[0m) -> PoolProxiedConnection:                [31m [0m
+[31m [0m   [2m3296 [0m[2;90m│   │   [0m[33m"""Return a "raw" DBAPI connection from the connection pool.[0m  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:145 in __init__                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 142 [0m[2m│   │   │   [0m[94mtry[0m:                                                      [31m [0m
+[31m [0m   [2m 143 [0m[2m│   │   │   │   [0m[96mself[0m._dbapi_connection = engine.raw_connection()      [31m [0m
+[31m [0m   [2m 144 [0m[2m│   │   │   [0m[94mexcept[0m dialect.loaded_dbapi.Error [94mas[0m err:                 [31m [0m
+[31m [0m [31m❱ [0m 145 [2m│   │   │   │   [0m[1;4mConnection._handle_dbapi_exception_noconnection([0m      [31m [0m
+[31m [0m   [2m 146 [0m[2m│   │   │   │   │   [0m[1;4merr, dialect, engine[0m                              [31m [0m
+[31m [0m   [2m 147 [0m[2m│   │   │   │   [0m[1;4m)[0m                                                     [31m [0m
+[31m [0m   [2m 148 [0m[2m│   │   │   │   [0m[94mraise[0m                                                 [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:2448 in _handle_dbapi_exception_noconnection              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m2445 [0m[2m│   │   │   [0m[94mraise[0m newraise.with_traceback(exc_info[[94m2[0m]) [94mfrom[0m[90m [0m[4;96me[0m         [31m [0m
+[31m [0m   [2m2446 [0m[2m│   │   [0m[94melif[0m should_wrap:                                             [31m [0m
+[31m [0m   [2m2447 [0m[2m│   │   │   [0m[94massert[0m sqlalchemy_exception [95mis[0m [95mnot[0m [94mNone[0m                   [31m [0m
+[31m [0m [31m❱ [0m2448 [2m│   │   │   [0m[1;4;94mraise[0m[1;4m sqlalchemy_exception.with_traceback(exc_info[[0m[1;4;94m2[0m[1;4m]) [0m[1;4;94mfr[0m [31m [0m
+[31m [0m   [2m2449 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m2450 [0m[2m│   │   │   [0m[94massert[0m exc_info[[94m1[0m] [95mis[0m [95mnot[0m [94mNone[0m                            [31m [0m
+[31m [0m   [2m2451 [0m[2m│   │   │   [0m[94mraise[0m exc_info[[94m1[0m].with_traceback(exc_info[[94m2[0m])             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:143 in __init__                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 140 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 141 [0m[2m│   │   [0m[94mif[0m connection [95mis[0m [94mNone[0m:                                        [31m [0m
+[31m [0m   [2m 142 [0m[2m│   │   │   [0m[94mtry[0m:                                                      [31m [0m
+[31m [0m [31m❱ [0m 143 [2m│   │   │   │   [0m[96mself[0m._dbapi_connection = engine.raw_connection()      [31m [0m
+[31m [0m   [2m 144 [0m[2m│   │   │   [0m[94mexcept[0m dialect.loaded_dbapi.Error [94mas[0m err:                 [31m [0m
+[31m [0m   [2m 145 [0m[2m│   │   │   │   [0m[1;4mConnection._handle_dbapi_exception_noconnection([0m      [31m [0m
+[31m [0m   [2m 146 [0m[2m│   │   │   │   │   [0m[1;4merr, dialect, engine[0m                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mbase.py[0m:3317 in raw_connection                                    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m3314 [0m[2;33m│   │   │   [0m[33m:ref:`dbapi_connections`[0m                                  [31m [0m
+[31m [0m   [2m3315 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m3316 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m [31m❱ [0m3317 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m.pool.connect()[0m                                    [31m [0m
+[31m [0m   [2m3318 [0m                                                                      [31m [0m
+[31m [0m   [2m3319 [0m                                                                      [31m [0m
+[31m [0m   [2m3320 [0m[94mclass[0m[90m [0m[4;92mOptionEngineMixin[0m(log.Identified):                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:448 in connect                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 445 [0m[2;33m│   │   [0m[33mthe pool.[0m                                                     [31m [0m
+[31m [0m   [2m 446 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 447 [0m[2;33m│   │   [0m[33m"""[0m                                                           [31m [0m
+[31m [0m [31m❱ [0m 448 [2m│   │   [0m[94mreturn[0m [1;4m_ConnectionFairy._checkout([0m[1;4;96mself[0m[1;4m)[0m                       [31m [0m
+[31m [0m   [2m 449 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 450 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_return_conn[0m([96mself[0m, record: ConnectionPoolEntry) -> [94mNone[0m:      [31m [0m
+[31m [0m   [2m 451 [0m[2;90m│   │   [0m[33m"""Given a _ConnectionRecord, return it to the :class:`_pool.[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:1272 in _checkout                                           [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m1269 [0m[2m│   │   [0mfairy: Optional[_ConnectionFairy] = [94mNone[0m,                     [31m [0m
+[31m [0m   [2m1270 [0m[2m│   [0m) -> _ConnectionFairy:                                            [31m [0m
+[31m [0m   [2m1271 [0m[2m│   │   [0m[94mif[0m [95mnot[0m fairy:                                                 [31m [0m
+[31m [0m [31m❱ [0m1272 [2m│   │   │   [0mfairy = [1;4m_ConnectionRecord.checkout(pool)[0m                  [31m [0m
+[31m [0m   [2m1273 [0m[2m│   │   │   [0m                                                          [31m [0m
+[31m [0m   [2m1274 [0m[2m│   │   │   [0m[94mif[0m threadconns [95mis[0m [95mnot[0m [94mNone[0m:                               [31m [0m
+[31m [0m   [2m1275 [0m[2m│   │   │   │   [0mthreadconns.current = weakref.ref(fairy)              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:712 in checkout                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 709 [0m[2m│   │   [0m[94mif[0m TYPE_CHECKING:                                             [31m [0m
+[31m [0m   [2m 710 [0m[2m│   │   │   [0mrec = cast(_ConnectionRecord, pool._do_get())             [31m [0m
+[31m [0m   [2m 711 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m [31m❱ [0m 712 [2m│   │   │   [0mrec = [1;4mpool._do_get()[0m                                      [31m [0m
+[31m [0m   [2m 713 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 714 [0m[2m│   │   [0m[94mtry[0m:                                                          [31m [0m
+[31m [0m   [2m 715 [0m[2m│   │   │   [0mdbapi_connection = rec.get_connection()                   [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mimpl.py[0m:177 in _do_get                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m174 [0m[2m│   │   │   [0m[94mtry[0m:                                                       [31m [0m
+[31m [0m   [2m175 [0m[2m│   │   │   │   [0m[94mreturn[0m [96mself[0m._create_connection()                       [31m [0m
+[31m [0m   [2m176 [0m[2m│   │   │   [0m[94mexcept[0m:                                                    [31m [0m
+[31m [0m [31m❱ [0m177 [2m│   │   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                              [31m [0m
+[31m [0m   [2m178 [0m[2m│   │   │   │   │   [0m[96mself[0m._dec_overflow()                               [31m [0m
+[31m [0m   [2m179 [0m[2m│   │   │   │   [0m[94mraise[0m                                                  [31m [0m
+[31m [0m   [2m180 [0m[2m│   │   [0m[94melse[0m:                                                          [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/util/[0m[1mlanghelpers.py[0m:121 in __exit__                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 118 [0m[2m│   │   │   [0mexc_type, exc_value, exc_tb = [96mself[0m._exc_info              [31m [0m
+[31m [0m   [2m 119 [0m[2m│   │   │   [0m[94massert[0m exc_value [95mis[0m [95mnot[0m [94mNone[0m                              [31m [0m
+[31m [0m   [2m 120 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m [31m❱ [0m 121 [2m│   │   │   [0m[1;4;94mraise[0m[1;4m exc_value.with_traceback(exc_tb)[0m                    [31m [0m
+[31m [0m   [2m 122 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 123 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m   [2m 124 [0m[2m│   │   │   [0m[94massert[0m value [95mis[0m [95mnot[0m [94mNone[0m                                  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mimpl.py[0m:175 in _do_get                                              [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m172 [0m[2m│   │   [0m                                                               [31m [0m
+[31m [0m   [2m173 [0m[2m│   │   [0m[94mif[0m [96mself[0m._inc_overflow():                                       [31m [0m
+[31m [0m   [2m174 [0m[2m│   │   │   [0m[94mtry[0m:                                                       [31m [0m
+[31m [0m [31m❱ [0m175 [2m│   │   │   │   [0m[94mreturn[0m [96mself[0m._create_connection()                       [31m [0m
+[31m [0m   [2m176 [0m[2m│   │   │   [0m[94mexcept[0m:                                                    [31m [0m
+[31m [0m   [2m177 [0m[2m│   │   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                              [31m [0m
+[31m [0m   [2m178 [0m[2m│   │   │   │   │   [0m[96mself[0m._dec_overflow()                               [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:389 in _create_connection                                   [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 386 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_create_connection[0m([96mself[0m) -> ConnectionPoolEntry:              [31m [0m
+[31m [0m   [2m 387 [0m[2;90m│   │   [0m[33m"""Called by subclasses to create a new ConnectionRecord."""[0m  [31m [0m
+[31m [0m   [2m 388 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m [31m❱ [0m 389 [2m│   │   [0m[94mreturn[0m [1;4m_ConnectionRecord([0m[1;4;96mself[0m[1;4m)[0m                                [31m [0m
+[31m [0m   [2m 390 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 391 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_invalidate[0m(                                                  [31m [0m
+[31m [0m   [2m 392 [0m[2m│   │   [0m[96mself[0m,                                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:674 in __init__                                             [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 671 [0m[2m│   │   [0m                                                              [31m [0m
+[31m [0m   [2m 672 [0m[2m│   │   [0m[96mself[0m.__pool = pool                                            [31m [0m
+[31m [0m   [2m 673 [0m[2m│   │   [0m[94mif[0m connect:                                                   [31m [0m
+[31m [0m [31m❱ [0m 674 [2m│   │   │   [0m[1;4;96mself[0m[1;4m.__connect()[0m                                          [31m [0m
+[31m [0m   [2m 675 [0m[2m│   │   [0m[96mself[0m.finalize_callback = deque()                              [31m [0m
+[31m [0m   [2m 676 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 677 [0m[2m│   [0mdbapi_connection: Optional[DBAPIConnection]                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:900 in __connect                                            [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 897 [0m[2m│   │   │   [0mpool.logger.debug([33m"[0m[33mCreated new connection [0m[33m%r[0m[33m"[0m, connection [31m [0m
+[31m [0m   [2m 898 [0m[2m│   │   │   [0m[96mself[0m.fresh = [94mTrue[0m                                         [31m [0m
+[31m [0m   [2m 899 [0m[2m│   │   [0m[94mexcept[0m [96mBaseException[0m [94mas[0m e:                                    [31m [0m
+[31m [0m [31m❱ [0m 900 [2m│   │   │   [0m[94mwith[0m [1;4mutil.safe_reraise()[0m:                                 [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   │   │   [0mpool.logger.debug([33m"[0m[33mError on connect(): [0m[33m%s[0m[33m"[0m, e)        [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 903 [0m[2m│   │   │   [0m[2m# in SQLAlchemy 1.4 the first_connect event is not used b[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/util/[0m[1mlanghelpers.py[0m:121 in __exit__                                      [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 118 [0m[2m│   │   │   [0mexc_type, exc_value, exc_tb = [96mself[0m._exc_info              [31m [0m
+[31m [0m   [2m 119 [0m[2m│   │   │   [0m[94massert[0m exc_value [95mis[0m [95mnot[0m [94mNone[0m                              [31m [0m
+[31m [0m   [2m 120 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m [31m❱ [0m 121 [2m│   │   │   [0m[1;4;94mraise[0m[1;4m exc_value.with_traceback(exc_tb)[0m                    [31m [0m
+[31m [0m   [2m 122 [0m[2m│   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m 123 [0m[2m│   │   │   [0m[96mself[0m._exc_info = [94mNone[0m  [2m# remove potential circular refere[0m [31m [0m
+[31m [0m   [2m 124 [0m[2m│   │   │   [0m[94massert[0m value [95mis[0m [95mnot[0m [94mNone[0m                                  [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/pool/[0m[1mbase.py[0m:896 in __connect                                            [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 893 [0m[2m│   │   [0m[96mself[0m.dbapi_connection = [94mNone[0m                                  [31m [0m
+[31m [0m   [2m 894 [0m[2m│   │   [0m[94mtry[0m:                                                          [31m [0m
+[31m [0m   [2m 895 [0m[2m│   │   │   [0m[96mself[0m.starttime = time.time()                              [31m [0m
+[31m [0m [31m❱ [0m 896 [2m│   │   │   [0m[96mself[0m.dbapi_connection = connection = pool._invoke_creator [31m [0m
+[31m [0m   [2m 897 [0m[2m│   │   │   [0mpool.logger.debug([33m"[0m[33mCreated new connection [0m[33m%r[0m[33m"[0m, connection [31m [0m
+[31m [0m   [2m 898 [0m[2m│   │   │   [0m[96mself[0m.fresh = [94mTrue[0m                                         [31m [0m
+[31m [0m   [2m 899 [0m[2m│   │   [0m[94mexcept[0m [96mBaseException[0m [94mas[0m e:                                    [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mcreate.py[0m:667 in connect                                          [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m664 [0m[2m│   │   │   │   │   │   [0m[94mreturn[0m connection                              [31m [0m
+[31m [0m   [2m665 [0m[2m│   │   │   │   [0m[94mreturn[0m dialect.connect(*mutable_cargs, **mutable_cpara [31m [0m
+[31m [0m   [2m666 [0m[2m│   │   │   [0m[94melse[0m:                                                      [31m [0m
+[31m [0m [31m❱ [0m667 [2m│   │   │   │   [0m[94mreturn[0m [1;4mdialect.connect(*cargs_tup, **cparams)[0m          [31m [0m
+[31m [0m   [2m668 [0m[2m│   │   [0m                                                               [31m [0m
+[31m [0m   [2m669 [0m[2m│   │   [0mcreator = pop_kwarg([33m"[0m[33mcreator[0m[33m"[0m, connect)                        [31m [0m
+[31m [0m   [2m670 [0m                                                                       [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/sqlalch[0m [31m [0m
+[31m [0m [2memy/engine/[0m[1mdefault.py[0m:630 in connect                                         [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m 627 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 628 [0m[2m│   [0m[94mdef[0m[90m [0m[92mconnect[0m([96mself[0m, *cargs: Any, **cparams: Any) -> DBAPIConnection [31m [0m
+[31m [0m   [2m 629 [0m[2m│   │   [0m[2m# inherits the docstring from interfaces.Dialect.connect[0m      [31m [0m
+[31m [0m [31m❱ [0m 630 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m.loaded_dbapi.connect(*cargs, **cparams)[0m  [2m# type: [0m [31m [0m
+[31m [0m   [2m 631 [0m[2m│   [0m                                                                  [31m [0m
+[31m [0m   [2m 632 [0m[2m│   [0m[94mdef[0m[90m [0m[92mcreate_connect_args[0m([96mself[0m, url: URL) -> ConnectArgsType:       [31m [0m
+[31m [0m   [2m 633 [0m[2m│   │   [0m[2m# inherits the docstring from interfaces.Dialect.create_conne[0m [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m [2m/Users/terbolence/.venvs/atoms_vs_ashes/lib/python3.14/site-packages/psycopg[0m [31m [0m
+[31m [0m [2m2/[0m[1m__init__.py[0m:122 in connect                                                 [31m [0m
+[31m [0m                                                                              [31m [0m
+[31m [0m   [2m119 [0m[2m│   │   [0mkwasync[[33m'[0m[33masync_[0m[33m'[0m] = kwargs.pop([33m'[0m[33masync_[0m[33m'[0m)                       [31m [0m
+[31m [0m   [2m120 [0m[2m│   [0m                                                                   [31m [0m
+[31m [0m   [2m121 [0m[2m│   [0mdsn = _ext.make_dsn(dsn, **kwargs)                                 [31m [0m
+[31m [0m [31m❱ [0m122 [2m│   [0mconn = [1;4m_connect(dsn, connection_factory=connection_factory, **kwas[0m [31m [0m
+[31m [0m   [2m123 [0m[2m│   [0m[94mif[0m cursor_factory [95mis[0m [95mnot[0m [94mNone[0m:                                     [31m [0m
+[31m [0m   [2m124 [0m[2m│   │   [0mconn.cursor_factory = cursor_factory                           [31m [0m
+[31m [0m   [2m125 [0m                                                                       [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mOperationalError: [0m[1m([0mpsycopg2.OperationalError[1m)[0m connection to server at 
+[32m"localhost"[0m [1m([0m::[1;36m1[0m[1m)[0m, port [1;36m5432[0m failed: FATAL:  Postgres.app failed to verify 
+[32m"trust"[0m authentication
+DETAIL:  The helper application terminated with signal [1;36m6[0m. For more information 
+see [4;94mhttps://postgresapp.com/l/app-permissions/[0m
+HINT:  You may be able to connect by editing app permission in Postgres.app 
+settings. Please report this error to 
+[4;94mhttps://github.com/PostgresApp/PostgresApp/issues[0m
+
+[1m([0mBackground on this error at: [4;94mhttps://sqlalche.me/e/20/e3q8[0m[4;94m)[0m
