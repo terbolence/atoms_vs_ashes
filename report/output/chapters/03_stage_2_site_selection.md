@@ -4,7 +4,11 @@ This chapter explains the evaluation, comparison, ranking, and shortlist logic f
 
 ## 3.1 Objectives of the Site Selection Stage
 
-Define Stage 2 as comparative evaluation and ranking of candidates, not final site characterization.
+The objective of Stage 2 is to compare the candidate sites identified in Stage 1 and determine which of them most clearly justify further investigation. In IAEA SSG-35 terms, this is the site selection stage: evaluation, comparison and ranking of candidates to identify preferred sites or shortlists [1]. It is still a screening-grade exercise, not a final site evaluation.
+
+Stage 2 converts the evidence base into structured decisions. It applies safety-related criteria, human-induced hazard criteria, radiological-impact and emergency-planning indicators, and non-safety implementation criteria in a common framework. Exclusionary gates and safety floors identify sites that should not proceed through composite ranking, while the scoring and sensitivity analysis compare the remaining candidates on a consistent basis [2], [4].
+
+The output is a prioritized and explained shortlist. A high ranking means that a site performs well under the report's screening methodology and remains credible under uncertainty testing. It does not mean that the site is licensed, available, buildable, locally accepted, or suitable without further work. Where Stage 2 supports a site, it supports a decision to progress toward Stage 3 characterization.
 
 ## 3.2 Evaluation Framework and Criterion Families
 
@@ -44,6 +48,13 @@ State the exact decision support produced by Stage 2 and the field confirmation 
 
 ## Drafting Notes
 
-- Primary links: `report/methodology/exclusionary_floors.md`, `report/methodology/swing_weight_audit.md`, `report/methodology/sensitivity_analysis.md`, and the frozen scoring/sensitivity artefacts named in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
+- Primary links: `report/methodology/exclusionary_floors.md`, `report/methodology/swing_weight_audit.md`, `report/methodology/sensitivity_analysis.md`, and `report/methodology/ssr1_traceability.md`.
 - Keep criterion order aligned with the rubric: NH, HI, RI, EP, NS, land use, socioeconomic.
 - Human review should check language around "preferred site" so it means shortlist priority, not licensing suitability.
+
+## Working References for Chapter 3
+
+1. IAEA, _Site Survey and Site Selection for Nuclear Installations_, Safety Standards Series No. SSG-35, Vienna (2015).
+2. IAEA, _Site Evaluation for Nuclear Installations_, Safety Standards Series No. SSR-1 (Rev. 1), Vienna (2019).
+3. EPRI, _Advanced Nuclear Technology: Site Selection and Evaluation Criteria for New Nuclear Energy Generation Facilities (Siting Guide) - 2022 Revision_, Report No. 3002023910, Palo Alto (2022).
+4. Project methodology artefacts: `report/requirements/04_siting_methodology.md`, `report/methodology/ssr1_traceability.md`, `report/methodology/exclusionary_floors.md`, `report/methodology/sensitivity_analysis.md`, `report/methodology/swing_weight_audit.md`, and `report/methodology/assumption_register.md`.
