@@ -66,6 +66,7 @@ sources/regulations/**/*.pdf
 
 # Database snapshots (pg_dump custom-format archives)
 backups/
+data/atoms_vs_ashes_merged.dump
 
 # Alembic
 alembic/__pycache__/
