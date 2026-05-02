@@ -3,10 +3,14 @@
 
 from __future__ import annotations
 
+import os
+import sys
 from contextlib import contextmanager
+from pathlib import Path
 from typing import Generator
 
 from sqlalchemy import create_engine, text
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import Session, sessionmaker
 
 from atoms_vs_ashes.config import Settings
@@ -14,11 +18,73 @@ from atoms_vs_ashes.config import Settings
 _engine = None
 _SessionFactory: sessionmaker[Session] | None = None
 
+# #region agent log
+_AGENT_DEBUG_LOG = Path(__file__).resolve().parents[3] / ".cursor" / "debug-3fece0.log"
+
+
+def _agent_debug_log(hypothesis_id: str, location: str, message: str, data: dict) -> None:
+    import json
+    import time
+
+    line = {
+        "sessionId": "3fece0",
+        "timestamp": int(time.time() * 1000),
+        "hypothesisId": hypothesis_id,
+        "location": location,
+        "message": message,
+        "data": data,
+    }
+    try:
+        _AGENT_DEBUG_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(_AGENT_DEBUG_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(line, default=str) + "\n")
+    except OSError:
+        pass
+
+
+# #endregion
+
 
 def init_engine(settings: Settings | None = None) -> None:
     global _engine, _SessionFactory
+    _repo_root = Path(__file__).resolve().parents[3]
+    # #region agent log
+    _agent_debug_log(
+        "H-B",
+        "db/engine.py:init_engine",
+        "os.environ before Settings() (GUI may not call load_dotenv)",
+        {
+            "env_file_exists": (_repo_root / ".env").is_file(),
+            "POSTGRES_HOST": os.environ.get("POSTGRES_HOST"),
+            "POSTGRES_PORT": os.environ.get("POSTGRES_PORT"),
+            "POSTGRES_DB": os.environ.get("POSTGRES_DB"),
+            "POSTGRES_USER": os.environ.get("POSTGRES_USER"),
+            "POSTGRES_PASSWORD_set": bool(os.environ.get("POSTGRES_PASSWORD")),
+        },
+    )
+    # #endregion
     if settings is None:
         settings = Settings()
+    # #region agent log
+    _pwd = settings.database.password or ""
+    _agent_debug_log(
+        "H1-H4",
+        "db/engine.py:init_engine",
+        "resolved DatabaseSettings + client executable",
+        {
+            "host": settings.database.host,
+            "port": settings.database.port,
+            "db": settings.database.db,
+            "user": settings.database.user,
+            "password_length": len(_pwd),
+            "sys_executable": sys.executable,
+            "url_masked": (
+                f"postgresql://{settings.database.user}:***@"
+                f"{settings.database.host}:{settings.database.port}/{settings.database.db}"
+            ),
+        },
+    )
+    # #endregion
     _engine = create_engine(settings.database.url, echo=False, pool_pre_ping=True)
     _SessionFactory = sessionmaker(bind=_engine)
 
@@ -37,7 +103,25 @@ def session_scope() -> Generator[Session, None, None]:
     try:
         yield session
         session.commit()
-    except Exception:
+    except Exception as exc:
+        # #region agent log
+        if isinstance(exc, OperationalError):
+            orig = getattr(exc, "orig", None)
+            _agent_debug_log(
+                "H-A",
+                "db/engine.py:session_scope",
+                "OperationalError during DB use",
+                {
+                    "exc_type": type(exc).__name__,
+                    "orig_type": type(orig).__name__ if orig else None,
+                    "orig_prefix": (str(orig)[:400] if orig else str(exc)[:400]),
+                    "mentions_postgresapp": (
+                        "Postgres.app" in str(orig or exc)
+                        or "postgresapp" in str(orig or exc).lower()
+                    ),
+                },
+            )
+        # #endregion
         session.rollback()
         raise
     finally:

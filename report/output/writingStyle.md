@@ -7,7 +7,7 @@ globs:
 
 # Writing standard: IEA World Energy Outlook
 
-The reference model for prose quality is the IEA World Energy Outlook. The audience is government decision-makers (ministers, boards, institutional investors). Every rule below applies to all chapter text produced in this project.
+The reference model for prose quality is the IEA World Energy Outlook. The audience is government decision-makers (ministers, boards, institutional investors). **Report language:** chapter prose, headings, and tables of contents are drafted in **English** (International English unless a sponsor specifies US/UK spelling). Every rule below applies to all chapter text produced in this project.
 
 **Voice and tone.** Write as a senior energy policy analyst briefing a smart but busy energy minister. Authoritative, not arrogant. Direct, not simplistic. Every sentence must advance an argument or deliver verifiable information. No filler. Active voice by default.
 
@@ -17,7 +17,7 @@ The reference model for prose quality is the IEA World Energy Outlook. The audie
 
 **Uncertainty.** Express through ranges, scenarios, or explicit conditions — never through verbal hedging ("ar putea eventual", "nu este exclus ca"). If something is uncertain, state why and within what range.
 
-**Language.** Limba implicită: româna. Termeni tehnici internaționali consacrați se păstrează în engleză: capacity factor, CfD, LCOE, baseload, merit order, load-following, dunkelflaute, firm power, strike price. La prima apariție, termenul se introduce cu echivalentul românesc dacă există unul uzual.
+**Language.** Keep the manuscript in English end-to-end. Retain established international technical terms in English (capacity factor, CfD, LCOE, baseload, merit order, load-following, dunkelflaute, firm power, strike price, and project-specific rubric codes such as NH-01). When citing Romanian or other non-English regulations, quote the original briefly and give the English gloss at first use.
 
 **AI-marks blacklist.** BANNED: "Este important de menționat că...", "Merită subliniat faptul că...", "Nu în ultimul rând...", "Un aspect demn de remarcat...", "Joacă un rol crucial/esențial/vital", "într-un peisaj aflat în continuă schimbare", "complexitatea crescândă", "provocări semnificative", "potențial transformator", "de netăgăduit", em dashes used as clause separators. Also banned: more than two consecutive sentences starting with the same syntactic pattern; bullets where flowing prose would be more natural; parenthetical asides that duplicate information already in the sentence; overuse of intensifiers (semnificativ, substanțial, remarcabil) — one per paragraph maximum.
 

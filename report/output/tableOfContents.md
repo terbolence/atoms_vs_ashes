@@ -6,6 +6,8 @@ The rolling master ToC for the final report lives in:
 
 This path is the canonical anchor referenced in project rules and plans; the outline below supplements the writing plan with the working section structure and methodology links.
 
+**Language.** The report outline, methodology links, and final chapter text targeted by this ToC are in **English**. Non-English wording appears only where it is quoted source material (for example rubric labels such as “Cadru de scoring”) or a proper name.
+
 ## Front matter
 
 - Acronyms and Abbreviations

@@ -1,0 +1,801 @@
+pg_restore: connecting to database for restore
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: while INITIALIZING:
+pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+pg_restore: processing item 5314 ENCODING ENCODING
+pg_restore: processing item 5315 STDSTRINGS STDSTRINGS
+pg_restore: processing item 5316 SEARCHPATH SEARCHPATH
+pg_restore: processing item 5317 DATABASE atoms_vs_ashes_merged
+pg_restore: processing item 2 EXTENSION postgis
+pg_restore: creating EXTENSION "postgis"
+pg_restore: processing item 5318 COMMENT EXTENSION postgis
+pg_restore: creating COMMENT "EXTENSION postgis"
+pg_restore: processing item 1802 TYPE failure_aggregate_axis
+pg_restore: creating TYPE "public.failure_aggregate_axis"
+pg_restore: processing item 1679 TYPE plant_type
+pg_restore: creating TYPE "public.plant_type"
+pg_restore: processing item 1682 TYPE quality_level
+pg_restore: creating TYPE "public.quality_level"
+pg_restore: processing item 1766 TYPE run_kind
+pg_restore: creating TYPE "public.run_kind"
+pg_restore: processing item 1685 TYPE screening_verdict
+pg_restore: creating TYPE "public.screening_verdict"
+pg_restore: processing item 1688 TYPE site_status
+pg_restore: creating TYPE "public.site_status"
+pg_restore: processing item 1793 TYPE threshold_direction
+pg_restore: creating TYPE "public.threshold_direction"
+pg_restore: processing item 223 TABLE _staging_unmatched_ownership
+pg_restore: creating TABLE "public._staging_unmatched_ownership"
+pg_restore: processing item 264 TABLE active_run_profile
+pg_restore: creating TABLE "public.active_run_profile"
+pg_restore: processing item 224 TABLE alembic_version
+pg_restore: creating TABLE "public.alembic_version"
+pg_restore: processing item 225 TABLE audit_log
+pg_restore: creating TABLE "public.audit_log"
+pg_restore: processing item 271 TABLE compiled_scoring_snapshots
+pg_restore: creating TABLE "public.compiled_scoring_snapshots"
+pg_restore: processing item 226 TABLE composite_rankings
+pg_restore: creating TABLE "public.composite_rankings"
+pg_restore: processing item 251 TABLE composite_score_components
+pg_restore: creating TABLE "public.composite_score_components"
+pg_restore: processing item 227 TABLE connector_errors
+pg_restore: creating TABLE "public.connector_errors"
+pg_restore: processing item 228 TABLE countries
+pg_restore: creating TABLE "public.countries"
+pg_restore: processing item 262 TABLE country_balance_check
+pg_restore: creating TABLE "public.country_balance_check"
+pg_restore: processing item 253 TABLE country_rankings_summary
+pg_restore: creating TABLE "public.country_rankings_summary"
+pg_restore: processing item 254 TABLE country_site_rankings
+pg_restore: creating TABLE "public.country_site_rankings"
+pg_restore: processing item 229 TABLE criteria
+pg_restore: creating TABLE "public.criteria"
+pg_restore: processing item 261 TABLE criterion_correlations
+pg_restore: creating TABLE "public.criterion_correlations"
+pg_restore: processing item 230 TABLE data_sources
+pg_restore: creating TABLE "public.data_sources"
+pg_restore: processing item 250 TABLE dataset_snapshot
+pg_restore: creating TABLE "public.dataset_snapshot"
+pg_restore: processing item 231 TABLE enrichment_runs
+pg_restore: creating TABLE "public.enrichment_runs"
+pg_restore: processing item 259 TABLE failure_aggregates
+pg_restore: creating TABLE "public.failure_aggregates"
+pg_restore: processing item 258 TABLE failure_outcomes
+pg_restore: creating TABLE "public.failure_outcomes"
+pg_restore: processing item 246 TABLE merge_audit
+pg_restore: creating TABLE "public.merge_audit"
+pg_restore: processing item 255 TABLE oat_importance
+pg_restore: creating TABLE "public.oat_importance"
+pg_restore: processing item 232 TABLE ranking_scores
+pg_restore: creating TABLE "public.ranking_scores"
+pg_restore: processing item 249 TABLE runs
+pg_restore: creating TABLE "public.runs"
+pg_restore: processing item 270 TABLE scoring_band_recipes
+pg_restore: creating TABLE "public.scoring_band_recipes"
+pg_restore: processing item 268 TABLE scoring_bands
+pg_restore: creating TABLE "public.scoring_bands"
+pg_restore: processing item 266 TABLE scoring_criteria
+pg_restore: creating TABLE "public.scoring_criteria"
+pg_restore: processing item 265 TABLE scoring_definition_state
+pg_restore: creating TABLE "public.scoring_definition_state"
+pg_restore: processing item 267 TABLE scoring_fail_conditions
+pg_restore: creating TABLE "public.scoring_fail_conditions"
+pg_restore: processing item 272 TABLE scoring_run_snapshots
+pg_restore: creating TABLE "public.scoring_run_snapshots"
+pg_restore: processing item 269 TABLE scoring_sub_scores
+pg_restore: creating TABLE "public.scoring_sub_scores"
+pg_restore: processing item 233 TABLE screening_verdicts
+pg_restore: creating TABLE "public.screening_verdicts"
+pg_restore: processing item 252 TABLE site_bands
+pg_restore: creating TABLE "public.site_bands"
+pg_restore: processing item 234 TABLE site_emergency_planning
+pg_restore: creating TABLE "public.site_emergency_planning"
+pg_restore: processing item 235 TABLE site_human_hazards
+pg_restore: creating TABLE "public.site_human_hazards"
+pg_restore: processing item 236 TABLE site_infrastructure_v2
+pg_restore: creating TABLE "public.site_infrastructure_v2"
+pg_restore: processing item 248 TABLE site_llm_observations
+pg_restore: creating TABLE "public.site_llm_observations"
+pg_restore: processing item 247 TABLE site_llm_verdicts
+pg_restore: creating TABLE "public.site_llm_verdicts"
+pg_restore: processing item 237 TABLE site_natural_hazards
+pg_restore: creating TABLE "public.site_natural_hazards"
+pg_restore: processing item 238 TABLE site_observations
+pg_restore: creating TABLE "public.site_observations"
+pg_restore: processing item 239 TABLE site_ownership
+pg_restore: creating TABLE "public.site_ownership"
+pg_restore: processing item 240 TABLE site_radiological
+pg_restore: creating TABLE "public.site_radiological"
+pg_restore: processing item 241 TABLE site_raw_responses
+pg_restore: creating TABLE "public.site_raw_responses"
+pg_restore: processing item 242 SEQUENCE site_raw_responses_id_seq
+pg_restore: creating SEQUENCE "public.site_raw_responses_id_seq"
+pg_restore: processing item 5321 SEQUENCE OWNED BY site_raw_responses_id_seq
+pg_restore: creating SEQUENCE OWNED BY "public.site_raw_responses_id_seq"
+pg_restore: processing item 243 TABLE site_units
+pg_restore: creating TABLE "public.site_units"
+pg_restore: processing item 244 TABLE sites
+pg_restore: creating TABLE "public.sites"
+pg_restore: processing item 245 TABLE smr_designs
+pg_restore: creating TABLE "public.smr_designs"
+pg_restore: processing item 260 TABLE swing_weights
+pg_restore: creating TABLE "public.swing_weights"
+pg_restore: processing item 263 TABLE threshold_overrides
+pg_restore: creating TABLE "public.threshold_overrides"
+pg_restore: processing item 257 TABLE threshold_sensitivity
+pg_restore: creating TABLE "public.threshold_sensitivity"
+pg_restore: processing item 256 TABLE weight_profile_stability
+pg_restore: creating TABLE "public.weight_profile_stability"
+pg_restore: processing item 4832 DEFAULT site_raw_responses id
+pg_restore: creating DEFAULT "public.site_raw_responses id"
+pg_restore: entering main parallel loop
+pg_restore: launching item 5280 TABLE DATA site_raw_responses
+pg_restore: launching item 5271 TABLE DATA ranking_scores
+pg_restore: launching item 5272 TABLE DATA screening_verdicts
+pg_restore: launching item 5265 TABLE DATA composite_rankings
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: while PROCESSING TOC:
+pg_restore: from TOC entry 4832; 2604 50625 DEFAULT site_raw_responses id atoms
+pg_restore:pg_restore: while PROCESSING TOC:
+pg_restore:  from TOC entry 4832; 2604 50625 DEFAULT site_raw_responses id atoms
+error: pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: while PROCESSING TOC:
+pg_restore: from TOC entry 4832; 2604 50625 DEFAULT site_raw_responses id atoms
+pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+pg_restore: processing data for table "public.site_raw_responses"
+pg_restore: processing data for table "public.ranking_scores"
+pg_restore: while PROCESSING TOC:
+pg_restore: from TOC entry 4832; 2604 50625 DEFAULT site_raw_responses id atoms
+pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+pg_restore: processing data for table "public.screening_verdicts"
+pg_restore: processing data for table "public.composite_rankings"
+pg_restore: finished item 5265 TABLE DATA composite_rankings
+pg_restore: launching item 4905 CONSTRAINT composite_rankings composite_rankings_pkey
+pg_restore: creating CONSTRAINT "public.composite_rankings composite_rankings_pkey"
+pg_restore: finished item 4905 CONSTRAINT composite_rankings composite_rankings_pkey
+pg_restore: launching item 4906 INDEX ix_composite_weight_profile
+pg_restore: creating INDEX "public.ix_composite_weight_profile"
+pg_restore: finished item 4906 INDEX ix_composite_weight_profile
+pg_restore: launching item 4908 CONSTRAINT composite_rankings uq_composite_site_smr_run_profile
+pg_restore: creating CONSTRAINT "public.composite_rankings uq_composite_site_smr_run_profile"
+pg_restore: finished item 4908 CONSTRAINT composite_rankings uq_composite_site_smr_run_profile
+pg_restore: launching item 5287 TABLE DATA site_llm_observations
+pg_restore: processing data for table "public.site_llm_observations"
+pg_restore: finished item 5287 TABLE DATA site_llm_observations
+pg_restore: launching item 4991 INDEX ix_llm_observations_criterion
+pg_restore: creating INDEX "public.ix_llm_observations_criterion"
+pg_restore: finished item 4991 INDEX ix_llm_observations_criterion
+pg_restore: launching item 4992 INDEX ix_llm_observations_run_id
+pg_restore: creating INDEX "public.ix_llm_observations_run_id"
+pg_restore: finished item 4992 INDEX ix_llm_observations_run_id
+pg_restore: launching item 4993 INDEX ix_llm_observations_site
+pg_restore: creating INDEX "public.ix_llm_observations_site"
+pg_restore: finished item 4993 INDEX ix_llm_observations_site
+pg_restore: launching item 4995 CONSTRAINT site_llm_observations site_llm_observations_pkey
+pg_restore: creating CONSTRAINT "public.site_llm_observations site_llm_observations_pkey"
+pg_restore: finished item 4995 CONSTRAINT site_llm_observations site_llm_observations_pkey
+pg_restore: launching item 5286 TABLE DATA site_llm_verdicts
+pg_restore: processing data for table "public.site_llm_verdicts"
+pg_restore: finished item 5286 TABLE DATA site_llm_verdicts
+pg_restore: launching item 4984 INDEX ix_llm_verdicts_criterion
+pg_restore: creating INDEX "public.ix_llm_verdicts_criterion"
+pg_restore: finished item 4984 INDEX ix_llm_verdicts_criterion
+pg_restore: launching item 4985 INDEX ix_llm_verdicts_run_id
+pg_restore: creating INDEX "public.ix_llm_verdicts_run_id"
+pg_restore: finished item 4985 INDEX ix_llm_verdicts_run_id
+pg_restore: launching item 4986 INDEX ix_llm_verdicts_site
+pg_restore: creating INDEX "public.ix_llm_verdicts_site"
+pg_restore: finished item 4986 INDEX ix_llm_verdicts_site
+pg_restore: launching item 4988 CONSTRAINT site_llm_verdicts site_llm_verdicts_pkey
+pg_restore: creating CONSTRAINT "public.site_llm_verdicts site_llm_verdicts_pkey"
+pg_restore: finished item 4988 CONSTRAINT site_llm_verdicts site_llm_verdicts_pkey
+pg_restore: launching item 4990 CONSTRAINT site_llm_verdicts uq_llm_verdict_site_criterion_prompt
+pg_restore: creating CONSTRAINT "public.site_llm_verdicts uq_llm_verdict_site_criterion_prompt"
+pg_restore: finished item 4990 CONSTRAINT site_llm_verdicts uq_llm_verdict_site_criterion_prompt
+pg_restore: launching item 5277 TABLE DATA site_observations
+pg_restore: processing data for table "public.site_observations"
+pg_restore: finished item 5277 TABLE DATA site_observations
+pg_restore: launching item 4948 INDEX ix_obs_criterion_id
+pg_restore: creating INDEX "public.ix_obs_criterion_id"
+pg_restore: finished item 4948 INDEX ix_obs_criterion_id
+pg_restore: launching item 4949 INDEX ix_obs_site_id
+pg_restore: creating INDEX "public.ix_obs_site_id"
+pg_restore: finished item 4949 INDEX ix_obs_site_id
+pg_restore: launching item 4951 CONSTRAINT site_observations site_observations_pkey
+pg_restore: creating CONSTRAINT "public.site_observations site_observations_pkey"
+pg_restore: finished item 4951 CONSTRAINT site_observations site_observations_pkey
+pg_restore: launching item 5275 TABLE DATA site_infrastructure_v2
+pg_restore: processing data for table "public.site_infrastructure_v2"
+pg_restore: finished item 5272 TABLE DATA screening_verdicts
+pg_restore: launching item 4930 INDEX ix_verdict_criterion_id
+pg_restore: creating INDEX "public.ix_verdict_criterion_id"
+pg_restore: finished item 5275 TABLE DATA site_infrastructure_v2
+pg_restore: launching item 4931 INDEX ix_verdict_site_id
+pg_restore: creating INDEX "public.ix_verdict_site_id"
+pg_restore: finished item 4931 INDEX ix_verdict_site_id
+pg_restore: launching item 4942 INDEX ix_site_infrastructure_v2_source_db
+pg_restore: creating INDEX "public.ix_site_infrastructure_v2_source_db"
+pg_restore: finished item 4942 INDEX ix_site_infrastructure_v2_source_db
+pg_restore: launching item 5264 TABLE DATA audit_log
+pg_restore: processing data for table "public.audit_log"
+pg_restore: finished item 5264 TABLE DATA audit_log
+pg_restore: launching item 4902 INDEX ix_audit_site_id
+pg_restore: creating INDEX "public.ix_audit_site_id"
+pg_restore: finished item 4902 INDEX ix_audit_site_id
+pg_restore: launching item 4903 INDEX ix_audit_timestamp
+pg_restore: creating INDEX "public.ix_audit_timestamp"
+pg_restore: finished item 4903 INDEX ix_audit_timestamp
+pg_restore: launching item 5290 TABLE DATA composite_score_components
+pg_restore: processing data for table "public.composite_score_components"
+pg_restore: finished item 5290 TABLE DATA composite_score_components
+pg_restore: launching item 4901 INDEX ix_audit_run_id
+pg_restore: creating INDEX "public.ix_audit_run_id"
+pg_restore: finished item 4901 INDEX ix_audit_run_id
+pg_restore: launching item 5001 INDEX ix_csc_pair
+pg_restore: creating INDEX "public.ix_csc_pair"
+pg_restore: finished item 5001 INDEX ix_csc_pair
+pg_restore: launching item 5003 CONSTRAINT composite_score_components pk_composite_components
+pg_restore: creating CONSTRAINT "public.composite_score_components pk_composite_components"
+pg_restore: finished item 5003 CONSTRAINT composite_score_components pk_composite_components
+pg_restore: launching item 4900 CONSTRAINT audit_log audit_log_pkey
+pg_restore: creating CONSTRAINT "public.audit_log audit_log_pkey"
+pg_restore: finished item 4900 CONSTRAINT audit_log audit_log_pkey
+pg_restore: launching item 5283 TABLE DATA sites
+pg_restore: processing data for table "public.sites"
+pg_restore: finished item 5283 TABLE DATA sites
+pg_restore: launching item 4972 INDEX ix_sites_gem_unit_phase_id
+pg_restore: creating INDEX "public.ix_sites_gem_unit_phase_id"
+pg_restore: finished item 4972 INDEX ix_sites_gem_unit_phase_id
+pg_restore: launching item 4973 INDEX ix_sites_geom
+pg_restore: creating INDEX "public.ix_sites_geom"
+pg_restore: finished item 4973 INDEX ix_sites_geom
+pg_restore: launching item 4974 INDEX ix_sites_source_db
+pg_restore: creating INDEX "public.ix_sites_source_db"
+pg_restore: finished item 4974 INDEX ix_sites_source_db
+pg_restore: launching item 5285 TABLE DATA merge_audit
+pg_restore: processing data for table "public.merge_audit"
+pg_restore: finished item 4930 INDEX ix_verdict_criterion_id
+pg_restore: launching item 4933 CONSTRAINT screening_verdicts screening_verdicts_pkey
+pg_restore: creating CONSTRAINT "public.screening_verdicts screening_verdicts_pkey"
+pg_restore: finished item 5285 TABLE DATA merge_audit
+pg_restore: launching item 4944 CONSTRAINT site_infrastructure_v2 site_infrastructure_v2_pkey
+pg_restore: creating CONSTRAINT "public.site_infrastructure_v2 site_infrastructure_v2_pkey"
+pg_restore: finished item 4944 CONSTRAINT site_infrastructure_v2 site_infrastructure_v2_pkey
+pg_restore: launching item 5278 TABLE DATA site_ownership
+pg_restore: processing data for table "public.site_ownership"
+pg_restore: finished item 5278 TABLE DATA site_ownership
+pg_restore: launching item 5276 TABLE DATA site_natural_hazards
+pg_restore: processing data for table "public.site_natural_hazards"
+pg_restore: finished item 5276 TABLE DATA site_natural_hazards
+pg_restore: launching item 5291 TABLE DATA site_bands
+pg_restore: processing data for table "public.site_bands"
+pg_restore: finished item 5291 TABLE DATA site_bands
+pg_restore: launching item 4947 CONSTRAINT site_natural_hazards site_natural_hazards_pkey
+pg_restore: creating CONSTRAINT "public.site_natural_hazards site_natural_hazards_pkey"
+pg_restore: finished item 4947 CONSTRAINT site_natural_hazards site_natural_hazards_pkey
+pg_restore: launching item 5297 TABLE DATA failure_outcomes
+pg_restore: processing data for table "public.failure_outcomes"
+pg_restore: finished item 5297 TABLE DATA failure_outcomes
+pg_restore: launching item 5006 CONSTRAINT site_bands uq_site_bands_scope
+pg_restore: creating CONSTRAINT "public.site_bands uq_site_bands_scope"
+pg_restore: finished item 5006 CONSTRAINT site_bands uq_site_bands_scope
+pg_restore: launching item 4969 INDEX idx_sites_geom
+pg_restore: creating INDEX "public.idx_sites_geom"
+pg_restore: finished item 4969 INDEX idx_sites_geom
+pg_restore: launching item 5019 CONSTRAINT failure_outcomes pk_failure_outcomes
+pg_restore: creating CONSTRAINT "public.failure_outcomes pk_failure_outcomes"
+pg_restore: finished item 5019 CONSTRAINT failure_outcomes pk_failure_outcomes
+pg_restore: launching item 4970 INDEX ix_sites_country_code
+pg_restore: creating INDEX "public.ix_sites_country_code"
+pg_restore: finished item 4970 INDEX ix_sites_country_code
+pg_restore: launching item 4971 INDEX ix_sites_gem_location_id
+pg_restore: creating INDEX "public.ix_sites_gem_location_id"
+pg_restore: finished item 4971 INDEX ix_sites_gem_location_id
+pg_restore: launching item 4976 CONSTRAINT sites sites_pkey
+pg_restore: creating CONSTRAINT "public.sites sites_pkey"
+pg_restore: finished item 4976 CONSTRAINT sites sites_pkey
+pg_restore: launching item 5050 FK CONSTRAINT composite_rankings composite_rankings_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_rankings composite_rankings_site_id_fkey"
+pg_restore: finished item 4933 CONSTRAINT screening_verdicts screening_verdicts_pkey
+pg_restore: launching item 4935 CONSTRAINT screening_verdicts uq_verdict_site_smr_criterion_prompt_run
+pg_restore: creating CONSTRAINT "public.screening_verdicts uq_verdict_site_smr_criterion_prompt_run"
+pg_restore: finished item 5050 FK CONSTRAINT composite_rankings composite_rankings_site_id_fkey
+pg_restore: launching item 4979 INDEX ix_merge_audit_criterion
+pg_restore: creating INDEX "public.ix_merge_audit_criterion"
+pg_restore: finished item 4979 INDEX ix_merge_audit_criterion
+pg_restore: launching item 4981 INDEX ix_merge_audit_site_id
+pg_restore: creating INDEX "public.ix_merge_audit_site_id"
+pg_restore: finished item 4981 INDEX ix_merge_audit_site_id
+pg_restore: launching item 4983 CONSTRAINT merge_audit merge_audit_pkey
+pg_restore: creating CONSTRAINT "public.merge_audit merge_audit_pkey"
+pg_restore: finished item 4983 CONSTRAINT merge_audit merge_audit_pkey
+pg_restore: launching item 5279 TABLE DATA site_radiological
+pg_restore: processing data for table "public.site_radiological"
+pg_restore: finished item 5279 TABLE DATA site_radiological
+pg_restore: launching item 5088 FK CONSTRAINT site_bands site_bands_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_bands site_bands_site_id_fkey"
+pg_restore: finished item 5088 FK CONSTRAINT site_bands site_bands_site_id_fkey
+pg_restore: launching item 5072 FK CONSTRAINT site_radiological site_radiological_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_radiological site_radiological_site_id_fkey"
+pg_restore: finished item 5072 FK CONSTRAINT site_radiological site_radiological_site_id_fkey
+pg_restore: launching item 4956 INDEX ix_site_radiological_source_db
+pg_restore: creating INDEX "public.ix_site_radiological_source_db"
+pg_restore: finished item 4956 INDEX ix_site_radiological_source_db
+pg_restore: launching item 4958 CONSTRAINT site_radiological site_radiological_pkey
+pg_restore: creating CONSTRAINT "public.site_radiological site_radiological_pkey"
+pg_restore: finished item 4958 CONSTRAINT site_radiological site_radiological_pkey
+pg_restore: launching item 5017 INDEX ix_failure_outcomes_country
+pg_restore: creating INDEX "public.ix_failure_outcomes_country"
+pg_restore: finished item 5017 INDEX ix_failure_outcomes_country
+pg_restore: launching item 4945 INDEX ix_site_natural_hazards_source_db
+pg_restore: creating INDEX "public.ix_site_natural_hazards_source_db"
+pg_restore: finished item 4945 INDEX ix_site_natural_hazards_source_db
+pg_restore: launching item 5076 FK CONSTRAINT merge_audit merge_audit_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.merge_audit merge_audit_site_id_fkey"
+pg_restore: finished item 5076 FK CONSTRAINT merge_audit merge_audit_site_id_fkey
+pg_restore: launching item 5085 FK CONSTRAINT composite_score_components composite_score_components_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_score_components composite_score_components_site_id_fkey"
+pg_restore: finished item 5085 FK CONSTRAINT composite_score_components composite_score_components_site_id_fkey
+pg_restore: launching item 4980 INDEX ix_merge_audit_run_id
+pg_restore: creating INDEX "public.ix_merge_audit_run_id"
+pg_restore: finished item 4980 INDEX ix_merge_audit_run_id
+pg_restore: launching item 5282 TABLE DATA site_units
+pg_restore: processing data for table "public.site_units"
+pg_restore: finished item 5282 TABLE DATA site_units
+pg_restore: launching item 4965 INDEX ix_unit_gem_unit_phase_id
+pg_restore: creating INDEX "public.ix_unit_gem_unit_phase_id"
+pg_restore: finished item 4965 INDEX ix_unit_gem_unit_phase_id
+pg_restore: launching item 5074 FK CONSTRAINT site_units site_units_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_units site_units_site_id_fkey"
+pg_restore: finished item 5074 FK CONSTRAINT site_units site_units_site_id_fkey
+pg_restore: launching item 4966 INDEX ix_unit_site_id
+pg_restore: creating INDEX "public.ix_unit_site_id"
+pg_restore: finished item 4966 INDEX ix_unit_site_id
+pg_restore: launching item 4968 CONSTRAINT site_units site_units_pkey
+pg_restore: creating CONSTRAINT "public.site_units site_units_pkey"
+pg_restore: finished item 4968 CONSTRAINT site_units site_units_pkey
+pg_restore: launching item 5274 TABLE DATA site_human_hazards
+pg_restore: processing data for table "public.site_human_hazards"
+pg_restore: finished item 5274 TABLE DATA site_human_hazards
+pg_restore: launching item 5065 FK CONSTRAINT site_human_hazards site_human_hazards_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_human_hazards site_human_hazards_site_id_fkey"
+pg_restore: finished item 5065 FK CONSTRAINT site_human_hazards site_human_hazards_site_id_fkey
+pg_restore: launching item 4939 INDEX ix_site_human_hazards_source_db
+pg_restore: creating INDEX "public.ix_site_human_hazards_source_db"
+pg_restore: finished item 4939 INDEX ix_site_human_hazards_source_db
+pg_restore: launching item 4941 CONSTRAINT site_human_hazards site_human_hazards_pkey
+pg_restore: creating CONSTRAINT "public.site_human_hazards site_human_hazards_pkey"
+pg_restore: finished item 4941 CONSTRAINT site_human_hazards site_human_hazards_pkey
+pg_restore: launching item 5310 TABLE DATA compiled_scoring_snapshots
+pg_restore: processing data for table "public.compiled_scoring_snapshots"
+pg_restore: finished item 5310 TABLE DATA compiled_scoring_snapshots
+pg_restore: launching item 5047 CONSTRAINT compiled_scoring_snapshots compiled_scoring_snapshots_pkey
+pg_restore: creating CONSTRAINT "public.compiled_scoring_snapshots compiled_scoring_snapshots_pkey"
+pg_restore: finished item 5047 CONSTRAINT compiled_scoring_snapshots compiled_scoring_snapshots_pkey
+pg_restore: launching item 5273 TABLE DATA site_emergency_planning
+pg_restore: processing data for table "public.site_emergency_planning"
+pg_restore: finished item 5273 TABLE DATA site_emergency_planning
+pg_restore: launching item 5064 FK CONSTRAINT site_emergency_planning site_emergency_planning_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_emergency_planning site_emergency_planning_site_id_fkey"
+pg_restore: finished item 5064 FK CONSTRAINT site_emergency_planning site_emergency_planning_site_id_fkey
+pg_restore: launching item 4936 INDEX ix_site_emergency_planning_source_db
+pg_restore: creating INDEX "public.ix_site_emergency_planning_source_db"
+pg_restore: finished item 4936 INDEX ix_site_emergency_planning_source_db
+pg_restore: launching item 4938 CONSTRAINT site_emergency_planning site_emergency_planning_pkey
+pg_restore: creating CONSTRAINT "public.site_emergency_planning site_emergency_planning_pkey"
+pg_restore: finished item 4938 CONSTRAINT site_emergency_planning site_emergency_planning_pkey
+pg_restore: launching item 5305 TABLE DATA scoring_criteria
+pg_restore: processing data for table "public.scoring_criteria"
+pg_restore: finished item 5305 TABLE DATA scoring_criteria
+pg_restore: launching item 5035 INDEX ix_scoring_criteria_family
+pg_restore: creating INDEX "public.ix_scoring_criteria_family"
+pg_restore: finished item 5035 INDEX ix_scoring_criteria_family
+pg_restore: launching item 5037 CONSTRAINT scoring_criteria scoring_criteria_pkey
+pg_restore: creating CONSTRAINT "public.scoring_criteria scoring_criteria_pkey"
+pg_restore: finished item 5037 CONSTRAINT scoring_criteria scoring_criteria_pkey
+pg_restore: launching item 5298 TABLE DATA failure_aggregates
+pg_restore: processing data for table "public.failure_aggregates"
+pg_restore: finished item 5298 TABLE DATA failure_aggregates
+pg_restore: launching item 5021 CONSTRAINT failure_aggregates pk_failure_aggregates
+pg_restore: creating CONSTRAINT "public.failure_aggregates pk_failure_aggregates"
+pg_restore: finished item 5021 CONSTRAINT failure_aggregates pk_failure_aggregates
+pg_restore: launching item 5307 TABLE DATA scoring_bands
+pg_restore: processing data for table "public.scoring_bands"
+pg_restore: finished item 5307 TABLE DATA scoring_bands
+pg_restore: launching item 5107 FK CONSTRAINT scoring_bands scoring_bands_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_bands scoring_bands_criterion_id_fkey"
+pg_restore: finished item 5107 FK CONSTRAINT scoring_bands scoring_bands_criterion_id_fkey
+pg_restore: launching item 5041 CONSTRAINT scoring_bands scoring_bands_pkey
+pg_restore: creating CONSTRAINT "public.scoring_bands scoring_bands_pkey"
+pg_restore: finished item 5041 CONSTRAINT scoring_bands scoring_bands_pkey
+pg_restore: launching item 5306 TABLE DATA scoring_fail_conditions
+pg_restore: processing data for table "public.scoring_fail_conditions"
+pg_restore: finished item 5306 TABLE DATA scoring_fail_conditions
+pg_restore: launching item 5106 FK CONSTRAINT scoring_fail_conditions scoring_fail_conditions_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_fail_conditions scoring_fail_conditions_criterion_id_fkey"
+pg_restore: finished item 5106 FK CONSTRAINT scoring_fail_conditions scoring_fail_conditions_criterion_id_fkey
+pg_restore: launching item 5039 CONSTRAINT scoring_fail_conditions scoring_fail_conditions_pkey
+pg_restore: creating CONSTRAINT "public.scoring_fail_conditions scoring_fail_conditions_pkey"
+pg_restore: finished item 5039 CONSTRAINT scoring_fail_conditions scoring_fail_conditions_pkey
+pg_restore: launching item 5268 TABLE DATA criteria
+pg_restore: processing data for table "public.criteria"
+pg_restore: finished item 5268 TABLE DATA criteria
+pg_restore: launching item 4917 CONSTRAINT criteria criteria_pkey
+pg_restore: creating CONSTRAINT "public.criteria criteria_pkey"
+pg_restore: finished item 4917 CONSTRAINT criteria criteria_pkey
+pg_restore: launching item 5080 FK CONSTRAINT site_llm_observations site_llm_observations_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_llm_observations site_llm_observations_site_id_fkey"
+pg_restore: finished item 5080 FK CONSTRAINT site_llm_observations site_llm_observations_site_id_fkey
+pg_restore: launching item 5078 FK CONSTRAINT site_llm_verdicts site_llm_verdicts_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_llm_verdicts site_llm_verdicts_site_id_fkey"
+pg_restore: finished item 5078 FK CONSTRAINT site_llm_verdicts site_llm_verdicts_site_id_fkey
+pg_restore: launching item 5069 FK CONSTRAINT site_observations site_observations_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_observations site_observations_site_id_fkey"
+pg_restore: finished item 5069 FK CONSTRAINT site_observations site_observations_site_id_fkey
+pg_restore: launching item 5066 FK CONSTRAINT site_infrastructure_v2 site_infrastructure_v2_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_infrastructure_v2 site_infrastructure_v2_site_id_fkey"
+pg_restore: finished item 5066 FK CONSTRAINT site_infrastructure_v2 site_infrastructure_v2_site_id_fkey
+pg_restore: launching item 4952 INDEX ix_ownership_gem_location_id
+pg_restore: creating INDEX "public.ix_ownership_gem_location_id"
+pg_restore: finished item 4952 INDEX ix_ownership_gem_location_id
+pg_restore: launching item 4953 INDEX ix_ownership_site_id
+pg_restore: creating INDEX "public.ix_ownership_site_id"
+pg_restore: finished item 4953 INDEX ix_ownership_site_id
+pg_restore: launching item 4955 CONSTRAINT site_ownership site_ownership_pkey
+pg_restore: creating CONSTRAINT "public.site_ownership site_ownership_pkey"
+pg_restore: finished item 4955 CONSTRAINT site_ownership site_ownership_pkey
+pg_restore: launching item 5071 FK CONSTRAINT site_ownership site_ownership_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_ownership site_ownership_site_id_fkey"
+pg_restore: finished item 5071 FK CONSTRAINT site_ownership site_ownership_site_id_fkey
+pg_restore: launching item 5067 FK CONSTRAINT site_natural_hazards site_natural_hazards_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_natural_hazards site_natural_hazards_site_id_fkey"
+pg_restore: finished item 5067 FK CONSTRAINT site_natural_hazards site_natural_hazards_site_id_fkey
+pg_restore: launching item 5004 INDEX ix_site_bands_run
+pg_restore: creating INDEX "public.ix_site_bands_run"
+pg_restore: finished item 5004 INDEX ix_site_bands_run
+pg_restore: launching item 5098 FK CONSTRAINT failure_outcomes failure_outcomes_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.failure_outcomes failure_outcomes_site_id_fkey"
+pg_restore: finished item 5098 FK CONSTRAINT failure_outcomes failure_outcomes_site_id_fkey
+pg_restore: launching item 5300 TABLE DATA criterion_correlations
+pg_restore: processing data for table "public.criterion_correlations"
+pg_restore: finished item 5300 TABLE DATA criterion_correlations
+pg_restore: launching item 5025 CONSTRAINT criterion_correlations pk_criterion_correlations
+pg_restore: creating CONSTRAINT "public.criterion_correlations pk_criterion_correlations"
+pg_restore: finished item 5025 CONSTRAINT criterion_correlations pk_criterion_correlations
+pg_restore: launching item 5269 TABLE DATA data_sources
+pg_restore: processing data for table "public.data_sources"
+pg_restore: finished item 5269 TABLE DATA data_sources
+pg_restore: launching item 5308 TABLE DATA scoring_sub_scores
+pg_restore: processing data for table "public.scoring_sub_scores"
+pg_restore: finished item 5308 TABLE DATA scoring_sub_scores
+pg_restore: launching item 4921 CONSTRAINT data_sources data_sources_pkey
+pg_restore: creating CONSTRAINT "public.data_sources data_sources_pkey"
+pg_restore: finished item 4921 CONSTRAINT data_sources data_sources_pkey
+pg_restore: launching item 5296 TABLE DATA threshold_sensitivity
+pg_restore: processing data for table "public.threshold_sensitivity"
+pg_restore: finished item 5296 TABLE DATA threshold_sensitivity
+pg_restore: launching item 5043 CONSTRAINT scoring_sub_scores scoring_sub_scores_pkey
+pg_restore: creating CONSTRAINT "public.scoring_sub_scores scoring_sub_scores_pkey"
+pg_restore: finished item 5043 CONSTRAINT scoring_sub_scores scoring_sub_scores_pkey
+pg_restore: launching item 5095 FK CONSTRAINT threshold_sensitivity threshold_sensitivity_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.threshold_sensitivity threshold_sensitivity_criterion_id_fkey"
+pg_restore: finished item 5095 FK CONSTRAINT threshold_sensitivity threshold_sensitivity_criterion_id_fkey
+pg_restore: launching item 5016 CONSTRAINT threshold_sensitivity pk_threshold_sensitivity
+pg_restore: creating CONSTRAINT "public.threshold_sensitivity pk_threshold_sensitivity"
+pg_restore: finished item 5016 CONSTRAINT threshold_sensitivity pk_threshold_sensitivity
+pg_restore: launching item 4919 CONSTRAINT data_sources data_sources_name_key
+pg_restore: creating CONSTRAINT "public.data_sources data_sources_name_key"
+pg_restore: finished item 4919 CONSTRAINT data_sources data_sources_name_key
+pg_restore: launching item 5299 TABLE DATA swing_weights
+pg_restore: processing data for table "public.swing_weights"
+pg_restore: finished item 5299 TABLE DATA swing_weights
+pg_restore: launching item 5100 FK CONSTRAINT swing_weights swing_weights_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.swing_weights swing_weights_criterion_id_fkey"
+pg_restore: finished item 5100 FK CONSTRAINT swing_weights swing_weights_criterion_id_fkey
+pg_restore: launching item 5023 CONSTRAINT swing_weights pk_swing_weights
+pg_restore: creating CONSTRAINT "public.swing_weights pk_swing_weights"
+pg_restore: finished item 5023 CONSTRAINT swing_weights pk_swing_weights
+pg_restore: launching item 5288 TABLE DATA runs
+pg_restore: processing data for table "public.runs"
+pg_restore: finished item 5288 TABLE DATA runs
+pg_restore: launching item 4996 INDEX ix_runs_kind
+pg_restore: creating INDEX "public.ix_runs_kind"
+pg_restore: finished item 4996 INDEX ix_runs_kind
+pg_restore: launching item 4998 CONSTRAINT runs runs_pkey
+pg_restore: creating CONSTRAINT "public.runs runs_pkey"
+pg_restore: finished item 4998 CONSTRAINT runs runs_pkey
+pg_restore: launching item 5084 FK CONSTRAINT composite_score_components composite_score_components_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_score_components composite_score_components_run_id_fkey"
+pg_restore: finished item 5084 FK CONSTRAINT composite_score_components composite_score_components_run_id_fkey
+pg_restore: launching item 5104 FK CONSTRAINT criterion_correlations criterion_correlations_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.criterion_correlations criterion_correlations_run_id_fkey"
+pg_restore: finished item 5104 FK CONSTRAINT criterion_correlations criterion_correlations_run_id_fkey
+pg_restore: launching item 5099 FK CONSTRAINT failure_aggregates failure_aggregates_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.failure_aggregates failure_aggregates_run_id_fkey"
+pg_restore: finished item 5099 FK CONSTRAINT failure_aggregates failure_aggregates_run_id_fkey
+pg_restore: launching item 5096 FK CONSTRAINT threshold_sensitivity threshold_sensitivity_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.threshold_sensitivity threshold_sensitivity_run_id_fkey"
+pg_restore: finished item 5096 FK CONSTRAINT threshold_sensitivity threshold_sensitivity_run_id_fkey
+pg_restore: launching item 5101 FK CONSTRAINT swing_weights swing_weights_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.swing_weights swing_weights_run_id_fkey"
+pg_restore: finished item 5101 FK CONSTRAINT swing_weights swing_weights_run_id_fkey
+pg_restore: launching item 5102 FK CONSTRAINT criterion_correlations criterion_correlations_criterion_a_fkey
+pg_restore: creating FK CONSTRAINT "public.criterion_correlations criterion_correlations_criterion_a_fkey"
+pg_restore: finished item 5102 FK CONSTRAINT criterion_correlations criterion_correlations_criterion_a_fkey
+pg_restore: launching item 5108 FK CONSTRAINT scoring_sub_scores scoring_sub_scores_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_sub_scores scoring_sub_scores_criterion_id_fkey"
+pg_restore: finished item 5108 FK CONSTRAINT scoring_sub_scores scoring_sub_scores_criterion_id_fkey
+pg_restore: launching item 5103 FK CONSTRAINT criterion_correlations criterion_correlations_criterion_b_fkey
+pg_restore: creating FK CONSTRAINT "public.criterion_correlations criterion_correlations_criterion_b_fkey"
+pg_restore: finished item 5103 FK CONSTRAINT criterion_correlations criterion_correlations_criterion_b_fkey
+pg_restore: launching item 5081 FK CONSTRAINT runs runs_parent_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.runs runs_parent_run_id_fkey"
+pg_restore: finished item 5081 FK CONSTRAINT runs runs_parent_run_id_fkey
+pg_restore: launching item 5270 TABLE DATA enrichment_runs
+pg_restore: processing data for table "public.enrichment_runs"
+pg_restore: finished item 5270 TABLE DATA enrichment_runs
+pg_restore: launching item 4923 CONSTRAINT enrichment_runs enrichment_runs_pkey
+pg_restore: creating CONSTRAINT "public.enrichment_runs enrichment_runs_pkey"
+pg_restore: finished item 4923 CONSTRAINT enrichment_runs enrichment_runs_pkey
+pg_restore: launching item 4924 INDEX ix_enrichment_runs_connector
+pg_restore: creating INDEX "public.ix_enrichment_runs_connector"
+pg_restore: finished item 4924 INDEX ix_enrichment_runs_connector
+pg_restore: launching item 4925 INDEX ix_enrichment_runs_type
+pg_restore: creating INDEX "public.ix_enrichment_runs_type"
+pg_restore: finished item 4925 INDEX ix_enrichment_runs_type
+pg_restore: launching item 5292 TABLE DATA country_rankings_summary
+pg_restore: processing data for table "public.country_rankings_summary"
+pg_restore: finished item 5292 TABLE DATA country_rankings_summary
+pg_restore: launching item 5089 FK CONSTRAINT country_rankings_summary country_rankings_summary_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.country_rankings_summary country_rankings_summary_run_id_fkey"
+pg_restore: finished item 5089 FK CONSTRAINT country_rankings_summary country_rankings_summary_run_id_fkey
+pg_restore: launching item 5008 CONSTRAINT country_rankings_summary pk_country_rankings_summary
+pg_restore: creating CONSTRAINT "public.country_rankings_summary pk_country_rankings_summary"
+pg_restore: finished item 5008 CONSTRAINT country_rankings_summary pk_country_rankings_summary
+pg_restore: launching item 5303 TABLE DATA active_run_profile
+pg_restore: processing data for table "public.active_run_profile"
+pg_restore: finished item 5303 TABLE DATA active_run_profile
+pg_restore: launching item 5032 CONSTRAINT active_run_profile active_run_profile_pkey
+pg_restore: creating CONSTRAINT "public.active_run_profile active_run_profile_pkey"
+pg_restore: finished item 5032 CONSTRAINT active_run_profile active_run_profile_pkey
+pg_restore: launching item 5289 TABLE DATA dataset_snapshot
+pg_restore: processing data for table "public.dataset_snapshot"
+pg_restore: finished item 5289 TABLE DATA dataset_snapshot
+pg_restore: launching item 5082 FK CONSTRAINT dataset_snapshot dataset_snapshot_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.dataset_snapshot dataset_snapshot_run_id_fkey"
+pg_restore: finished item 5082 FK CONSTRAINT dataset_snapshot dataset_snapshot_run_id_fkey
+pg_restore: launching item 5000 CONSTRAINT dataset_snapshot dataset_snapshot_pkey
+pg_restore: creating CONSTRAINT "public.dataset_snapshot dataset_snapshot_pkey"
+pg_restore: finished item 5000 CONSTRAINT dataset_snapshot dataset_snapshot_pkey
+pg_restore: launching item 5284 TABLE DATA smr_designs
+pg_restore: processing data for table "public.smr_designs"
+pg_restore: finished item 5284 TABLE DATA smr_designs
+pg_restore: launching item 4978 CONSTRAINT smr_designs smr_designs_pkey
+pg_restore: creating CONSTRAINT "public.smr_designs smr_designs_pkey"
+pg_restore: finished item 4978 CONSTRAINT smr_designs smr_designs_pkey
+pg_restore: launching item 5079 FK CONSTRAINT site_llm_observations site_llm_observations_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_llm_observations site_llm_observations_criterion_id_fkey"
+pg_restore: finished item 5079 FK CONSTRAINT site_llm_observations site_llm_observations_criterion_id_fkey
+pg_restore: launching item 5077 FK CONSTRAINT site_llm_verdicts site_llm_verdicts_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_llm_verdicts site_llm_verdicts_criterion_id_fkey"
+pg_restore: finished item 5077 FK CONSTRAINT site_llm_verdicts site_llm_verdicts_criterion_id_fkey
+pg_restore: launching item 5068 FK CONSTRAINT site_observations site_observations_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_observations site_observations_criterion_id_fkey"
+pg_restore: finished item 5068 FK CONSTRAINT site_observations site_observations_criterion_id_fkey
+pg_restore: launching item 5294 TABLE DATA oat_importance
+pg_restore: processing data for table "public.oat_importance"
+pg_restore: finished item 5294 TABLE DATA oat_importance
+pg_restore: launching item 5295 TABLE DATA weight_profile_stability
+pg_restore: processing data for table "public.weight_profile_stability"
+pg_restore: finished item 5295 TABLE DATA weight_profile_stability
+pg_restore: launching item 5093 FK CONSTRAINT oat_importance oat_importance_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.oat_importance oat_importance_run_id_fkey"
+pg_restore: finished item 5093 FK CONSTRAINT oat_importance oat_importance_run_id_fkey
+pg_restore: launching item 5309 TABLE DATA scoring_band_recipes
+pg_restore: processing data for table "public.scoring_band_recipes"
+pg_restore: finished item 5309 TABLE DATA scoring_band_recipes
+pg_restore: launching item 5014 CONSTRAINT weight_profile_stability pk_weight_profile_stability
+pg_restore: creating CONSTRAINT "public.weight_profile_stability pk_weight_profile_stability"
+pg_restore: finished item 5014 CONSTRAINT weight_profile_stability pk_weight_profile_stability
+pg_restore: launching item 5094 FK CONSTRAINT weight_profile_stability weight_profile_stability_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.weight_profile_stability weight_profile_stability_run_id_fkey"
+pg_restore: finished item 5094 FK CONSTRAINT weight_profile_stability weight_profile_stability_run_id_fkey
+pg_restore: launching item 5045 CONSTRAINT scoring_band_recipes scoring_band_recipes_pkey
+pg_restore: creating CONSTRAINT "public.scoring_band_recipes scoring_band_recipes_pkey"
+pg_restore: finished item 5045 CONSTRAINT scoring_band_recipes scoring_band_recipes_pkey
+pg_restore: launching item 5092 FK CONSTRAINT oat_importance oat_importance_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.oat_importance oat_importance_criterion_id_fkey"
+pg_restore: finished item 5092 FK CONSTRAINT oat_importance oat_importance_criterion_id_fkey
+pg_restore: launching item 5301 TABLE DATA country_balance_check
+pg_restore: processing data for table "public.country_balance_check"
+pg_restore: finished item 5301 TABLE DATA country_balance_check
+pg_restore: launching item 5267 TABLE DATA countries
+pg_restore: processing data for table "public.countries"
+pg_restore: finished item 5267 TABLE DATA countries
+pg_restore: launching item 5105 FK CONSTRAINT country_balance_check country_balance_check_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.country_balance_check country_balance_check_run_id_fkey"
+pg_restore: finished item 5105 FK CONSTRAINT country_balance_check country_balance_check_run_id_fkey
+pg_restore: launching item 4915 CONSTRAINT countries countries_pkey
+pg_restore: creating CONSTRAINT "public.countries countries_pkey"
+pg_restore: finished item 4915 CONSTRAINT countries countries_pkey
+pg_restore: launching item 5027 CONSTRAINT country_balance_check pk_country_balance_check
+pg_restore: creating CONSTRAINT "public.country_balance_check pk_country_balance_check"
+pg_restore: finished item 5027 CONSTRAINT country_balance_check pk_country_balance_check
+pg_restore: launching item 5012 CONSTRAINT oat_importance pk_oat_importance
+pg_restore: creating CONSTRAINT "public.oat_importance pk_oat_importance"
+pg_restore: finished item 5012 CONSTRAINT oat_importance pk_oat_importance
+pg_restore: launching item 5311 TABLE DATA scoring_run_snapshots
+pg_restore: processing data for table "public.scoring_run_snapshots"
+pg_restore: finished item 5311 TABLE DATA scoring_run_snapshots
+pg_restore: launching item 5110 FK CONSTRAINT scoring_run_snapshots scoring_run_snapshots_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_run_snapshots scoring_run_snapshots_run_id_fkey"
+pg_restore: finished item 5110 FK CONSTRAINT scoring_run_snapshots scoring_run_snapshots_run_id_fkey
+pg_restore: launching item 5111 FK CONSTRAINT scoring_run_snapshots scoring_run_snapshots_snapshot_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_run_snapshots scoring_run_snapshots_snapshot_id_fkey"
+pg_restore: finished item 5111 FK CONSTRAINT scoring_run_snapshots scoring_run_snapshots_snapshot_id_fkey
+pg_restore: launching item 5049 CONSTRAINT scoring_run_snapshots scoring_run_snapshots_pkey
+pg_restore: creating CONSTRAINT "public.scoring_run_snapshots scoring_run_snapshots_pkey"
+pg_restore: finished item 5049 CONSTRAINT scoring_run_snapshots scoring_run_snapshots_pkey
+pg_restore: launching item 5304 TABLE DATA scoring_definition_state
+pg_restore: processing data for table "public.scoring_definition_state"
+pg_restore: finished item 5304 TABLE DATA scoring_definition_state
+pg_restore: launching item 5034 CONSTRAINT scoring_definition_state scoring_definition_state_pkey
+pg_restore: creating CONSTRAINT "public.scoring_definition_state scoring_definition_state_pkey"
+pg_restore: finished item 5034 CONSTRAINT scoring_definition_state scoring_definition_state_pkey
+pg_restore: launching item 5263 TABLE DATA alembic_version
+pg_restore: processing data for table "public.alembic_version"
+pg_restore: finished item 5263 TABLE DATA alembic_version
+pg_restore: launching item 4898 CONSTRAINT alembic_version alembic_version_pkc
+pg_restore: creating CONSTRAINT "public.alembic_version alembic_version_pkc"
+pg_restore: finished item 4898 CONSTRAINT alembic_version alembic_version_pkc
+pg_restore: launching item 4805 TABLE DATA spatial_ref_sys
+pg_restore: processing data for table "public.spatial_ref_sys"
+pg_restore: finished item 4805 TABLE DATA spatial_ref_sys
+pg_restore: launching item 5266 TABLE DATA connector_errors
+pg_restore: processing data for table "public.connector_errors"
+pg_restore: finished item 5266 TABLE DATA connector_errors
+pg_restore: launching item 5053 FK CONSTRAINT connector_errors connector_errors_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.connector_errors connector_errors_criterion_id_fkey"
+pg_restore: finished item 5053 FK CONSTRAINT connector_errors connector_errors_criterion_id_fkey
+pg_restore: launching item 5075 FK CONSTRAINT sites sites_country_code_fkey
+pg_restore: creating FK CONSTRAINT "public.sites sites_country_code_fkey"
+pg_restore: finished item 5075 FK CONSTRAINT sites sites_country_code_fkey
+pg_restore: launching item 5293 TABLE DATA country_site_rankings
+pg_restore: processing data for table "public.country_site_rankings"
+pg_restore: finished item 5293 TABLE DATA country_site_rankings
+pg_restore: launching item 5010 CONSTRAINT country_site_rankings pk_country_site_rankings
+pg_restore: creating CONSTRAINT "public.country_site_rankings pk_country_site_rankings"
+pg_restore: finished item 5010 CONSTRAINT country_site_rankings pk_country_site_rankings
+pg_restore: launching item 5091 FK CONSTRAINT country_site_rankings country_site_rankings_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.country_site_rankings country_site_rankings_site_id_fkey"
+pg_restore: finished item 5091 FK CONSTRAINT country_site_rankings country_site_rankings_site_id_fkey
+pg_restore: launching item 5090 FK CONSTRAINT country_site_rankings country_site_rankings_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.country_site_rankings country_site_rankings_run_id_fkey"
+pg_restore: finished item 5090 FK CONSTRAINT country_site_rankings country_site_rankings_run_id_fkey
+pg_restore: launching item 4912 INDEX ix_connector_errors_run_id
+pg_restore: creating INDEX "public.ix_connector_errors_run_id"
+pg_restore: finished item 4912 INDEX ix_connector_errors_run_id
+pg_restore: launching item 4913 INDEX ix_connector_errors_site_id
+pg_restore: creating INDEX "public.ix_connector_errors_site_id"
+pg_restore: finished item 4913 INDEX ix_connector_errors_site_id
+pg_restore: launching item 5054 FK CONSTRAINT connector_errors connector_errors_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.connector_errors connector_errors_run_id_fkey"
+pg_restore: finished item 5054 FK CONSTRAINT connector_errors connector_errors_run_id_fkey
+pg_restore: launching item 4911 INDEX ix_connector_errors_connector
+pg_restore: creating INDEX "public.ix_connector_errors_connector"
+pg_restore: finished item 4911 INDEX ix_connector_errors_connector
+pg_restore: launching item 4910 CONSTRAINT connector_errors connector_errors_pkey
+pg_restore: creating CONSTRAINT "public.connector_errors connector_errors_pkey"
+pg_restore: finished item 4910 CONSTRAINT connector_errors connector_errors_pkey
+pg_restore: launching item 5097 FK CONSTRAINT failure_outcomes failure_outcomes_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.failure_outcomes failure_outcomes_run_id_fkey"
+pg_restore: finished item 5097 FK CONSTRAINT failure_outcomes failure_outcomes_run_id_fkey
+pg_restore: launching item 5083 FK CONSTRAINT composite_score_components composite_score_components_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_score_components composite_score_components_criterion_id_fkey"
+pg_restore: finished item 5083 FK CONSTRAINT composite_score_components composite_score_components_criterion_id_fkey
+pg_restore: launching item 5262 TABLE DATA _staging_unmatched_ownership
+pg_restore: processing data for table "public._staging_unmatched_ownership"
+pg_restore: finished item 5262 TABLE DATA _staging_unmatched_ownership
+pg_restore: launching item 5109 FK CONSTRAINT scoring_band_recipes scoring_band_recipes_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.scoring_band_recipes scoring_band_recipes_criterion_id_fkey"
+pg_restore: finished item 5109 FK CONSTRAINT scoring_band_recipes scoring_band_recipes_criterion_id_fkey
+pg_restore: launching item 4896 CONSTRAINT _staging_unmatched_ownership _staging_unmatched_ownership_pkey
+pg_restore: creating CONSTRAINT "public._staging_unmatched_ownership _staging_unmatched_ownership_pkey"
+pg_restore: finished item 4896 CONSTRAINT _staging_unmatched_ownership _staging_unmatched_ownership_pkey
+pg_restore: launching item 5086 FK CONSTRAINT composite_score_components composite_score_components_smr_key_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_score_components composite_score_components_smr_key_fkey"
+pg_restore: finished item 5086 FK CONSTRAINT composite_score_components composite_score_components_smr_key_fkey
+pg_restore: launching item 5055 FK CONSTRAINT connector_errors connector_errors_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.connector_errors connector_errors_site_id_fkey"
+pg_restore: finished item 5055 FK CONSTRAINT connector_errors connector_errors_site_id_fkey
+pg_restore: launching item 5302 TABLE DATA threshold_overrides
+pg_restore: processing data for table "public.threshold_overrides"
+pg_restore: finished item 5302 TABLE DATA threshold_overrides
+pg_restore: launching item 5028 INDEX ix_threshold_overrides_smr_key
+pg_restore: creating INDEX "public.ix_threshold_overrides_smr_key"
+pg_restore: finished item 5028 INDEX ix_threshold_overrides_smr_key
+pg_restore: launching item 5030 CONSTRAINT threshold_overrides threshold_overrides_pkey
+pg_restore: creating CONSTRAINT "public.threshold_overrides threshold_overrides_pkey"
+pg_restore: finished item 5030 CONSTRAINT threshold_overrides threshold_overrides_pkey
+pg_restore: launching item 5323 SEQUENCE SET site_raw_responses_id_seq
+pg_restore: executing SEQUENCE SET site_raw_responses_id_seq
+pg_restore: finished item 5323 SEQUENCE SET site_raw_responses_id_seq
+pg_restore: launching item 5087 FK CONSTRAINT site_bands site_bands_run_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_bands site_bands_run_id_fkey"
+pg_restore: finished item 5087 FK CONSTRAINT site_bands site_bands_run_id_fkey
+pg_restore: launching item 5052 FK CONSTRAINT composite_rankings fk_composite_rankings_run
+pg_restore: creating FK CONSTRAINT "public.composite_rankings fk_composite_rankings_run"
+pg_restore: finished item 5052 FK CONSTRAINT composite_rankings fk_composite_rankings_run
+pg_restore: launching item 5070 FK CONSTRAINT site_observations site_observations_smr_key_fkey
+pg_restore: creating FK CONSTRAINT "public.site_observations site_observations_smr_key_fkey"
+pg_restore: finished item 5070 FK CONSTRAINT site_observations site_observations_smr_key_fkey
+pg_restore: launching item 5051 FK CONSTRAINT composite_rankings composite_rankings_smr_key_fkey
+pg_restore: creating FK CONSTRAINT "public.composite_rankings composite_rankings_smr_key_fkey"
+pg_restore: finished item 5051 FK CONSTRAINT composite_rankings composite_rankings_smr_key_fkey
+pg_restore: finished item 4935 CONSTRAINT screening_verdicts uq_verdict_site_smr_criterion_prompt_run
+pg_restore: launching item 5060 FK CONSTRAINT screening_verdicts fk_screening_verdicts_run
+pg_restore: creating FK CONSTRAINT "public.screening_verdicts fk_screening_verdicts_run"
+pg_restore: finished item 5060 FK CONSTRAINT screening_verdicts fk_screening_verdicts_run
+pg_restore: launching item 5061 FK CONSTRAINT screening_verdicts screening_verdicts_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.screening_verdicts screening_verdicts_criterion_id_fkey"
+pg_restore: finished item 5061 FK CONSTRAINT screening_verdicts screening_verdicts_criterion_id_fkey
+pg_restore: launching item 5062 FK CONSTRAINT screening_verdicts screening_verdicts_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.screening_verdicts screening_verdicts_site_id_fkey"
+pg_restore: finished item 5062 FK CONSTRAINT screening_verdicts screening_verdicts_site_id_fkey
+pg_restore: launching item 5063 FK CONSTRAINT screening_verdicts screening_verdicts_smr_key_fkey
+pg_restore: creating FK CONSTRAINT "public.screening_verdicts screening_verdicts_smr_key_fkey"
+pg_restore: finished item 5271 TABLE DATA ranking_scores
+pg_restore: launching item 4927 CONSTRAINT ranking_scores ranking_scores_pkey
+pg_restore: creating CONSTRAINT "public.ranking_scores ranking_scores_pkey"
+pg_restore: finished item 5063 FK CONSTRAINT screening_verdicts screening_verdicts_smr_key_fkey
+pg_restore: finished item 4927 CONSTRAINT ranking_scores ranking_scores_pkey
+pg_restore: launching item 4929 CONSTRAINT ranking_scores uq_ranking_site_smr_criterion_run
+pg_restore: creating CONSTRAINT "public.ranking_scores uq_ranking_site_smr_criterion_run"
+pg_restore: finished item 4929 CONSTRAINT ranking_scores uq_ranking_site_smr_criterion_run
+pg_restore: launching item 5056 FK CONSTRAINT ranking_scores fk_ranking_scores_run
+pg_restore: creating FK CONSTRAINT "public.ranking_scores fk_ranking_scores_run"
+pg_restore: finished item 5056 FK CONSTRAINT ranking_scores fk_ranking_scores_run
+pg_restore: launching item 5057 FK CONSTRAINT ranking_scores ranking_scores_criterion_id_fkey
+pg_restore: creating FK CONSTRAINT "public.ranking_scores ranking_scores_criterion_id_fkey"
+pg_restore: finished item 5057 FK CONSTRAINT ranking_scores ranking_scores_criterion_id_fkey
+pg_restore: launching item 5058 FK CONSTRAINT ranking_scores ranking_scores_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.ranking_scores ranking_scores_site_id_fkey"
+pg_restore: finished item 5058 FK CONSTRAINT ranking_scores ranking_scores_site_id_fkey
+pg_restore: launching item 5059 FK CONSTRAINT ranking_scores ranking_scores_smr_key_fkey
+pg_restore: creating FK CONSTRAINT "public.ranking_scores ranking_scores_smr_key_fkey"
+pg_restore: finished item 5059 FK CONSTRAINT ranking_scores ranking_scores_smr_key_fkey
+pg_restore: finished item 5280 TABLE DATA site_raw_responses
+pg_restore: launching item 4959 INDEX ix_site_raw_responses_connector
+pg_restore: launching item 4960 INDEX ix_site_raw_responses_site_id
+pg_restore: creating INDEX "public.ix_site_raw_responses_connector"
+pg_restore: creating INDEX "public.ix_site_raw_responses_site_id"
+pg_restore: finished item 4960 INDEX ix_site_raw_responses_site_id
+pg_restore: finished item 4959 INDEX ix_site_raw_responses_connector
+pg_restore: launching item 4962 CONSTRAINT site_raw_responses site_raw_responses_pkey
+pg_restore: creating CONSTRAINT "public.site_raw_responses site_raw_responses_pkey"
+pg_restore: finished item 4962 CONSTRAINT site_raw_responses site_raw_responses_pkey
+pg_restore: launching item 4964 CONSTRAINT site_raw_responses uq_site_raw_responses_site_connector_run
+pg_restore: creating CONSTRAINT "public.site_raw_responses uq_site_raw_responses_site_connector_run"
+pg_restore: finished item 4964 CONSTRAINT site_raw_responses uq_site_raw_responses_site_connector_run
+pg_restore: launching item 5073 FK CONSTRAINT site_raw_responses site_raw_responses_site_id_fkey
+pg_restore: creating FK CONSTRAINT "public.site_raw_responses site_raw_responses_site_id_fkey"
+pg_restore: finished item 5073 FK CONSTRAINT site_raw_responses site_raw_responses_site_id_fkey
+pg_restore: skipping item 5319 ACL TABLE geography_columns
+pg_restore: skipping item 5320 ACL TABLE geometry_columns
+pg_restore: skipping item 5322 ACL TABLE spatial_ref_sys
+pg_restore: finished main parallel loop
+pg_restore: executing SELECT pg_catalog.set_config('search_path', '', false);
+pg_restore: while PROCESSING TOC:
+pg_restore: from TOC entry 4832; 2604 50625 DEFAULT site_raw_responses id atoms
+pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+Command was: SET transaction_timeout = 0;
+pg_restore: warning: errors ignored on restore: 2

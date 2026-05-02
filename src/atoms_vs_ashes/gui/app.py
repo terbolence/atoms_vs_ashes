@@ -20,6 +20,11 @@ import html
 from pathlib import Path
 from typing import Any
 
+from dotenv import load_dotenv
+
+# Same as CLI: load repo `.env` before Settings/engine (Streamlit does not import cli.py).
+load_dotenv(Path(__file__).resolve().parents[3] / ".env", override=False)
+
 import streamlit as st
 
 from atoms_vs_ashes.gui._overview import render as render_overview

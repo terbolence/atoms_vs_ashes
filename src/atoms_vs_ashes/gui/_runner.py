@@ -170,11 +170,13 @@ def start_score_run(
 ) -> RunHandle:
     """Launch ``score run`` against the active DB profile."""
     run_id = _new_run_id("score")
-    yaml_path = export_active_profile_to_yaml(run_id, profile=profile)
+    active = profile if profile is not None else _load_active_profile()
+    yaml_path = export_active_profile_to_yaml(run_id, profile=active)
     cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
-    weight = weight_profile or (profile or _load_active_profile()).weight_profile
+    weight = weight_profile or active.weight_profile
     cmd = [
         sys.executable, "-m", "atoms_vs_ashes",
+        "--db-profile", active.db_profile,
         "--run-id", run_id, "score", "run",
         "--weight-profile", weight,
         "--profile", str(yaml_path.resolve()),
@@ -203,6 +205,7 @@ def start_sensitivity_run(
     audit = audit_dir or active.output.audit_dir
     cmd = [
         sys.executable, "-m", "atoms_vs_ashes",
+        "--db-profile", active.db_profile,
         "--run-id", run_id, "score", "sensitivity",
         "--weight-profile-base", weight,
         "--rubric-dir", str(Path(active.spec_dir)),
