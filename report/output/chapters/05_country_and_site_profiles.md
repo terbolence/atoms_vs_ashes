@@ -4,15 +4,15 @@ This chapter hosts country narratives and site-level summaries. It should be dra
 
 ## 5.1 Country Profile Structure and Interpretation Rules
 
-Define the repeatable profile structure: national context, ranked shortlist, sensitivity stability, key constraints, data gaps, and Stage 3 follow-up.
+Define the repeatable profile structure: national context, brief list of relevant sites, ranking qualification, user-selected sites for detailed analysis, key constraints, data gaps, and Stage 3 follow-up.
 
 ## 5.2 Country Profiles and Top Sites
 
-Create one subsection per country once the site-count decision is confirmed. Default heuristic: 3-5 sites per country, capped by `min(10, available strong candidates)`.
+Create one subsection per alphabetically ordered country that has at least one viable NuScale VOYGR-6 candidate. Countries with no viable candidate should be presented in a consolidated failure section rather than as full profiles.
 
 ## 5.3 Site-Level Summaries and Supporting Maps
 
-Use `export_site_bundle` output plus map/figure paths where available. Each site summary should separate evidence, significance, and limitation.
+Use `export_site_bundle` output plus map/figure paths where available. Each selected site should receive a consistent visual pack where data permit. Each site summary should separate evidence, significance, and limitation.
 
 ## 5.4 Ownership, Infrastructure, and Coal-to-Nuclear Interpretation
 
@@ -20,6 +20,7 @@ Interpret ownership and infrastructure only to the extent supported by the datab
 
 ## Drafting Notes
 
-- Primary inputs: site bundle JSON, `report/output/sensitivity/20260425b/national/`, scoring exports, and country figures.
+- Primary inputs: site bundle JSON, aligned report-output sensitivity packs for the latest frozen run, scoring exports, failure outputs, and country figures.
+- Use the country and site profile workflow in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
 - Use the expert site-describer prompt in `prompts/site_describer.md` for first drafts only after explicit live-API consent if an external LLM is called.
 - Human review is mandatory for ownership wording, country-specific policy claims, and sensitive geopolitical statements.

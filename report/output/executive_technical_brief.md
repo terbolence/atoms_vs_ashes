@@ -2,7 +2,7 @@
 
 **Purpose.** This standalone brief explains how the automated assessment system was built and how its outputs should be interpreted by executives. It is a governance and audit summary, not a replacement for the technical report.
 
-**Current drafting anchor.** Sensitivity stamp `20260425b`; update all metrics if the final production run changes.
+**Current drafting anchor.** Use the analytical anchor in [`writing plan/writingDecisions.md`](writing%20plan/writingDecisions.md): `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`, run ID `sens-7b609bd0`. Finalise all metrics only after the final production run and report-output packs are aligned.
 
 ## 1. Objective and Scope of the Automated Assessment System
 
@@ -34,7 +34,7 @@ Summarise how the merged database, scoring run, rubric version, and sensitivity 
 
 - Merged database/run ID: `TBD`
 - Scoring rubric version: `TBD`
-- Sensitivity stamp: `20260425b` or successor
+- Sensitivity run: `sens-7b609bd0` or successor
 - Reference SMR for narrative convention: `nuscale_voygr6`
 
 ## 5. Data Gaps and Certainty by Method
@@ -51,13 +51,16 @@ Finalize this section after the last production run.
 
 | Metric | Current value | Finalization note |
 | --- | ---: | --- |
-| Sites in regional sensitivity summary | 257 | From `report/output/sensitivity/20260425b/00_regional_summary.md`. |
-| A-G named sites | 46 | 17.9% of assessed set under `20260425b`. |
-| H-band sites | 211 | Screening/sensitivity long-tail under `20260425b`. |
-| Human workload | TBD | Pull from man-hours artefacts at final freeze. |
+| Sites in final regional sensitivity summary | TBD | Populate from the aligned report-output pack for the final run. |
+| Viable NuScale VOYGR-6 candidates | TBD | Populate from the final candidate/failure outputs. |
+| Failed or screened-out sites | TBD | Include reasons and threshold-distance summaries where measurable. |
+| Direct spend | TBD | Include API, LLM, compute, and data costs where tracked. |
+| Actual human workload | TBD | Pull from man-hours artefacts at final freeze. |
+| Equivalent human hours avoided | TBD | Estimate and state the assumption basis. |
 | Token usage | TBD | Include only if tracked and reviewed. |
+| Database size | TBD | Include relevant DB size, table counts, and generated artefact volumes. |
 | Final scoring run ID | TBD | Must match technical report. |
-| Final sensitivity stamp | `20260425b` | Replace if rerun. |
+| Final sensitivity run ID | `sens-7b609bd0` | Replace if rerun. |
 
 ## 7. Clear Limitations
 

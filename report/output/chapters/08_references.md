@@ -19,7 +19,8 @@ This chapter is the bibliography scaffold for the final report. Keep working ref
 - `report/methodology/sensitivity_analysis.md`
 - `report/methodology/swing_weight_audit.md`
 - `report/methodology/assumption_register.md`
-- `report/output/sensitivity/20260425b/00_regional_summary.md`
+- Final aligned report-output sensitivity pack for the frozen run named in `report/output/writing plan/writingDecisions.md`
+- `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`
 
 ## Drafting Notes
 

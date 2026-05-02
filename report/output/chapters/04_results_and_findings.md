@@ -4,11 +4,11 @@ This chapter anchors the final narrative to the frozen scoring and sensitivity o
 
 ## 4.1 Regional and Cross-Country Findings
 
-Use sensitivity stamp `20260425b` until superseded. The regional summary reports 257 sites, with 46 A-G named sites (17.9%) and 211 H-band sites. Link to [`../sensitivity/20260425b/00_regional_summary.md`](../sensitivity/20260425b/00_regional_summary.md).
+Use the frozen scoring and sensitivity outputs named in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md). The latest analytical anchor is `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`, run ID `sens-7b609bd0`. Do not finalise this chapter until report-output regional and national packs have been regenerated or aligned to that run.
 
 ## 4.2 Per-Country Top Candidate Sites
 
-Summarise up to 10 sites per country, or fewer when the country has fewer strong candidates. Use national packs under [`../sensitivity/20260425b/national/`](../sensitivity/20260425b/national/).
+Summarise up to 10 relevant NuScale VOYGR-6 sites per viable country, or fewer when the country has fewer strong candidates. Countries with no viable candidate should be handled in a consolidated failure section with failure reasons and measurable distance-to-threshold where available.
 
 ## 4.3 Sites Recommended for Progression Toward Stage 3
 

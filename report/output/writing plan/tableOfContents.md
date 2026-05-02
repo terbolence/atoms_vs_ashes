@@ -1,5 +1,7 @@
 # Table of Contents
 
+This is the canonical composition index for the client-facing report. Drafting decisions, output rules, and prompt architecture are controlled by [`writingDecisions.md`](writingDecisions.md). Chapter files are assembled from `report/output/chapters/`; if a chapter is split into a folder, preserve the numbering below and update `report/output/chapters/index.md`.
+
 ## Acronyms and Abbreviations
 
 ## 1. Introduction
@@ -110,12 +112,12 @@
 | -------- | ---- | ---------------- |
 | IAEA SSR-1 to project criterion traceability | [`report/methodology/ssr1_traceability.md`](../../methodology/ssr1_traceability.md) | `scripts.generate_ssr1_traceability` |
 | Exclusionary thresholds and safety-floor rules | [`report/methodology/exclusionary_floors.md`](../../methodology/exclusionary_floors.md) | `scripts.generate_exclusionary_floors` |
-| Sensitivity method and reference run | [`report/methodology/sensitivity_analysis.md`](../../methodology/sensitivity_analysis.md) | `scripts.run_phase_1_6_sensitivity`; narrative partly manual |
+| Sensitivity method and reference run | [`report/methodology/sensitivity_analysis.md`](../../methodology/sensitivity_analysis.md) | Latest anchor: `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`; run ID `sens-7b609bd0`; narrative partly manual |
 | Failure-mode analysis - global pack | [`report/methodology/failure_analysis.md`](../../methodology/failure_analysis.md) | `scripts.generate_failure_analysis` |
 | Failure-mode analysis - NuScale VOYGR-6 pack | [`report/methodology/failure_analysis_nuscale_voygr6.md`](../../methodology/failure_analysis_nuscale_voygr6.md) | `scripts.generate_failure_analysis --smr-nuscale` |
 | Failure-mode analysis - other vendor packs | `report/methodology/failure_analysis_<smr_key>.md` | Generated with `scripts.generate_failure_analysis --smr-<vendor>` |
 | Swing-weight audit | [`report/methodology/swing_weight_audit.md`](../../methodology/swing_weight_audit.md) | `scripts.generate_swing_weight_audit` |
 | Criterion correlation flag list | [`report/methodology/criterion_correlation.md`](../../methodology/criterion_correlation.md) | Phase 1.6 correlation figures / analysis scripts |
 | Project-wide assumption register | [`report/methodology/assumption_register.md`](../../methodology/assumption_register.md) | Manual; versioned with the rubric |
-| Regional and per-country sensitivity reports | [`report/output/sensitivity/<stamp>/`](../../output/sensitivity/) | `scripts.run_phase_1_6_extended_analysis` |
+| Regional and per-country sensitivity reports | [`report/output/sensitivity/<stamp>/`](../../output/sensitivity/) | Regenerate or align report-output packs to the `20260502` 10,000-MC run before final drafting |
 | Scoring specifications and rubrics | `config/scoring_specs/`; `config/scoring_rubrics/` | Source configuration for scoring detail; not duplicated in the ToC |

@@ -44,6 +44,6 @@ State the exact decision support produced by Stage 2 and the field confirmation 
 
 ## Drafting Notes
 
-- Primary links: `report/methodology/exclusionary_floors.md`, `report/methodology/swing_weight_audit.md`, `report/methodology/sensitivity_analysis.md`, and `report/output/sensitivity/20260425b/00_regional_summary.md`.
+- Primary links: `report/methodology/exclusionary_floors.md`, `report/methodology/swing_weight_audit.md`, `report/methodology/sensitivity_analysis.md`, and the frozen scoring/sensitivity artefacts named in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
 - Keep criterion order aligned with the rubric: NH, HI, RI, EP, NS, land use, socioeconomic.
 - Human review should check language around "preferred site" so it means shortlist priority, not licensing suitability.

@@ -15,5 +15,5 @@ Summarise what the assessment demonstrates: a reproducible, traceable way to mov
 ## Drafting Notes
 
 - Keep this chapter concise.
-- Reuse language from `report/output/writing plan/phase_0_scope.md` for scope control.
+- Reuse language from `report/output/writing plan/writingDecisions.md` for scope control.
 - Human review should check that final wording does not overclaim regulatory readiness.

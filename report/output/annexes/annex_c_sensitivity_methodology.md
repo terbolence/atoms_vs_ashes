@@ -13,9 +13,8 @@ This annex explains the uncertainty and robustness tests used to interpret ranki
 ## Primary Sources
 
 - `report/methodology/sensitivity_analysis.md`
-- `report/output/sensitivity/20260425b/00_regional_summary.md`
-- `report/output/sensitivity/20260425b/criterion_correlation.md`
-- `report/output/sensitivity/20260425b/national/`
+- `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`
+- Final aligned `report/output/sensitivity/<stamp>/` regional, criterion-correlation, and national packs for the frozen run.
 
 ## Human Review
 

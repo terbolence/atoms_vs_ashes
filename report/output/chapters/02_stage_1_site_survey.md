@@ -33,5 +33,6 @@ State what Stage 1 produces and what remains unresolved for Stage 2 and Stage 3.
 ## Drafting Notes
 
 - Primary links: `report/requirements/04_siting_methodology.md`, `report/methodology/assumption_register.md`, and `report/methodology/ssr1_traceability.md`.
-- Use `report/output/sensitivity/20260425b/` only for Stage 2 and results references; Stage 1 should focus on site universe and evidence readiness.
+- Use sensitivity outputs only for Stage 2 and results references; Stage 1 should focus on site universe and evidence readiness.
+- Follow the analytical anchor and output rules in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
 - Human review should check country naming, plant status, and any coal-retirement claims against source data.
