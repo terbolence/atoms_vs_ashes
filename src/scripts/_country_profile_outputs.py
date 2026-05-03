@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -35,20 +36,26 @@ def write_artifacts(
     country_code: str,
     smr_label: str,
     site_slug: str | None,
+    site_only: bool = False,
 ) -> None:
     """Write data, figures, and markdown for one country/site profile.
 
     The site bundle, site charts, and site profile are written only
     when ``site_bundle``, ``selected_row``, and ``site_slug`` are all
-    present. When called in country-only mode the country artefacts
+    present. When ``site_only`` is true the country artefacts
     (bundle JSON, ledger CSV, status maps, Pareto charts, country
-    markdown) are written without touching anything under ``sites/``.
+    markdown) are skipped (useful when patching one site without
+    touching the country profile, which preserves a filled
+    ``country_exec`` placeholder). When called in country-only mode the
+    country artefacts are written without touching anything under
+    ``sites/``.
     """
     write_site = (
         site_bundle is not None
         and selected_row is not None
         and site_slug
     )
+    write_country = not site_only
     (out / "data").mkdir(parents=True, exist_ok=True)
     (out / "figures").mkdir(parents=True, exist_ok=True)
     if write_site:
@@ -57,35 +64,36 @@ def write_artifacts(
 
     set_criteria_lookup(country_bundle.get("criteria_lookup", {}))
 
-    country_bundle_filename = f"{country_prefix}_country_bundle.json"
-    _write_json(out / "data" / country_bundle_filename, country_bundle)
-    _write_csv(
-        out / "data" / f"{country_prefix}_site_ledger.csv",
-        country_bundle.get("sites", []),
-    )
-
-    bundle_rows = [
-        _ledger_row(row) for row in country_bundle.get("sites", [])
-    ]
-    maps = write_maps(
-        out / "figures", bundle_rows, country_name=country_name,
-        country_code=country_code, smr_label=smr_label,
-    )
-    pareto_charts = _write_pareto_charts(
-        out / "figures", country_bundle,
-        country_prefix=country_prefix,
-        country_name=country_name.split(" (", 1)[0],
-    )
     country_md_name = f"{country_prefix}_country_prototype.md"
-    (out / country_md_name).write_text(
-        render_country_markdown_from_bundle(
-            country_bundle, country_name=country_name,
-            smr_label=smr_label, maps=maps,
-            pareto_charts=pareto_charts,
-            country_bundle_filename=country_bundle_filename,
-        ),
-        encoding="utf-8",
-    )
+    if write_country:
+        country_bundle_filename = f"{country_prefix}_country_bundle.json"
+        _write_json(out / "data" / country_bundle_filename, country_bundle)
+        _write_csv(
+            out / "data" / f"{country_prefix}_site_ledger.csv",
+            country_bundle.get("sites", []),
+        )
+
+        bundle_rows = [
+            _ledger_row(row) for row in country_bundle.get("sites", [])
+        ]
+        maps = write_maps(
+            out / "figures", bundle_rows, country_name=country_name,
+            country_code=country_code, smr_label=smr_label,
+        )
+        pareto_charts = _write_pareto_charts(
+            out / "figures", country_bundle,
+            country_prefix=country_prefix,
+            country_name=country_name.split(" (", 1)[0],
+        )
+        (out / country_md_name).write_text(
+            render_country_markdown_from_bundle(
+                country_bundle, country_name=country_name,
+                smr_label=smr_label, maps=maps,
+                pareto_charts=pareto_charts,
+                country_bundle_filename=country_bundle_filename,
+            ),
+            encoding="utf-8",
+        )
 
     if write_site:
         site_prefix = f"{country_code}_{site_slug}"
@@ -100,19 +108,53 @@ def write_artifacts(
             "label": f"{country_name.split(' (', 1)[0]} Country Profile",
             "href": f"../{country_md_name}#{COUNTRY_MAP_ANCHOR}",
         }
-        (out / "sites" / f"{site_prefix}.md").write_text(
-            render_site_markdown_from_bundle(
-                site_bundle,
-                country_name=country_name, smr_label=smr_label,
-                chart_paths=charts,
-                composite_summary=composite_summary,
-                country_profile_link=country_profile_link,
-                site_bundle_filename=site_bundle_filename,
-            ),
-            encoding="utf-8",
+        site_md_path = out / "sites" / f"{site_prefix}.md"
+        new_md = render_site_markdown_from_bundle(
+            site_bundle,
+            country_name=country_name, smr_label=smr_label,
+            chart_paths=charts,
+            composite_summary=composite_summary,
+            country_profile_link=country_profile_link,
+            site_bundle_filename=site_bundle_filename,
         )
+        if site_md_path.exists():
+            new_md = _preserve_filled_placeholders(
+                old_text=site_md_path.read_text(encoding="utf-8"),
+                new_text=new_md,
+            )
+        site_md_path.write_text(new_md, encoding="utf-8")
 
     _write_index(out)
+
+
+_PLACEHOLDER_BLOCK_RE = re.compile(
+    r"<!-- specialist key=(?P<key>\S+)[^>]*?-->\n.*?\n<!-- /specialist key=(?P=key) -->",
+    re.DOTALL,
+)
+
+
+def _preserve_filled_placeholders(*, old_text: str, new_text: str) -> str:
+    """Carry forward any ``status=filled`` specialist blocks from the
+    previous render of the same site profile.
+
+    Re-rendering site markdown is needed when the auto-generated
+    criterion bullets, snapshot labels, or static template change.
+    Without preservation, the agent would lose every paragraph
+    already drafted by the siting expert.
+    """
+    filled: dict[str, str] = {}
+    for match in _PLACEHOLDER_BLOCK_RE.finditer(old_text):
+        block = match.group(0)
+        if "status=filled" in block.split("\n", 1)[0]:
+            filled[match.group("key")] = block
+    if not filled:
+        return new_text
+
+    def swap(m: re.Match[str]) -> str:
+        key = m.group("key")
+        return filled.get(key, m.group(0))
+
+    return _PLACEHOLDER_BLOCK_RE.sub(swap, new_text)
 
 
 def _write_pareto_charts(

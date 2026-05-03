@@ -51,6 +51,22 @@ does not, and what the next stage of work has to do.
   must appear verbatim in the bundle slice the dispatcher printed.
   If a value would strengthen the paragraph but is not in the
   slice, do not write it; route the gap to Stage 3 instead.
+- **No source attribution.** Do not name the upstream dataset,
+  database, API, model, raster, vendor catalogue, or research paper
+  that the value came from. Quote the value, the unit, and the
+  observed quantity, and stop. This includes (non-exhaustive):
+  CORINE, OSM, OurAirports, ERA5, Copernicus DEM, ESHM13, EFSM20,
+  GHS-POP, EUROPOP2023, GFMS, CEMS, HydroRIVERS, GloFAS, WRI
+  Aqueduct, EEA E-PRTR, BDTICM, SoilGrids, Zhu et al., WOKAM, EGDI,
+  ENTSO-E, GEM, Eurostat / GISCO, Smithsonian GVP, WDPA / Protected
+  Planet. Public regulatory frameworks that anyone reading the
+  report would already recognise are allowed (Natura 2000 with site
+  code, IUCN protected-area category, Habitats Directive Article
+  6(3), national regulators such as ANM, ANANP, IRP-MAI,
+  Transelectrica, Ministry of National Defence). Reference SMR
+  vendor and design name (NuScale VOYGR-6) and reference standards
+  bodies (IAEA, EPRI, IEA) are allowed because the report names
+  them up-front.
 - No external LLM, web, or tool call.
 
 ## Inputs
@@ -67,6 +83,7 @@ list is out of contract):
 | `family_*` | `site.*`, `smr_label`, `family_label`, `family_row.*`, `rankings[*]`, `verdicts[*]`, `components[*]`, `criteria_lookup.*` |
 | `residual_risk` | `site.*`, `smr_label`, `criterion_families_slim.*`, `flagged_verdicts[*]`, `weakest_ranking_scores[*]`, `bands[*]`, `criteria_lookup.*` |
 | `stability` | `site.*`, `smr_label`, `composite_baseline.*` (incl. `per_category_scores`), `top_contributors[*]`, `bands[*]` |
+| `unlock_analysis` | `site.*`, `smr_label`, `failed_exclusionary_verdicts[*]`, `criterion_families_slim.*`, `criteria_lookup.*` |
 | `country_exec` | `metadata.*`, `totals.*`, `sites[*]`, `avoidance_pareto[*]`, `exclusionary_failure_pareto[*]`, `family_normalised_score_means.*` |
 
 ## Output Contract by key
@@ -150,6 +167,48 @@ Required content:
 - Close with a Stage 3 sequencing sentence: where the next
   characterization effort would produce the largest narrowing of
   the composite uncertainty band.
+
+### `unlock_analysis`
+
+One paragraph (120-220 words) for a hard-fail site. Compact, factual,
+written for an executive who needs a deprecate / characterize /
+escalate decision. Required content:
+
+1. Open by naming the criterion(a) that fail, quoting the raw
+   measured value(s) with units from the bundle slice's
+   `failed_exclusionary_verdicts[*]` and `criterion_families_slim.*`
+   blocks (e.g. "NH-02 Seismic: Surface Rupture fails because the
+   nearest mapped capable fault is 3.2 km from the site, inside the
+   5 km screening exclusion radius").
+2. Classify the failure in plain language as **structural** (capable
+   fault on or adjacent to the site, active volcano within range,
+   non-recoverable EPZ infeasibility, ecological designation that
+   cannot be re-zoned, etc.) or **potentially remediable** (coarse
+   screening proxy, conservative threshold, dataset stale, footprint
+   that can be relocated within the brownfield envelope).
+3. For **structural** failures, state explicitly that no further
+   site-level investment is justified and the site is best deprecated
+   from the brownfield candidate list at this stage. Name briefly
+   what would have to change at policy or programme level for the
+   site to come back.
+4. For **potentially remediable** failures, name the one Stage 3
+   measurement (site-specific PSHA, capable-fault trenching campaign,
+   EPZ population micro-model at the actual NuScale VOYGR-6 EPZ
+   radius, refreshed land-use survey, etc.) that would close the
+   question, and what plausible result would lift the site out of
+   hard-fail status.
+5. Close with one of three explicit recommendations: **Deprecate**,
+   **Continue characterization**, or **Escalate to programme
+   decision**.
+
+`unlock_analysis` limits:
+
+- Do not invent measured values. If the bundle slice does not name
+  the value or unit, leave it unquoted and route the gap to Stage 3.
+- Do not use composite scores, MC bands, or stability bands; the
+  bundle slice does not include them.
+- Do not propose specific engineering mitigations beyond the one
+  Stage 3 measurement above.
 
 ### `country_exec`
 

@@ -80,6 +80,16 @@ def _parser() -> argparse.ArgumentParser:
             "charts, and site markdown."
         ),
     )
+    parser.add_argument(
+        "--site-only", action="store_true",
+        help=(
+            "Build only the per-site bundle, site charts, and site "
+            "markdown for the selected site. Do not rewrite the country "
+            "bundle JSON, country ledger CSV, status maps, Pareto charts, "
+            "or country markdown (preserves the filled country_exec "
+            "placeholder)."
+        ),
+    )
     parser.add_argument("--smr-key", default="nuscale_voygr6")
     parser.add_argument("--output-dir", type=Path, default=Path(
         "report/output/chapters/05_country_and_site_profiles",
@@ -94,6 +104,8 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
+    if args.country_only and args.site_only:
+        raise SystemExit("--country-only and --site-only are mutually exclusive")
     cc = args.country_code.upper()
     init_engine(Settings())
     with session_scope() as session:
@@ -145,8 +157,16 @@ def _write(args, country_code, country_bundle, site_bundle, detail, selected):
         country_code=country_code,
         smr_label=smr_label,
         site_slug=site_slug,
+        site_only=args.site_only,
     )
-    if selected is None:
+    if args.site_only and selected is not None:
+        print(
+            f"Wrote site profile for {cname} / {selected['name']} "
+            f"(site-only mode; "
+            f"scoring={country_bundle['metadata']['analytics_run_id']}, "
+            f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
+        )
+    elif selected is None:
         print(
             f"Wrote country profile for {cname} (country-only mode; "
             f"scoring={country_bundle['metadata']['analytics_run_id']}, "

@@ -48,12 +48,21 @@ def render_site_markdown_from_bundle(
     ownership = bundle.get("ownership") or []
     units = bundle.get("units") or []
     composite = _baseline_composite(composites)
+    site_id = str(site.get("site_id") or "")
+    bundle_name = site_bundle_filename or ""
+
+    if _is_hard_fail(composite, verdicts):
+        return _render_hard_fail(
+            site=site, verdicts=verdicts, ownership=ownership, units=units,
+            country_name=country_name, smr_label=smr_label,
+            country_profile_link=country_profile_link,
+            site_id=site_id, bundle_name=bundle_name,
+        )
+
     crit_meta = _criteria_meta(rankings, verdicts)
     by_family = _verdicts_and_scores_by_family(
         rankings, verdicts, components, crit_meta,
     )
-    site_id = str(site.get("site_id") or "")
-    bundle_name = site_bundle_filename or ""
     lines: list[str] = []
     lines += _header(site, smr_label, country_name)
     lines += _snapshot(
@@ -339,7 +348,7 @@ def _family_section(
             if weight is not None else "weight n/a"
         )
         signals_text = "; ".join(signals) if signals else "values not in measurement tables"
-        quality = quality_for(cid, families) or "n/a"
+        quality = _sanitize_quality(quality_for(cid, families))
         lines.append(
             f"- **{crit_name} ({cid})** - score {score_text}, {weight_text}, "
             f"data quality {quality}. Evidence: {signals_text}."
@@ -471,7 +480,7 @@ def _stage3_checklist(
         if q in ("low", "no_data", "not_found"):
             items.append(
                 f"- [ ] Improve data quality for **{_full_name(cid)} "
-                f"({cid})** - current flag `{q}`."
+                f"({cid})** - current flag `{_sanitize_quality(q)}`."
             )
     return ["", "## Stage 3 Follow-Up Checklist", "", *items[:12]]
 
@@ -484,7 +493,9 @@ def _limitations(
     for cid in CRITERION_FIELDS:
         q = quality_for(cid, families)
         if q in ("low", "no_data", "not_found"):
-            flags.append(f"- {_full_name(cid)} ({cid}) - quality `{q}`.")
+            flags.append(
+                f"- {_full_name(cid)} ({cid}) - quality `{_sanitize_quality(q)}`."
+            )
     if not flags:
         flags.append("- No criterion-family quality fields are flagged as low or missing in this bundle.")
     return ["", "## Evidence Limitations", "", *flags]
@@ -494,6 +505,29 @@ def _full_name(criterion_id: str) -> str:
     return _CRITERIA_NAME_CACHE.get(
         criterion_id, criterion_id,
     )
+
+
+_QUALITY_GRADE_WHITELIST = frozenset(
+    {"high", "medium", "low", "insufficient", "no_data", "not_found", "n/a"}
+)
+
+
+def _sanitize_quality(value: str | None) -> str:
+    """Strip any source-name leak from the quality string.
+
+    Quality fields in the bundle sometimes carry the dataset slug
+    (e.g. ``copernicus_dem_30m``, ``ghsl_pop_100m_r2023a``,
+    ``natura2000_eea_wfs``) instead of one of the standard grade
+    labels. The report is not allowed to reveal upstream sources, so
+    anything outside the grade whitelist is rendered as
+    ``screening grade``.
+    """
+    if not value:
+        return "n/a"
+    text = str(value).strip().lower()
+    if text in _QUALITY_GRADE_WHITELIST:
+        return text
+    return "screening grade"
 
 
 def set_criteria_lookup(lookup: dict[str, dict[str, Any]]) -> None:
@@ -529,6 +563,160 @@ def _pct(value: Any) -> str:
 
 
 _ = STATUS_LABEL  # re-export marker; keeps STATUS_LABEL available for callers
+
+
+def _is_hard_fail(
+    composite: dict[str, Any], verdicts: list[dict[str, Any]],
+) -> bool:
+    """A site is hard-fail when no baseline composite exists or when at
+    least one exclusionary verdict is a fail. The composite check covers
+    the common case in which the scoring pass simply skipped the site."""
+    if composite.get("composite_score") is None:
+        return any(
+            (str(v.get("phase")) == "exclusionary"
+             and str(v.get("verdict")) == "fail")
+            for v in verdicts
+        )
+    return False
+
+
+def _render_hard_fail(
+    *,
+    site: dict[str, Any],
+    verdicts: list[dict[str, Any]],
+    ownership: list[dict[str, Any]],
+    units: list[dict[str, Any]],
+    country_name: str,
+    smr_label: str,
+    country_profile_link: dict[str, str] | None,
+    site_id: str,
+    bundle_name: str,
+) -> str:
+    """Compact site profile for a hard-fail site.
+
+    Emits: header + one-line subtitle, snapshot table, "Why it failed"
+    paragraph and table, and a single ``unlock_analysis`` specialist
+    placeholder. Skips family bullets, the composite block, the
+    residual-risk register, and the Stage-3 checklist (none of which
+    add value when the site is removed at the exclusionary screen).
+    """
+    name = site.get("name") or "Site"
+    cname = country_name.split(" (", 1)[0]
+    fails = [
+        v for v in verdicts
+        if str(v.get("phase")) == "exclusionary"
+        and str(v.get("verdict")) == "fail"
+    ]
+    fails.sort(key=lambda v: str(v.get("criterion_id") or ""))
+
+    lines: list[str] = [
+        f"# {name} Site Profile",
+        "",
+        f"_{cname} | tested against the {smr_label} reference deployment "
+        "envelope | **Hard-fail at the exclusionary screen**._",
+        "",
+        f"{name} is a coal/thermal site in {cname} that does not survive "
+        f"the exclusionary screen against the {smr_label} reference "
+        "deployment envelope. This profile records the screening "
+        "evidence that drives the failure and provides the siting "
+        "expert's read on whether further characterization is justified. "
+        "It is not a site-suitability determination, vendor "
+        "recommendation, or licensing finding.",
+    ]
+
+    lat = site.get("latitude")
+    lon = site.get("longitude")
+    coord_text = (
+        f"{float(lat):.4f}, {float(lon):.4f}"
+        if lat is not None and lon is not None else "-"
+    )
+    capacity_mw = int(site.get("installed_capacity_mw") or 0)
+    parents = sorted({
+        (row.get("parent_name") or "").strip()
+        for row in ownership if (row.get("parent_name") or "").strip()
+    })
+    parent_text = ", ".join(parents) if parents else "-"
+    fail_codes = ", ".join(
+        sorted({str(v.get("criterion_id") or "") for v in fails})
+    ) or "-"
+
+    rows = [
+        ("Site name", str(name)),
+        ("Country", cname),
+        ("Coordinates", coord_text),
+        ("Subnational unit", str(site.get("subnational_unit") or "-")),
+        ("Installed thermal capacity (source data)", f"{capacity_mw:,} MW"),
+        ("Operating status", str(site.get("status") or "-")),
+        ("Parent owner(s)", parent_text),
+        ("Generating units on record", str(len(units))),
+        ("Screening verdict", "Hard-fail (exclusionary)"),
+        ("Failed exclusionary criteria", fail_codes),
+        ("Composite score", "— (not scored)"),
+        ("National stability band", "— (not banded)"),
+    ]
+    lines += ["", "## Site Snapshot", "", "| Field | Value |", "| --- | --- |"]
+    for label, value in rows:
+        lines.append(f"| {label} | {value} |")
+    if country_profile_link:
+        lines += [
+            "",
+            f"_See the country status map in_ "
+            f"[{country_profile_link['label']}]({country_profile_link['href']}).",
+        ]
+
+    lines += [
+        "",
+        "## Why It Failed",
+        "",
+        f"The site fails {len(fails)} exclusionary criterion(a) below. "
+        "Exclusionary failures act as gates: a single confirmed failure "
+        "removes the site from the brownfield candidate pool until the "
+        "underlying measurement is refuted by site-specific Stage 3 work "
+        "or until a regulatory threshold change makes the failure moot.",
+        "",
+        "| Criterion | Code | Measured value | Threshold | Confidence | Justification |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for v in fails:
+        cid = str(v.get("criterion_id") or "")
+        crit_name = _full_name(cid)
+        m = v.get("measured_value")
+        m_unit = v.get("measured_units") or ""
+        m_text = f"{m}" if m is not None else "-"
+        if m_unit and m is not None:
+            m_text = f"{m} {m_unit}".strip()
+        t = v.get("threshold") or "-"
+        conf = v.get("confidence") or "-"
+        just = (v.get("justification") or "").replace("|", "\\|").strip()
+        if len(just) > 220:
+            just = just[:217] + "..."
+        lines.append(
+            f"| {crit_name} | {cid} | {m_text} | {t} | {conf} | {just} |"
+        )
+
+    lines += ["", "## Unlock Analysis", ""]
+    lines += _site_placeholder(
+        key="unlock_analysis",
+        label="Unlock analysis (deprecate / characterize / escalate)",
+        site_id=site_id, bundle_name=bundle_name,
+    )
+
+    lines += [
+        "",
+        "## Evidence Limitations",
+        "",
+        "- This profile is intentionally compact. Composite scoring, "
+        "Monte-Carlo stability, family contributions, and the residual "
+        "risk register are omitted because none of those views are "
+        "informative for a site that is removed at the exclusionary "
+        "screen.",
+        "- The exclusionary thresholds are screening thresholds; site-"
+        "specific Stage 3 measurement can either confirm the failure or "
+        "lift it. The unlock analysis above states whether that "
+        "investment is justified.",
+    ]
+
+    return "\n".join(lines) + "\n"
 
 
 __all__ = ["render_site_markdown_from_bundle", "set_criteria_lookup"]

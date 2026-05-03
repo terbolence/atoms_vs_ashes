@@ -62,7 +62,9 @@ FAMILY_KEYS = {
         "criteria_prefixes": ("NS", "BF-01"),
     },
 }
-SYNTHESIS_KEYS = ("residual_risk", "stability", "country_exec")
+SYNTHESIS_KEYS = (
+    "residual_risk", "stability", "unlock_analysis", "country_exec",
+)
 
 PLACEHOLDER_RE = re.compile(
     r"<!-- specialist key=(?P<key>\S+) "
@@ -152,6 +154,8 @@ def slice_for_key(key: str, site_bundle: dict[str, Any] | None,
         return _stability_slice(site_bundle)
     if key == "residual_risk":
         return _residual_slice(site_bundle)
+    if key == "unlock_analysis":
+        return _unlock_slice(site_bundle)
     if key in FAMILY_KEYS:
         return _family_slice(key, site_bundle)
     raise SystemExit(f"Unknown specialist key: {key}")
@@ -307,6 +311,53 @@ def _residual_slice(site_bundle: dict[str, Any]) -> dict[str, Any]:
         "criteria_lookup": {
             cid: site_bundle.get("criteria_lookup", {}).get(cid, {})
             for cid in keep_criteria if cid
+        },
+    }
+
+
+def _unlock_slice(site_bundle: dict[str, Any]) -> dict[str, Any]:
+    """Slice for the hard-fail unlock analysis paragraph.
+
+    Carries: site summary, every exclusionary fail verdict (raw value,
+    threshold, justification, units), the relevant rows from the
+    criterion families table for the failed criteria so the siting
+    expert can quote raw measured values, and the criteria_lookup so
+    full names render correctly.
+    """
+    site = site_bundle.get("site") or {}
+    smr_label = (site_bundle.get("metadata") or {}).get(
+        "smr_label", "NuScale VOYGR-6",
+    )
+    families = site_bundle.get("criterion_families") or {}
+    verdicts = (site_bundle.get("screening") or {}).get("verdicts") or []
+    failed = [
+        v for v in verdicts
+        if str(v.get("phase")) == "exclusionary"
+        and str(v.get("verdict")) == "fail"
+    ]
+    failed.sort(key=lambda v: str(v.get("criterion_id") or ""))
+    failed_codes = [str(v.get("criterion_id") or "") for v in failed]
+    family_slim: dict[str, Any] = {}
+    for fam_key, fam_row in families.items():
+        if not isinstance(fam_row, dict):
+            continue
+        row_subset = {
+            k: v for k, v in fam_row.items()
+            if k.endswith("_quality") or any(
+                cid.lower().replace("-", "") in k.lower()
+                for cid in failed_codes if cid
+            )
+        }
+        if row_subset:
+            family_slim[fam_key] = row_subset
+    return {
+        "site": _site_summary(site),
+        "smr_label": smr_label,
+        "failed_exclusionary_verdicts": failed,
+        "criterion_families_slim": family_slim,
+        "criteria_lookup": {
+            cid: site_bundle.get("criteria_lookup", {}).get(cid, {})
+            for cid in failed_codes if cid
         },
     }
 
@@ -732,7 +783,7 @@ def _build_parser() -> argparse.ArgumentParser:
         help=(
             "One of: family_natural_hazards, family_human_hazards, "
             "family_radiological_emergency, family_infrastructure, "
-            "residual_risk, stability, country_exec."
+            "residual_risk, stability, unlock_analysis, country_exec."
         ),
     )
     p_show.set_defaults(func=cmd_show)

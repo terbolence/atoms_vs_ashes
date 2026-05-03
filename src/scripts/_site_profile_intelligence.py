@@ -17,8 +17,8 @@ CRITERIA_FAMILY = "criterion_families"
 # Every criterion that has a structured measurement column. Each entry
 # carries the family table that holds the raw row, plus the
 # (column, unit, label) tuples we surface in prose. A few entries pull
-# additional context from JSON columns (PGA hazard model, Natura 2000
-# nearest site, WDPA designation).
+# additional context from JSON columns (PGA hazard model, nearest
+# Natura 2000 site, nearest protected-area designation).
 
 CRITERION_FIELDS: dict[str, dict[str, Any]] = {
     "NH-01": {
@@ -28,7 +28,6 @@ CRITERION_FIELDS: dict[str, dict[str, Any]] = {
             ("pga_2475yr_g", "g", "PGA at 2,475-year return period"),
         ],
         "json_extras": [
-            ("spectral_accel_json", "model_name", "hazard model"),
             ("spectral_accel_json", "vs30_reference", "Vs30 reference (m/s)"),
         ],
     },
@@ -53,13 +52,13 @@ CRITERION_FIELDS: dict[str, dict[str, Any]] = {
     "NH-04": {
         "family_key": "natural_hazards",
         "fields": [
-            ("slope_angle_deg", "deg", "site slope (CopDEM)"),
-            ("nh04_dem_cog_slope_max_deg", "deg", "max slope in 1 km box (CopDEM)"),
-            ("nh04_gee_slope_max_deg", "deg", "max slope (Earth Engine)"),
+            ("slope_angle_deg", "deg", "site slope"),
+            ("nh04_dem_cog_slope_max_deg", "deg", "max slope in 1 km box"),
+            ("nh04_gee_slope_max_deg", "deg", "max slope (independent DEM)"),
         ],
         "context_fields": [
             ("slope_stability_class", "slope stability class"),
-            ("nh04_gee_terrain_class", "Earth Engine terrain class"),
+            ("nh04_gee_terrain_class", "terrain class"),
         ],
     },
     "NH-05": {
@@ -138,7 +137,7 @@ CRITERION_FIELDS: dict[str, dict[str, Any]] = {
         "fields": [
             ("wildfire_combustible_pct", "%", "combustible land cover share"),
             ("wildfire_wui_ha", "ha", "wildland-urban interface area"),
-            ("nh13_gee_burn_fraction_mean", "fraction", "mean MODIS burn fraction"),
+            ("nh13_gee_burn_fraction_mean", "fraction", "mean burn fraction"),
         ],
         "context_fields": [
             ("nh13_gee_fire_recurrence_class", "fire recurrence class"),
@@ -324,8 +323,8 @@ CRITERION_FIELDS: dict[str, dict[str, Any]] = {
             ("favourable_area_ha", "ha", "favourable area"),
         ],
         "context_fields": [
-            ("dominant_land_class", "dominant CORINE land class"),
-            ("ns04_gee_terrain_class", "Earth Engine terrain class"),
+            ("dominant_land_class", "dominant land class"),
+            ("ns04_gee_terrain_class", "terrain class"),
         ],
     },
     "NS-05": {
@@ -347,20 +346,20 @@ CRITERION_FIELDS: dict[str, dict[str, Any]] = {
     "NS-08": {
         "family_key": "infrastructure",
         "fields": [
-            ("ecological_natural_pct", "%", "natural land cover (CORINE)"),
+            ("ecological_natural_pct", "%", "natural land cover"),
             ("n2k_nearest_distance_km", "km", "distance to nearest Natura 2000 site"),
-            ("wdpa_nearest_distance_km", "km", "distance to nearest WDPA area"),
+            ("wdpa_nearest_distance_km", "km", "distance to nearest protected area"),
         ],
         "context_fields": [
             ("n2k_overlap", "Natura 2000 overlap"),
             ("n2k_sensitivity_class", "Natura 2000 sensitivity class"),
-            ("wdpa_overlap", "WDPA overlap"),
-            ("wdpa_sensitivity_class", "WDPA sensitivity class"),
+            ("wdpa_overlap", "protected-area overlap"),
+            ("wdpa_sensitivity_class", "protected-area sensitivity class"),
         ],
         "json_extras": [
             ("n2k_result_json", "n2k_nearest_sitename", "nearest Natura 2000 site"),
             ("n2k_result_json", "n2k_sites_within_5km", "Natura 2000 sites within 5 km"),
-            ("wdpa_result_json", "wdpa_nearest_designation", "nearest WDPA designation"),
+            ("wdpa_result_json", "wdpa_nearest_designation", "nearest protected-area designation"),
         ],
     },
     "NS-13": {

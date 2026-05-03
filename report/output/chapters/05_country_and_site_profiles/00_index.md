@@ -26,7 +26,20 @@
 
 ## Site profiles
 
-- [Romania - Turceni power station (prototype)](sites/RO_turceni_power_station.md)
+- [AT_riedersbach_power_station](sites/AT_riedersbach_power_station.md)
+- [AT_timelkam_power_station](sites/AT_timelkam_power_station.md)
+- [AT_voitsberg_power_station](sites/AT_voitsberg_power_station.md)
+- [BA_banovici_power_station](sites/BA_banovici_power_station.md)
+- [BA_gacko_thermal_power_plant](sites/BA_gacko_thermal_power_plant.md)
+- [BA_stanari_thermal_power_plant](sites/BA_stanari_thermal_power_plant.md)
+- [BG_bobov_dol_power_station](sites/BG_bobov_dol_power_station.md)
+- [BG_maritsa_iztok_2_power_station](sites/BG_maritsa_iztok_2_power_station.md)
+- [BG_vidin_works_power_station](sites/BG_vidin_works_power_station.md)
+- [CZ_tusimice_power_station](sites/CZ_tusimice_power_station.md)
+- [RO_braila_power_station](sites/RO_braila_power_station.md)
+- [RO_romag_termo_power_station](sites/RO_romag_termo_power_station.md)
+- [RO_rovinari_power_station](sites/RO_rovinari_power_station.md)
+- [RO_turceni_power_station](sites/RO_turceni_power_station.md)
 
 ## Top-5 site recommendations
 
