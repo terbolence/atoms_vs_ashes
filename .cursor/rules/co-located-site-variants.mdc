@@ -1,0 +1,63 @@
+---
+description: Always check for co-located A/B/C, 1/2/3, I/II/III suffixes in site names and treat as a single brownfield envelope when they are within ~5 km
+alwaysApply: true
+---
+
+# Co-located Site Variants Rule
+
+## Absolute requirement
+
+When working with any site (country profiles, site profiles, recommendations, country rankings, executive summaries, the consolidated failure section, or any analytical output), the agent **MUST** check whether the site name carries an alphabetic or numeric suffix that is shared with one or more sibling sites in the same country, and **MUST** confirm whether those sibling entries refer to the **same physical brownfield envelope**.
+
+Common suffix patterns to check (non-exhaustive):
+
+- `A` / `B` / `C` (e.g., Kolubara A vs Kolubara B; Maritsa Iztok 1 vs 2 vs 3)
+- `1` / `2` / `3` / Arabic-numeral phases
+- `I` / `II` / `III` / Roman-numeral phases
+- `Old` / `New` (e.g., Vojany I vs Vojany II is sometimes labelled this way)
+- `North` / `South` / `East` / `West` directional suffixes
+- `Phase 1` / `Phase 2` etc.
+- `Block A` / `Block B` etc.
+
+## What counts as the same site
+
+Two sibling entries refer to the **same brownfield envelope** if **any** of the following hold:
+
+- The two coordinates are within ~5 km of each other AND on the same operator's land parcel.
+- The two entries share the same parent operator and the same subnational unit AND have visibly overlapping cooling, grid, transport, and EPZ envelopes (same nearest cooling source, same nearest substation, same nearest airport, same Natura 2000 / protected area distances within ~10% of each other).
+- One of the entries is a **planned but never-built** expansion of the other (a common GEM-database artefact). These almost always share coordinates within ~2 km.
+
+When in doubt, run a comparison query that pulls coordinates, capacity, owner, subnational unit, cooling source, and key screening reads for the candidate sibling pair and present the table to the user before treating the entries separately.
+
+## Required adaptation
+
+When two or more entries are confirmed as the same physical brownfield envelope:
+
+1. **Site profiles** — pick the entry that represents the **operating brownfield asset** as the **primary entry** and write full interpretations against it. For each sibling entry, add a short **"Note on Site Identity"** header at the top of the markdown that names the primary entry, links to it, and explains the relationship (planned-but-never-built expansion, second phase of same complex, etc.). Sibling-entry interpretations should be **shorter and cross-reference the primary entry** for substantive screening reads, calling out only the deltas (capacity, status, mothballing history) rather than re-deriving the natural-hazard, human-induced, radiological, and infrastructure reads from scratch.
+
+2. **Country recommendations** — treat the sibling pair as **one candidate site** in the per-country top-N list, not two. Use the primary entry's composite and MC band for ranking. The sibling entry can be mentioned in the rationale as "the planned/expansion sister entry" but it MUST NOT occupy a separate slot in the top-N list.
+
+3. **Country rankings** and **portfolio counts** — when reporting "N sites pass the exclusionary screen" or "N sites in band A", apply the same site-identity collapse so that a single brownfield envelope counts once. If the screening database carries them as separate rows, note the duplication in the country profile narrative.
+
+4. **Maps and figures** — co-located sibling entries should not produce overlapping pin labels. Either merge them into a single pin labelled with the primary entry's name, or label one and footnote the other.
+
+5. **Consolidated failure section** — if both sibling entries are hard-fails, treat them as a single failure case and explain that both the operating and planned-expansion entries fail for the same reason at the same physical location.
+
+## Procedure when adding a new country to the report
+
+1. Pull the full site list for the country from the database with coordinates.
+2. Sort by parent name and look for entries that share a common stem with an alphabetic or numeric suffix.
+3. For each suffix family, compute pairwise great-circle distances. Any pair < 5 km apart is a strong candidate for site-identity collapse.
+4. Cross-check operator, subnational unit, and a handful of representative screening reads (cooling source, nearest airport, nearest substation, nearest Natura 2000 site).
+5. Document the site-identity decisions in the country profile prototype before drafting individual site interpretations.
+
+## Examples
+
+- **Kolubara A vs Kolubara B (Serbia)** — same brownfield envelope at Veliki Crljeni in the Lazarevac coal basin, ~1.6 km apart, same EPS owner, identical screening envelopes; Kolubara A is the operating TPP and Kolubara B is the never-built 2×350 MW expansion. Treat as one candidate site.
+- **Maritsa Iztok 1 / 2 / 3 (Bulgaria)** — three thermal blocks within the Maritsa Iztok lignite complex; check coordinates and operator before treating as separate candidates.
+- **Bobov Dol (Bulgaria)** — single site, no sibling entries.
+- **Patnow / Konin / Adamow (Poland)** — historically a single ZE PAK lignite complex but with separate operating coordinates; check distances before collapsing.
+
+## Enforcement
+
+If the agent drafts a site profile, country recommendation, or portfolio count without first running the suffix-and-coordinate check, and a co-located sibling pair is later identified, the affected outputs MUST be revised under this rule. The check is cheap (one comparison query per country) and catching duplicates after drafting is much more expensive.

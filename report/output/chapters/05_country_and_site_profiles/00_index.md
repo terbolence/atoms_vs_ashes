@@ -46,10 +46,20 @@
 - [LV_kurzeme_power_station](sites/LV_kurzeme_power_station.md)
 - [MD_kuchurgan_power_station](sites/MD_kuchurgan_power_station.md)
 - [ME_bar_power_station](sites/ME_bar_power_station.md)
+- [ME_berane_power_station](sites/ME_berane_power_station.md)
+- [ME_maoce_power_station](sites/ME_maoce_power_station.md)
+- [MK_bitola_power_station](sites/MK_bitola_power_station.md)
+- [MK_negotino_power_station](sites/MK_negotino_power_station.md)
+- [MK_oslomej_power_station](sites/MK_oslomej_power_station.md)
+- [PL_dolna_odra_power_station](sites/PL_dolna_odra_power_station.md)
+- [PL_opole_power_station](sites/PL_opole_power_station.md)
+- [PL_polaniec_power_station](sites/PL_polaniec_power_station.md)
 - [RO_braila_power_station](sites/RO_braila_power_station.md)
 - [RO_romag_termo_power_station](sites/RO_romag_termo_power_station.md)
 - [RO_rovinari_power_station](sites/RO_rovinari_power_station.md)
 - [RO_turceni_power_station](sites/RO_turceni_power_station.md)
+- [RS_kolubara_a_power_station](sites/RS_kolubara_a_power_station.md)
+- [RS_kolubara_b_power_station](sites/RS_kolubara_b_power_station.md)
 
 ## Top-5 site recommendations
 
