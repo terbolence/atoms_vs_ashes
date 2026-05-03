@@ -84,7 +84,7 @@ The main positive driver across leading sites is implementation readiness combin
 
 Natural hazards remain a decisive differentiator. Strong candidates generally show acceptable scores for seismic, geotechnical, flooding, and combined natural-hazard criteria. Sites with strong implementation value but weak natural-hazard scores do not rise into the leading group. This reinforces the methodological point from Chapter 3: grid or reuse advantages cannot compensate for material safety weaknesses.
 
-The exclusion pattern is concentrated in a small set of criteria. In the current NuScale VOYGR-6 scoring database, 109 site records are excluded before composite ranking. Emergency-planning feasibility is the largest exclusion driver, affecting 56 sites. Seismic surface-rupture screening affects 50 sites. Ecological sensitivity affects six sites, slope stability affects three, and liquefaction affects one [3]. These counts can overlap where a site fails more than one check, but they show where the regional screening pressure is strongest.
+The exclusion pattern is concentrated in a small set of criteria. At site–SMR pair level, 2,696 of the 2,904 evaluated pairs are excluded before composite ranking; 208 pairs survive and enter the sensitivity analysis. Emergency-planning feasibility is the largest exclusion driver, carrying 79 per cent of the exclusion volume. Slope stability is the second driver at 49 per cent. Subsidence and karst, and capable-fault screening, follow in the 25–31 per cent range. Ecological sensitivity and settlement-liquefaction together account for less than 2 per cent. These shares overlap where a pair fails more than one check; Annex D carries the full pair-level breakdown and the country-by-criterion matrix [3].
 
 | Driver | Direction of effect | Interpretation |
 | --- | --- | --- |
@@ -115,11 +115,11 @@ These limitations do not invalidate the ranking. They define its correct use. Th
 ## Drafting Notes
 
 - If the analytical basis changes, update this chapter and Introduction §1.5 together.
-- Primary links: failure-mode analysis, sensitivity methodology, country ranking outputs, and final aligned report-output packs.
+- Primary links: Annex D (failure-mode analysis), Annex C (sensitivity methodology), and Annex E (assumption register and data limitations).
 - Human review should validate any claim that one country or site is "best"; prefer "ranked highest under the report methodology" or "most robust under sensitivity testing."
 
 ## Working References for Chapter 4
 
-1. Project scoring database and sensitivity summary for the current NuScale VOYGR-6 analytical basis.
+1. Project scoring database and the project's 10,000-iteration Monte Carlo sensitivity analysis.
 2. Project writing decisions and country-profile rules in `report/output/writing plan/writingDecisions.md`.
-3. Project exclusionary, safety-floor, and ranking evidence in the current scoring database.
+3. Annex D: Failure-Mode Analysis (this report).

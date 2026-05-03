@@ -1,6 +1,6 @@
 # Türkiye Country Profile
 
-Analytical basis: scoring `score-214bab4e` and sensitivity `sens-7b609bd0`.
+Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
 
 Türkiye has 146 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 16 sites pass both the exclusionary and avoidance screens, 90 pass the exclusionary screen but retain avoidance flags, and 40 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 

@@ -10,17 +10,16 @@ The report is not a licence application, site characterization report, vendor se
 
 ## 2. Analytical Anchor
 
-Use the latest 10,000-iteration Monte Carlo sensitivity run as the analytical anchor:
+Treat the report as having a single analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
 
 | Item | Value |
 | --- | --- |
-| Sensitivity audit | `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md` |
-| Run ID | `sens-7b609bd0` |
-| Iterations | `10000` |
-| Seed | `42` |
-| Reference SMR case | `nuscale_voygr6` only |
+| Sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis |
+| Iterations | 10,000 |
+| Seed | 42 (deterministic per site–SMR pair) |
+| Reference SMR case | NuScale VOYGR-6 only |
 
-The existing report-output sensitivity pack under `report/output/sensitivity/20260425b/` is older. Before final Chapter 4 and Chapter 5 drafting, regenerate or otherwise align the report-output regional and national packs to the `20260502` / `sens-7b609bd0` run. Until that is done, any `20260425b` numbers are temporary drafting references, not final manuscript anchors.
+Reader-facing prose (manuscript, annexes, captions, tables, ToC, executive brief) must refer to "the project's 10,000-iteration Monte Carlo sensitivity analysis" without naming internal run identifiers, session IDs, audit-file paths, or date-stamped folders. Internal identifiers remain in the generated sensitivity export pack under `report/output/sensitivity/` for reproducibility but never appear in the manuscript.
 
 ## 3. Reference Technology Framing
 
@@ -47,8 +46,8 @@ Do not finish the Introduction first. Keep it as a working draft and revise it a
 
 Recommended order:
 
-1. Freeze analytical anchors: database/scoring run, sensitivity run, NuScale VOYGR-6 reference case, and citation conventions.
-2. Generate or align the `20260502` report-output sensitivity packs.
+1. Freeze analytical anchors: scoring rubric, sensitivity basis, NuScale VOYGR-6 reference case, and citation conventions.
+2. Ensure the current sensitivity export pack under `report/output/sensitivity/` is aligned with the current frozen scoring rubric.
 3. Draft Chapter 4, because it fixes the report's numerical story and conclusions.
 4. Draft Chapter 2 and Chapter 3 from the frozen methodology and scoring outputs.
 5. Draft Chapter 5 country and selected site profiles through the country-packet workflow.

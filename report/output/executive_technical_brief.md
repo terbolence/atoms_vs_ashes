@@ -2,7 +2,7 @@
 
 **Purpose.** This standalone brief explains how the automated assessment system was built and how its outputs should be interpreted by executives. It is a governance and audit summary, not a replacement for the technical report.
 
-**Current drafting anchor.** Use the analytical anchor in [`writing plan/writingDecisions.md`](writing%20plan/writingDecisions.md): `audit/post_processing/06_scoring/20260502_sensitivity_mc_10000.md`, run ID `sens-7b609bd0`. Finalise all metrics only after the final production run and report-output packs are aligned.
+**Analytical basis.** The brief reads against the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric. Metrics should be finalised only after the current sensitivity export pack and the technical report are aligned.
 
 ## 1. Objective and Scope of the Automated Assessment System
 
@@ -34,7 +34,7 @@ Summarise how the merged database, scoring run, rubric version, and sensitivity 
 
 - Merged database/run ID: `TBD`
 - Scoring rubric version: `TBD`
-- Sensitivity run: `sens-7b609bd0` or successor
+- Sensitivity basis: the project's 10,000-iteration Monte Carlo sensitivity analysis
 - Reference SMR for narrative convention: `nuscale_voygr6`
 
 ## 5. Data Gaps and Certainty by Method
@@ -60,7 +60,7 @@ Finalize this section after the last production run.
 | Token usage | TBD | Include only if tracked and reviewed. |
 | Database size | TBD | Include relevant DB size, table counts, and generated artefact volumes. |
 | Final scoring run ID | TBD | Must match technical report. |
-| Final sensitivity run ID | `sens-7b609bd0` | Replace if rerun. |
+| Final sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis | Replace if rerun. |
 
 ## 7. Clear Limitations
 
