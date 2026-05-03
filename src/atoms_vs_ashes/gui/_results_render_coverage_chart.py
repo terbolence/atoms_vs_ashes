@@ -124,20 +124,29 @@ def render_stacked_coverage_bar(
         "details when a country has **0 in-scope sites**."
     )
     components.html(
-        _scrollable_chart_html(chart),
+        _scrollable_chart_html(chart, chart_width),
         height=_COVERAGE_CHART_HEIGHT + 140,
-        scrolling=False,
+        scrolling=True,
     )
 
 
-def _scrollable_chart_html(chart: alt.Chart) -> str:
+def _scrollable_chart_html(chart: alt.Chart, chart_width: int) -> str:
     chart_html = chart.to_html(
         fullhtml=False,
         embed_options={"actions": False},
     )
     return (
-        "<div style='width:100%;overflow-x:auto;overflow-y:hidden;'>"
+        "<div style='"
+        "width:100%;"
+        "max-width:100vw;"
+        "overflow-x:auto;"
+        "overflow-y:hidden;"
+        "padding-bottom:0.35rem;"
+        "border-bottom:1px solid rgba(127,127,127,0.25);"
+        "'>"
+        f"<div style='width:{chart_width}px;min-width:{chart_width}px;'>"
         f"{chart_html}"
+        "</div>"
         "</div>"
     )
 

@@ -33,6 +33,10 @@ outputs/
 # LLM API call logs (contain full prompts and responses)
 logs/llm/
 
+# Specialist interpretation pass scratch drafts (the canonical version
+# lives inside the report markdown after `run_specialist_pass patch`).
+report/output/chapters/05_country_and_site_profiles/data/_drafts/
+
 # Connector HTTP audit logs (full request/response bodies; can grow large)
 logs/seismic/
 logs/entso_e/

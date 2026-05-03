@@ -205,14 +205,15 @@ def _sensitivity(
     site_id: uuid.UUID,
     smr_key: str,
     run_id: str,
+    sensitivity_run_id: str,
     sensitivity_stamp: str,
 ) -> dict[str, Any]:
     bands_stmt = (
         select(SiteBand)
         .where(
-            SiteBand.run_id == run_id,
+            SiteBand.run_id == sensitivity_run_id,
             SiteBand.site_id == site_id,
-            SiteBand.smr_key == smr_key,
+            SiteBand.smr_key.in_([smr_key, "_all_"]),
         )
         .order_by(SiteBand.scope_country_code)
     )
@@ -254,12 +255,19 @@ def build_site_bundle(
     site_id: uuid.UUID,
     smr_key: str,
     run_id: str,
+    sensitivity_run_id: str | None = None,
     sensitivity_stamp: str = "20260425b",
 ) -> dict[str, Any]:
-    """Return one machine-readable bundle for report narrative drafting."""
+    """Return one machine-readable bundle for report narrative drafting.
+
+    ``run_id`` is the scoring (parent) run used for composite, screening,
+    and ranking rows. ``sensitivity_run_id`` selects the sensitivity run
+    that owns ``SiteBand`` rows; when ``None`` it defaults to ``run_id``.
+    """
     site = session.get(Site, site_id)
     if site is None:
         raise ValueError(f"site_id not found: {site_id}")
+    sens_run = sensitivity_run_id or run_id
 
     return {
         "metadata": {
@@ -268,6 +276,7 @@ def build_site_bundle(
             "site_id": str(site_id),
             "smr_key": smr_key,
             "analytics_run_id": run_id,
+            "sensitivity_run_id": sens_run,
             "sensitivity_stamp": sensitivity_stamp,
             "claim_boundary": "Screening-grade Stage 1-2 support only.",
         },
@@ -286,7 +295,8 @@ def build_site_bundle(
         ),
         "sensitivity": _sensitivity(
             session, site=site, site_id=site_id, smr_key=smr_key,
-            run_id=run_id, sensitivity_stamp=sensitivity_stamp,
+            run_id=run_id, sensitivity_run_id=sens_run,
+            sensitivity_stamp=sensitivity_stamp,
         ),
         "asset_links": _asset_links(site, sensitivity_stamp),
         "limitations_for_llm": [

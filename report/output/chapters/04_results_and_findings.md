@@ -8,6 +8,8 @@ The regional result is selective rather than broadly permissive. The current sco
 
 The strongest regional pattern is concentration in a limited number of countries. In the regional top-20 set, Turkey contributes eight sites and Poland contributes six [1]. Hungary, Romania, Slovakia, Czechia, Ukraine, and Austria each contribute one. This does not mean that other countries are unsuitable in a permanent sense. It means that, under the current screening evidence and reference deployment envelope, the highest-ranking candidates are concentrated where the combination of site inventory, hazard context, infrastructure, and implementation factors is more favourable.
 
+The regional Coverage view should be read before the country profiles. It separates full-pass sites, exclusionary-pass sites with avoidance flags, and hard-fail sites across the study region. For readability, the figure and table should show approximately 10 countries at a time and allow horizontal or table scrolling for the remainder. Countries that appear in the broader scope but show 0 in-scope sites should not be interpreted as failed nuclear candidates. In the current coverage view, this means either that the merged coal-site database has no source rows for that country, or that all source records are outside the active site-status filter. This distinction should be kept in the regional narrative rather than repeated in every country profile.
+
 | Country | Sites in regional top 20 | Interpretation |
 | --- | ---: | --- |
 | Turkey | 8 | Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results. |
@@ -20,6 +22,21 @@ The strongest regional pattern is concentration in a limited number of countries
 | Austria | 1 | One site appears in the regional top tier, subject to the policy and implementation caveats discussed in later sections. |
 
 The country-balance diagnostic does not indicate excessive dominance by a single country. The largest country share in the regional top-20 set is 40%, which is at the report's monitoring threshold but not above it [1]. This matters for interpretation. The shortlist is not a purely one-country result, but it is also not evenly distributed across the study region. The practical conclusion is that Chapter 5 should provide full profiles only where viable candidates remain, while countries without viable candidates should be discussed through their failure modes and distance-to-threshold evidence [2].
+
+Composite scores should be shown with their Monte Carlo low/high band wherever they are used for selection. The point estimate identifies the current ordering, while the band shows why adjacent ranks should not be over-read as precise separations. The following examples show the leading regional records by composite score and their uncertainty band; several high-scoring records also carry avoidance flags and therefore require interpretation before being treated as full-pass progression candidates.
+
+| Site | Country | Status | Composite | Monte Carlo low-high |
+| --- | --- | --- | ---: | ---: |
+| Polaniec power station | Poland | Avoidance flag | 6.788 | 4.769-7.208 |
+| Opole power station | Poland | Full pass | 6.580 | 4.672-7.075 |
+| Konya Karapınar power station | Turkey | Full pass | 6.518 | 4.317-6.918 |
+| Mohacs power station | Hungary | Full pass | 6.467 | 4.619-6.887 |
+| Çoban Yıldız power station | Turkey | Avoidance flag | 6.376 | 4.264-6.776 |
+| Turceni power station | Romania | Full pass | 6.347 | 4.489-6.733 |
+| Turów power station | Poland | Avoidance flag | 6.333 | 4.454-6.828 |
+| Puchaczow power station | Poland | Avoidance flag | 6.307 | 4.544-6.698 |
+| Akdeniz Enerji power station | Turkey | Full pass | 6.280 | 4.344-6.774 |
+| Kangal Etyemez power station | Turkey | Avoidance flag | 6.264 | 4.251-6.667 |
 
 The regional ranking should also be read as a robustness signal, not a final list of project sites. Several leading sites have strong composite performance but still carry data-confidence, implementation, or Stage 3 investigation requirements. The purpose of the regional view is to show where the study finds the strongest comparative evidence. The decision on which sites receive detailed treatment remains a human selection step informed by the scores, sensitivity results, national context, and stakeholder priorities.
 

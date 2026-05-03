@@ -108,7 +108,7 @@ def site_criterion_scores(
             CompositeScoreComponent.weight_normalised,
             CompositeScoreComponent.weighted_contribution,
             RankingScore.confidence,
-            RankingScore.rationale,
+            RankingScore.justification,
         )
         .outerjoin(
             RankingScore,
@@ -199,7 +199,7 @@ def failure_explanation(
             ScreeningVerdict.criterion_id,
             ScreeningVerdict.phase,
             ScreeningVerdict.verdict,
-            ScreeningVerdict.rationale,
+            ScreeningVerdict.justification,
         )
         .where(
             ScreeningVerdict.site_id == site_id,

@@ -30,7 +30,11 @@ import streamlit as st
 from atoms_vs_ashes.gui._overview import render as render_overview
 
 _GUI_DIR = Path(__file__).resolve().parent
-_PAGES_DIR = _GUI_DIR / "pages"
+# Not named ``pages/`` — that directory name is reserved by Streamlit for
+# automatic multipage discovery beside the entrypoint, which would add a
+# second sidebar (``app``, filename-based labels) and can leave the main
+# area empty on first paint until ``st.navigation`` fully owns the session.
+_PAGES_DIR = _GUI_DIR / "screen_pages"
 
 # (filename, sidebar label, tooltip for the info icon, hidden_from_sidebar, material icon)
 _SCREEN_PAGES: tuple[tuple[str, str, str, bool, str], ...] = (

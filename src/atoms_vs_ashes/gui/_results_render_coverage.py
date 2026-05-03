@@ -29,6 +29,9 @@ _COVERAGE_HELP = (
     "**Survivors** = full pass, **Near-miss** = avoidance flag, "
     "**Hard-fail** = exclusionary failure."
 )
+_VISIBLE_TABLE_ROWS = 10
+_TABLE_ROW_HEIGHT_PX = 35
+_TABLE_HEADER_HEIGHT_PX = 38
 
 
 def render_coverage_tab(
@@ -100,6 +103,7 @@ def _render_dataframe(
         view,
         hide_index=True,
         use_container_width=True,
+        height=_coverage_table_height(len(view)),
         column_order=[
             "country", "n_sites", "survivors", "near_miss", "hard_fail",
             "max_composite_survivors", "status",
@@ -137,6 +141,11 @@ def _render_dataframe(
         cc = str(view.iloc[rows_sel[0]]["country_code"])
         st.session_state[session_key] = cc
         st.toast(f"Country focus set to {country_name(cc)}", icon="🌍")
+
+
+def _coverage_table_height(n_rows: int) -> int:
+    visible = max(1, min(_VISIBLE_TABLE_ROWS, n_rows))
+    return _TABLE_HEADER_HEIGHT_PX + visible * _TABLE_ROW_HEIGHT_PX
 
 
 def _status_emoji(r: CountryCoverage) -> str:

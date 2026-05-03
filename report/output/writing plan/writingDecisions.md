@@ -78,6 +78,8 @@ Each full country profile should follow this sequence:
 5. Detailed site profiles only for selected sites.
 6. Country-level data gaps and recommended Stage 3 follow-up.
 
+The renderer also embeds the avoidance-flag Pareto chart in the "Interpretation for Site Selection" section and the exclusionary-failure Pareto chart in the "Exclusionary Failure Pareto" section. The country-level executive coal-to-nuclear paragraph is filled by the `country_exec` specialist (see §13).
+
 ## 7. Site Profile Rules
 
 There is no fixed target length for a selected site profile. The profile should be long enough to satisfy a government or department-of-energy client that the project has used the available evidence well, without padding.
@@ -98,6 +100,8 @@ Each selected site profile should include:
 
 Ownership and infrastructure discussion must be factual first. Add short strategic interpretation only when the database supports it clearly. If certainty is not high, ask the user rather than implying control, project rights, public acceptance, or procurement feasibility.
 
+The renderer emits one specialist placeholder per criterion bullet, plus one for the residual risk register and one for the composite stability and sensitivity block. The placeholders are filled by family-level specialists with optional per-criterion overrides. See §13 for the dispatcher CLI and the cost gates.
+
 ## 8. Tables, Figures, and Maps
 
 Every selected site should receive a consistent visual pack where data permit. If a visual cannot be generated honestly, include a short data-unavailable note rather than inventing a substitute.
@@ -115,24 +119,42 @@ Recommended visual pack:
 
 Wikipedia may be used only for light descriptive context and should not be the primary source for maps, rankings, or technical claims. Prefer first-party project data, open geospatial sources, and generated figures from scoring/sensitivity artefacts.
 
+### Country site-status map (`<CC>_site_status_map.png`)
+
+The static PNG country map produced by the country-profile renderer follows a fixed visual contract:
+
+| Element | Rule |
+| --- | --- |
+| Basemap | Hybrid: try CartoDB Positron OSM tiles first; fall back to bundled Natural Earth Admin 0 + populated places (`data/cartography/`). The renderer never fails because of network. |
+| Extent | Medium zoom: ~30% padding around the site cloud so neighbouring countries are visible for cross-border context. |
+| Markers | Every site is plotted with the status colour (full pass / avoidance flag / hard fail). |
+| Callouts | Only sites that pass the exclusionary screen receive a leader-line callout. Hard-fail sites stay as plain markers; their identity is read from the basemap. |
+| Callout layout | Callouts are stacked in the left and right margins (split by site longitude) so they never overlap each other or the markers. Each callout is a single line: `#rank Name | Status | composite`. |
+| Title | Plain country name only ("Romania", not "Romania (RO)"). |
+| Legend | Horizontal legend below the chart so it never overlaps the bottom-row callouts. |
+| Attribution | Tile attribution (`OpenStreetMap contributors / CARTO`) or fallback attribution (`Natural Earth (public domain)`) is rendered in the bottom-right corner. |
+
+The implementation lives in `src/atoms_vs_ashes/cartography/basemap.py` (basemap helper) and `src/scripts/_country_profile_map.py` (renderer). All geospatial assets are vendored under `data/cartography/`.
+
 ## 9. Prompt Architecture
 
-Prompt files belong under `prompts/`. Do not create one prompt per site. Use reusable prompts by drafting task, with site/country data supplied as structured inputs.
+Prompt files live in two places:
 
-Recommended prompt set:
+- `prompts/` (repo root) - cross-cutting roles: site describer, siting expert, audit roles, lessons-learned, software architect, etc.
+- `report/output/writing plan/prompts/` - report-section prompts that are pinned to the structured bundles under `report/output/`. The two canonical prompts in this folder are:
 
-| Prompt file | Purpose |
-| --- | --- |
-| `prompts/report_results_synthesizer.md` | Draft Chapter 4 from frozen scoring, sensitivity, failure, and country outputs. |
-| `prompts/report_stage_methodology_author.md` | Draft Chapter 2 and Chapter 3 process/methodology subsections. |
-| `prompts/country_profile_author.md` | Draft country profiles from country packets and selected-site lists. |
-| `prompts/site_describer.md` | Draft selected site profiles from site bundle JSON. Existing prompt; update only if the site-profile contract changes. |
-| `prompts/report_recommendations_author.md` | Draft Chapter 6 from selected sites, failure modes, and data gaps. |
-| `prompts/executive_technical_brief_author.md` | Draft the separate executive technical brief on process, cost, workload, tokens, database size, lessons, and future development. |
+| Prompt file | Purpose | Bundle |
+| --- | --- | --- |
+| `report/output/writing plan/prompts/country_profile_author.md` | Draft `<CC>_country_prototype.md` for Chapter 5 with Pareto avoidance breakdown, family strength/weakness, and IAEA-style interpretation. | `python -m scripts.export_country_bundle --country-code <CC>` |
+| `report/output/writing plan/prompts/site_profile_author.md` | Draft `sites/<CC>_<slug>.md` with full criterion names, raw measured values, ownership block, residual risk register, and Stage 3 follow-up checklist. | `python -m scripts.export_site_bundle --site-id <UUID>` |
+
+Older general-purpose role prompts (`prompts/site_describer.md`, `prompts/sitingExpert.md`, etc.) remain in use for free-form drafting; the report-section prompts above supersede them whenever the goal is to produce one of the Chapter 5 markdown files from a bundle.
 
 Use section-specific prompts only when a section has materially different behaviour. Do not create a separate prompt for every numbered subsection unless the section requires a distinct role, input contract, or output structure.
 
-No external LLM/API call may be made without explicit user approval of provider/model, number of calls, and estimated cost.
+### Specialist Interpretation Pass
+
+The country and site profile renderers leave one machine-parseable placeholder per interpretation block. The specialist pass that fills those placeholders runs **inside Cursor**: the agent reads the matching specialist prompt and bundle slice and writes the paragraph directly. There is no external LLM API call. See §13 below for the helper CLI (`run_specialist_pass.py`) and the placeholder grammar.
 
 ## 10. Output Organisation
 
@@ -197,4 +219,65 @@ That brief should cover:
 - Recommendations for further development of this approach.
 
 This brief is a governance, audit, and lessons-learned deliverable. It should not replace the client-facing technical report.
+
+## 13. Specialist Interpretation Workflow
+
+The country and site profile renderers do not write the expert interpretation paragraphs themselves. They emit the data scaffold (tables, charts, criterion bullets, ownership block, residual-risk skeleton, stability summary) and insert one machine-parseable placeholder per interpretation block. The placeholders are filled **inside Cursor** by the agent reading the matching specialist prompt and the relevant bundle slice. **There is no external LLM API call.**
+
+### Prompt locations
+
+- `report/output/writing plan/prompts/specialists/00_README.md` - layered scheme overview and registry of which prompt owns which placeholder.
+- `report/output/writing plan/prompts/specialists/01_natural_hazards.md` to `05_non_safety_implementation.md` - the five family base prompts.
+- `report/output/writing plan/prompts/specialists/06_residual_risk_register.md`, `07_stability_sensitivity.md`, `08_country_coal_to_nuclear_executive.md` - the three cross-section specialists.
+- `report/output/writing plan/prompts/specialists/criteria/<CID>.md` - per-criterion override cards (NH-01, NH-02, NH-09, HI-01, HI-06, RI-04, RI-05, EP-01, EP-02, NS-01, NS-02, NS-08 at launch). Concatenated after the family base prompt for criteria where the family voice is too generic.
+
+### Placeholder grammar
+
+Site placeholders:
+
+```text
+<!-- specialist key=NH-01 scope=site site_id=<UUID> bundle=<filename> status=pending -->
+> _Specialist interpretation pending: Seismic: Ground Motion (NH-01)._
+<!-- /specialist key=NH-01 -->
+```
+
+Country placeholders:
+
+```text
+<!-- specialist key=country_exec scope=country country_code=RO bundle=<filename> status=pending -->
+> _Specialist interpretation pending: Country coal-to-nuclear executive read._
+<!-- /specialist key=country_exec -->
+```
+
+When the renderer sees a criterion with no structured measurement, no flagged verdict, and no per-criterion override card, it emits a one-line **Stage 3 first activity** cue under the criterion bullet instead of a placeholder. There is nothing for the specialist to interpret yet; Stage 3 must source the value first.
+
+### Helper CLI
+
+`src/scripts/run_specialist_pass.py` is an agent-helper, not an API client. Subcommands:
+
+| Subcommand | Purpose |
+| --- | --- |
+| `list --country <CC>` | Print pending placeholders for a country / site so the agent can plan a session. |
+| `show --country <CC> --key <CID>` (+ `--site-name` or `--site-id` for site-scope) | Print the system prompt and the bundle slice for one placeholder. |
+| `show-pack --country <CC> --site-name <name> --family <NH|HI|RI|EP|NS>` | Print the family base prompt + every override card for the family + the bundle slice for every pack member, so the agent can draft all family criteria in one pass. |
+| `patch --country <CC> --key <CID> --text-file <draft.md>` | Replace the placeholder body with the agent-drafted paragraph; rewrites the open tag to `status=filled by=cursor-agent filled_at=<UTC>`. |
+
+The `patch` step is idempotent. Re-runs skip already-filled blocks unless `--force` is supplied. The audit trail is the open-tag attributes plus the git diff; no separate `data/llm_responses/` log is written.
+
+### Drafting cadence
+
+The recommended cadence per site:
+
+1. Run `show-pack --family NH` and read the prompt + slice.
+2. Draft NH-01 .. NH-13 paragraphs in one pass, patch each.
+3. Repeat for HI, RI, EP, NS.
+4. Run `show --key residual_risk` and `show --key stability`, draft, patch.
+5. Once all sites in a country are filled, run `show --key country_exec`, draft, patch.
+
+The family pack keeps the agent in a single voice for the family while still patching one criterion at a time so each placeholder is updated atomically.
+
+### Removed from the workflow
+
+- The earlier `src/scripts/interpret_site_with_anthropic.py` (Anthropic API request builder) was removed when the in-Cursor decision was made.
+- The previous `run_specialist_pass.py` `--call --ack-consent` and `data/llm_responses/specialist_pass/<run_id>/` log path were removed for the same reason.
 
