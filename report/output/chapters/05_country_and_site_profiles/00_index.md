@@ -60,6 +60,16 @@
 - [RO_turceni_power_station](sites/RO_turceni_power_station.md)
 - [RS_kolubara_a_power_station](sites/RS_kolubara_a_power_station.md)
 - [RS_kolubara_b_power_station](sites/RS_kolubara_b_power_station.md)
+- [RS_morava_power_station](sites/RS_morava_power_station.md)
+- [SK_novaky_power_station](sites/SK_novaky_power_station.md)
+- [SK_trebisov_power_station](sites/SK_trebisov_power_station.md)
+- [SK_vojany_i_power_station](sites/SK_vojany_i_power_station.md)
+- [TR_akdeniz_enerji_power_station](sites/TR_akdeniz_enerji_power_station.md)
+- [TR_konya_karapnar_power_station](sites/TR_konya_karapnar_power_station.md)
+- [TR_yesilovack_power_station](sites/TR_yesilovack_power_station.md)
+- [UA_dobrotvir_power_station](sites/UA_dobrotvir_power_station.md)
+- [UA_ladyzhyn_power_station](sites/UA_ladyzhyn_power_station.md)
+- [UA_zmiivska_power_station](sites/UA_zmiivska_power_station.md)
 
 ## Top-5 site recommendations
 
