@@ -96,14 +96,13 @@ Two read-only export CLIs back the Chapter 5 outputs and the LLM interpretation 
 
 Both default to the latest scoring/sensitivity run; pass `--run-id` and `--sensitivity-run-id` to pin a specific run.
 
-`python -m scripts.run_specialist_pass` is the in-Cursor specialist pass helper. It does **not** call any external API. The Cursor agent fills the renderer's `<!-- specialist key=... status=pending -->` blocks itself, using the helper to read the system prompt and bundle slice and to patch the result back. Subcommands:
+`python -m scripts.run_specialist_pass` is the in-Cursor specialist pass helper. It does **not** call any external API. The Cursor agent fills the renderer's `<!-- specialist key=... status=pending -->` blocks itself, using the single `report/output/writing plan/prompts/specialists/siting_expert.md` prompt as the voice. Subcommands:
 
 - `list --country <CC>` - print pending placeholders for a country / site.
-- `show --country <CC> --key <CID>` (+ `--site-name` or `--site-id` for site scope) - print the system prompt and bundle slice for one placeholder.
-- `show-pack --country <CC> --site-name <name> --family <NH|HI|RI|EP|NS>` - print family base + override cards + the bundle slice for every pack member, so the agent can draft an entire family in one read.
-- `patch --country <CC> --key <CID> --text-file <draft.md>` - replace a placeholder body with the agent's drafted paragraph; rewrites the open tag with `status=filled by=cursor-agent filled_at=<UTC>`.
+- `show --country <CC> --key <key>` (+ `--site-name` or `--site-id` for site scope) - print the siting-expert prompt and bundle slice for one placeholder.
+- `patch --country <CC> --key <key> --text-file <draft.md>` - replace a placeholder body with the agent's drafted paragraph; rewrites the open tag with `status=filled by=cursor-agent filled_at=<UTC>`.
 
-The audit trail is the open-tag attributes plus the git diff. See §13 in `writingDecisions.md` for the layered prompt scheme and the placeholder grammar.
+Site-scope keys: `family_natural_hazards`, `family_human_hazards`, `family_radiological_emergency`, `family_infrastructure`, `residual_risk`, `stability`. Country-scope key: `country_exec`. The audit trail is the open-tag attributes plus the git diff. See §13 in `writingDecisions.md` for the placeholder grammar.
 
 If a chapter becomes too complex for one file, split it into a same-numbered folder with `00_index.md` and subsection files, keeping numbering aligned with `tableOfContents.md`.
 

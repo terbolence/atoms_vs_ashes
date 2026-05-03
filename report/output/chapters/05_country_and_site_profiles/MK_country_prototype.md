@@ -1,0 +1,77 @@
+# North Macedonia Country Profile
+
+Analytical basis: scoring `score-214bab4e` and sensitivity `sens-7b609bd0`.
+
+North Macedonia has 4 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 3 pass the exclusionary screen but retain avoidance flags, and 1 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+
+The leading site is **Bitola power station**, with a composite score of 5.525 and a Monte Carlo interval of 4.101-5.939. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+
+<!-- specialist key=country_exec scope=country country_code=MK bundle=MK_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:21Z -->
+Of 4 North Macedonian thermal sites tested against the NuScale VOYGR-6 envelope, none clear both the exclusionary and avoidance screens, 3 pass exclusionary but carry avoidance flags, and 1 is removed at the exclusionary stage on Ecological Sensitivity (NS-08). Bitola power station leads in band A with a 100 % top-10 % hit rate and a composite score of 5.525; Negotino and Oslomej follow in band H at composite 4.899 and 4.515. The leadership pool is one stable candidate; the rest of the pool is rank-fragile.
+
+The avoidance unlock pool is broad and structurally difficult. **Aircraft Crash (HI-01)**, **Seismic: Ground Motion (NH-01)**, and **Grid Connection (NS-02)** each carry 2 of the 3 exclusionary-pass sites (67 %): HI-01 closes through quantitative micro-siting analysis using updated flight-track data; NH-01 reflects the regional Vardar Zone seismic hazard and is closable only by site-specific PSHA characterization, not by paper analysis; NS-02 is a transmission-corridor study coordinated with MEPSO. The combined NH-01 footprint is the binding structural constraint; the other two are remediable.
+
+The greenfield lever is available in principle but inherits the same NH-01 hazard footprint. A credible Stage 3 sequence begins with Bitola power station as the lead site, contingent on a site-specific PSHA closing NH-01; Negotino and Oslomej are second-wave options whose band-H stability profile means they are unlikely to survive the Stage 3 weight-set audit unless their composite scores improve materially after avoidance work.
+<!-- /specialist key=country_exec -->
+
+<a id="country-status-map"></a>
+
+![North Macedonia status map](figures/MK_site_status_map.png)
+
+Interactive review map with marker tooltips: [MK_site_status_map.html](figures/MK_site_status_map.html).
+
+## North Macedonia Site Ledger
+
+| Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
+|---:|---|---|---:|---:|---:|---|---:|---:|
+| 1 | Bitola power station | Exclusion pass with avoidance flag | 5.525 | 4.101 | 5.939 | A | 100% | 40% |
+| 2 | Negotino power station | Exclusion pass with avoidance flag | 4.899 | 3.828 | 5.313 | H | 0% | 40% |
+| 3 | Oslomej power station | Exclusion pass with avoidance flag | 4.515 | 3.661 | 4.929 | H | 0% | 40% |
+| - | Mariovo power station | Hard fail | - | - | - | H | 0% | 0% |
+
+## Avoidance Flag Pareto
+
+Of the 3 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
+
+![Avoidance flag Pareto](figures/MK_avoidance_pareto.png)
+
+- **Aircraft Crash (HI-01)** - 2 of 3 exclusionary-pass sites (67%).
+- **Seismic: Ground Motion (NH-01)** - 2 of 3 exclusionary-pass sites (67%).
+- **Grid Connection (NS-02)** - 2 of 3 exclusionary-pass sites (67%).
+- **Site Footprint Adequacy (NS-05)** - 1 of 3 exclusionary-pass sites (33%).
+
+## Exclusionary Failure Pareto
+
+The exclusionary failures across the country trace back to a small number of criteria. They identify which screening checks are responsible for removing sites from further consideration.
+
+![Exclusionary failure Pareto](figures/MK_exclusionary_pareto.png)
+
+- **Ecological Sensitivity (NS-08)** - 1 of 4 country sites (25%).
+
+## Family Strength and Weakness
+
+Across the country the strongest criterion family is **Radiological Impact** at a mean normalised score of 6.16/10. The weakest family is **Human-Induced Hazards** at 2.89/10. The bottom three individual criteria across the country are:
+
+- **Evacuation Routes (EP-02)** - mean 1.50/10 across 4 scored sites (min 1.5, max 1.5).
+- **Military Installations (HI-06)** - mean 2.50/10 across 4 scored sites (min 1.5, max 3.5).
+- **Grid Capacity Basic Filter (BF-01)** - mean 3.00/10 across 4 scored sites (min 1.5, max 5.5).
+
+## Interpretation for Site Selection
+
+The North Macedonia result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+
+![Avoidance flag Pareto - what unlocks more sites](figures/MK_avoidance_pareto.png)
+
+The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
+
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Bitola power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+
+The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
+
+The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
+
+## Status Counts
+
+- Full pass: 0
+- Exclusion pass with avoidance flag: 3
+- Hard fail: 1

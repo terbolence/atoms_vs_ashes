@@ -1,26 +1,25 @@
-# man_hours: 2.4
+# man_hours: 2.0
 """In-Cursor specialist interpretation helper.
 
 The Atoms vs Ashes report fills its specialist interpretation
-placeholders inside Cursor (no external LLM API call). This script is
-a small CLI that gives the Cursor agent the three things it needs to
-do that work efficiently:
+placeholders inside Cursor (no external LLM API call). One single
+prompt, ``report/output/writing plan/prompts/specialists/siting_expert.md``,
+covers every interpretation block. The output shape is selected by
+the placeholder key.
+
+This CLI is the helper the Cursor agent uses to do that work:
 
 1. ``list`` - print the pending placeholders for a country, a site,
-   or the whole country folder. Use it to plan a session.
-2. ``show`` - print the system prompt (family base + optional override
-   card) and the relevant bundle slice for one placeholder. Use it to
-   load context into the agent's working memory before drafting.
-3. ``show-pack`` - same as ``show`` but for an entire family of
-   placeholders (NH / HI / RI / EP / NS) on one site, so the agent can
-   draft all family criteria in one pass.
-4. ``patch`` - replace the body of one placeholder with the agent's
+   or the whole country folder.
+2. ``show`` - print the system prompt and the bundle slice for one
+   placeholder. Use it to load context before drafting.
+3. ``patch`` - replace the body of one placeholder with the agent's
    drafted paragraph. Idempotent (refuses to overwrite ``status=filled``
    without ``--force``); rewrites the open tag to record
    ``status=filled by=cursor-agent filled_at=<UTC>``.
 
-Live-API safety rule: this script does not call any external API. The
-audit trail is the git diff plus the ``filled_at`` / ``filled_by``
+Live-API safety rule: this script does not call any external API.
+The audit trail is the git diff plus the ``filled_at`` / ``filled_by``
 attributes the patch step writes into the placeholder open tag.
 """
 
@@ -39,37 +38,31 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PROFILES_DIR = REPO_ROOT / "report" / "output" / "chapters" / "05_country_and_site_profiles"
 SPECIALISTS_DIR = REPO_ROOT / "report" / "output" / "writing plan" / "prompts" / "specialists"
-CRITERIA_OVERRIDE_DIR = SPECIALISTS_DIR / "criteria"
+SITING_EXPERT_FILE = SPECIALISTS_DIR / "siting_expert.md"
 
-FAMILY_BASE_FILE = {
-    "NH": "01_natural_hazards.md",
-    "HI": "02_human_induced_hazards.md",
-    "RI": "03_radiological_impact.md",
-    "EP": "04_emergency_planning.md",
-    "NS": "05_non_safety_implementation.md",
-    "BF": "05_non_safety_implementation.md",
+FAMILY_KEYS = {
+    "family_natural_hazards": {
+        "bundle_key": "natural_hazards",
+        "label": "Natural Hazards (NH)",
+        "criteria_prefixes": ("NH", "BF-02"),
+    },
+    "family_human_hazards": {
+        "bundle_key": "human_hazards",
+        "label": "Human-Induced and Security-Relevant Hazards (HI)",
+        "criteria_prefixes": ("HI",),
+    },
+    "family_radiological_emergency": {
+        "bundle_key": ("radiological", "emergency_planning"),
+        "label": "Radiological Impact and Emergency Planning (RI / EP)",
+        "criteria_prefixes": ("RI", "EP"),
+    },
+    "family_infrastructure": {
+        "bundle_key": "infrastructure",
+        "label": "Non-Safety / Implementation (NS)",
+        "criteria_prefixes": ("NS", "BF-01"),
+    },
 }
-CROSS_SECTION_FILE = {
-    "residual_risk": "06_residual_risk_register.md",
-    "stability": "07_stability_sensitivity.md",
-    "country_exec": "08_country_coal_to_nuclear_executive.md",
-}
-FAMILY_BUNDLE_KEY = {
-    "NH": "natural_hazards",
-    "HI": "human_hazards",
-    "RI": "radiological",
-    "EP": "emergency_planning",
-    "NS": "infrastructure",
-    "BF": "infrastructure",
-}
-FAMILY_LABEL = {
-    "NH": "Natural Hazards",
-    "HI": "Human-Induced and Security-Relevant Hazards",
-    "RI": "Radiological Impact",
-    "EP": "Emergency Planning",
-    "NS": "Non-Safety / Implementation",
-    "BF": "Basic Filters",
-}
+SYNTHESIS_KEYS = ("residual_risk", "stability", "country_exec")
 
 PLACEHOLDER_RE = re.compile(
     r"<!-- specialist key=(?P<key>\S+) "
@@ -111,12 +104,6 @@ class Placeholder:
     def bundle_filename(self) -> str | None:
         return self.attrs.get("bundle")
 
-    @property
-    def family(self) -> str | None:
-        if "-" in self.key:
-            return self.key.split("-", 1)[0]
-        return None
-
 
 def discover_placeholders(md_path: Path) -> list[Placeholder]:
     text = md_path.read_text(encoding="utf-8")
@@ -135,44 +122,19 @@ def discover_placeholders(md_path: Path) -> list[Placeholder]:
     return out
 
 
-# ---- prompt + bundle resolution -------------------------------------------
+# ---- prompt resolution -----------------------------------------------------
 
 
 def load_specialist_prompt(key: str) -> str:
-    if key in CROSS_SECTION_FILE:
-        return (SPECIALISTS_DIR / CROSS_SECTION_FILE[key]).read_text(
-            encoding="utf-8",
+    """Single source of truth for every interpretation block."""
+    if key not in FAMILY_KEYS and key not in SYNTHESIS_KEYS:
+        raise SystemExit(
+            f"Unknown specialist key: {key}. Valid keys: "
+            + ", ".join(sorted(list(FAMILY_KEYS) + list(SYNTHESIS_KEYS)))
         )
-    family = key.split("-", 1)[0] if "-" in key else None
-    if family is None or family not in FAMILY_BASE_FILE:
-        raise SystemExit(f"Unknown specialist key: {key}")
-    base = (SPECIALISTS_DIR / FAMILY_BASE_FILE[family]).read_text(
-        encoding="utf-8",
-    )
-    override_path = CRITERIA_OVERRIDE_DIR / f"{key}.md"
-    if override_path.exists():
-        return base + "\n\n---\n\n" + override_path.read_text(encoding="utf-8")
-    return base
-
-
-def load_family_pack_prompt(family: str) -> str:
-    """Family base plus every override card for that family.
-
-    Use for ``show-pack``: gives the agent the family voice and every
-    criterion-specific note in one read so a batched drafting session
-    has full context.
-    """
-    if family not in FAMILY_BASE_FILE:
-        raise SystemExit(f"Unknown family: {family}")
-    base = (SPECIALISTS_DIR / FAMILY_BASE_FILE[family]).read_text(
-        encoding="utf-8",
-    )
-    overrides: list[str] = []
-    for path in sorted(CRITERIA_OVERRIDE_DIR.glob(f"{family}-*.md")):
-        overrides.append(path.read_text(encoding="utf-8"))
-    if overrides:
-        return base + "\n\n---\n\n" + "\n\n---\n\n".join(overrides)
-    return base
+    if not SITING_EXPERT_FILE.exists():
+        raise SystemExit(f"Missing specialist prompt: {SITING_EXPERT_FILE}")
+    return SITING_EXPERT_FILE.read_text(encoding="utf-8")
 
 
 # ---- bundle slicing --------------------------------------------------------
@@ -190,12 +152,24 @@ def slice_for_key(key: str, site_bundle: dict[str, Any] | None,
         return _stability_slice(site_bundle)
     if key == "residual_risk":
         return _residual_slice(site_bundle)
-    return _criterion_slice(key, site_bundle)
+    if key in FAMILY_KEYS:
+        return _family_slice(key, site_bundle)
+    raise SystemExit(f"Unknown specialist key: {key}")
 
 
-def slice_for_family_pack(family: str, target_keys: list[str],
-                          site_bundle: dict[str, Any]) -> dict[str, Any]:
-    """One slice for an entire family-of-criteria pack."""
+def _family_slice(key: str, site_bundle: dict[str, Any]) -> dict[str, Any]:
+    """Slice for one family-level interpretation paragraph.
+
+    Returns the family measurement row, every ranking and verdict for
+    the family's criteria, and a small criteria-meta lookup so the
+    siting expert can write one paragraph per family.
+    """
+    cfg = FAMILY_KEYS[key]
+    bundle_key = cfg["bundle_key"]
+    if isinstance(bundle_key, str):
+        bundle_keys = (bundle_key,)
+    else:
+        bundle_keys = bundle_key
     site = site_bundle.get("site") or {}
     smr_label = (site_bundle.get("metadata") or {}).get(
         "smr_label", "NuScale VOYGR-6",
@@ -203,63 +177,50 @@ def slice_for_family_pack(family: str, target_keys: list[str],
     families = site_bundle.get("criterion_families") or {}
     verdicts = (site_bundle.get("screening") or {}).get("verdicts") or []
     rankings = (site_bundle.get("scoring") or {}).get("ranking_scores") or []
-    family_row = families.get(FAMILY_BUNDLE_KEY[family]) or {}
-    if family == "EP":
-        family_row = {
-            **family_row,
-            **(families.get("emergency_planning") or {}),
-        }
-    if family == "RI":
-        family_row = {
-            **family_row,
-            **(families.get("radiological") or {}),
-        }
-    criteria: dict[str, Any] = {}
-    for cid in target_keys:
-        criteria[cid] = {
-            "criterion_id": cid,
-            "ranking_score": next(
-                (r for r in rankings if r.get("criterion_id") == cid), {},
-            ),
-            "verdicts": [
-                v for v in verdicts if v.get("criterion_id") == cid
-            ],
-            "criterion_meta": (
-                site_bundle.get("criteria_lookup", {}).get(cid, {})
-            ),
-        }
+    components = (site_bundle.get("scoring") or {}).get(
+        "criterion_components",
+    ) or []
+    family_row: dict[str, Any] = {}
+    for bk in bundle_keys:
+        row = families.get(bk) or {}
+        if isinstance(row, dict):
+            family_row.update(row)
+    prefixes = tuple(cfg["criteria_prefixes"])
+    in_family = lambda cid: bool(cid) and cid.startswith(prefixes)
+    family_rankings = [
+        r for r in rankings if in_family(r.get("criterion_id"))
+    ]
+    family_verdicts = [
+        v for v in verdicts if in_family(v.get("criterion_id"))
+    ]
+    family_components = [
+        c for c in components
+        if in_family(c.get("criterion_id"))
+        and c.get("weight_profile") == "baseline"
+    ]
     return {
         "site": _site_summary(site),
         "smr_label": smr_label,
-        "family": family,
-        "family_label": FAMILY_LABEL[family],
+        "family_key": key,
+        "family_label": cfg["label"],
         "family_row": family_row,
-        "criteria": criteria,
-    }
-
-
-def _criterion_slice(key: str, site_bundle: dict[str, Any]) -> dict[str, Any]:
-    site = site_bundle.get("site") or {}
-    smr_label = (site_bundle.get("metadata") or {}).get(
-        "smr_label", "NuScale VOYGR-6",
-    )
-    families = site_bundle.get("criterion_families") or {}
-    verdicts = (site_bundle.get("screening") or {}).get("verdicts") or []
-    rankings = (site_bundle.get("scoring") or {}).get("ranking_scores") or []
-    family = key.split("-", 1)[0]
-    fam_dict = families.get(FAMILY_BUNDLE_KEY.get(family, "")) or {}
-    return {
-        "site": _site_summary(site),
-        "smr_label": smr_label,
-        "criterion_id": key,
-        "criterion_family_row": fam_dict,
-        "screening_verdicts": [
-            v for v in verdicts if v.get("criterion_id") == key
-        ],
-        "ranking_score": next(
-            (r for r in rankings if r.get("criterion_id") == key), {},
+        "rankings": sorted(
+            family_rankings, key=lambda r: r.get("criterion_id") or "",
         ),
-        "criterion_meta": site_bundle.get("criteria_lookup", {}).get(key, {}),
+        "verdicts": sorted(
+            family_verdicts, key=lambda v: v.get("criterion_id") or "",
+        ),
+        "components": sorted(
+            family_components, key=lambda c: c.get("criterion_id") or "",
+        ),
+        "criteria_lookup": {
+            cid: site_bundle.get("criteria_lookup", {}).get(cid, {})
+            for cid in {
+                r.get("criterion_id") for r in family_rankings
+            } | {
+                v.get("criterion_id") for v in family_verdicts
+            } if cid
+        },
     }
 
 
@@ -386,7 +347,7 @@ def _country_site_summary(row: dict[str, Any]) -> dict[str, Any]:
             "passed_exclusionary", "passed_avoidance",
             "composite_score", "composite_score_low", "composite_score_high",
             "national_band", "national_top10pct_hit_rate",
-            "criteria_coverage", "installed_capacity_mw",
+            "installed_capacity_mw",
         )
     }
 
@@ -561,16 +522,16 @@ def cmd_show(args: argparse.Namespace) -> int:
     )
     prompt = load_specialist_prompt(args.key)
     slice_payload = slice_for_key(args.key, site_bundle, country_bundle)
+    site_name_display = (
+        site_name_from_md_path(ph.md_path)
+        if ph.scope == "site" else cc
+    )
     _print_show(
-        kind="single",
         scope=ph.scope,
         scope_id=ph.site_id or ph.country_code or cc,
-        site_name=(
-            site_name_from_md_path(ph.md_path)
-            if ph.scope == "site" else cc
-        ),
+        site_name=site_name_display,
         md_path=ph.md_path,
-        keys=[args.key],
+        key=args.key,
         prompt=prompt,
         slice_payload=slice_payload,
         current_body=ph.body,
@@ -579,47 +540,7 @@ def cmd_show(args: argparse.Namespace) -> int:
     return 0
 
 
-# ---- subcommand: show-pack ------------------------------------------------
-
-
-def cmd_show_pack(args: argparse.Namespace) -> int:
-    cc = args.country.upper()
-    family = args.family.upper()
-    if family not in FAMILY_BASE_FILE:
-        raise SystemExit(f"Unknown family: {family}")
-    md_path = _resolve_site_md(cc, args.site_name, args.site_id)
-    placeholders = [
-        ph for ph in discover_placeholders(md_path)
-        if ph.family == family and (
-            args.include_filled or ph.status == "pending"
-        )
-    ]
-    if not placeholders:
-        print(
-            f"No matching {family} placeholders in {md_path.name} "
-            "(use --include-filled to show filled blocks too)."
-        )
-        return 0
-    bundle_path = find_site_bundle_for_md(md_path)
-    if bundle_path is None or not bundle_path.exists():
-        raise SystemExit(f"Site bundle missing: {bundle_path}")
-    site_bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
-    prompt = load_family_pack_prompt(family)
-    target_keys = [ph.key for ph in placeholders]
-    slice_payload = slice_for_family_pack(family, target_keys, site_bundle)
-    _print_show(
-        kind="pack",
-        scope="site",
-        scope_id=placeholders[0].site_id or "",
-        site_name=site_name_from_md_path(md_path),
-        md_path=md_path,
-        keys=target_keys,
-        prompt=prompt,
-        slice_payload=slice_payload,
-        current_body=None,
-        country_code=cc,
-    )
-    return 0
+# ---- subcommand: patch -----------------------------------------------------
 
 
 def _resolve_site_md(country_code: str, site_name: str | None,
@@ -645,9 +566,6 @@ def _resolve_site_md(country_code: str, site_name: str | None,
             f"site_id={site_id}"
         )
     raise SystemExit("Provide --site-name or --site-id to identify the site.")
-
-
-# ---- subcommand: patch -----------------------------------------------------
 
 
 def cmd_patch(args: argparse.Namespace) -> int:
@@ -714,19 +632,18 @@ def _read_text_input(args: argparse.Namespace) -> str:
 
 def _print_show(
     *,
-    kind: str,
     scope: str,
     scope_id: str,
     site_name: str,
     md_path: Path,
-    keys: list[str],
+    key: str,
     prompt: str,
     slice_payload: dict[str, Any],
     current_body: str | None,
     country_code: str,
 ) -> None:
     print("=" * 78)
-    print(f"=== specialist task ({kind}) ===")
+    print("=== specialist task ===")
     print("=" * 78)
     print(f"scope:        {scope}")
     print(f"scope_id:     {scope_id}")
@@ -734,10 +651,10 @@ def _print_show(
         print(f"site_name:    {site_name}")
         print(f"country:      {country_code}")
     print(f"md_file:      {md_path.relative_to(REPO_ROOT)}")
-    print(f"keys:         {', '.join(keys)}")
+    print(f"key:          {key}")
     print()
     print("=" * 78)
-    print("=== system prompt ===")
+    print("=== system prompt (siting expert) ===")
     print("=" * 78)
     print(prompt.strip())
     print()
@@ -755,34 +672,22 @@ def _print_show(
     print("=" * 78)
     print("=== how to patch ===")
     print("=" * 78)
-    if kind == "pack":
-        print(textwrap.dedent("""\
-        Draft a paragraph for each criterion in the pack. Patch them
-        one at a time:
-
-          python -m scripts.run_specialist_pass patch \\
-            --country {cc} --site-name "{site}" --key <CID> \\
-            --text-file <draft_for_that_CID.md>
-        """).format(cc=country_code, site=site_name))
+    if scope == "site":
+        scope_arg = f'--site-name "{site_name}"'
     else:
-        print(textwrap.dedent("""\
-        Once the paragraph is drafted, patch the placeholder:
+        scope_arg = "  # country scope, no --site-* flag"
+    print(textwrap.dedent("""\
+    Once the paragraph is drafted, patch the placeholder:
 
-          python -m scripts.run_specialist_pass patch \\
-            --country {cc} {scope_arg} --key {key} \\
-            --text-file <draft.md>
+      python -m scripts.run_specialist_pass patch \\
+        --country {cc} {scope_arg} --key {key} \\
+        --text-file <draft.md>
 
-        Or feed via stdin:
+    Or feed via stdin:
 
-          cat draft.md | python -m scripts.run_specialist_pass patch \\
-            --country {cc} {scope_arg} --key {key} --text-file -
-        """).format(
-            cc=country_code, key=keys[0],
-            scope_arg=(
-                f'--site-name "{site_name}"' if scope == "site"
-                else "  # country scope, no --site-* flag"
-            ),
-        ))
+      cat draft.md | python -m scripts.run_specialist_pass patch \\
+        --country {cc} {scope_arg} --key {key} --text-file -
+    """).format(cc=country_code, key=key, scope_arg=scope_arg))
 
 
 # ---- argparse wiring ------------------------------------------------------
@@ -793,9 +698,9 @@ def _build_parser() -> argparse.ArgumentParser:
         prog="run_specialist_pass",
         description=(
             "Helper for the in-Cursor specialist interpretation pass. "
-            "No external API calls; the Cursor agent reads the prompt + "
-            "bundle slice with show / show-pack and patches the result "
-            "back with patch."
+            "No external API calls; the Cursor agent reads the single "
+            "siting_expert.md prompt and the bundle slice with show "
+            "and patches the result back with patch."
         ),
     )
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -822,26 +727,15 @@ def _build_parser() -> argparse.ArgumentParser:
     p_show.add_argument("--country", required=True)
     p_show.add_argument("--site-name")
     p_show.add_argument("--site-id")
-    p_show.add_argument("--key", required=True)
-    p_show.set_defaults(func=cmd_show)
-
-    p_pack = sub.add_parser(
-        "show-pack",
+    p_show.add_argument(
+        "--key", required=True,
         help=(
-            "Print the family base prompt + every override card for a "
-            "family + the bundle slice for every pack member, so the "
-            "agent can draft all family criteria in one pass."
+            "One of: family_natural_hazards, family_human_hazards, "
+            "family_radiological_emergency, family_infrastructure, "
+            "residual_risk, stability, country_exec."
         ),
     )
-    p_pack.add_argument("--country", required=True)
-    p_pack.add_argument(
-        "--family", required=True,
-        choices=sorted(FAMILY_BASE_FILE),
-    )
-    p_pack.add_argument("--site-name")
-    p_pack.add_argument("--site-id")
-    p_pack.add_argument("--include-filled", action="store_true")
-    p_pack.set_defaults(func=cmd_show_pack)
+    p_show.set_defaults(func=cmd_show)
 
     p_patch = sub.add_parser(
         "patch",

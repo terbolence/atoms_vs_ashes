@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from pathlib import Path
 from typing import Any
 
 from scripts._country_profile_map import STATUS_LABEL
@@ -55,11 +54,6 @@ def render_site_markdown_from_bundle(
     )
     site_id = str(site.get("site_id") or "")
     bundle_name = site_bundle_filename or ""
-    flagged_cids = {
-        v.get("criterion_id") for v in verdicts
-        if str(v.get("verdict")) in ("fail", "caution")
-    }
-    override_cids = _override_card_set()
     lines: list[str] = []
     lines += _header(site, smr_label, country_name)
     lines += _snapshot(
@@ -70,25 +64,29 @@ def render_site_markdown_from_bundle(
     lines += _family_section(
         "## Natural Hazards (NH)", "natural_hazards", families, by_family,
         site_id=site_id, bundle_name=bundle_name,
-        flagged_cids=flagged_cids, override_cids=override_cids,
+        family_key="family_natural_hazards",
+        family_label="Natural Hazards (NH)",
     )
     lines += _family_section(
         "## Human-Induced and Security-Relevant Hazards (HI)",
         "human_hazards", families, by_family,
         site_id=site_id, bundle_name=bundle_name,
-        flagged_cids=flagged_cids, override_cids=override_cids,
+        family_key="family_human_hazards",
+        family_label="Human-Induced and Security-Relevant Hazards (HI)",
     )
     lines += _family_section(
         "## Radiological Impact and Emergency Planning (RI / EP)",
         ["radiological", "emergency_planning"], families, by_family,
         site_id=site_id, bundle_name=bundle_name,
-        flagged_cids=flagged_cids, override_cids=override_cids,
+        family_key="family_radiological_emergency",
+        family_label="Radiological Impact and Emergency Planning (RI / EP)",
     )
     lines += _family_section(
         "## Non-Safety and Implementation Considerations (NS)",
         "infrastructure", families, by_family,
         site_id=site_id, bundle_name=bundle_name,
-        flagged_cids=flagged_cids, override_cids=override_cids,
+        family_key="family_infrastructure",
+        family_label="Non-Safety and Implementation Considerations (NS)",
     )
     lines += _composite_block(
         composite, bands, site, chart_paths,
@@ -225,7 +223,6 @@ def _snapshot(
             f"{band_letter} (top-10% hit rate {_pct(top10)})",
         ),
         ("National rank", str(cs.get("national_rank") or "-")),
-        ("Criteria coverage", _pct(composite.get("criteria_coverage"))),
     ]
     lines = ["", "## Site Snapshot", "", "| Field | Value |", "| --- | --- |"]
     for label, value in rows:
@@ -311,11 +308,9 @@ def _family_section(
     *,
     site_id: str = "",
     bundle_name: str = "",
-    flagged_cids: set[str] | None = None,
-    override_cids: set[str] | None = None,
+    family_key: str,
+    family_label: str,
 ) -> list[str]:
-    flagged = flagged_cids or set()
-    overrides = override_cids or set()
     if isinstance(family_keys, str):
         keys = [family_keys]
     else:
@@ -349,31 +344,16 @@ def _family_section(
             f"- **{crit_name} ({cid})** - score {score_text}, {weight_text}, "
             f"data quality {quality}. Evidence: {signals_text}."
         )
-        if signals or cid in flagged or cid in overrides:
-            lines += _site_placeholder(
-                key=cid, label=f"{crit_name} ({cid})",
-                site_id=site_id, bundle_name=bundle_name,
-            )
-        else:
-            lines.append(
-                "  > _Stage 3 first activity: source the structured "
-                "measurement for this criterion before specialist "
-                "interpretation can be added._"
-            )
+    lines += [
+        "",
+        f"### Interpretation - {family_label}",
+        "",
+    ]
+    lines += _site_placeholder(
+        key=family_key, label=f"Interpretation - {family_label}",
+        site_id=site_id, bundle_name=bundle_name,
+    )
     return lines
-
-
-_OVERRIDE_CARDS_DIR = (
-    Path(__file__).resolve().parents[2]
-    / "report" / "output" / "writing plan"
-    / "prompts" / "specialists" / "criteria"
-)
-
-
-def _override_card_set() -> set[str]:
-    if not _OVERRIDE_CARDS_DIR.exists():
-        return set()
-    return {p.stem for p in _OVERRIDE_CARDS_DIR.glob("*.md")}
 
 
 def _site_placeholder(
@@ -382,9 +362,9 @@ def _site_placeholder(
     """Emit a parseable specialist-interpretation placeholder block.
 
     The ``run_specialist_pass`` helper CLI locates these blocks via
-    regex. The Cursor agent reads the prompt + bundle slice with
-    ``show`` / ``show-pack`` and writes the paragraph back with
-    ``patch``.
+    regex. The Cursor agent reads the single ``siting_expert.md``
+    prompt and the bundle slice with ``show`` and writes the
+    paragraph back with ``patch``.
     """
     open_tag = (
         f"<!-- specialist key={key} scope=site site_id={site_id} "
@@ -394,9 +374,9 @@ def _site_placeholder(
     msg = (
         f"> _Specialist interpretation pending: {label}. Cursor agent "
         "fills via "
-        f"`python -m scripts.run_specialist_pass show --site-id {site_id} "
-        f"--key {key}` then `... patch --site-id {site_id} --key {key} "
-        "--text-file <draft.md>`._"
+        f"`python -m scripts.run_specialist_pass show --country <CC> "
+        f"--site-name <name> --key {key}` then `... patch --country <CC> "
+        f"--site-name <name> --key {key} --text-file <draft.md>`._"
     )
     return ["", open_tag, msg, close_tag]
 
@@ -444,39 +424,15 @@ def _residual_register(
     site_id: str = "",
     bundle_name: str = "",
 ) -> list[str]:
-    flagged = [
-        v for v in verdicts
-        if str(v.get("phase")) == "avoidance"
-        and str(v.get("verdict")) in ("fail", "caution")
-    ]
-    weak: list[dict[str, Any]] = []
-    for items in grouped.values():
-        for item in items:
-            score = item.get("score_0_10")
-            if score is not None and score <= 3.5:
-                weak.append(item)
-    weak.sort(key=lambda i: i.get("score_0_10") or 0)
-    register: list[str] = []
-    for verdict in flagged[:3]:
-        cid = verdict.get("criterion_id")
-        register.append(
-            f"- **{_full_name(cid)} ({cid})** - measured {verdict.get('measured_value')} "
-            f"vs threshold {verdict.get('threshold')}; avoidance flag with "
-            f"{verdict.get('confidence')} confidence. Stage 3 action: "
-            f"verify locally and quantify mitigation cost."
-        )
-    for item in weak[:5 - len(register)]:
-        cid = item["criterion_id"]
-        evidence = evidence_for(cid, families)
-        sig = "; ".join(evidence["signals"][:2]) or "no structured measurement"
-        register.append(
-            f"- **{_full_name(cid)} ({cid})** - score {_num(item['score_0_10'], 1)}/10 "
-            f"({sig}). Stage 3 action: confirm value with national or "
-            f"site-survey data and assess engineering response."
-        )
-    if not register:
-        register.append("- No avoidance flags or sub-3.5 scores in the current bundle.")
-    block = ["", "## Residual Risk Register", "", *register]
+    """Emit the heading and one specialist placeholder.
+
+    The actual register (markdown table + closing paragraph) is the
+    output of the siting expert filling the placeholder. The
+    auto-generated bullet preamble that earlier versions emitted was
+    redundant once the specialist register became the deliverable.
+    """
+    del grouped, verdicts, families  # signals consumed by the slicer
+    block = ["", "## Residual Risk Register", ""]
     block += _site_placeholder(
         key="residual_risk",
         label="Residual risk register (specialist synthesis)",

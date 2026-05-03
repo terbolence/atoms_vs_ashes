@@ -8,13 +8,19 @@ Atoms vs Ashes report from a country bundle JSON.
 > Pareto chart embeds, family strength / weakness, status counts,
 > "Interpretation for Site Selection" framing). The country-level
 > executive coal-to-nuclear paragraph that anchors the lead is filled
-> by the `country_exec` specialist
-> (`report/output/writing plan/prompts/specialists/08_country_coal_to_nuclear_executive.md`).
-> The fill happens **inside Cursor** through
-> `python -m scripts.run_specialist_pass show --country <CC> --key country_exec`
-> followed by `... patch ... --text-file <draft.md>`. Do not write that
-> paragraph in this prompt; emit the placeholder block and let the
-> specialist pass fill it.
+> by the single specialist prompt at
+> [`report/output/writing plan/prompts/specialists/siting_expert.md`](specialists/siting_expert.md)
+> under output shape `country_exec`. The fill happens **inside
+> Cursor** through:
+>
+> ```bash
+> python -m scripts.run_specialist_pass list --country <CC>
+> python -m scripts.run_specialist_pass show --country <CC> --key country_exec
+> python -m scripts.run_specialist_pass patch --country <CC> --key country_exec --text-file <draft.md>
+> ```
+>
+> Do not write the executive paragraph in this prompt; emit the
+> placeholder block and let the specialist pass fill it.
 
 ## System Role
 

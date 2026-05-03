@@ -28,27 +28,37 @@ def write_artifacts(
     *,
     out: Path,
     country_bundle: dict[str, Any],
-    site_bundle: dict[str, Any],
+    site_bundle: dict[str, Any] | None,
     detail: dict[str, Any],
-    selected_row: dict[str, Any],
+    selected_row: dict[str, Any] | None,
     country_name: str,
     country_code: str,
     smr_label: str,
-    site_slug: str,
+    site_slug: str | None,
 ) -> None:
-    """Write data, figures, and markdown for one country/site profile."""
+    """Write data, figures, and markdown for one country/site profile.
+
+    The site bundle, site charts, and site profile are written only
+    when ``site_bundle``, ``selected_row``, and ``site_slug`` are all
+    present. When called in country-only mode the country artefacts
+    (bundle JSON, ledger CSV, status maps, Pareto charts, country
+    markdown) are written without touching anything under ``sites/``.
+    """
+    write_site = (
+        site_bundle is not None
+        and selected_row is not None
+        and site_slug
+    )
     (out / "data").mkdir(parents=True, exist_ok=True)
     (out / "figures").mkdir(parents=True, exist_ok=True)
-    (out / "sites").mkdir(parents=True, exist_ok=True)
+    if write_site:
+        (out / "sites").mkdir(parents=True, exist_ok=True)
     country_prefix = country_code
-    site_prefix = f"{country_code}_{site_slug}"
 
     set_criteria_lookup(country_bundle.get("criteria_lookup", {}))
 
     country_bundle_filename = f"{country_prefix}_country_bundle.json"
-    site_bundle_filename = f"{site_prefix}_site_bundle.json"
     _write_json(out / "data" / country_bundle_filename, country_bundle)
-    _write_json(out / "data" / site_bundle_filename, site_bundle)
     _write_csv(
         out / "data" / f"{country_prefix}_site_ledger.csv",
         country_bundle.get("sites", []),
@@ -66,10 +76,6 @@ def write_artifacts(
         country_prefix=country_prefix,
         country_name=country_name.split(" (", 1)[0],
     )
-    charts = write_site_charts(
-        out / "figures", detail, file_prefix=site_prefix,
-        site_name=selected_row["name"],
-    )
     country_md_name = f"{country_prefix}_country_prototype.md"
     (out / country_md_name).write_text(
         render_country_markdown_from_bundle(
@@ -80,22 +86,32 @@ def write_artifacts(
         ),
         encoding="utf-8",
     )
-    composite_summary = {"national_rank": selected_row.get("national_rank")}
-    country_profile_link = {
-        "label": f"{country_name.split(' (', 1)[0]} Country Profile",
-        "href": f"../{country_md_name}#{COUNTRY_MAP_ANCHOR}",
-    }
-    (out / "sites" / f"{site_prefix}.md").write_text(
-        render_site_markdown_from_bundle(
-            site_bundle,
-            country_name=country_name, smr_label=smr_label,
-            chart_paths=charts,
-            composite_summary=composite_summary,
-            country_profile_link=country_profile_link,
-            site_bundle_filename=site_bundle_filename,
-        ),
-        encoding="utf-8",
-    )
+
+    if write_site:
+        site_prefix = f"{country_code}_{site_slug}"
+        site_bundle_filename = f"{site_prefix}_site_bundle.json"
+        _write_json(out / "data" / site_bundle_filename, site_bundle)
+        charts = write_site_charts(
+            out / "figures", detail, file_prefix=site_prefix,
+            site_name=selected_row["name"],
+        )
+        composite_summary = {"national_rank": selected_row.get("national_rank")}
+        country_profile_link = {
+            "label": f"{country_name.split(' (', 1)[0]} Country Profile",
+            "href": f"../{country_md_name}#{COUNTRY_MAP_ANCHOR}",
+        }
+        (out / "sites" / f"{site_prefix}.md").write_text(
+            render_site_markdown_from_bundle(
+                site_bundle,
+                country_name=country_name, smr_label=smr_label,
+                chart_paths=charts,
+                composite_summary=composite_summary,
+                country_profile_link=country_profile_link,
+                site_bundle_filename=site_bundle_filename,
+            ),
+            encoding="utf-8",
+        )
+
     _write_index(out)
 
 
@@ -168,20 +184,56 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
             writer.writerow({col: row.get(col) for col in cols})
 
 
+_COUNTRY_DISPLAY = {
+    "AL": "Albania", "AT": "Austria", "BA": "Bosnia and Herzegovina",
+    "BG": "Bulgaria", "BY": "Belarus", "CZ": "Czechia", "HR": "Croatia",
+    "HU": "Hungary", "LV": "Latvia", "MD": "Moldova", "ME": "Montenegro",
+    "MK": "North Macedonia", "PL": "Poland", "RO": "Romania",
+    "RS": "Serbia", "SI": "Slovenia", "SK": "Slovakia", "TR": "Türkiye",
+    "UA": "Ukraine", "XK": "Kosovo",
+}
+
+
 def _write_index(out: Path) -> None:
     country_links = sorted(out.glob("*_country_prototype.md"))
-    site_links = sorted((out / "sites").glob("*.md"))
-    lines = ["# Country and Site Profile Prototypes", ""]
+    site_links = sorted((out / "sites").glob("*.md")) if (out / "sites").exists() else []
+    lines = [
+        "# Chapter 5 - Country and Site Profiles",
+        "",
+        "## Country profiles",
+        "",
+    ]
     for path in country_links:
-        lines.append(f"- [Country prototype: {path.stem}]({path.name})")
-    for path in site_links:
-        lines.append(f"- [Site prototype: {path.stem}](sites/{path.name})")
+        cc = path.name.split("_", 1)[0]
+        display = _COUNTRY_DISPLAY.get(cc, cc)
+        lines.append(f"- [{display} ({cc})]({path.name})")
+    failure_section = out / "consolidated_failure_section.md"
+    if failure_section.exists():
+        lines += [
+            "",
+            "## Consolidated failure section",
+            "",
+            "- [Countries with no exclusionary-pass site]"
+            f"({failure_section.name})",
+        ]
+    if site_links:
+        lines += ["", "## Site profiles", ""]
+        for path in site_links:
+            stem = path.stem
+            lines.append(f"- [{stem}](sites/{path.name})")
+    top5 = out / "recommended_top5_sites.md"
+    if top5.exists():
+        lines += [
+            "", "## Top-5 site recommendations", "",
+            f"- [Region-wide ranked top-5]({top5.name})",
+        ]
     caveat = out / "02_ukraine_occupied_territory_caveat_plan.md"
     if caveat.exists():
-        lines.append(
+        lines += [
+            "", "## Caveats", "",
             "- [Ukraine occupied-territory caveat plan]"
-            "(02_ukraine_occupied_territory_caveat_plan.md)"
-        )
+            "(02_ukraine_occupied_territory_caveat_plan.md)",
+        ]
     (out / "00_index.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

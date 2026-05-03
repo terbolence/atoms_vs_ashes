@@ -1,0 +1,12 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Mohacs power station,True,True,6.467,4.619,6.887,A,1.0,42.5,low,1200.0,45.99593,18.67985
+2,Torony power station,True,True,6.01,4.339,6.396,D,0.0625,42.5,low,600.0,47.23626,16.53706
+3,Borsod power station,True,False,5.976,4.39,6.396,C,0.5625,42.5,low,420.0,47.904814,21.055306
+4,Tiszapalkonya power station,True,False,5.807,4.311,6.302,D,0.0,42.5,low,265.0,47.916826,21.075933
+5,Matra power station,True,False,5.123,3.991,5.509,H,0.0,42.5,low,1384.0,47.79027,20.06358
+6,Matraterenye power station,True,False,4.817,3.808,5.307,H,0.0,42.5,low,49.9,48.016667,19.95
+7,Oroszlány power station,True,False,4.802,3.841,5.189,H,0.0,42.5,low,250.0,47.501741,18.271075
+8,Mecsek Hills power station,True,False,4.637,3.764,5.09,H,0.0,42.5,low,400.0,46.1,18.083333
+9,Banhida-II power station,True,False,4.448,3.676,4.868,H,0.0,42.5,low,100.0,47.571057,18.365557
+10,Bakony power station,True,False,4.338,3.637,4.704,H,0.0,45.0,low,60.0,47.0956,17.558444
+,Pecs power station,False,False,,,,,,0.0,low,60.0,46.064103,18.263048

@@ -72,6 +72,14 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--country-code", default="RO")
     parser.add_argument("--site-id")
     parser.add_argument("--site-name")
+    parser.add_argument(
+        "--country-only", action="store_true",
+        help=(
+            "Build only the country bundle, status maps, Pareto charts, "
+            "and the country markdown. Skip the per-site bundle, site "
+            "charts, and site markdown."
+        ),
+    )
     parser.add_argument("--smr-key", default="nuscale_voygr6")
     parser.add_argument("--output-dir", type=Path, default=Path(
         "report/output/chapters/05_country_and_site_profiles",
@@ -97,21 +105,26 @@ def main(argv: list[str] | None = None) -> int:
             run_id=scoring, sensitivity_run_id=sensitivity,
             sensitivity_stamp=args.sensitivity_stamp,
         )
-        selected = _select_site(
-            country_bundle["sites"],
-            site_id=args.site_id, site_name=args.site_name,
-        )
-        site_bundle = build_site_bundle(
-            session,
-            site_id=uuid.UUID(selected["site_id"]),
-            smr_key=args.smr_key, run_id=scoring,
-            sensitivity_run_id=sensitivity,
-            sensitivity_stamp=args.sensitivity_stamp,
-        )
-        detail = site_detail(
-            scoring, uuid.UUID(selected["site_id"]), args.smr_key,
-            weight_profile="baseline",
-        )
+        if args.country_only:
+            selected = None
+            site_bundle = None
+            detail = None
+        else:
+            selected = _select_site(
+                country_bundle["sites"],
+                site_id=args.site_id, site_name=args.site_name,
+            )
+            site_bundle = build_site_bundle(
+                session,
+                site_id=uuid.UUID(selected["site_id"]),
+                smr_key=args.smr_key, run_id=scoring,
+                sensitivity_run_id=sensitivity,
+                sensitivity_stamp=args.sensitivity_stamp,
+            )
+            detail = site_detail(
+                scoring, uuid.UUID(selected["site_id"]), args.smr_key,
+                weight_profile="baseline",
+            )
     return _write(
         args, cc, country_bundle, site_bundle, detail, selected,
     )
@@ -121,6 +134,7 @@ def _write(args, country_code, country_bundle, site_bundle, detail, selected):
     cname = country_name(country_code)
     smr_label = country_bundle["metadata"].get("smr_label", args.smr_key)
     detail_payload = asdict(detail) if detail else {}
+    site_slug = _slug(selected["name"]) if selected else None
     write_artifacts(
         out=args.output_dir,
         country_bundle=country_bundle,
@@ -130,13 +144,20 @@ def _write(args, country_code, country_bundle, site_bundle, detail, selected):
         country_name=cname,
         country_code=country_code,
         smr_label=smr_label,
-        site_slug=_slug(selected["name"]),
+        site_slug=site_slug,
     )
-    print(
-        f"Wrote country profile for {cname} / {selected['name']} "
-        f"(scoring={country_bundle['metadata']['analytics_run_id']}, "
-        f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
-    )
+    if selected is None:
+        print(
+            f"Wrote country profile for {cname} (country-only mode; "
+            f"scoring={country_bundle['metadata']['analytics_run_id']}, "
+            f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
+        )
+    else:
+        print(
+            f"Wrote country profile for {cname} / {selected['name']} "
+            f"(scoring={country_bundle['metadata']['analytics_run_id']}, "
+            f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
+        )
     return 0
 
 

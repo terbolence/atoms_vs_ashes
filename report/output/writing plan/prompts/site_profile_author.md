@@ -6,15 +6,24 @@ the Atoms vs Ashes report from a site bundle JSON.
 > **Scope after the specialist split.** This prompt produces only the
 > site profile **scaffold** (snapshot, ownership, criterion bullets
 > with raw measured values, residual-risk skeleton, stability
-> summary). The interpretation paragraphs that sit immediately after
-> each criterion bullet, after the residual register, and after the
-> composite block are filled by the family / cross-section
-> specialists in `report/output/writing plan/prompts/specialists/`.
-> The fill happens **inside Cursor** through
-> `python -m scripts.run_specialist_pass show-pack` and
-> `... patch ... --text-file <draft.md>`. Do not write the
-> interpretation paragraphs in this prompt; emit the placeholder
-> blocks instead and let the specialist pass fill them.
+> summary). The interpretation paragraphs that sit at the bottom of
+> each family heading, inside the residual register, and inside the
+> stability section are filled by the single specialist prompt at
+> [`report/output/writing plan/prompts/specialists/siting_expert.md`](specialists/siting_expert.md).
+> The renderer emits six site-scope placeholder keys per site:
+> `family_natural_hazards`, `family_human_hazards`,
+> `family_radiological_emergency`, `family_infrastructure`,
+> `residual_risk`, `stability`. The fill happens **inside Cursor**
+> through:
+>
+> ```bash
+> python -m scripts.run_specialist_pass list --country <CC>
+> python -m scripts.run_specialist_pass show --country <CC> --site-name "<name>" --key <key>
+> python -m scripts.run_specialist_pass patch --country <CC> --site-name "<name>" --key <key> --text-file <draft.md>
+> ```
+>
+> Do not write the interpretation paragraphs in this prompt; emit the
+> placeholder blocks instead and let the specialist pass fill them.
 
 ## System Role
 

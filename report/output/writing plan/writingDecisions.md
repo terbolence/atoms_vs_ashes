@@ -222,34 +222,45 @@ This brief is a governance, audit, and lessons-learned deliverable. It should no
 
 ## 13. Specialist Interpretation Workflow
 
-The country and site profile renderers do not write the expert interpretation paragraphs themselves. They emit the data scaffold (tables, charts, criterion bullets, ownership block, residual-risk skeleton, stability summary) and insert one machine-parseable placeholder per interpretation block. The placeholders are filled **inside Cursor** by the agent reading the matching specialist prompt and the relevant bundle slice. **There is no external LLM API call.**
+The country and site profile renderers do not write the expert interpretation paragraphs themselves. They emit the data scaffold (tables, charts, criterion bullets, ownership block, residual-risk skeleton, stability summary) and insert one machine-parseable placeholder per interpretation block. The placeholders are filled **inside Cursor** by the agent reading the single specialist prompt and the relevant bundle slice. **There is no external LLM API call.**
 
-### Prompt locations
+There is one specialist prompt for the entire report. Per-criterion specialist prompts are not used; one paragraph per family is sufficient.
 
-- `report/output/writing plan/prompts/specialists/00_README.md` - layered scheme overview and registry of which prompt owns which placeholder.
-- `report/output/writing plan/prompts/specialists/01_natural_hazards.md` to `05_non_safety_implementation.md` - the five family base prompts.
-- `report/output/writing plan/prompts/specialists/06_residual_risk_register.md`, `07_stability_sensitivity.md`, `08_country_coal_to_nuclear_executive.md` - the three cross-section specialists.
-- `report/output/writing plan/prompts/specialists/criteria/<CID>.md` - per-criterion override cards (NH-01, NH-02, NH-09, HI-01, HI-06, RI-04, RI-05, EP-01, EP-02, NS-01, NS-02, NS-08 at launch). Concatenated after the family base prompt for criteria where the family voice is too generic.
+### Prompt location
+
+- `report/output/writing plan/prompts/specialists/siting_expert.md` - the single voice. Defines the role, the universal style rules, and the four output shapes (per-family paragraph, residual-risk register, stability paragraph, country executive paragraph). The shape is selected by the placeholder key.
+- `report/output/writing plan/prompts/specialists/00_README.md` - the registry of placeholder keys and the workflow.
+
+### Placeholder set
+
+Per site (six placeholders):
+
+| Key | Output |
+| --- | --- |
+| `family_natural_hazards` | One paragraph for NH-* (and BF-02). |
+| `family_human_hazards` | One paragraph for HI-*. |
+| `family_radiological_emergency` | One paragraph for RI-* and EP-*. |
+| `family_infrastructure` | One paragraph for NS-* (and BF-01). |
+| `residual_risk` | Markdown table + closing paragraph. |
+| `stability` | Plain-English read of composite + MC bracket + band. |
+
+Per country (one placeholder):
+
+| Key | Output |
+| --- | --- |
+| `country_exec` | Three short paragraphs covering the leadership pool, the avoidance unlock pool, and a credible Stage 3 cadence. |
 
 ### Placeholder grammar
 
-Site placeholders:
-
 ```text
-<!-- specialist key=NH-01 scope=site site_id=<UUID> bundle=<filename> status=pending -->
-> _Specialist interpretation pending: Seismic: Ground Motion (NH-01)._
-<!-- /specialist key=NH-01 -->
+<!-- specialist key=family_natural_hazards scope=site site_id=<UUID> bundle=<filename> status=pending -->
+> _Specialist interpretation pending: Interpretation - Natural Hazards (NH)._
+<!-- /specialist key=family_natural_hazards -->
 ```
 
-Country placeholders:
+Country placeholders use `scope=country country_code=<CC>` instead of `scope=site site_id=<UUID>`.
 
-```text
-<!-- specialist key=country_exec scope=country country_code=RO bundle=<filename> status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read._
-<!-- /specialist key=country_exec -->
-```
-
-When the renderer sees a criterion with no structured measurement, no flagged verdict, and no per-criterion override card, it emits a one-line **Stage 3 first activity** cue under the criterion bullet instead of a placeholder. There is nothing for the specialist to interpret yet; Stage 3 must source the value first.
+The patch step rewrites the open tag to `status=filled by=cursor-agent filled_at=<UTC>`. Re-runs skip already-filled blocks unless `--force` is supplied.
 
 ### Helper CLI
 
@@ -257,27 +268,23 @@ When the renderer sees a criterion with no structured measurement, no flagged ve
 
 | Subcommand | Purpose |
 | --- | --- |
-| `list --country <CC>` | Print pending placeholders for a country / site so the agent can plan a session. |
-| `show --country <CC> --key <CID>` (+ `--site-name` or `--site-id` for site-scope) | Print the system prompt and the bundle slice for one placeholder. |
-| `show-pack --country <CC> --site-name <name> --family <NH|HI|RI|EP|NS>` | Print the family base prompt + every override card for the family + the bundle slice for every pack member, so the agent can draft all family criteria in one pass. |
-| `patch --country <CC> --key <CID> --text-file <draft.md>` | Replace the placeholder body with the agent-drafted paragraph; rewrites the open tag to `status=filled by=cursor-agent filled_at=<UTC>`. |
+| `list --country <CC>` | Print pending placeholders for a country / site. |
+| `show --country <CC> --key <key>` (+ `--site-name` or `--site-id` for site-scope) | Print the siting-expert prompt and the bundle slice for one placeholder. |
+| `patch --country <CC> --key <key> --text-file <draft.md>` | Replace the placeholder body with the agent-drafted paragraph. |
 
-The `patch` step is idempotent. Re-runs skip already-filled blocks unless `--force` is supplied. The audit trail is the open-tag attributes plus the git diff; no separate `data/llm_responses/` log is written.
+The audit trail is the open-tag attributes plus the git diff; no separate `data/llm_responses/` log is written.
 
-### Drafting cadence
+### Drafting cadence per site
 
-The recommended cadence per site:
-
-1. Run `show-pack --family NH` and read the prompt + slice.
-2. Draft NH-01 .. NH-13 paragraphs in one pass, patch each.
-3. Repeat for HI, RI, EP, NS.
-4. Run `show --key residual_risk` and `show --key stability`, draft, patch.
-5. Once all sites in a country are filled, run `show --key country_exec`, draft, patch.
-
-The family pack keeps the agent in a single voice for the family while still patching one criterion at a time so each placeholder is updated atomically.
+1. `show --key family_natural_hazards`, draft, `patch`.
+2. Repeat for `family_human_hazards`, `family_radiological_emergency`, `family_infrastructure`.
+3. `show --key residual_risk` and `show --key stability`, draft, `patch`.
+4. Once every site in the country is filled, `show --key country_exec`, draft, `patch`.
 
 ### Removed from the workflow
 
-- The earlier `src/scripts/interpret_site_with_anthropic.py` (Anthropic API request builder) was removed when the in-Cursor decision was made.
-- The previous `run_specialist_pass.py` `--call --ack-consent` and `data/llm_responses/specialist_pass/<run_id>/` log path were removed for the same reason.
+- `src/scripts/interpret_site_with_anthropic.py` (Anthropic API request builder).
+- The earlier `--call --ack-consent` flags and `data/llm_responses/specialist_pass/<run_id>/` log path.
+- The earlier per-criterion family prompts (`01_natural_hazards.md` ... `08_country_coal_to_nuclear_executive.md`) and `criteria/<CID>.md` override cards. The single `siting_expert.md` replaces them.
+- The earlier `run_specialist_pass show-pack` subcommand. With one placeholder per family, the agent reads one prompt + one slice per family directly through `show`.
 
