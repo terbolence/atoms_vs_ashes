@@ -11,7 +11,7 @@ Of 2 Croatian thermal sites tested against the NuScale VOYGR-6 envelope, 1 clear
 
 There is no avoidance unlock pool to discuss for this country: Plomin already passes both screens, so there is no list of avoidance criteria that would unlock additional sites. The 50 % country-wide NH-02 hard-fail rate is the structural reason no second brownfield candidate is on the table; this is a regional Dinaride seismic constraint, not a remediation route.
 
-The greenfield lever is the only path to expanding the Croatian programme beyond a single site, and any greenfield search must apply the EFSM20 capable-fault buffer at the screening stage. A credible Stage 3 sequence begins and ends with Plomin power station as the lead site; expansion beyond the lead requires a greenfield prospecting effort outside the scope of this screening pass.
+The greenfield lever is the only path to expanding the Croatian programme beyond a single site, and any greenfield search must apply the regional capable-fault buffer at the screening stage. A credible Stage 3 sequence begins and ends with Plomin power station as the lead site; expansion beyond the lead requires a greenfield prospecting effort outside the scope of this screening pass.
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>

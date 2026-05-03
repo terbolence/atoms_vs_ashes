@@ -11,7 +11,7 @@ Of 4 Montenegrin thermal sites tested against the NuScale VOYGR-6 envelope, none
 
 The avoidance unlock pool is small and structurally hard. **Seismic: Ground Motion (NH-01)** and **Site Footprint Adequacy (NS-05)** each carry the one exclusionary-pass site (100 %): NH-01 reflects the regional Dinaride seismic hazard at the Bar coastal corridor and is closable only by site-specific PSHA and SSHAC characterization, not by paper analysis; NS-05 is a parcel-by-parcel land-acquisition question for the buildable hectares the NuScale VOYGR-6 nuclear-island envelope requires. The 50 % NH-02 hard-fail rate is a structural geological constraint that cannot be unlocked by avoidance work and is the primary reason the candidate pool is so small.
 
-The greenfield lever inherits the same NH-02 footprint problem and would need to apply the EFSM20 capable-fault buffer at the screening stage. A credible Stage 3 sequence begins and ends with Bar power station as a contingent candidate, on the explicit understanding that the NH-01 PSHA result may itself remove the site from the candidate pool. The Montenegrin programme is best framed as a long-horizon prospecting exercise rather than a near-term coal-to-nuclear conversion.
+The greenfield lever inherits the same NH-02 footprint problem and would need to apply the regional capable-fault buffer at the screening stage. A credible Stage 3 sequence begins and ends with Bar power station as a contingent candidate, on the explicit understanding that the NH-01 PSHA result may itself remove the site from the candidate pool. The Montenegrin programme is best framed as a long-horizon prospecting exercise rather than a near-term coal-to-nuclear conversion.
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>

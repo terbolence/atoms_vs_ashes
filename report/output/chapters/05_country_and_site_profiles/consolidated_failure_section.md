@@ -20,7 +20,7 @@ The criterion codes referenced below resolve as follows:
 This section is a stub for the writing pass that follows the country profiles. The full narrative will:
 
 - Quote the actual hazard values that drive the NH-02 / NH-03 / NH-04 fails for each site (PGA at 475-yr return, capable-fault distance, slope-stability factor of safety) once the per-site evidence is pulled from the bundle.
-- Explain why a greenfield search inside each country must apply the EFSM20 capable-fault buffer at the screening stage rather than at characterization.
+- Explain why a greenfield search inside each country must apply the regional capable-fault buffer at the screening stage rather than at characterization.
 - Discuss whether cross-border programme coordination (Albania - Kosovo, Slovenia - Croatia) is a credible alternative to a domestic greenfield search.
 
 The sites in this section are not deal-breakers for nuclear ambition in the host country; they are deal-breakers for the brownfield coal-to-nuclear path on the existing thermal portfolio. The distinction matters when host governments consider whether to launch a greenfield site-survey programme alongside the regional fleet plan.
