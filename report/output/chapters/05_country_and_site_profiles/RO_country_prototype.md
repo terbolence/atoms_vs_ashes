@@ -91,6 +91,8 @@ The main Stage 3 questions are therefore targeted rather than generic: confirm l
 
 ## Status Counts
 
-- Full pass: 3
+These are the **country-level totals** across all 22 Romanian coal/thermal sites screened in this study (not the count appearing in the regional top-20 set in §4.1 Table 4.1.1, which is a different metric — Romania contributes 1 site to the regional top-20 because only Turceni clears the top-20 cut by composite score across the entire 23-country region; the 3 below are all Romanian sites that pass exclusionary screening, regardless of whether they enter the regional top-20).
+
+- Full pass: 3 (Turceni, Rovinari, Brăila)
 - Exclusion pass with avoidance flag: 15
 - Hard fail: 4

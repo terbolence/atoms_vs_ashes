@@ -80,16 +80,16 @@ criteria:
     weight_factor: 7
     normalised_weight_pct: 2.5
     primary_metric: liquefaction_suscept
-    db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa], llm: nh03_liquefaction_text}
+    db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa, site_natural_hazards.groundwater_depth_m, site_natural_hazards.pga_475yr_g, site_natural_hazards.depth_to_bedrock_m], llm: nh03_liquefaction_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none'] and depth_to_bedrock_m <= 0.6", descriptor: "Negligible susceptibility; rock within 0.6 m."}
-      - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low' and bearing_capacity_kpa > 200", descriptor: "Low susceptibility; competent strata 0.6-2 m; bearing > 200 kPa."}
-      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)", descriptor: "Moderate susceptibility, or high susceptibility with documented mitigation; viable but cost/risk penalty."}
-      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and has_remedy == false", descriptor: "High susceptibility without documented mitigation; significant residual risk."}
-      - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high'", descriptor: "Very high with high PGA and shallow GW; remedy uncertain."}
-      - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "E2 confirmed."}
+      - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none']", descriptor: "Negligible susceptibility (Stage-1 favourable default)."}
+      - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low'", descriptor: "Low susceptibility; favourable at screening grade."}
+      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true)", descriptor: "Moderate susceptibility, or high with documented mitigation."}
+      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and (has_remedy == false or has_remedy is null)", descriptor: "High susceptibility without documented mitigation."}
+      - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)", descriptor: "E2 — very high susceptibility with no documented remedy."}
+      - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == true", descriptor: "Very high susceptibility with documented mitigation path (ranking penalty)."}
     fail_conditions:
-      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
+      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-04
     name: Geotechnical - slope stability

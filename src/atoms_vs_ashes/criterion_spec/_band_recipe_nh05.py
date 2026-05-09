@@ -21,19 +21,19 @@ def nh05_mine_composite(pivot_km: float) -> list[BandSpec]:
         BandSpec(
             score_range=(9, 10),
             condition_expr=(
-                "karst_severity == 'none' and "
-                f"{m} >= {_km(5.0 * f)} and subsidence_risk_class in [null, 'none']"
+                "karst_severity == 'none' and subsidence_risk_class in [null, 'none'] and "
+                f"({m} >= {_km(5.0 * f)} or {m} is null)"
             ),
-            descriptor="No karst; mine-feature distance well above the score-5 pivot.",
+            descriptor="No karst; mine-feature distance well above the score-5 pivot (or unknown).",
         ),
         BandSpec(
             score_range=(7, 8),
             condition_expr=(
                 "karst_severity in [null, 'none'] and "
-                f"{m} >= {_km(2.0 * f)} and "
-                "subsidence_risk_class in [null, 'none', 'low']"
+                "subsidence_risk_class in [null, 'none', 'low'] and "
+                f"({m} >= {_km(2.0 * f)} or {m} is null)"
             ),
-            descriptor="Clear mine-distance margin with low geotechnical proxy risk.",
+            descriptor="Clear mine-distance margin with low geotechnical proxy risk (or unknown).",
         ),
         BandSpec(
             score_range=(5, 6),

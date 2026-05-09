@@ -1,0 +1,931 @@
+{
+  "extracted_at": "2026-05-09T13:57:46+00:00",
+  "count": 45,
+  "anchors_attached": 45,
+  "comments": [
+    {
+      "id": "8",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:02:00Z",
+      "text": "OK",
+      "para_ids": [
+        "257E9E1F"
+      ],
+      "done": false,
+      "anchor_text": "The report is a Stage 1 and Stage 2 decision-support document. It does not ask whether a site can be licensed, financed, procured, or built. It asks a narrower and more immediate question: among the candidate population available to this study, which sites appear sufficiently suitable and robust to justify further investigation?",
+      "anchor_chars": 330,
+      "heading_path": [
+        "1. Introduction",
+        "1.1 Purpose of the Report"
+      ],
+      "chapter": "1. Introduction",
+      "paragraph_index": 136
+    },
+    {
+      "id": "12",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:08:00Z",
+      "text": "OK",
+      "para_ids": [
+        "03560C02"
+      ],
+      "done": false,
+      "anchor_text": "For governments, the DOE guide highlights four practical questions that are directly relevant to this study [4]:",
+      "anchor_chars": 112,
+      "heading_path": [
+        "1. Introduction",
+        "1.3 Coal-to-Nuclear Transition Context"
+      ],
+      "chapter": "1. Introduction",
+      "paragraph_index": 163
+    },
+    {
+      "id": "15",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:16:00Z",
+      "text": "Take into account the",
+      "para_ids": [
+        "3D4315EC"
+      ],
+      "done": false,
+      "anchor_text": "provide",
+      "anchor_chars": 7,
+      "heading_path": [
+        "1. Introduction",
+        "1.5 Data, Scoring, and Sensitivity Overview"
+      ],
+      "chapter": "1. Introduction",
+      "paragraph_index": 205
+    },
+    {
+      "id": "32",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:35:00Z",
+      "text": "If the site failed a safety related criteria is most likely to be excluded. Or the engineering solution to protect the safety of the site are too excessive the site also could be screened out.",
+      "para_ids": [
+        "751842B9"
+      ],
+      "done": false,
+      "anchor_text": "The framework follows three principles. First, safety-related concerns are treated as controlling constraints, not as tradeable preferences",
+      "anchor_chars": 139,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.2 Evaluation Framework and Criterion Families"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "paragraph_index": 347
+    },
+    {
+      "id": "33",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:39:00Z",
+      "text": "If you cannot protect the population against exposure above the legal limist – this is an exclusionary criteria. So caoul be both – ranking aor exclusionary",
+      "para_ids": [
+        "69A4634A"
+      ],
+      "done": false,
+      "anchor_text": "Supports comparative screening of dose-pathway and population-context concerns.",
+      "anchor_chars": 79,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.2 Evaluation Framework and Criterion Families"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "paragraph_index": 367
+    },
+    {
+      "id": "35",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:41:00Z",
+      "text": "Most of the exclusion criteria are safety related and apply to screening in Stage 1. The list of candidate sites going in stage 2 suppose to be free of exclusionary criteria. Some safety criteria may influence scorring if protection measure are needed.",
+      "para_ids": [
+        "0A383CE2"
+      ],
+      "done": false,
+      "anchor_text": "Safety-related criteria have priority in Stage 2",
+      "anchor_chars": 48,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.3 Safety-Related Criteria"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "paragraph_index": 378
+    },
+    {
+      "id": "47",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:19:00Z",
+      "text": "Ce inseamna numarul de amplasamente – cele care au scorul cel mai mare, sau au trecut fara flaguri?\n\nFiinca in tabelul urmator arati ca pentru fiecare tara sunt mai multe amplsamante\n\nPoate ar fi de clarificat in headingul tabelului",
+      "para_ids": [
+        "4480F808",
+        "60D1FA42",
+        "0005F545"
+      ],
+      "done": false,
+      "anchor_text": "CountrySites in regional top 20Interpretation",
+      "anchor_chars": 45,
+      "heading_path": [
+        "4. Results and Findings",
+        "4.1 Regional and Cross-Country Findings"
+      ],
+      "chapter": "4. Results and Findings",
+      "paragraph_index": 527
+    },
+    {
+      "id": "49",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:22:00Z",
+      "text": "Pune titlu la table care sa explice ce contine tabelul",
+      "para_ids": [
+        "18786251"
+      ],
+      "done": false,
+      "anchor_text": "CountryLeading candidate sites for selection reviewRanking qualification",
+      "anchor_chars": 72,
+      "heading_path": [
+        "4. Results and Findings",
+        "4.2 Per-Country Top Candidate Sites"
+      ],
+      "chapter": "4. Results and Findings",
+      "paragraph_index": 614
+    },
+    {
+      "id": "65",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:26:00Z",
+      "text": "Analiza asta ar trebui facuta pentru fiecare tara – poti ilustra un exemplu pentru o tara anume\n\nDaca ai exemplificat doar pt Austria este o.k.",
+      "para_ids": [
+        "4D63F22B",
+        "08428269"
+      ],
+      "done": false,
+      "anchor_text": "",
+      "anchor_chars": 0,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Exclusionary Failure Pareto"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 883
+    },
+    {
+      "id": "72",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:43:00Z",
+      "text": "Scoring si waight associate pot fi revizuit dupa analiza rezultatelor obtinute. La toate categoriile de criterile enumerate mai jost (in idea de a creste rangeiul de scor spre 60- 80% din scorul maxim. Nu acuma ci in versiunea ulterioara (rafinarii criterii de scor si weights)",
+      "para_ids": [
+        "7AEE6A72"
+      ],
+      "done": false,
+      "anchor_text": "Ownership and Coal-to-Nuclear Context",
+      "anchor_chars": 37,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Riedersbach power station Site Profile",
+        "Site Snapshot"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 924
+    },
+    {
+      "id": "76",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:28:00Z",
+      "text": "Conteaza tipul de aeroport, frecventa zborurilor, tipul de aeronave, orientarea pistelor, etc.\n\nDAca devine factor important de avoidance trebuie colectate mai mult date dacva in rest site-ul pare o.k.",
+      "para_ids": [
+        "7FB1DAD9",
+        "50ABCB21"
+      ],
+      "done": false,
+      "anchor_text": "Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high. Evidence: nearest airport 15.1 km; nearest flight path 12.5 km; airports within search radius 12; airport name: Altötting-Burghausen District Hospital Burghausen Heliport; airport type: heliport",
+      "anchor_chars": 280,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Riedersbach power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 962
+    },
+    {
+      "id": "77",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:30:00Z",
+      "text": "Ai folositt weight din EPRI?",
+      "para_ids": [
+        "0965AC9C"
+      ],
+      "done": false,
+      "anchor_text": "weight 0.0308",
+      "anchor_chars": 13,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Riedersbach power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 963
+    },
+    {
+      "id": "79",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:32:00Z",
+      "text": "Asta este screeining value pentru aeroporturi militare daca su8nt mai aproape se poate rafina dar trebuiesc mai multe date (screeiningul este intodeauna acoperitor si poate fi rafinat)",
+      "para_ids": [
+        "15B39F61"
+      ],
+      "done": false,
+      "anchor_text": "12 airports of all classes sit inside the 30 km screening radius",
+      "anchor_chars": 64,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Riedersbach power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)",
+        "Interpretation - Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 971
+    },
+    {
+      "id": "92",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:09:00Z",
+      "text": "De ce este scorul asa de jos? Daca susceptibility este low?",
+      "para_ids": [
+        "1A6C430D"
+      ],
+      "done": false,
+      "anchor_text": "Geotechnical: Liquefaction (NH-03)",
+      "anchor_chars": 34,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1104
+    },
+    {
+      "id": "94",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:11:00Z",
+      "text": "Score prea mic ca sa fie semnificativ trebuie sa afecteze amplsamentul nu la 1 km de amplasament si nu poate apare la un unghi de 10 grade",
+      "para_ids": [
+        "245E0E40"
+      ],
+      "done": false,
+      "anchor_text": "Geotechnical: Slope Stability (NH-04)",
+      "anchor_chars": 37,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1105
+    },
+    {
+      "id": "95",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:13:00Z",
+      "text": "Score prea mic – asta inseamna tasari mari sau cavitati in teren pe amplasament",
+      "para_ids": [
+        "01580003"
+      ],
+      "done": false,
+      "anchor_text": "- score 5.5",
+      "anchor_chars": 11,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1106
+    },
+    {
+      "id": "96",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:14:00Z",
+      "text": "Scor prea mic daca vulcanic hazard este neglijabil",
+      "para_ids": [
+        "332D0005"
+      ],
+      "done": false,
+      "anchor_text": "5.0/10",
+      "anchor_chars": 6,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1108
+    },
+    {
+      "id": "97",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:15:00Z",
+      "text": "Asi spune score 10 – nu exista coastal flooding in Austria",
+      "para_ids": [
+        "1B62654A"
+      ],
+      "done": false,
+      "anchor_text": "5.0/10",
+      "anchor_chars": 6,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1109
+    },
+    {
+      "id": "99",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:16:00Z",
+      "text": "flood zone class: negligible?? Score prea mic",
+      "para_ids": [
+        "762AC245"
+      ],
+      "done": false,
+      "anchor_text": "flood zone class: negligible",
+      "anchor_chars": 28,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1110
+    },
+    {
+      "id": "100",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:17:00Z",
+      "text": "valorile de precipitatii anuale sunt mici score prea mic",
+      "para_ids": [
+        "535F1848"
+      ],
+      "done": false,
+      "anchor_text": "Extreme Precipitation (NH-11",
+      "anchor_chars": 28,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1112
+    },
+    {
+      "id": "101",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:17:00Z",
+      "text": "scor prea mic – trebuie sa fii aproape de o padure sau vegetatie abundenta",
+      "para_ids": [
+        "172396B6"
+      ],
+      "done": false,
+      "anchor_text": "score 5.0/10",
+      "anchor_chars": 12,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1114
+    },
+    {
+      "id": "102",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:18:00Z",
+      "text": "score prea mic in lipsa unor date care sa-l justifice",
+      "para_ids": [
+        "2009D22A"
+      ],
+      "done": false,
+      "anchor_text": "Combined Hazards (NH-14)",
+      "anchor_chars": 24,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1115
+    },
+    {
+      "id": "105",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:22:00Z",
+      "text": "scor pre mic fara sustinere de date",
+      "para_ids": [
+        "11598854"
+      ],
+      "done": false,
+      "anchor_text": "Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high. Evidence: nearest airport 21.8 km; nearest flight path 10.9 km; airports within search radius 3; airport name: Gmunden-Laakirchen Airfield; airport type: small_airport.Industrial Explosions (HI-02) - score 5.0/10 (MC 5.0-5.0), weight 0.0308, data quality medium. Evidence: values not in measurement tables.Toxic/Ga…",
+      "anchor_chars": 1016,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1119
+    },
+    {
+      "id": "106",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:19:00Z",
+      "text": "scor prea mic pentru proximitate cu un aeroport mic",
+      "para_ids": [
+        "707AF432"
+      ],
+      "done": false,
+      "anchor_text": "score 5.5/10",
+      "anchor_chars": 12,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1119
+    },
+    {
+      "id": "107",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:20:00Z",
+      "text": "scor prea mic cind nu ai gasit date ca sa sustina",
+      "para_ids": [
+        "523A1050"
+      ],
+      "done": false,
+      "anchor_text": "Industrial Explosions (HI-02) - score 5.0/10",
+      "anchor_chars": 44,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1120
+    },
+    {
+      "id": "108",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:23:00Z",
+      "text": "scor prea mic",
+      "para_ids": [
+        "1FAD9AA6"
+      ],
+      "done": false,
+      "anchor_text": "transmitter type: mast.Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 164,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1125
+    },
+    {
+      "id": "109",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:21:00Z",
+      "text": "scor prea mic – in lipsa datelor",
+      "para_ids": [
+        "743475AC"
+      ],
+      "done": false,
+      "anchor_text": "Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 141,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1126
+    },
+    {
+      "id": "112",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:24:00Z",
+      "text": "scor prea mic",
+      "para_ids": [
+        "56544BD4"
+      ],
+      "done": false,
+      "anchor_text": "Emergency Planning Feasibility (EP-01) - score 5.5/10 (MC 5.0-6.0), weight n/a, data quality high. Evidence: EP feasibility composite 44.0 /100; road sub-score 67.6 /100; special-population sub-score 90.0 /100; geography sub-score 10.0 /100; population sub-score 80.0 /100; evacuation feasible: yes.Evacuation Routes (EP-02) - score 5.5/10 (MC 5.0-6.0), weight 0.0264, data quality medium. Evidence:…",
+      "anchor_chars": 478,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Radiological Impact and Emergency Planning (RI / EP)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1130
+    },
+    {
+      "id": "117",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:26:00Z",
+      "text": "scorurile trebuiesc revizuite – ai dat valori default in lipsa de date sau cind datele nu justifica scor mic. Asta explica partial scorul agregat mic si variatia strinsa intre scorul maxim sic el minim. Nu stiu cum ai calculate ponderile pentru agregarea scorului (daca ai utilizat ghidul EPRI este o.k.)",
+      "para_ids": [
+        "2187DFDC"
+      ],
+      "done": false,
+      "anchor_text": "Composite Score and Stability",
+      "anchor_chars": 29,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Non-Safety and Implementation Considerations (NS)",
+        "Interpretation - Non-Safety and Implementation Considerations (NS)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1161
+    },
+    {
+      "id": "119",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:28:00Z",
+      "text": "VOYGR 6 are poterea 6x77 New de unde ai scos 924? Cel cu 12 module nu a re Design Certification",
+      "para_ids": [
+        "438AE381"
+      ],
+      "done": false,
+      "anchor_text": "924",
+      "anchor_chars": 3,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Residual Risk Register"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1176
+    },
+    {
+      "id": "120",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:32:00Z",
+      "text": "If the military facility includes ammunition depot or firing polygons",
+      "para_ids": [
+        "6B43539D"
+      ],
+      "done": false,
+      "anchor_text": "25 km; military",
+      "anchor_chars": 15,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Timelkam power station Site Profile",
+        "Residual Risk Register"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 1185
+    },
+    {
+      "id": "563",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:50:00Z",
+      "text": "Military facility if they do not include amo depot or firing polygons could be much closer without eclusion being activated.",
+      "para_ids": [
+        "58533953"
+      ],
+      "done": false,
+      "anchor_text": "Military Installations (HI-06) - mean 0.20/10 across 22 scored sites (min 0.0, max 1.5).",
+      "anchor_chars": 88,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Family Strength and Weakness"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6876
+    },
+    {
+      "id": "564",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:51:00Z",
+      "text": "EPZ orientative distances are for screening. The real criteria according to CNCAN are based on does calculation for and feasibility of emergency plan implementation",
+      "para_ids": [
+        "6F4B7A7A"
+      ],
+      "done": false,
+      "anchor_text": "Population Density at EPZ Radii (RI-04) - mean 3.14/10 across 22 scored sites (min 1.5, max 7.5).",
+      "anchor_chars": 97,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Family Strength and Weakness"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6877
+    },
+    {
+      "id": "565",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:53:00Z",
+      "text": "This depends on how many modules you install.",
+      "para_ids": [
+        "4C5438C9"
+      ],
+      "done": false,
+      "anchor_text": "Grid Capacity Basic Filter (BF-01) - mean 3.43/10 across 22 scored sites (min 0.0, max 7.5).",
+      "anchor_chars": 92,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Family Strength and Weakness"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6878
+    },
+    {
+      "id": "568",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:54:00Z",
+      "text": "In an early table you mention for Romania 1 site not 3 ??? explain",
+      "para_ids": [
+        "6EC9C5C2"
+      ],
+      "done": false,
+      "anchor_text": "Full pass: 3",
+      "anchor_chars": 12,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Status Counts"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6888
+    },
+    {
+      "id": "573",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:57:00Z",
+      "text": "Score too small – for the small average annual precipitation",
+      "para_ids": [
+        "57B674AF"
+      ],
+      "done": false,
+      "anchor_text": "Extreme Precipitation (NH-11) - score 4.0/10 (MC 4.0-4.0), weight 0.0132, data quality medium. Evidence: extreme daily precipitation 0.19 mm; mean annual precipitation 17.4 mm/yr.",
+      "anchor_chars": 179,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6924
+    },
+    {
+      "id": "574",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:57:00Z",
+      "text": "Score too small since Nuscalestandard design  is for Tornado of cat IV",
+      "para_ids": [
+        "40E39023"
+      ],
+      "done": false,
+      "anchor_text": "Forest/Wildfire (NH-13) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 129,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6926
+    },
+    {
+      "id": "575",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:58:00Z",
+      "text": "Biased by low scoring where is not justified",
+      "para_ids": [
+        "1F09F2CA"
+      ],
+      "done": false,
+      "anchor_text": "Combined Hazards (NH-14) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 130,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6927
+    },
+    {
+      "id": "578",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:00:00Z",
+      "text": "Too low score – no major airports near by within 30 km",
+      "para_ids": [
+        "06A3662F"
+      ],
+      "done": false,
+      "anchor_text": "Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high. Evidence: nearest airport 22.2 km; nearest flight path 11.1 km; airports within search radius 1; airport name: Aerial Club Vădeni; airport type: small_airport.",
+      "anchor_chars": 245,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6931
+    },
+    {
+      "id": "579",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:00:00Z",
+      "text": "Too low score",
+      "para_ids": [
+        "71FC8BE5"
+      ],
+      "done": false,
+      "anchor_text": "Industrial Explosions (HI-02) - score 5.0/10 (MC 5.0-5.0), weight 0.0308, data quality high. Evidence: nearest industrial site 18.7 km.",
+      "anchor_chars": 135,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6932
+    },
+    {
+      "id": "580",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:01:00Z",
+      "text": "Too low",
+      "para_ids": [
+        "1881C5D6"
+      ],
+      "done": false,
+      "anchor_text": "External Fires (HI-04) - score 5.0/10 (MC 5.0-5.0), weight 0.0264, data quality high. Evidence: values not in measurement tables.",
+      "anchor_chars": 129,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6934
+    },
+    {
+      "id": "581",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:01:00Z",
+      "text": "How can you assign low score without data?",
+      "para_ids": [
+        "57DF3730"
+      ],
+      "done": false,
+      "anchor_text": "Transport Hazards (HI-05) - score 5.0/10 (MC 5.0-5.0), weight 0.0264, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 131,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6935
+    },
+    {
+      "id": "582",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:02:00Z",
+      "text": "Depends on military installation (if no fire polygons and amo depot the score could be much higher)",
+      "para_ids": [
+        "4BF2A45E"
+      ],
+      "done": false,
+      "anchor_text": "Military Installations (HI-06) - score 1.5/10 (MC 1.0-2.0), weight 0.0264, data quality medium. Evidence: nearest military installation 8.86 km; military installations within radius 153.",
+      "anchor_chars": 186,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6936
+    },
+    {
+      "id": "583",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:03:00Z",
+      "text": "Based on what the score is so low? I have no idea about any nuclear installations around Braila are",
+      "para_ids": [
+        "44DD0096"
+      ],
+      "done": false,
+      "anchor_text": "Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality n/a. Evidence: values not in measurement tables.",
+      "anchor_chars": 141,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Romania Country Profile",
+        "Braila power station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "paragraph_index": 6938
+    },
+    {
+      "id": "1929454976",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-07T23:31:17",
+      "text": "Putem respecta EPRI pentru ponderile score-urilor si mai putin S&L.",
+      "para_ids": [
+        "1E217922"
+      ],
+      "done": false,
+      "anchor_text": "Atoms vs Ashes: Coal-to-Nuclear Siting Assessment",
+      "anchor_chars": 49,
+      "chapter": "",
+      "paragraph_index": 0
+    }
+  ]
+}

@@ -13,11 +13,14 @@ and ``report/sites_evaluation/`` criterion tables (sections 03–07).
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 from typing import Any, Literal
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+logger = logging.getLogger(__name__)
 
 
 class Band(BaseModel):
@@ -122,6 +125,8 @@ class Criterion(BaseModel):
     phases: list[Literal["basic_filter", "exclusionary", "avoidance", "ranking"]]
     weight_factor: int = Field(ge=1, le=10)
     normalised_weight_pct: float = Field(ge=0.0, le=100.0)
+    weight_factors: dict[str, int] | None = None
+    weight_basis_source: dict[str, str] | None = None
     primary_metric: str | None = None
     db_fields: DbFields = Field(default_factory=DbFields)
     bands: list[Band] = Field(default_factory=list)
@@ -129,6 +134,20 @@ class Criterion(BaseModel):
     aggregation: Aggregation | None = None
     fail_conditions: list[FailCondition] = Field(default_factory=list)
     quality_floor: QualityFloor = Field(default_factory=QualityFloor)
+
+    @field_validator("weight_factors")
+    @classmethod
+    def _weight_factors_in_bounds(
+        cls, v: dict[str, int] | None
+    ) -> dict[str, int] | None:
+        if v is None:
+            return None
+        for basis_name, weight in v.items():
+            if not (1 <= weight <= 10):
+                raise ValueError(
+                    f"weight_factors['{basis_name}'] = {weight} must satisfy 1 <= w <= 10"
+                )
+        return v
 
     @property
     def family(self) -> str:
@@ -236,32 +255,85 @@ def load_rubric_bundle(rubric_dir: str | Path) -> dict[str, Criterion]:
     return bundle
 
 
+_PERTURBATION_MULTIPLIERS: dict[str, float] = {
+    "baseline": 1.0,
+    "w_plus_20": 1.2,
+    "w_minus_20": 0.8,
+}
+
+
+def _resolve_basis_weight(crit: Criterion, basis: str | None) -> tuple[int, str]:
+    """Return ``(weight_value, basis_used)`` for a criterion.
+
+    When ``basis`` is None or "baseline", returns ``crit.weight_factor`` with
+    basis label ``"baseline"``. When ``basis`` names an entry in
+    ``crit.weight_factors``, returns that value with the named label. When
+    ``basis`` is named but absent from ``crit.weight_factors``, falls back to
+    the baseline weight and logs a warning so the audit trail records the gap.
+    """
+    if basis is None or basis == "baseline":
+        return crit.weight_factor, "baseline"
+    table = crit.weight_factors or {}
+    if basis in table:
+        return table[basis], basis
+    logger.warning(
+        "criterion %s has no weight_factors['%s']; falling back to baseline=%d",
+        crit.criterion_id,
+        basis,
+        crit.weight_factor,
+    )
+    return crit.weight_factor, "baseline"
+
+
 def weight_normalisation(
     bundle: dict[str, Criterion],
     profile: str = "baseline",
+    basis: str | None = None,
 ) -> dict[str, float]:
     """Return normalised decimal weights keyed by criterion_id.
+
+    ``profile`` is a sensitivity perturbation (``baseline``, ``w_plus_20``,
+    ``w_minus_20``) applied as a multiplicative factor on top of the basis
+    weight. ``basis`` selects the weight-source per criterion: ``None`` (or
+    ``"baseline"``) reads the legacy ``weight_factor`` field, while a string
+    such as ``"epri"`` or ``"s_and_l"`` reads ``criterion.weight_factors[basis]``
+    when present (otherwise falls back to ``weight_factor`` with a warning, so
+    the rerun is reproducible even when only a subset of criteria carry the
+    new basis values).
 
     Exclusionary criteria are gate-only; only non-exclusionary ranking
     criteria participate in the denominator.
     """
-    multipliers = {
-        "baseline": 1.0,
-        "w_plus_20": 1.2,
-        "w_minus_20": 0.8,
-    }
-    if profile not in multipliers:
+    if profile not in _PERTURBATION_MULTIPLIERS:
         raise KeyError(
-            f"Unknown weight profile '{profile}'. "
-            f"Expected one of {sorted(multipliers)}."
+            f"Unknown sensitivity profile '{profile}'. "
+            f"Expected one of {sorted(_PERTURBATION_MULTIPLIERS)}."
         )
-    mult = multipliers[profile]
-    perturbed = {
-        cid: c.weight_factor * mult
-        for cid, c in bundle.items()
-        if c.participates_in_composite
-    }
+    mult = _PERTURBATION_MULTIPLIERS[profile]
+    perturbed: dict[str, float] = {}
+    for cid, c in bundle.items():
+        if not c.participates_in_composite:
+            continue
+        weight_value, _ = _resolve_basis_weight(c, basis)
+        perturbed[cid] = weight_value * mult
     total = sum(perturbed.values())
     if total <= 0:
         raise ValueError("Rubric bundle has no composite scoring weight to normalise")
     return {cid: w / total for cid, w in perturbed.items()}
+
+
+def weight_basis_resolution(
+    bundle: dict[str, Criterion],
+    basis: str | None = None,
+) -> dict[str, tuple[int, str]]:
+    """Per-criterion ``(weight_value, basis_used)`` tuples.
+
+    Useful for audit trails and renderer-facing provenance: the renderer can
+    print ``weight 0.0308 (basis: epri)`` per criterion bullet (FB-LL-09) by
+    calling this in tandem with :func:`weight_normalisation`.
+    """
+    return {
+        cid: _resolve_basis_weight(c, basis)
+        for cid, c in bundle.items()
+        if c.participates_in_composite
+    }

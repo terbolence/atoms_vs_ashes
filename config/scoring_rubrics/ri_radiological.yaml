@@ -112,6 +112,7 @@ criteria:
           - {score_range: [1, 2], condition_expr: "pop_density_80km >= 300", descriptor: "> 300."}
     fail_conditions:
       - {code: A12, action: avoidance_penalty, condition_expr: "pop_density_5km > 500 or pop_density_16km > 600 or pop_density_25km > 600 or pop_density_80km > 300", descriptor: "Project A12: population thresholds per RI-04/RI-05."}
+      - {code: E_RI04, action: exclude, condition_expr: "pop_density_5km > 1500 or (pop_density_5km > 800 and pop_density_16km > 1200)", pass_mark: 5.0, descriptor: "Dual-mode exclusion: extreme EPZ population-density screening proxy."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: RI-05
     name: Distance to large population centres (>50 k)

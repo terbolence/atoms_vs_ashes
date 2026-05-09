@@ -76,16 +76,16 @@ criteria:
     weight_factor: 7
     normalised_weight_pct: 2.5
     primary_metric: liquefaction_suscept
-    db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa], llm: nh03_liquefaction_text}
+    db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa, site_natural_hazards.groundwater_depth_m, site_natural_hazards.pga_475yr_g, site_natural_hazards.depth_to_bedrock_m], llm: nh03_liquefaction_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none'] and depth_to_bedrock_m <= 0.6", descriptor: "Negligible susceptibility; rock within 0.6 m."}
-      - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low' and bearing_capacity_kpa > 200", descriptor: "Low susceptibility; competent strata 0.6-2 m; bearing > 200 kPa."}
-      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true) or (groundwater_depth_m <= 3 and pga_475yr_g < 0.1)", descriptor: "Moderate susceptibility, or high susceptibility with documented mitigation; viable but cost/risk penalty."}
-      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and has_remedy == false", descriptor: "High susceptibility without documented mitigation; significant residual risk."}
-      - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high'", descriptor: "Very high with high PGA and shallow GW; remedy uncertain."}
-      - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", descriptor: "E2 confirmed."}
+      - {score_range: [9, 10], condition_expr: "liquefaction_suscept in ['very_low', 'none']", descriptor: "Negligible susceptibility (Stage-1 favourable default)."}
+      - {score_range: [7, 8], condition_expr: "liquefaction_suscept == 'low'", descriptor: "Low susceptibility; favourable at screening grade."}
+      - {score_range: [5, 6], condition_expr: "liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true)", descriptor: "Moderate susceptibility, or high with documented mitigation."}
+      - {score_range: [3, 4], condition_expr: "liquefaction_suscept == 'high' and (has_remedy == false or has_remedy is null)", descriptor: "High susceptibility without documented mitigation."}
+      - {score_range: [0, 0], condition_expr: "liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)", descriptor: "E2 — very high susceptibility with no documented remedy."}
+      - {score_range: [1, 2], condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == true", descriptor: "Very high susceptibility with documented mitigation path (ranking penalty)."}
     fail_conditions:
-      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and has_remedy == false", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
+      - {code: E2, action: exclude, condition_expr: "liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)", pass_mark: 5.0, descriptor: "Unacceptable liquefaction with no engineering remedy."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-04
     name: Geotechnical - slope stability
@@ -115,8 +115,8 @@ criteria:
     # from mapped EGDI mine-feature proximity alone.
     db_fields: {api: [site_natural_hazards.karst_present, site_natural_hazards.karst_severity, site_natural_hazards.karst_formation_type, site_natural_hazards.mining_void_present, site_natural_hazards.mining_void_distance_km, site_natural_hazards.subsidence_risk_class], llm: nh05_subsidence_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and mining_void_distance_km >= 10 and subsidence_risk_class in [null, 'none']", descriptor: "No karst; nearest mapped mine feature well beyond score-5 boundary; subsidence risk none/unknown."}
-      - {score_range: [7, 8], condition_expr: "karst_severity in [null, 'none'] and mining_void_distance_km >= 4 and subsidence_risk_class in [null, 'none', 'low']", descriptor: "No karst on site; clear mine-feature distance margin; low/unknown subsidence risk."}
+      - {score_range: [9, 10], condition_expr: "karst_severity == 'none' and subsidence_risk_class in [null, 'none'] and (mining_void_distance_km >= 10 or mining_void_distance_km is null)", descriptor: "No karst; mine distance favourable or unknown with no subsidence signal."}
+      - {score_range: [7, 8], condition_expr: "karst_severity in [null, 'none'] and subsidence_risk_class in [null, 'none', 'low'] and (mining_void_distance_km >= 4 or mining_void_distance_km is null)", descriptor: "No karst on site; mine distance margin or unknown; low/unknown subsidence risk."}
       - {score_range: [5, 6], condition_expr: "karst_severity in [null, 'none', 'moderate'] and (mining_void_distance_km is null or mining_void_distance_km >= 2) and subsidence_risk_class in [null, 'none', 'low', 'moderate', 'high']", descriptor: "Possible with geotechnical confirmation; mapped mine feature at/above acceptance pivot or unknown."}
       - {score_range: [3, 4], condition_expr: "mining_void_distance_km >= 1 and mining_void_distance_km < 2 and karst_severity != 'high'", descriptor: "Below mine-distance pivot but not extreme; geotechnical review required, ranking penalty only."}
       - {score_range: [1, 2], condition_expr: "mining_void_distance_km < 1 or karst_severity == 'high'", descriptor: "Close mine feature or high karst proxy; severe review signal, no exclusion without site-specific no-remedy evidence."}
@@ -148,7 +148,7 @@ criteria:
     primary_metric: nearest_volcano_km
     db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name], llm: nh07_volcanism_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_volcano_km > 1000", descriptor: "No plausible pathway."}
+      - {score_range: [9, 10], condition_expr: "nearest_volcano_km > 1000 or nearest_volcano_km is null", descriptor: "No plausible pathway (including connector-null / beyond search radius)."}
       - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 500", descriptor: "Distant; ashfall climatology benign."}
       - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 300", descriptor: "Meets project minimum (>= 300 km)."}
       - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 200", descriptor: "Sub-threshold; specialist study required."}
@@ -165,12 +165,12 @@ criteria:
     primary_metric: coast_distance_km
     db_fields: {api: [site_natural_hazards.coast_distance_km, site_natural_hazards.storm_surge_class, site_natural_hazards.tsunami_zone_flag, sites.elevation_m], llm: nh08_coastal_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL."}
+      - {score_range: [9, 10], condition_expr: "coast_distance_km > 50 or elevation_m >= 50 or country_is_landlocked == true", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country."}
       - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in ['none', 'low']", descriptor: ">= 10 km from coast, low surge class."}
       - {score_range: [5, 6], condition_expr: "coast_distance_km >= 5", descriptor: "5-10 km from coast; mitigation feasible."}
       - {score_range: [3, 4], condition_expr: "coast_distance_km >= 2", descriptor: "2-5 km from coast; high surge/tsunami trace."}
       - {score_range: [1, 2], condition_expr: "coast_distance_km < 2", descriptor: "In 100-yr inundation extent without defensible mitigation."}
-      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and has_remedy == false", descriptor: "Indefensible coastal hazard."}
+      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard."}
     fail_conditions:
       - {code: A9, action: avoidance_penalty, condition_expr: "coast_distance_km < 10 and elevation_m < 50", descriptor: ">= 10 km from sea / >= 1 km from lake, or elevation >= 50 m AMSL."}
     quality_floor: {low_quality_uncertainty_bands: 1}
@@ -182,12 +182,12 @@ criteria:
     primary_metric: river_distance_km
     db_fields: {api: [site_natural_hazards.river_distance_km, site_natural_hazards.elevation_above_design_flood_m, site_natural_hazards.flood_zone_class_500yr], llm: nh09_river_flood_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5", descriptor: "Outside 1000-yr extent; separation >= 30.5 m or distance >= 10 km."}
+      - {score_range: [9, 10], condition_expr: "river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5 or flood_zone_class_500yr in ['none', 'negligible']", descriptor: "Outside 1000-yr extent; favourable flood-zone class; separation >= 30.5 m or distance >= 10 km."}
       - {score_range: [7, 8], condition_expr: "river_distance_km >= 4 or elevation_above_design_flood_m >= 30.5", descriptor: "Outside 500-yr extent; meets project A11."}
       - {score_range: [5, 6], condition_expr: "flood_zone_class_500yr in ['none', 'low'] or river_distance_km >= 2", descriptor: "100-500 yr event; mitigation routine."}
       - {score_range: [3, 4], condition_expr: "flood_zone_class_500yr == 'moderate'", descriptor: "Within 100-yr extent; defenses required."}
       - {score_range: [1, 2], condition_expr: "flood_zone_class_500yr == 'high'", descriptor: "Within 10-yr extent or unmitigated dam-break path."}
-      - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and has_remedy == false", descriptor: "No viable flood-defence pathway."}
+      - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and (has_remedy == false or has_remedy is null)", descriptor: "No viable flood-defence pathway."}
     fail_conditions:
       - {code: A11, action: avoidance_penalty, condition_expr: "river_distance_km < 4 and elevation_above_design_flood_m < 30.5", descriptor: "Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."}
     quality_floor: {low_quality_uncertainty_bands: 1}

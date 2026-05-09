@@ -1,0 +1,1051 @@
+generated_at: '2026-05-09T13:57:46+00:00'
+source: atoms_vs_ashes_report_feedback.docx
+categories:
+- ack
+- wording
+- scoring
+- weights
+- exclusionary
+- sensitivity
+- data
+- connector
+- methodology
+- clarification
+subsystems:
+- report-text
+- scoring-engine
+- swing-weights
+- sensitivity
+- data-connector
+- methodology-doc
+- qa-cross-check
+items:
+- id: '8'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:02:00Z'
+    chapter: 1. Introduction
+    heading_path:
+    - 1. Introduction
+    - 1.1 Purpose of the Report
+    anchor_excerpt: The report is a Stage 1 and Stage 2 decision-support document. It does not ask whether
+      a site can be licensed, financed, procured, or built. It asks a narrower…
+    text_excerpt: OK
+    reply_to: null
+    done: false
+    heuristic_category: ack
+    heuristic_subsystem: report-text
+  category: ack
+  subsystem: report-text
+  action: no-action; mark done
+  depends_on: []
+  notes: Reviewer ack on §1.1 Purpose. Set auto.done=true via re-run of extractor or accept as terminal.
+- id: '12'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:08:00Z'
+    chapter: 1. Introduction
+    heading_path:
+    - 1. Introduction
+    - 1.3 Coal-to-Nuclear Transition Context
+    anchor_excerpt: 'For governments, the DOE guide highlights four practical questions that are directly
+      relevant to this study [4]:'
+    text_excerpt: OK
+    reply_to: null
+    done: false
+    heuristic_category: ack
+    heuristic_subsystem: report-text
+  category: ack
+  subsystem: report-text
+  action: no-action; mark done
+  depends_on: []
+  notes: Reviewer ack on §1.3 Coal-to-Nuclear Transition Context.
+- id: '15'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:16:00Z'
+    chapter: 1. Introduction
+    heading_path:
+    - 1. Introduction
+    - 1.5 Data, Scoring, and Sensitivity Overview
+    anchor_excerpt: provide
+    text_excerpt: Take into account the
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: clarification
+  subsystem: report-text
+  action: follow-up-with-reviewer-incomplete-comment
+  depends_on: []
+  notes: Reviewer text 'Take into account the' is incomplete; cannot act without full sentence. Park and
+    surface to reviewer.
+- id: '32'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:35:00Z'
+    chapter: '3. Stage 2: Site Selection'
+    heading_path:
+    - '3. Stage 2: Site Selection'
+    - 3.2 Evaluation Framework and Criterion Families
+    anchor_excerpt: The framework follows three principles. First, safety-related concerns are treated
+      as controlling constraints, not as tradeable preferences
+    text_excerpt: If the site failed a safety related criteria is most likely to be excluded. Or the engineering
+      solution to protect the safety of the site are too excessive the…
+    reply_to: null
+    done: false
+    heuristic_category: exclusionary
+    heuristic_subsystem: methodology-doc
+  category: methodology
+  subsystem: methodology-doc
+  action: rewrite-3.2-safety-as-controlling-constraint-narrative
+  depends_on: []
+  notes: 'SP-C. Reviewer: failing safety-related criteria typically excludes a site OR demands excessive
+    engineering protection that itself screens out the site. Make this explicit in the safety-as-priority
+    paragraph.'
+- id: '33'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:39:00Z'
+    chapter: '3. Stage 2: Site Selection'
+    heading_path:
+    - '3. Stage 2: Site Selection'
+    - 3.2 Evaluation Framework and Criterion Families
+    anchor_excerpt: Supports comparative screening of dose-pathway and population-context concerns.
+    text_excerpt: If you cannot protect the population against exposure above the legal limist – this
+      is an exclusionary criteria. So caoul be both – ranking aor exclusionary
+    reply_to: null
+    done: false
+    heuristic_category: exclusionary
+    heuristic_subsystem: scoring-engine
+  category: exclusionary
+  subsystem: methodology-doc
+  action: document-RI-04-and-dose-pathway-as-dual-mode
+  depends_on: []
+  notes: 'SP-C + FB-LL-05. Reviewer: dose-pathway / population-context can be exclusionary when legal
+    limits cannot be met; otherwise ranking. Document dual mode. Linked to RI-04 rubric phases.'
+- id: '35'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T14:41:00Z'
+    chapter: '3. Stage 2: Site Selection'
+    heading_path:
+    - '3. Stage 2: Site Selection'
+    - 3.3 Safety-Related Criteria
+    anchor_excerpt: Safety-related criteria have priority in Stage 2
+    text_excerpt: Most of the exclusion criteria are safety related and apply to screening in Stage 1.
+      The list of candidate sites going in stage 2 suppose to be free of exclusio…
+    reply_to: null
+    done: false
+    heuristic_category: exclusionary
+    heuristic_subsystem: scoring-engine
+  category: methodology
+  subsystem: methodology-doc
+  action: rewrite-3.3-safety-priority-clarify-stage1-vs-stage2
+  depends_on: []
+  notes: 'SP-C + FB-LL-04. Reviewer: most exclusion criteria are safety-related and apply at Stage 1 screening.
+    Stage 2 candidate list should already be free of exclusionary criteria; safety criteria at Stage 2
+    influence scoring only when protection measures are needed.'
+- id: '47'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:19:00Z'
+    chapter: 4. Results and Findings
+    heading_path:
+    - 4. Results and Findings
+    - 4.1 Regional and Cross-Country Findings
+    anchor_excerpt: CountrySites in regional top 20Interpretation
+    text_excerpt: Ce inseamna numarul de amplasamente – cele care au scorul cel mai mare, sau au trecut
+      fara flaguri?  Fiinca in tabelul urmator arati ca pentru fiecare tara sunt…
+    reply_to: null
+    done: false
+    heuristic_category: wording
+    heuristic_subsystem: scoring-engine
+  category: wording
+  subsystem: report-text
+  action: add-table-caption-clarifying-n-sites-meaning
+  depends_on: []
+  notes: 'SP-A. §4.1 ''Sites in regional top 20'' table: clarify whether the count is sites with highest
+    scores or sites passing all flags; the next table shows multiple sites per country, so the heading
+    needs disambiguation.'
+- id: '49'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:22:00Z'
+    chapter: 4. Results and Findings
+    heading_path:
+    - 4. Results and Findings
+    - 4.2 Per-Country Top Candidate Sites
+    anchor_excerpt: CountryLeading candidate sites for selection reviewRanking qualification
+    text_excerpt: Pune titlu la table care sa explice ce contine tabelul
+    reply_to: null
+    done: false
+    heuristic_category: wording
+    heuristic_subsystem: report-text
+  category: wording
+  subsystem: report-text
+  action: add-table-caption
+  depends_on:
+  - 47
+  notes: 'SP-A. §4.2 ''Per-Country Top Candidate Sites'' table: add explicit caption explaining table
+    contents and ranking qualification semantics.'
+- id: '65'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:26:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Exclusionary Failure Pareto
+    anchor_excerpt: ''
+    text_excerpt: Analiza asta ar trebui facuta pentru fiecare tara – poti ilustra un exemplu pentru o
+      tara anume  Daca ai exemplificat doar pt Austria este o.k.
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: wording
+  subsystem: report-text
+  action: caption-pareto-as-illustrative-example-or-generalise
+  depends_on: []
+  notes: 'SP-A or SP-G + FB-LL-07. Reviewer: Pareto analysis should be done per country OR explicitly
+    captioned as one illustrative example for Austria. Either generalise across countries or add ''illustrative
+    example'' caption.'
+- id: '72'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:43:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Riedersbach power station Site Profile
+    - Site Snapshot
+    anchor_excerpt: Ownership and Coal-to-Nuclear Context
+    text_excerpt: Scoring si waight associate pot fi revizuit dupa analiza rezultatelor obtinute. La toate
+      categoriile de criterile enumerate mai jost (in idea de a creste rangei…
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: weights
+  subsystem: swing-weights
+  action: defer-to-post-rerun-rebalancing
+  depends_on:
+  - '1929454976'
+  notes: 'SP-H + FB-LL-10. Reviewer explicitly defers: ''Nu acuma ci in versiunea ulterioara''. Park as
+    backlog item — score/weight rebalancing to lift composite range to 60-80% of max after current rework
+    lands.'
+- id: '76'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:28:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Riedersbach power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high.
+      Evidence: nearest airport 15.1 km; nearest flight path 12.5 km; airports w…'
+    text_excerpt: Conteaza tipul de aeroport, frecventa zborurilor, tipul de aeronave, orientarea pistelor,
+      etc.  DAca devine factor important de avoidance trebuie colectate mai…
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: data-connector
+  category: connector
+  subsystem: data-connector
+  action: enrich-airport-class-traffic-runway-orientation-and-document-screening-stance
+  depends_on: []
+  notes: 'SP-F + FB-LL-03. Reviewer: airport type, flight frequency, aircraft type, runway orientation
+    matter when distance is borderline; if HI-01 becomes the deciding avoidance factor, more data should
+    be collected. SP-F adds airport_class field; SP-D consumes it in re-banded HI-01.'
+- id: '77'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:30:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Riedersbach power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: weight 0.0308
+    text_excerpt: Ai folositt weight din EPRI?
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: weights
+  subsystem: swing-weights
+  action: make-weight-basis-visible-per-criterion-in-rendered-profile
+  depends_on:
+  - '1929454976'
+  notes: 'SP-B + FB-LL-09. Reviewer: ''Ai folosit weight din EPRI?'' — the report does not currently state
+    which weight basis (EPRI / S&L) produced each weight value. SP-B adds named weight_profile; SP-G renderer
+    must print profile name on each criterion bullet.'
+- id: '79'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T15:32:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Riedersbach power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    - Interpretation - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 12 airports of all classes sit inside the 30 km screening radius
+    text_excerpt: Asta este screeining value pentru aeroporturi militare daca su8nt mai aproape se poate
+      rafina dar trebuiesc mai multe date (screeiningul este intodeauna acoperi…
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: data-connector
+  category: connector
+  subsystem: data-connector
+  action: document-screening-vs-refined-stance-and-add-airport-class-fields
+  depends_on:
+  - 76
+  notes: 'SP-F + SP-C wording. Reviewer: 30 km screening radius is the conservative/over-covering value,
+    especially for military airports. Document this stance and provide refinement path when class data
+    exists.'
+- id: '92'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:09:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'Geotechnical: Liquefaction (NH-03)'
+    text_excerpt: De ce este scorul asa de jos? Daca susceptibility este low?
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-03-liquefaction-low-susceptibility-must-yield-high-score
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: low susceptibility should not score low; high score for low hazard.
+    Boundary check on the [5,6] band condition.'
+- id: '94'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:11:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'Geotechnical: Slope Stability (NH-04)'
+    text_excerpt: Score prea mic ca sa fie semnificativ trebuie sa afecteze amplsamentul nu la 1 km de
+      amplasament si nu poate apare la un unghi de 10 grade
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-04-and-verify-mean-vs-max-aggregation-LL-019
+  depends_on: []
+  notes: 'SP-D + Phase 0.5 + LL-019. Reviewer: slope at 1 km from site is irrelevant; only on-site slope
+    matters; 10° must not be exclusionary. Verify column stores mean (per LL-019 fix) before re-banding;
+    if max still applies anywhere, fix in SP-F first.'
+- id: '95'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:13:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: '- score 5.5'
+    text_excerpt: Score prea mic – asta inseamna tasari mari sau cavitati in teren pe amplasament
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-05-subsidence-low-evidence-must-not-score-low
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: low score implies large settlement or cavities on-site; absent evidence
+    should yield high score (favorable).'
+- id: '96'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:14:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 5.0/10
+    text_excerpt: Scor prea mic daca vulcanic hazard este neglijabil
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-06-volcanic-add-no-volcano-branch
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: when volcanic hazard is negligible the score must be high (~10),
+    not the pass-mark midpoint.'
+- id: '97'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:15:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 5.0/10
+    text_excerpt: Asi spune score 10 – nu exista coastal flooding in Austria
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-07-coastal-flooding-add-no-coast-branch
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: ''Asi spune score 10 — nu exista coastal flooding in Austria''. Add
+    explicit landlocked / no-coast favorable branch.'
+- id: '99'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:16:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'flood zone class: negligible'
+    text_excerpt: 'flood zone class: negligible?? Score prea mic'
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-flood-zone-negligible-must-score-high
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. ''flood zone class: negligible'' must yield a high (favorable) score, not 5.x.'
+- id: '100'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:17:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: Extreme Precipitation (NH-11
+    text_excerpt: valorile de precipitatii anuale sunt mici score prea mic
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-11-extreme-precipitation-low-values-favorable
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: low annual precipitation values must score high; current band assignment
+    is too low.'
+- id: '101'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:17:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: score 5.0/10
+    text_excerpt: scor prea mic – trebuie sa fii aproape de o padure sau vegetatie abundenta
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-13-wildfire-no-forest-must-score-high
+  depends_on: []
+  notes: 'SP-D + FB-LL-01. Reviewer: low wildfire score requires nearby forest / abundant vegetation;
+    in absence of either, score should be high.'
+- id: '102'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:18:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: Combined Hazards (NH-14)
+    text_excerpt: score prea mic in lipsa unor date care sa-l justifice
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-14-or-mark-unscored-when-no-supporting-data
+  depends_on: []
+  notes: 'SP-D + SP-E + FB-LL-02. Reviewer: low score not justifiable without supporting data; either
+    mark unscored (renderer change) or add favorable-by-default branch (rubric change).'
+- id: '105'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:22:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high.
+      Evidence: nearest airport 21.8 km; nearest flight path 10.9 km; airports w…'
+    text_excerpt: scor pre mic fara sustinere de date
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-01-high-when-no-airport-and-fix-renderer
+  depends_on: []
+  notes: 'SP-D + SP-E + FB-LL-01 + FB-LL-02. Same anchor as #76 but on Timelkam: ''scor pre mic fara sustinere
+    de date''. Fix the [9,10] AND-clause (FB-LL-08) so missing military airfield distance does not knock
+    favorable airport situation to 5.5.'
+- id: '106'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:19:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: score 5.5/10
+    text_excerpt: scor prea mic pentru proximitate cu un aeroport mic
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-01-airport-class-aware
+  depends_on:
+  - 76
+  notes: 'SP-D + SP-F + FB-LL-03. Reviewer: 5.5 too low for proximity to a small airport. Re-banding requires
+    airport_class field from SP-F to differentiate small airfield vs major hub.'
+- id: '107'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:20:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: Industrial Explosions (HI-02) - score 5.0/10
+    text_excerpt: scor prea mic cind nu ai gasit date ca sa sustina
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-02-favorable-when-no-industrial-site-and-fix-renderer
+  depends_on: []
+  notes: 'SP-D + SP-E + FB-LL-02. Reviewer: cannot score 5.0 when no supporting data found. Either favorable-by-default
+    branch or mark unscored at the renderer.'
+- id: '108'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:23:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'transmitter type: mast.Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0),
+      weight 0.0132, data quality n/a. Evidence: values not in measurement tab…'
+    text_excerpt: scor prea mic
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-08-favorable-when-no-nuclear-installation-and-fix-renderer
+  depends_on: []
+  notes: SP-D + SP-E + FB-LL-02. HI-08 should score high when no other nuclear installations are present,
+    not pass-mark.
+- id: '109'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:21:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data
+      quality n/a. Evidence: values not in measurement tables.'
+    text_excerpt: scor prea mic – in lipsa datelor
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-08-favorable-when-no-data-and-fix-renderer
+  depends_on:
+  - 108
+  notes: 'SP-D + SP-E + FB-LL-02. Same as #108: ''scor prea mic — in lipsa datelor''.'
+- id: '112'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:24:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Radiological Impact and Emergency Planning (RI / EP)
+    anchor_excerpt: 'Emergency Planning Feasibility (EP-01) - score 5.5/10 (MC 5.0-6.0), weight n/a, data
+      quality high. Evidence: EP feasibility composite 44.0 /100; road sub-score…'
+    text_excerpt: scor prea mic
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-EP-01-and-document-composite-derivation
+  depends_on: []
+  notes: SP-D + SP-C. EP-01 composite of road / special-population sub-scores — re-band so that mid-range
+    composite (44/100) does not collapse to pass-mark; document derivation in chapter 3.
+- id: '117'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:26:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Non-Safety and Implementation Considerations (NS)
+    - Interpretation - Non-Safety and Implementation Considerations (NS)
+    anchor_excerpt: Composite Score and Stability
+    text_excerpt: scorurile trebuiesc revizuite – ai dat valori default in lipsa de date sau cind datele
+      nu justifica scor mic. Asta explica partial scorul agregat mic si variati…
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: weights
+  subsystem: scoring-engine
+  action: fix-default-renderer-bias-and-document-aggregation-weights
+  depends_on:
+  - '1929454976'
+  notes: 'SP-D + SP-E + SP-B + FB-LL-02 + FB-LL-09. Reviewer: scores need revision; default values when
+    data is absent and weight aggregation methodology is unclear (EPRI?). SP-B documents weight basis;
+    SP-D revises bands; SP-E renderer no longer asserts numeric score with ''no data'' bullet.'
+- id: '119'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:28:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Residual Risk Register
+    anchor_excerpt: '924'
+    text_excerpt: VOYGR 6 are poterea 6x77 New de unde ai scos 924? Cel cu 12 module nu a re Design Certification
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: data
+  subsystem: qa-cross-check
+  action: fix-VOYGR6-capacity-narrative-from-924-to-462-and-add-cross-doc-lint
+  depends_on: []
+  notes: SP-A + FB-LL-06. VOYGR-6 = 6 x 77 MWe = 462 MWe per Design Certification. The 12-module pack
+    (which would be 924) has no DC. Find every '924' in report outputs / prompts; force the capacity constant
+    from config / DB. Add a cross-document numeric consistency check.
+- id: '120'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T16:32:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Austria Country Profile
+    - Timelkam power station Site Profile
+    - Residual Risk Register
+    anchor_excerpt: 25 km; military
+    text_excerpt: If the military facility includes ammunition depot or firing polygons
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: connector
+  subsystem: data-connector
+  action: enrich-military-installation-classification-depot-firing-polygon-flag
+  depends_on: []
+  notes: 'SP-F + FB-LL-03. Reviewer: a military installation matters most when it is an ammunition depot
+    or firing polygon; otherwise it can sit much closer without exclusion. New field on the military connector.'
+- id: '563'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:50:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Family Strength and Weakness
+    anchor_excerpt: Military Installations (HI-06) - mean 0.20/10 across 22 scored sites (min 0.0, max
+      1.5).
+    text_excerpt: Military facility if they do not include amo depot or firing polygons could be much
+      closer without eclusion being activated.
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: connector
+  subsystem: data-connector
+  action: enrich-military-installation-classification
+  depends_on:
+  - 120
+  notes: 'SP-F + FB-LL-03. Reviewer (RO HI-06 mean 0.20/10): same point as #120 — military without depot/firing-polygon
+    does not warrant the current near-zero scores.'
+- id: '564'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:51:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Family Strength and Weakness
+    anchor_excerpt: Population Density at EPZ Radii (RI-04) - mean 3.14/10 across 22 scored sites (min
+      1.5, max 7.5).
+    text_excerpt: EPZ orientative distances are for screening. The real criteria according to CNCAN are
+      based on does calculation for and feasibility of emergency plan implementa…
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: methodology
+  subsystem: methodology-doc
+  action: document-RI-04-EPZ-as-screening-vs-CNCAN-dose-feasibility
+  depends_on:
+  - 33
+  notes: 'SP-C + FB-LL-05. Reviewer: EPZ orientative distances are a screening surrogate; the real CNCAN
+    criterion is dose calculation and emergency-plan feasibility. Document this in the methodology and
+    (optionally) add an exclusion path when dose-feasibility cannot be met.'
+- id: '565'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:53:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Family Strength and Weakness
+    anchor_excerpt: Grid Capacity Basic Filter (BF-01) - mean 3.43/10 across 22 scored sites (min 0.0,
+      max 7.5).
+    text_excerpt: This depends on how many modules you install.
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: clarification
+  subsystem: scoring-engine
+  action: document-grid-capacity-per-module-or-flag-zone-vs-site-grain
+  depends_on: []
+  notes: 'Phase 0.5 + LL-020 + SP-C. Reviewer: BF-01 mean depends on how many modules are installed. Two
+    possibilities: (a) the column stores a zone-level NTC (LL-020 already known to apply); (b) the band
+    has no SMR-module-count modulation. Audit before deciding.'
+- id: '568'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:54:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Status Counts
+    anchor_excerpt: 'Full pass: 3'
+    text_excerpt: In an early table you mention for Romania 1 site not 3 ??? explain
+    reply_to: null
+    done: false
+    heuristic_category: wording
+    heuristic_subsystem: report-text
+  category: data
+  subsystem: qa-cross-check
+  action: cross-chapter-reconciliation-romania-full-pass-count
+  depends_on: []
+  notes: 'SP-A + FB-LL-06. Reviewer: an earlier table reports 1 site for Romania, the §5.RO Status Counts
+    shows ''Full pass: 3''. Trace which document/section uses ''1'' and reconcile (likely a chapter-4
+    narrative vs the per-country bundle totals).'
+- id: '573'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:57:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'Extreme Precipitation (NH-11) - score 4.0/10 (MC 4.0-4.0), weight 0.0132, data quality
+      medium. Evidence: extreme daily precipitation 0.19 mm; mean annual precip…'
+    text_excerpt: Score too small – for the small average annual precipitation
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-11-extreme-precipitation-low-values-favorable
+  depends_on:
+  - 100
+  notes: 'SP-D + FB-LL-01. Same pattern as #100, anchored at Braila with extreme daily 0.19 mm and mean
+    17.4 mm/yr — must score high.'
+- id: '574'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:57:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'Forest/Wildfire (NH-13) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality
+      n/a. Evidence: values not in measurement tables.'
+    text_excerpt: Score too small since Nuscalestandard design  is for Tornado of cat IV
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-13-or-NH-12-tornado-cat-IV-context
+  depends_on:
+  - 101
+  notes: SP-D + FB-LL-01. Reviewer references NuScale standard design for Tornado cat IV in a forest-wildfire
+    bullet — the comment may have been placed on the wrong row (NH-13 wildfire vs a tornado/wind row).
+    Re-confirm anchor with reviewer; meanwhile fix NH-13 favorable branch.
+- id: '575'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T17:58:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Natural Hazards (NH)
+    anchor_excerpt: 'Combined Hazards (NH-14) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data quality
+      n/a. Evidence: values not in measurement tables.'
+    text_excerpt: Biased by low scoring where is not justified
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-NH-14-or-mark-unscored
+  depends_on:
+  - 102
+  notes: 'SP-D + SP-E + FB-LL-02. Same as #102, RO Braila variant: ''Biased by low scoring where is not
+    justified''.'
+- id: '578'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:00:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Aircraft Crash (HI-01) - score 5.5/10 (MC 5.0-6.0), weight 0.0308, data quality high.
+      Evidence: nearest airport 22.2 km; nearest flight path 11.1 km; airports w…'
+    text_excerpt: Too low score – no major airports near by within 30 km
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-01-favorable-when-no-major-airport-within-30km
+  depends_on:
+  - 105
+  notes: 'SP-D + FB-LL-01 + FB-LL-08. Same as #105 with explicit reviewer expectation: ''no major airports
+    near by within 30 km'' must produce a clearly favorable score.'
+- id: '579'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:00:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Industrial Explosions (HI-02) - score 5.0/10 (MC 5.0-5.0), weight 0.0308, data quality
+      high. Evidence: nearest industrial site 18.7 km.'
+    text_excerpt: Too low score
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-02-favorable-when-no-industrial-site-nearby
+  depends_on:
+  - 107
+  notes: 'SP-D + FB-LL-01. Reviewer: ''Too low score'' for nearest industrial site at 18.7 km.'
+- id: '580'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:01:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'External Fires (HI-04) - score 5.0/10 (MC 5.0-5.0), weight 0.0264, data quality high.
+      Evidence: values not in measurement tables.'
+    text_excerpt: Too low
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: ''
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-04-external-fires-favorable-default-and-fix-renderer
+  depends_on: []
+  notes: SP-D + SP-E + FB-LL-02. 'External Fires (HI-04)' with 'values not in measurement tables' should
+    not assert 5.0; either favorable-by-default or mark unscored.
+- id: '581'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:01:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Transport Hazards (HI-05) - score 5.0/10 (MC 5.0-5.0), weight 0.0264, data quality
+      n/a. Evidence: values not in measurement tables.'
+    text_excerpt: How can you assign low score without data?
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-05-transport-and-fix-renderer
+  depends_on: []
+  notes: 'SP-D + SP-E + FB-LL-02. Reviewer: ''How can you assign low score without data?''. Same renderer
+    + rubric pattern as #580.'
+- id: '582'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:02:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Military Installations (HI-06) - score 1.5/10 (MC 1.0-2.0), weight 0.0264, data quality
+      medium. Evidence: nearest military installation 8.86 km; military instal…'
+    text_excerpt: Depends on military installation (if no fire polygons and amo depot the score could
+      be much higher)
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: connector
+  subsystem: data-connector
+  action: enrich-military-installation-classification-and-re-band-HI-06
+  depends_on:
+  - 120
+  notes: 'SP-F + SP-D + FB-LL-03. Reviewer: HI-06 1.5/10 too low for a military installation that may
+    be neither depot nor firing polygon. Re-banding waits on SP-F enrichment.'
+- id: '583'
+  auto:
+    author: Ovidiu  Lucian Coman
+    date: '2026-05-07T18:03:00Z'
+    chapter: 5. Country and Site Profiles
+    heading_path:
+    - 5. Country and Site Profiles
+    - Romania Country Profile
+    - Braila power station Site Profile
+    - Human-Induced and Security-Relevant Hazards (HI)
+    anchor_excerpt: 'Other Nuclear Installations (HI-08) - score 5.0/10 (MC 5.0-5.0), weight 0.0132, data
+      quality n/a. Evidence: values not in measurement tables.'
+    text_excerpt: Based on what the score is so low? I have no idea about any nuclear installations around
+      Braila are
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: scoring
+  subsystem: scoring-engine
+  action: re-band-HI-08-favorable-when-no-nuclear-installation-fix-renderer
+  depends_on:
+  - 108
+  notes: 'SP-D + SP-E + FB-LL-02. Reviewer: ''I have no idea about any nuclear installations around Braila
+    are'' — score must reflect favorable absence, not pass-mark.'
+- id: '1929454976'
+  auto:
+    author: Bogdan Termegan
+    date: '2026-05-07T23:31:17'
+    chapter: ''
+    heading_path: []
+    anchor_excerpt: 'Atoms vs Ashes: Coal-to-Nuclear Siting Assessment'
+    text_excerpt: Putem respecta EPRI pentru ponderile score-urilor si mai putin S&L.
+    reply_to: null
+    done: false
+    heuristic_category: ''
+    heuristic_subsystem: scoring-engine
+  category: weights
+  subsystem: swing-weights
+  action: adopt-EPRI-weight-basis-as-named-profile-and-document
+  depends_on: []
+  notes: 'SP-B apex. Bogdan: ''Putem respecta EPRI pentru ponderile score-urilor si mai putin S&L''. Implement
+    EPRI as a named weight profile alongside the current basis, do not overwrite; document source EPRI
+    document explicitly. Required before SP-D rubric edits.'

@@ -445,7 +445,19 @@ files:
     category: "Testing"
 
   src/scripts/extract_docx_comments.py:
-    hours: 2.0
+    hours: 4.0
+    category: "Implementation"
+
+  src/scripts/_docx_comment_anchors.py:
+    hours: 3.0
+    category: "Implementation"
+
+  src/scripts/_docx_comment_triage.py:
+    hours: 2.5
+    category: "Implementation"
+
+  src/scripts/_docx_comment_writers.py:
+    hours: 1.5
     category: "Implementation"
 
   # ── AI Prompts & Tooling ────────────────────────────────────────
@@ -536,6 +548,10 @@ files:
 
   audit/plans/docx-comment-extraction.md:
     hours: 0.2
+    category: "Project Management & QA"
+
+  audit/plans/feedback-context-enrichment.md:
+    hours: 0.4
     category: "Project Management & QA"
 
   audit/conversations/2026-03-24_man-hours-tracking-system.md:
@@ -1118,6 +1134,10 @@ files:
     hours: 1.5
     category: "Project Management & QA"
 
+  audit/conversations/2026-05-09_feedback-sub-plans-handoff.md:
+    hours: 0.25
+    category: "Project Management & QA"
+
   # ── Siting Expert Audits (30 connector packs) ─────────────────
 
   audit/siting_expert_audits (30 audit packs × FINDINGS.md + SAMPLES.json):
@@ -1131,8 +1151,88 @@ files:
     category: "AI Prompts & Tooling"
 
   prompts/lessons_learned.md:
-    hours: 4.0
+    hours: 5.5
     category: "AI Prompts & Tooling"
+
+  report/output/feedback/plans/SP-D_band_proposals/README.md:
+    hours: 0.7
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/EP-01.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-11.md:
+    hours: 0.5
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-12.md:
+    hours: 0.3
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-03.md:
+    hours: 0.6
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-04.md:
+    hours: 0.6
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-05.md:
+    hours: 0.5
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-07.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-08.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-09.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-13.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/NH-14.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-02.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-04.md:
+    hours: 0.3
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-05.md:
+    hours: 0.3
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-08.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-01.md:
+    hours: 0.5
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/HI-06.md:
+    hours: 0.4
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-D_band_proposals/RI-04.md:
+    hours: 0.5
+    category: "Report Authoring & Documentation"
+
+  report/output/feedback/plans/SP-G_rerun_regenerate.plan.md:
+    hours: 3.3
+    category: "Report Authoring & Documentation"
 
   prompts/databaseAudit.md:
     hours: 2.0
@@ -1194,6 +1294,10 @@ files:
 
   architecture/plans/docx-comment-extraction.md:
     hours: 0.2
+    category: "Architecture & Design"
+
+  architecture/plans/feedback-context-enrichment.md:
+    hours: 0.4
     category: "Architecture & Design"
 
   audit/plans/README.md:

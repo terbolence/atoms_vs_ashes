@@ -1,0 +1,77 @@
+<!-- man_hours: 4.0 -->
+---
+sub_plan: SP-F
+title: Connector refinements (airport class, military classification)
+specialist_prompts:
+  primary: prompts/expert_system_data_sources_and_integrations.md
+  supporting:
+    - prompts/seniorSoftwareEngineer.md
+    - prompts/runAPIs.md
+    - prompts/databaseAudit.md
+mandatory_reads_first:
+  - prompts/lessons_learned.md  # especially LL-017, LL-022, LL-024
+  - report/output/feedback/plans/feedback_lessons_learnt.md
+  - src/atoms_vs_ashes/connectors/ourairports/
+  - src/atoms_vs_ashes/connectors/osm/  # or wherever military comes from
+  - docs/connector_reports/
+honors_feedback_lessons: [FB-LL-03]
+gates:
+  - feedback_lessons_learnt.md sign_off
+  - "Live-API consent for re-enrichment per prompts/runAPIs.md"
+comment_ids: ["76", "77", "79", "120", "563", "582"]
+blocks_or_feeds: ["SP-D Phase 0.6 for HI-01 / HI-06"]
+---
+
+# SP-F — Connector refinements
+
+Two connector enrichments demanded by the reviewer:
+
+## 1. Airport sub-classification (FB-LL-03; #76, #77, #79, #106)
+
+New / extended fields on the airport connector output and the `site_human_induced` (or equivalent) domain table:
+
+| Field | Type | Source | Null means |
+| --- | --- | --- | --- |
+| `nearest_airport_class` | enum (`large_airport`, `medium_airport`, `small_airport`, `heliport`, `seaplane_base`, `closed`) | OurAirports `type` column | no airport within search radius |
+| `nearest_airport_runway_length_m` | numeric | OurAirports runways table | unknown |
+| `nearest_airport_traffic_movements_per_year` | numeric | external (project must source) | not collected |
+| `nearest_military_airfield_km` | numeric | OurAirports `type='military'` filter or OSM `aeroway=aerodrome AND military=*` | no military airfield within search radius |
+| `nearest_military_airfield_class` | enum (`air_base`, `heliport`, `training_airfield`, `naval_air_station`) | OSM tags or external register | not classified |
+
+LL-024 mandatory: cache raw responses to `sources/ourairports/`.
+
+## 2. Military installation classification (FB-LL-03; #120, #563, #582)
+
+New field on the military connector output:
+
+| Field | Type | Source | Null means |
+| --- | --- | --- | --- |
+| `nearest_military_installation_classification` | enum (`base`, `barracks`, `bunker`, `airfield`, `range`, `naval_base`, `ammunition`, `training_area`, `nuclear_explosion_site`, `unspecified`) | OSM `military=*` tag, fallback `landuse=military` | tag absent / unspecified |
+| `nearest_military_high_consequence_within_km` | numeric | distance to nearest installation classified as `ammunition`, `range`, or `naval_base` | none within search radius |
+
+The high-consequence subset is the gate for HI-06 exclusionary semantics: a non-high-consequence military site within 5 km is acceptable; an ammunition depot within 25 km is not.
+
+## LL pre-applied (not optional)
+
+- **LL-017**: extend `_RETRYABLE_STATUSES` for any new HTTP client to `{429, 504, 408, 0}`; treat disconnects as retryable.
+- **LL-022**: add a plausibility guard: if `nearest_airport_km == NULL` for an industrial site (coal plant), log a warning and require explicit `--requery-nulls` re-run before persisting.
+- **LL-024**: cache raw responses to `sources/<connector_slug>/`; for per-site queries, write `sources/<slug>/batch_<run_id>.meta.json` aggregate.
+- **LL-026**: where multiple connectors write the same column, finer-grain owns it; coarser-grain appends to comment.
+
+## Acceptance
+
+- Connector report (`docs/connector_reports/<slug>_sample_report.md`) lists the new fields with metric legend per LL-012 / `connector-reports.mdc` rule.
+- ≥95% of airports within 30 km of any site have `nearest_airport_class` populated.
+- ≥95% of military installations within 25 km of any site have classification populated.
+- The new fields are referenced by the SP-D rubric proposals for HI-01 / HI-06 (Phase 0.6 sign-off cannot be obtained until SP-F lands).
+
+## Cross-links
+
+- T5 in master plan.
+- FB-LL-03 (sub-classification), and the LL-* listed above.
+
+## Out of scope
+
+- Rubric YAML edits (SP-D).
+- Renderer changes (SP-E).
+- Sites outside the existing 363-site scope.

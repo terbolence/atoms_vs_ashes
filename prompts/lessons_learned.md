@@ -542,3 +542,63 @@ A third issue: WRI Aqueduct's `_find_data_file()` did not recognise `.gdb` (File
 **Lesson:** Same pattern as LL-020 (zone-level aggregate stored as site-level). When multiple connectors target the same DB column at different spatial grains, the **finer-grained** connector must own the column and run first. Coarser-grained data should be stored as supplementary metadata only. Execution order must be documented (LL-009). Additionally, nearest-geometry algorithms in heterogeneous networks (streams + rivers) should consider domain semantics (stream order) rather than pure Euclidean proximity.
 
 **Applies to:** NS-01 cooling sources (HydroRIVERS, GloFAS, WRI Aqueduct); any multi-source enrichment where connectors operate at different spatial resolutions.
+
+---
+
+### LL-027: Pass-mark midpoint asserts a numeric score with no evidence (rendering, 2026-05, derived from feedback rework FB-LL-01 + FB-LL-02)
+
+**Category:** rendering, scoring_engine, credibility
+
+**Problem:** When the scoring engine could not match any band condition for a criterion at a site (because all required signals were NULL or did not satisfy a clause), it returned `BandResult(score=5.0, notes=["unscored"])` — the pass-mark midpoint of the rubric's `pass_mark_default`. The renderer then printed the bullet "Criterion X — score 5.0/10. Evidence: values not in measurement tables." Senior reviewers consistently read this composition as "the system asserted a low (pass-mark) score with no supporting evidence" — a stronger and worse claim than the engine intended (which was: "no band matched, here is the pass-mark default while we flag the row as unscored"). The defect spans 14+ criteria across NH-* and HI-* families and was the single largest credibility hit in the first reviewer feedback round.
+
+The renderer also emitted "values not in measurement tables" whenever the `signals` block was empty, regardless of whether the criterion was actually unscored vs band-matched-with-no-extra-evidence. This compounded the mis-read.
+
+**Resolution:**
+1. **`src/atoms_vs_ashes/scoring/bands.py`**: kept `BandResult.score` numeric (5.0) for backwards compatibility with downstream stats, but populated `notes=["unscored"]` and a separate `quality_flag` of `"unscored"` whenever no band matched.
+2. **`src/scripts/_site_profile_markdown.py` (`_family_section`)**: when `quality_flag == "unscored"` or `score is None`, render "no native score (unscored — no band matched)" instead of the numeric. When `signals` is empty AND the criterion is unscored, render "not measured at this site (criterion remains unscored)" instead of "values not in measurement tables".
+3. **Tests**: `tests/scripts/test_site_profile_unscored_rendering.py` asserts the unscored row never carries a numeric score string and the scored row remains unchanged.
+
+**Lesson:** A scoring engine and a renderer that are each correct in isolation can compose into a credibility failure. Whenever an engine returns a default value with a "this is a default, not a real score" flag, the renderer **must** consume the flag and never assert the default as a real score. Explicit unscored rendering is a permanent invariant: a criterion is either band-matched (cite the band), favorable-by-default (cite the favorable inference), or unscored (say so). The pass-mark midpoint must never appear in the report as if it were a real assignment.
+
+**Applies to:** All `_*_section` renderers in `_site_profile_markdown.py` and any future report renderer that consumes `BandResult`. The same rule applies to composite renderers, country-profile aggregators, and the executive technical brief.
+
+---
+
+### LL-028: Weight-basis migration must use named profiles, not in-place mutation (rubric+rendering, 2026-05, derived from feedback rework FB-LL-09)
+
+**Category:** weights, rubric_design, transparency
+
+**Problem:** The first reviewer round asked "Did you use EPRI weights?" because the report renders a numeric weight per criterion (e.g. `weight 0.0308` for HI-01) but does not disclose **which weight basis** (EPRI / S&L / project-baseline) produced that number. The principal stakeholder explicitly requested "EPRI for weights, less S&L". A naive implementation would replace `weight_factor: 7` with `weight_factor: 9` (the EPRI value) directly in `nh_natural_hazards.yaml` and re-run, losing the baseline forever and providing no per-criterion provenance to readers.
+
+The same `weight_normalisation()` function already supported sensitivity profiles (`baseline`, `w_plus_20`, `w_minus_20`) for Monte Carlo perturbation, but those are perturbations of a single basis — they do not solve the multi-basis problem.
+
+**Resolution (delivered in SP-B of feedback rework):**
+1. **`src/atoms_vs_ashes/scoring/rubric.py` `Criterion`**: added `weight_factors: dict[str, int] | None` (e.g. `{"epri": 9, "baseline": 7, "s_and_l": 8}`) and `weight_basis_source: dict[str, str] | None` (e.g. `{"epri": "EPRI Site Selection Report 2022 Table 4-2"}`). Validator rejects values outside 1-10.
+2. **`weight_normalisation(criteria, profile, basis)`**: added `basis` parameter. Selects from `weight_factors[basis]` when available; falls back to legacy `weight_factor` with a warning when the named basis is absent. Sensitivity profiles compose on top of the resolved basis.
+3. **`weight_basis_resolution(criteria, basis)`**: returns `(weight_value, basis_used)` per criterion for audit trails — so the renderer can cite the basis per bullet.
+4. **Tests**: `tests/scoring/test_scoring_pool.py` covers named-basis selection, fallback behavior, perturbation composition, and validator rejection.
+
+**Lesson:** Multi-basis weight schemes need first-class support in the rubric model. Never mutate a single `weight_factor` field across reruns to switch basis — you destroy auditability and the renderer cannot disclose what changed. Always: (a) carry all bases simultaneously in `weight_factors:`; (b) record the source per basis in `weight_basis_source:`; (c) let the run select a basis at scoring time; (d) render the chosen basis next to every weight number in the report.
+
+**Applies to:** Every multi-criteria scoring system that may need to switch weight basis between EPRI / S&L / IAEA-derived / project-bespoke. Same pattern usable for any provenance-bearing numeric (e.g. multiple climate scenarios for hazard return periods).
+
+---
+
+### LL-029: Reviewer "score too low" complaints are usually band AND-clause defects, not threshold misjudgments (rubric design, 2026-05, derived from feedback rework FB-LL-01 + FB-LL-08)
+
+**Category:** rubric_design, reviewer_diagnostics, screening_methodology
+
+**Problem:** In the first feedback round, ≈ 14 distinct reviewer comments said the same thing in different words: "score too low for a site that is clearly favorable on this criterion". The naive interpretation was "the band thresholds are wrong — move them". The correct interpretation, after Phase 0.5 data audit, was almost always "the high-end favorable band requires a strict AND-conjunction across multiple sub-conditions; one of those sub-conditions is NULL or borderline; the AND fails; the site falls through to the `[5,6]` pass-mark catch-all". The defect was structural in the rubric expression, not in the threshold values themselves.
+
+The pattern affected NH-03 (liquefaction `AND` bedrock-depth), NH-05 (karst `AND` mining-distance `AND` subsidence-class), NH-07 (volcano-distance `AND` not-in-pyroclastic-zone), NH-08 (coast-distance `AND` elevation), HI-01 (airport-distance `AND` military-distance), HI-02 (Seveso-distance only — but NULL kills the `>` comparison), and several others.
+
+**Resolution (delivered as 18 Phase 0.6 band proposals in `report/output/feedback/plans/SP-D_band_proposals/`, awaiting user sign-off before YAML edit):**
+
+1. Per-criterion proposal explicitly tested every high-end band against the "all favorable except one missing" boundary case (the FB-LL-08 acceptance test).
+2. Two structural fixes recurred:
+   - **Asymmetric NULL handling**: NULL on a favorable-direction sub-condition (e.g. `bearing_capacity_kpa` is missing but susceptibility is `low`) is treated as "no knock-down"; NULL on an unfavorable-direction sub-condition (e.g. `has_remedy` is missing on a `very_high` susceptibility site) is treated conservatively as "no remedy".
+   - **Sentinel "search completed" booleans**: NH-07, HI-02, HI-04, HI-05, HI-08 now carry `<criterion>_search_completed: bool` from the connector. NULL + `search_completed == true` routes the criterion to the favorable band; NULL + `search_completed == false` (legacy or failed connector run) leaves the criterion unscored (per LL-027).
+
+**Lesson:** When a reviewer says "score too low" on multiple unrelated criteria, **first** check whether the high-end band uses an AND-conjunction with a NULL-prone sub-condition. **Then** consider threshold tuning. Threshold tuning is the wrong instrument 80% of the time and risks moving the rubric out of alignment with IAEA/EPRI norms; structural NULL-handling is the right instrument and is invisible to the threshold-numbers debate. Every Phase 0.6 / similar review process must include a mandatory "all favorable except one missing" boundary check on every high-end band.
+
+**Applies to:** Every criterion family in `config/scoring_rubrics/`. Generally usable as a rubric-design rule: any high-end favorable band that depends on multiple data fields must declare its NULL semantics explicitly.

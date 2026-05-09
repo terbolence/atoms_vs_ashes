@@ -48,6 +48,8 @@ Of the 6 sites that pass the exclusionary screen, the avoidance-phase flags conc
 
 The exclusionary failures across the country trace back to a small number of criteria. They identify which screening checks are responsible for removing sites from further consideration.
 
+> **Note**: An equivalent Exclusionary Failure Pareto and Avoidance Flag Pareto are produced for every country in the study (`figures/<CC>_exclusionary_pareto.png` and `figures/<CC>_avoidance_pareto.png` per country profile). The Austrian view shown here is one country's instance of a per-country diagnostic, not a region-wide aggregate.
+
 ![Exclusionary failure Pareto](figures/AT_exclusionary_pareto.png)
 
 - **Seismic: Surface Rupture (NH-02)** - 1 of 8 country sites (12%).

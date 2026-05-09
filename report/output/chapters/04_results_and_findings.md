@@ -10,6 +10,8 @@ The strongest regional pattern is concentration in a limited number of countries
 
 The regional Coverage view should be read before the country profiles. It separates full-pass sites, exclusionary-pass sites with avoidance flags, and hard-fail sites across the study region. For readability, the figure and table should show approximately 10 countries at a time and allow horizontal or table scrolling for the remainder. Countries that appear in the broader scope but show 0 in-scope sites should not be interpreted as failed nuclear candidates. In the current coverage view, this means either that the merged coal-site database has no source rows for that country, or that all source records are outside the active site-status filter. This distinction should be kept in the regional narrative rather than repeated in every country profile.
 
+**Table 4.1.1 — Country contributions to the regional top-20 site set.** Each row reports how many sites from the named country appear in the 20 highest-composite scoring sites across the entire study region. The count is a *concentration indicator* across the regional ranking, not the country-level shortlist of candidate sites for further evaluation; the broader country-level candidate lists are in §4.2 below. Countries not listed have zero sites in the regional top-20.
+
 | Country | Sites in regional top 20 | Interpretation |
 | --- | ---: | --- |
 | Turkey | 8 | Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results. |
@@ -24,6 +26,8 @@ The regional Coverage view should be read before the country profiles. It separa
 The country-balance diagnostic does not indicate excessive dominance by a single country. The largest country share in the regional top-20 set is 40%, which is at the report's monitoring threshold but not above it [1]. This matters for interpretation. The shortlist is not a purely one-country result, but it is also not evenly distributed across the study region. The practical conclusion is that Chapter 5 should provide full profiles only where viable candidates remain, while countries without viable candidates should be discussed through their failure modes and distance-to-threshold evidence [2].
 
 Composite scores should be shown with their Monte Carlo low/high band wherever they are used for selection. The point estimate identifies the current ordering, while the band shows why adjacent ranks should not be over-read as precise separations. The following examples show the leading regional records by composite score and their uncertainty band; several high-scoring records also carry avoidance flags and therefore require interpretation before being treated as full-pass progression candidates.
+
+**Table 4.1.2 — Top-10 sites in the regional ranking with composite score and Monte Carlo band.** Sorted by composite score (point estimate) descending. The Monte Carlo low–high columns show the central uncertainty band; adjacent ranks within overlapping bands should not be read as cleanly separated. *Status* values: *Full pass* (no exclusionary or avoidance flags), *Avoidance flag* (passes Stage 1 exclusionary criteria but carries one or more avoidance findings to be resolved at Stage 3).
 
 | Site | Country | Status | Composite | Monte Carlo low-high |
 | --- | --- | --- | ---: | ---: |
@@ -43,6 +47,8 @@ The regional ranking should also be read as a robustness signal, not a final lis
 ## 4.2 Per-Country Top Candidate Sites
 
 This subsection identifies the country-level candidate lists that should guide later profile selection. It is not yet the final set of sites for detailed Chapter 5 treatment. The table reports countries represented in the regional top-20 set and lists up to 10 leading NuScale VOYGR-6 candidate sites in each country, ordered by the current composite score within that country [1]. The user selection step remains necessary before any site receives a full profile.
+
+**Table 4.2.1 — Per-country leading NuScale VOYGR-6 candidate sites for selection review.** Only countries that contributed at least one site to the regional top-20 (Table 4.1.1) are listed. Per country, up to 10 leading sites are reported, ordered by current composite score within the country (highest first). The list is a *candidate inventory for human selection review* — it is not the final Stage 3 shortlist, and inclusion does not imply Stage 3 readiness; site profiles in Chapter 5 cover only the subset of these candidates explicitly selected for detailed treatment.
 
 | Country | Leading candidate sites for selection review | Ranking qualification |
 | --- | --- | --- |

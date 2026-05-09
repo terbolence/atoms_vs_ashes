@@ -336,18 +336,27 @@ def _family_section(
         evidence = evidence_for(cid, families)
         signals = evidence["signals"]
         score = item.get("score_0_10")
-        score_text = (
-            f"{_num(score, 1)}/10"
-            f" (MC {_num(item.get('score_low_0_10'), 1)}-"
-            f"{_num(item.get('score_high_0_10'), 1)})"
-            if score is not None else "no native score"
-        )
+        quality_flag = item.get("quality_flag")
+        is_unscored = quality_flag == "unscored"
+        if is_unscored or score is None:
+            score_text = "no native score (unscored \u2014 no band matched)"
+        else:
+            score_text = (
+                f"{_num(score, 1)}/10"
+                f" (MC {_num(item.get('score_low_0_10'), 1)}-"
+                f"{_num(item.get('score_high_0_10'), 1)})"
+            )
         weight = item.get("weight_normalised")
         weight_text = (
             f"weight {_num(weight, 4)}"
             if weight is not None else "weight n/a"
         )
-        signals_text = "; ".join(signals) if signals else "values not in measurement tables"
+        if signals:
+            signals_text = "; ".join(signals)
+        elif is_unscored:
+            signals_text = "not measured at this site (criterion remains unscored)"
+        else:
+            signals_text = "values not in measurement tables"
         quality = _sanitize_quality(quality_for(cid, families))
         lines.append(
             f"- **{crit_name} ({cid})** - score {score_text}, {weight_text}, "

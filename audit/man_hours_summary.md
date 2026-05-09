@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-05-09T13:33:20Z
+**Generated:** 2026-05-09T16:34:32Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,17 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 2,195,587 |
-| `tests/` (Tests) | 26,880 |
+| `src/` (Core application) | 2,196,238 |
+| `tests/` (Tests) | 27,121 |
 | `scripts/` (Scripts) | 639 |
-| `src/scripts/` (Operational scripts) | 26,991 |
+| `src/scripts/` (Operational scripts) | 27,525 |
 | `alembic/` (Migrations) | 0 |
 | `export/` (Export tooling) | 935 |
-| **Total Python** | **2,251,032** |
+| **Total Python** | **2,252,458** |
 | | |
-| Markdown (docs, specs, reports, audits) | 108,562 |
-| YAML (config, registry) | 7,303 |
-| **Grand total (all authored content)** | **~2,366,897** |
+| Markdown (docs, specs, reports, audits) | 112,758 |
+| YAML (config, registry) | 8,460 |
+| **Grand total (all authored content)** | **~2,373,676** |
 
 ---
 
@@ -29,16 +29,17 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 10 | 56.9 |
-| Implementation | 122 | 755.5 |
+| Architecture & Design | 11 | 57.3 |
+| Implementation | 125 | 764.5 |
 | Testing | 18 | 60.1 |
 | Database & Migrations | 31 | 41.8 |
 | Configuration & DevOps | 19 | 29.4 |
 | Research & Data Sources | 26 | 235.5 |
-| AI Prompts & Tooling | 6 | 29.0 |
-| Project Management & QA | 34 | 51.9 |
+| AI Prompts & Tooling | 6 | 30.5 |
+| Project Management & QA | 36 | 52.5 |
 | Other | 1 | 1.6 |
-| **Project Total** | **287** | **1401.1** |
+| Report Authoring & Documentation | 20 | 11.7 |
+| **Project Total** | **313** | **1424.3** |
 
 ---
 
@@ -73,7 +74,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 10 files, 56.9 hours
+**Subtotal:** 11 files, 57.3 hours
 
 | File | Hours |
 | --- | ---: |
@@ -85,12 +86,13 @@
 | `architecture/specs/06_execution_observability.md` | 6.0 |
 | `architecture/specs/07_test_validation_strategy.md` | 5.0 |
 | `architecture/specs/00_index.md` | 1.5 |
+| `architecture/plans/feedback-context-enrichment.md` | 0.4 |
 | `architecture/plans/README.md` | 0.2 |
 | `architecture/plans/docx-comment-extraction.md` | 0.2 |
 
 ### Implementation
 
-**Subtotal:** 122 files, 755.5 hours
+**Subtotal:** 125 files, 764.5 hours
 
 | File | Hours |
 | --- | ---: |
@@ -175,6 +177,7 @@
 | `src/atoms_vs_ashes/pipeline/export.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/quality_report.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/runner.py` | 4.0 |
+| `src/scripts/extract_docx_comments.py` | 4.0 |
 | `scripts/backfill_raw_responses.py` | 3.0 |
 | `scripts/report_effort_metrics.py` | 3.0 |
 | `scripts/rerun_audit_responses.py` | 3.0 |
@@ -186,6 +189,8 @@
 | `src/atoms_vs_ashes/config.py` | 3.0 |
 | `src/atoms_vs_ashes/connectors/corine/models.py` | 3.0 |
 | `src/atoms_vs_ashes/connectors/corine/parsers.py` | 3.0 |
+| `src/scripts/_docx_comment_anchors.py` | 3.0 |
+| `src/scripts/_docx_comment_triage.py` | 2.5 |
 | `scripts/export_country_power_plants_md.py` | 2.0 |
 | `scripts/run_efsm20_faults.py` | 2.0 |
 | `scripts/run_fix03_patch_count.py` | 2.0 |
@@ -198,8 +203,8 @@
 | `src/atoms_vs_ashes/connectors/population/models.py` | 2.0 |
 | `src/atoms_vs_ashes/db/engine.py` | 2.0 |
 | `src/atoms_vs_ashes/llm/config.py` | 2.0 |
-| `src/scripts/extract_docx_comments.py` | 2.0 |
 | `src/atoms_vs_ashes/logging.py` | 1.5 |
+| `src/scripts/_docx_comment_writers.py` | 1.5 |
 | `src/atoms_vs_ashes/ingest/models.py` | 1.0 |
 | `src/atoms_vs_ashes/llm/prompts/__init__.py` | 1.0 |
 | `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md` | 1.0 |
@@ -341,20 +346,20 @@
 
 ### AI Prompts & Tooling
 
-**Subtotal:** 6 files, 29.0 hours
+**Subtotal:** 6 files, 30.5 hours
 
 | File | Hours |
 | --- | ---: |
 | `gpt/expert_system_data_sources_and_integrations.md` | 8.0 |
 | `prompts/runAPIs.md` | 8.0 |
 | `prompts/sitingExpert.md` | 6.0 |
-| `prompts/lessons_learned.md` | 4.0 |
+| `prompts/lessons_learned.md` | 5.5 |
 | `prompts/databaseAudit.md` | 2.0 |
 | `prompts/site_area_web_search.md` | 1.0 |
 
 ### Project Management & QA
 
-**Subtotal:** 34 files, 51.9 hours
+**Subtotal:** 36 files, 52.5 hours
 
 | File | Hours |
 | --- | ---: |
@@ -387,9 +392,11 @@
 | `audit/conversations/2026-05-09_cursor-rules-optimization.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md` | 0.5 |
+| `audit/plans/feedback-context-enrichment.md` | 0.4 |
 | `audit/conversations/2026-03-11_process-diagram.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-architecture.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-requirements.md` | 0.2 |
+| `audit/conversations/2026-05-09_feedback-sub-plans-handoff.md` | 0.2 |
 | `audit/plans/README.md` | 0.2 |
 | `audit/plans/docx-comment-extraction.md` | 0.2 |
 
@@ -401,6 +408,33 @@
 | --- | ---: |
 | `AGENTS.md` | 1.6 |
 
+### Report Authoring & Documentation
+
+**Subtotal:** 20 files, 11.7 hours
+
+| File | Hours |
+| --- | ---: |
+| `report/output/feedback/plans/SP-G_rerun_regenerate.plan.md` | 3.3 |
+| `report/output/feedback/plans/SP-D_band_proposals/README.md` | 0.7 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-03.md` | 0.6 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-04.md` | 0.6 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-01.md` | 0.5 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-05.md` | 0.5 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-11.md` | 0.5 |
+| `report/output/feedback/plans/SP-D_band_proposals/RI-04.md` | 0.5 |
+| `report/output/feedback/plans/SP-D_band_proposals/EP-01.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-02.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-06.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-08.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-07.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-08.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-09.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-13.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-14.md` | 0.4 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-04.md` | 0.3 |
+| `report/output/feedback/plans/SP-D_band_proposals/HI-05.md` | 0.3 |
+| `report/output/feedback/plans/SP-D_band_proposals/NH-12.md` | 0.3 |
+
 ---
 
-*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T13:33:20Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T16:34:32Z*

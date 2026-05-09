@@ -32,6 +32,29 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "flood_zone_class_500yr",
     "nearest_hazmat_corridor_km",
     "transmitter_count_10km",
+    "country_is_landlocked",
+    "has_remedy",
+})
+
+# ISO 3166-1 alpha-2 codes for countries with no coastline on seas/oceans used in
+# screening (EU + Western Balkans focus). BA (Bosnia) has a short Adriatic coast — excluded.
+_LANDLOCKED_ISO2: frozenset[str] = frozenset({
+    "AD",
+    "AT",
+    "BY",
+    "CH",
+    "CZ",
+    "HU",
+    "LI",
+    "LU",
+    "MC",
+    "MD",
+    "MK",
+    "RS",
+    "SK",
+    "SM",
+    "VA",
+    "XK",
 })
 
 
@@ -45,6 +68,7 @@ def apply_derived_context_values(values: dict[str, Any]) -> None:
     _copy_aliases(values)
     _derive_boolean_defaults(values)
     _derive_population_and_weather(values)
+    _derive_site_screening_flags(values)
 
 
 def _copy_aliases(values: dict[str, Any]) -> None:
@@ -74,6 +98,20 @@ def _derive_boolean_defaults(values: dict[str, Any]) -> None:
         )
         if any(d is not None and float(d) <= 0.0 for d in distances):
             values["site_within_strict_protected"] = True
+
+
+def _derive_site_screening_flags(values: dict[str, Any]) -> None:
+    """Country-level screening hints and explicit NULLs for rubric-era columns."""
+    cc = values.get("country_code")
+    if cc is not None and isinstance(cc, str) and len(cc.strip()) >= 2:
+        cc2 = cc.strip().upper()[:2]
+        values["country_is_landlocked"] = cc2 in _LANDLOCKED_ISO2
+    else:
+        values.setdefault("country_is_landlocked", False)
+    if "has_remedy" not in values:
+        # Rubric clauses reference mitigation evidence; no DB column yet — explicit NULL
+        # so expressions can use ``has_remedy is null`` (conservative paths).
+        values["has_remedy"] = None
 
 
 def _derive_population_and_weather(values: dict[str, Any]) -> None:

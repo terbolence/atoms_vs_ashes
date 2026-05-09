@@ -24,17 +24,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 import zipfile
-from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 from xml.etree import ElementTree as ET
 
 from _docx_comment_anchors import Anchor, extract_anchors
 from _docx_comment_triage import TriageInputComment, write_triage
+from _docx_comment_writers import write_json, write_markdown
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = (
@@ -174,93 +173,6 @@ def merge_anchors(comments: list[Comment], anchors: dict[str, Anchor]) -> int:
     return matched
 
 
-def _comment_to_dict(c: Comment) -> dict[str, object]:
-    d = asdict(c)
-    if c.done is None:
-        d.pop("done", None)
-    if c.parent_para_id is None:
-        d.pop("parent_para_id", None)
-    if c.anchor_text is None:
-        for key in ("anchor_text", "anchor_chars", "chapter", "paragraph_index"):
-            d.pop(key, None)
-    if not c.heading_path:
-        d.pop("heading_path", None)
-    return d
-
-
-def write_json(comments: list[Comment], path: Path, indent: int) -> None:
-    payload = {
-        "extracted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "count": len(comments),
-        "anchors_attached": sum(1 for c in comments if c.anchor_text is not None),
-        "comments": [_comment_to_dict(c) for c in comments],
-    }
-    path.write_text(json.dumps(payload, indent=indent, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-def _where_line(c: Comment) -> str | None:
-    if c.heading_path:
-        return " > ".join(c.heading_path)
-    if c.chapter:
-        return c.chapter
-    return None
-
-
-def write_markdown(comments: list[Comment], path: Path, source: Path, parent_lookup: dict[str, str]) -> None:
-    lines: list[str] = []
-    lines.append(f"# Reviewer comments — `{source.name}`")
-    lines.append("")
-    lines.append(
-        f"Extracted {datetime.now(timezone.utc).isoformat(timespec='seconds')} "
-        f"from `{COMMENTS_PART}` (and `{COMMENTS_EXT_PART}` / `{DOCUMENT_PART}` when present)."
-    )
-    lines.append(f"Total comments: **{len(comments)}**.")
-    anchored = sum(1 for c in comments if c.anchor_text is not None)
-    lines.append(f"Anchored to body text: **{anchored} / {len(comments)}**.")
-    lines.append("")
-    if not comments:
-        lines.append("_No comments found._")
-        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        return
-
-    authors = sorted({c.author for c in comments if c.author})
-    if authors:
-        lines.append("Authors: " + ", ".join(f"`{a}`" for a in authors))
-        lines.append("")
-
-    for idx, c in enumerate(comments, start=1):
-        header_bits = [f"#{c.id}"]
-        if c.author:
-            header_bits.append(c.author)
-        if c.date:
-            header_bits.append(c.date)
-        if c.done:
-            header_bits.append("done")
-        if c.parent_para_id:
-            parent_cid = parent_lookup.get(c.parent_para_id)
-            header_bits.append(f"reply-to #{parent_cid}" if parent_cid else "reply")
-        lines.append(f"## {idx}. " + " — ".join(header_bits))
-        lines.append("")
-        where = _where_line(c)
-        if where:
-            lines.append(f"**Where:** {where}")
-            lines.append("")
-        if c.anchor_text:
-            excerpt = c.anchor_text.replace("\n", " ").strip()
-            if len(excerpt) > 200:
-                excerpt = excerpt[:200].rstrip() + "…"
-            lines.append(f"_Anchor:_ \"{excerpt}\"")
-            lines.append("")
-        if c.text:
-            for body_line in c.text.splitlines():
-                lines.append("> " + body_line if body_line else ">")
-        else:
-            lines.append("> _(empty)_")
-        lines.append("")
-
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
 def extract(docx_path: Path, *, with_anchors: bool = True, max_anchor_chars: int = 400) -> list[Comment]:
     if not docx_path.exists():
         raise SystemExit(f"Input not found: {docx_path}")
@@ -339,13 +251,17 @@ def main(argv: Iterable[str] | None = None) -> int:
         max_anchor_chars=args.max_anchor_chars,
     )
     parent_lookup = _ext_paraid_to_comment_id(comments)
+    anchored = sum(1 for c in comments if c.anchor_text is not None)
 
     json_path = out_dir / f"{docx_path.stem}_comments.json"
     md_path = out_dir / f"{docx_path.stem}_comments.md"
 
     if not args.no_json:
         write_json(comments, json_path, indent=args.indent)
-        print(f"wrote {json_path.relative_to(PROJECT_ROOT)} ({len(comments)} comments)")
+        print(
+            f"wrote {json_path.relative_to(PROJECT_ROOT)} "
+            f"({len(comments)} comments, {anchored} anchored)"
+        )
     if not args.no_markdown:
         write_markdown(comments, md_path, docx_path, parent_lookup)
         print(f"wrote {md_path.relative_to(PROJECT_ROOT)}")

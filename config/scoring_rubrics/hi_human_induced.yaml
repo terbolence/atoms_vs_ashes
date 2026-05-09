@@ -36,7 +36,7 @@ criteria:
     primary_metric: nearest_seveso_km
     db_fields: {api: [site_human_induced.nearest_seveso_km, site_human_induced.nearest_ied_km], llm: hi02_explosions_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_seveso_km > 20", descriptor: "> 20 km."}
+      - {score_range: [9, 10], condition_expr: "nearest_seveso_km > 20 or nearest_seveso_km is null", descriptor: "> 20 km or no Seveso facility resolved (screening-favourable default)."}
       - {score_range: [7, 8], condition_expr: "nearest_seveso_km >= 10", descriptor: "10-20 km."}
       - {score_range: [5, 6], condition_expr: "nearest_seveso_km >= 5", descriptor: "5-10 km (project A7 pass-mark)."}
       - {score_range: [3, 4], condition_expr: "nearest_seveso_km >= 2", descriptor: "2-5 km."}
@@ -70,7 +70,7 @@ criteria:
     primary_metric: nearest_flammable_storage_km
     db_fields: {api: [site_human_induced.nearest_flammable_storage_km, site_human_induced.nearest_pipeline_km], llm: hi04_external_fires_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_flammable_storage_km > 15", descriptor: "> 15 km."}
+      - {score_range: [9, 10], condition_expr: "nearest_flammable_storage_km > 15 or nearest_flammable_storage_km is null", descriptor: "> 15 km or no major flammable storage resolved (screening default)."}
       - {score_range: [7, 8], condition_expr: "nearest_flammable_storage_km >= 8", descriptor: "8-15 km."}
       - {score_range: [5, 6], condition_expr: "nearest_flammable_storage_km >= 4", descriptor: "4-8 km."}
       - {score_range: [3, 4], condition_expr: "nearest_flammable_storage_km >= 1", descriptor: "1-4 km."}
@@ -86,7 +86,7 @@ criteria:
     primary_metric: nearest_hazmat_corridor_km
     db_fields: {api: [site_human_induced.nearest_hazmat_corridor_km], llm: hi05_transport_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_hazmat_corridor_km > 10", descriptor: "> 10 km."}
+      - {score_range: [9, 10], condition_expr: "nearest_hazmat_corridor_km > 10 or nearest_hazmat_corridor_km is null", descriptor: "> 10 km or hazmat corridor unresolved (screening default)."}
       - {score_range: [7, 8], condition_expr: "nearest_hazmat_corridor_km >= 5", descriptor: "5-10 km."}
       - {score_range: [5, 6], condition_expr: "nearest_hazmat_corridor_km >= 2", descriptor: "2-5 km."}
       - {score_range: [3, 4], condition_expr: "nearest_hazmat_corridor_km >= 1", descriptor: "1-2 km."}
@@ -135,7 +135,7 @@ criteria:
     primary_metric: nearest_nuclear_km
     db_fields: {api: [site_human_induced.nearest_nuclear_km], llm: hi08_other_nuclear_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_nuclear_km > 100", descriptor: "> 100 km (no other nuclear in region)."}
+      - {score_range: [9, 10], condition_expr: "nearest_nuclear_km > 100 or nearest_nuclear_km is null", descriptor: "> 100 km or no other nuclear installation resolved (screening default)."}
       - {score_range: [7, 8], condition_expr: "nearest_nuclear_km >= 50", descriptor: "50-100 km."}
       - {score_range: [5, 6], condition_expr: "nearest_nuclear_km >= 20", descriptor: "20-50 km."}
       - {score_range: [3, 4], condition_expr: "nearest_nuclear_km >= 5", descriptor: "5-20 km."}

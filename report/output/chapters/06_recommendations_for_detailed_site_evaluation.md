@@ -72,7 +72,7 @@ An initial pre-application memo should describe the reference deployment envelop
 
 ### Transmission system operator
 
-The transmission system operator owns the grid-connection question. A formal connection request triggers the load-flow, short-circuit, and n-1 contingency studies that determine whether the legacy thermal connection carries the new reference-case output, whether the substation and line voltage must be upgraded, and what the firm-capacity headroom looks like. For several shortlisted sites the current 110 kV or 220 kV connection is adequate for screening but inadequate for a 924 MWe VOYGR-6 plant; the transmission system operator's answer, not the screening score, determines the connection topology in the project schedule.
+The transmission system operator owns the grid-connection question. A formal connection request triggers the load-flow, short-circuit, and n-1 contingency studies that determine whether the legacy thermal connection carries the new reference-case output, whether the substation and line voltage must be upgraded, and what the firm-capacity headroom looks like. For several shortlisted sites the current 110 kV or 220 kV connection is adequate for screening but inadequate for a 462 MWe NuScale VOYGR-6 (6 × 77 MWe modules) plant; the transmission system operator's answer, not the screening score, determines the connection topology in the project schedule.
 
 ### Water authority and basin regulator
 
