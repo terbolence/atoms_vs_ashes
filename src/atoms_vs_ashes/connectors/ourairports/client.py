@@ -1,9 +1,10 @@
-# man_hours: 2.0
+# man_hours: 2.4
 """OurAirports connector — download CSV, build index, query proximity.
 
-Downloads the nightly-updated airports.csv from ourairports.com, parses
-it into an in-memory spatial index, and computes airport proximity for
-any site coordinate.  Serves criterion HI-01 (A1–A4 avoidance).
+Downloads the nightly-updated airports.csv (and runways.csv) from
+ourairports.com, parses them into an in-memory spatial index, and
+computes airport proximity for any site coordinate.  Serves criterion
+HI-01 (A1–A4 avoidance).
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ import httpx
 
 from atoms_vs_ashes.connectors.ourairports.models import (
     AIRPORTS_CSV_URL,
+    RUNWAYS_CSV_URL,
     SOURCE_NAME,
     AirportIndex,
     AirportProximityResult,
@@ -26,6 +28,7 @@ from atoms_vs_ashes.connectors.ourairports.parsers import (
     build_airport_index,
     compute_proximity_result,
     parse_airports_csv,
+    parse_runways_csv,
     query_airports_in_radius,
 )
 from atoms_vs_ashes.logging import get_logger
@@ -47,6 +50,7 @@ class OurAirportsConnector:
             cfg = settings._yaml.get("connectors", {}).get("ourairports", {})
 
         self._csv_url: str = cfg.get("airports_csv_url", AIRPORTS_CSV_URL)
+        self._runways_csv_url: str = cfg.get("runways_csv_url", RUNWAYS_CSV_URL)
         self._cache_dir: str = cfg.get("cache_dir", _DEFAULT_CACHE_DIR)
         self._timeout: int = cfg.get("timeout_s", _DEFAULT_TIMEOUT_S)
         self._cache_ttl_days: int = cfg.get("cache_ttl_days", _DEFAULT_CACHE_TTL_DAYS)
@@ -78,7 +82,22 @@ class OurAirportsConnector:
         Returns the path to the cached file.  Skips download if a fresh
         cached copy exists (within TTL) unless *force* is True.
         """
-        cache_path = Path(self._cache_dir) / "airports.csv"
+        return self._download_csv(
+            url=self._csv_url, filename="airports.csv", force=force,
+        )
+
+    def download_runways(self, *, force: bool = False) -> Path:
+        """Download runways.csv to the cache directory.
+
+        Same caching contract as :meth:`download`. Required for the
+        ``runway_length_m`` enrichment field on ``AirportRecord``.
+        """
+        return self._download_csv(
+            url=self._runways_csv_url, filename="runways.csv", force=force,
+        )
+
+    def _download_csv(self, *, url: str, filename: str, force: bool) -> Path:
+        cache_path = Path(self._cache_dir) / filename
         cache_path.parent.mkdir(parents=True, exist_ok=True)
 
         if not force and cache_path.exists():
@@ -94,9 +113,9 @@ class OurAirportsConnector:
                 return cache_path
 
         t0 = time.monotonic()
-        log.info("ourairports_download_start", url=self._csv_url)
+        log.info("ourairports_download_start", url=url)
 
-        resp = self._client.get(self._csv_url)
+        resp = self._client.get(url)
         resp.raise_for_status()
 
         cache_path.write_bytes(resp.content)
@@ -116,14 +135,30 @@ class OurAirportsConnector:
     def load_index(self, *, force_download: bool = False) -> AirportIndex:
         """Download (if needed) and build the in-memory airport index.
 
-        The index is cached on the instance for repeated queries.
+        Both ``airports.csv`` and ``runways.csv`` are required; ``runways``
+        download failures degrade the result (no per-record runway length)
+        but do not abort the index build.
         """
         if self._index is not None and not force_download:
             return self._index
 
         csv_path = self.download(force=force_download)
         text = csv_path.read_text(encoding="utf-8")
-        airports = parse_airports_csv(text)
+
+        runway_lengths: dict[str, float] = {}
+        try:
+            runways_path = self.download_runways(force=force_download)
+            runway_lengths = parse_runways_csv(
+                runways_path.read_text(encoding="utf-8"),
+            )
+        except (httpx.HTTPError, OSError) as exc:
+            log.warning(
+                "ourairports_runways_unavailable",
+                error=str(exc),
+                degraded_field="runway_length_m",
+            )
+
+        airports = parse_airports_csv(text, runway_lengths=runway_lengths)
         self._index = build_airport_index(airports)
         return self._index
 

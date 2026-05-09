@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-05-09T17:17:27Z
+**Generated:** 2026-05-09T18:51:41Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,17 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 2,196,557 |
-| `tests/` (Tests) | 27,220 |
+| `src/` (Core application) | 2,197,303 |
+| `tests/` (Tests) | 27,223 |
 | `scripts/` (Scripts) | 639 |
-| `src/scripts/` (Operational scripts) | 27,767 |
+| `src/scripts/` (Operational scripts) | 28,092 |
 | `alembic/` (Migrations) | 0 |
 | `export/` (Export tooling) | 935 |
-| **Total Python** | **2,253,118** |
+| **Total Python** | **2,254,192** |
 | | |
-| Markdown (docs, specs, reports, audits) | 113,747 |
-| YAML (config, registry) | 8,512 |
-| **Grand total (all authored content)** | **~2,375,377** |
+| Markdown (docs, specs, reports, audits) | 114,609 |
+| YAML (config, registry) | 8,557 |
+| **Grand total (all authored content)** | **~2,377,358** |
 
 ---
 
@@ -29,19 +29,20 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 12 | 57.5 |
+| Architecture & Design | 13 | 57.9 |
 | Implementation | 125 | 764.5 |
 | Testing | 18 | 60.1 |
 | Database & Migrations | 31 | 41.8 |
-| Configuration & DevOps | 19 | 29.4 |
+| Configuration & DevOps | 21 | 30.0 |
 | Research & Data Sources | 26 | 235.5 |
 | AI Prompts & Tooling | 6 | 30.5 |
-| Project Management & QA | 38 | 53.2 |
+| Project Management & QA | 39 | 55.2 |
 | Other | 1 | 1.6 |
-| Report Authoring & Documentation | 20 | 11.7 |
+| Connectors & Data Acquisition | 3 | 2.7 |
+| Report Authoring & Documentation | 23 | 18.5 |
 | Reporting & Visualization | 1 | 2.0 |
-| Testing & Quality Assurance | 1 | 0.4 |
-| **Project Total** | **318** | **1427.7** |
+| Testing & Quality Assurance | 2 | 1.5 |
+| **Project Total** | **329** | **1441.2** |
 
 ---
 
@@ -76,7 +77,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 12 files, 57.5 hours
+**Subtotal:** 13 files, 57.9 hours
 
 | File | Hours |
 | --- | ---: |
@@ -89,9 +90,10 @@
 | `architecture/specs/07_test_validation_strategy.md` | 5.0 |
 | `architecture/specs/00_index.md` | 1.5 |
 | `architecture/plans/feedback-context-enrichment.md` | 0.4 |
+| `architecture/plans/feedback-rework-execution.md` | 0.3 |
+| `architecture/plans/log-replay-feedback-rework.md` | 0.3 |
 | `architecture/plans/README.md` | 0.2 |
 | `architecture/plans/docx-comment-extraction.md` | 0.2 |
-| `architecture/plans/feedback-rework-execution.md` | 0.2 |
 
 ### Implementation
 
@@ -290,7 +292,7 @@
 
 ### Configuration & DevOps
 
-**Subtotal:** 19 files, 29.4 hours
+**Subtotal:** 21 files, 30.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -311,6 +313,8 @@
 | `.cursor/rules/integration-tests.mdc` | 0.8 |
 | `docker-compose.yml` | 0.5 |
 | `scripts/list_large_files.py` | 0.5 |
+| `src/alembic/versions/042_hi01_hi06_classification_columns.py` | 0.4 |
+| `src/alembic/versions/043_widen_prompt_key.py` | 0.2 |
 | `.cursor/rules/file-size-markdown.mdc` | 0.1 |
 | `.cursor/rules/file-size-python.mdc` | 0.1 |
 
@@ -362,7 +366,7 @@
 
 ### Project Management & QA
 
-**Subtotal:** 38 files, 53.2 hours
+**Subtotal:** 39 files, 55.2 hours
 
 | File | Hours |
 | --- | ---: |
@@ -372,6 +376,7 @@
 | `audit/post_processing/01_requirements_coverage/20260418_gaps.md` | 3.0 |
 | `audit/post_processing/02_data_verification/20260418_column_readability.md` | 3.0 |
 | `audit/post_processing/02_data_verification/20260418_engineer_audit.md` | 3.0 |
+| `audit/conversations/2026-05-09_feedback-rework-execution.md` | 2.1 |
 | `audit/README.md` | 2.0 |
 | `audit/post_processing/02_data_verification/20260418_data_inventory.md` | 2.0 |
 | `audit/post_processing/02_data_verification/bulk_source_verification.md` | 2.0 |
@@ -393,17 +398,17 @@
 | `audit/conversations/2026-03-24_man-hours-tracking-system.md` | 0.5 |
 | `audit/conversations/2026-04-02_fix-01-controller-fixes-expansions.md` | 0.5 |
 | `audit/conversations/2026-05-09_cursor-rules-optimization.md` | 0.5 |
-| `audit/conversations/2026-05-09_feedback-rework-execution.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md` | 0.5 |
 | `audit/plans/feedback-context-enrichment.md` | 0.4 |
+| `audit/plans/feedback-rework-execution.md` | 0.3 |
+| `audit/plans/log-replay-feedback-rework.md` | 0.3 |
 | `audit/conversations/2026-03-11_process-diagram.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-architecture.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-requirements.md` | 0.2 |
 | `audit/conversations/2026-05-09_feedback-sub-plans-handoff.md` | 0.2 |
 | `audit/plans/README.md` | 0.2 |
 | `audit/plans/docx-comment-extraction.md` | 0.2 |
-| `audit/plans/feedback-rework-execution.md` | 0.2 |
 
 ### Other
 
@@ -413,13 +418,25 @@
 | --- | ---: |
 | `AGENTS.md` | 1.6 |
 
-### Report Authoring & Documentation
+### Connectors & Data Acquisition
 
-**Subtotal:** 20 files, 11.7 hours
+**Subtotal:** 3 files, 2.7 hours
 
 | File | Hours |
 | --- | ---: |
+| `src/scripts/replay_osm_military_from_logs.py` | 1.6 |
+| `docs/connector_reports/ourairports_s39_sample_report.md` | 0.6 |
+| `docs/connector_reports/osm_military_hi06_sample_report.md` | 0.5 |
+
+### Report Authoring & Documentation
+
+**Subtotal:** 23 files, 18.5 hours
+
+| File | Hours |
+| --- | ---: |
+| `report/output/feedback/synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml` | 4.8 |
 | `report/output/feedback/plans/SP-G_rerun_regenerate.plan.md` | 3.3 |
+| `report/output/feedback/plans/SP-A_quick_wins.plan.md` | 1.7 |
 | `report/output/feedback/plans/SP-D_band_proposals/README.md` | 0.7 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-03.md` | 0.6 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-04.md` | 0.6 |
@@ -436,6 +453,7 @@
 | `report/output/feedback/plans/SP-D_band_proposals/NH-09.md` | 0.4 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-13.md` | 0.4 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-14.md` | 0.4 |
+| `report/output/chapters/04_results_and_findings.md` | 0.3 |
 | `report/output/feedback/plans/SP-D_band_proposals/HI-04.md` | 0.3 |
 | `report/output/feedback/plans/SP-D_band_proposals/HI-05.md` | 0.3 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-12.md` | 0.3 |
@@ -450,12 +468,13 @@
 
 ### Testing & Quality Assurance
 
-**Subtotal:** 1 files, 0.4 hours
+**Subtotal:** 2 files, 1.5 hours
 
 | File | Hours |
 | --- | ---: |
+| `tests/test_smr_scope_propagation.py` | 1.1 |
 | `tests/scripts/test_cross_chapter_numeric_lint.py` | 0.4 |
 
 ---
 
-*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T17:17:27Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T18:51:41Z*

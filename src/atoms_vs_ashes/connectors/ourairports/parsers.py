@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.6
 """Pure parsing and spatial query logic for S-39 OurAirports.
 
 No I/O, no HTTP, no database imports.  All functions operate on
@@ -38,10 +38,89 @@ log = get_logger(__name__)
 # CSV parsing
 # ---------------------------------------------------------------------------
 
+_HARD_SURFACES: frozenset[str] = frozenset({
+    "ASP", "ASPH", "ASPHALT",
+    "CON", "CONC", "CONCRETE",
+    "BIT", "BITUMEN",
+    "PAVED",
+    "PEM",
+    "TARMAC",
+})
+
+_FT_TO_M = 0.3048
+
+
+def parse_runways_csv(text: str) -> dict[str, float]:
+    """Parse OurAirports ``runways.csv`` into ``{airport_ident -> longest_m}``.
+
+    Selects the longest **hard-surface** (asphalt/concrete) runway per
+    airport when one exists; otherwise falls back to the longest runway of
+    any surface so the field is never silently null for legitimate small
+    grass strips. Length values can come from ``length_ft`` (US convention)
+    or from ``length_m`` if present in future schema versions.
+
+    Pure: no I/O. Caller reads the file and passes the text in.
+    """
+    if not text:
+        return {}
+
+    reader = csv.DictReader(io.StringIO(text))
+    if not reader.fieldnames:
+        log.warning("ourairports_runways_empty_headers")
+        return {}
+
+    longest_hard: dict[str, float] = {}
+    longest_any: dict[str, float] = {}
+    rows = 0
+    skipped_no_ident = 0
+    skipped_no_length = 0
+
+    for row in reader:
+        rows += 1
+        ident = (row.get("airport_ident") or "").strip()
+        if not ident:
+            skipped_no_ident += 1
+            continue
+
+        length_m = _safe_float(row.get("length_m"))
+        if length_m is None or length_m <= 0:
+            length_ft = _safe_float(row.get("length_ft"))
+            if length_ft is not None and length_ft > 0:
+                length_m = length_ft * _FT_TO_M
+        if length_m is None or length_m <= 0:
+            skipped_no_length += 1
+            continue
+
+        existing_any = longest_any.get(ident, 0.0)
+        if length_m > existing_any:
+            longest_any[ident] = length_m
+
+        surface = (row.get("surface") or "").strip().upper()
+        if surface in _HARD_SURFACES:
+            existing_hard = longest_hard.get(ident, 0.0)
+            if length_m > existing_hard:
+                longest_hard[ident] = length_m
+
+    out: dict[str, float] = {}
+    for ident, any_len in longest_any.items():
+        out[ident] = longest_hard.get(ident, any_len)
+
+    log.info(
+        "ourairports_runways_parsed",
+        rows=rows,
+        airports_with_runway=len(out),
+        airports_with_hard_runway=len(longest_hard),
+        skipped_no_ident=skipped_no_ident,
+        skipped_no_length=skipped_no_length,
+    )
+    return out
+
+
 def parse_airports_csv(
     text: str,
     *,
     country_filter: frozenset[str] | None = None,
+    runway_lengths: dict[str, float] | None = None,
 ) -> list[AirportRecord]:
     """Parse OurAirports airports.csv into AirportRecord objects.
 
@@ -52,6 +131,10 @@ def parse_airports_csv(
     country_filter
         If provided, only include airports in these ISO country codes.
         Defaults to ALL_RELEVANT_COUNTRIES if None.
+    runway_lengths
+        Optional ``{ident -> longest_runway_m}`` produced by
+        :func:`parse_runways_csv`. When provided, populates
+        ``AirportRecord.runway_length_m``. Missing idents stay ``None``.
     """
     if country_filter is None:
         country_filter = ALL_RELEVANT_COUNTRIES
@@ -90,6 +173,10 @@ def parse_airports_csv(
         ident = (row.get("ident") or "").strip()
         name = (row.get("name") or "").strip() or ident
 
+        runway_m: float | None = None
+        if runway_lengths is not None:
+            runway_m = runway_lengths.get(ident)
+
         airports.append(AirportRecord(
             ident=ident,
             name=name,
@@ -103,11 +190,14 @@ def parse_airports_csv(
             iata_code=(row.get("iata_code") or "").strip() or None,
             icao_code=(row.get("gps_code") or "").strip() or None,
             avoidance_tier=AIRPORT_TYPE_TIER.get(airport_type),
+            runway_length_m=runway_m,
         ))
 
+    with_runway = sum(1 for a in airports if a.runway_length_m is not None)
     log.info(
         "ourairports_csv_parsed",
         airport_count=len(airports),
+        airports_with_runway_length=with_runway,
         skipped_type=skipped_type,
         skipped_country=skipped_country,
         skipped_coords=skipped_coords,
@@ -202,6 +292,7 @@ def compute_proximity_result(
     result.nearest_airport_type = nearest[0].airport_type
     result.nearest_airport_class = nearest[0].airport_type
     result.nearest_airport_scheduled_service = nearest[0].scheduled_service
+    result.nearest_airport_runway_length_m = nearest[0].runway_length_m
 
     nearest_large: float | None = None
     nearest_medium: float | None = None
@@ -237,6 +328,7 @@ def compute_proximity_result(
                 longitude=airport.longitude,
                 country_code=airport.country_code,
                 scheduled_service=airport.scheduled_service,
+                runway_length_m=airport.runway_length_m,
             ))
 
     result.nearest_large_airport_km = nearest_large

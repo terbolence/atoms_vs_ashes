@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.1
 """Smoke tests for SMR-scope propagation through the scoring CLIs.
 
 Both ``score run --profile`` and ``score sensitivity --profile`` must
@@ -96,6 +96,9 @@ def _fake_loaded_profile():
             site_status_in=["operating"],
             site_ids=[],
         ),
+        fail_thresholds={},
+        expert_override=False,
+        db_profile="merged",
     )
     template_bundle = SimpleNamespace()
     return SimpleNamespace(profile=profile, template_bundle=template_bundle)
@@ -133,7 +136,7 @@ def test_score_run_profile_restricts_smr_query_and_forwards_scope(
         captured["bundles_smrs"] = list(smrs)
         return {"nuscale_voygr6": SimpleNamespace()}
 
-    def _fake_weight_normalisation(_bundle, *, profile):
+    def _fake_weight_normalisation(_bundle, *, profile, basis=None):
         return {}
 
     runner = CliRunner()

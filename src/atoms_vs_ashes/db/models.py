@@ -560,6 +560,9 @@ class SiteHumanHazards(Base):
     nearest_airport_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
     nearest_airport_name: Mapped[str | None] = mapped_column(String(200))
     nearest_airport_type: Mapped[str | None] = mapped_column(String(30))
+    nearest_airport_class: Mapped[str | None] = mapped_column(String(30))
+    nearest_airport_runway_length_m: Mapped[float | None] = mapped_column(Numeric(8, 1))
+    nearest_airport_scheduled_service: Mapped[bool | None] = mapped_column(Boolean)
     flight_path_distance_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
     airport_count: Mapped[int | None] = mapped_column(Integer)
     hi01_quality: Mapped[str | None] = mapped_column(String(20))
@@ -585,6 +588,9 @@ class SiteHumanHazards(Base):
     # HI-06: Military installations (OSM military=*; search radius: 30 km)
     nearest_military_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
     nearest_military_name: Mapped[str | None] = mapped_column(String(200))
+    nearest_military_class: Mapped[str | None] = mapped_column(String(30))
+    nearest_high_consequence_military_km: Mapped[float | None] = mapped_column(Numeric(8, 2))
+    nearest_high_consequence_military_class: Mapped[str | None] = mapped_column(String(30))
     military_count: Mapped[int | None] = mapped_column(Integer)
     hi06_quality: Mapped[str | None] = mapped_column(String(20))
     hi06_comment: Mapped[str | None] = mapped_column(Text)
@@ -870,7 +876,7 @@ class ScreeningVerdict(Base):
         String(10), ForeignKey("criteria.criterion_id"), nullable=False
     )
     phase: Mapped[str] = mapped_column(String(30), nullable=False)
-    prompt_key: Mapped[str | None] = mapped_column(String(10))
+    prompt_key: Mapped[str | None] = mapped_column(String(40))
     verdict: Mapped[str] = mapped_column(VerdictEnum, nullable=False)
     measured_value: Mapped[str | None] = mapped_column(Text)
     threshold: Mapped[str | None] = mapped_column(Text)
@@ -1160,7 +1166,7 @@ class SiteLlmVerdict(Base):
     criterion_id: Mapped[str] = mapped_column(
         String(10), ForeignKey("criteria.criterion_id"), nullable=False
     )
-    prompt_key: Mapped[str] = mapped_column(String(10), nullable=False)
+    prompt_key: Mapped[str] = mapped_column(String(40), nullable=False)
     llm_verdict: Mapped[str] = mapped_column(VerdictEnum, nullable=False)
     llm_verdict_confidence: Mapped[str] = mapped_column(String(20), nullable=False)
     llm_verdict_run_id: Mapped[str | None] = mapped_column(String(40))

@@ -1,4 +1,4 @@
-<!-- man_hours: 1.4 -->
+<!-- man_hours: 1.7 -->
 ---
 sub_plan: SP-A
 title: Quick wins
@@ -21,6 +21,33 @@ comment_ids: ["8", "12", "47", "49", "65", "119", "568", "574"]
 
 **Landed.** Narrative `924 MW` / `12-module` / `VOYGR-12` references removed across all chapter `.md` files (7 site profiles patched, including Brăila / Rovinari / Romag Termo NS-02 rows and 4 family-interpretation paragraphs). Romania row in Table 4.1.1 now disambiguates "regional top-20 contribution" vs the country-level full-pass count (3) reported in Chapter 5 §RO. Captions on Tables 4.1.1, 4.1.2, 4.2.1 confirmed already explicit. Acks #8/#12 are flagged `action: no-action; mark done` in the triage YAML and will flip to `auto.done: true` on the next extractor pass (Stage 8b/9). #574 NH-13 vs wind/tornado anchor unconfirmed - moved to SP-H backlog.
 
+**Table layout (2026-05-09):** `04_results_and_findings.md` — Table 4.1.1 uses a short `Summary` column plus interpretation bullets; Table 4.1.2 uses compact `MC low–high` header; Table 4.2.1 is split into per-country `####` blocks with two-column tables; §4.3 Stage-3 table merges site+country and shortens rationale with a cross-reference note. Execution plan Stage 1 (`feedback_rework_execution_ff6b91ad`) updated in lockstep (`.cursor/plans/`, `architecture/plans/feedback-rework-execution.md`, `audit/plans/feedback-rework-execution.md`).
+
+### Stage 1 verification (feedback execution plan)
+
+**Date:** 2026-05-09 (second pass). **User policy:** scoring and sensitivity re-runs are **not** driven from CLI or agent automation; any future re-score or sensitivity work is **GUI-only**. Offline enrichment may continue from logged raw responses (e.g. HI-06 SP-F fields from `site_raw_responses`) where it does not imply a new scoring run.
+
+**Checks (chapter markdown only):**
+
+- `924` / `924 MW` / `924 MWe` / `VOYGR-12` / `12-module` — **no matches** in `report/output/chapters/**/*.md`.
+- Table 4.1.1, 4.1.2, 4.2.1 — explicit captions present in `04_results_and_findings.md` (disambiguate regional top-20 vs country-level candidates).
+- Romania — Table 4.1.1 row states one site in regional top-20 vs three country-level full-pass sites; aligns with Chapter 5 narrative intent (#568).
+
+**Gate:** Stage 1 (SP-A) **complete** for the feedback-rework execution plan; proceed to Stage 2 (SP-H backlog) when ready.
+
+### Table layout (Chapter 4 — content-fitting widths)
+
+**Goal:** Markdown tables should not force ultra-wide rows where one cell carries a full paragraph; column boundaries should align with how readers scan the data.
+
+**Conventions (apply in `04_results_and_findings.md` and mirror elsewhere if the same pattern appears):**
+
+1. **Table 4.1.1** — Keep the numeric centre column narrow. Use a **short** third-column label (one clause per country). Move any multi-sentence explanation to an **Interpretation notes** bullet list immediately under the table (so the grid stays scannable).
+2. **Table 4.1.2** — Prefer a compact header for the band column (e.g. `MC low–high` instead of a long header) so the site name column can use horizontal space.
+3. **Table 4.2.1** — Do **not** pack all countries into one three-column mega-row. Use a **per-country heading** (`#### Country`) and a **two-column** table under each: `Leading sites` \| `Ranking qualification`.
+4. **§4.3–4.5** — Where a table mixes narrow keys with long prose, either merge columns (e.g. site + country), shorten in-table text to a summary clause, or move detail to a follow-on list — avoid a single row spanning the full manuscript width in DOCX/PDF export.
+
+**Definition of done (table layout):** A reviewer can read Tables 4.1.1–4.2.1 without horizontal scrolling in a typical A4 portrait export; long qualifiers are in satellite lists or sub-tables, not stuffed into one pipe row.
+
 Five reviewer items that ship without scoring/methodology changes:
 
 | Item | Action | Comment ids |
@@ -36,6 +63,7 @@ Five reviewer items that ship without scoring/methodology changes:
 
 - `rg -n '924' report/output/` returns no narrative match (only legitimate occurrences such as line numbers, citations).
 - §4.1 / §4.2 tables carry explicit captions per the [`writingDecisions.md`](../writing%20plan/writingDecisions.md) caption convention.
+- §4.1–4.5 tables follow the **Table layout** conventions above (content-fitting column use; no single-row wall of text in Table 4.2.1).
 - Romania `n_full_pass` is identical between chapter 4 and chapter 5; the discrepant chapter is identified and corrected.
 - Triage YAML records reviewer confirmation for #574.
 

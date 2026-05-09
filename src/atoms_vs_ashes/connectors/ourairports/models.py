@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 2.0
 """Result dataclasses and domain constants for S-39 OurAirports.
 
 Pure data definitions — no I/O, no HTTP, no database imports.
@@ -68,7 +68,13 @@ SITE_LON_MAX = 47.0
 
 @dataclass
 class AirportRecord:
-    """A single airport parsed from OurAirports CSV."""
+    """A single airport parsed from OurAirports CSV.
+
+    ``runway_length_m`` is the longest hard-surface (asphalt/concrete) runway
+    associated with this airport in ``runways.csv``; falls back to the
+    longest runway of any surface when no hard-surface runway exists.
+    Stored as ``None`` when no runway record could be associated.
+    """
 
     ident: str
     name: str
@@ -82,6 +88,7 @@ class AirportRecord:
     iata_code: str | None = None
     icao_code: str | None = None
     avoidance_tier: str | None = None
+    runway_length_m: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -97,6 +104,10 @@ class AirportRecord:
             "iata_code": self.iata_code,
             "icao_code": self.icao_code,
             "avoidance_tier": self.avoidance_tier,
+            "runway_length_m": (
+                round(self.runway_length_m, 0)
+                if self.runway_length_m is not None else None
+            ),
         }
 
 

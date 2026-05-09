@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.3
 # Man-hours registry — auto-maintained per .cursor/rules/man-hours.mdc
 # Each entry: file path -> { hours (cumulative total), category }
 
@@ -1154,6 +1154,14 @@ files:
     hours: 5.5
     category: "AI Prompts & Tooling"
 
+  report/output/feedback/plans/SP-A_quick_wins.plan.md:
+    hours: 1.7
+    category: "Report Authoring & Documentation"
+
+  report/output/chapters/04_results_and_findings.md:
+    hours: 0.3
+    category: "Report Authoring & Documentation"
+
   report/output/feedback/plans/SP-D_band_proposals/README.md:
     hours: 0.7
     category: "Report Authoring & Documentation"
@@ -1234,6 +1242,10 @@ files:
     hours: 3.3
     category: "Report Authoring & Documentation"
 
+  report/output/feedback/synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml:
+    hours: 4.8
+    category: "Report Authoring & Documentation"
+
   prompts/databaseAudit.md:
     hours: 2.0
     category: "AI Prompts & Tooling"
@@ -1309,15 +1321,31 @@ files:
     category: "Project Management & QA"
 
   audit/conversations/2026-05-09_feedback-rework-execution.md:
-    hours: 0.5
+    hours: 2.1
     category: "Project Management & QA"
 
-  architecture/plans/feedback-rework-execution.md:
+  src/alembic/versions/042_hi01_hi06_classification_columns.py:
+    hours: 0.4
+    category: "Configuration & DevOps"
+
+  src/alembic/versions/043_widen_prompt_key.py:
     hours: 0.2
+    category: "Configuration & DevOps"
+
+  docs/connector_reports/ourairports_s39_sample_report.md:
+    hours: 0.6
+    category: "Connectors & Data Acquisition"
+
+  docs/connector_reports/osm_military_hi06_sample_report.md:
+    hours: 0.5
+    category: "Connectors & Data Acquisition"
+
+  architecture/plans/feedback-rework-execution.md:
+    hours: 0.3
     category: "Architecture & Design"
 
   audit/plans/feedback-rework-execution.md:
-    hours: 0.2
+    hours: 0.3
     category: "Project Management & QA"
 
   src/scripts/cross_chapter_numeric_lint.py:
@@ -1326,4 +1354,20 @@ files:
 
   tests/scripts/test_cross_chapter_numeric_lint.py:
     hours: 0.4
+    category: "Testing & Quality Assurance"
+
+  src/scripts/replay_osm_military_from_logs.py:
+    hours: 1.6
+    category: "Connectors & Data Acquisition"
+
+  architecture/plans/log-replay-feedback-rework.md:
+    hours: 0.3
+    category: "Architecture & Design"
+
+  audit/plans/log-replay-feedback-rework.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  tests/test_smr_scope_propagation.py:
+    hours: 1.1
     category: "Testing & Quality Assurance"

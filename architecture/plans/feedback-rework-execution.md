@@ -104,10 +104,11 @@ flowchart TD
 - **Actions:**
   - Replace the "12-module future expansion (924 MWe ...)" wording in `report/output/chapters/05_country_and_site_profiles/sites/RO_braila_power_station.md` with the corrected **462 MWe / VOYGR-6** narrative (#119).
   - Confirm/strengthen captions on Tables 4.1.1, 4.1.2, 4.2.1 in `report/output/chapters/04_results_and_findings.md` (#47, #49).
+  - **Table layout (readability):** adapt Chapter 4 tables so column widths follow content — avoid over-wide single rows (e.g. split Table 4.2.1 into per-country two-column blocks; keep Table 4.1.1 interpretation column concise with long text in a follow-on list where needed; tighten §4.3–4.5 tables similarly). See [`SP-A_quick_wins.plan.md`](report/output/feedback/plans/SP-A_quick_wins.plan.md) §Table layout.
   - Reconcile Romania full-pass count (#568) across Ch.4 narrative + per-country profile.
   - Drop ack comments (#8, #12) from reviewer-facing artefacts.
   - If reviewer intent for #574 is unconfirmed, queue a TODO row for Stage 2.
-- **Definition of done:** `rg "924" report/output/chapters/` returns no spurious VOYGR-6 hit; captions present; Romania count is single-valued; man-hours updated.
+- **Definition of done:** `rg "924" report/output/chapters/` returns no spurious VOYGR-6 hit; captions present; Romania count is single-valued; Chapter 4 tables use content-fitting layouts (per SP-A table-layout checklist); man-hours updated.
 - **Gate question:** _"Stage 1 complete (SP-A edits landed, ripgrep clean). Proceed to Stage 2 (SP-H backlog)?"_
 
 ---

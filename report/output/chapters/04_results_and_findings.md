@@ -12,16 +12,26 @@ The regional Coverage view should be read before the country profiles. It separa
 
 **Table 4.1.1 — Country contributions to the regional top-20 site set.** Each row reports how many sites from the named country appear in the 20 highest-composite scoring sites across the entire study region. The count is a *concentration indicator* across the regional ranking, not the country-level shortlist of candidate sites for further evaluation; the broader country-level candidate lists are in §4.2 below. Countries not listed have zero sites in the regional top-20.
 
-| Country | Sites in regional top 20 | Interpretation |
+| Country | Sites in regional top 20 | Summary |
 | --- | ---: | --- |
-| Turkey | 8 | Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results. |
-| Poland | 6 | Strongest Central European concentration, supported by multiple high-ranking coal-transition candidates. |
-| Hungary | 1 | One site appears in the regional top tier, but the country-level story requires later site-specific review. |
-| Romania | 1 | One Romanian site (Turceni) appears in the regional top-20 by composite score; the country still has three full-pass sites at country level (Turceni, Rovinari, Brăila). The "regional top-20 contribution" metric in this table is distinct from the per-country full-pass count reported in Chapter 5 §RO. |
-| Slovakia | 1 | One site appears in the regional top tier. |
-| Czechia | 1 | One site appears in the regional top tier. |
-| Ukraine | 1 | One site appears in the regional top tier; conflict, security, and data-confidence context require careful later treatment. |
-| Austria | 1 | One site appears in the regional top tier, subject to the policy and implementation caveats discussed in later sections. |
+| Turkey | 8 | Largest regional top-tier contribution. |
+| Poland | 6 | Strongest Central European concentration. |
+| Hungary | 1 | Single regional top-tier site; country narrative needs site-level review. |
+| Romania | 1 | Single regional top-tier site; see note on full-pass count below. |
+| Slovakia | 1 | Single regional top-tier site. |
+| Czechia | 1 | Single regional top-tier site. |
+| Ukraine | 1 | Single regional top-tier site; conflict and data-confidence caveats apply. |
+| Austria | 1 | Single regional top-tier site; policy and implementation caveats apply. |
+
+*Interpretation notes (Table 4.1.1):*
+
+- **Turkey** — Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results.
+- **Poland** — Strongest Central European concentration, supported by multiple high-ranking coal-transition candidates.
+- **Hungary** — One site appears in the regional top tier; the country-level story still requires later site-specific review.
+- **Romania** — One Romanian site (Turceni) appears in the regional top-20 by composite score; the country still has three full-pass sites at country level (Turceni, Rovinari, Brăila). The "regional top-20 contribution" metric in this table is distinct from the per-country full-pass count reported in Chapter 5 §RO.
+- **Slovakia, Czechia** — One site each in the regional top tier.
+- **Ukraine** — One site in the regional top tier; conflict, security, and data-confidence context require careful later treatment.
+- **Austria** — One site in the regional top tier, subject to the policy and implementation caveats discussed in later sections.
 
 The country-balance diagnostic does not indicate excessive dominance by a single country. The largest country share in the regional top-20 set is 40%, which is at the report's monitoring threshold but not above it [1]. This matters for interpretation. The shortlist is not a purely one-country result, but it is also not evenly distributed across the study region. The practical conclusion is that Chapter 5 should provide full profiles only where viable candidates remain, while countries without viable candidates should be discussed through their failure modes and distance-to-threshold evidence [2].
 
@@ -29,7 +39,7 @@ Composite scores should be shown with their Monte Carlo low/high band wherever t
 
 **Table 4.1.2 — Top-10 sites in the regional ranking with composite score and Monte Carlo band.** Sorted by composite score (point estimate) descending. The Monte Carlo low–high columns show the central uncertainty band; adjacent ranks within overlapping bands should not be read as cleanly separated. *Status* values: *Full pass* (no exclusionary or avoidance flags), *Avoidance flag* (passes Stage 1 exclusionary criteria but carries one or more avoidance findings to be resolved at Stage 3).
 
-| Site | Country | Status | Composite | Monte Carlo low-high |
+| Site | Country | Status | Composite | MC low–high |
 | --- | --- | --- | ---: | ---: |
 | Polaniec power station | Poland | Avoidance flag | 6.788 | 4.769-7.208 |
 | Opole power station | Poland | Full pass | 6.580 | 4.672-7.075 |
@@ -50,16 +60,55 @@ This subsection identifies the country-level candidate lists that should guide l
 
 **Table 4.2.1 — Per-country leading NuScale VOYGR-6 candidate sites for selection review.** Only countries that contributed at least one site to the regional top-20 (Table 4.1.1) are listed. Per country, up to 10 leading sites are reported, ordered by current composite score within the country (highest first). The list is a *candidate inventory for human selection review* — it is not the final Stage 3 shortlist, and inclusion does not imply Stage 3 readiness; site profiles in Chapter 5 cover only the subset of these candidates explicitly selected for detailed treatment.
 
-| Country | Leading candidate sites for selection review | Ranking qualification |
-| --- | --- | --- |
-| Austria | Timelkam; Voitsberg; Riedersbach; Enns; Duernrohr; Mellach. | Austria has one site in the regional top-20 and a small set of additional scored candidates. Any profile should treat policy and implementation context cautiously. |
-| Czechia | Tusimice; Pocerady; Ledvice; Chvaletice; Melnik; Prunerov; Plana Nad Luznici; Opatovice; Komorany; Hodonin. | Czechia has one regional top-20 site and a broader bench of ranked coal and thermal sites. The country-level profile should distinguish the leading site from the wider long-list. |
-| Hungary | Mohacs; Torony; Borsod; Tiszapalkonya; Matra; Matraterenye; Oroszlany; Mecsek Hills; Banhida-II; Bakony. | Hungary has one regional top-20 site. The remaining sites are useful for comparison, but the current evidence points to a single leading candidate for detailed consideration. |
-| Poland | Polaniec; Opole; Turów; Puchaczow; Patnow; Konin; Skawina; Dolna Odra; ZW Nowa; Pólnoc. | Poland is the strongest Central European cluster in the regional results, with multiple candidates close enough to justify country-level prioritisation rather than a single-site treatment. |
-| Romania | Turceni; Rovinari; Braila; Romag Termo; Giurgiu; Mintia-Deva; FPCU Feldioara; Govora; Suceava; Isalnita. | Romania has one regional top-20 site and several additional ranked sites. The country profile should test whether Turceni remains the clear lead once site-specific constraints are reviewed. |
-| Slovakia | Novaky; Vojany I; Trebisov; Martinska; U.S. Steel Kosice Works. | Slovakia has one regional top-20 site and a short ranked list. The main question is whether the top candidate has enough implementation strength to justify a full site profile. |
-| Turkey | Konya Karapınar; Çoban Yıldız; Akdeniz Enerji; Kangal Etyemez; Kangal; Yeşilovacık; Sarp Golvasi; Eren-1; Yüksek Gölovası; Yıldırım Elazığ. | Turkey is the largest contributor to the regional top tier. The country profile should not attempt to describe every scored site in equal depth; it should select a manageable subset from the leading group. |
-| Ukraine | Zmiivska; Dobrotvir; Ladyzhyn; Kalush; Burshtyn; Starobesheve; Kryvorizka; Vuglegirska; Kurakhov; Myronivskyi. | Ukraine has one regional top-20 site, but the country profile requires explicit security, conflict, data-confidence, and implementation caveats before any detailed site treatment. |
+Each block below is a two-column table so site lists and qualifications stay readable without one ultra-wide row.
+
+#### Austria
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Timelkam; Voitsberg; Riedersbach; Enns; Duernrohr; Mellach. | Austria has one site in the regional top-20 and a small set of additional scored candidates. Any profile should treat policy and implementation context cautiously. |
+
+#### Czechia
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Tusimice; Pocerady; Ledvice; Chvaletice; Melnik; Prunerov; Plana Nad Luznici; Opatovice; Komorany; Hodonin. | Czechia has one regional top-20 site and a broader bench of ranked coal and thermal sites. The country-level profile should distinguish the leading site from the wider long-list. |
+
+#### Hungary
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Mohacs; Torony; Borsod; Tiszapalkonya; Matra; Matraterenye; Oroszlany; Mecsek Hills; Banhida-II; Bakony. | Hungary has one regional top-20 site. The remaining sites are useful for comparison, but the current evidence points to a single leading candidate for detailed consideration. |
+
+#### Poland
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Polaniec; Opole; Turów; Puchaczow; Patnow; Konin; Skawina; Dolna Odra; ZW Nowa; Pólnoc. | Poland is the strongest Central European cluster in the regional results, with multiple candidates close enough to justify country-level prioritisation rather than a single-site treatment. |
+
+#### Romania
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Turceni; Rovinari; Braila; Romag Termo; Giurgiu; Mintia-Deva; FPCU Feldioara; Govora; Suceava; Isalnita. | Romania has one regional top-20 site and several additional ranked sites. The country profile should test whether Turceni remains the clear lead once site-specific constraints are reviewed. |
+
+#### Slovakia
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Novaky; Vojany I; Trebisov; Martinska; U.S. Steel Kosice Works. | Slovakia has one regional top-20 site and a short ranked list. The main question is whether the top candidate has enough implementation strength to justify a full site profile. |
+
+#### Turkey
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Konya Karapınar; Çoban Yıldız; Akdeniz Enerji; Kangal Etyemez; Kangal; Yeşilovacık; Sarp Golvasi; Eren-1; Yüksek Gölovası; Yıldırım Elazığ. | Turkey is the largest contributor to the regional top tier. The country profile should not attempt to describe every scored site in equal depth; it should select a manageable subset from the leading group. |
+
+#### Ukraine
+
+| Leading candidate sites (score order) | Ranking qualification |
+| --- | --- |
+| Zmiivska; Dobrotvir; Ladyzhyn; Kalush; Burshtyn; Starobesheve; Kryvorizka; Vuglegirska; Kurakhov; Myronivskyi. | Ukraine has one regional top-20 site, but the country profile requires explicit security, conflict, data-confidence, and implementation caveats before any detailed site treatment. |
 
 The table should be used as a selection instrument. Countries with several credible candidates, especially Poland and Turkey, require a deliberate narrowing step before Chapter 5. Countries with one clear leading candidate can be handled more directly, but the report should still explain why other ranked sites were not selected for full treatment. Countries not represented in this table should not automatically receive full profiles; they should be addressed through the failure-mode and uncertainty discussion unless later review identifies a defensible NuScale VOYGR-6 candidate.
 
@@ -67,20 +116,22 @@ The table should be used as a selection instrument. Countries with several credi
 
 The sites below are recommended for Stage 3 consideration, not for construction approval or final site suitability. They are the strongest current candidates because they combine high composite performance, survival of the exclusionary and safety-floor workflow, and a clear reason for further investigation under the NuScale VOYGR-6 reference envelope [1]. The recommendation is deliberately conditional: each site still requires site-specific hazard characterization, land and ownership confirmation, grid and cooling feasibility, environmental review, emergency-planning review, and stakeholder engagement.
 
-| Priority | Site | Country | Current composite score | Rationale for Stage 3 consideration |
-| ---: | --- | --- | ---: | --- |
-| 1 | Polaniec power station | Poland | 6.79 | Highest current composite score; strong non-safety implementation profile and solid natural-hazard score. |
-| 2 | Opole power station | Poland | 6.58 | Strong Polish coal-transition candidate with high implementation score and competitive safety-family performance. |
-| 3 | Konya Karapınar power station | Turkey | 6.52 | Leading Turkish candidate; balanced radiological, emergency-planning, and implementation scores. |
-| 4 | Mohacs power station | Hungary | 6.47 | Highest Hungarian candidate and one of the clearest single-country leaders in the regional results. |
-| 5 | Çoban Yıldız power station | Turkey | 6.38 | Strong implementation profile and high regional position, requiring detailed confirmation of site-specific constraints. |
-| 6 | Turceni power station | Romania | 6.35 | Highest Romanian candidate, with strong radiological and implementation performance in the current scoring. |
-| 7 | Turów power station | Poland | 6.33 | High natural-hazard and implementation scores, but human-induced hazard context needs careful review. |
-| 8 | Puchaczow power station | Poland | 6.31 | Consistent Polish candidate with strong natural-hazard and implementation scores. |
-| 9 | Akdeniz Enerji power station | Turkey | 6.28 | Strong Turkish candidate with favourable radiological and emergency-planning scores. |
-| 10 | Kangal Etyemez power station | Turkey | 6.26 | Competitive Turkish candidate with relatively strong human-induced hazard and radiological scores. |
-| 11 | Kangal power station | Turkey | 6.26 | Closely paired with Kangal Etyemez in the current scoring; should be reviewed together to avoid double-counting or site-boundary confusion. |
-| 12 | Novaky power station | Slovakia | 6.22 | Highest Slovak candidate and a useful test case for whether a smaller national shortlist merits full profile treatment. |
+| Priority | Site (country) | Composite | Rationale (summary) |
+| ---: | --- | ---: | --- |
+| 1 | Polaniec power station (Poland) | 6.79 | Highest composite; strong implementation and natural hazards. |
+| 2 | Opole power station (Poland) | 6.58 | Strong coal-transition candidate; high implementation. |
+| 3 | Konya Karapınar power station (Turkey) | 6.52 | Leading Turkish mix: radiological, EP, implementation. |
+| 4 | Mohacs power station (Hungary) | 6.47 | Clearest single-country leader in the regional results. |
+| 5 | Çoban Yıldız power station (Turkey) | 6.38 | Strong implementation; confirm site-specific constraints. |
+| 6 | Turceni power station (Romania) | 6.35 | Highest Romanian candidate; radiological and implementation strength. |
+| 7 | Turów power station (Poland) | 6.33 | Strong NH and implementation; review human-induced context. |
+| 8 | Puchaczow power station (Poland) | 6.31 | Consistent Polish candidate across NH and implementation. |
+| 9 | Akdeniz Enerji power station (Turkey) | 6.28 | Strong radiological and emergency-planning scores. |
+| 10 | Kangal Etyemez power station (Turkey) | 6.26 | Strong HI and radiological scores within Turkey bench. |
+| 11 | Kangal power station (Turkey) | 6.26 | Pair with Kangal Etyemez; avoid boundary double-counting. |
+| 12 | Novaky power station (Slovakia) | 6.22 | Test case for smaller national shortlist vs full profile. |
+
+*Rationale detail (Table 4.3 — Stage 3 progression):* priorities 1–12 above are the analytical recommendation set. Full prose rationales (implementation depth, sensitivity context, and Stage 3 data needs) should be read together with the site rows in Table 4.1.2 and the country blocks in Table 4.2.1; the in-table summaries stay short so the grid remains scannable in print export.
 
 This list should be treated as the analytical recommendation set for review, not as the final publication list. It is intentionally wider than the eventual detailed site-profile set. Poland and Turkey are over-represented because they contain multiple leading candidates. The next editorial step is to decide whether Chapter 5 should profile all leading sites in those countries or select a smaller, more representative subset.
 

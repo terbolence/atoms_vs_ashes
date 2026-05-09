@@ -1,4 +1,4 @@
-# man_hours: 2.5
+# man_hours: 2.8
 """Batch enrichment and DB persistence for the OurAirports connector.
 
 Handles per-site commit isolation, cache-based resumability, progress
@@ -106,8 +106,14 @@ def enrich_batch(
     *,
     site_ids: list[uuid.UUID] | None = None,
     country_codes: list[str] | None = None,
+    requery_nulls: bool = False,
 ) -> BatchResult:
-    """Enrich multiple sites with per-site commit isolation and progress logging."""
+    """Enrich multiple sites with per-site commit isolation and progress logging.
+
+    When ``requery_nulls`` is True the cache check is bypassed and only sites
+    whose HI-01 columns are NULL or whose ``hi01_quality`` is ``"low"`` /
+    ``"insufficient"`` are re-queried (#136 / FB-LL-024 follow-up).
+    """
     batch = BatchResult(run_id=run_id)
     batch_start = time.monotonic()
 
@@ -120,6 +126,15 @@ def enrich_batch(
         query = query.filter(Site.country_code.in_(country_codes))
 
     sites = query.order_by(Site.country_code, Site.name).all()
+
+    if requery_nulls:
+        sites = [s for s in sites if _needs_requery(session, s.site_id)]
+        log.info(
+            "ourairports_requery_filter",
+            requery_nulls=True,
+            kept=len(sites),
+        )
+
     batch.total_sites = len(sites)
     if not sites:
         return batch
@@ -145,7 +160,10 @@ def enrich_batch(
     for i, site in enumerate(sites):
         site_start = time.monotonic()
 
-        cached = _check_cache(session, site.site_id, run_id, connector._cache_ttl_days)
+        cached = (
+            None if requery_nulls
+            else _check_cache(session, site.site_id, run_id, connector._cache_ttl_days)
+        )
         if cached:
             log.info("ourairports_cache_hit", site_id=str(site.site_id))
             batch.skipped_cached += 1
@@ -235,6 +253,28 @@ def _check_cache(
     return None
 
 
+_REQUERY_QUALITY_FLAGS: frozenset[str] = frozenset({
+    "low", "insufficient", "not_assessed",
+})
+
+
+def _needs_requery(session: Session, site_id: uuid.UUID) -> bool:
+    """Return True if the site has missing or low-quality HI-01 data.
+
+    A site is considered NULL-flagged when (a) no HI-01 row exists,
+    (b) ``nearest_airport_km`` is NULL, or (c) ``hi01_quality`` is one of
+    the low-confidence sentinels in ``_REQUERY_QUALITY_FLAGS``.
+    """
+    row = session.get(SiteHumanHazards, site_id)
+    if row is None:
+        return True
+    if row.nearest_airport_km is None:
+        return True
+    if (row.hi01_quality or "").strip().lower() in _REQUERY_QUALITY_FLAGS:
+        return True
+    return False
+
+
 def _persist_result(
     session: Session,
     site_id: uuid.UUID,
@@ -258,6 +298,13 @@ def _persist_result(
     row.hi01_comment = _build_comment(result)
     row.fetched_at = now
     row.run_id = run_id
+
+    if hasattr(row, "nearest_airport_class"):
+        row.nearest_airport_class = result.nearest_airport_class
+    if hasattr(row, "nearest_airport_runway_length_m"):
+        row.nearest_airport_runway_length_m = result.nearest_airport_runway_length_m
+    if hasattr(row, "nearest_airport_scheduled_service"):
+        row.nearest_airport_scheduled_service = result.nearest_airport_scheduled_service
 
     if result.avoidance_violations:
         write_observation(

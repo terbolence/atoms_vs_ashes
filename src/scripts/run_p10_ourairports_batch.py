@@ -1,6 +1,11 @@
+# man_hours: 0.6
 """Run P10 OurAirports batch enrichment for all sites.
 
-Usage: .venv/bin/python scripts/run_p10_ourairports_batch.py [--run-id RUN_ID]
+Usage:
+    .venv/bin/python scripts/run_p10_ourairports_batch.py [--run-id RUN_ID]
+    .venv/bin/python scripts/run_p10_ourairports_batch.py --requery-nulls
+    .venv/bin/python scripts/run_p10_ourairports_batch.py --country RO,BG
+    .venv/bin/python scripts/run_p10_ourairports_batch.py --site-id <UUID>
 """
 
 from __future__ import annotations
@@ -22,9 +27,29 @@ from atoms_vs_ashes.db.engine import init_engine, session_scope
 def main() -> None:
     parser = argparse.ArgumentParser(description="P10 OurAirports batch enrichment")
     parser.add_argument("--run-id", default=None, help="Run ID (auto-generated if omitted)")
+    parser.add_argument(
+        "--country", default=None,
+        help="Comma-separated ISO country codes (e.g. RO,BG); enriches all sites in those countries.",
+    )
+    parser.add_argument(
+        "--site-id", action="append", default=[],
+        help="Restrict enrichment to specific site UUIDs. Repeatable.",
+    )
+    parser.add_argument(
+        "--requery-nulls", action="store_true",
+        help="Bypass cache and only re-query sites whose HI-01 fields are NULL or low-quality.",
+    )
     args = parser.parse_args()
 
     run_id = args.run_id or f"p10-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}"
+
+    site_ids: list[uuid.UUID] | None = None
+    if args.site_id:
+        site_ids = [uuid.UUID(s) for s in args.site_id]
+
+    country_codes: list[str] | None = None
+    if args.country:
+        country_codes = [c.strip().upper() for c in args.country.split(",") if c.strip()]
 
     print(f"[{_ts()}] === P10 OurAirports Batch Enrichment ===")
     print(f"[{_ts()}] Run ID: {run_id}")
@@ -54,8 +79,15 @@ def main() -> None:
 
     # Step 3: Run batch
     print(f"[{_ts()}] Starting batch enrichment for all sites...")
+    if args.requery_nulls:
+        print(f"[{_ts()}] [REQUERY NULLS] only sites with NULL/low HI-01 will be re-fetched")
     with session_scope() as session:
-        result = enrich_batch(connector, session, run_id)
+        result = enrich_batch(
+            connector, session, run_id,
+            site_ids=site_ids,
+            country_codes=country_codes,
+            requery_nulls=args.requery_nulls,
+        )
 
     # Step 4: Report
     print(f"\n[{_ts()}] === BATCH COMPLETE ===")
