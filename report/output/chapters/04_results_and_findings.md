@@ -17,7 +17,7 @@ The regional Coverage view should be read before the country profiles. It separa
 | Turkey | 8 | Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results. |
 | Poland | 6 | Strongest Central European concentration, supported by multiple high-ranking coal-transition candidates. |
 | Hungary | 1 | One site appears in the regional top tier, but the country-level story requires later site-specific review. |
-| Romania | 1 | One site appears in the regional top tier, with detailed interpretation deferred to the country and site sections. |
+| Romania | 1 | One Romanian site (Turceni) appears in the regional top-20 by composite score; the country still has three full-pass sites at country level (Turceni, Rovinari, Brăila). The "regional top-20 contribution" metric in this table is distinct from the per-country full-pass count reported in Chapter 5 §RO. |
 | Slovakia | 1 | One site appears in the regional top tier. |
 | Czechia | 1 | One site appears in the regional top tier. |
 | Ukraine | 1 | One site appears in the regional top tier; conflict, security, and data-confidence context require careful later treatment. |

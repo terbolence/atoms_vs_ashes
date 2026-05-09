@@ -1,8 +1,8 @@
 ## <!-- man_hours: 1.5 -->
 
-sign_off: no
-sign_off_by: ""
-sign_off_at: ""
+sign_off: yes
+sign_off_by: user
+sign_off_at: 2026-05-09
 source_triage: ../synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml
 source_comments_md: ../synthesised_comments/atoms_vs_ashes_report_feedback_comments.md
 specialist_prompts:

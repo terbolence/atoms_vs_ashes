@@ -1,4 +1,4 @@
-# man_hours: 0.75
+# man_hours: 1.4
 """Body of the ``score run`` CLI command.
 
 Pulled out of :mod:`atoms_vs_ashes.scoring._cli` so the CLI shell stays
@@ -42,10 +42,35 @@ def apply_profile_scope_to_sensitivity_cfg(
         cfg.rubric_dir = loaded.profile.spec_dir
 
 
+def _assert_basis_populated(
+    bundle: dict, basis: str | None, *, where: str
+) -> None:
+    """Raise NotImplementedError if the requested basis is not populated.
+
+    Loud-fail guard for the SP-B EPRI-weights mechanism (FB-LL-09 family):
+    when an operator passes ``--weight-basis epri`` but no criterion in the
+    bundle carries ``weight_factors['epri']``, fall through to baseline
+    silently is exactly the failure mode FB-LL-09 was promoted to prevent.
+    """
+    if basis in (None, "baseline"):
+        return
+    populated = any(
+        (c.weight_factors or {}).get(basis) is not None for c in bundle.values()
+    )
+    if not populated:
+        raise NotImplementedError(
+            f"weight_basis '{basis}' not populated on any criterion in {where}; "
+            "the canonical source document has not yet been threaded into "
+            "config/scoring_rubrics/. SP-B records the swap protocol in "
+            "report/sites_evaluation/02_master_weights.md."
+        )
+
+
 def execute_score_run(
     *,
     session: Any,
     weight_profile: str,
+    weight_basis: str | None = None,
     rubric_dir: str,
     profile_path: str | None,
     run_id: str | None,
@@ -75,8 +100,12 @@ def execute_score_run(
         )
         from atoms_vs_ashes.scoring.rubric import weight_normalisation
 
+        first_bundle = next(iter(smr_bundles.values()))
+        _assert_basis_populated(
+            first_bundle, weight_basis, where=loaded.profile.spec_dir
+        )
         w = weight_normalisation(
-            next(iter(smr_bundles.values())), profile=weight_profile
+            first_bundle, profile=weight_profile, basis=weight_basis
         )
         return run_scoring(
             session, rubric_dir=loaded.profile.spec_dir,
@@ -85,6 +114,21 @@ def execute_score_run(
             smr_bundles=smr_bundles, weights=w,
             threshold_overrides=dict(loaded.profile.fail_thresholds),
             scope=runscope,
+        )
+    if weight_basis not in (None, "baseline"):
+        from atoms_vs_ashes.scoring.rubric import (
+            load_rubric_bundle, weight_normalisation,
+        )
+
+        bundle = load_rubric_bundle(rubric_dir)
+        _assert_basis_populated(bundle, weight_basis, where=rubric_dir)
+        weights = weight_normalisation(
+            bundle, profile=weight_profile, basis=weight_basis
+        )
+        return run_scoring(
+            session, rubric_dir=rubric_dir, weight_profile=weight_profile,
+            bundle=bundle, weights=weights,
+            run_id=run_id, cancellation=token, heartbeat=hb,
         )
     return run_scoring(
         session, rubric_dir=rubric_dir, weight_profile=weight_profile,

@@ -71,4 +71,5 @@ testpaths = ["tests"]
 pythonpath = ["src"]
 markers = [
     "smoke: live API tests requiring network access (deselect with -m 'not smoke')",
+    "slow: lint / publish-time checks (run via -m slow)",
 ]

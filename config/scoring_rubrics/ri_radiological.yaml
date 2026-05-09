@@ -114,6 +114,22 @@ criteria:
       - {code: A12, action: avoidance_penalty, condition_expr: "pop_density_5km > 500 or pop_density_16km > 600 or pop_density_25km > 600 or pop_density_80km > 300", descriptor: "Project A12: population thresholds per RI-04/RI-05."}
       - {code: E_RI04, action: exclude, condition_expr: "pop_density_5km > 1500 or (pop_density_5km > 800 and pop_density_16km > 1200)", pass_mark: 5.0, descriptor: "Dual-mode exclusion: extreme EPZ population-density screening proxy."}
     quality_floor: {low_quality_uncertainty_bands: 1}
+    notes: |
+      Dual-mode criterion (FB-LL-05, reviewer comments #33, #564, methodology in
+      Chapter 3 §3.5).
+      - Avoidance / ranking mode (default): EPZ orientative distances are screening
+        surrogates; population density at the EPZ-relevant rings contributes to
+        ranking, with the A12 avoidance penalty firing when project density
+        thresholds are exceeded. The site stays in the ranked pool.
+      - Exclusion mode (E_RI04): when the dose calculation for the SMR design x EPZ
+        x population-distribution combination shows that legal off-site dose limits
+        cannot be met or that an emergency plan cannot be implemented within the
+        regulatory envelope (per CNCAN / IAEA GSG-2), the criterion fires as an
+        exclusionary failure and the site exits the ranked pool. The screening
+        proxy here uses extreme density bands as a stand-in until the dose-feasibility
+        calculation is wired in Stage 3.
+      Engine semantics: the firing mode is per-site evidence-driven, not per-criterion
+      structural. The renderer flags which mode fired in the residual-risk register.
   - criterion_id: RI-05
     name: Distance to large population centres (>50 k)
     phases: [avoidance, ranking]

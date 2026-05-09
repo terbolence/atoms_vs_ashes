@@ -1,4 +1,4 @@
-<!-- man_hours: 0.5 -->
+<!-- man_hours: 0.6 -->
 ---
 sub_plan: SP-H
 title: Backlog (deferred reviewer items + engineering follow-ups)
@@ -12,6 +12,10 @@ comment_ids: ["72"]
 ---
 
 # SP-H — Backlog
+
+## Status (2026-05-09)
+
+Backlog inventory complete: #72 parked, four engineering follow-ups recorded (cross-chapter numeric lint scheduled for Stage 8a build, triage `action` enum, semantic anchor-vs-content check, optional Pareto-per-country), and clarification rows for #15 and #574 still open pending reviewer contact.
 
 ## Reviewer-deferred items
 

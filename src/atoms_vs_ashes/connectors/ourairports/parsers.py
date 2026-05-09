@@ -200,6 +200,8 @@ def compute_proximity_result(
     result.nearest_airport_km = nearest[1]
     result.nearest_airport_name = nearest[0].name
     result.nearest_airport_type = nearest[0].airport_type
+    result.nearest_airport_class = nearest[0].airport_type
+    result.nearest_airport_scheduled_service = nearest[0].scheduled_service
 
     nearest_large: float | None = None
     nearest_medium: float | None = None

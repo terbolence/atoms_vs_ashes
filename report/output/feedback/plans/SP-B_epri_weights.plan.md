@@ -1,4 +1,4 @@
-<!-- man_hours: 2.0 -->
+<!-- man_hours: 2.4 -->
 ---
 sub_plan: SP-B
 title: EPRI weight basis swap (named profile)
@@ -20,6 +20,10 @@ blocks: ["SP-D"]
 ---
 
 # SP-B — EPRI weight basis swap
+
+## Status (2026-05-09)
+
+**Mechanism landed.** All four scaffold steps below are now in code: (1) `Criterion.weight_factors` and `Criterion.weight_basis_source` Pydantic fields exist on the rubric model; (2) `weight_normalisation(bundle, profile=..., basis=...)` and `weight_basis_resolution(bundle, basis=...)` both shipped in [`rubric.py`](../../../../src/atoms_vs_ashes/scoring/rubric.py) (~L288-339); (3) the CLI `atoms-vs-ashes score run` now accepts `--weight-basis epri | s_and_l | baseline`, threaded through `execute_score_run` -> `_assert_basis_populated` -> `run_scoring` -> `ScoringEngine`; (4) `composite_rankings.weight_profile` already segregates runs. The basis guard `_assert_basis_populated` raises `NotImplementedError("weight_basis 'epri' not populated on any criterion in <rubric_dir>; ...")` so accidental use is loud (FB-LL-09 acceptance). The swap protocol is documented in [`report/sites_evaluation/02_master_weights.md`](../../../sites_evaluation/02_master_weights.md) §"SP-B EPRI weight swap protocol". Sensitivity-pipeline `--profile epri` mode is the only remaining sub-step; the suite already accepts `--weight-profile-base` and the basis guard can be reused once the source doc lands. **Numerical EPRI / S&L values remain pending the canonical source document the user will hand over.**
 
 The apex change Bogdan named in #1929454976. SP-D rubric edits depend on the named-profile mechanism being in place.
 

@@ -134,6 +134,7 @@ class Criterion(BaseModel):
     aggregation: Aggregation | None = None
     fail_conditions: list[FailCondition] = Field(default_factory=list)
     quality_floor: QualityFloor = Field(default_factory=QualityFloor)
+    notes: str | None = None
 
     @field_validator("weight_factors")
     @classmethod

@@ -170,6 +170,7 @@ def _compile_criterion(
                 template.quality_floor.low_quality_uncertainty_bands
             )
         ),
+        notes=template.notes,
     )
 
 

@@ -1,4 +1,4 @@
-<!-- man_hours: 2.5 -->
+<!-- man_hours: 3.0 -->
 ---
 sub_plan: SP-E
 title: Missing-evidence fallback semantics in scoring engine + renderer
@@ -19,6 +19,20 @@ comment_ids: [102, 105, 107, 108, 109, 117, 575, 580, 581, 583]
 ---
 
 # SP-E — Missing-evidence fallback semantics
+
+## Status (2026-05-09)
+
+**Landed (renderer + acceptance tests).** Engine semantics for case (b) are unchanged because the existing flow (`evaluate_bands` returns score=5.0 + `notes=["unscored"]` -> `quality_flag_for` maps to `"unscored"` -> `composite.py` skips via `unscored_weight += w` and applies the pessimistic `UNSCORED_FALLBACK_SCORE = 3.0` envelope) was already meeting the FB-LL-01 / FB-LL-02 acceptance test before this stage. Switching `BandResult.score` to `Optional[float]` would have been an invasive refactor with no behavioural change at the composite level.
+
+The renderer was the gap. Two production-path bugs fixed:
+
+1. `_verdicts_and_scores_by_family` in `src/scripts/_site_profile_markdown.py` was not propagating `quality_flag` or the matched-band descriptor onto the per-criterion dict, so the unscored vs scored branch in `_family_section` was always dead code in production (only test stubs ever set `quality_flag`). It now reads `quality_flag` from the bundle's `ranking_scores` row and parses the matched-band descriptor out of `RankingScore.justification` JSON ("band" key, written by `_ranking_row.build_ranking_justification`).
+2. `_family_section` now produces three distinct strings keyed off the score band:
+   - **(a) pass-mark band match (4.5 <= score <= 6.5)**: appends `" - pass-mark band: <descriptor>"` after the score so the bullet labels itself rather than reading as an unqualified midpoint.
+   - **(b) genuinely unscored** (existing): `"no native score (unscored - no band matched), ..., Evidence: not measured at this site (criterion remains unscored)"`.
+   - **(c) favorable-by-default (score >= 8.0)**: appends `" - favorable: <descriptor>"` so high-band matches read as positive evidence rather than ambiguous high numbers.
+
+Tests: 94 passed (89 scoring + 5 renderer; two new tests cover the favorable and pass-mark branches with descriptors). Engine itself is untouched; the SP-E pure-function intent is met by stricter renderer code paths and the descriptor plumbing.
 
 The renderer + engine must distinguish three cases that today all collapse to "score 5.x with `Evidence: values not in measurement tables`":
 

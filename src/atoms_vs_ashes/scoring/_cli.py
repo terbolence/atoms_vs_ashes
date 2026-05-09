@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.2
 """Click ``score`` group — entry point for scoring + sensitivity CLI.
 
 ``--mc-draws`` / ``--preset`` flow into :func:`run_mc_suite`'s
@@ -84,7 +84,17 @@ def score_group() -> None:
     "--weight-profile",
     default="baseline",
     show_default=True,
-    help="Weight profile label written onto ranking / composite rows.",
+    help="Weight perturbation profile (baseline | w_plus_20 | w_minus_20).",
+)
+@click.option(
+    "--weight-basis",
+    default=None,
+    show_default=True,
+    help=(
+        "Weight basis source per criterion. None / 'baseline' uses the legacy "
+        "weight_factor; 'epri', 's_and_l' etc. read criterion.weight_factors[basis]. "
+        "Raises if requested basis is not populated on any criterion in the bundle."
+    ),
 )
 @click.option(
     "--rubric-dir",
@@ -111,7 +121,8 @@ def score_group() -> None:
 )
 @click.pass_context
 def score_run(
-    ctx: click.Context, weight_profile: str, rubric_dir: str,
+    ctx: click.Context, weight_profile: str, weight_basis: str | None,
+    rubric_dir: str,
     heartbeat_path: str | None, cancel_flag: str | None,
     profile_path: str | None,
 ) -> None:
@@ -127,6 +138,7 @@ def score_run(
             summary = execute_score_run(
                 session=session,
                 weight_profile=weight_profile,
+                weight_basis=weight_basis,
                 rubric_dir=rubric_dir,
                 profile_path=profile_path,
                 run_id=run_id,

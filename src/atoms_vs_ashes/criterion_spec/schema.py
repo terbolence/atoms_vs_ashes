@@ -250,6 +250,7 @@ class CriterionTemplate(BaseModel):
     fail_conditions: list[FailConditionSpec] = Field(default_factory=list)
     quality_floor: QualityFloorSpec = Field(default_factory=QualityFloorSpec)
     band_recipe: BandRecipeSpec | None = None
+    notes: str | None = None
 
     @property
     def family(self) -> str:

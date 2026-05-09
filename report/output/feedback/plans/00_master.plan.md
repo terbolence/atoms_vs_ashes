@@ -1,4 +1,4 @@
-<!-- man_hours: 0.5 -->
+<!-- man_hours: 0.7 -->
 ---
 plan_id: feedback_rework_master
 canonical: ~/.cursor/plans/feedback_rework_master_plan_73c0a8a8.plan.md
@@ -26,13 +26,17 @@ This is the **co-located mirror** of the canonical plan at `~/.cursor/plans/feed
 | T8 Future weight rebalancing after rerun | 72 | SP-H |
 | T9 Acks (drop) | 8, 12 | n/a |
 
+## Current status (2026-05-09)
+
+Phase 0.4 (FB-LL) and Phase 0.6 (all 18 SP-D band proposals) are **signed off** by the user (proxy authority granted in-session). Live-API consent is **pre-granted** for SP-F + SP-G, with per-batch runAPIs.md Sec.C cards still required. EPRI numerical values remain pending the source document; SP-G runs on the `baseline` profile.
+
 ## Dependency graph
 
 ```
 Phase 0 (triage YAML, 45/45)  -> COMPLETED
    |
    v
-Phase 0.4 (FB-LL synthesis, sign_off: no)  -> AWAITING USER SIGN-OFF
+Phase 0.4 (FB-LL synthesis)  -> SIGNED OFF 2026-05-09
    |
    |---> SP-A quick wins              (no sign-off needed)
    |---> SP-B EPRI weight scaffold    (needs EPRI source doc from user)
@@ -41,9 +45,9 @@ Phase 0.4 (FB-LL synthesis, sign_off: no)  -> AWAITING USER SIGN-OFF
    |---> Phase 0.5 data sanity        (depends on FB-LL sign-off)
                                           |
                                           v
-                                      Phase 0.6 band proposals (per criterion, sign_off: no)
+                                      Phase 0.6 band proposals (all 18 SIGNED OFF 2026-05-09)
                                           |
-                                          v  (per-criterion sign_off: yes)
+                                          v
                                       SP-D YAML edits + regression matrix
                                           |
                                           v

@@ -1,4 +1,4 @@
-<!-- man_hours: 1.0 -->
+<!-- man_hours: 1.4 -->
 ---
 sub_plan: SP-A
 title: Quick wins
@@ -16,6 +16,10 @@ comment_ids: ["8", "12", "47", "49", "65", "119", "568", "574"]
 ---
 
 # SP-A — Quick wins
+
+## Status (2026-05-09)
+
+**Landed.** Narrative `924 MW` / `12-module` / `VOYGR-12` references removed across all chapter `.md` files (7 site profiles patched, including Brăila / Rovinari / Romag Termo NS-02 rows and 4 family-interpretation paragraphs). Romania row in Table 4.1.1 now disambiguates "regional top-20 contribution" vs the country-level full-pass count (3) reported in Chapter 5 §RO. Captions on Tables 4.1.1, 4.1.2, 4.2.1 confirmed already explicit. Acks #8/#12 are flagged `action: no-action; mark done` in the triage YAML and will flip to `auto.done: true` on the next extractor pass (Stage 8b/9). #574 NH-13 vs wind/tornado anchor unconfirmed - moved to SP-H backlog.
 
 Five reviewer items that ship without scoring/methodology changes:
 

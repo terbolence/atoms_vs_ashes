@@ -1,3 +1,4 @@
+<!-- man_hours: 4.5 -->
 <!-- Part of Sites evaluation — see [00_index.md](00_index.md). -->
 
 ## 3. Master weight table
@@ -76,5 +77,43 @@ Compared with the IAEA/EPRI baseline in `docs/expert_siting_criteria_evaluation_
 (NH 23 %, HI 10 %, RI 15 %, EP 10 %, NS 38 %, BF 4 %), the project weights uplift NH and HI
 (driven by team weight factors of 9–10 on volcanism, faulting, flood and aircraft) and
 modestly relax NS. See **Appendix B** for a side-by-side reconciliation.
+
+## SP-B EPRI weight swap protocol (FB-LL-09 / reviewer #1929454976, #72, #77, #117)
+
+The mechanism for swapping project weights with EPRI (or S&L) values is in place; the
+**numerical EPRI values are pending the canonical source document** the user will hand
+over.
+
+**Mechanism (already wired)**:
+
+- Each `Criterion` in `config/scoring_rubrics/<family>.yaml` accepts an optional
+  `weight_factors:` map keyed by basis name (`epri`, `s_and_l`, …) and an optional
+  `weight_basis_source:` string-to-string map for citations.
+- `weight_normalisation(bundle, profile=..., basis="epri")` applied at engine
+  construction time normalises only over criteria with `weight_factors[basis]`
+  populated, falling back to the legacy `weight_factor` for any criterion lacking the
+  basis with a warning.
+- The CLI exposes `--weight-basis` on `atoms-vs-ashes score run`. Requesting an unmapped
+  basis (e.g. `--weight-basis epri` before any criterion has `weight_factors['epri']`)
+  raises `NotImplementedError` rather than silently using the project baseline.
+- The `composite_rankings.weight_profile` column already segregates runs; an EPRI rerun
+  writes new rows under a distinct `weight_profile` label (e.g. `baseline_epri`) so
+  baseline and EPRI scores coexist for diff.
+
+**Swap protocol (to execute when the EPRI document arrives)**:
+
+1. Land the EPRI document under `docs/sources/` and cite it in this section (replace the
+   "pending" placeholder with the file name + page references).
+2. Edit `config/scoring_rubrics/<family>.yaml`: per criterion, add
+   `weight_factors: { epri: <int>, s_and_l: <int> }` and
+   `weight_basis_source: { epri: "<doc + page>", s_and_l: "<doc + page>" }`.
+3. Smoke run: `atoms-vs-ashes score run --weight-basis epri --weight-profile baseline_epri`
+   (no DB writes needed first; check stderr for the basis-resolution warnings).
+4. Full rerun: `atoms-vs-ashes --run-id feedback_rerun_epri score run --weight-basis epri --weight-profile baseline_epri`.
+5. Re-export bundles + regenerate site / country profiles via SP-G; the per-bullet
+   `weight X.XXXX (basis: epri)` provenance comes from
+   `weight_basis_resolution(bundle, basis='epri')` in the renderer (FB-LL-09).
+6. Diff `composite_rankings WHERE weight_profile = 'baseline_epri'` against the
+   `baseline` rows for the same `run_id` window to surface ranking shifts.
 
 ---

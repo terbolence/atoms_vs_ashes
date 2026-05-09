@@ -1,8 +1,9 @@
-# man_hours: 2.1
+# man_hours: 2.4
 """Markdown renderer for one selected-site profile from a site bundle."""
 
 from __future__ import annotations
 
+import json
 from collections import defaultdict
 from typing import Any
 
@@ -142,6 +143,21 @@ def _verdicts_and_scores_by_family(
             CRITERION_FIELDS.get(cid, {}).get("family_key")
             or meta["family"]
         )
+        band_descriptor: str | None = None
+        raw_just = score.get("justification")
+        if isinstance(raw_just, str) and raw_just:
+            try:
+                parsed = json.loads(raw_just)
+            except (ValueError, TypeError):
+                parsed = None
+            if isinstance(parsed, dict):
+                bd = parsed.get("band")
+                if isinstance(bd, str) and bd.strip():
+                    band_descriptor = bd.strip()
+        elif isinstance(raw_just, dict):
+            bd = raw_just.get("band")
+            if isinstance(bd, str) and bd.strip():
+                band_descriptor = bd.strip()
         grouped[family_key].append(
             {
                 "criterion_id": cid,
@@ -151,6 +167,8 @@ def _verdicts_and_scores_by_family(
                 "weight_normalised": comp.get("weight_normalised") or score.get("weight_normalised"),
                 "weighted_contribution": comp.get("weighted_contribution"),
                 "category": comp.get("category"),
+                "quality_flag": score.get("quality_flag"),
+                "band_descriptor": band_descriptor,
             }
         )
         seen.add(cid)
@@ -337,15 +355,30 @@ def _family_section(
         signals = evidence["signals"]
         score = item.get("score_0_10")
         quality_flag = item.get("quality_flag")
+        band_descriptor = item.get("band_descriptor")
         is_unscored = quality_flag == "unscored"
+        score_band: tuple[str, str] = ("", "")
         if is_unscored or score is None:
             score_text = "no native score (unscored \u2014 no band matched)"
+            score_band = ("unscored", "")
         else:
             score_text = (
                 f"{_num(score, 1)}/10"
                 f" (MC {_num(item.get('score_low_0_10'), 1)}-"
                 f"{_num(item.get('score_high_0_10'), 1)})"
             )
+            try:
+                fscore = float(score)
+            except (TypeError, ValueError):
+                fscore = None
+            if fscore is None:
+                score_band = ("scored", "")
+            elif fscore >= 8.0:
+                score_band = ("favorable", band_descriptor or "")
+            elif 4.5 <= fscore <= 6.5:
+                score_band = ("passed-mid", band_descriptor or "")
+            else:
+                score_band = ("scored", band_descriptor or "")
         weight = item.get("weight_normalised")
         weight_text = (
             f"weight {_num(weight, 4)}"
@@ -358,6 +391,11 @@ def _family_section(
         else:
             signals_text = "values not in measurement tables"
         quality = _sanitize_quality(quality_for(cid, families))
+        kind, descriptor = score_band
+        if kind == "favorable" and descriptor:
+            score_text = f"{score_text} \u2014 favorable: {descriptor}"
+        elif kind == "passed-mid" and descriptor:
+            score_text = f"{score_text} \u2014 pass-mark band: {descriptor}"
         lines.append(
             f"- **{crit_name} ({cid})** - score {score_text}, {weight_text}, "
             f"data quality {quality}. Evidence: {signals_text}."

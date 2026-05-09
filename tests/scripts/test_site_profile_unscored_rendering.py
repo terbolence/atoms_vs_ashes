@@ -40,7 +40,13 @@ def _patch_helpers(monkeypatch: pytest.MonkeyPatch):
     return spm
 
 
-def _row(criterion_id: str, *, score: float | None, quality_flag: str) -> dict:
+def _row(
+    criterion_id: str,
+    *,
+    score: float | None,
+    quality_flag: str,
+    band_descriptor: str | None = None,
+) -> dict:
     return {
         "criterion_id": criterion_id,
         "score_0_10": score,
@@ -48,6 +54,7 @@ def _row(criterion_id: str, *, score: float | None, quality_flag: str) -> dict:
         "score_high_0_10": score,
         "weight_normalised": 0.05,
         "quality_flag": quality_flag,
+        "band_descriptor": band_descriptor,
     }
 
 
@@ -123,3 +130,67 @@ def test_no_score_value_renders_as_unscored(_patch_helpers):
 
     bullet = next(line for line in out if line.startswith("- **"))
     assert "no native score" in bullet
+
+
+def test_favorable_band_match_appends_descriptor(_patch_helpers):
+    """SP-E case (c): high-band match must read as favorable, not ambiguous."""
+    spm = _patch_helpers
+    grouped = {
+        "human_induced": [
+            _row(
+                "HI-01",
+                score=9.0,
+                quality_flag="medium",
+                band_descriptor=(
+                    "no airport within 30 km AND no military within 60 km"
+                ),
+            ),
+        ]
+    }
+
+    out = spm._family_section(
+        "## Test Heading",
+        ["human_induced"],
+        families={},
+        grouped_scores=grouped,
+        site_id="site-1",
+        bundle_name="bundle.json",
+        family_key="human_induced",
+        family_label="Human Induced Hazards",
+    )
+
+    bullet = next(line for line in out if line.startswith("- **"))
+    assert "9.0/10" in bullet
+    assert "favorable" in bullet
+    assert "no airport within 30 km" in bullet
+
+
+def test_passed_mid_band_match_appends_descriptor(_patch_helpers):
+    """SP-E case (a): pass-mark match labels itself rather than reading as a verdict."""
+    spm = _patch_helpers
+    grouped = {
+        "human_induced": [
+            _row(
+                "HI-02",
+                score=5.5,
+                quality_flag="medium",
+                band_descriptor="industrial source 8-15 km, no avoidance trigger",
+            ),
+        ]
+    }
+
+    out = spm._family_section(
+        "## Test Heading",
+        ["human_induced"],
+        families={},
+        grouped_scores=grouped,
+        site_id="site-1",
+        bundle_name="bundle.json",
+        family_key="human_induced",
+        family_label="Human Induced Hazards",
+    )
+
+    bullet = next(line for line in out if line.startswith("- **"))
+    assert "5.5/10" in bullet
+    assert "pass-mark band" in bullet
+    assert "industrial source 8-15 km" in bullet

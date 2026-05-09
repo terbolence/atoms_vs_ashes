@@ -1307,3 +1307,23 @@ files:
   audit/conversations/2026-05-09_cursor-rules-optimization.md:
     hours: 0.5
     category: "Project Management & QA"
+
+  audit/conversations/2026-05-09_feedback-rework-execution.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  architecture/plans/feedback-rework-execution.md:
+    hours: 0.2
+    category: "Architecture & Design"
+
+  audit/plans/feedback-rework-execution.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  src/scripts/cross_chapter_numeric_lint.py:
+    hours: 2.0
+    category: "Reporting & Visualization"
+
+  tests/scripts/test_cross_chapter_numeric_lint.py:
+    hours: 0.4
+    category: "Testing & Quality Assurance"

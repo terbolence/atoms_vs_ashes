@@ -602,3 +602,40 @@ The pattern affected NH-03 (liquefaction `AND` bedrock-depth), NH-05 (karst `AND
 **Lesson:** When a reviewer says "score too low" on multiple unrelated criteria, **first** check whether the high-end band uses an AND-conjunction with a NULL-prone sub-condition. **Then** consider threshold tuning. Threshold tuning is the wrong instrument 80% of the time and risks moving the rubric out of alignment with IAEA/EPRI norms; structural NULL-handling is the right instrument and is invisible to the threshold-numbers debate. Every Phase 0.6 / similar review process must include a mandatory "all favorable except one missing" boundary check on every high-end band.
 
 **Applies to:** Every criterion family in `config/scoring_rubrics/`. Generally usable as a rubric-design rule: any high-end favorable band that depends on multiple data fields must declare its NULL semantics explicitly.
+
+---
+
+### LL-030: Renderer plumbing must propagate quality_flag and matched-band descriptor explicitly (renderer design, 2026-05, derived from feedback rework SP-E)
+
+**Category:** rendering, data_pipeline_discipline, dead_code_detection
+
+**Problem:** The site-profile renderer in `src/scripts/_site_profile_markdown.py` carried a textbook-correct `is_unscored` branch in `_family_section()` that distinguished unscored vs scored bullets ("no native score (unscored - no band matched)" vs the "X.X/10 (MC ...)" block). Three pytest cases (`test_site_profile_unscored_rendering.py`) covered the branch end-to-end. The renderer code was correct, the tests were correct - and yet every production-rendered Chapter 5 site profile rendered every unscored criterion as `5.0/10 (MC 5.0-5.0) ... Evidence: values not in measurement tables`. The reason: `_verdicts_and_scores_by_family()` (the function that actually builds the per-criterion dicts the renderer reads) **did not propagate** `quality_flag` from the bundle's `ranking_scores` rows into the dict, so `item.get("quality_flag")` was always `None` in production and `is_unscored` was always `False`. The branch was dead code in production but live in tests because the test stubs explicitly populated `quality_flag`. Same defect for the matched-band descriptor (lived inside `RankingScore.justification` JSON, never parsed by the renderer).
+
+**Resolution:** Plumbed two fields end-to-end in `_verdicts_and_scores_by_family()`:
+1. `quality_flag = score.get("quality_flag")` direct from the row.
+2. `band_descriptor` parsed out of the `justification` JSON's `band` key (written upstream by `_ranking_row.build_ranking_justification`).
+
+Then made `_family_section()` use both: pass-mark band match (4.5 <= score <= 6.5) appends `" - pass-mark band: <descriptor>"`; favorable-by-default match (score >= 8.0) appends `" - favorable: <descriptor>"`; unscored stays unscored. Two new acceptance tests cover the new descriptor branches; pre-existing 3 unscored tests still green. 94/94 pass.
+
+**Lesson:** Test-with-stubs is necessary but not sufficient when the test stubs supply fields the production data path doesn't actually populate. Whenever a render-layer test passes a dict directly into the unit under test, **also** assert at least one production-path test (an integration-style read from a real bundle JSON) so the dict-construction layer cannot drift out of sync with the dict-consumption layer. Or - cheaper - add an "expected fields" set to the dict-construction function and have the consumer assert presence at runtime. The defect class is silent because both ends look correct in isolation.
+
+**Applies to:** Every dataclass-to-dict-to-renderer pipeline. Specifically every `_*_by_family` / `_*_for_render` aggregator that produces the dicts a Markdown / HTML renderer consumes. Generalised statement: **the contract between dict-builder and dict-consumer must be a typed schema or a runtime-asserted contract, not just convention.**
+
+---
+
+### LL-031: Multi-stage gated execution plans need explicit "live-API STOP" markers, not just generic gates (planning, 2026-05, derived from feedback rework execution)
+
+**Category:** plan_authoring, live_api_safety, agent_workflow
+
+**Problem:** A 13-stage gated execution plan (S0-S9, with stages 7 and 8 subdivided) ran end-to-end successfully through every offline stage but had to halt at Stage 7b (live re-enrichment, 363 sites x 2 connectors). The plan's per-stage "Definition of done" + "Gate question" pattern worked perfectly for offline stages but did not call out that **live-API stages have a stronger constraint** than just user permission: per workspace rule `live-api-safety.mdc` and `prompts/runAPIs.md` Sec.C, every batch step (smoke / batch-20 / country / full) must present its own card (API, calls, duration, cost, rate-limit) before running, even if higher-level consent is pre-granted. A user reading the plan saw "live-API consent pre-granted for SP-F+SP-G" and reasonably expected the agent to keep going through Stages 7b/8b/8c. The agent had to stop anyway, surprising the user.
+
+**Resolution (in this same plan):** Split the live-API stages into per-batch sub-gates explicitly: Stage 7b is one stage with five internal stops (dry-run, smoke 3, batch 20, country ~24, full 363). Each sub-gate corresponds to one runAPIs Sec.C card. Equivalent for SP-G stages 8b (rerun) and 8c (regeneration). The "Hard rules across all stages" section names the constraint in plain text: "**Every live-API batch** still presents the `prompts/runAPIs.md` Sec.C card ... before running - the pre-grant only authorises the *kind* of work, not unattended execution."
+
+**Lesson:** When a multi-stage plan crosses from offline work into live-API / live-DB / live-deployment work, **make the safety stop explicit at the stage level**, not as a footnote. Every live-side stage should have:
+1. An explicit "this stage is live-side" tag in the stage header.
+2. The list of sub-gates (per batch, per call, per migration) inline with the stage definition.
+3. A pointer to the workspace safety rule that mandates the per-batch card.
+
+Without this, even a cooperative agent that respects the safety rule will appear to break the user's "don't stop" instruction at exactly the moment the user is least primed for it.
+
+**Applies to:** Every long-form gated execution plan that mixes offline and live work. Same pattern useful for plans that touch destructive operations (DB migrations, force-push, infra teardown) where workspace rules require explicit per-step consent.

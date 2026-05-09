@@ -1,4 +1,4 @@
-<!-- man_hours: 1.5 -->
+<!-- man_hours: 1.7 -->
 ---
 sub_plan: SP-C
 title: Methodology + Stage 1 vs Stage 2 boundary + RI-04 dual mode
@@ -18,6 +18,10 @@ comment_ids: ["32", "33", "35", "564"]
 ---
 
 # SP-C — Methodology + Stage 1/2 boundary
+
+## Status (2026-05-09)
+
+**Landed.** Chapter 3 already carries (a) the §3.3 "Stage 1 vs Stage 2 boundary for safety-related criteria" paragraph (FB-LL-04, #32, #35) explicitly describing exclusion-by-construction, controlling-constraint and protection-burden roles; and (b) the §3.5 "Dual-mode population-context criteria (RI-04)" paragraph (FB-LL-05, #33, #564) documenting both avoidance / ranking and exclusion modes against CNCAN / IAEA GSG-2. The RI-04 rubric YAML now carries a structured `notes:` field (mirrored to `config/scoring_specs/`) describing the dual-mode behaviour and per-site evidence-driven firing logic. To preserve compiler parity, `notes: str | None` was added to `Criterion` (`src/atoms_vs_ashes/scoring/rubric.py`), `CriterionTemplate` (`src/atoms_vs_ashes/criterion_spec/schema.py`), and the compiler now propagates `template.notes` into the runtime `Criterion`. `pytest tests/scoring/ -q` 89/89 green.
 
 ## Two narrative changes in chapter 3
 

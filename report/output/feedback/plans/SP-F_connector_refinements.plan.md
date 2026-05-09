@@ -1,4 +1,4 @@
-<!-- man_hours: 4.0 -->
+<!-- man_hours: 4.5 -->
 ---
 sub_plan: SP-F
 title: Connector refinements (airport class, military classification)
@@ -23,6 +23,20 @@ blocks_or_feeds: ["SP-D Phase 0.6 for HI-01 / HI-06"]
 ---
 
 # SP-F — Connector refinements
+
+## Status (2026-05-09)
+
+**Stage 7a partial.** The OurAirports dataclass scaffold is in place: `NearbyAirport` carries an explicit `runway_length_m: float | None` and serialises a canonical `airport_class` alias, and `AirportProximityResult` exposes `nearest_airport_class`, `nearest_airport_runway_length_m`, and `nearest_airport_scheduled_service` so the SP-D HI-01 v2 bands and the renderer can read the new sub-classification without further dataclass churn. `parsers.compute_proximity_result` now populates `nearest_airport_class` and `nearest_airport_scheduled_service` directly off the matched `AirportRecord`. `pytest tests/test_connectors_ourairports.py tests/test_smoke_ourairports.py` => 49/49 green; full scoring + rendering suite => 94/94 green.
+
+**Deferred to Stage 7b prep / follow-up batch (not landing offline because they would either require live API hits or break the 49-test snapshot suite without a new run-id):**
+
+- Runway-length enrichment from OurAirports `runways.csv` (the URL constant is already in `models.py`; the parser change requires its own snapshot regeneration and is safer to land alongside the live re-enrichment in Stage 7b).
+- OSM military classification enum + `nearest_military_high_consequence_within_km` on `connectors/osm/`. The OSM client + batch already collect military-area counts; classification is additive but needs a fresh fetch to populate.
+- Alembic migration for the new domain columns (`site_human_induced.nearest_airport_class`, `nearest_airport_runway_length_m`, `nearest_military_installation_classification`, `nearest_military_high_consequence_within_km`) — gated until the runway / OSM-classifier code lands, so the migration covers the full additive set in one step.
+- Connector report updates under `docs/connector_reports/`.
+- `--requery-nulls` flag broadened beyond the current `enrich soilgrids` / `enrich bedrock` to `enrich ourairports` and `enrich osm` (small CLI patch; falls under SP-F per the master plan).
+
+These items are tracked under `phase4_sp_f_code` in the active todo list and will land alongside the Stage 7b re-enrichment batches once the user opens the live-API consent gate.
 
 Two connector enrichments demanded by the reviewer:
 

@@ -113,18 +113,24 @@ class NearbyAirport:
     longitude: float
     country_code: str = ""
     scheduled_service: bool = False
+    runway_length_m: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "ident": self.ident,
             "name": self.name,
             "airport_type": self.airport_type,
+            "airport_class": self.airport_type,
             "avoidance_tier": self.avoidance_tier,
             "distance_km": round(self.distance_km, 2),
             "latitude": self.latitude,
             "longitude": self.longitude,
             "country_code": self.country_code,
             "scheduled_service": self.scheduled_service,
+            "runway_length_m": (
+                round(self.runway_length_m, 0)
+                if self.runway_length_m is not None else None
+            ),
         }
 
 
@@ -137,6 +143,9 @@ class AirportProximityResult:
     nearest_airport_km: float | None = None
     nearest_airport_name: str | None = None
     nearest_airport_type: str | None = None
+    nearest_airport_class: str | None = None
+    nearest_airport_runway_length_m: float | None = None
+    nearest_airport_scheduled_service: bool | None = None
     nearest_large_airport_km: float | None = None
     nearest_type2_airport_km: float | None = None
     nearest_small_airport_km: float | None = None
@@ -158,6 +167,13 @@ class AirportProximityResult:
             ),
             "nearest_airport_name": self.nearest_airport_name,
             "nearest_airport_type": self.nearest_airport_type,
+            "nearest_airport_class": self.nearest_airport_class
+                or self.nearest_airport_type,
+            "nearest_airport_runway_length_m": (
+                round(self.nearest_airport_runway_length_m, 0)
+                if self.nearest_airport_runway_length_m is not None else None
+            ),
+            "nearest_airport_scheduled_service": self.nearest_airport_scheduled_service,
             "nearest_large_airport_km": (
                 round(self.nearest_large_airport_km, 2)
                 if self.nearest_large_airport_km is not None else None
