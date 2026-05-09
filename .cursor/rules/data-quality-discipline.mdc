@@ -1,7 +1,12 @@
-<!-- man_hours: 0.5 -->
+<!-- man_hours: 0.8 -->
 ---
 description: Enforce separation of hard data and qualitative assessments; require methodology documentation for every quality label
-alwaysApply: true
+globs:
+  - src/atoms_vs_ashes/connectors/**
+  - src/atoms_vs_ashes/analysis/**
+  - src/atoms_vs_ashes/screening/**
+  - report/methodology/**
+alwaysApply: false
 ---
 
 # Data Quality Discipline

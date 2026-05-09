@@ -1,0 +1,25 @@
+<!-- man_hours: 1.0 -->
+---
+description: File size limits for touched Python and Markdown files
+globs: "**/*.py,**/*.md"
+alwaysApply: false
+---
+
+# File Size Limits
+
+Apply these limits to files the agent creates or edits. Existing over-limit files are not retroactively split unless they are touched.
+
+| File type | Limit | Required response when exceeded |
+| --- | ---: | --- |
+| Python (`*.py`) | 300 lines | Split into focused modules under an appropriate package, with a thin orchestrator if needed. |
+| Markdown (`*.md`) | 500 lines | Split into a folder with `00_index.md` plus one file per major section. |
+
+## Markdown Exemption
+
+Files under `report/output/**` are exempt from the 500-line Markdown limit because they are report deliverables, assembled chapters, writing controls, or export artifacts.
+
+## Enforcement
+
+- Before finishing, count lines on every touched Python or Markdown file.
+- If a touched file is over its limit, split it in the same change.
+- If splitting is genuinely inappropriate, call out the reason explicitly in the final response or commit message.

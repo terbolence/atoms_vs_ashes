@@ -1,6 +1,10 @@
+<!-- man_hours: 0.8 -->
 ---
 description: Every connector implementation must produce a saved .md sample report with legends for all metrics
-alwaysApply: true
+globs:
+  - src/atoms_vs_ashes/connectors/**
+  - docs/connector_reports/**
+alwaysApply: false
 ---
 
 # Connector Reports Rule

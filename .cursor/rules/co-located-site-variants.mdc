@@ -1,6 +1,13 @@
+<!-- man_hours: 1.2 -->
 ---
 description: Always check for co-located A/B/C, 1/2/3, I/II/III suffixes in site names and treat as a single brownfield envelope when they are within ~5 km
-alwaysApply: true
+globs:
+  - report/output/chapters/05_*/**
+  - report/output/writing plan/**
+  - audit/post_processing/06_scoring/**
+  - src/scripts/export_*_bundle.py
+  - src/scripts/build_country_profile_prototype.py
+alwaysApply: false
 ---
 
 # Co-located Site Variants Rule

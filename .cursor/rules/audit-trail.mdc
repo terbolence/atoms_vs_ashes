@@ -1,4 +1,4 @@
-<!-- man_hours: 2.0 -->
+<!-- man_hours: 2.3 -->
 ---
 description: Enforce audit trail logging for every conversation and plan per IAEA QA 13.1.6
 alwaysApply: true
@@ -40,11 +40,12 @@ Required sections in the log:
 
 ## Plan Logging
 
-**MANDATORY — immediate persistence:** Immediately after any `CreatePlan` tool call completes, in the **same response**, the agent MUST:
+**MANDATORY — immediate persistence:** Immediately after any project `CreatePlan` tool call completes, in the **same response**, the agent MUST:
 
-1. Write the full plan content to `architecture/plans/<plan_name>.md` (kebab-case slug of the plan name).
-2. Copy the identical file to `audit/plans/<plan_name>.md`.
-3. Both files must contain the complete plan text — never a summary or reference.
+1. Keep the canonical working copy under `/Users/terbolence/.cursor/plans/`.
+2. Write the full plan content to `architecture/plans/<plan_name>.md` (kebab-case slug of the plan name).
+3. Copy the identical file to `audit/plans/<plan_name>.md`.
+4. Both repository mirror files must contain the complete plan text — never a summary or reference.
 
 Do NOT defer this to "end of conversation." The plan file write must happen in the same tool-call batch as the `CreatePlan` invocation or immediately after.
 

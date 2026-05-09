@@ -1,0 +1,505 @@
+{
+  "extracted_at": "2026-05-09T13:32:08+00:00",
+  "count": 45,
+  "comments": [
+    {
+      "id": "8",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:02:00Z",
+      "text": "OK",
+      "para_ids": [
+        "257E9E1F"
+      ],
+      "done": false
+    },
+    {
+      "id": "12",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:08:00Z",
+      "text": "OK",
+      "para_ids": [
+        "03560C02"
+      ],
+      "done": false
+    },
+    {
+      "id": "15",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:16:00Z",
+      "text": "Take into account the",
+      "para_ids": [
+        "3D4315EC"
+      ],
+      "done": false
+    },
+    {
+      "id": "32",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:35:00Z",
+      "text": "If the site failed a safety related criteria is most likely to be excluded. Or the engineering solution to protect the safety of the site are too excessive the site also could be screened out.",
+      "para_ids": [
+        "751842B9"
+      ],
+      "done": false
+    },
+    {
+      "id": "33",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:39:00Z",
+      "text": "If you cannot protect the population against exposure above the legal limist – this is an exclusionary criteria. So caoul be both – ranking aor exclusionary",
+      "para_ids": [
+        "69A4634A"
+      ],
+      "done": false
+    },
+    {
+      "id": "35",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T14:41:00Z",
+      "text": "Most of the exclusion criteria are safety related and apply to screening in Stage 1. The list of candidate sites going in stage 2 suppose to be free of exclusionary criteria. Some safety criteria may influence scorring if protection measure are needed.",
+      "para_ids": [
+        "0A383CE2"
+      ],
+      "done": false
+    },
+    {
+      "id": "47",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:19:00Z",
+      "text": "Ce inseamna numarul de amplasamente – cele care au scorul cel mai mare, sau au trecut fara flaguri?\n\nFiinca in tabelul urmator arati ca pentru fiecare tara sunt mai multe amplsamante\n\nPoate ar fi de clarificat in headingul tabelului",
+      "para_ids": [
+        "4480F808",
+        "60D1FA42",
+        "0005F545"
+      ],
+      "done": false
+    },
+    {
+      "id": "49",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:22:00Z",
+      "text": "Pune titlu la table care sa explice ce contine tabelul",
+      "para_ids": [
+        "18786251"
+      ],
+      "done": false
+    },
+    {
+      "id": "65",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:26:00Z",
+      "text": "Analiza asta ar trebui facuta pentru fiecare tara – poti ilustra un exemplu pentru o tara anume\n\nDaca ai exemplificat doar pt Austria este o.k.",
+      "para_ids": [
+        "4D63F22B",
+        "08428269"
+      ],
+      "done": false
+    },
+    {
+      "id": "72",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:43:00Z",
+      "text": "Scoring si waight associate pot fi revizuit dupa analiza rezultatelor obtinute. La toate categoriile de criterile enumerate mai jost (in idea de a creste rangeiul de scor spre 60- 80% din scorul maxim. Nu acuma ci in versiunea ulterioara (rafinarii criterii de scor si weights)",
+      "para_ids": [
+        "7AEE6A72"
+      ],
+      "done": false
+    },
+    {
+      "id": "76",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:28:00Z",
+      "text": "Conteaza tipul de aeroport, frecventa zborurilor, tipul de aeronave, orientarea pistelor, etc.\n\nDAca devine factor important de avoidance trebuie colectate mai mult date dacva in rest site-ul pare o.k.",
+      "para_ids": [
+        "7FB1DAD9",
+        "50ABCB21"
+      ],
+      "done": false
+    },
+    {
+      "id": "77",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:30:00Z",
+      "text": "Ai folositt weight din EPRI?",
+      "para_ids": [
+        "0965AC9C"
+      ],
+      "done": false
+    },
+    {
+      "id": "79",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T15:32:00Z",
+      "text": "Asta este screeining value pentru aeroporturi militare daca su8nt mai aproape se poate rafina dar trebuiesc mai multe date (screeiningul este intodeauna acoperitor si poate fi rafinat)",
+      "para_ids": [
+        "15B39F61"
+      ],
+      "done": false
+    },
+    {
+      "id": "92",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:09:00Z",
+      "text": "De ce este scorul asa de jos? Daca susceptibility este low?",
+      "para_ids": [
+        "1A6C430D"
+      ],
+      "done": false
+    },
+    {
+      "id": "94",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:11:00Z",
+      "text": "Score prea mic ca sa fie semnificativ trebuie sa afecteze amplsamentul nu la 1 km de amplasament si nu poate apare la un unghi de 10 grade",
+      "para_ids": [
+        "245E0E40"
+      ],
+      "done": false
+    },
+    {
+      "id": "95",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:13:00Z",
+      "text": "Score prea mic – asta inseamna tasari mari sau cavitati in teren pe amplasament",
+      "para_ids": [
+        "01580003"
+      ],
+      "done": false
+    },
+    {
+      "id": "96",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:14:00Z",
+      "text": "Scor prea mic daca vulcanic hazard este neglijabil",
+      "para_ids": [
+        "332D0005"
+      ],
+      "done": false
+    },
+    {
+      "id": "97",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:15:00Z",
+      "text": "Asi spune score 10 – nu exista coastal flooding in Austria",
+      "para_ids": [
+        "1B62654A"
+      ],
+      "done": false
+    },
+    {
+      "id": "99",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:16:00Z",
+      "text": "flood zone class: negligible?? Score prea mic",
+      "para_ids": [
+        "762AC245"
+      ],
+      "done": false
+    },
+    {
+      "id": "100",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:17:00Z",
+      "text": "valorile de precipitatii anuale sunt mici score prea mic",
+      "para_ids": [
+        "535F1848"
+      ],
+      "done": false
+    },
+    {
+      "id": "101",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:17:00Z",
+      "text": "scor prea mic – trebuie sa fii aproape de o padure sau vegetatie abundenta",
+      "para_ids": [
+        "172396B6"
+      ],
+      "done": false
+    },
+    {
+      "id": "102",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:18:00Z",
+      "text": "score prea mic in lipsa unor date care sa-l justifice",
+      "para_ids": [
+        "2009D22A"
+      ],
+      "done": false
+    },
+    {
+      "id": "105",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:22:00Z",
+      "text": "scor pre mic fara sustinere de date",
+      "para_ids": [
+        "11598854"
+      ],
+      "done": false
+    },
+    {
+      "id": "106",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:19:00Z",
+      "text": "scor prea mic pentru proximitate cu un aeroport mic",
+      "para_ids": [
+        "707AF432"
+      ],
+      "done": false
+    },
+    {
+      "id": "107",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:20:00Z",
+      "text": "scor prea mic cind nu ai gasit date ca sa sustina",
+      "para_ids": [
+        "523A1050"
+      ],
+      "done": false
+    },
+    {
+      "id": "108",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:23:00Z",
+      "text": "scor prea mic",
+      "para_ids": [
+        "1FAD9AA6"
+      ],
+      "done": false
+    },
+    {
+      "id": "109",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:21:00Z",
+      "text": "scor prea mic – in lipsa datelor",
+      "para_ids": [
+        "743475AC"
+      ],
+      "done": false
+    },
+    {
+      "id": "112",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:24:00Z",
+      "text": "scor prea mic",
+      "para_ids": [
+        "56544BD4"
+      ],
+      "done": false
+    },
+    {
+      "id": "117",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:26:00Z",
+      "text": "scorurile trebuiesc revizuite – ai dat valori default in lipsa de date sau cind datele nu justifica scor mic. Asta explica partial scorul agregat mic si variatia strinsa intre scorul maxim sic el minim. Nu stiu cum ai calculate ponderile pentru agregarea scorului (daca ai utilizat ghidul EPRI este o.k.)",
+      "para_ids": [
+        "2187DFDC"
+      ],
+      "done": false
+    },
+    {
+      "id": "119",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:28:00Z",
+      "text": "VOYGR 6 are poterea 6x77 New de unde ai scos 924? Cel cu 12 module nu a re Design Certification",
+      "para_ids": [
+        "438AE381"
+      ],
+      "done": false
+    },
+    {
+      "id": "120",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T16:32:00Z",
+      "text": "If the military facility includes ammunition depot or firing polygons",
+      "para_ids": [
+        "6B43539D"
+      ],
+      "done": false
+    },
+    {
+      "id": "563",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:50:00Z",
+      "text": "Military facility if they do not include amo depot or firing polygons could be much closer without eclusion being activated.",
+      "para_ids": [
+        "58533953"
+      ],
+      "done": false
+    },
+    {
+      "id": "564",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:51:00Z",
+      "text": "EPZ orientative distances are for screening. The real criteria according to CNCAN are based on does calculation for and feasibility of emergency plan implementation",
+      "para_ids": [
+        "6F4B7A7A"
+      ],
+      "done": false
+    },
+    {
+      "id": "565",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:53:00Z",
+      "text": "This depends on how many modules you install.",
+      "para_ids": [
+        "4C5438C9"
+      ],
+      "done": false
+    },
+    {
+      "id": "568",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:54:00Z",
+      "text": "In an early table you mention for Romania 1 site not 3 ??? explain",
+      "para_ids": [
+        "6EC9C5C2"
+      ],
+      "done": false
+    },
+    {
+      "id": "573",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:57:00Z",
+      "text": "Score too small – for the small average annual precipitation",
+      "para_ids": [
+        "57B674AF"
+      ],
+      "done": false
+    },
+    {
+      "id": "574",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:57:00Z",
+      "text": "Score too small since Nuscalestandard design  is for Tornado of cat IV",
+      "para_ids": [
+        "40E39023"
+      ],
+      "done": false
+    },
+    {
+      "id": "575",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T17:58:00Z",
+      "text": "Biased by low scoring where is not justified",
+      "para_ids": [
+        "1F09F2CA"
+      ],
+      "done": false
+    },
+    {
+      "id": "578",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:00:00Z",
+      "text": "Too low score – no major airports near by within 30 km",
+      "para_ids": [
+        "06A3662F"
+      ],
+      "done": false
+    },
+    {
+      "id": "579",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:00:00Z",
+      "text": "Too low score",
+      "para_ids": [
+        "71FC8BE5"
+      ],
+      "done": false
+    },
+    {
+      "id": "580",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:01:00Z",
+      "text": "Too low",
+      "para_ids": [
+        "1881C5D6"
+      ],
+      "done": false
+    },
+    {
+      "id": "581",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:01:00Z",
+      "text": "How can you assign low score without data?",
+      "para_ids": [
+        "57DF3730"
+      ],
+      "done": false
+    },
+    {
+      "id": "582",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:02:00Z",
+      "text": "Depends on military installation (if no fire polygons and amo depot the score could be much higher)",
+      "para_ids": [
+        "4BF2A45E"
+      ],
+      "done": false
+    },
+    {
+      "id": "583",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-07T18:03:00Z",
+      "text": "Based on what the score is so low? I have no idea about any nuclear installations around Braila are",
+      "para_ids": [
+        "44DD0096"
+      ],
+      "done": false
+    },
+    {
+      "id": "1929454976",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-07T23:31:17",
+      "text": "Putem respecta EPRI pentru ponderile score-urilor si mai putin S&L.",
+      "para_ids": [
+        "1E217922"
+      ],
+      "done": false
+    }
+  ]
+}

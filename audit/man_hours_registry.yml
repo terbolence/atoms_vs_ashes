@@ -7,15 +7,15 @@ files:
   # ── Configuration & DevOps ──────────────────────────────────────
 
   .cursor/rules/audit-trail.mdc:
-    hours: 2.0
+    hours: 2.3
     category: "Configuration & DevOps"
 
   .cursor/rules/man-hours.mdc:
-    hours: 3.0
+    hours: 3.2
     category: "Configuration & DevOps"
 
   .cursor/rules/integration-tests.mdc:
-    hours: 0.5
+    hours: 0.8
     category: "Configuration & DevOps"
 
   config/default.yml:
@@ -436,13 +436,17 @@ files:
 
   # ── Scripts ──────────────────────────────────────────────────────
 
-  scripts/man_hours_report.py:
-    hours: 3.0
+  src/scripts/man_hours_report.py:
+    hours: 3.6
     category: "Configuration & DevOps"
 
-  scripts/live_integration_snapshots.py:
+  src/scripts/live_integration_snapshots.py:
     hours: 12.0
     category: "Testing"
+
+  src/scripts/extract_docx_comments.py:
+    hours: 2.0
+    category: "Implementation"
 
   # ── AI Prompts & Tooling ────────────────────────────────────────
 
@@ -457,7 +461,7 @@ files:
   # ── Configuration & DevOps (Cursor rules) ──────────────────────
 
   .cursor/rules/api-enrichment-ops.mdc:
-    hours: 0.5
+    hours: 0.8
     category: "Configuration & DevOps"
 
   # ── Project Management & QA ─────────────────────────────────────
@@ -528,6 +532,10 @@ files:
 
   audit/plans/split_requirements_by_phase_ace3875d.plan.md:
     hours: 1.5
+    category: "Project Management & QA"
+
+  audit/plans/docx-comment-extraction.md:
+    hours: 0.2
     category: "Project Management & QA"
 
   audit/conversations/2026-03-24_man-hours-tracking-system.md:
@@ -1137,7 +1145,7 @@ files:
   # ── Cursor Rules (added Apr 2026) ──────────────────────────────
 
   .cursor/rules/live-api-safety.mdc:
-    hours: 1.0
+    hours: 1.2
     category: "Configuration & DevOps"
 
   .cursor/rules/llm-dedup-safety.mdc:
@@ -1145,9 +1153,53 @@ files:
     category: "Configuration & DevOps"
 
   .cursor/rules/connector-reports.mdc:
-    hours: 0.5
+    hours: 0.8
     category: "Configuration & DevOps"
 
   .cursor/rules/data-quality-discipline.mdc:
-    hours: 0.5
+    hours: 0.8
     category: "Configuration & DevOps"
+
+  .cursor/rules/co-located-site-variants.mdc:
+    hours: 1.2
+    category: "Configuration & DevOps"
+
+  .cursor/rules/raw-response-logging.mdc:
+    hours: 1.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/connector-checklist.mdc:
+    hours: 1.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/file-size-limits.mdc:
+    hours: 1.0
+    category: "Configuration & DevOps"
+
+  .cursor/rules/file-size-python.mdc:
+    hours: 0.1
+    category: "Configuration & DevOps"
+
+  .cursor/rules/file-size-markdown.mdc:
+    hours: 0.1
+    category: "Configuration & DevOps"
+
+  AGENTS.md:
+    hours: 1.6
+    category: "Other"
+
+  architecture/plans/README.md:
+    hours: 0.2
+    category: "Architecture & Design"
+
+  architecture/plans/docx-comment-extraction.md:
+    hours: 0.2
+    category: "Architecture & Design"
+
+  audit/plans/README.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-09_cursor-rules-optimization.md:
+    hours: 0.5
+    category: "Project Management & QA"

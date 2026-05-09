@@ -1,0 +1,21 @@
+<!-- man_hours: 1.0 -->
+---
+description: Connector implementation checklist and router to the detailed connector rules
+globs:
+  - src/atoms_vs_ashes/connectors/**
+  - src/scripts/run_*.py
+  - src/scripts/probe_*.py
+alwaysApply: false
+---
+
+# Connector Checklist
+
+When adding or changing a connector, treat it as complete only when all applicable items below are satisfied:
+
+- **API operations prompt:** read `prompts/runAPIs.md` and `prompts/lessons_learned.md`; see `.cursor/rules/api-enrichment-ops.mdc`.
+- **Consent:** before any live external call, follow global `~/.cursor/rules/no-live-api-without-consent.mdc` and project `.cursor/rules/live-api-safety.mdc`.
+- **Hard data first:** store measurements in typed columns and keep quality labels interpretive; see `.cursor/rules/data-quality-discipline.mdc`.
+- **Raw response logging:** per-site HTTP and raster extraction must use `log_raw_response` or `log_raster_extraction`; see `.cursor/rules/raw-response-logging.mdc`.
+- **Sample report:** produce `docs/connector_reports/<slug>_sample_report.md` with metric and quality legends; see `.cursor/rules/connector-reports.mdc`.
+- **Tests:** add or update pure-logic integration coverage and snapshots under `tests/integrationSnapshots/`; see `.cursor/rules/integration-tests.mdc`.
+- **Effort and audit:** update man-hours metadata and leave a conversation audit log for substantive changes.

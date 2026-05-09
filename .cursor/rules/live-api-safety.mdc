@@ -1,3 +1,4 @@
+<!-- man_hours: 1.2 -->
 ---
 description: Require explicit user consent before any live external API call (Anthropic, connectors, etc.)
 alwaysApply: true
@@ -5,31 +6,12 @@ alwaysApply: true
 
 # Live API Safety Rule
 
-## Absolute Requirement
+The global rule `~/.cursor/rules/no-live-api-without-consent.mdc` is authoritative and always applies in this project.
 
-The agent MUST obtain **explicit, unambiguous consent** from the user before executing any command or code that makes a live call to an external API. This includes but is not limited to:
+Project-specific examples include:
 
-- Anthropic Claude API calls (LLM assessment pipeline)
-- Any connector API calls (EFEHR, EGDI, Overpass, Corine, etc.)
-- Any other HTTP request to a third-party service that costs money or modifies state
+- Anthropic Claude calls from the LLM assessment pipeline.
+- Connector calls to EFEHR, EGDI, Overpass, Corine, NOAA, ERA5, WDPA, and similar services.
+- Any batch enrichment command that reaches third-party APIs.
 
-## What Counts as Consent
-
-- The user explicitly says "run", "go", "yes", "proceed", "execute", or similar **in direct response to a specific description of what will be called**.
-- A blanket "do everything" does NOT count — the agent must still describe the specific API calls (which API, how many calls, estimated cost) and wait for confirmation.
-
-## What Does NOT Count
-
-- The user asking to "set up" or "prepare" something — preparation is allowed, execution is not.
-- Implicit consent from a previous conversation or session.
-- The agent's own judgment that "the user probably wants this."
-
-## Procedure
-
-1. Describe what will be called (API name, endpoint, number of calls, estimated cost).
-2. Wait for explicit user confirmation.
-3. Only then execute.
-
-## Dry Runs Are Always Allowed
-
-Commands with `--dry-run` flags or read-only database queries do not require consent. Only actual external API calls do.
+Dry runs and local-only database or file inspection remain allowed without additional consent.

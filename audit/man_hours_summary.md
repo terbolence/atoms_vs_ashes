@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-04-20T14:13:28Z  
+**Generated:** 2026-05-09T13:33:20Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,16 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 66,708 |
-| `tests/` (Tests) | 22,064 |
-| `scripts/` (Scripts) | 10,356 |
-| `alembic/` (Migrations) | 3,139 |
-| `export/` (Export tooling) | 803 |
-| **Total Python** | **103,070** |
+| `src/` (Core application) | 2,195,587 |
+| `tests/` (Tests) | 26,880 |
+| `scripts/` (Scripts) | 639 |
+| `src/scripts/` (Operational scripts) | 26,991 |
+| `alembic/` (Migrations) | 0 |
+| `export/` (Export tooling) | 935 |
+| **Total Python** | **2,251,032** |
 | | |
-| Markdown (docs, specs, reports, audits) | 62,024 |
-| YAML (config, registry) | 3,504 |
-| **Grand total (all authored content)** | **~168,598** |
+| Markdown (docs, specs, reports, audits) | 108,562 |
+| YAML (config, registry) | 7,303 |
+| **Grand total (all authored content)** | **~2,366,897** |
 
 ---
 
@@ -28,15 +29,16 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 8 | 56.5 |
-| Implementation | 121 | 753.5 |
+| Architecture & Design | 10 | 56.9 |
+| Implementation | 122 | 755.5 |
 | Testing | 18 | 60.1 |
 | Database & Migrations | 31 | 41.8 |
-| Configuration & DevOps | 13 | 22.5 |
+| Configuration & DevOps | 19 | 29.4 |
 | Research & Data Sources | 26 | 235.5 |
 | AI Prompts & Tooling | 6 | 29.0 |
-| Project Management & QA | 31 | 51.0 |
-| **Project Total** | **274** | **1389.3** |
+| Project Management & QA | 34 | 51.9 |
+| Other | 1 | 1.6 |
+| **Project Total** | **287** | **1401.1** |
 
 ---
 
@@ -71,7 +73,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 8 files, 56.5 hours
+**Subtotal:** 10 files, 56.9 hours
 
 | File | Hours |
 | --- | ---: |
@@ -83,10 +85,12 @@
 | `architecture/specs/06_execution_observability.md` | 6.0 |
 | `architecture/specs/07_test_validation_strategy.md` | 5.0 |
 | `architecture/specs/00_index.md` | 1.5 |
+| `architecture/plans/README.md` | 0.2 |
+| `architecture/plans/docx-comment-extraction.md` | 0.2 |
 
 ### Implementation
 
-**Subtotal:** 121 files, 753.5 hours
+**Subtotal:** 122 files, 755.5 hours
 
 | File | Hours |
 | --- | ---: |
@@ -194,6 +198,7 @@
 | `src/atoms_vs_ashes/connectors/population/models.py` | 2.0 |
 | `src/atoms_vs_ashes/db/engine.py` | 2.0 |
 | `src/atoms_vs_ashes/llm/config.py` | 2.0 |
+| `src/scripts/extract_docx_comments.py` | 2.0 |
 | `src/atoms_vs_ashes/logging.py` | 1.5 |
 | `src/atoms_vs_ashes/ingest/models.py` | 1.0 |
 | `src/atoms_vs_ashes/llm/prompts/__init__.py` | 1.0 |
@@ -218,7 +223,7 @@
 
 | File | Hours |
 | --- | ---: |
-| `scripts/live_integration_snapshots.py` | 12.0 |
+| `src/scripts/live_integration_snapshots.py` | 12.0 |
 | `tests/test_integration_full_cycle.py` | 8.0 |
 | `tests/test_connectors_osm.py` | 6.0 |
 | `tests/test_screening_grid_capacity.py` | 5.0 |
@@ -277,23 +282,29 @@
 
 ### Configuration & DevOps
 
-**Subtotal:** 13 files, 22.5 hours
+**Subtotal:** 19 files, 29.4 hours
 
 | File | Hours |
 | --- | ---: |
 | `config/default.yml` | 8.0 |
-| `.cursor/rules/man-hours.mdc` | 3.0 |
-| `scripts/man_hours_report.py` | 3.0 |
-| `.cursor/rules/audit-trail.mdc` | 2.0 |
+| `src/scripts/man_hours_report.py` | 3.6 |
+| `.cursor/rules/man-hours.mdc` | 3.2 |
+| `.cursor/rules/audit-trail.mdc` | 2.3 |
 | `pyproject.toml` | 1.5 |
-| `.cursor/rules/live-api-safety.mdc` | 1.0 |
+| `.cursor/rules/co-located-site-variants.mdc` | 1.2 |
+| `.cursor/rules/live-api-safety.mdc` | 1.2 |
+| `.cursor/rules/connector-checklist.mdc` | 1.0 |
+| `.cursor/rules/file-size-limits.mdc` | 1.0 |
 | `.cursor/rules/llm-dedup-safety.mdc` | 1.0 |
-| `.cursor/rules/api-enrichment-ops.mdc` | 0.5 |
-| `.cursor/rules/connector-reports.mdc` | 0.5 |
-| `.cursor/rules/data-quality-discipline.mdc` | 0.5 |
-| `.cursor/rules/integration-tests.mdc` | 0.5 |
+| `.cursor/rules/raw-response-logging.mdc` | 1.0 |
+| `.cursor/rules/api-enrichment-ops.mdc` | 0.8 |
+| `.cursor/rules/connector-reports.mdc` | 0.8 |
+| `.cursor/rules/data-quality-discipline.mdc` | 0.8 |
+| `.cursor/rules/integration-tests.mdc` | 0.8 |
 | `docker-compose.yml` | 0.5 |
 | `scripts/list_large_files.py` | 0.5 |
+| `.cursor/rules/file-size-markdown.mdc` | 0.1 |
+| `.cursor/rules/file-size-python.mdc` | 0.1 |
 
 ### Research & Data Sources
 
@@ -343,7 +354,7 @@
 
 ### Project Management & QA
 
-**Subtotal:** 31 files, 51.0 hours
+**Subtotal:** 34 files, 51.9 hours
 
 | File | Hours |
 | --- | ---: |
@@ -373,12 +384,23 @@
 | `audit/conversations/2026-03-24_gpt-pro-expert-prompt-data-sources.md` | 0.5 |
 | `audit/conversations/2026-03-24_man-hours-tracking-system.md` | 0.5 |
 | `audit/conversations/2026-04-02_fix-01-controller-fixes-expansions.md` | 0.5 |
+| `audit/conversations/2026-05-09_cursor-rules-optimization.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md` | 0.5 |
 | `audit/conversations/2026-03-11_process-diagram.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-architecture.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-requirements.md` | 0.2 |
+| `audit/plans/README.md` | 0.2 |
+| `audit/plans/docx-comment-extraction.md` | 0.2 |
+
+### Other
+
+**Subtotal:** 1 files, 1.6 hours
+
+| File | Hours |
+| --- | ---: |
+| `AGENTS.md` | 1.6 |
 
 ---
 
-*Report generated by `scripts/man_hours_report.py` at 2026-04-20T14:13:28Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T13:33:20Z*

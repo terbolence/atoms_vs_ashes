@@ -1,4 +1,4 @@
-<!-- man_hours: 3.0 -->
+<!-- man_hours: 3.2 -->
 ---
 description: Require man-hours effort estimates on every file created or edited
 alwaysApply: true
@@ -76,7 +76,7 @@ Do not add man-hours comments to:
 After updating estimates, run:
 
 ```bash
-python scripts/man_hours_report.py
+python src/scripts/man_hours_report.py
 ```
 
 This reads `audit/man_hours_registry.yml` and writes `audit/man_hours_summary.md`.

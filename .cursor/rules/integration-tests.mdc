@@ -1,4 +1,4 @@
-<!-- man_hours: 0.5 -->
+<!-- man_hours: 0.8 -->
 ---
 description: Require full-cycle integration tests and snapshot documentation for all controller implementations and changes
 globs: src/atoms_vs_ashes/connectors/**/*.py, src/atoms_vs_ashes/analysis/**/*.py, src/atoms_vs_ashes/ingest/**/*.py, tests/test_integration_*.py
@@ -36,18 +36,19 @@ Do **not** require network or database access in integration tests. Use mocks, f
 
 After running integration tests, save a Markdown snapshot documenting the results:
 
-- **Path:** `src/dataAcquisition/integrationSnapshots/<SPEC-ID>_integration_snapshot.md`
+- **Path:** `tests/integrationSnapshots/<SPEC-ID>_integration_snapshot.md`
 - **Contents:** test counts, per-controller results table, CRITERION_IDS verified, fix/expansion checklist, regression summary
 - **Update** the snapshot whenever the corresponding spec is re-implemented or tests change
 
-Example path: `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md`
+Example path: `tests/integrationSnapshots/FIX-01_integration_snapshot.md`
 
 ## Running Tests
 
-The **user** runs integration tests manually via the `ava-client` CLI. Do **not** run tests on behalf of the user unless explicitly asked.
+The **user** runs integration tests manually via `pytest` or the `ava-client` CLI. Do **not** run tests on behalf of the user unless explicitly asked.
 
 ```bash
 source .venv/bin/activate
+pytest tests/test_integration_full_cycle.py
 ava-client run --test-sites --skip egdi --skip seismic
 ```
 

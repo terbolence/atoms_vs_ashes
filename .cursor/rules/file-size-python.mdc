@@ -1,50 +1,9 @@
+<!-- man_hours: 0.1 -->
 ---
-description: Hard 300-line limit on every Python file; split into focused modules under a package when larger
-globs: **/*.py
+description: Deprecated pointer to the consolidated file-size rule
 alwaysApply: false
 ---
 
-# Python File Size Rule
+# Deprecated
 
-## Hard Limit
-
-Every Python file in this repo MUST be **≤ 300 lines** (including imports, docstrings, and blank lines). This is a hard limit, not a guideline.
-
-## Scope
-
-- Applies to every `**/*.py` file touched by the agent from Phase 0.1 onward.
-- Existing files over 300 lines are **not retroactively broken**, but any file the agent edits must be brought into compliance in the same change.
-- New files must be born compliant.
-
-## How to Split
-
-If an implementation needs more than 300 lines, split it into a package under `src/atoms_vs_ashes/<area>/` with **one responsibility per module** and a thin orchestrator that imports the pieces.
-
-Follow the existing modular patterns:
-
-- `src/atoms_vs_ashes/analysis/` — one criterion per file (`aviation_hazard.py`, `epz_population.py`, `land_availability.py`, …); the package `__init__.py` re-exports the public API.
-- `src/atoms_vs_ashes/screening/` — `base.py` for shared primitives, one file per screening dimension (`grid_capacity.py`, `land_area.py`, …).
-
-## Examples
-
-```
-# BAD — one 800-line module
-src/atoms_vs_ashes/scoring.py            # 800 lines
-
-# GOOD — package with one responsibility per module
-src/atoms_vs_ashes/scoring/
-    __init__.py          # re-exports public API
-    engine.py            # orchestrator, ≤ 300 lines
-    rubric.py            # YAML loader + schema
-    bands.py             # value → (score, low, high)
-    exclusionary.py      # E1–E9 evaluators
-    avoidance.py         # A1–A15 evaluators
-    composite.py         # Σ wᵢ·cᵢ
-    merge_resolver.py    # API > LLM > default
-    sensitivity.py       # weight / MC / threshold perturbations
-```
-
-## Enforcement
-
-- Before finishing a task, count lines on every Python file you touched (`wc -l <file>`); if any is > 300, split it before marking the task done.
-- If splitting is genuinely impossible (e.g. an auto-generated Alembic migration), call it out explicitly in the commit message so a human can review.
+Use `.cursor/rules/file-size-limits.mdc`.

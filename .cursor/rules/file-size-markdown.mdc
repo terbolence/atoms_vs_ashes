@@ -1,62 +1,9 @@
+<!-- man_hours: 0.1 -->
 ---
-description: Hard 500-line limit on every Markdown file; long documents live in a folder, one file per major section plus an index
-globs: **/*.md
+description: Deprecated pointer to the consolidated file-size rule
 alwaysApply: false
 ---
 
-# Markdown File Size Rule
+# Deprecated
 
-## Hard Limit
-
-Every Markdown file in this repo MUST be **≤ 500 lines**. This is a hard limit, not a guideline.
-
-## Scope
-
-- Applies to every `**/*.md` file touched by the agent from Phase 0.1 onward.
-- Existing files over 500 lines are **not retroactively broken**, but any file the agent edits must be brought into compliance in the same change.
-- New files must be born compliant.
-
-## Exemptions (no 500-line limit)
-
-These paths are **excluded** from the Markdown line-count rule. They are expected to grow with drafting, the assembled final report, and export artefacts; splitting for line count would hurt navigation and editorial flow.
-
-| Path | Reason |
-| --- | --- |
-| `report/output/**` | Entire report output tree: writing plan, master ToC, `chapters/`, sensitivity or figure notes, and other deliverable markdown. **No line limit** for any file under this prefix. |
-
-## How to Split
-
-Long documents must live under a folder with **one file per major section** plus an `index.md` (or `00_index.md`) that provides the table of contents and links. The final report is assembled from these pieces in Phase 5.
-
-Naming convention for multi-section documents:
-
-- `00_index.md` — table of contents, purpose, status, links to every sub-file.
-- `NN_<slug>.md` — one major section per file, numbered for stable ordering.
-
-## Examples
-
-```
-# BAD — one 1,743-line document
-report/sites_evaluation.md                 # 1,743 lines
-
-# GOOD — folder with one file per section, each ≤ 500 lines
-report/sites_evaluation/
-    00_index.md                            # ToC, purpose, status
-    01_framework.md                        # §1–2
-    02_master_weights.md                   # §3
-    03_criteria_natural_hazards.md         # §4 NH-01…NH-14
-    04_criteria_human_induced.md           # §4 HI-01…HI-08
-    05_criteria_radiological.md            # §4 RI-01…RI-06
-    06_criteria_emergency_planning.md      # §4 EP-01…EP-05
-    07_criteria_non_safety.md              # §4 NS-01…NS-13
-    08_composite_and_sensitivity.md        # §5–6
-    09_llm_api_merge.md                    # §7
-    10_appendices.md                       # Appendices A, B
-```
-
-When a single file is replaced by a folder, leave the original path as a one-line redirect stub (`Moved to [<folder>/](./<folder>/)`) **only** if external links may reference it; otherwise delete.
-
-## Enforcement
-
-- Before finishing a task, count lines on every Markdown file you touched (`wc -l <file>`); if any is > 500, split it before marking the task done.
-- Cross-links between sub-files must use relative paths so the folder is self-contained.
+Use `.cursor/rules/file-size-limits.mdc`.

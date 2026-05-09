@@ -1,6 +1,11 @@
+<!-- man_hours: 1.0 -->
 ---
 description: Every per-site connector must dual-write raw responses to the site_raw_responses table and disk
-alwaysApply: true
+globs:
+  - src/atoms_vs_ashes/connectors/**
+  - tests/test_raw_response_logging.py
+  - src/scripts/verify_raw_response_coverage.py
+alwaysApply: false
 ---
 
 # Raw Response Logging Rule
@@ -70,7 +75,7 @@ Every per-site connector must be added to `MANDATORY_LOGGING_CONNECTORS` in [src
 After every production enrichment run, execute:
 
 ```bash
-PYTHONPATH=src python scripts/verify_raw_response_coverage.py --run-id <run_id>
+PYTHONPATH=src python src/scripts/verify_raw_response_coverage.py --run-id <run_id>
 ```
 
 The script reports per connector: `expected_sites`, `logged_sites`, `missing_sites`, and exits non-zero if any registered connector has < 100% coverage. Capture its output in the audit doc for that run.
