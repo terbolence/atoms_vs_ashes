@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "site_id": "770f1d3c-e5fd-493c-a376-e708d2abec6c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:49:58.010346+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,48.5525,21.972625);\n  way[\"military\"](around:25000,48.5525,21.972625);\n  relation[\"military\"](around:25000,48.5525,21.972625);\n  node[\"landuse\"=\"military\"](around:25000,48.5525,21.972625);\n  way[\"landuse\"=\"military\"](around:25000,48.5525,21.972625);\n  relation[\"landuse\"=\"military\"](around:25000,48.5525,21.972625);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.5525,21.972625);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.5525,21.972625);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.5525,21.972625);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.5525,21.972625);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.5525,21.972625);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.5525,21.972625);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1130,
+        "element_count": 20,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:48:35Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3372140621,
+              "lat": 48.5082,
+              "lon": 21.655003,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/126/A-140",
+                "ref:ropiky.net": "1106248032",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248032"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140622,
+              "lat": 48.511225,
+              "lon": 21.65448,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/127/A-180",
+                "ref:ropiky.net": "1106248036",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248036"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140623,
+              "lat": 48.513435,
+              "lon": 21.65293,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/128/A-160",
+                "ref:ropiky.net": "1106248042",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248042"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140624,
+              "lat": 48.52546,
+              "lon": 21.64368,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/130/A-140",
+                "ref:ropiky.net": "1106248054",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248054"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140625,
+              "lat": 48.53013,
+              "lon": 21.637835,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/131/A-160",
+                "ref:ropiky.net": "1106248060",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248060"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140626,
+              "lat": 48.53392,
+              "lon": 21.63519,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/132/A-140",
+                "ref:ropiky.net": "1106248066",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106248066"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140630,
+              "lat": 48.50194,
+              "lon": 21.653234,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/41/A-140",
+                "ref:ropiky.net": "1106247859",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106247859"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140631,
+              "lat": 48.518485,
+              "lon": 21.643893,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/45/A-180 Z",
+                "ref:ropiky.net": "1106247869",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106247869"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140632,
+              "lat": 48.522615,
+              "lon": 21.641458,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-I/46/A-160 Z",
+                "ref:ropiky.net": "1106247873",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1106247873"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140677,
+              "lat": 48.399623,
+              "lon": 21.739477,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "M-III/104/A-160",
+                "ref:ropiky.net": "1183916673",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1183916673"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3372140681,
+              "lat": 48.41264,
+              "lon": 21.98363,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "U-II/212/A-140",
+                "ref:ropiky.net": "1220788672",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1220788672"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5983430272,
+              "lat": 48.4328439,
+              "lon": 22.1385596,
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6645615345,
+              "lat": 48.4359978,
+              "lon": 22.1545942,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6645615346,
+              "lat": 48.4331652,
+              "lon": 22.139356,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6715263557,
+              "lat": 48.4167983,
+              "lon": 22.1833266,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12554498503,
+              "lat": 48.418718,
+              "lon": 21.9610503,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Už",
+                "ref:ropiky.net": "1220788672",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 289595697,
+              "center": {
+                "lat": 48.7483065,
+                "lon": 21.9352912
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Kasárne 22. Mechanizovaného práporu generála Mikuláša Markusa"
+              }
+            },
+            {
+              "type": "way",
+              "id": 491081921,
+              "center": {
+                "lat": 48.3995659,
+                "lon": 22.1459055
+              },
+              "tags": {
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 497366554,
+              "center": {
+                "lat": 48.636919,
+                "lon": 21.7115526
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 619537839,
+              "center": {
+                "lat": 48.7650958,
+                "lon": 21.9074362
+              },
+              "tags": {
+                "barrier": "wall",
+                "military": "barracks",
+                "name": "Duklianske kasárne"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

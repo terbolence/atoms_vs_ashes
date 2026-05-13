@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "site_id": "d12e7ffc-4cd3-4ff4-81da-ae360d59409b",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:59:33.672104+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.013446,27.961648);\n  way[\"military\"](around:25000,41.013446,27.961648);\n  relation[\"military\"](around:25000,41.013446,27.961648);\n  node[\"landuse\"=\"military\"](around:25000,41.013446,27.961648);\n  way[\"landuse\"=\"military\"](around:25000,41.013446,27.961648);\n  relation[\"landuse\"=\"military\"](around:25000,41.013446,27.961648);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.013446,27.961648);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.013446,27.961648);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.013446,27.961648);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.013446,27.961648);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.013446,27.961648);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.013446,27.961648);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 828,
+        "element_count": 19,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:57:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 180278417,
+              "center": {
+                "lat": 41.1628902,
+                "lon": 27.9050089
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 190004222,
+              "center": {
+                "lat": 40.973302,
+                "lon": 27.8664275
+              },
+              "tags": {
+                "alt_name": "Ulusal Deniz Emniyeti Merkezi",
+                "barrier": "fence",
+                "closed": "yes",
+                "landuse": "military",
+                "name": "UDEM: Ulusal Deniz Emniyeti & Acil Müdahale Merkezi",
+                "short_name": "UDEM",
+                "source": "bing;https://www.kiyiemniyeti.gov.tr/acil_mudahale",
+                "website": "https://www.kiyiemniyeti.gov.tr/acil_mudahale"
+              }
+            },
+            {
+              "type": "way",
+              "id": 217277432,
+              "center": {
+                "lat": 41.15975,
+                "lon": 27.8018846
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 217278570,
+              "center": {
+                "lat": 41.1568072,
+                "lon": 27.8071351
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes",
+                "name": "Çorlu Askeri Hastanesi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 217516932,
+              "center": {
+                "lat": 41.14806,
+                "lon": 27.8493334
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Çorlu Askerlik Şubesi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 225761893,
+              "center": {
+                "lat": 41.1127137,
+                "lon": 27.8258472
+              },
+              "tags": {
+                "fence_type": "chain_link",
+                "landuse": "military",
+                "name": "Şehit Onbaşı Arman Galata Kışlası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 225806226,
+              "center": {
+                "lat": 41.1492312,
+                "lon": 27.8556838
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 230833296,
+              "center": {
+                "lat": 41.0213479,
+                "lon": 27.7469987
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 467051038,
+              "center": {
+                "lat": 41.1696675,
+                "lon": 27.7747766
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "5.Kolordu Komutanlığı - Kopsavaş kışlası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 467961788,
+              "center": {
+                "lat": 41.1570059,
+                "lon": 27.8065913
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 482832681,
+              "center": {
+                "lat": 41.1522373,
+                "lon": 27.8465513
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514898363,
+              "center": {
+                "lat": 40.9727744,
+                "lon": 27.9337645
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Marmaraereğlisi İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 545989089,
+              "center": {
+                "lat": 41.1408997,
+                "lon": 28.1004524
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "DigitalGlobe"
+              }
+            },
+            {
+              "type": "way",
+              "id": 627785609,
+              "center": {
+                "lat": 41.1453307,
+                "lon": 27.8576901
+              },
+              "tags": {
+                "addr:neighbourhood": "Önerler Mahallesi",
+                "landuse": "military",
+                "name": "Çorlu İnşaat emlak Bölge Başkanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1082597355,
+              "center": {
+                "lat": 41.1480861,
+                "lon": 27.9102854
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1089549590,
+              "center": {
+                "lat": 40.9745406,
+                "lon": 27.8673785
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1176587933,
+              "center": {
+                "lat": 41.1449811,
+                "lon": 27.9079337
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "105. Topçu Alay Komutanlığı Faruk Gürler Kışlası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1457629077,
+              "center": {
+                "lat": 41.1519897,
+                "lon": 27.8656648
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Gazi Lojmanları"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 5559520,
+              "center": {
+                "lat": 40.9666567,
+                "lon": 27.8888343
+              },
+              "tags": {
+                "alt_name": "Marmara Ereğlisi TSK Özel Eğitim Komutanlığı",
+                "landuse": "military",
+                "name": "Özel Eğitim Merkez Komutanlığı Askeri Kampı",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

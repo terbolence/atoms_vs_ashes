@@ -476,16 +476,41 @@ class OverpassClient:
         lon: float,
         radius_km: float = 25,
     ) -> list[OsmElement]:
-        """Return military installations within *radius_km* (HI-06)."""
-        radius_m = radius_km * 1000
+        """Return military installations within *radius_km* (HI-06).
+
+        SP-F query rework: align the OSM Overpass query with the canonical
+        classifier in ``atoms_vs_ashes.analysis.military_proximity`` so the
+        connector returns enough tags to distinguish ``airfield``, ``depot``,
+        ``training_area`` and ``other``. The previous query only fetched
+        ``landuse=military`` ways/relations and ``military=*`` nodes, which
+        missed military-tagged ways/relations and military aerodromes.
+
+        Includes:
+        - ``node|way|relation["military"]`` — explicit military feature.
+        - ``node|way|relation["landuse"="military"]`` — landuse polygon proxy.
+        - ``node|way|relation["aeroway"="aerodrome"]["military"]`` and the
+          ``"aerodrome:type"="military"`` variant — military aerodromes.
+        Output uses ``out center tags;`` so ways/relations carry centroid
+        coordinates and the full tag map needed for classification.
+        """
+        radius_m = int(radius_km * 1000)
         ql = (
             f"[out:json][timeout:90];\n"
             f"(\n"
+            f'  node["military"](around:{radius_m},{lat},{lon});\n'
+            f'  way["military"](around:{radius_m},{lat},{lon});\n'
+            f'  relation["military"](around:{radius_m},{lat},{lon});\n'
+            f'  node["landuse"="military"](around:{radius_m},{lat},{lon});\n'
             f'  way["landuse"="military"](around:{radius_m},{lat},{lon});\n'
             f'  relation["landuse"="military"](around:{radius_m},{lat},{lon});\n'
-            f'  node["military"](around:{radius_m},{lat},{lon});\n'
+            f'  node["aeroway"="aerodrome"]["military"](around:{radius_m},{lat},{lon});\n'
+            f'  way["aeroway"="aerodrome"]["military"](around:{radius_m},{lat},{lon});\n'
+            f'  relation["aeroway"="aerodrome"]["military"](around:{radius_m},{lat},{lon});\n'
+            f'  node["aeroway"="aerodrome"]["aerodrome:type"="military"](around:{radius_m},{lat},{lon});\n'
+            f'  way["aeroway"="aerodrome"]["aerodrome:type"="military"](around:{radius_m},{lat},{lon});\n'
+            f'  relation["aeroway"="aerodrome"]["aerodrome:type"="military"](around:{radius_m},{lat},{lon});\n'
             f");\n"
-            f"out center;\n"
+            f"out center tags;\n"
         )
         elements = self.query(ql)
         return [

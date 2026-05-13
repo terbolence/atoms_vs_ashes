@@ -106,21 +106,86 @@ def _extract_military_data(body: Any) -> list[dict[str, Any]] | None:
     return None
 
 
-def _persist_sp_f_only(
-    session, site_id: uuid.UUID, military_class: str | None,
-    high_cons_km: float | None, high_cons_class: str | None,
-) -> bool:
-    """UPDATE only the three SP-F columns; do not touch legacy fields."""
+SP_F_HI06_COLUMNS: tuple[str, ...] = (
+    "nearest_military_class",
+    "nearest_high_consequence_military_km",
+    "nearest_high_consequence_military_class",
+)
+
+
+def decide_hi06_writes(
+    *,
+    current: dict[str, Any],
+    replayed: dict[str, Any],
+    only_nulls: bool,
+    overwrite_with_better: bool,
+) -> dict[str, str]:
+    """Per-column verdict for HI-06 SP-F columns. Pure; mirror of HI-01.
+
+    Returns a mapping ``{column -> action}`` where action is one of
+    ``"write-null"``, ``"overwrite"``, ``"skip-nonnull"``,
+    ``"skip-noop"``, ``"skip-no-replay"``.
+    """
+    out: dict[str, str] = {}
+    for col in SP_F_HI06_COLUMNS:
+        cur = current.get(col)
+        rep = replayed.get(col)
+        if rep is None:
+            out[col] = "skip-no-replay"
+            continue
+        if cur is None:
+            out[col] = "write-null"
+            continue
+        if _values_equal_hi06(cur, rep):
+            out[col] = "skip-noop"
+            continue
+        if overwrite_with_better and not only_nulls:
+            out[col] = "overwrite"
+        else:
+            out[col] = "skip-nonnull"
+    return out
+
+
+def _values_equal_hi06(a: Any, b: Any) -> bool:
+    """Tolerant equality: 1 km for distances, exact for class strings."""
+    try:
+        fa = float(a)
+        fb = float(b)
+        return abs(fa - fb) < 1.0
+    except (TypeError, ValueError):
+        return a == b
+
+
+def _current_hi06_state(session, site_id: uuid.UUID) -> dict[str, Any]:
     from atoms_vs_ashes.db.models import SiteHumanHazards
 
     row = session.get(SiteHumanHazards, site_id)
     if row is None:
+        return {col: None for col in SP_F_HI06_COLUMNS}
+    return {col: getattr(row, col, None) for col in SP_F_HI06_COLUMNS}
+
+
+def _persist_sp_f_only(
+    session, site_id: uuid.UUID, decisions: dict[str, str],
+    replayed: dict[str, Any],
+) -> int:
+    """UPDATE only the SP-F columns whose decision permits a write."""
+    from atoms_vs_ashes.db.models import SiteHumanHazards
+
+    to_write = {
+        col: replayed[col]
+        for col, action in decisions.items()
+        if action in {"write-null", "overwrite"}
+    }
+    if not to_write:
+        return 0
+    row = session.get(SiteHumanHazards, site_id)
+    if row is None:
         row = SiteHumanHazards(site_id=site_id)
         session.add(row)
-    row.nearest_military_class = military_class
-    row.nearest_high_consequence_military_km = high_cons_km
-    row.nearest_high_consequence_military_class = high_cons_class
-    return True
+    for col, value in to_write.items():
+        setattr(row, col, value)
+    return len(to_write)
 
 
 def _parse_args() -> argparse.Namespace:
@@ -138,6 +203,16 @@ def _parse_args() -> argparse.Namespace:
     p.add_argument(
         "--requery-nulls", action="store_true",
         help="Skip sites where nearest_military_class is already populated.",
+    )
+    mode = p.add_mutually_exclusive_group()
+    mode.add_argument(
+        "--only-nulls", action="store_true",
+        help="(default) Write a SP-F column only when the current DB value is NULL.",
+    )
+    mode.add_argument(
+        "--overwrite-with-better", action="store_true",
+        help="Also overwrite non-null SP-F columns when the replayed value differs. "
+             "Each overwrite is recorded in the per-site summary with current/replayed evidence.",
     )
     p.add_argument(
         "--dry-run", action="store_true",
@@ -160,6 +235,8 @@ def main() -> int:
     from atoms_vs_ashes.db.models import Site
 
     args = _parse_args()
+    only_nulls = args.only_nulls or not args.overwrite_with_better
+    mode = "overwrite-with-better" if args.overwrite_with_better else "only-nulls"
     session = _build_session()
 
     sites_q = session.query(Site)
@@ -248,12 +325,22 @@ def main() -> int:
         if result.nearest_high_consequence_km is not None:
             summary["with_high_consequence"] += 1
 
+        replayed_values = {
+            "nearest_military_class": result.nearest_class,
+            "nearest_high_consequence_military_km": result.nearest_high_consequence_km,
+            "nearest_high_consequence_military_class": result.nearest_high_consequence_class,
+        }
+        current_state = _current_hi06_state(session, site_id)
+        decisions = decide_hi06_writes(
+            current=current_state, replayed=replayed_values,
+            only_nulls=only_nulls,
+            overwrite_with_better=args.overwrite_with_better,
+        )
+
+        write_count = 0
         if not args.dry_run:
-            _persist_sp_f_only(
-                session, site_id,
-                military_class=result.nearest_class,
-                high_cons_km=result.nearest_high_consequence_km,
-                high_cons_class=result.nearest_high_consequence_class,
+            write_count = _persist_sp_f_only(
+                session, site_id, decisions=decisions, replayed=replayed_values,
             )
 
         summary["per_site"].append({
@@ -266,6 +353,22 @@ def main() -> int:
             "high_consequence_km": result.nearest_high_consequence_km,
             "high_consequence_class": result.nearest_high_consequence_class,
             "class_counts": result.class_counts,
+            "evidence": [
+                {
+                    "column": col,
+                    "current": str(current_state[col]) if current_state[col] is not None else None,
+                    "replayed": (
+                        str(replayed_values[col])
+                        if replayed_values[col] is not None else None
+                    ),
+                    "action": decisions[col],
+                }
+                for col in SP_F_HI06_COLUMNS
+            ],
+            "writes_planned": sum(
+                1 for a in decisions.values() if a in {"write-null", "overwrite"}
+            ),
+            "writes_committed": write_count,
         })
 
     if not args.dry_run:
@@ -279,8 +382,12 @@ def main() -> int:
     print(f"  With nearest_military_class set: {summary['with_class_assigned']}")
     print(f"  With high-consequence flagged:   {summary['with_high_consequence']}")
     print(f"  Errors:                          {summary['errors']}")
-    print(f"  Mode:                            {'DRY-RUN' if args.dry_run else 'COMMITTED'}")
+    print(f"  Mode:                            {mode}{' (DRY-RUN)' if args.dry_run else ''}")
     print(f"  High-consequence classes:        {sorted(HIGH_CONSEQUENCE_CLASSES)}")
+    rows_with_writes = sum(
+        1 for ps in summary['per_site'] if isinstance(ps, dict) and ps.get('writes_committed', 0)
+    )
+    print(f"  Rows with at least one write:    {rows_with_writes}")
 
     if args.json_summary:
         args.json_summary.write_text(json.dumps(summary, indent=2, default=str))

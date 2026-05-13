@@ -1,0 +1,2871 @@
+{
+  "meta": {
+    "site_id": "a4fa3246-27d6-4740-898c-bdf9dadcb88c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:40:58.264881+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.34294,23.81076);\n  way[\"military\"](around:25000,44.34294,23.81076);\n  relation[\"military\"](around:25000,44.34294,23.81076);\n  node[\"landuse\"=\"military\"](around:25000,44.34294,23.81076);\n  way[\"landuse\"=\"military\"](around:25000,44.34294,23.81076);\n  relation[\"landuse\"=\"military\"](around:25000,44.34294,23.81076);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.34294,23.81076);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.34294,23.81076);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.34294,23.81076);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.34294,23.81076);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.34294,23.81076);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.34294,23.81076);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1027,
+        "element_count": 218,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:39:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 7044756257,
+              "lat": 44.2804509,
+              "lon": 23.8077578,
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Regimentul 61 Rachete Antiaeriene Pelendava"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7358547394,
+              "lat": 44.3035549,
+              "lon": 23.8138202,
+              "tags": {
+                "addr:city": "Craiova",
+                "addr:housenumber": "148",
+                "addr:street": "Strada Caracal",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Batalionul 116 Logistic Iancu Jianu"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7358547395,
+              "lat": 44.303151,
+              "lon": 23.8157803,
+              "tags": {
+                "addr:city": "Craiova",
+                "addr:housenumber": "148",
+                "addr:street": "Strada Caracal",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Batalionul 20 Infanterie Scorpionii Negrii"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178834288,
+              "lat": 44.323056,
+              "lon": 23.824167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, Bl. E16, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1668",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840779,
+              "lat": 44.319506,
+              "lon": 23.822722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Strajan, bl. 14, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1704",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863832,
+              "lat": 44.339821,
+              "lon": 23.771527,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl.140B, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1766",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863840,
+              "lat": 44.329519,
+              "lon": 23.801497,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gen. Nicolae Magereanu, bl. P5, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1628",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863867,
+              "lat": 44.312262,
+              "lon": 23.837931,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ion Tuculescu, bl. A19, sc. 2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1663",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870073,
+              "lat": 44.335115,
+              "lon": 23.77117,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl. T1, sc.5, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1733",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870081,
+              "lat": 44.32332,
+              "lon": 23.818063,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Nicolae Iorga, bl. A21, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1603",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870099,
+              "lat": 44.340086,
+              "lon": 23.783161,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ion Anestin, Bl. 95B1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1764",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878349,
+              "lat": 44.323144,
+              "lon": 23.817227,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B18, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1694",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878375,
+              "lat": 44.335678,
+              "lon": 23.770373,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T2, sc.4, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1737",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878383,
+              "lat": 44.316944,
+              "lon": 23.8225,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea București, nr. 107 D, cămin studenți nr.14, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1591",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878384,
+              "lat": 44.346139,
+              "lon": 24.114833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl.ANL, sc.A, Balş, OT",
+                "military": "bunker",
+                "ref": "2613",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878401,
+              "lat": 44.339893,
+              "lon": 23.784495,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aleea Castanilor, Bl.99A1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1768",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878409,
+              "lat": 44.314603,
+              "lon": 23.821723,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Putna, bl. D5, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1622",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878436,
+              "lat": 44.322868,
+              "lon": 23.81745,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, bl. B17, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1665",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878496,
+              "lat": 44.321071,
+              "lon": 23.820532,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Nicolae Iorga, bl.A39, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1691",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878504,
+              "lat": 44.320546,
+              "lon": 23.795266,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea București, nr.2, bl. M2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1617",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878522,
+              "lat": 44.318261,
+              "lon": 23.824527,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Traian Lalescu, Bl. 11, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1722",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878530,
+              "lat": 44.334747,
+              "lon": 23.777713,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Grigore Gabrielescu, Bl.200F, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1648",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878549,
+              "lat": 44.341489,
+              "lon": 23.77631,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl. 124B, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1749",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878558,
+              "lat": 44.321581,
+              "lon": 23.826675,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Breazul, bl. H35, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1683",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878619,
+              "lat": 44.322552,
+              "lon": 23.819624,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B25, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1701",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878645,
+              "lat": 44.334167,
+              "lon": 23.774167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aristizza Romanescu, Bl. A1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1732",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878653,
+              "lat": 44.322463,
+              "lon": 23.820034,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, bl. B27, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1602",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878671,
+              "lat": 44.33953,
+              "lon": 23.772252,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl.143B, Sc. 3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1767",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878679,
+              "lat": 44.333065,
+              "lon": 23.801018,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, bl. M3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1629",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878706,
+              "lat": 44.314796,
+              "lon": 23.83943,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Eustatiu Stoenescu, Bl. F15, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1660",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878748,
+              "lat": 44.310278,
+              "lon": 23.838056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., pavilion A1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1577",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878766,
+              "lat": 44.320797,
+              "lon": 23.819129,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Julea, Bl. A12, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1686",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878774,
+              "lat": 44.339177,
+              "lon": 23.783545,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Coculescu, nr.18, bl 102B, sc1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1612",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878792,
+              "lat": 44.331786,
+              "lon": 23.779589,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Craiovești, Bl. 201K, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1729",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878800,
+              "lat": 44.332066,
+              "lon": 23.779275,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Craiovesti, bl. 201M, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1647",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878819,
+              "lat": 44.34232,
+              "lon": 23.775595,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.121E, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1760",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878828,
+              "lat": 44.320774,
+              "lon": 23.818442,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Desnatui, Bl. A10, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1678",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878855,
+              "lat": 44.314491,
+              "lon": 23.838521,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Eustatiu Stoenescu, Bl. F11, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1657",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878889,
+              "lat": 44.32109,
+              "lon": 23.826678,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dezrobirii, bl. H28, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1712",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878915,
+              "lat": 44.340705,
+              "lon": 23.781337,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aleea Piersicului, bl. 87B1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1747",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878923,
+              "lat": 44.334686,
+              "lon": 23.784552,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Constantin Brâncoveanu, bl. 53A1, sc1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1609",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878949,
+              "lat": 44.312351,
+              "lon": 23.786728,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Stirbei Vodă, bl. A2, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1640",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878977,
+              "lat": 44.320756,
+              "lon": 23.820041,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Desnatui, Bl. A14, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1675",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879038,
+              "lat": 44.323083,
+              "lon": 23.817654,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B18, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1693",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879064,
+              "lat": 44.336885,
+              "lon": 23.767896,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea Severinului, Bl. B04, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1724",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879072,
+              "lat": 44.335361,
+              "lon": 23.771514,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, bl. 168B, sc1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1594",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879091,
+              "lat": 44.34214,
+              "lon": 23.775166,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.121G, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1759",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879099,
+              "lat": 44.315576,
+              "lon": 23.817995,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nanterre, bl. D9, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1621",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879126,
+              "lat": 44.322059,
+              "lon": 23.824487,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, bl. F18, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1652",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879160,
+              "lat": 44.320975,
+              "lon": 23.826379,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dezrobirii, bl. H27, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1711",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879186,
+              "lat": 44.336064,
+              "lon": 23.77003,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T3, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1742",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879194,
+              "lat": 44.316173,
+              "lon": 23.79548,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Unirii, bl.23 A, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1604",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879212,
+              "lat": 44.341854,
+              "lon": 23.776393,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl. 123, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1721",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879220,
+              "lat": 44.334167,
+              "lon": 23.798056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, bl. M1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1639",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879239,
+              "lat": 44.340971,
+              "lon": 23.773114,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, bl.134A, sc. 2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1752",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879248,
+              "lat": 44.323803,
+              "lon": 23.824242,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, Bl. D29, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1670",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879405,
+              "lat": 44.336237,
+              "lon": 23.769859,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T3, sc.4, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1739",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879413,
+              "lat": 44.332018,
+              "lon": 23.804012,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, bl. M5, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1601",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879414,
+              "lat": 44.346306,
+              "lon": 24.114944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl. ANL, sc.C, Balş, OT",
+                "military": "bunker",
+                "ref": "2615",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879439,
+              "lat": 44.328333,
+              "lon": 23.806111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.26, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1632",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879466,
+              "lat": 44.322888,
+              "lon": 23.824008,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, Bl. E17, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1667",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879508,
+              "lat": 44.31,
+              "lon": 23.838889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1580",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879526,
+              "lat": 44.320865,
+              "lon": 23.818785,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Desnatui, Bl. A11, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1685",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879534,
+              "lat": 44.31671,
+              "lon": 23.8164,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea București, nr.44, bl P5, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1619",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879552,
+              "lat": 44.321752,
+              "lon": 23.824188,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, Bl. G9, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1716",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879560,
+              "lat": 44.320735,
+              "lon": 23.82187,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, bl. A33, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1650",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879579,
+              "lat": 44.340622,
+              "lon": 23.778763,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl.111B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1751",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879588,
+              "lat": 44.320568,
+              "lon": 23.819703,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Desnatui, Bl. A13, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1677",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879649,
+              "lat": 44.322573,
+              "lon": 23.820367,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B28, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1703",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879675,
+              "lat": 44.334728,
+              "lon": 23.77054,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl. T1, sc.4, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1734",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879683,
+              "lat": 44.3375,
+              "lon": 23.773333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Hortensiei, bl. 155G, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1596",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879709,
+              "lat": 44.328602,
+              "lon": 23.805697,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.28, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1631",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879737,
+              "lat": 44.313611,
+              "lon": 23.838056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea Bucuresti, bl. T10, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1662",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879779,
+              "lat": 44.307222,
+              "lon": 23.838333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., pavilion D3- laboraroare, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1579",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879797,
+              "lat": 44.3207,
+              "lon": 23.82246,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, bl.G28, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1696",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879805,
+              "lat": 44.3206,
+              "lon": 23.794717,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Unirii, bl. M1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1614",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879823,
+              "lat": 44.334444,
+              "lon": 23.774444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aristizza Romanescu, Bl. A3, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1731",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879831,
+              "lat": 44.313889,
+              "lon": 23.825,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea București, nr. 126, Spitalul Victor Babeș, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1593",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879850,
+              "lat": 44.342226,
+              "lon": 23.777848,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.120, Sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1762",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879858,
+              "lat": 44.328242,
+              "lon": 23.80923,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gen. Dr. Ion Cernatescu, bl. 79, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1624",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879885,
+              "lat": 44.314558,
+              "lon": 23.838525,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Eustatiu Stoenescu, Bl. F11, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1659",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879919,
+              "lat": 44.321472,
+              "lon": 23.825365,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Traian Lalescu, Bl. G15, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1714",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879945,
+              "lat": 44.335822,
+              "lon": 23.77018,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T3, sc.3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1741",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879953,
+              "lat": 44.339167,
+              "lon": 23.783056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Coculescu, bl. 102B1, sc1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1611",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879971,
+              "lat": 44.251075,
+              "lon": 23.777305,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dispensarului, bl. 2, PODARI, DJ",
+                "military": "bunker",
+                "ref": "1772",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879979,
+              "lat": 44.312296,
+              "lon": 23.786353,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Stirbei Vodă, bl. A3, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1642",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880007,
+              "lat": 44.323564,
+              "lon": 23.8246,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, Bl. F13, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1669",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880068,
+              "lat": 44.32295,
+              "lon": 23.820045,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, bl.A16, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1695",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880094,
+              "lat": 44.333699,
+              "lon": 23.778339,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Grigore Gabrielescu, Bl. 200E6, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1726",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880102,
+              "lat": 44.2975,
+              "lon": 23.843333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Henry Ford, nr.29, S.C.FORD ROMÂNIA S.A., pavilion Mecanica E, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1584",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880120,
+              "lat": 44.34001,
+              "lon": 23.784859,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aleea Castanilor, Bl.99A2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1769",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880128,
+              "lat": 44.334476,
+              "lon": 23.778071,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Grigore Gabrielescu, bl. 200E11, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1623",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880155,
+              "lat": 44.322427,
+              "lon": 23.824851,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, bl. F20, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1654",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880215,
+              "lat": 44.320991,
+              "lon": 23.819166,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Julea, Bl. A12, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1688",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880223,
+              "lat": 44.341096,
+              "lon": 23.780978,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Piersiculu, bl. 83A1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1606",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880241,
+              "lat": 44.334722,
+              "lon": 23.771111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl. T1, sc.3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1723",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880249,
+              "lat": 44.311731,
+              "lon": 23.838232,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii, Bl. A20, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1649",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880268,
+              "lat": 44.340278,
+              "lon": 23.7725,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gorunului, Bl.137A, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1754",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880277,
+              "lat": 44.321166,
+              "lon": 23.819542,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, Bl. A15, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1680",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880338,
+              "lat": 44.323093,
+              "lon": 23.819259,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, Bl. A18, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1706",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880386,
+              "lat": 44.310278,
+              "lon": 23.838333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., pavilion A2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1578",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880607,
+              "lat": 44.317254,
+              "lon": 23.818659,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stefan Velovan, bl.B. sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1634",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880634,
+              "lat": 44.311911,
+              "lon": 23.837933,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ion Tuculescu, bl. A21, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1661",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880676,
+              "lat": 44.294444,
+              "lon": 23.848056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Henry Ford, nr.29, S.C.FORD ROMÂNIA S.A., pavilion Feraj 1 Vest, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1582",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880694,
+              "lat": 44.321033,
+              "lon": 23.818837,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Julea, Bl. A11, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1687",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880702,
+              "lat": 44.319387,
+              "lon": 23.794246,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Unirii, bl. 2, sc 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1613",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880720,
+              "lat": 44.341229,
+              "lon": 23.781194,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Piersicului, Bl. 83A2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1718",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880728,
+              "lat": 44.315556,
+              "lon": 23.817222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nanterre, bl. D10, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1644",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880747,
+              "lat": 44.342505,
+              "lon": 23.776132,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.121C, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1761",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880756,
+              "lat": 44.321167,
+              "lon": 23.819997,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, Bl. A15, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1679",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880817,
+              "lat": 44.321193,
+              "lon": 23.82527,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Traian Lalescu, Bl. G16, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1713",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880843,
+              "lat": 44.336662,
+              "lon": 23.768953,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. B07, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1744",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880851,
+              "lat": 44.338333,
+              "lon": 23.776944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Arhitect Constantin Iotzu, nr.3, bl.153C, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1598",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880877,
+              "lat": 44.316407,
+              "lon": 23.809087,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Moxa, bl. H6, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1641",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880905,
+              "lat": 44.323881,
+              "lon": 23.824664,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, bl. F12, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1672",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880965,
+              "lat": 44.32288,
+              "lon": 23.818726,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B21, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1698",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880991,
+              "lat": 44.332218,
+              "lon": 23.780552,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Craiovești, Bl. 201T, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1725",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880999,
+              "lat": 44.336944,
+              "lon": 23.773056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ghețisoarei, bl. 160H, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1595",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881018,
+              "lat": 44.340259,
+              "lon": 23.771729,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.138B, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1756",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881026,
+              "lat": 44.330318,
+              "lon": 23.809007,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, bl. 44, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1626",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881053,
+              "lat": 44.32204,
+              "lon": 23.824787,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, bl. F19, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1653",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881087,
+              "lat": 44.323041,
+              "lon": 23.826958,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. D. Stoica, bl. H1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1708",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881113,
+              "lat": 44.337317,
+              "lon": 23.767405,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea Severinului, Bl. S4, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1743",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881121,
+              "lat": 44.317243,
+              "lon": 23.794795,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Unirii, Filarmonica Oltenia, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1605",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881147,
+              "lat": 44.329322,
+              "lon": 23.806313,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.32, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1636",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881166,
+              "lat": 44.340452,
+              "lon": 23.772793,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl.136A, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1753",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881175,
+              "lat": 44.324143,
+              "lon": 23.824762,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, bl. F1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1671",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881236,
+              "lat": 44.319485,
+              "lon": 23.823414,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Strajan, bl. 13, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1705",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881262,
+              "lat": 44.334778,
+              "lon": 23.770766,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl. T1, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1736",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881270,
+              "lat": 44.317583,
+              "lon": 23.822778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea București, nr. 107 D, Facultatea de Drept, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1589,1588,1587,1586,1590",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881288,
+              "lat": 44.251896,
+              "lon": 23.777192,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dispensarului, bl. 1, PODARI, DJ",
+                "military": "bunker",
+                "ref": "1771",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881296,
+              "lat": 44.328168,
+              "lon": 23.806184,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.25, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1633",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881323,
+              "lat": 44.311881,
+              "lon": 23.839844,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ion Tuculescu, bl. A18, sc. 1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1664",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881365,
+              "lat": 44.31,
+              "lon": 23.838611,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1581",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881383,
+              "lat": 44.321046,
+              "lon": 23.820857,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Nicolae Iorga, bl.A38, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1690",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881391,
+              "lat": 44.32041,
+              "lon": 23.795824,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea București, nr.4, bl. M3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1616",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881409,
+              "lat": 44.33528,
+              "lon": 23.768836,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Prelungirea Severinului, Bl. 406B, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1717",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881417,
+              "lat": 44.314729,
+              "lon": 23.839061,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Eustatiu Stoenescu, bl. F13, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1651",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881436,
+              "lat": 44.34177,
+              "lon": 23.776486,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl. 123, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1748",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881445,
+              "lat": 44.321372,
+              "lon": 23.826636,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Breazul, bl. H36, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1682",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881506,
+              "lat": 44.322826,
+              "lon": 23.819131,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B23, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1700",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881532,
+              "lat": 44.334833,
+              "lon": 23.77116,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Tineretului, Bl. T1, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1735",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881540,
+              "lat": 44.336944,
+              "lon": 23.774722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tineretului, nr.11, bl.157A, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1597",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881609,
+              "lat": 44.305278,
+              "lon": 23.838056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., pavilion D1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1576",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881627,
+              "lat": 44.322769,
+              "lon": 23.818497,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B20 sc1+2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1697",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881635,
+              "lat": 44.319838,
+              "lon": 23.794977,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Unirii, bl. 3, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1615",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881653,
+              "lat": 44.333429,
+              "lon": 23.777734,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Craiovești, Bl. 200E2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1728",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881661,
+              "lat": 44.334647,
+              "lon": 23.781008,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, bl. 34A, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1646",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881680,
+              "lat": 44.342175,
+              "lon": 23.778097,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Dacia, Bl.120, Sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1763",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881689,
+              "lat": 44.329073,
+              "lon": 23.808882,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gen. Dr. Ion Cernatescu, bl. 49, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1625",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881716,
+              "lat": 44.314564,
+              "lon": 23.838257,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Eustatiu Stoenescu, Bl. F10, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1656",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881750,
+              "lat": 44.321771,
+              "lon": 23.823909,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, Bl. G8, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1715",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881776,
+              "lat": 44.334722,
+              "lon": 23.769444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Prelungirea Severinului, Bl. 404B, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1746",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881784,
+              "lat": 44.334084,
+              "lon": 23.784036,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Constantin Brâncoveanu, bl. 48A, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1608",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881802,
+              "lat": 44.250945,
+              "lon": 23.777303,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dispensarului, bl. 3, PODARI, DJ",
+                "military": "bunker",
+                "ref": "1773",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881810,
+              "lat": 44.316226,
+              "lon": 23.809751,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Moxa, bl. H2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1643",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881838,
+              "lat": 44.322552,
+              "lon": 23.824391,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, bl. F15, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1674",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881899,
+              "lat": 44.323313,
+              "lon": 23.817695,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, bl.A22, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1692",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881925,
+              "lat": 44.333304,
+              "lon": 23.777877,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Craiovești, Bl. 200E3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1727",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881933,
+              "lat": 44.298056,
+              "lon": 23.8425,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Henry Ford, nr.29, S.C.FORD ROMÂNIA S.A., pavilion Mecanica V, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1585",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881951,
+              "lat": 44.341687,
+              "lon": 23.774906,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl.130B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1758",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881959,
+              "lat": 44.315833,
+              "lon": 23.815833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nanterre, bl. I10, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1620",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881986,
+              "lat": 44.322326,
+              "lon": 23.825195,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gogu Constantinescu, bl. F21, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1655",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882020,
+              "lat": 44.322552,
+              "lon": 23.827619,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. D. Stoica, bl. H19, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1710",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882046,
+              "lat": 44.320977,
+              "lon": 23.821197,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Nicolae Iorga, bl.A37, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1689",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882054,
+              "lat": 44.339608,
+              "lon": 23.780611,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Piersicului, bl. 67A1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1607",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882072,
+              "lat": 44.341389,
+              "lon": 23.774444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl. 131B, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1720",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882080,
+              "lat": 44.312222,
+              "lon": 23.785833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Stirbei Vodă, bl. A4, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1638",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882099,
+              "lat": 44.340101,
+              "lon": 23.771998,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gorunului, Bl.141B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1755",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882108,
+              "lat": 44.322739,
+              "lon": 23.819454,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, bl. B24, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1681",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882169,
+              "lat": 44.323097,
+              "lon": 23.819616,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Iorga, Bl. A17, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1707",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882195,
+              "lat": 44.335467,
+              "lon": 23.770717,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T2, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1738",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882203,
+              "lat": 44.335073,
+              "lon": 23.780136,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Enescu, bl.33A, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1600",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882204,
+              "lat": 44.346333,
+              "lon": 24.114806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl.ANL, sc.B, Balş, OT",
+                "military": "bunker",
+                "ref": "2614",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882221,
+              "lat": 44.339167,
+              "lon": 23.7725,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gorunului, Bl.145B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1765",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882229,
+              "lat": 44.317418,
+              "lon": 23.818754,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stefan Velovan, bl.B. sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1635",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882256,
+              "lat": 44.321114,
+              "lon": 23.827071,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dezrobirii, bl. H29, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1666",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882298,
+              "lat": 44.293889,
+              "lon": 23.849722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Henry Ford, nr.29, S.C.FORD ROMÂNIA S.A., pavilion Feraj 1 Est, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1583",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882316,
+              "lat": 44.322102,
+              "lon": 23.826928,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Breazul, bl. H15, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1684",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882324,
+              "lat": 44.319082,
+              "lon": 23.816956,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Fotino, nr.8, bl.B12, sc.3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1618",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882342,
+              "lat": 44.339923,
+              "lon": 23.772173,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl. 142B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1719",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882350,
+              "lat": 44.334731,
+              "lon": 23.785282,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Constantin Brancoveanu, bl. 54A, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1645",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882369,
+              "lat": 44.340938,
+              "lon": 23.778319,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Traian Gheorghiu, Bl.112B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1750",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882378,
+              "lat": 44.320507,
+              "lon": 23.820057,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Desnatui, Bl. A14, sc. 2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1676",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882439,
+              "lat": 44.322619,
+              "lon": 23.819884,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B26, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1702",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882465,
+              "lat": 44.335278,
+              "lon": 23.769444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Prelungirea Severinului, Bl. 405B, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1745",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882473,
+              "lat": 44.334722,
+              "lon": 23.779722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. George Enescu, bl 37 A, Sc 2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1599",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882499,
+              "lat": 44.327914,
+              "lon": 23.806207,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.24, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1630",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882527,
+              "lat": 44.32335,
+              "lon": 23.824565,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihail Birca, bl. F14, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1673",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882604,
+              "lat": 44.322703,
+              "lon": 23.818884,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Milcov, Bl. B22, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1699",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882630,
+              "lat": 44.334444,
+              "lon": 23.774167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aristizza Romanescu, Bl. A3, sc.2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1730",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882638,
+              "lat": 44.309722,
+              "lon": 23.835139,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Decebal, nr.107, centrul cercetare INCESA, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1592",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882657,
+              "lat": 44.341891,
+              "lon": 23.7754,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Elena Farago, Bl.129B, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1757",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882665,
+              "lat": 44.330242,
+              "lon": 23.799568,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gen. Nicolae Magereanu, bl. P3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1627",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882692,
+              "lat": 44.321344,
+              "lon": 23.821241,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Nicolae Iorga, Bl. A47, sc.1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1658",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882726,
+              "lat": 44.322465,
+              "lon": 23.827018,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. D. Stoica, bl. H21, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1709",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882734,
+              "lat": 44.305278,
+              "lon": 23.837778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tehnicii,nr.1, S.C. POPECI UTILAJ GREU S.A., pavilion D2, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1575",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882752,
+              "lat": 44.335262,
+              "lon": 23.770738,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Oltenia, Bl. T2, sc.3, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1740",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882760,
+              "lat": 44.335407,
+              "lon": 23.786434,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Constantin Brâncoveanu, bl. 60A, sc1, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1610",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882786,
+              "lat": 44.329562,
+              "lon": 23.806158,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lamaitei, bl.31, CRAIOVA, DJ",
+                "military": "bunker",
+                "ref": "1637",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 86845970,
+              "center": {
+                "lat": 44.3466438,
+                "lon": 23.7776796
+              },
+              "tags": {
+                "CLC:code": "231",
+                "CLC:explanation": "See http://wiki.openstreetmap.org/wiki/Romania_CLC_Import.",
+                "CLC:shapeId": "117147",
+                "CLC:year": "2006",
+                "landuse": "military",
+                "military": "range",
+                "name": "Baza de Instrucție Obedeanu",
+                "source": "European Environment Agency (EEA), CORINE Land Cover, 2006",
+                "source:ro": "Agenţia Europeană de Mediu, CORINE Land Cover, 2006"
+              }
+            },
+            {
+              "type": "way",
+              "id": 292800868,
+              "center": {
+                "lat": 44.3293741,
+                "lon": 23.7952313
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "concrete",
+                "landuse": "military",
+                "name": "Brigada 2 Infanterie „Rovine”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 347583003,
+              "center": {
+                "lat": 44.3221122,
+                "lon": 23.813784
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Batalionul Instrucție, Comunicații și Informatică „Frații Buzești”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 347829228,
+              "center": {
+                "lat": 44.2793678,
+                "lon": 23.8111555
+              },
+              "tags": {
+                "addr:city": "Craiova",
+                "addr:housenumber": "221A",
+                "addr:street": "Bulevardul Nicolae Romanescu",
+                "landuse": "military",
+                "name": "Unitatea Militară Făcăi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 347830450,
+              "center": {
+                "lat": 44.3011583,
+                "lon": 23.8153105
+              },
+              "tags": {
+                "addr:city": "Craiova",
+                "addr:country": "RO",
+                "addr:housenumber": "148",
+                "addr:postcode": "200746",
+                "addr:street": "Strada Caracal",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Unitatea Militară 01178"
+              }
+            },
+            {
+              "type": "way",
+              "id": 477075789,
+              "center": {
+                "lat": 44.3030177,
+                "lon": 23.8230027
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Batalionul 26 Infanterie Neagoe Basarab"
+              }
+            },
+            {
+              "type": "way",
+              "id": 681740588,
+              "center": {
+                "lat": 44.2954267,
+                "lon": 23.8191029
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area",
+                "name": "Baza de Antrenament Valea Fetii"
+              }
+            },
+            {
+              "type": "way",
+              "id": 681740589,
+              "center": {
+                "lat": 44.2797311,
+                "lon": 23.8266506
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 686186530,
+              "center": {
+                "lat": 44.3370014,
+                "lon": 23.7889008
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "UM01136"
+              }
+            },
+            {
+              "type": "way",
+              "id": 692191659,
+              "center": {
+                "lat": 44.2798829,
+                "lon": 23.7898871
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 739487836,
+              "center": {
+                "lat": 44.2768482,
+                "lon": 23.7829615
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Poligonul Balta Verde",
+                "source": "forfer.ro"
+              }
+            },
+            {
+              "type": "way",
+              "id": 758695608,
+              "center": {
+                "lat": 44.3446524,
+                "lon": 23.7908305
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Poligonul Craiovița"
+              }
+            },
+            {
+              "type": "way",
+              "id": 758697476,
+              "center": {
+                "lat": 44.3237668,
+                "lon": 23.7270831
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Poligonul Cernele"
+              }
+            },
+            {
+              "type": "way",
+              "id": 810530793,
+              "center": {
+                "lat": 44.3064969,
+                "lon": 23.8095212
+              },
+              "tags": {
+                "addr:city": "Craiova",
+                "addr:housenumber": "98",
+                "addr:street": "Strada Anul 1848",
+                "landuse": "military",
+                "name": "Centrul de Domenii și Infrastructuri Nr.2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 960390525,
+              "center": {
+                "lat": 44.3092151,
+                "lon": 23.8090588
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099743000,
+              "center": {
+                "lat": 44.2784303,
+                "lon": 23.9147338
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099743001,
+              "center": {
+                "lat": 44.2822838,
+                "lon": 23.9161426
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1162542118,
+              "center": {
+                "lat": 44.351522,
+                "lon": 23.7636162
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

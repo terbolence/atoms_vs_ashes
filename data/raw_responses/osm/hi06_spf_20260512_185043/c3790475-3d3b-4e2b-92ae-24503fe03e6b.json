@@ -1,0 +1,393 @@
+{
+  "meta": {
+    "site_id": "c3790475-3d3b-4e2b-92ae-24503fe03e6b",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:43:51.932368+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.677808,22.685995);\n  way[\"military\"](around:25000,44.677808,22.685995);\n  relation[\"military\"](around:25000,44.677808,22.685995);\n  node[\"landuse\"=\"military\"](around:25000,44.677808,22.685995);\n  way[\"landuse\"=\"military\"](around:25000,44.677808,22.685995);\n  relation[\"landuse\"=\"military\"](around:25000,44.677808,22.685995);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.677808,22.685995);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.677808,22.685995);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.677808,22.685995);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.677808,22.685995);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.677808,22.685995);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.677808,22.685995);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1089,
+        "element_count": 27,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:42:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178870078,
+              "lat": 44.631663,
+              "lon": 22.671207,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. A5, Bl. A6 sc.1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2410",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878380,
+              "lat": 44.622214,
+              "lon": 22.644318,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Gara CFR, B-dul Dunării nr.2, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2414",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878475,
+              "lat": 44.633185,
+              "lon": 22.678242,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul Mihai Viteazu, nr.1A, Bl D01, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2401",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878650,
+              "lat": 44.623886,
+              "lon": 22.640339,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Insp. Teritorial de Muncă, B-dul Carol I nr. 3, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2413",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878797,
+              "lat": 44.629751,
+              "lon": 22.641317,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. 4 Bl. B2 sc. 1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2406",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878920,
+              "lat": 44.725223,
+              "lon": 22.398683,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Administraţia Finanţelor Publice, str. 1 Decembrie nr.16 B, Orșova, Orșova, MH",
+                "military": "bunker",
+                "ref": "2424",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879069,
+              "lat": 44.629653,
+              "lon": 22.64112,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. 2 Bl. B1 sc. 1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2405",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879410,
+              "lat": 44.623384,
+              "lon": 22.631655,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Astra Rails Industries SA, B-dul Dunării nr. 3, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2416",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879680,
+              "lat": 44.723998,
+              "lon": 22.396848,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Fostul sediu B.C.R. - Filiala Orşova, str. Porțile de Fier nr. 3 A, Orșova, MH",
+                "military": "bunker",
+                "ref": "2423",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879828,
+              "lat": 44.631944,
+              "lon": 22.671111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. 221, Bl. A4 sc.1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2408",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879950,
+              "lat": 44.619722,
+              "lon": 22.633889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Eurotyres Manufacturing SA, B-dul Porțile de Fier, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2418",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880099,
+              "lat": 44.627222,
+              "lon": 22.651667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "DirecţiaGenerală a Finanţelor Publice Mehedinți, Piața Radu Negru Vodă nr. 1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2415",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880725,
+              "lat": 44.62977,
+              "lon": 22.641589,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. 6 Bl. B3 sc. 1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2407",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880996,
+              "lat": 44.63345,
+              "lon": 22.677895,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul Mihai Viteazu, nr. 1B, Bl D02, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2402",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881118,
+              "lat": 44.628333,
+              "lon": 22.653056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Magazinul ”Decebal”, Str. Horia, nr.12, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2420",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881267,
+              "lat": 44.623422,
+              "lon": 22.63614,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Astra Rails Industries SA, B-dul Dunării nr. 3, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2417",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881537,
+              "lat": 44.629203,
+              "lon": 22.64037,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Aluniș nr.1 bl. C4, sc 1., Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2412",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881658,
+              "lat": 44.63189,
+              "lon": 22.671367,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Brâncoveanu, nr. 221, Bl. Bl. A5 sc.1, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2409",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881781,
+              "lat": 44.625026,
+              "lon": 22.654583,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Oficiul Poștal nr. 1, str. Decebal nr.41, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2419",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881930,
+              "lat": 44.632829,
+              "lon": 22.678653,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul Mihai Viteazu,nr. 1D, Bl D04, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2404",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882200,
+              "lat": 44.629035,
+              "lon": 22.640303,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Aluniș nr.1 bl. C3, sc 1., Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2411",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882470,
+              "lat": 44.643548,
+              "lon": 22.652478,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Spitalul Judeţean, Splai Mihai Viteazul nr. 5, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2422",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882635,
+              "lat": 44.633762,
+              "lon": 22.677485,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul Mihai Viteazu, nr. 1C, Bl D03, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2403",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882757,
+              "lat": 44.631944,
+              "lon": 22.655833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Hotel Traian, B-dul Tudor Vladimirescu nr. 74, Dr. Tr. Severin, MH",
+                "military": "bunker",
+                "ref": "2421",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 288662412,
+              "center": {
+                "lat": 44.6235247,
+                "lon": 22.6477667
+              },
+              "tags": {
+                "access": "private",
+                "alt_name": "Biroul Informare Recrutare",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Centrul Militar Județean Mehedinți"
+              }
+            },
+            {
+              "type": "way",
+              "id": 300843965,
+              "center": {
+                "lat": 44.6553225,
+                "lon": 22.5396055
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1186857164,
+              "center": {
+                "lat": 44.6293098,
+                "lon": 22.6362303
+              },
+              "tags": {
+                "access": "private",
+                "addr:city": "Drobeta-Turnu Severin",
+                "addr:housenumber": "3-5",
+                "addr:postcode": "220006",
+                "addr:street": "Strada Serpentina Roșiori",
+                "email": "ijpf.mehedinti@mai.gov.ro",
+                "fax": "+40 255 571 619",
+                "landuse": "military",
+                "military": "base",
+                "military_service": "border_police",
+                "name": "Serviciul Teritorial al Poliției de Frontieră Mehedinți",
+                "operator": "Ministerul Afacerilor Interne",
+                "phone": "+40 255 571 825"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

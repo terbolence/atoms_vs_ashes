@@ -37,9 +37,12 @@ def test_smr_scoring_bundles_use_threshold_adjusted_nh02_bands():
 
 
 def test_avoidance_and_ranking_recipes_emit_concrete_adjusted_bands():
+    # SP-F: BF-01 demoted from scored ranking criterion (no longer recipe-tunable);
+    # BF-02 switched to explicit per-module ``required_area_ha`` / ``ideal_area_ha``
+    # bands (no longer a recipe pivot). The remaining recipe criteria still rebuild
+    # bands from threshold overrides via ``compile_bundle``.
     bundle = load_template_bundle(str(SPEC_DIR))
     overrides = {
-        "BF-01": {"B1": 600.0}, "BF-02": {"B2": 20.0},
         "HI-02": {"A7": 6.0}, "HI-03": {"A8": 12.0},
         "HI-06": {"A5": 40.0}, "NH-05": {"E6": 3.0},
         "NH-01": {"A10": 0.6}, "NH-08": {"A9": 12.0}, "NH-09": {"A11": 6.0},
@@ -47,8 +50,6 @@ def test_avoidance_and_ranking_recipes_emit_concrete_adjusted_bands():
     }
     compiled = compile_bundle(bundle, fail_thresholds=overrides).criteria
     expected_score5 = {
-        "BF-01": "grid_export_capacity_mw >= 600.0",
-        "BF-02": "largest_contiguous_ha >= 20.0",
         "HI-02": "nearest_seveso_km >= 6.0",
         "HI-03": "nearest_toxic_source_km >= 12.0",
         "HI-06": "nearest_military_km >= 40.0",

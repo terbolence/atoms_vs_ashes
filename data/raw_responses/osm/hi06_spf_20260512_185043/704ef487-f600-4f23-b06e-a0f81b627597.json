@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "site_id": "704ef487-f600-4f23-b06e-a0f81b627597",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:56:17.829852+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,43.866654,26.010002);\n  way[\"military\"](around:25000,43.866654,26.010002);\n  relation[\"military\"](around:25000,43.866654,26.010002);\n  node[\"landuse\"=\"military\"](around:25000,43.866654,26.010002);\n  way[\"landuse\"=\"military\"](around:25000,43.866654,26.010002);\n  relation[\"landuse\"=\"military\"](around:25000,43.866654,26.010002);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.866654,26.010002);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.866654,26.010002);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.866654,26.010002);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.866654,26.010002);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.866654,26.010002);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.866654,26.010002);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4272,
+        "element_count": 35,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:54:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178863836,
+              "lat": 43.891361,
+              "lon": 25.966944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 32 (Piaţa Unirii)Sc. A,Bstr. Nicolae Bălcescu, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1965",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878431,
+              "lat": 43.895913,
+              "lon": 25.963343,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Inspectoratul Şcolar Judeţean Str. dr. Ion Munteanu, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1982",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878526,
+              "lat": 43.9085,
+              "lon": 25.972111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B 1 (turn)Str. Tineretului, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1969",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878580,
+              "lat": 43.889829,
+              "lon": 25.966857,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Grădiniţa cu program prelungit Str. Nicolae Bălănescu, nr. 4, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1979",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878675,
+              "lat": 43.894334,
+              "lon": 25.954388,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. A 3 (Policlinică)Str. Alexandriei, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1962",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878850,
+              "lat": 43.881021,
+              "lon": 25.971671,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Oma România SRLStr. Portului, nr. 1, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1974",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878945,
+              "lat": 43.90212,
+              "lon": 25.959456,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B 03 (Obor)Str. Pictor Andreescu, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1961",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879216,
+              "lat": 43.881566,
+              "lon": 25.972429,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Administraţia Zonei Libere Giurgiu S.A.Str. Portului, nr. 1, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1972",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879610,
+              "lat": 43.883745,
+              "lon": 25.932386,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "S.C. Label Print SRLStr. Sloboziei, km 4, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1981",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879880,
+              "lat": 43.896404,
+              "lon": 25.962809,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Parchetul de pe langă Tribunalul GiurgiuBld. Bucureşti, nr. 57, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1976",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879975,
+              "lat": 43.904016,
+              "lon": 25.989919,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Vama Giurgiu Str. Prieteniei, nr. 1, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1971",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880124,
+              "lat": 43.905354,
+              "lon": 25.981618,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 310 (turn vamă), Sc. A, Str. 1 Decembrie 1918, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1956",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880150,
+              "lat": 43.908103,
+              "lon": 25.986135,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Complex Sunny Vama Giurgiu, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1983",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880245,
+              "lat": 43.890917,
+              "lon": 25.967417,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 48 (Piaţa Unirii) Sc. A,Bstr. Nicolae Bălcescu, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1966",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880873,
+              "lat": 43.908043,
+              "lon": 25.975627,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 206 , Sc. A,B,C,DStr. Tineretului, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1958",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881022,
+              "lat": 43.911167,
+              "lon": 25.972056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B1/1S Sc. D, Bld. Bucureşti, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1955",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881143,
+              "lat": 43.908611,
+              "lon": 25.980556,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC New Sal SRLstr.Prieteniei, nr. 3, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1973",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881413,
+              "lat": 43.889594,
+              "lon": 25.966242,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 32 (Mobilă), Sc. A,BStr. Portului, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1968",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881467,
+              "lat": 43.889278,
+              "lon": 25.967528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Tribunalul GiurgiuStr. Episcopiei, nr. 13, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1978",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881711,
+              "lat": 43.89511,
+              "lon": 25.967408,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Consiliul Judeţean Bld. Bucureşti, nr. 10, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1977",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881806,
+              "lat": 43.904732,
+              "lon": 25.969569,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 40/853, Sc. B,C,D,E Str. Daciei, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1960",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881955,
+              "lat": 43.904804,
+              "lon": 25.981699,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 312 (turn vamă), Sc. A, Str. 1 Decembrie 1918, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1957",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882076,
+              "lat": 43.890287,
+              "lon": 25.966035,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 64 Sc. A,B,C,Dstr. Mircea cel Bătrân, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1967",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882400,
+              "lat": 43.9238313,
+              "lon": 25.9648514,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Staţia CF Giurgiu NordStr. Gloriei, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1980",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882495,
+              "lat": 43.907803,
+              "lon": 25.972676,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. C40, Sc. A,B, Str. Tineretului, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1959",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882782,
+              "lat": 43.908139,
+              "lon": 25.972194,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B 2 (turn)Str. Tineretului, Giurgiu, GR",
+                "military": "bunker",
+                "ref": "1970",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 252741575,
+              "center": {
+                "lat": 43.8502345,
+                "lon": 25.9700126
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военно поделение Русе",
+                "name:ro": "Baza militară Ruse"
+              }
+            },
+            {
+              "type": "way",
+              "id": 308662051,
+              "center": {
+                "lat": 43.6872422,
+                "lon": 26.0522225
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 311814820,
+              "center": {
+                "lat": 43.8971669,
+                "lon": 25.9656955
+              },
+              "tags": {
+                "addr:city": "Giurgiu",
+                "addr:housenumber": "53-57",
+                "addr:postcode": "080302",
+                "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+                "addr:street": "Bulevardul București",
+                "landuse": "military",
+                "name": "Jandarmeria Giurgiu",
+                "phone": "+40 246 219 631",
+                "website": "http://www.jandarmeriagiurgiu.ro"
+              }
+            },
+            {
+              "type": "way",
+              "id": 318199408,
+              "center": {
+                "lat": 43.8478251,
+                "lon": 25.947407
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office",
+                "name": "Военно окръжие"
+              }
+            },
+            {
+              "type": "way",
+              "id": 337042753,
+              "center": {
+                "lat": 43.8661997,
+                "lon": 26.0798563
+              },
+              "tags": {
+                "landuse": "military",
+                "natural": "wood"
+              }
+            },
+            {
+              "type": "way",
+              "id": 337043537,
+              "center": {
+                "lat": 43.7857712,
+                "lon": 25.9069133
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 337166332,
+              "center": {
+                "lat": 43.8635586,
+                "lon": 26.0798563
+              },
+              "tags": {
+                "landcover": "trees",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 500072272,
+              "center": {
+                "lat": 43.681043,
+                "lon": 26.0555165
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 500072273,
+              "center": {
+                "lat": 43.6775212,
+                "lon": 26.0659665
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

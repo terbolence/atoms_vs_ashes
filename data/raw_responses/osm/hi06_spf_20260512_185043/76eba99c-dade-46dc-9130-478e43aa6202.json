@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "site_id": "76eba99c-dade-46dc-9130-478e43aa6202",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:31:33.177427+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.69312,21.056002);\n  way[\"military\"](around:25000,42.69312,21.056002);\n  relation[\"military\"](around:25000,42.69312,21.056002);\n  node[\"landuse\"=\"military\"](around:25000,42.69312,21.056002);\n  way[\"landuse\"=\"military\"](around:25000,42.69312,21.056002);\n  relation[\"landuse\"=\"military\"](around:25000,42.69312,21.056002);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.69312,21.056002);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.69312,21.056002);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.69312,21.056002);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.69312,21.056002);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.69312,21.056002);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.69312,21.056002);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1091,
+        "element_count": 16,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:30:14Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4074640254,
+              "lat": 42.6696025,
+              "lon": 21.2231763,
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "LANDMINE SIGN"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12791852692,
+              "lat": 42.6508318,
+              "lon": 21.138091,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 45474714,
+              "center": {
+                "lat": 42.5694221,
+                "lon": 20.9763658
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Baza e Goleshit",
+                "name:sq": "Baza e Goleshit",
+                "name:sr": "Војна база"
+              }
+            },
+            {
+              "type": "way",
+              "id": 57362864,
+              "center": {
+                "lat": 42.6644773,
+                "lon": 21.1452879
+              },
+              "tags": {
+                "alt_name": "KFOR HQ",
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Baza e KFOR-it / Film City",
+                "name:sq": "Baza e KFOR-it",
+                "name:sr": "Војна база КФОР-а"
+              }
+            },
+            {
+              "type": "way",
+              "id": 113576316,
+              "center": {
+                "lat": 42.6537644,
+                "lon": 21.1385932
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kazerma e FSK-së \"Adem Jashari\"",
+                "name:de": "Kaserne der Armee des Kosovo (FSK) \"Adem Jashari\"",
+                "name:en": "KSF Barracks \"Adem Jashari\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 193018258,
+              "center": {
+                "lat": 42.5716149,
+                "lon": 21.006312
+              },
+              "tags": {
+                "alt_name:de": "Flughafen Sllatina",
+                "alt_name:en": "Slatina Air Base",
+                "alt_name:sq": "Aeroporti i Sllatinës",
+                "alt_name:sr": "Аеродром Слатина",
+                "alt_name:sr-Latn": "Aerodrom Slatina",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Baza e Njësive Speciale"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243270897,
+              "center": {
+                "lat": 42.7848571,
+                "lon": 21.0332245
+              },
+              "tags": {
+                "addr:city": "Maxhunaj",
+                "addr:housenumber": "2",
+                "addr:postcode": "42000",
+                "addr:street": "Met Istrefi",
+                "alt_name": "Camp Novo Selo",
+                "area": "yes",
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "KFOR Camp Maxhunaj"
+              }
+            },
+            {
+              "type": "way",
+              "id": 256573429,
+              "center": {
+                "lat": 42.8812748,
+                "lon": 20.9070707
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Poligoni i Shenjëtarisë Crnusha (AKSP)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 292203316,
+              "center": {
+                "lat": 42.5617587,
+                "lon": 21.0323157
+              },
+              "tags": {
+                "access": "private",
+                "aeroway": "terminal",
+                "building": "yes",
+                "building:levels": "1",
+                "height": "4",
+                "military": "yes",
+                "name": "Terminali Ushtarak",
+                "name:ar": "المحطة العسكرية",
+                "name:bg": "Военен терминал",
+                "name:bn": "সামরিক টার্মিনাল",
+                "name:bs": "Vojni terminal",
+                "name:cnr": "Vojni terminal",
+                "name:cs": "Vojenský terminál",
+                "name:da": "Militær terminal",
+                "name:de": "Militärterminal",
+                "name:el": "Στρατιωτικός τερματικός σταθμός",
+                "name:en": "Military Terminal",
+                "name:es": "Terminal militar",
+                "name:et": "Sõjaväeterminal",
+                "name:fa": "ترمینال نظامی",
+                "name:fi": "Sotilasterminaali",
+                "name:fr": "Terminal militaire",
+                "name:he": "טרמינל צבאי",
+                "name:hi": "सैन्य टर्मिनल",
+                "name:hr": "Vojni terminal",
+                "name:hu": "Katonai terminál",
+                "name:id": "Terminal militer",
+                "name:it": "Terminal militare",
+                "name:ja": "軍用ターミナル",
+                "name:ko": "군사 터미널",
+                "name:lt": "Karinis terminalas",
+                "name:lv": "Militārais termināls",
+                "name:mk": "Воен терминал",
+                "name:ms": "Terminal tentera",
+                "name:nb": "Militærterminal",
+                "name:nl": "Militaire terminal",
+                "name:pl": "Terminal wojskowy",
+                "name:pt": "Terminal militar",
+                "name:ro": "Terminal militar",
+                "name:ru": "Военный терминал",
+                "name:sk": "Vojenský terminál",
+                "name:sl": "Vojaški terminal",
+                "name:sq": "Terminali Ushtarak",
+                "name:sr": "Војни терминал",
+                "name:sr-Latn": "Vojni terminal",
+                "name:sv": "Militär terminal",
+                "name:sw": "Kituo cha kijeshi",
+                "name:ta": "மிலிட்டரி முனையம்",
+                "name:th": "อาคารทหาร",
+                "name:tr": "Askeri Terminal",
+                "name:uk": "Військовий термінал",
+                "name:ur": "فوجی ٹرمینل",
+                "name:vi": "Nhà ga quân sự",
+                "name:zh": "军事航站楼",
+                "operator": "KFOR",
+                "operator:wikidata": "Q159470",
+                "source:height": "estimated"
+              }
+            },
+            {
+              "type": "way",
+              "id": 387000047,
+              "center": {
+                "lat": 42.6461939,
+                "lon": 21.1265159
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "EULEX"
+              }
+            },
+            {
+              "type": "way",
+              "id": 387202824,
+              "center": {
+                "lat": 42.6499659,
+                "lon": 21.1177298
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "MSU Carabinieri"
+              }
+            },
+            {
+              "type": "way",
+              "id": 451449185,
+              "center": {
+                "lat": 42.8673823,
+                "lon": 20.8767087
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kampi i Policisë \"Enver Zymberi\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 457217987,
+              "center": {
+                "lat": 42.5677569,
+                "lon": 20.9874353
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 458506895,
+              "center": {
+                "lat": 42.841764,
+                "lon": 21.219832
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "disused": "yes",
+                "disused:aeroway": "yes",
+                "icao": "LYPT",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Dumosh-Batllava Airfield",
+                "name:en": "Dumosh-Batllava Airfield",
+                "name:sq": "Ish Aeroporti i Batllavës",
+                "name:sr": "Аеродром",
+                "wikidata": "Q915348",
+                "wikipedia": "en:Batlava-Donja Penduha Airfield"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1321656016,
+              "center": {
+                "lat": 42.5646769,
+                "lon": 21.0239042
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "military_service": "air_force",
+                "name": "KFOR APOD SLATINA"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 14552286,
+              "center": {
+                "lat": 42.6162647,
+                "lon": 21.0283093
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kazerma e FSK-së \"Evropianet e Rinj\"",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

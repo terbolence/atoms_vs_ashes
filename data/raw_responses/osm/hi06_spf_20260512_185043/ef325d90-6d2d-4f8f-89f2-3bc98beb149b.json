@@ -1,0 +1,4497 @@
+{
+  "meta": {
+    "site_id": "ef325d90-6d2d-4f8f-89f2-3bc98beb149b",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:12:01.561482+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.0956,17.558444);\n  way[\"military\"](around:25000,47.0956,17.558444);\n  relation[\"military\"](around:25000,47.0956,17.558444);\n  node[\"landuse\"=\"military\"](around:25000,47.0956,17.558444);\n  way[\"landuse\"=\"military\"](around:25000,47.0956,17.558444);\n  relation[\"landuse\"=\"military\"](around:25000,47.0956,17.558444);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.0956,17.558444);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.0956,17.558444);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.0956,17.558444);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.0956,17.558444);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.0956,17.558444);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.0956,17.558444);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1076,
+        "element_count": 354,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:11:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3458272491,
+              "lat": 47.277037,
+              "lon": 17.557477,
+              "tags": {
+                "military": "bunker",
+                "source": "turistautak.hu",
+                "source:date": "2013-04-21",
+                "url": "http://turistautak.hu/poi.php?id=135002"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3709716313,
+              "lat": 47.1877051,
+              "lon": 17.7407209,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8986945035,
+              "lat": 47.2518251,
+              "lon": 17.4684176,
+              "tags": {
+                "military": "radar"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8986945039,
+              "lat": 47.2521608,
+              "lon": 17.4705154,
+              "tags": {
+                "military": "radar"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8986945174,
+              "lat": 47.2533749,
+              "lon": 17.4700477,
+              "tags": {
+                "military": "radar"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8986945259,
+              "lat": 47.2538252,
+              "lon": 17.4680924,
+              "tags": {
+                "military": "radar"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12165822542,
+              "lat": 47.038325,
+              "lon": 17.7235959,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12165967444,
+              "lat": 47.0048333,
+              "lon": 17.7452667,
+              "tags": {
+                "description": "A szovjet Déli-hadseregcsoport egykori vegyivédelmi tábora, és egy szovjet katonai bázis.",
+                "ele": "210",
+                "military": "barracks",
+                "name": "Vegyvédelmi tábor (rom)",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12365365829,
+              "lat": 47.1881503,
+              "lon": 17.7395403,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12705166969,
+              "lat": 47.2551018,
+              "lon": 17.4680337,
+              "tags": {
+                "military": "radar"
+              }
+            },
+            {
+              "type": "way",
+              "id": 233220693,
+              "center": {
+                "lat": 47.0455436,
+                "lon": 17.722132
+              },
+              "tags": {
+                "addr:city": "Nagyvázsony",
+                "alt_name": "Kis-Moszkva;Titkos város",
+                "description": "Őrzött katonai terület, belépni tilos. Egykori szovjet laktanya, föld alatti atombomba tárolókkal.",
+                "end_date": "1990-03-28",
+                "landuse": "military",
+                "military": "base",
+                "name": "„Kis-Moszkva”",
+                "start_date": "1968",
+                "url": "http://szellemvarosok.blog.hu/2014/09/19/ahol_a_szovjetek_az_atomot_taroltak_724",
+                "website": "https://kameraaltal.blog.hu/2012/10/15/kis-moszkva-totvazsony",
+                "wikidata": "Q65217309",
+                "wikipedia": "hu:Kis-Moszkva"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234856018,
+              "center": {
+                "lat": 46.9929365,
+                "lon": 17.4808988
+              },
+              "tags": {
+                "contact:fax": "+36 88 549 583",
+                "contact:phone": "+36 88 549 500",
+                "landuse": "military",
+                "military": "range",
+                "name": "Újdörögdi Romváros Kiképzőbázis",
+                "operator": "Magyar Honvédség Böszörményi Géza Csapatgyakorlótér Parancsnokság, 8100 Várpalota, Árpád utca 1.",
+                "url": "https://kameraaltal.blog.hu/2015/05/30/jackal_cave",
+                "website": "https://honvedelem.hu/alakulat/magyar-honvedseg-boszormenyi-geza-csapatgyakorloter-parancsnoksag.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 299842797,
+              "center": {
+                "lat": 47.2602433,
+                "lon": 17.4057885
+              },
+              "tags": {
+                "military": "airfield",
+                "name": "Dáka RC repülőtér",
+                "name:en": "Dáka RC Airfield",
+                "note": "Small Private Airfield for Remote Control Plane operations and paragliding."
+              }
+            },
+            {
+              "type": "way",
+              "id": 303489660,
+              "center": {
+                "lat": 47.0458202,
+                "lon": 17.7219946
+              },
+              "tags": {
+                "abandoned:building": "yes",
+                "building": "garages",
+                "building:levels": "1",
+                "height": "6",
+                "military": "barracks",
+                "name": "Gépkocsitároló telephely (10)",
+                "name:ru": "бокс",
+                "operator": "military",
+                "ref": "10",
+                "start_date": "1968",
+                "url": "http://szellemvarosok.blog.hu/2015/04/20/az_ujmajori_szovjet_laktanya#more7383778"
+              }
+            },
+            {
+              "type": "way",
+              "id": 413720686,
+              "center": {
+                "lat": 47.2762044,
+                "lon": 17.5576722
+              },
+              "tags": {
+                "description": "Elhagyatott orosz bázis üresen álló épületei és földalatti bunker rendszere.",
+                "landuse": "military",
+                "name": "Farkasodú"
+              }
+            },
+            {
+              "type": "way",
+              "id": 431576812,
+              "center": {
+                "lat": 47.2475887,
+                "lon": 17.5279982
+              },
+              "tags": {
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 487686974,
+              "center": {
+                "lat": 47.0399548,
+                "lon": 17.7271649
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "name": "\"Vadászház\"",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 541940666,
+              "center": {
+                "lat": 46.9343061,
+                "lon": 17.4534797
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 841730843,
+              "center": {
+                "lat": 47.1457304,
+                "lon": 17.8478211
+              },
+              "tags": {
+                "grassland": "puszta",
+                "landuse": "military",
+                "loc_name": "Veszprém-Újmajor,\"O\" ponti lőtér",
+                "military": "range",
+                "name": "Márkói Gyakorlótér",
+                "natural": "grassland",
+                "operator": "MH Bakony Harckiképző Központ",
+                "url": "https://kameraaltal.blog.hu/2012/04/20/bakony-veszprem-ujmajor-loter",
+                "website": "https://honvedelem.hu/hirek/mh-bakony-harckikepzo-kozpont.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 841735924,
+              "center": {
+                "lat": 47.1468574,
+                "lon": 17.904641
+              },
+              "tags": {
+                "grassland": "puszta",
+                "landuse": "military",
+                "loc_name": "Veszprém-Újmajor,\"O\" ponti lőtér",
+                "military": "range",
+                "name": "Jutaspuszta-Gyulafirátót Gyakorlótér",
+                "natural": "grassland",
+                "operator": "MH Bakony Harckiképző Központ",
+                "url": "https://kameraaltal.blog.hu/2012/04/20/bakony-veszprem-ujmajor-loter",
+                "website": "https://honvedelem.hu/hirek/mh-bakony-harckikepzo-kozpont.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 893454859,
+              "center": {
+                "lat": 46.9951023,
+                "lon": 17.4811826
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 895825297,
+              "center": {
+                "lat": 46.94115,
+                "lon": 17.4618709
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 895825298,
+              "center": {
+                "lat": 46.9376956,
+                "lon": 17.4474005
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000057228,
+              "center": {
+                "lat": 47.0493043,
+                "lon": 17.7201694
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059056,
+              "center": {
+                "lat": 47.0428252,
+                "lon": 17.7232379
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059069,
+              "center": {
+                "lat": 47.0466223,
+                "lon": 17.7186553
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059070,
+              "center": {
+                "lat": 47.0480515,
+                "lon": 17.7211679
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059071,
+              "center": {
+                "lat": 47.0464304,
+                "lon": 17.7217573
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059073,
+              "center": {
+                "lat": 47.0460859,
+                "lon": 17.7189786
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059074,
+              "center": {
+                "lat": 47.0461078,
+                "lon": 17.7199817
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059075,
+              "center": {
+                "lat": 47.0490395,
+                "lon": 17.7179822
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000059076,
+              "center": {
+                "lat": 47.0492687,
+                "lon": 17.7190442
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038657,
+              "center": {
+                "lat": 47.1378242,
+                "lon": 17.8497791
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038658,
+              "center": {
+                "lat": 47.1373407,
+                "lon": 17.8422126
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038659,
+              "center": {
+                "lat": 47.1369575,
+                "lon": 17.8328598
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038660,
+              "center": {
+                "lat": 47.137078,
+                "lon": 17.8359979
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038676,
+              "center": {
+                "lat": 47.1477976,
+                "lon": 17.8449176
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038677,
+              "center": {
+                "lat": 47.1468682,
+                "lon": 17.8413677
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038678,
+              "center": {
+                "lat": 47.1462347,
+                "lon": 17.8419471
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038679,
+              "center": {
+                "lat": 47.1457466,
+                "lon": 17.8425265
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038680,
+              "center": {
+                "lat": 47.1454963,
+                "lon": 17.8428268
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038681,
+              "center": {
+                "lat": 47.1451402,
+                "lon": 17.8430112
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038682,
+              "center": {
+                "lat": 47.1442964,
+                "lon": 17.8436134
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038683,
+              "center": {
+                "lat": 47.1443265,
+                "lon": 17.8434169
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038686,
+              "center": {
+                "lat": 47.1447511,
+                "lon": 17.8434511
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038694,
+              "center": {
+                "lat": 47.149853,
+                "lon": 17.8450786
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038695,
+              "center": {
+                "lat": 47.1494079,
+                "lon": 17.8451691
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038696,
+              "center": {
+                "lat": 47.1488834,
+                "lon": 17.8447808
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038697,
+              "center": {
+                "lat": 47.1488565,
+                "lon": 17.8447345
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038698,
+              "center": {
+                "lat": 47.1475335,
+                "lon": 17.8410338
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038699,
+              "center": {
+                "lat": 47.1478518,
+                "lon": 17.8408307
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038700,
+              "center": {
+                "lat": 47.1481227,
+                "lon": 17.8408011
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038701,
+              "center": {
+                "lat": 47.1496482,
+                "lon": 17.8440895
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038702,
+              "center": {
+                "lat": 47.1494407,
+                "lon": 17.844064
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038703,
+              "center": {
+                "lat": 47.1494972,
+                "lon": 17.8439802
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038704,
+              "center": {
+                "lat": 47.1491401,
+                "lon": 17.8433794
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038705,
+              "center": {
+                "lat": 47.1484119,
+                "lon": 17.8429992
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038706,
+              "center": {
+                "lat": 47.1474916,
+                "lon": 17.8423883
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038707,
+              "center": {
+                "lat": 47.1470999,
+                "lon": 17.8415414
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038708,
+              "center": {
+                "lat": 47.1465818,
+                "lon": 17.8420202
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038710,
+              "center": {
+                "lat": 47.1415626,
+                "lon": 17.8474094
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038711,
+              "center": {
+                "lat": 47.1417345,
+                "lon": 17.847467
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038712,
+              "center": {
+                "lat": 47.1416506,
+                "lon": 17.8477735
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038713,
+              "center": {
+                "lat": 47.1420328,
+                "lon": 17.8460978
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038714,
+              "center": {
+                "lat": 47.1421277,
+                "lon": 17.8459496
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038715,
+              "center": {
+                "lat": 47.1406307,
+                "lon": 17.8489645
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038773,
+              "center": {
+                "lat": 47.1415096,
+                "lon": 17.8622729
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038774,
+              "center": {
+                "lat": 47.1420424,
+                "lon": 17.8614414
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038775,
+              "center": {
+                "lat": 47.1410481,
+                "lon": 17.8607655
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038776,
+              "center": {
+                "lat": 47.1418417,
+                "lon": 17.8605643
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038777,
+              "center": {
+                "lat": 47.1427958,
+                "lon": 17.8603015
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038778,
+              "center": {
+                "lat": 47.1423863,
+                "lon": 17.8624351
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038779,
+              "center": {
+                "lat": 47.1419786,
+                "lon": 17.8634839
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038780,
+              "center": {
+                "lat": 47.1400533,
+                "lon": 17.8634899
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038781,
+              "center": {
+                "lat": 47.1402458,
+                "lon": 17.8634242
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038782,
+              "center": {
+                "lat": 47.1402518,
+                "lon": 17.863276
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038783,
+              "center": {
+                "lat": 47.1403284,
+                "lon": 17.863327
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038784,
+              "center": {
+                "lat": 47.1402047,
+                "lon": 17.8635462
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038785,
+              "center": {
+                "lat": 47.1391917,
+                "lon": 17.8569514
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038786,
+              "center": {
+                "lat": 47.1381626,
+                "lon": 17.8497671
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038787,
+              "center": {
+                "lat": 47.1390722,
+                "lon": 17.8490764
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038788,
+              "center": {
+                "lat": 47.139459,
+                "lon": 17.8332567
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038789,
+              "center": {
+                "lat": 47.1399014,
+                "lon": 17.8362836
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038790,
+              "center": {
+                "lat": 47.1375123,
+                "lon": 17.8373418
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038791,
+              "center": {
+                "lat": 47.1381144,
+                "lon": 17.8465686
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038792,
+              "center": {
+                "lat": 47.1402143,
+                "lon": 17.8455305
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038793,
+              "center": {
+                "lat": 47.1403913,
+                "lon": 17.8444965
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038794,
+              "center": {
+                "lat": 47.1423498,
+                "lon": 17.8438193
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038795,
+              "center": {
+                "lat": 47.1430129,
+                "lon": 17.8400976
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038796,
+              "center": {
+                "lat": 47.1434416,
+                "lon": 17.8399018
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038797,
+              "center": {
+                "lat": 47.1436369,
+                "lon": 17.8396685
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038798,
+              "center": {
+                "lat": 47.1439999,
+                "lon": 17.8394768
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038799,
+              "center": {
+                "lat": 47.1394444,
+                "lon": 17.841176
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038800,
+              "center": {
+                "lat": 47.1400948,
+                "lon": 17.840724
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038801,
+              "center": {
+                "lat": 47.1396742,
+                "lon": 17.8396015
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038802,
+              "center": {
+                "lat": 47.1407188,
+                "lon": 17.8375309
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038803,
+              "center": {
+                "lat": 47.1552767,
+                "lon": 17.8727924
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038804,
+              "center": {
+                "lat": 47.1567905,
+                "lon": 17.8734509
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038805,
+              "center": {
+                "lat": 47.1568872,
+                "lon": 17.875287
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038806,
+              "center": {
+                "lat": 47.1574061,
+                "lon": 17.8751367
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038807,
+              "center": {
+                "lat": 47.157718,
+                "lon": 17.8750951
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038808,
+              "center": {
+                "lat": 47.1581649,
+                "lon": 17.8750147
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038831,
+              "center": {
+                "lat": 47.1469087,
+                "lon": 17.8760594
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038832,
+              "center": {
+                "lat": 47.1500454,
+                "lon": 17.874438
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038833,
+              "center": {
+                "lat": 47.1576113,
+                "lon": 17.8713776
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038834,
+              "center": {
+                "lat": 47.1564705,
+                "lon": 17.8710517
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038835,
+              "center": {
+                "lat": 47.1504764,
+                "lon": 17.8773079
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038836,
+              "center": {
+                "lat": 47.1505028,
+                "lon": 17.8775326
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038837,
+              "center": {
+                "lat": 47.1509104,
+                "lon": 17.8769687
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038838,
+              "center": {
+                "lat": 47.1510865,
+                "lon": 17.8769781
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038839,
+              "center": {
+                "lat": 47.146277,
+                "lon": 17.8770967
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038846,
+              "center": {
+                "lat": 47.1404684,
+                "lon": 17.8647412
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038847,
+              "center": {
+                "lat": 47.140441,
+                "lon": 17.8642148
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038848,
+              "center": {
+                "lat": 47.1409405,
+                "lon": 17.8640297
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038849,
+              "center": {
+                "lat": 47.1396058,
+                "lon": 17.8451671
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038850,
+              "center": {
+                "lat": 47.1390503,
+                "lon": 17.8457625
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038851,
+              "center": {
+                "lat": 47.1455556,
+                "lon": 17.8447815
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038852,
+              "center": {
+                "lat": 47.1468252,
+                "lon": 17.8440815
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038853,
+              "center": {
+                "lat": 47.1461015,
+                "lon": 17.8434009
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038854,
+              "center": {
+                "lat": 47.1456436,
+                "lon": 17.8430415
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038855,
+              "center": {
+                "lat": 47.1424255,
+                "lon": 17.8455332
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038883,
+              "center": {
+                "lat": 47.1428132,
+                "lon": 17.8567019
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038884,
+              "center": {
+                "lat": 47.1427193,
+                "lon": 17.8557162
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038885,
+              "center": {
+                "lat": 47.1426453,
+                "lon": 17.854947
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038886,
+              "center": {
+                "lat": 47.1425943,
+                "lon": 17.8544012
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1011038887,
+              "center": {
+                "lat": 47.1425742,
+                "lon": 17.854013
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056802116,
+              "center": {
+                "lat": 46.948728,
+                "lon": 17.4612836
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056802117,
+              "center": {
+                "lat": 46.9470048,
+                "lon": 17.4629879
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056802120,
+              "center": {
+                "lat": 46.9428348,
+                "lon": 17.4428338
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056802121,
+              "center": {
+                "lat": 46.935816,
+                "lon": 17.4459356
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808786,
+              "center": {
+                "lat": 46.9351811,
+                "lon": 17.4525168
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808787,
+              "center": {
+                "lat": 46.9530971,
+                "lon": 17.444672
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808788,
+              "center": {
+                "lat": 46.952481,
+                "lon": 17.4436827
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808789,
+              "center": {
+                "lat": 46.9529388,
+                "lon": 17.4431784
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808790,
+              "center": {
+                "lat": 46.9520449,
+                "lon": 17.4433394
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808791,
+              "center": {
+                "lat": 46.9524423,
+                "lon": 17.4429058
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808792,
+              "center": {
+                "lat": 46.9538168,
+                "lon": 17.4455113
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808793,
+              "center": {
+                "lat": 46.9531077,
+                "lon": 17.4462572
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808794,
+              "center": {
+                "lat": 46.9527163,
+                "lon": 17.4463211
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808795,
+              "center": {
+                "lat": 46.9524004,
+                "lon": 17.4449254
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808796,
+              "center": {
+                "lat": 46.9525106,
+                "lon": 17.4491563
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808797,
+              "center": {
+                "lat": 46.9496006,
+                "lon": 17.4584234
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808798,
+              "center": {
+                "lat": 46.9561252,
+                "lon": 17.4622053
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808799,
+              "center": {
+                "lat": 46.9556466,
+                "lon": 17.4619236
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808800,
+              "center": {
+                "lat": 46.9553418,
+                "lon": 17.4583736
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808801,
+              "center": {
+                "lat": 46.9556837,
+                "lon": 17.4580712
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808802,
+              "center": {
+                "lat": 46.9551142,
+                "lon": 17.4583594
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808803,
+              "center": {
+                "lat": 46.9546159,
+                "lon": 17.4585712
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808805,
+              "center": {
+                "lat": 46.9580554,
+                "lon": 17.456569
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808806,
+              "center": {
+                "lat": 46.9587723,
+                "lon": 17.456415
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808807,
+              "center": {
+                "lat": 46.9599824,
+                "lon": 17.4562232
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808808,
+              "center": {
+                "lat": 46.9598047,
+                "lon": 17.4558534
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808809,
+              "center": {
+                "lat": 46.9598307,
+                "lon": 17.4560945
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808810,
+              "center": {
+                "lat": 46.9598753,
+                "lon": 17.456038
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808811,
+              "center": {
+                "lat": 46.9594491,
+                "lon": 17.456278
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808812,
+              "center": {
+                "lat": 46.9593272,
+                "lon": 17.4563139
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808813,
+              "center": {
+                "lat": 46.9591219,
+                "lon": 17.4563013
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808814,
+              "center": {
+                "lat": 46.9579609,
+                "lon": 17.4506316
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808815,
+              "center": {
+                "lat": 46.9578032,
+                "lon": 17.4506727
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808819,
+              "center": {
+                "lat": 46.9590038,
+                "lon": 17.4496662
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808820,
+              "center": {
+                "lat": 46.9595062,
+                "lon": 17.4492433
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808821,
+              "center": {
+                "lat": 46.960105,
+                "lon": 17.4489918
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808822,
+              "center": {
+                "lat": 46.9510394,
+                "lon": 17.4436172
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808823,
+              "center": {
+                "lat": 46.9514669,
+                "lon": 17.4431481
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808824,
+              "center": {
+                "lat": 46.9510524,
+                "lon": 17.4422815
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808825,
+              "center": {
+                "lat": 46.9512149,
+                "lon": 17.442091
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808826,
+              "center": {
+                "lat": 46.9516375,
+                "lon": 17.4421815
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808827,
+              "center": {
+                "lat": 46.9520259,
+                "lon": 17.4421553
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808828,
+              "center": {
+                "lat": 46.9523884,
+                "lon": 17.441972
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808829,
+              "center": {
+                "lat": 46.9527427,
+                "lon": 17.4417386
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056808830,
+              "center": {
+                "lat": 46.9512031,
+                "lon": 17.4555672
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1056809274,
+              "center": {
+                "lat": 46.9588506,
+                "lon": 17.4473623
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062147451,
+              "center": {
+                "lat": 47.0250792,
+                "lon": 17.7367258
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062147452,
+              "center": {
+                "lat": 47.0257028,
+                "lon": 17.7361978
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062147456,
+              "center": {
+                "lat": 47.0227925,
+                "lon": 17.7306321
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062147467,
+              "center": {
+                "lat": 47.0263749,
+                "lon": 17.746701
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062147472,
+              "center": {
+                "lat": 47.0229162,
+                "lon": 17.7565378
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148822,
+              "center": {
+                "lat": 47.0127553,
+                "lon": 17.7361481
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148823,
+              "center": {
+                "lat": 47.0127914,
+                "lon": 17.7363633
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148827,
+              "center": {
+                "lat": 47.0120514,
+                "lon": 17.7379142
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148829,
+              "center": {
+                "lat": 47.0126212,
+                "lon": 17.7410307
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148830,
+              "center": {
+                "lat": 47.0117688,
+                "lon": 17.7408213
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148831,
+              "center": {
+                "lat": 47.0108703,
+                "lon": 17.7405249
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148832,
+              "center": {
+                "lat": 47.0103364,
+                "lon": 17.740164
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148833,
+              "center": {
+                "lat": 47.0089756,
+                "lon": 17.7397751
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148836,
+              "center": {
+                "lat": 47.0047203,
+                "lon": 17.7453347
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062148841,
+              "center": {
+                "lat": 47.0139884,
+                "lon": 17.7367354
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158632,
+              "center": {
+                "lat": 47.0062958,
+                "lon": 17.7427463
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "egykori szovjet bázis"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158633,
+              "center": {
+                "lat": 47.0100978,
+                "lon": 17.7470621
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158634,
+              "center": {
+                "lat": 47.01027,
+                "lon": 17.7469695
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158635,
+              "center": {
+                "lat": 47.0100836,
+                "lon": 17.7468744
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158636,
+              "center": {
+                "lat": 47.0097788,
+                "lon": 17.747113
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158637,
+              "center": {
+                "lat": 47.0100946,
+                "lon": 17.7490496
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158638,
+              "center": {
+                "lat": 47.012704,
+                "lon": 17.7494134
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158650,
+              "center": {
+                "lat": 47.0281114,
+                "lon": 17.7419679
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158659,
+              "center": {
+                "lat": 47.014016,
+                "lon": 17.7407898
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158665,
+              "center": {
+                "lat": 47.0284073,
+                "lon": 17.7553641
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062158666,
+              "center": {
+                "lat": 47.0290756,
+                "lon": 17.7540311
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062162784,
+              "center": {
+                "lat": 47.020903,
+                "lon": 17.7421981
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062162787,
+              "center": {
+                "lat": 47.0231793,
+                "lon": 17.7437055
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062167950,
+              "center": {
+                "lat": 47.0230931,
+                "lon": 17.7658766
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062167951,
+              "center": {
+                "lat": 47.0244124,
+                "lon": 17.7652934
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169319,
+              "center": {
+                "lat": 47.02499,
+                "lon": 17.7657056
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169320,
+              "center": {
+                "lat": 47.0246719,
+                "lon": 17.7692365
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169321,
+              "center": {
+                "lat": 47.0241688,
+                "lon": 17.7693649
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169322,
+              "center": {
+                "lat": 47.0225394,
+                "lon": 17.7667291
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169323,
+              "center": {
+                "lat": 47.022229,
+                "lon": 17.7658777
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062169330,
+              "center": {
+                "lat": 47.0275769,
+                "lon": 17.7461178
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062172711,
+              "center": {
+                "lat": 46.9737307,
+                "lon": 17.4755065
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176760,
+              "center": {
+                "lat": 46.9478264,
+                "lon": 17.4515073
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176764,
+              "center": {
+                "lat": 46.954625,
+                "lon": 17.4458512
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176771,
+              "center": {
+                "lat": 46.94991,
+                "lon": 17.4414962
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176772,
+              "center": {
+                "lat": 46.9507912,
+                "lon": 17.4405943
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176773,
+              "center": {
+                "lat": 46.9512294,
+                "lon": 17.4398286
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176774,
+              "center": {
+                "lat": 46.950159,
+                "lon": 17.4410489
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176775,
+              "center": {
+                "lat": 46.946902,
+                "lon": 17.4425926
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176776,
+              "center": {
+                "lat": 46.9474929,
+                "lon": 17.4434412
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176777,
+              "center": {
+                "lat": 46.9477006,
+                "lon": 17.4435291
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176778,
+              "center": {
+                "lat": 46.9479868,
+                "lon": 17.4436408
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176779,
+              "center": {
+                "lat": 46.9482707,
+                "lon": 17.4437692
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176780,
+              "center": {
+                "lat": 46.9487069,
+                "lon": 17.4438807
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176781,
+              "center": {
+                "lat": 46.9488569,
+                "lon": 17.4437456
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176782,
+              "center": {
+                "lat": 46.9490161,
+                "lon": 17.4436002
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176783,
+              "center": {
+                "lat": 46.9492262,
+                "lon": 17.4434007
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176784,
+              "center": {
+                "lat": 46.9494131,
+                "lon": 17.4432147
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062176794,
+              "center": {
+                "lat": 46.9519002,
+                "lon": 17.4439099
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062185354,
+              "center": {
+                "lat": 46.9605304,
+                "lon": 17.4731457
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062191930,
+              "center": {
+                "lat": 46.9355879,
+                "lon": 17.4508893
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391712,
+              "center": {
+                "lat": 46.9905602,
+                "lon": 17.4824994
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391713,
+              "center": {
+                "lat": 46.9906313,
+                "lon": 17.4829795
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391714,
+              "center": {
+                "lat": 46.9909208,
+                "lon": 17.4832027
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391715,
+              "center": {
+                "lat": 46.990712,
+                "lon": 17.4829314
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391716,
+              "center": {
+                "lat": 46.9909731,
+                "lon": 17.4815682
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391717,
+              "center": {
+                "lat": 46.9911257,
+                "lon": 17.4811635
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391718,
+              "center": {
+                "lat": 46.9910151,
+                "lon": 17.4812351
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391719,
+              "center": {
+                "lat": 46.9910907,
+                "lon": 17.4814655
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391720,
+              "center": {
+                "lat": 46.9914345,
+                "lon": 17.4814084
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391721,
+              "center": {
+                "lat": 46.9924763,
+                "lon": 17.4807617
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391722,
+              "center": {
+                "lat": 46.9923837,
+                "lon": 17.4795167
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391723,
+              "center": {
+                "lat": 46.9922267,
+                "lon": 17.4796386
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391726,
+              "center": {
+                "lat": 46.9932774,
+                "lon": 17.4816854
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391727,
+              "center": {
+                "lat": 46.9935589,
+                "lon": 17.4821145
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391729,
+              "center": {
+                "lat": 46.995842,
+                "lon": 17.4834287
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391730,
+              "center": {
+                "lat": 46.9953705,
+                "lon": 17.4852038
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391756,
+              "center": {
+                "lat": 46.9933973,
+                "lon": 17.4850562
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391757,
+              "center": {
+                "lat": 46.9925664,
+                "lon": 17.4839371
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062391758,
+              "center": {
+                "lat": 46.9923446,
+                "lon": 17.4835319
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062397042,
+              "center": {
+                "lat": 46.9497863,
+                "lon": 17.4545807
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062397043,
+              "center": {
+                "lat": 46.9515794,
+                "lon": 17.4522529
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062397046,
+              "center": {
+                "lat": 46.9618418,
+                "lon": 17.4460272
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062692779,
+              "center": {
+                "lat": 46.9538488,
+                "lon": 17.4585597
+              },
+              "tags": {
+                "contact:fax": "+36 88 549 583",
+                "contact:phone": "+36 88 549 500",
+                "landuse": "military",
+                "military": "range",
+                "name": "Újdörögd Kiképző Bázis",
+                "operator": "Magyar Honvédség Böszörményi Géza Csapatgyakorlótér Parancsnokság, 8100 Várpalota, Árpád utca 1.",
+                "url": "https://kameraaltal.blog.hu/2015/05/30/jackal_cave",
+                "website": "https://honvedelem.hu/alakulat/magyar-honvedseg-boszormenyi-geza-csapatgyakorloter-parancsnoksag.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062702134,
+              "center": {
+                "lat": 47.0198489,
+                "lon": 17.7437581
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Tótvázsonyi gyakorlótér"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106488277,
+              "center": {
+                "lat": 46.909101,
+                "lon": 17.4256964
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106488278,
+              "center": {
+                "lat": 46.9080171,
+                "lon": 17.4241749
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106488279,
+              "center": {
+                "lat": 46.9077226,
+                "lon": 17.4230216
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106488280,
+              "center": {
+                "lat": 46.9086388,
+                "lon": 17.4249661
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106488281,
+              "center": {
+                "lat": 46.9082123,
+                "lon": 17.4238007
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836143,
+              "center": {
+                "lat": 46.916266,
+                "lon": 17.4254764
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836144,
+              "center": {
+                "lat": 46.9063899,
+                "lon": 17.4276437
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836145,
+              "center": {
+                "lat": 46.9058858,
+                "lon": 17.4276858
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836146,
+              "center": {
+                "lat": 46.9057165,
+                "lon": 17.4264688
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836147,
+              "center": {
+                "lat": 46.9055731,
+                "lon": 17.4253577
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836148,
+              "center": {
+                "lat": 46.9053646,
+                "lon": 17.4255931
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836149,
+              "center": {
+                "lat": 46.9033663,
+                "lon": 17.4245622
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836150,
+              "center": {
+                "lat": 46.9046826,
+                "lon": 17.4250405
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836151,
+              "center": {
+                "lat": 46.9030428,
+                "lon": 17.4303823
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836152,
+              "center": {
+                "lat": 46.9016299,
+                "lon": 17.4272225
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836153,
+              "center": {
+                "lat": 46.9021934,
+                "lon": 17.424877
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836154,
+              "center": {
+                "lat": 46.9015301,
+                "lon": 17.4251841
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836155,
+              "center": {
+                "lat": 46.9024848,
+                "lon": 17.4281225
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836156,
+              "center": {
+                "lat": 46.9029622,
+                "lon": 17.4283464
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836157,
+              "center": {
+                "lat": 46.9042285,
+                "lon": 17.427877
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836158,
+              "center": {
+                "lat": 46.9049743,
+                "lon": 17.4280205
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106836159,
+              "center": {
+                "lat": 46.9054288,
+                "lon": 17.4278019
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106837685,
+              "center": {
+                "lat": 46.9016152,
+                "lon": 17.4290452
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106837686,
+              "center": {
+                "lat": 46.9004973,
+                "lon": 17.4260464
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314403066,
+              "center": {
+                "lat": 47.0434286,
+                "lon": 17.7228922
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417760,
+              "center": {
+                "lat": 47.021881,
+                "lon": 17.7563832
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417761,
+              "center": {
+                "lat": 47.0162388,
+                "lon": 17.7593484
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417762,
+              "center": {
+                "lat": 47.0162845,
+                "lon": 17.754094
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417763,
+              "center": {
+                "lat": 47.0167737,
+                "lon": 17.7554472
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417764,
+              "center": {
+                "lat": 47.0176405,
+                "lon": 17.756052
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417765,
+              "center": {
+                "lat": 47.0174348,
+                "lon": 17.7565107
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417766,
+              "center": {
+                "lat": 47.0174192,
+                "lon": 17.7558414
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417796,
+              "center": {
+                "lat": 47.0132341,
+                "lon": 17.7506312
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417813,
+              "center": {
+                "lat": 47.0133539,
+                "lon": 17.7457845
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417814,
+              "center": {
+                "lat": 47.0168115,
+                "lon": 17.7427558
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417815,
+              "center": {
+                "lat": 47.0202134,
+                "lon": 17.7429468
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417816,
+              "center": {
+                "lat": 47.0203075,
+                "lon": 17.7428019
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417817,
+              "center": {
+                "lat": 47.0204748,
+                "lon": 17.7424586
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417818,
+              "center": {
+                "lat": 47.0198814,
+                "lon": 17.7436441
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417819,
+              "center": {
+                "lat": 47.0227714,
+                "lon": 17.7537413
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417820,
+              "center": {
+                "lat": 47.0229095,
+                "lon": 17.7530144
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417821,
+              "center": {
+                "lat": 47.0229904,
+                "lon": 17.754711
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417822,
+              "center": {
+                "lat": 47.0231929,
+                "lon": 17.7553869
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417823,
+              "center": {
+                "lat": 47.0228373,
+                "lon": 17.754955
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417824,
+              "center": {
+                "lat": 47.0226409,
+                "lon": 17.7547456
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417826,
+              "center": {
+                "lat": 47.0199047,
+                "lon": 17.7688818
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417827,
+              "center": {
+                "lat": 47.0199285,
+                "lon": 17.7687033
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417830,
+              "center": {
+                "lat": 47.024291,
+                "lon": 17.7693666
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417831,
+              "center": {
+                "lat": 47.0237442,
+                "lon": 17.7660016
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417832,
+              "center": {
+                "lat": 47.0224788,
+                "lon": 17.7668514
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417833,
+              "center": {
+                "lat": 47.0224652,
+                "lon": 17.7672462
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314417834,
+              "center": {
+                "lat": 47.0297494,
+                "lon": 17.7405166
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431881,
+              "center": {
+                "lat": 47.0253039,
+                "lon": 17.7446727
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431882,
+              "center": {
+                "lat": 47.0261568,
+                "lon": 17.7444112
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431883,
+              "center": {
+                "lat": 47.0266852,
+                "lon": 17.7449423
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431884,
+              "center": {
+                "lat": 47.0263551,
+                "lon": 17.7452213
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431885,
+              "center": {
+                "lat": 47.0259319,
+                "lon": 17.7449141
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431886,
+              "center": {
+                "lat": 47.0288782,
+                "lon": 17.7411885
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431887,
+              "center": {
+                "lat": 47.0291899,
+                "lon": 17.7422172
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431888,
+              "center": {
+                "lat": 47.0288371,
+                "lon": 17.742633
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431889,
+              "center": {
+                "lat": 47.0287328,
+                "lon": 17.743223
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431890,
+              "center": {
+                "lat": 47.0286186,
+                "lon": 17.7437098
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431891,
+              "center": {
+                "lat": 47.0283608,
+                "lon": 17.7439458
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431892,
+              "center": {
+                "lat": 47.0279595,
+                "lon": 17.744198
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431893,
+              "center": {
+                "lat": 47.0273214,
+                "lon": 17.7444353
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431908,
+              "center": {
+                "lat": 47.0225987,
+                "lon": 17.7317619
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431909,
+              "center": {
+                "lat": 47.029338,
+                "lon": 17.7322541
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431910,
+              "center": {
+                "lat": 47.0290596,
+                "lon": 17.7463737
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431911,
+              "center": {
+                "lat": 47.0292823,
+                "lon": 17.7458904
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431912,
+              "center": {
+                "lat": 47.0292274,
+                "lon": 17.7450671
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431913,
+              "center": {
+                "lat": 47.029253,
+                "lon": 17.7451314
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431914,
+              "center": {
+                "lat": 47.0297896,
+                "lon": 17.7445527
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431915,
+              "center": {
+                "lat": 47.0300323,
+                "lon": 17.7442698
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431916,
+              "center": {
+                "lat": 47.0302595,
+                "lon": 17.7317753
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431917,
+              "center": {
+                "lat": 47.0300108,
+                "lon": 17.7318813
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431918,
+              "center": {
+                "lat": 47.027581,
+                "lon": 17.732859
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431919,
+              "center": {
+                "lat": 47.0274412,
+                "lon": 17.7328228
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431920,
+              "center": {
+                "lat": 47.0225931,
+                "lon": 17.7337964
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431921,
+              "center": {
+                "lat": 47.0225063,
+                "lon": 17.7328751
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431922,
+              "center": {
+                "lat": 47.0210079,
+                "lon": 17.7319121
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431923,
+              "center": {
+                "lat": 47.0199528,
+                "lon": 17.7311853
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431924,
+              "center": {
+                "lat": 47.0184323,
+                "lon": 17.7330548
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431925,
+              "center": {
+                "lat": 47.0186819,
+                "lon": 17.7317792
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431926,
+              "center": {
+                "lat": 47.0186446,
+                "lon": 17.7318243
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431927,
+              "center": {
+                "lat": 47.0187779,
+                "lon": 17.7314615
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314431928,
+              "center": {
+                "lat": 47.0144677,
+                "lon": 17.7365242
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314435437,
+              "center": {
+                "lat": 47.0475984,
+                "lon": 17.7197993
+              },
+              "tags": {
+                "description": "2x56 db atomtöltet, rakéta atomrobbanófej tároló volt.",
+                "end_date": "1989",
+                "landuse": "military",
+                "name": "\"Rakéta Technikai Bázis\" (RTB)",
+                "name:ru": "Pакетно-техническая база",
+                "operator": "Honvédelmi Minisztérium",
+                "start_date": "1968"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1314436676,
+              "center": {
+                "lat": 47.0446553,
+                "lon": 17.7221236
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Laktanya",
+                "operator": "Honvédelmi Minisztérium"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149480,
+              "center": {
+                "lat": 46.9945912,
+                "lon": 17.4804838
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149481,
+              "center": {
+                "lat": 46.9947288,
+                "lon": 17.4806334
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149482,
+              "center": {
+                "lat": 46.9946941,
+                "lon": 17.4807769
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149483,
+              "center": {
+                "lat": 46.9945171,
+                "lon": 17.4806274
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149494,
+              "center": {
+                "lat": 46.994787,
+                "lon": 17.4801586
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149495,
+              "center": {
+                "lat": 46.9928427,
+                "lon": 17.4841833
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149513,
+              "center": {
+                "lat": 46.9905472,
+                "lon": 17.4827016
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1315149514,
+              "center": {
+                "lat": 46.9917541,
+                "lon": 17.4831131
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench",
+                "operator": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2225451,
+              "center": {
+                "lat": 47.1651311,
+                "lon": 17.9831113
+              },
+              "tags": {
+                "grassland": "puszta",
+                "landuse": "military",
+                "loc_name": "Veszprém-Újmajor,\"O\" ponti lőtér",
+                "military": "range",
+                "name": "Nullponti Lő- és Gyakorlótér",
+                "natural": "grassland",
+                "official_name": "MH Bakony Harckiképző Központ",
+                "operator": "MH Bakony Harckiképző Központ",
+                "type": "multipolygon",
+                "url": "https://kameraaltal.blog.hu/2012/04/20/bakony-veszprem-ujmajor-loter",
+                "website": "https://honvedelem.hu/hirek/mh-bakony-harckikepzo-kozpont.html",
+                "wikidata": "Q108178598",
+                "wikipedia": "hu:Nullponti lő- és gyakorlótér"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 3186184,
+              "center": {
+                "lat": 47.3183985,
+                "lon": 17.5244418
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 8755150,
+              "center": {
+                "lat": 47.2153842,
+                "lon": 17.5402873
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 12201503,
+              "center": {
+                "lat": 47.2534481,
+                "lon": 17.4684341
+              },
+              "tags": {
+                "description": "radarszázad",
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 12201612,
+              "center": {
+                "lat": 47.2476789,
+                "lon": 17.5280835
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13944344,
+              "center": {
+                "lat": 46.9584835,
+                "lon": 17.4370928
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Újdörögd Kiképző Bázis",
+                "operator": "Magyar Honvédség",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

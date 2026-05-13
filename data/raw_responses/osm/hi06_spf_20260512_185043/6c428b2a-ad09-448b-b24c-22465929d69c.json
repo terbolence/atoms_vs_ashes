@@ -1,0 +1,962 @@
+{
+  "meta": {
+    "site_id": "6c428b2a-ad09-448b-b24c-22465929d69c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:43:09.613065+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.084677,21.892868);\n  way[\"military\"](around:25000,47.084677,21.892868);\n  relation[\"military\"](around:25000,47.084677,21.892868);\n  node[\"landuse\"=\"military\"](around:25000,47.084677,21.892868);\n  way[\"landuse\"=\"military\"](around:25000,47.084677,21.892868);\n  relation[\"landuse\"=\"military\"](around:25000,47.084677,21.892868);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.084677,21.892868);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.084677,21.892868);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.084677,21.892868);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.084677,21.892868);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.084677,21.892868);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.084677,21.892868);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 853,
+        "element_count": 72,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:41:28Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178834275,
+              "lat": 47.031667,
+              "lon": 21.957778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.3 bl.1QA1A,sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "442",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863828,
+              "lat": 47.069242,
+              "lon": 21.920157,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. N.Balcescu (D.Botez.)nr.2, bl B29, sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "467",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870069,
+              "lat": 47.032222,
+              "lon": 21.957222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.1 bl.1QA1B,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "437",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870095,
+              "lat": 47.074803,
+              "lon": 21.922497,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.15,bl.AN27, sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "473",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878302,
+              "lat": 47.0755994,
+              "lon": 21.9196465,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.23, bl. Q13, Oradea, BH",
+                "military": "bunker",
+                "ref": "474",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878371,
+              "lat": 47.033556,
+              "lon": 21.946111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr. 26 bl Q 35 sc. D, Oradea, BH",
+                "military": "bunker",
+                "ref": "425",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878397,
+              "lat": 47.075065,
+              "lon": 21.923135,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Galileo Galilei nr.18,bl Q9, sc A, Oradea, BH",
+                "military": "bunker",
+                "ref": "460",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878545,
+              "lat": 47.054544,
+              "lon": 21.948666,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Aleea Ştrandului, nr.2, Oradea, BH",
+                "military": "bunker",
+                "ref": "453",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878641,
+              "lat": 47.031944,
+              "lon": 21.956111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.1 bl.1QA1B,sc. D, Oradea, BH",
+                "military": "bunker",
+                "ref": "440",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878667,
+              "lat": 47.074783,
+              "lon": 21.922228,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.15,bl.AN27, sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "472",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878815,
+              "lat": 47.048386,
+              "lon": 21.89579,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Sântandreiului, nr.3, Oradea, BH",
+                "military": "bunker",
+                "ref": "452",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878842,
+              "lat": 47.077222,
+              "lon": 21.918333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.29/A, Oradea, BH",
+                "military": "bunker",
+                "ref": "487",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878911,
+              "lat": 47.031944,
+              "lon": 21.952778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Nufărului,bl AN60, Oradea, BH",
+                "military": "bunker",
+                "ref": "435",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878964,
+              "lat": 47.032222,
+              "lon": 21.952222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Peneş Curcanul nr.14,bl.R18, Oradea, BH",
+                "military": "bunker",
+                "ref": "445",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878991,
+              "lat": 47.06464,
+              "lon": 21.908825,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. E Grigore nr.3 bl AN34, Oradea, BH",
+                "military": "bunker",
+                "ref": "481",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879060,
+              "lat": 47.029444,
+              "lon": 21.956667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Morii nr.4, bl. B60,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "432",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879087,
+              "lat": 47.0694672,
+              "lon": 21.9203431,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Brâncuşi nr.6 bl B28, sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "464",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879235,
+              "lat": 47.0525,
+              "lon": 21.928611,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Cuza Voda nr.19, Oradea, BH",
+                "military": "bunker",
+                "ref": "444",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879262,
+              "lat": 47.073297,
+              "lon": 21.91959,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Spartacus nr.44,bl SQ3,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "476",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879401,
+              "lat": 47.033056,
+              "lon": 21.953056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr.2 bl Q1,sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "427",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879427,
+              "lat": 47.075055,
+              "lon": 21.921437,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.25,bl.AN25, sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "471",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879548,
+              "lat": 47.032556,
+              "lon": 21.956823,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr. 26, bl Q34 sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "424",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879575,
+              "lat": 47.043055,
+              "lon": 21.918611,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Universităţii, nr.1 Biblioteca Universitară, Oradea, BH",
+                "military": "bunker",
+                "ref": "455",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879602,
+              "lat": 47.06487,
+              "lon": 21.909228,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. E Grigore nr.3 bl AN36, Oradea, BH",
+                "military": "bunker",
+                "ref": "483",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879671,
+              "lat": 47.031667,
+              "lon": 21.9525,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Nufărului,bl AN 58, Oradea, BH",
+                "military": "bunker",
+                "ref": "434",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879697,
+              "lat": 47.071742,
+              "lon": 21.917423,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. N.Balcescu (D.Botez.)nr.2, bl B29, sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "466",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879846,
+              "lat": 47.074125,
+              "lon": 21.9239,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Galileo Galilei nr.10,bl X15, sc A,str. Galileo Galilei nr.10,bl X15, sc B, Oradea, BH",
+                "military": "bunker",
+                "ref": "462,463",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879994,
+              "lat": 47.063572,
+              "lon": 21.912205,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oneştilor nr. 80, bl.AN7, Oradea, BH",
+                "military": "bunker",
+                "ref": "485,447",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880021,
+              "lat": 47.075557,
+              "lon": 21.920003,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.23, bl. Q14, Oradea, BH",
+                "military": "bunker",
+                "ref": "475",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880090,
+              "lat": 47.030833,
+              "lon": 21.956111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr.26 bl Q 36 sc. E, Oradea, BH",
+                "military": "bunker",
+                "ref": "426",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880116,
+              "lat": 47.077902,
+              "lon": 21.919008,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Moldovei nr.94,bl AN19, Oradea, BH",
+                "military": "bunker",
+                "ref": "457",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880264,
+              "lat": 47.055554,
+              "lon": 21.915277,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Hotel RAMADA, Oradea, BH",
+                "military": "bunker",
+                "ref": "454",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880358,
+              "lat": 47.07227,
+              "lon": 21.907725,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Tuşnadului nr. 4, bl.Q4 sc B, Oradea, BH",
+                "military": "bunker",
+                "ref": "479",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880385,
+              "lat": 47.21412,
+              "lon": 22.057124,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Dunării, nr. 59, Săcueni, BH",
+                "military": "bunker",
+                "ref": "513",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880743,
+              "lat": 47.042769,
+              "lon": 21.89995,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Calea Aradului, nr.87(Oradea Shopping City), Oradea, BH",
+                "military": "bunker",
+                "ref": "449",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880839,
+              "lat": 47.031667,
+              "lon": 21.955,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Nufărului,bl AN64, Oradea, BH",
+                "military": "bunker",
+                "ref": "436",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880865,
+              "lat": 47.070635,
+              "lon": 21.920902,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. N.Balcescu (D.Botez.)nr.2, bl B29, sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "468",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880892,
+              "lat": 47.06327,
+              "lon": 21.911722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Lăpuşului nr.1, bl AN36, Oradea, BH",
+                "military": "bunker",
+                "ref": "484,446",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880919,
+              "lat": 47.055602,
+              "lon": 21.917897,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Tuşnadului nr. 4, bl.Q4 sc A, Oradea, BH",
+                "military": "bunker",
+                "ref": "478",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880987,
+              "lat": 47.031476,
+              "lon": 21.956776,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Onisifor Ghibu nr.24,blQA3,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "429",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881014,
+              "lat": 47.0690981,
+              "lon": 21.9193747,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Brâncuşi nr.6 bl B28, sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "465",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881162,
+              "lat": 47.031667,
+              "lon": 21.958056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.3 bl.1QA1A,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "441",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881189,
+              "lat": 47.073512,
+              "lon": 21.91976,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Spartacus nr.44,bl SQ3,sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "477",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881258,
+              "lat": 47.033333,
+              "lon": 21.952778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr.2 bl Q1,sc. A, Oradea, BH",
+                "military": "bunker",
+                "ref": "428",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881284,
+              "lat": 47.075043,
+              "lon": 21.922852,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Galileo Galilei nr.20,bl Q8, sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "459",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881432,
+              "lat": 47.0779,
+              "lon": 21.919017,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Moldovei nr.88, bl AN23, Oradea, BH",
+                "military": "bunker",
+                "ref": "456",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881528,
+              "lat": 47.031944,
+              "lon": 21.956389,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.1 bl.1QA1B,sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "439",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881676,
+              "lat": 47.056898,
+              "lon": 21.94508,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. I. H. Rădulescu, nr.19, Oradea, BH",
+                "military": "bunker",
+                "ref": "451",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881825,
+              "lat": 47.064168,
+              "lon": 21.912023,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oneştilor nr. 82, bl.R61, Oradea, BH",
+                "military": "bunker",
+                "ref": "486,448",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881852,
+              "lat": 47.064677,
+              "lon": 21.911087,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Cazaban nr13 bl R47, Oradea, BH",
+                "military": "bunker",
+                "ref": "480",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881921,
+              "lat": 47.031389,
+              "lon": 21.956667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Onisifor Ghibu nr.24,blQA3,sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "431",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881947,
+              "lat": 47.0752,
+              "lon": 21.922362,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Galileo Galilei nr.20,bl Q8, sc A, Oradea, BH",
+                "military": "bunker",
+                "ref": "458",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882095,
+              "lat": 47.032222,
+              "lon": 21.958056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.3 bl.1QA1A,sc. C, Oradea, BH",
+                "military": "bunker",
+                "ref": "443",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882191,
+              "lat": 47.0760361,
+              "lon": 21.9209797,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Forajului nr.1 bl.1QA1B,sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "438",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882217,
+              "lat": 47.075037,
+              "lon": 21.922067,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.25,bl.AN25, sc. D, Oradea, BH",
+                "military": "bunker",
+                "ref": "470",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882338,
+              "lat": 47.030556,
+              "lon": 21.955853,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Peneş Curcanul nr. 26, bl Q33 sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "423",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882365,
+              "lat": 47.038478,
+              "lon": 21.944644,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Kiev, nr.3, Oradea, BH",
+                "military": "bunker",
+                "ref": "450",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882392,
+              "lat": 47.0648,
+              "lon": 21.90917,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. E Grigore nr.3 bl AN35, Oradea, BH",
+                "military": "bunker",
+                "ref": "482",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882461,
+              "lat": 47.029722,
+              "lon": 21.957222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Morii nr.4,blB60, sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "433",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882487,
+              "lat": 47.075283,
+              "lon": 21.921338,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. C. Coposu nr.25,bl.AN21, sc. E, Oradea, BH",
+                "military": "bunker",
+                "ref": "469",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882626,
+              "lat": 47.031667,
+              "lon": 21.956667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Al. Onisifor Ghibu nr.24,blQA3,sc. B, Oradea, BH",
+                "military": "bunker",
+                "ref": "430",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882653,
+              "lat": 47.07534,
+              "lon": 21.922483,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Galileo Galilei nr.18,bl Q9, sc C, Oradea, BH",
+                "military": "bunker",
+                "ref": "461",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 333399822,
+              "center": {
+                "lat": 46.9877059,
+                "lon": 21.9430417
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area",
+                "name": "Poligon de tragere"
+              }
+            },
+            {
+              "type": "way",
+              "id": 544741751,
+              "center": {
+                "lat": 47.0443184,
+                "lon": 21.921706
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090539,
+              "center": {
+                "lat": 47.045017,
+                "lon": 21.9221226
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090540,
+              "center": {
+                "lat": 47.0449206,
+                "lon": 21.9229043
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090542,
+              "center": {
+                "lat": 47.0448021,
+                "lon": 21.9217918
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090546,
+              "center": {
+                "lat": 47.0444055,
+                "lon": 21.9233408
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090547,
+              "center": {
+                "lat": 47.044898,
+                "lon": 21.9234419
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 717090553,
+              "center": {
+                "lat": 47.0444785,
+                "lon": 21.9248001
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 724496456,
+              "center": {
+                "lat": 46.9551289,
+                "lon": 21.9013359
+              },
+              "tags": {
+                "landuse": "forest",
+                "leaf_cycle": "deciduous",
+                "leaf_type": "broadleaved",
+                "military": "danger_area",
+                "name": "Pădure privată pentru vânat",
+                "name:en": "Private Forest for Hunting"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1264556347,
+              "center": {
+                "lat": 47.0456217,
+                "lon": 21.9262545
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

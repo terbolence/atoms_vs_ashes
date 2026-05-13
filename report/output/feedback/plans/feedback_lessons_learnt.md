@@ -1,4 +1,4 @@
-## <!-- man_hours: 1.5 -->
+## <!-- man_hours: 1.55 -->
 
 sign_off: yes
 sign_off_by: user
@@ -148,7 +148,7 @@ The system has no automated cross-document numeric consistency check; both error
 
 **Acceptance test**: After SP-A: every report mention of VOYGR-6 capacity reads "462 MWe" with no "924" surviving anywhere; Romania `n_full_pass` is the same number in chapter 4 and chapter 5; a documented procedure exists for the cross-chapter check.
 
-**Promotion**: yes — and recommend adding `src/scripts/lint_cross_chapter_numerics.py` as a follow-up engineering task.
+**Promotion**: yes — landed as `src/scripts/cross_chapter_numeric_lint.py` (Stage 8a; slow pytest guard).
 
 ---
 

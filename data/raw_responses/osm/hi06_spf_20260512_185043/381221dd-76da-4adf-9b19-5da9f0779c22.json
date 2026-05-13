@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "site_id": "381221dd-76da-4adf-9b19-5da9f0779c22",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:22:57.837789+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.572996,27.811652);\n  way[\"military\"](around:25000,41.572996,27.811652);\n  relation[\"military\"](around:25000,41.572996,27.811652);\n  node[\"landuse\"=\"military\"](around:25000,41.572996,27.811652);\n  way[\"landuse\"=\"military\"](around:25000,41.572996,27.811652);\n  relation[\"landuse\"=\"military\"](around:25000,41.572996,27.811652);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.572996,27.811652);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.572996,27.811652);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.572996,27.811652);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.572996,27.811652);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.572996,27.811652);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.572996,27.811652);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 749,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:22:01Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 180232823,
+              "center": {
+                "lat": 41.4608213,
+                "lon": 27.9350228
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Fehmi Türesel Kışlası",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 180233009,
+              "center": {
+                "lat": 41.4556375,
+                "lon": 27.9342099
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 272244970,
+              "center": {
+                "lat": 41.5465097,
+                "lon": 27.8388623
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 426263547,
+              "center": {
+                "lat": 41.5776329,
+                "lon": 27.7565067
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Korgeneral Nazmi Solok Kışlası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 426263552,
+              "center": {
+                "lat": 41.5865037,
+                "lon": 27.7668408
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Albay Nuri Conker Kışlası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 636470040,
+              "center": {
+                "lat": 41.4492933,
+                "lon": 27.9337116
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Saray İlçe Jandarma Komutanlığı"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

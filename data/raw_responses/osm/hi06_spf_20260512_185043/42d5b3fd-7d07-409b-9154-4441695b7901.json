@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "site_id": "42d5b3fd-7d07-409b-9154-4441695b7901",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:14:53.846917+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,36.953333,36.203333);\n  way[\"military\"](around:25000,36.953333,36.203333);\n  relation[\"military\"](around:25000,36.953333,36.203333);\n  node[\"landuse\"=\"military\"](around:25000,36.953333,36.203333);\n  way[\"landuse\"=\"military\"](around:25000,36.953333,36.203333);\n  relation[\"landuse\"=\"military\"](around:25000,36.953333,36.203333);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.953333,36.203333);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.953333,36.203333);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.953333,36.203333);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.953333,36.203333);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.953333,36.203333);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.953333,36.203333);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 11390,
+        "element_count": 11,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:13:01Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 815866529,
+              "center": {
+                "lat": 37.1153626,
+                "lon": 36.1402667
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166062,
+              "center": {
+                "lat": 37.0801371,
+                "lon": 36.2721823
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166063,
+              "center": {
+                "lat": 37.0803148,
+                "lon": 36.2726988
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166064,
+              "center": {
+                "lat": 37.0799405,
+                "lon": 36.2716714
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166073,
+              "center": {
+                "lat": 37.0762055,
+                "lon": 36.277441
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166075,
+              "center": {
+                "lat": 37.0767133,
+                "lon": 36.2704548
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "12. Komando Tugay Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166090,
+              "center": {
+                "lat": 37.078387,
+                "lon": 36.2689514
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139166093,
+              "center": {
+                "lat": 37.0747801,
+                "lon": 36.2734671
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area",
+                "natural": "scrub"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1139209105,
+              "center": {
+                "lat": 37.0771681,
+                "lon": 36.2674209
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1389540853,
+              "center": {
+                "lat": 36.9649743,
+                "lon": 36.1780701
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "T.C. Erzin Kaymakamlığı İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 15428587,
+              "center": {
+                "lat": 37.0655171,
+                "lon": 36.1742696
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Şehit Binbaşı Oğuz Apanoğlu Kışlası",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

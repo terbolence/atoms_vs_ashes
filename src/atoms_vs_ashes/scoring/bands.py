@@ -61,6 +61,15 @@ def safe_eval(expr: str, context: dict[str, Any]) -> bool | None:
 
     The string ``"default"`` is the sentinel matching any state (used
     as the final fall-through band).
+
+    BoolOp handling: top-level (and nested) ``or`` / ``and`` operations
+    are evaluated disjunct-by-disjunct so that a ``TypeError`` from one
+    operand (e.g. ``nearest_seveso_km > 20`` when ``nearest_seveso_km
+    is None``) does not poison the entire expression. This lets bands
+    of the shape ``"x > N or (x is null and search_completed == true)"``
+    fire on the right-hand disjunct when the left-hand one would
+    otherwise have raised, which is the SP-F sentinel pattern documented
+    in ``merge_context_derivations._derive_hi_search_sentinels``.
     """
     if expr.strip() == "default":
         return True
@@ -71,9 +80,39 @@ def safe_eval(expr: str, context: dict[str, Any]) -> bool | None:
         log.warning("rubric_expr_syntax_error", expr=expr)
         return None
 
-    locals_ = {**context}
+    return _eval_node(tree.body, context)
+
+
+def _eval_node(node: ast.AST, context: dict[str, Any]) -> bool | None:
+    """Evaluate a parsed expression node with disjunct-level error isolation.
+
+    BoolOp semantics (intentional, per the plan):
+
+    - ``or``: return ``True`` if any disjunct evaluates to ``True``; ``False``
+      if every disjunct evaluates to ``False``; ``None`` otherwise (one or
+      more disjuncts are indeterminate but none confirmed ``True``). The
+      ``None`` case is treated as "band did not match" by the caller, same
+      as ``False``.
+    - ``and``: return ``True`` only when every conjunct evaluates to
+      ``True``; otherwise ``False``. An indeterminate conjunct (``None``)
+      is treated as ``False`` so the AND is fail-closed.
+    """
+    if isinstance(node, ast.BoolOp):
+        results = [_eval_node(value, context) for value in node.values]
+        if isinstance(node.op, ast.Or):
+            if any(r is True for r in results):
+                return True
+            if all(r is False for r in results):
+                return False
+            return None
+        if isinstance(node.op, ast.And):
+            if all(r is True for r in results):
+                return True
+            return False
+
     try:
-        return bool(eval(compile(tree, "<rubric>", "eval"), _SAFE_GLOBALS, locals_))
+        compiled = compile(ast.Expression(body=node), "<rubric>", "eval")
+        return bool(eval(compiled, _SAFE_GLOBALS, {**context}))
     except (NameError, TypeError, AttributeError, KeyError, ValueError):
         return None
 

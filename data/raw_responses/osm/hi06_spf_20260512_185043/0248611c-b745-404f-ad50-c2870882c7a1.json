@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "site_id": "0248611c-b745-404f-ad50-c2870882c7a1",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:11:10.644249+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,39.077483,37.294973);\n  way[\"military\"](around:25000,39.077483,37.294973);\n  relation[\"military\"](around:25000,39.077483,37.294973);\n  node[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  way[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  relation[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 10054,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,39.077483,37.294973);\n  way[\"military\"](around:25000,39.077483,37.294973);\n  relation[\"military\"](around:25000,39.077483,37.294973);\n  node[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  way[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  relation[\"landuse\"=\"military\"](around:25000,39.077483,37.294973);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.077483,37.294973);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.077483,37.294973);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 582,
+        "element_count": 1,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:09:58Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 1410587648,
+              "center": {
+                "lat": 39.2383032,
+                "lon": 37.3850233
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office",
+                "name": "İlçe Jandarma Komutanlığı"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

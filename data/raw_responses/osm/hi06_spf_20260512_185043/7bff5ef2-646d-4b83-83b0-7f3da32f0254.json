@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "site_id": "7bff5ef2-646d-4b83-83b0-7f3da32f0254",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:21:25.730635+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.122815,21.805115);\n  way[\"military\"](around:25000,41.122815,21.805115);\n  relation[\"military\"](around:25000,41.122815,21.805115);\n  node[\"landuse\"=\"military\"](around:25000,41.122815,21.805115);\n  way[\"landuse\"=\"military\"](around:25000,41.122815,21.805115);\n  relation[\"landuse\"=\"military\"](around:25000,41.122815,21.805115);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.122815,21.805115);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.122815,21.805115);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.122815,21.805115);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.122815,21.805115);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.122815,21.805115);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.122815,21.805115);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1813,
+        "element_count": 2,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:20:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 1347299050,
+              "center": {
+                "lat": 41.0416132,
+                "lon": 21.88391
+              },
+              "tags": {
+                "abandoned:building": "yes",
+                "description": "Karaulata e zapustena no krovot seuste na mesta stoi. Moze da pruzi zasolniste od vremenski nepriliki megutoa ne i da se prestojuva vo nea - The guardhouse is deserted, but still has a roof. It offers shelter from bad weather, but not stay in it",
+                "int_name": "Karaula Dobro pole",
+                "military": "barracks",
+                "name": "Караула Добро поле"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1462134214,
+              "center": {
+                "lat": 40.9323128,
+                "lon": 21.7378644
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office",
+                "name": "Стефанец",
+                "name:en": "Stefanec",
+                "name:mk": "Стефанец"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

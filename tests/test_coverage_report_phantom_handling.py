@@ -1,3 +1,4 @@
+# man_hours: 0.3
 """Tests for ``scripts/report_enrichment_coverage.py`` phantom-column surfacing.
 
 Covers the previously silent-drop behaviour where columns listed in
@@ -18,7 +19,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SCRIPT_PATH = PROJECT_ROOT / "scripts" / "report_enrichment_coverage.py"
+SCRIPT_PATH = PROJECT_ROOT / "src" / "scripts" / "report_enrichment_coverage.py"
 
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 

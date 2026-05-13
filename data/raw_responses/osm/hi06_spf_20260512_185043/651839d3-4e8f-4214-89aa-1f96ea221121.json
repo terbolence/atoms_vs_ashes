@@ -1,0 +1,532 @@
+{
+  "meta": {
+    "site_id": "651839d3-4e8f-4214-89aa-1f96ea221121",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:18:48.315871+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.501741,18.271075);\n  way[\"military\"](around:25000,47.501741,18.271075);\n  relation[\"military\"](around:25000,47.501741,18.271075);\n  node[\"landuse\"=\"military\"](around:25000,47.501741,18.271075);\n  way[\"landuse\"=\"military\"](around:25000,47.501741,18.271075);\n  relation[\"landuse\"=\"military\"](around:25000,47.501741,18.271075);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.501741,18.271075);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.501741,18.271075);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.501741,18.271075);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.501741,18.271075);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.501741,18.271075);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.501741,18.271075);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 7332,
+        "element_count": 40,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:16:57Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3181721604,
+              "lat": 47.5127958,
+              "lon": 18.5676432,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Szovjet katonai bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3181721606,
+              "lat": 47.5133608,
+              "lon": 18.565024,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Szovjet katonai bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5398716410,
+              "lat": 47.4904696,
+              "lon": 18.1916271,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "name": "GRANIT típusú atomfej tároló"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6357848201,
+              "lat": 47.511942,
+              "lon": 18.5710154,
+              "tags": {
+                "building": "bunker",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Szovjet katonai bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7196953500,
+              "lat": 47.3686918,
+              "lon": 18.3898369,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025994,
+              "lat": 47.4740117,
+              "lon": 18.5880786,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025995,
+              "lat": 47.4739175,
+              "lon": 18.5876173,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025996,
+              "lat": 47.4739247,
+              "lon": 18.588894,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025997,
+              "lat": 47.4743163,
+              "lon": 18.5887867,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025998,
+              "lat": 47.474697,
+              "lon": 18.5886472,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836025999,
+              "lat": 47.4753424,
+              "lon": 18.588497,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026000,
+              "lat": 47.4749871,
+              "lon": 18.5882181,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026001,
+              "lat": 47.474436,
+              "lon": 18.5875422,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026002,
+              "lat": 47.474494,
+              "lon": 18.5870701,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026003,
+              "lat": 47.4748421,
+              "lon": 18.5869092,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026004,
+              "lat": 47.475114,
+              "lon": 18.5872739,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9836026005,
+              "lat": 47.4747623,
+              "lon": 18.5874242,
+              "tags": {
+                "man_made": "silo",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11079387000,
+              "lat": 47.4198839,
+              "lon": 18.4614502,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13693500135,
+              "lat": 47.3848432,
+              "lon": 18.4534398,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 187089984,
+              "center": {
+                "lat": 47.6702642,
+                "lon": 18.3171752
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "barbed_wire",
+                "height": "2",
+                "landuse": "military",
+                "name": "Klapka György Laktanya"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262637002,
+              "center": {
+                "lat": 47.6591859,
+                "lon": 18.3151575
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "4",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Nőtlen szálló",
+                "roof:shape": "flat"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262637004,
+              "center": {
+                "lat": 47.6594328,
+                "lon": 18.3148213
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "3",
+                "landuse": "military",
+                "military": "barracks",
+                "roof:shape": "flat"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262637006,
+              "center": {
+                "lat": 47.6593368,
+                "lon": 18.3146151
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "military": "barracks",
+                "roof:shape": "flat"
+              }
+            },
+            {
+              "type": "way",
+              "id": 287270642,
+              "center": {
+                "lat": 47.4625264,
+                "lon": 18.0613922
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Tölgyes-telep"
+              }
+            },
+            {
+              "type": "way",
+              "id": 495078820,
+              "center": {
+                "lat": 47.4772062,
+                "lon": 18.5866544
+              },
+              "tags": {
+                "access": "private",
+                "barrier": "fence",
+                "fence_type": "concrete",
+                "height": "2.2",
+                "landuse": "military",
+                "old_name": "Magyar Néphadsereg Hadtápellátó 1. Raktárbázis",
+                "ruins": "barrack"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435854,
+              "center": {
+                "lat": 47.3608024,
+                "lon": 18.4182143
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435857,
+              "center": {
+                "lat": 47.3607915,
+                "lon": 18.4172729
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435859,
+              "center": {
+                "lat": 47.3599084,
+                "lon": 18.4174553
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435862,
+              "center": {
+                "lat": 47.3603608,
+                "lon": 18.4178361
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435864,
+              "center": {
+                "lat": 47.3601646,
+                "lon": 18.4188741
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504435867,
+              "center": {
+                "lat": 47.3597198,
+                "lon": 18.418507
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "volt repülő fedezék",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791069111,
+              "center": {
+                "lat": 47.3699795,
+                "lon": 18.305402
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 813444927,
+              "center": {
+                "lat": 47.3521573,
+                "lon": 18.4318453
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "description": "volt szovjet katonai légibázis",
+                "disused": "yes",
+                "landuse": "military",
+                "military": "airfield",
+                "old_name:en": "Csákvár Air Base",
+                "wikipedia": "hu:Csákvári repülőtér"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1214013920,
+              "center": {
+                "lat": 47.6219817,
+                "lon": 18.4698956
+              },
+              "tags": {
+                "abandoned:building": "bunker",
+                "abandoned:military": "bunker",
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2761063,
+              "center": {
+                "lat": 47.6799925,
+                "lon": 18.3761858
+              },
+              "tags": {
+                "CLC:id": "HU-11504;HU-11467",
+                "CLC:year": "2006",
+                "landuse": "military",
+                "name": "Szomódi lőtér",
+                "note": "CLC import: update the tag landuse with either industrial or retail after survey",
+                "source": "survey",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2761069,
+              "center": {
+                "lat": 47.6803593,
+                "lon": 18.3250744
+              },
+              "tags": {
+                "CLC:id": "HU-11455",
+                "CLC:year": "2006",
+                "alt_name": "Szomód helyőrségi lőtér",
+                "hours:danger": "Mo 12:00-Fr 12:00",
+                "landuse": "military",
+                "name": "Kombinált Fegyvernemi Lőtér",
+                "source": "CLC_HUN",
+                "type": "multipolygon",
+                "website": "https://www.honvedelem.hu/nyomtat/11364"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2761070,
+              "center": {
+                "lat": 47.6930914,
+                "lon": 18.3152052
+              },
+              "tags": {
+                "CLC:id": "HU-11187",
+                "CLC:year": "2006",
+                "landuse": "military",
+                "military": "range",
+                "source": "CLC_HUN",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2761073,
+              "center": {
+                "lat": 47.6744857,
+                "lon": 18.3795322
+              },
+              "tags": {
+                "CLC:id": "HU-11534",
+                "CLC:year": "2006",
+                "landuse": "military",
+                "source": "CLC_HUN",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 3177537,
+              "center": {
+                "lat": 47.6791388,
+                "lon": 18.3114194
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "survey",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 4512985,
+              "center": {
+                "lat": 47.3584877,
+                "lon": 18.4205424
+              },
+              "tags": {
+                "description": "volt szovjet katonai légibázis",
+                "landuse": "brownfield",
+                "military": "barracks",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

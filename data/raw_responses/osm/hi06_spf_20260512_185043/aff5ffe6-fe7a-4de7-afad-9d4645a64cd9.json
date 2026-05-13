@@ -1,0 +1,1372 @@
+{
+  "meta": {
+    "site_id": "aff5ffe6-fe7a-4de7-afad-9d4645a64cd9",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:41:36.267857+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.002896,25.397236);\n  way[\"military\"](around:25000,45.002896,25.397236);\n  relation[\"military\"](around:25000,45.002896,25.397236);\n  node[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  way[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  relation[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 12110,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.002896,25.397236);\n  way[\"military\"](around:25000,45.002896,25.397236);\n  relation[\"military\"](around:25000,45.002896,25.397236);\n  node[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  way[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  relation[\"landuse\"=\"military\"](around:25000,45.002896,25.397236);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.002896,25.397236);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.002896,25.397236);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 8879,
+        "element_count": 103,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:40:28Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 9759586910,
+              "lat": 44.9168522,
+              "lon": 25.4666038,
+              "tags": {
+                "addr:city": "Târgoviște",
+                "addr:housenumber": "14",
+                "addr:street": "Strada General Ion Emanoil Florescu",
+                "landuse": "military",
+                "military": "range",
+                "name": "Unitate Militara"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9867211597,
+              "lat": 44.9199541,
+              "lon": 25.4517206,
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840760,
+              "lat": 44.917039,
+              "lon": 25.47894,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.42C, sc. B,str. cpt.Stănică Ilie, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1519",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840787,
+              "lat": 45.13323,
+              "lon": 25.419616,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Dr.Stefanescu, Bl. AN L 2,FN, Fieni, DB",
+                "military": "bunker",
+                "ref": "1554",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863829,
+              "lat": 44.931068,
+              "lon": 25.446346,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.24A,sc.A,Str Udrişte Năsturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1483",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863855,
+              "lat": 44.920795,
+              "lon": 25.448819,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.73B, nr.32,B-dul Unirii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1514",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863882,
+              "lat": 45.08064,
+              "lon": 25.43535,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Randunelelor, Bl. 1 - ANL, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1545",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870096,
+              "lat": 44.929354,
+              "lon": 25.442328,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.O1,str. C-tin Brîncoveanu,Adapost nr.2,Bl.O1,str. C-tin BrîncoveanuAdapost nr.1, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1481,1480",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878303,
+              "lat": 44.932202,
+              "lon": 25.449213,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.12, sc.A,str.Diaconu Coresi, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1490",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878330,
+              "lat": 44.91764,
+              "lon": 25.475126,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.24, sc.E,str. Vasile Blendea, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1517",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878357,
+              "lat": 45.127148,
+              "lon": 25.419939,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Ing.Aurel Rainu,nr.67, Fieni, DB",
+                "military": "bunker",
+                "ref": "1552",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878398,
+              "lat": 44.9263482,
+              "lon": 25.4638223,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Magazin Muntenia Str.Independentei, nr.1, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1468",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878424,
+              "lat": 44.929761,
+              "lon": 25.450759,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.12A,sc.Astr. Duiliu Zamfirescu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1500",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878451,
+              "lat": 44.905137,
+              "lon": 25.448481,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC COS SA-Anexă LDS,Şos. Găesti nr. 9-11, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1538",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878478,
+              "lat": 44.989724,
+              "lon": 25.642991,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Victoriei, nr. 54, Moreni, DB",
+                "military": "bunker",
+                "ref": "1570",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878573,
+              "lat": 44.931802,
+              "lon": 25.449077,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.13A,str. Diaconu Coresi, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1497",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878600,
+              "lat": 44.915381,
+              "lon": 25.478394,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.51B, sc.B,str. Lăzărică Petrescu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1528",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878627,
+              "lat": 44.986599,
+              "lon": 25.642526,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Culturii, nr. 1,Bl. D1 C, Moreni, DB",
+                "military": "bunker",
+                "ref": "1567",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878668,
+              "lat": 44.926831,
+              "lon": 25.463213,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. A1,Sucursala CEC Bank,Bd.Mircea cel Batran, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1479",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878694,
+              "lat": 44.92372,
+              "lon": 25.443211,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.51E,B-dul Unirii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1515",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878721,
+              "lat": 45.076084,
+              "lon": 25.43391,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Centrul pregatire Distrigaz Sud Pucioasa, str.Garii., Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1550",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878843,
+              "lat": 44.931766,
+              "lon": 25.451224,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.4, sc.A,str. Macarie, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1492",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878870,
+              "lat": 44.914498,
+              "lon": 25.476411,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.58C, sc. B,str. I.C. Brătianu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1527",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878938,
+              "lat": 44.926286,
+              "lon": 25.458728,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B2,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1478",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878965,
+              "lat": 44.929823,
+              "lon": 25.446571,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.1A, nr.2,str. Urmuz, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1510",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878992,
+              "lat": 44.931963,
+              "lon": 25.445847,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.28, sc.A,str.Radu Popescu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1489",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879019,
+              "lat": 44.915499,
+              "lon": 25.477046,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.61B, sc. A,str. col. Ion Nicolin, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1520",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879088,
+              "lat": 44.9258537,
+              "lon": 25.4651852,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Colegiul Medicilor(Gradinita nr.8)str.N.Iorga, nr.3, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1471",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879114,
+              "lat": 44.93051,
+              "lon": 25.449041,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.6B,str. Ion Ghica, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1507",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879141,
+              "lat": 44.934173,
+              "lon": 25.439242,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "ENGIE Romania S.A. DistrigazSud-Retele S.R.L Targoviste,bd.Eroilor, nr.32 A, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1541",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879263,
+              "lat": 44.931068,
+              "lon": 25.448136,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.20,Str Udrişte Năsturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1484",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879428,
+              "lat": 44.927299,
+              "lon": 25.463307,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Cinema Independenţa, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1470",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879454,
+              "lat": 44.931556,
+              "lon": 25.449715,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.8,sc.Bstr.Ctin Brancoveanu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1502",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879481,
+              "lat": 45.075495,
+              "lon": 25.439684,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stadionului, Bl. D - ANL, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1549",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879603,
+              "lat": 44.932853,
+              "lon": 25.449598,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.10E,str. Diaconu Coresi, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1499",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879630,
+              "lat": 44.9193548,
+              "lon": 25.4750791,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.9 sc.E,str. cpt.Stănică Ilie, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1530",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879698,
+              "lat": 44.931329,
+              "lon": 25.448224,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. 18A,str. Radu Cel Mare, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1482",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879725,
+              "lat": 44.93021,
+              "lon": 25.448653,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.5B,str. Ion Ghica, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1509",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879752,
+              "lat": 44.911752,
+              "lon": 25.463607,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "MALL Dambovita, str. B-dul regele Ferdinand, nr.6, ALA 1,MALL Dambovita, str. B-dul regele Ferdinand, nr.6, ALA 2, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1544,1543",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879873,
+              "lat": 44.933829,
+              "lon": 25.446223,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.35B, sc. A,str. Dinu Lipatti, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1494",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879900,
+              "lat": 44.924043,
+              "lon": 25.460406,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "CANTUP Hotel Nova,str. Arsenalului nr. 14, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1540",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879927,
+              "lat": 44.966457,
+              "lon": 25.653723,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "OMV Petrom.Str. 22 Dec., Moreni, DB",
+                "military": "bunker",
+                "ref": "1572",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880022,
+              "lat": 44.932291,
+              "lon": 25.451767,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.2, sc.A,str. Macarie, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1491",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880049,
+              "lat": 44.91734,
+              "lon": 25.478037,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.37B,str. Ionel Fernic, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1522",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880076,
+              "lat": 45.133269,
+              "lon": 25.419884,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Dr.Stefanescu, Bl. ANL A1, FN, Fieni, DB",
+                "military": "bunker",
+                "ref": "1553",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880117,
+              "lat": 44.927825,
+              "lon": 25.463566,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. A3C,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1473",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880143,
+              "lat": 44.931641,
+              "lon": 25.450032,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.8A,str. C-tin Brîncoveanu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1501",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880170,
+              "lat": 44.944449,
+              "lon": 25.455805,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Campus Universitatea Valahia Targoviste,corpul B, Adapost nr.1str.Aleea Sinaia,nr.13, corpul B, Adapost nr.2str.Aleea Sinaia,nr.13,Campus Universitatea Valahia Targoviste,corpul B, Adapost nr.3str.Aleea Sinaia,nr.13, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1534,1533,1532",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880197,
+              "lat": 44.98561,
+              "lon": 25.639206,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Flacara, nr. 26, Moreni, DB",
+                "military": "bunker",
+                "ref": "1571",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880292,
+              "lat": 44.930777,
+              "lon": 25.447147,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.22,str. Udrişte Năsturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1486",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880319,
+              "lat": 44.915824,
+              "lon": 25.479931,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.49B,str. cpt.Stănică Ilie, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1529",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880359,
+              "lat": 45.075152,
+              "lon": 25.439771,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stadionului, Bl. B – ANL, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1547",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880622,
+              "lat": 44.93032,
+              "lon": 25.453874,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.24, sc.D,str. Mr.Brezişanu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1512",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880649,
+              "lat": 45.04511,
+              "lon": 25.438039,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sinmatex (Trainica ) str. Zorilor, nr. 2, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1551",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880771,
+              "lat": 44.933736,
+              "lon": 25.445949,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.35A, sc. B,str. Dinu Lipatti, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1493",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880798,
+              "lat": 44.914325,
+              "lon": 25.47912,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.52C,str. Petru Cercel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1524",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880866,
+              "lat": 44.9252709,
+              "lon": 25.4649396,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. T2,str. George Coşbuc, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1475",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880893,
+              "lat": 44.930712,
+              "lon": 25.453719,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.24,sc.Bstr. Mr.Brezişanu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1511",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880920,
+              "lat": 45.075217,
+              "lon": 25.439352,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stadionului, Bl. A - ANL, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1546",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880947,
+              "lat": 44.919391,
+              "lon": 25.4751361,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.9, sc.A,str.Radu de la Afumati, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1521",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880973,
+              "lat": 45.122643,
+              "lon": 25.415449,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Carpat Cement SA Str.Garii,nr.1, Fieni, DB",
+                "military": "bunker",
+                "ref": "1556",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881015,
+              "lat": 44.927981,
+              "lon": 25.463403,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. A3A,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1472",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881041,
+              "lat": 44.930777,
+              "lon": 25.44993,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.7A,str. Ion Ghica, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1504",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881068,
+              "lat": 44.921754,
+              "lon": 25.438447,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sc RONDOCARTON srl, Târgoviște, str. Laminorului, nr.40, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1542",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881095,
+              "lat": 44.969664,
+              "lon": 25.651474,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "s.c. IMUT S.A.,Str. 22 Decembrie 1989, nr. 60, Moreni, DB",
+                "military": "bunker",
+                "ref": "1574",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881190,
+              "lat": 44.930895,
+              "lon": 25.447641,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.21,Str Udrişte Năsturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1485",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881217,
+              "lat": 44.92288,
+              "lon": 25.445079,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.60D,B-dul Unirii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1516",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881244,
+              "lat": 45.126193,
+              "lon": 25.419586,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Steaua Electrică SA Str.Gării nr.1, Fieni, DB",
+                "military": "bunker",
+                "ref": "1555",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881311,
+              "lat": 44.930902,
+              "lon": 25.45123,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.8C,str. Ana Ipatescu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1503",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881338,
+              "lat": 44.943145,
+              "lon": 25.453272,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Campus Universitatea Valahia Targoviste,Corpul I.C.S.T.M.str.Aleea Sinaia,nr.13, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1537",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881460,
+              "lat": 44.932444,
+              "lon": 25.449481,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.11B,str. Diaconu Coresi, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1496",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881487,
+              "lat": 44.914722,
+              "lon": 25.476774,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.59,str. Soldat Nae Ion, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1531",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881704,
+              "lat": 44.934162,
+              "lon": 25.446358,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.36, sc. B,str. Dinu Lipatti, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1495",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881731,
+              "lat": 44.914779,
+              "lon": 25.480163,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.47B, sc.B,str. Petru Cercel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1526",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881758,
+              "lat": 44.970302,
+              "lon": 25.657685,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "s.c.U.A.Morenis.a., Str. Teiş nr. 16, Moreni, DB",
+                "military": "bunker",
+                "ref": "1573",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881799,
+              "lat": 44.9263393,
+              "lon": 25.4589499,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. B1,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1477",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881853,
+              "lat": 44.931714,
+              "lon": 25.447631,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.26, sc.B,str. Udriste Nasturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1488",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881880,
+              "lat": 44.915337,
+              "lon": 25.47491,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.29B, sc.B,str. I.C. Brătianu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1523",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881948,
+              "lat": 44.927726,
+              "lon": 25.463659,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. A3E,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1474",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881974,
+              "lat": 44.93055,
+              "lon": 25.449175,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.6A,nr.159str. Ion Ghica, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1506",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882001,
+              "lat": 44.944004,
+              "lon": 25.455535,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Campus Universitatea Valahia Targoviste,corpul A, Adapost nr.1,str.Aleea Sinaia,nr.13,Campus Universitatea Valahia Targoviste,corpul A, Adapost nr.2,str.Aleea Sinaia,nr.13, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1536,1535",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882028,
+              "lat": 44.985935,
+              "lon": 25.642993,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cpt.Pantea Ion, Bl. C 3, Moreni, DB",
+                "military": "bunker",
+                "ref": "1568",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882123,
+              "lat": 44.931265,
+              "lon": 25.447016,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.25, sc A,str Udrişte Năsturel, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1487",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882150,
+              "lat": 44.915899,
+              "lon": 25.473851,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.28B, sc. A,str. I.C. Brătianu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1518",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882218,
+              "lat": 44.926617,
+              "lon": 25.459545,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Hotel DamboviţaBd.Libertatii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1469",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882244,
+              "lat": 44.920491,
+              "lon": 25.449431,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.72B, nr.32,B-dul Unirii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1513",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882271,
+              "lat": 45.075532,
+              "lon": 25.439291,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stadionului, Bl. C – ANL, Pucioasa, DB",
+                "military": "bunker",
+                "ref": "1548",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882393,
+              "lat": 44.932366,
+              "lon": 25.448663,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.13E,str. Diaconu Coresi, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1498",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882420,
+              "lat": 44.914282,
+              "lon": 25.477492,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.57C,str. I.C. Brătianu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1525",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882488,
+              "lat": 44.924909,
+              "lon": 25.460389,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl. H1,bd. Libertăţii, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1476",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882515,
+              "lat": 44.93021,
+              "lon": 25.448312,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.5A,str. Ion Ghica, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1508",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882680,
+              "lat": 44.931675,
+              "lon": 25.450349,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bl.7, sc.B, nr.33A,str. C-tin Brîncoveanu, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1505",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882707,
+              "lat": 44.910344,
+              "lon": 25.444155,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Erdemir Romania SRL- Laborator mat.primă,Şos. Găeşti, nr. 18-24, Târgovişte, DB",
+                "military": "bunker",
+                "ref": "1539",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062344176,
+              "center": {
+                "lat": 44.9150638,
+                "lon": 25.4664197
+              },
+              "tags": {
+                "addr:city": "Târgoviște",
+                "addr:housenumber": "14",
+                "addr:street": "Strada General Ion Emanoil Florescu",
+                "landuse": "military",
+                "military": "range",
+                "name": "Unitate militară"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1064491228,
+              "center": {
+                "lat": 44.9170833,
+                "lon": 25.4580592
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Inspectoratul de jandarmi Dâmbovița"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1093425246,
+              "center": {
+                "lat": 44.9340076,
+                "lon": 25.4159396
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Fost Ghiazeu"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1093425726,
+              "center": {
+                "lat": 44.9240152,
+                "lon": 25.4160575
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485232809,
+              "center": {
+                "lat": 44.9267732,
+                "lon": 25.3613903
+              },
+              "tags": {
+                "addr:city": "Dragomirești",
+                "addr:place": "Dragomirești",
+                "landuse": "military",
+                "military": "training_area",
+                "name": "Poligon Priseaca"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485265557,
+              "center": {
+                "lat": 44.9188843,
+                "lon": 25.3679829
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485265558,
+              "center": {
+                "lat": 44.9188497,
+                "lon": 25.3683313
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485265572,
+              "center": {
+                "lat": 44.9245611,
+                "lon": 25.3600701
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Groapa Grenade"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485265575,
+              "center": {
+                "lat": 44.9215076,
+                "lon": 25.3640513
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1485266752,
+              "center": {
+                "lat": 44.9211047,
+                "lon": 25.3671244
+              },
+              "tags": {
+                "military": "trench"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

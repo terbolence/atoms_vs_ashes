@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "site_id": "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:48:28.372526+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,46.126132,15.061808);\n  way[\"military\"](around:25000,46.126132,15.061808);\n  relation[\"military\"](around:25000,46.126132,15.061808);\n  node[\"landuse\"=\"military\"](around:25000,46.126132,15.061808);\n  way[\"landuse\"=\"military\"](around:25000,46.126132,15.061808);\n  relation[\"landuse\"=\"military\"](around:25000,46.126132,15.061808);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.126132,15.061808);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.126132,15.061808);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.126132,15.061808);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.126132,15.061808);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.126132,15.061808);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.126132,15.061808);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 3119,
+        "element_count": 5,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:47:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12026362524,
+              "lat": 46.2086968,
+              "lon": 15.2850765,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 265062472,
+              "center": {
+                "lat": 46.2369525,
+                "lon": 15.2703631
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "base",
+                "name": "Vojašnica Franca Rozmana Staneta",
+                "wikidata": "Q18552423",
+                "wikipedia": "sl:Vojašnica Franca Rozmana - Staneta"
+              }
+            },
+            {
+              "type": "way",
+              "id": 492026122,
+              "center": {
+                "lat": 46.2395995,
+                "lon": 15.2936716
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1204410895,
+              "center": {
+                "lat": 46.2087227,
+                "lon": 15.2754851
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strelišče Pečovnik"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1348323966,
+              "center": {
+                "lat": 46.2735843,
+                "lon": 15.2099484
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Skladišče SV Zaloška Gorica"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

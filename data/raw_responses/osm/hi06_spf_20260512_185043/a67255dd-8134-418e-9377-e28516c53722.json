@@ -1,0 +1,6800 @@
+{
+  "meta": {
+    "site_id": "a67255dd-8134-418e-9377-e28516c53722",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:36:08.902191+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,52.191456,21.086218);\n  way[\"military\"](around:25000,52.191456,21.086218);\n  relation[\"military\"](around:25000,52.191456,21.086218);\n  node[\"landuse\"=\"military\"](around:25000,52.191456,21.086218);\n  way[\"landuse\"=\"military\"](around:25000,52.191456,21.086218);\n  relation[\"landuse\"=\"military\"](around:25000,52.191456,21.086218);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.191456,21.086218);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.191456,21.086218);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.191456,21.086218);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.191456,21.086218);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.191456,21.086218);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.191456,21.086218);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 8585,
+        "element_count": 565,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:34:16Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 1138166357,
+              "lat": 52.2143115,
+              "lon": 21.2493946,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Regelbau 514",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1153414413,
+              "lat": 52.2045255,
+              "lon": 21.2489731,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date": "2024-12-28",
+                "military": "bunker",
+                "name": "Schron obserwacyjny",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1199527927,
+              "lat": 52.2595817,
+              "lon": 21.2466859,
+              "tags": {
+                "description": "Część poligonu wojskowego.",
+                "landuse": "military",
+                "military": "training_area",
+                "name": "miejsce dowodzenia"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1648563615,
+              "lat": 52.277664,
+              "lon": 21.3333532,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Baza Rakietowa - (BZ)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1991022626,
+              "lat": 52.241388,
+              "lon": 21.0278061,
+              "tags": {
+                "building": "bunker",
+                "description": "Schron wartowniczy",
+                "military": "bunker",
+                "name:signed": "no",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2635069227,
+              "lat": 52.2605399,
+              "lon": 21.1929169,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bunkier niemiecki 1915"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3866651548,
+              "lat": 52.1668025,
+              "lon": 21.2825712,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "resztki schronów I woj. św.",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3866651549,
+              "lat": 52.1801542,
+              "lon": 21.2832585,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3964264775,
+              "lat": 52.2102981,
+              "lon": 21.2562995,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "military": "bunker",
+                "name": "Regelbau 514",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4351475498,
+              "lat": 52.3687489,
+              "lon": 21.1446166,
+              "tags": {
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Bunkier Regelbau 514"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675709503,
+              "lat": 52.2371444,
+              "lon": 20.9581611,
+              "tags": {
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "name:pl": "Ringstand 58c",
+                "wheelchair": "limited"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675715198,
+              "lat": 52.2286194,
+              "lon": 20.9591444,
+              "tags": {
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675721690,
+              "lat": 52.2375873,
+              "lon": 20.9580774,
+              "tags": {
+                "historic": "yes",
+                "military": "bunker",
+                "wheelchair": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675721793,
+              "lat": 52.2221976,
+              "lon": 20.9682361,
+              "tags": {
+                "access": "no",
+                "addr:street": "Tunelowa",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "fixme": "Po zakończeniu budowy proszę pamiętać o access dla bunkrów!!!",
+                "gez:inscription_date": "2017-11-13",
+                "heritage": "2",
+                "heritage:operator": "NID;GEZ",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "nid:inscription_date": "2017-08-10",
+                "ref:gez": "WOL34555",
+                "ref:nid": "A-1389",
+                "ruins": "yes",
+                "tourism": "attraction",
+                "wheelchair": "no"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675736689,
+              "lat": 52.2203467,
+              "lon": 21.0038543,
+              "tags": {
+                "addr:street": "Nowowiejska",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bunkier Ringstand 58c",
+                "name:pl": "Bunkier Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4675736690,
+              "lat": 52.2199861,
+              "lon": 21.0174806,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "historic:military": "bunker",
+                "location": "underground",
+                "military": "bunker",
+                "name": "schron Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5547512603,
+              "lat": 52.3500684,
+              "lon": 21.1545878,
+              "tags": {
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Bunkier Regelbau 514"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5656404675,
+              "lat": 52.2634109,
+              "lon": 20.9868089,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661437527,
+              "lat": 52.2625813,
+              "lon": 20.8644791,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439392,
+              "lat": 52.2609397,
+              "lon": 20.8629819,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439393,
+              "lat": 52.2624463,
+              "lon": 20.8632205,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439394,
+              "lat": 52.2616801,
+              "lon": 20.8659126,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439395,
+              "lat": 52.2612344,
+              "lon": 20.866402,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439396,
+              "lat": 52.2612769,
+              "lon": 20.8658817,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439397,
+              "lat": 52.2619047,
+              "lon": 20.8659725,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439398,
+              "lat": 52.2618358,
+              "lon": 20.8674025,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661439399,
+              "lat": 52.2617741,
+              "lon": 20.8680705,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6661461402,
+              "lat": 52.2612149,
+              "lon": 20.8620605,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7139502495,
+              "lat": 52.2841318,
+              "lon": 21.2999518,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7139591867,
+              "lat": 52.2714654,
+              "lon": 21.4276728,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7141091112,
+              "lat": 52.2997543,
+              "lon": 21.2880634,
+              "tags": {
+                "building": "bunker",
+                "check_date": "2026-04-25",
+                "military": "bunker",
+                "name": "Dawny ośrodek badań altyrelyjskich",
+                "note": "Zasypany jakiś czas temu przez leśników."
+              }
+            },
+            {
+              "type": "node",
+              "id": 7141091113,
+              "lat": 52.3003729,
+              "lon": 21.2853244,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Garaże"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7398069399,
+              "lat": 52.1787986,
+              "lon": 21.2846659,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "check_date": "2023-09-09",
+                "military": "bunker",
+                "name": "Regelbau 501"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7989282191,
+              "lat": 52.2513329,
+              "lon": 20.8957368,
+              "tags": {
+                "amenity": "restaurant",
+                "military": "yes",
+                "name": "Stołówka Wojskowa nr 3"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7989282258,
+              "lat": 52.2521972,
+              "lon": 20.8955015,
+              "tags": {
+                "amenity": "restaurant",
+                "military": "yes",
+                "name": "Stołówka Wojskowa nr 2"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8171991083,
+              "lat": 52.2326764,
+              "lon": 21.2464024,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "historic:civilization": "modern",
+                "military": "bunker",
+                "name": "Regelbau 514",
+                "ruins": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8563079094,
+              "lat": 52.1433196,
+              "lon": 21.2647314,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Schron obserwacyjny - element sieci umocnień wzniesiona podczas I wojny światowej, tzw. Przedmoście Warszawskie. Linia Przedmościa Warszawskiego była wielokrotnie \nmodernizowana. Ostatnia przebudowa fortyfikacji została \nprzeprowadzona w 1944 roku. Po woj",
+                "military": "bunker",
+                "name": "Schron obserwacyjny",
+                "ruins": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8665939277,
+              "lat": 52.1658822,
+              "lon": 21.2848169,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9315082705,
+              "lat": 51.9960999,
+              "lon": 21.21214,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Brückenkopf Warschau"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9315082706,
+              "lat": 51.9963287,
+              "lon": 21.2116815,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Brückenkopf Warschau"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9315181121,
+              "lat": 51.9956459,
+              "lon": 21.2128776,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Brückenkopf Warschau"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9371209836,
+              "lat": 52.2499348,
+              "lon": 21.0282667,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bunkier poniemiecki",
+                "name:en": "German bunker from early 1944",
+                "source": "https://www.twoja-praga.pl/praga/miejsca/2166.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9892129732,
+              "lat": 52.2218427,
+              "lon": 20.9677504,
+              "tags": {
+                "access": "no",
+                "addr:street": "Tunelowa",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "fixme": "Po zakończeniu budowy proszę pamiętać o access dla bunkrów!!!",
+                "gez:inscription_date": "2017-11-13",
+                "heritage": "2",
+                "heritage:operator": "NID;GEZ",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "nid:inscription_date": "2017-08-10",
+                "ref:gez": "WOL34554",
+                "ref:nid": "A-1389",
+                "ruins": "yes",
+                "tourism": "attraction",
+                "wheelchair": "no"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9892129733,
+              "lat": 52.2209648,
+              "lon": 20.9714784,
+              "tags": {
+                "addr:street": "Tunelowa",
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "gez:inscription_date": "2017-11-13",
+                "heritage": "2",
+                "heritage:operator": "NID;GEZ",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "nid:inscription_date": "2017-08-10",
+                "ref:gez": "WOL34553",
+                "ref:nid": "A-1389",
+                "ruins": "yes",
+                "tourism": "attraction",
+                "wheelchair": "no"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942347183,
+              "lat": 52.3020833,
+              "lon": 21.2853325,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Budynek nr 50"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942347187,
+              "lat": 52.282172,
+              "lon": 21.2213512,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942347188,
+              "lat": 52.2685994,
+              "lon": 21.2135316,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942355517,
+              "lat": 52.2673807,
+              "lon": 21.1899116,
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9949895808,
+              "lat": 52.2984652,
+              "lon": 21.2742768,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Przewrócony grzybek wartowniczy"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10103376229,
+              "lat": 52.2859498,
+              "lon": 21.2360401,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10651619556,
+              "lat": 52.1979637,
+              "lon": 21.2534355,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "military": "bunker",
+                "name": "Schron broni maszynowej (1915)",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10837338883,
+              "lat": 52.173279,
+              "lon": 20.8082983,
+              "tags": {
+                "description": "Bunkier stalowy",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11657271097,
+              "lat": 52.2824754,
+              "lon": 21.1916441,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bunkier"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11736826489,
+              "lat": 52.2604202,
+              "lon": 20.9981355,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11757250262,
+              "lat": 52.2126501,
+              "lon": 21.2818808,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11983610445,
+              "lat": 52.2472996,
+              "lon": 20.9587499,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12057922637,
+              "lat": 52.2659925,
+              "lon": 20.9869785,
+              "tags": {
+                "government": "military",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji Warszawa-Śródmieście",
+                "office": "government",
+                "old_name": "Wojskowa Komenda Uzupełnień Warszawa-Śródmieście",
+                "opening_hours": "Mo 07:30-18:00; Tu-Fr 07:30-15:30",
+                "website": "https://wcrwarszawa-srodmiescie.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12320182836,
+              "lat": 52.3942741,
+              "lon": 21.1256378,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12320182837,
+              "lat": 52.3946374,
+              "lon": 21.127085,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12388177802,
+              "lat": 52.2127947,
+              "lon": 20.9808589,
+              "tags": {
+                "addr:housenumber": "1",
+                "addr:street": "Winnicka",
+                "check_date": "2024-12-01",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji Warszawa-Mokotów",
+                "office": "military",
+                "opening_hours": "Mo 07:30-17:00; Tu-Fr 07:30-15:30"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12388177803,
+              "lat": 52.2127639,
+              "lon": 20.9811824,
+              "tags": {
+                "addr:housenumber": "1",
+                "addr:street": "Winnicka",
+                "check_date": "2024-12-01",
+                "military": "office",
+                "name": "Mazowiecki Ośrodek Centralnego Wojskowego Centrum Rekrutacji",
+                "office": "military"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12728120718,
+              "lat": 52.248262,
+              "lon": 20.959069,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "ringstand_58c",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12969183355,
+              "lat": 52.2600124,
+              "lon": 21.2461121,
+              "tags": {
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13160924523,
+              "lat": 52.1762679,
+              "lon": 21.2924038,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "check_date": "2025-09-21",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Regelbau 514",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23470723,
+              "center": {
+                "lat": 52.2119577,
+                "lon": 21.0122888
+              },
+              "tags": {
+                "access": "military",
+                "amenity": "parking",
+                "landuse": "military",
+                "parking": "surface"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23713575,
+              "center": {
+                "lat": 52.2151167,
+                "lon": 20.9865304
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Dowództwo Generalne Rodzajów Sił Zbrojnych"
+              }
+            },
+            {
+              "type": "way",
+              "id": 25430704,
+              "center": {
+                "lat": 52.1755935,
+                "lon": 20.9758559
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:street": "Żwirki i Wigury",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "1. Baza Lotnictwa Transportowego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 28751506,
+              "center": {
+                "lat": 52.2106724,
+                "lon": 21.0190122
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Departament Wojskowych Spraw Zagranicznych MON"
+              }
+            },
+            {
+              "type": "way",
+              "id": 28798034,
+              "center": {
+                "lat": 52.1878947,
+                "lon": 20.9732847
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Koszary Dowództwa Garnizonu Warszawa"
+              }
+            },
+            {
+              "type": "way",
+              "id": 31332565,
+              "center": {
+                "lat": 52.2749347,
+                "lon": 21.1795088
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Wojskowy Instytut Chemii i Radiometrii",
+                "source": "http://ump.waw.pl/ retrieved 14:17:02 02/20/09 (UMP-Warszawa/src/WARSZAWA.obszary.txt)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 96382848,
+              "center": {
+                "lat": 52.1273118,
+                "lon": 21.0333199
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Centrum Operacji Powietrznych - Dowództwo Komponentu Powietrznego",
+                "website": "https://cop.wp.mil.pl/pl/7.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 96810037,
+              "center": {
+                "lat": 52.1005845,
+                "lon": 21.10927
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Willa Prezydenta RP"
+              }
+            },
+            {
+              "type": "way",
+              "id": 98446063,
+              "center": {
+                "lat": 52.1446054,
+                "lon": 20.900592
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "barbed_wire",
+                "landuse": "military",
+                "name": "Centrum Radiowo Nadawcze Puchały",
+                "operator": "Polish Foreign Intelligence Agency",
+                "source": "http://priyom.org/number-stations/english/e11.aspx;wyrok IV SA/WA 1800/16"
+              }
+            },
+            {
+              "type": "way",
+              "id": 102319556,
+              "center": {
+                "lat": 52.2645811,
+                "lon": 21.0366913
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "JW 3964"
+              }
+            },
+            {
+              "type": "way",
+              "id": 103311765,
+              "center": {
+                "lat": 52.2502423,
+                "lon": 20.9745577
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Zakład Cieczy Roboczych ITWL",
+                "office": "research",
+                "operator": "Instytut Techniczny Wojsk Lotniczych"
+              }
+            },
+            {
+              "type": "way",
+              "id": 116355391,
+              "center": {
+                "lat": 52.2575329,
+                "lon": 20.8878649
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica nr 2 Wojskowej Akademii Technicznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 116447239,
+              "center": {
+                "lat": 52.2547132,
+                "lon": 20.8788153
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Strzelnica nr 1 Wojskowej Akademii Technicznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 116447250,
+              "center": {
+                "lat": 52.2538303,
+                "lon": 20.8864139
+              },
+              "tags": {
+                "access": "private",
+                "landuse": "military",
+                "military": "obstacle_course",
+                "name": "Ośrodek Sprawności Fizycznej WAT",
+                "official_name": "Ośrodek Sprawności Fizycznej w SWF WAT",
+                "operator": "Wojskowa Akademia Techniczna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 116451613,
+              "center": {
+                "lat": 52.2630615,
+                "lon": 20.8810693
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 122051457,
+              "center": {
+                "lat": 52.2309583,
+                "lon": 21.2300016
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "leisure": "horse_riding",
+                "loc_name": "Hipodrom",
+                "name": "Pułk Reprezentacyjny Wojska Polskiego",
+                "note": "Sprawdzić w środku, czy operuje tam bardziej wojsko, czy też oddzielnie stowarzyszenie",
+                "operator": "Stowarzyszenie \"Szwadron Jazdy RP\"",
+                "sport": "equestrian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 122285705,
+              "center": {
+                "lat": 52.1076937,
+                "lon": 20.7774135
+              },
+              "tags": {
+                "alt_name": "Ośrodek Dębak",
+                "landuse": "military",
+                "name": "Centralny Ośrodek Recepcyjny dla Uchodźców w Podkowie Leśnej-Dębaku"
+              }
+            },
+            {
+              "type": "way",
+              "id": 128672630,
+              "center": {
+                "lat": 52.2122481,
+                "lon": 21.0438841
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "10 Pułk Samochodowy",
+                "official_name": "10 Warszawski Pułk Samochodowy im. majora Stefana Starzyńskiego",
+                "ref": "JW 2420",
+                "short_name": "10psam",
+                "website": "https://10wpsam.wp.mil.pl/",
+                "wikidata": "Q9128177",
+                "wikipedia": "pl:10 Pułk Samochodowy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 132572113,
+              "center": {
+                "lat": 52.1703251,
+                "lon": 21.1488784
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Ośrodek Agencji Wywiadu - Miedzeszyn",
+                "note": "Jest to utajniony kompleks wojskowy, mieszczący się w miejscu, gdzie w okresie stalinizmu znajdowała się willa Spacer - tajne więzienie X Departamentu Ministerstwa Bezpieczeństwa Publicznego. Najprawdopodobniej działalność związana jest z nasłuchem radiow"
+              }
+            },
+            {
+              "type": "way",
+              "id": 136278328,
+              "center": {
+                "lat": 52.2512233,
+                "lon": 20.9333856
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Instytut Techniczny Wojsk Lotniczych",
+                "short_name": "ITWL"
+              }
+            },
+            {
+              "type": "way",
+              "id": 167109417,
+              "center": {
+                "lat": 52.2329372,
+                "lon": 20.9810769
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Ringstand 58c (Tobruk)",
+                "wikidata": "Q471359"
+              }
+            },
+            {
+              "type": "way",
+              "id": 174284322,
+              "center": {
+                "lat": 52.2100719,
+                "lon": 21.0204194
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Wojskowa Komenda Uzupełnień Mokotów"
+              }
+            },
+            {
+              "type": "way",
+              "id": 175489280,
+              "center": {
+                "lat": 52.262157,
+                "lon": 20.9096041
+              },
+              "tags": {
+                "barrier": "fence",
+                "email": "cwom@metrologia.wp.mil.pl",
+                "fax": "+48 261 855 691",
+                "landuse": "military",
+                "name": "Centralny Wojskowy Ośrodek Metrologii",
+                "phone": "+48 261 855 690"
+              }
+            },
+            {
+              "type": "way",
+              "id": 175489281,
+              "center": {
+                "lat": 52.2590443,
+                "lon": 20.9066782
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Dowództwo Operacyjne Rodzajów Sił Zbrojnych",
+                "name:ru": "Оперативный Штаб Видов Вооружённых Сил",
+                "website": "https://do.wp.mil.pl/",
+                "wikidata": "Q9210465",
+                "wikipedia": "pl:Dowództwo Operacyjne Rodzajów Sił Zbrojnych"
+              }
+            },
+            {
+              "type": "way",
+              "id": 182142324,
+              "center": {
+                "lat": 52.2969842,
+                "lon": 21.0741949
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Oddział Zabezpieczenia (JW 3964)",
+                "name:ru": "Отделение безопасности (в/ч 3964)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 226832732,
+              "center": {
+                "lat": 52.2610749,
+                "lon": 21.0349192
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:city:simc": "0918123",
+                "addr:housenumber": "16",
+                "addr:postcode": "03-473",
+                "addr:street": "Bertolta Brechta",
+                "building": "office",
+                "building:levels": "3",
+                "historic": "yes",
+                "military": "office",
+                "source": "www.geoportal.gov.pl",
+                "source:addr": "gugik.gov.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 273430168,
+              "center": {
+                "lat": 52.2541375,
+                "lon": 20.9575304
+              },
+              "tags": {
+                "landuse": "military",
+                "leisure": "sports_centre",
+                "name": "Klub Jeździecki Legia-Kozielska"
+              }
+            },
+            {
+              "type": "way",
+              "id": 283029209,
+              "center": {
+                "lat": 52.2093321,
+                "lon": 21.0113969
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:city:simc": "0918123",
+                "addr:postcode": "02-519",
+                "addr:street": "Rakowiecka",
+                "barrier": "fence",
+                "int_name": "General Staff of the Polish Armed Forces",
+                "landuse": "military",
+                "military": "office",
+                "name": "Sztab Generalny Wojska Polskiego",
+                "name:en": "General Staff of the Polish Armed Forces",
+                "source": "http://www.sgwp.wp.mil.pl",
+                "source:addr": "mapa.um.warszawa.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 284839988,
+              "center": {
+                "lat": 52.2485473,
+                "lon": 21.1559672
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "2 Regionalna Baza Logistyczna (JW 4226)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 284845358,
+              "center": {
+                "lat": 52.2432254,
+                "lon": 21.1419093
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:city:simc": "0918123",
+                "addr:postcode": "04-470",
+                "addr:street": "Marsa",
+                "barrier": "fence",
+                "landuse": "military",
+                "source:addr": "mapa.um.warszawa.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 296610376,
+              "center": {
+                "lat": 52.2599388,
+                "lon": 20.9981303
+              },
+              "tags": {
+                "email": "wcnjk@ron.mil.pl",
+                "fax": "+48 261 877 888",
+                "landuse": "military",
+                "name": "Wojskowe Centrum Normalizacji, Jakości i Kodyfikacji",
+                "phone": "+48 261 877 800",
+                "website": "https://wcnjk.wp.mil.pl/pl/index.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 321065531,
+              "center": {
+                "lat": 52.2126155,
+                "lon": 20.9459194
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "obstacle_course",
+                "name": "Ośrodek Sprawności Fizycznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 333097341,
+              "center": {
+                "lat": 52.2659047,
+                "lon": 21.2093628
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Wojskowe Zakłady Lotnicze nr 2 S.A.",
+                "short_name": "WZL 2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 333101561,
+              "center": {
+                "lat": 52.2568769,
+                "lon": 21.2337537
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "base",
+                "name": "1. Warszawska Brygada Pancerna im. Tadeusza Kościuszki"
+              }
+            },
+            {
+              "type": "way",
+              "id": 338525816,
+              "center": {
+                "lat": 52.1503257,
+                "lon": 21.2918775
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Centralny Ośrodek Szkolenia Agencji Bezpieczeństwa Wewnętrznego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 339846775,
+              "center": {
+                "lat": 52.2686984,
+                "lon": 21.1767868
+              },
+              "tags": {
+                "amenity": "university",
+                "landuse": "military",
+                "name": "Akademia Sztuki Wojennej",
+                "name:en": "War Studies University",
+                "old_name": "Akademia Obrony Narodowej",
+                "short_name": "ASzWoj",
+                "website": "http://www.akademia.mil.pl/",
+                "wikidata": "Q27061984",
+                "wikipedia": "pl:Akademia Sztuki Wojennej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355326690,
+              "center": {
+                "lat": 52.2705663,
+                "lon": 21.4256035
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "D. JW Pustelnik"
+              }
+            },
+            {
+              "type": "way",
+              "id": 378180293,
+              "center": {
+                "lat": 52.2206578,
+                "lon": 20.9791716
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:city:simc": "0918123",
+                "addr:housenumber": "8",
+                "addr:postcode": "02-313",
+                "addr:street": "Sękocińska",
+                "building": "office",
+                "building:levels": "5",
+                "fax": "+48261824971",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji Warszawa-Ochota",
+                "phone": "+48261826806",
+                "source": "www.geoportal.gov.pl",
+                "source:addr": "gugik.gov.pl",
+                "website": "https://wcrwarszawa-ochota.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 387517784,
+              "center": {
+                "lat": 52.2407097,
+                "lon": 21.1469597
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 390596829,
+              "center": {
+                "lat": 52.2664921,
+                "lon": 21.086911
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jednostka Wojskowa nr 3835"
+              }
+            },
+            {
+              "type": "way",
+              "id": 406767598,
+              "center": {
+                "lat": 52.249996,
+                "lon": 20.9623055
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Komenda Główna Żandarmerii Wojskowej",
+                "name:en": "Main Command of Military Police",
+                "name:ru": "Главное командование Военной Жандармерии",
+                "website": "http://zw.wp.mil.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 406768305,
+              "center": {
+                "lat": 52.2521526,
+                "lon": 20.9638988
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Zakład Materiałów Pędnych i Smarów ITWL",
+                "office": "research",
+                "operator": "Instytut Techniczny Wojsk Lotniczych",
+                "website": "http://www.mps.itwl.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 406770625,
+              "center": {
+                "lat": 52.2513671,
+                "lon": 20.9615553
+              },
+              "tags": {
+                "area": "yes",
+                "leisure": "track",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 409276652,
+              "center": {
+                "lat": 52.2542813,
+                "lon": 20.9622716
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "email": "sekretariat@wihe.waw.pl",
+                "landuse": "military",
+                "name": "Wojskowy Instytut Higieny i Epidemiologii im. gen. Karola Kaczkowskiego",
+                "name:en": "Military Institute of Hygiene and Epidemiology",
+                "name:ru": "Военный Институт Гигиены и Эпидемиологии",
+                "phone": "+48 261 853 101",
+                "website": "https://www.wihe.waw.pl/",
+                "wikidata": "Q9377499",
+                "wikipedia": "pl:Wojskowy Instytut Higieny i Epidemiologii im. gen. Karola Kaczkowskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 428690095,
+              "center": {
+                "lat": 52.2531429,
+                "lon": 20.9405698
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Wojskowe Zakłady Lotnicze nr 2 S.A.",
+                "short_name": "WZL 2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 432376556,
+              "center": {
+                "lat": 52.0727627,
+                "lon": 21.1453443
+              },
+              "tags": {
+                "landuse": "cemetery",
+                "military": "yes",
+                "name": "Cmentarz z I Wojny Światowej",
+                "name:en": "WWI cemetery",
+                "source": "msi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 455735760,
+              "center": {
+                "lat": 52.2616431,
+                "lon": 20.8773551
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Centrum Reagowania Epidemiologicznego Sił Zbrojnych RP",
+                "official_name": "Centrum Reagowania Epidemiologicznego Sił Zbrojnych Rzeczpospolitej Polskiej",
+                "website": "https://cresz.wp.mil.pl/pl/index.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 484259447,
+              "center": {
+                "lat": 52.1306463,
+                "lon": 21.0229026
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:housenumber": "8",
+                "addr:postcode": "02-838",
+                "addr:street": "Kajakowa",
+                "description": "Centrum Operacji Powietrznych - Dowództwo Komponentu Powietrznego",
+                "landuse": "military",
+                "name": "COP-DKP",
+                "website": "https://cop-dkp.wp.mil.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 492209774,
+              "center": {
+                "lat": 52.2727367,
+                "lon": 21.2316202
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military",
+                "military": "danger_area",
+                "military_1": "range",
+                "name": "Poligon",
+                "source": "wiki/survey"
+              }
+            },
+            {
+              "type": "way",
+              "id": 494192982,
+              "center": {
+                "lat": 52.2747603,
+                "lon": 20.9739795
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Warsztat Remontowy Pojazdów Kołowych"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755906,
+              "center": {
+                "lat": 52.2967805,
+                "lon": 21.0723514
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755907,
+              "center": {
+                "lat": 52.2973443,
+                "lon": 21.0728877
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755911,
+              "center": {
+                "lat": 52.295288,
+                "lon": 21.07597
+              },
+              "tags": {
+                "building": "outbuilding",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "office",
+                "source:building": "BDOT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755913,
+              "center": {
+                "lat": 52.2949839,
+                "lon": 21.0759366
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755914,
+              "center": {
+                "lat": 52.2951095,
+                "lon": 21.0764635
+              },
+              "tags": {
+                "building": "outbuilding",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "office",
+                "source:building": "BDOT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755915,
+              "center": {
+                "lat": 52.2950632,
+                "lon": 21.0769788
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755916,
+              "center": {
+                "lat": 52.2951766,
+                "lon": 21.076928
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755917,
+              "center": {
+                "lat": 52.2955415,
+                "lon": 21.076718
+              },
+              "tags": {
+                "building": "outbuilding",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "office",
+                "source:building": "BDOT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755920,
+              "center": {
+                "lat": 52.295929,
+                "lon": 21.0730182
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755921,
+              "center": {
+                "lat": 52.2962145,
+                "lon": 21.0734085
+              },
+              "tags": {
+                "building": "outbuilding",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "office",
+                "source:building": "BDOT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498755924,
+              "center": {
+                "lat": 52.2967609,
+                "lon": 21.0743251
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 552651807,
+              "center": {
+                "lat": 52.0793332,
+                "lon": 21.3784754
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "name": "Centralna Składnica Uzbrojenia Komendy Stołecznej Policji",
+                "police": "storage"
+              }
+            },
+            {
+              "type": "way",
+              "id": 552839756,
+              "center": {
+                "lat": 52.2639914,
+                "lon": 21.1745596
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Wojskowe Biuro Historyczne",
+                "wikidata": "Q48848945",
+                "wikipedia": "pl:Wojskowe Biuro Historyczne im. gen. broni Kazimierza Sosnkowskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 562326240,
+              "center": {
+                "lat": 52.1528212,
+                "lon": 21.3013854
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 562326242,
+              "center": {
+                "lat": 52.1515297,
+                "lon": 21.3006967
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 562326439,
+              "center": {
+                "lat": 52.1509182,
+                "lon": 21.2991807
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 599700515,
+              "center": {
+                "lat": 52.3203918,
+                "lon": 20.863326
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 613856401,
+              "center": {
+                "lat": 52.0709299,
+                "lon": 21.3274177
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "check_date": "2025-03-08",
+                "designation": "Schron Regelbau 120a",
+                "historic": "yes",
+                "layer": "1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Dąbrowiecka Góra - Schron Regelbau 120a",
+                "regelbau": "120a",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 613856402,
+              "center": {
+                "lat": 52.0701089,
+                "lon": 21.3283864
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "check_date": "2025-03-08",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Dąbrowiecka Góra - Schron Regelbau 514",
+                "regelbau": "514",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 631370231,
+              "center": {
+                "lat": 52.2916934,
+                "lon": 21.1905031
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Poligon rtech WZE"
+              }
+            },
+            {
+              "type": "way",
+              "id": 663505683,
+              "center": {
+                "lat": 52.2660644,
+                "lon": 20.9868536
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 706405183,
+              "center": {
+                "lat": 52.1119552,
+                "lon": 21.0256542
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Ośrodek Łączności Dalekosiężnej MSZ"
+              }
+            },
+            {
+              "type": "way",
+              "id": 738334481,
+              "center": {
+                "lat": 52.2523085,
+                "lon": 20.8921763
+              },
+              "tags": {
+                "alt_name": "Studium Wychowania Fizycznego",
+                "fixme": "Granica obszaru wojskowego od południa",
+                "landuse": "military",
+                "leisure": "sports_centre",
+                "name": "Studium Wychowania Fizycznego Wojskowej Akademii Technicznej",
+                "short_name": "SWF WAT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 764195747,
+              "center": {
+                "lat": 52.2729807,
+                "lon": 21.4272421
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron SD i SNR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 764235540,
+              "center": {
+                "lat": 52.2768191,
+                "lon": 21.3331866
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 765842391,
+              "center": {
+                "lat": 52.2440812,
+                "lon": 21.1454607
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jednostka Wojskowa GROM (JW 2305)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 765967571,
+              "center": {
+                "lat": 52.2476853,
+                "lon": 21.143712
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 775250264,
+              "center": {
+                "lat": 52.2634187,
+                "lon": 20.8780073
+              },
+              "tags": {
+                "barrier": "fence",
+                "email": "dws.kadry@ron.mil.pl",
+                "fax": "+48 26 189 25 54",
+                "landuse": "military",
+                "name": "Drukarnia Wydawnictw Specjalnych",
+                "phone": "+48 26 189 26 73",
+                "website": "https://dws.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782836050,
+              "center": {
+                "lat": 52.3000573,
+                "lon": 21.1774967
+              },
+              "tags": {
+                "addr:city": "Zielonka",
+                "addr:housenumber": "7",
+                "addr:postcode": "05-220",
+                "addr:street": "Prymasa Stefana Wyszyńskiego",
+                "email": "witu@witu.mil.pl",
+                "fax": "+48 22 76 14 445",
+                "landuse": "military",
+                "name": "Wojskowy Instytut Techniczny Uzbrojenia",
+                "name:de": "Militärisches Institut für Rüstungstechnologie",
+                "name:en": "Military Institute of Armament Technology",
+                "name:pl": "Wojskowy Instytut Techniczny Uzbrojenia",
+                "name:ru": "Военный институт технологий вооружения",
+                "phone": "+48 22 76 14 425",
+                "start_date": "1965",
+                "website": "https://www.witu.mil.pl/",
+                "wikidata": "Q9377506",
+                "wikipedia": "pl:Wojskowy Instytut Techniczny Uzbrojenia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 788030121,
+              "center": {
+                "lat": 52.198948,
+                "lon": 21.0458475
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "JW 3561"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402558,
+              "center": {
+                "lat": 52.2567598,
+                "lon": 20.8808534
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402559,
+              "center": {
+                "lat": 52.2566927,
+                "lon": 20.8807983
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402560,
+              "center": {
+                "lat": 52.2566294,
+                "lon": 20.8807594
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402561,
+              "center": {
+                "lat": 52.2565757,
+                "lon": 20.8806932
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402562,
+              "center": {
+                "lat": 52.2569815,
+                "lon": 20.8808394
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402563,
+              "center": {
+                "lat": 52.257125,
+                "lon": 20.8809151
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402564,
+              "center": {
+                "lat": 52.2571351,
+                "lon": 20.8809066
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402567,
+              "center": {
+                "lat": 52.2574151,
+                "lon": 20.8809666
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402568,
+              "center": {
+                "lat": 52.2575172,
+                "lon": 20.8810091
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402569,
+              "center": {
+                "lat": 52.2568527,
+                "lon": 20.8807369
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402570,
+              "center": {
+                "lat": 52.2554981,
+                "lon": 20.885815
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402571,
+              "center": {
+                "lat": 52.2554935,
+                "lon": 20.885716
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402572,
+              "center": {
+                "lat": 52.2555683,
+                "lon": 20.885304
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402573,
+              "center": {
+                "lat": 52.2556329,
+                "lon": 20.8853785
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402574,
+              "center": {
+                "lat": 52.2556991,
+                "lon": 20.8854162
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402575,
+              "center": {
+                "lat": 52.2556857,
+                "lon": 20.8854279
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402576,
+              "center": {
+                "lat": 52.2557295,
+                "lon": 20.8854806
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402577,
+              "center": {
+                "lat": 52.2558383,
+                "lon": 20.8854621
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402578,
+              "center": {
+                "lat": 52.2559693,
+                "lon": 20.8855362
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402579,
+              "center": {
+                "lat": 52.2560145,
+                "lon": 20.8855834
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402580,
+              "center": {
+                "lat": 52.2560586,
+                "lon": 20.8856209
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402581,
+              "center": {
+                "lat": 52.2560988,
+                "lon": 20.8856369
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402582,
+              "center": {
+                "lat": 52.2561365,
+                "lon": 20.8856486
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402583,
+              "center": {
+                "lat": 52.256184,
+                "lon": 20.8856841
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402584,
+              "center": {
+                "lat": 52.2562322,
+                "lon": 20.8856968
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402585,
+              "center": {
+                "lat": 52.2562678,
+                "lon": 20.8857803
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402586,
+              "center": {
+                "lat": 52.2563036,
+                "lon": 20.8858446
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402587,
+              "center": {
+                "lat": 52.2562795,
+                "lon": 20.8862291
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402588,
+              "center": {
+                "lat": 52.2560314,
+                "lon": 20.885874
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402589,
+              "center": {
+                "lat": 52.2552839,
+                "lon": 20.8851523
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402590,
+              "center": {
+                "lat": 52.2553671,
+                "lon": 20.8852178
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791402591,
+              "center": {
+                "lat": 52.2552845,
+                "lon": 20.8851577
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792554725,
+              "center": {
+                "lat": 52.2115015,
+                "lon": 20.9814992
+              },
+              "tags": {
+                "alt_name": "JW 2063",
+                "email": "ozdgw.kancelaria@ron.mil.pl",
+                "landuse": "military",
+                "name": "Oddział Zabezpieczenia Dowództwa Garnizonu Warszawa",
+                "phone": "+48261824004",
+                "ref": "2063",
+                "website": "https://ozdgw.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 840309093,
+              "center": {
+                "lat": 52.1084458,
+                "lon": 20.9868637
+              },
+              "tags": {
+                "barrier": "fence",
+                "description": "Opuszczona przez wojsko od 2007 roku",
+                "landuse": "military",
+                "name": "Stacja nadawcza Karczunek (opuszczona)",
+                "source:name": "https://www.iwaw.pl/obiekt.php?p=619843731"
+              }
+            },
+            {
+              "type": "way",
+              "id": 851504320,
+              "center": {
+                "lat": 52.2856115,
+                "lon": 21.1838007
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "check_date": "2024-02-22",
+                "description": "Uszkodzony bunkier",
+                "military": "bunker",
+                "name": "Bunkier",
+                "name:pl": "Bunkier"
+              }
+            },
+            {
+              "type": "way",
+              "id": 858337234,
+              "center": {
+                "lat": 52.2401248,
+                "lon": 21.0152763
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 858338704,
+              "center": {
+                "lat": 52.2410121,
+                "lon": 21.0147929
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 867814610,
+              "center": {
+                "lat": 52.1996336,
+                "lon": 20.9951055
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Służba Ochrony Państwa"
+              }
+            },
+            {
+              "type": "way",
+              "id": 904315192,
+              "center": {
+                "lat": 52.2525493,
+                "lon": 20.9040672
+              },
+              "tags": {
+                "amenity": "university",
+                "landuse": "military",
+                "name": "Wojskowa Akademia Techniczna",
+                "name:de": "Technische Militäruniversität Warschau",
+                "name:en": "Military University of Technology",
+                "name:pl": "Wojskowa Akademia Techniczna",
+                "name:ru": "Военно-техническая академия",
+                "short_name": "WAT",
+                "short_name:en": "MUT",
+                "short_name:pl": "WAT",
+                "website": "https://www.wat.edu.pl/",
+                "wikidata": "Q11837925",
+                "wikipedia": "pl:Wojskowa Akademia Techniczna im. Jarosława Dąbrowskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 908801964,
+              "center": {
+                "lat": 52.1939695,
+                "lon": 20.9720852
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Biuro Badań Kryminalistycznych ABW"
+              }
+            },
+            {
+              "type": "way",
+              "id": 920254444,
+              "center": {
+                "lat": 52.3201963,
+                "lon": 20.8626465
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 955130347,
+              "center": {
+                "lat": 52.2544569,
+                "lon": 20.8945219
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:city:simc": "0918123",
+                "addr:housenumber": "25B",
+                "addr:postcode": "01-476",
+                "addr:street": "Generała Sylwestra Kaliskiego",
+                "amenity": "restaurant",
+                "building": "university",
+                "building:levels": "2",
+                "military": "yes",
+                "name": "Stołówka wojskowa nr 1",
+                "source": "www.geoportal.gov.pl",
+                "source:addr": "gugik.gov.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 961448767,
+              "center": {
+                "lat": 52.2239976,
+                "lon": 21.0025034
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 961454846,
+              "center": {
+                "lat": 52.2218457,
+                "lon": 21.0026066
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 977676216,
+              "center": {
+                "lat": 52.2132177,
+                "lon": 21.0130345
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980709456,
+              "center": {
+                "lat": 52.1756729,
+                "lon": 20.972566
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 995560102,
+              "center": {
+                "lat": 52.2554094,
+                "lon": 20.908497
+              },
+              "tags": {
+                "amenity": "university",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 996717192,
+              "center": {
+                "lat": 52.2118096,
+                "lon": 21.0253708
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1032020448,
+              "center": {
+                "lat": 52.2609933,
+                "lon": 20.9965998
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1091340810,
+              "center": {
+                "lat": 52.2715806,
+                "lon": 21.0727147
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "operator": "JW 3964"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1105025292,
+              "center": {
+                "lat": 52.2450379,
+                "lon": 21.2320305
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "check_date": "2025-10-12",
+                "layer": "1",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Punkt Oporu \"Wesoła\" Przedmoście Warszawa",
+                "regelbau": "514",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1112741609,
+              "center": {
+                "lat": 52.2626583,
+                "lon": 21.2378858
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "military_service": "army"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1122140355,
+              "center": {
+                "lat": 52.260986,
+                "lon": 21.035028
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Wojskowe Centrum Rekrutacji Warszawa-Praga",
+                "old_name": "Wojskowa Komenda Uzupełnień Warszawa-Praga",
+                "website": "https://wcrwarszawa-praga.wp.mil.pl/pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1136682484,
+              "center": {
+                "lat": 52.2206824,
+                "lon": 20.9791716
+              },
+              "tags": {
+                "email": "wcrwarszawaochota@ron.mil.pl",
+                "fax": "+48 261824971",
+                "landuse": "military",
+                "name": "Wojskowe Centrum Rekrutacji Warszawa-Ochota",
+                "old_name": "WKU Warszawa-Ochota",
+                "phone": "+48261826806",
+                "short_name": "WCR Warszawa-Ochota",
+                "website": "https://wcrwarszawa-ochota.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1182682917,
+              "center": {
+                "lat": 52.2907593,
+                "lon": 20.8184897
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1212029808,
+              "center": {
+                "lat": 52.2654179,
+                "lon": 20.9980298
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1213811615,
+              "center": {
+                "lat": 52.2612255,
+                "lon": 21.0010785
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1230079015,
+              "center": {
+                "lat": 52.0991279,
+                "lon": 20.8983091
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1235701321,
+              "center": {
+                "lat": 52.0986156,
+                "lon": 20.8793385
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1254090206,
+              "center": {
+                "lat": 52.2857515,
+                "lon": 21.1877057
+              },
+              "tags": {
+                "check_date": "2024-02-22",
+                "description": "Plac wojskowy",
+                "landuse": "military",
+                "surface": "concrete:plates"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1278205211,
+              "center": {
+                "lat": 52.0176869,
+                "lon": 21.1666064
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Dawny 4 dywizjon rakietowy obrony powietrznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1284689633,
+              "center": {
+                "lat": 52.2223331,
+                "lon": 21.0611665
+              },
+              "tags": {
+                "addr:city": "Warszawa",
+                "addr:housenumber": "381",
+                "addr:street": "Wał Miedzeszyński",
+                "landuse": "military",
+                "name": "Ośrodek Rekreacyjny Klubu Dowództwa Garnizonu Warszawa",
+                "note": "Mimo braku ogrodzenia, istnieją tabliczki zabraniające wstępu",
+                "website": "https://klubdgw.wp.mil.pl/pl/25.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1328844269,
+              "center": {
+                "lat": 52.3838569,
+                "lon": 21.1245385
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1328844270,
+              "center": {
+                "lat": 52.383196,
+                "lon": 21.1242081
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1328844271,
+              "center": {
+                "lat": 52.3816386,
+                "lon": 21.1256289
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330716785,
+              "center": {
+                "lat": 52.3156218,
+                "lon": 20.8971524
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330716786,
+              "center": {
+                "lat": 52.3154315,
+                "lon": 20.8971578
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330716787,
+              "center": {
+                "lat": 52.313723,
+                "lon": 20.8971739
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723701,
+              "center": {
+                "lat": 52.3094888,
+                "lon": 20.8893243
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723702,
+              "center": {
+                "lat": 52.3095634,
+                "lon": 20.8892809
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723703,
+              "center": {
+                "lat": 52.3085614,
+                "lon": 20.8896609
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723704,
+              "center": {
+                "lat": 52.3085794,
+                "lon": 20.8898272
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723705,
+              "center": {
+                "lat": 52.3159192,
+                "lon": 20.897383
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723706,
+              "center": {
+                "lat": 52.3196729,
+                "lon": 20.9041863
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723707,
+              "center": {
+                "lat": 52.3169344,
+                "lon": 20.9018255
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723708,
+              "center": {
+                "lat": 52.3170711,
+                "lon": 20.9018054
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723709,
+              "center": {
+                "lat": 52.3174978,
+                "lon": 20.9002957
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723710,
+              "center": {
+                "lat": 52.3180059,
+                "lon": 20.9054319
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723711,
+              "center": {
+                "lat": 52.3178841,
+                "lon": 20.908401
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723712,
+              "center": {
+                "lat": 52.3181942,
+                "lon": 20.9094102
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723713,
+              "center": {
+                "lat": 52.3085243,
+                "lon": 20.8988816
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723714,
+              "center": {
+                "lat": 52.3086998,
+                "lon": 20.9030267
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723715,
+              "center": {
+                "lat": 52.3098903,
+                "lon": 20.9052728
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723716,
+              "center": {
+                "lat": 52.3101265,
+                "lon": 20.9034758
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723717,
+              "center": {
+                "lat": 52.3106676,
+                "lon": 20.9019684
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723718,
+              "center": {
+                "lat": 52.3115744,
+                "lon": 20.90052
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723719,
+              "center": {
+                "lat": 52.3081652,
+                "lon": 20.9072926
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723720,
+              "center": {
+                "lat": 52.3082997,
+                "lon": 20.9031206
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330723721,
+              "center": {
+                "lat": 52.3080127,
+                "lon": 20.901742
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734378,
+              "center": {
+                "lat": 52.3101134,
+                "lon": 20.8843784
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734379,
+              "center": {
+                "lat": 52.3103232,
+                "lon": 20.885969
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734380,
+              "center": {
+                "lat": 52.3110235,
+                "lon": 20.884306
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734381,
+              "center": {
+                "lat": 52.3111252,
+                "lon": 20.8841558
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734382,
+              "center": {
+                "lat": 52.3120205,
+                "lon": 20.8837561
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734383,
+              "center": {
+                "lat": 52.3072861,
+                "lon": 20.8899307
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734384,
+              "center": {
+                "lat": 52.3137636,
+                "lon": 20.8947234
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734385,
+              "center": {
+                "lat": 52.3148392,
+                "lon": 20.8972742
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734386,
+              "center": {
+                "lat": 52.3136472,
+                "lon": 20.8972508
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734387,
+              "center": {
+                "lat": 52.3168986,
+                "lon": 20.8935137
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734388,
+              "center": {
+                "lat": 52.3171659,
+                "lon": 20.8944955
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734395,
+              "center": {
+                "lat": 52.3124087,
+                "lon": 20.8759547
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734396,
+              "center": {
+                "lat": 52.3120119,
+                "lon": 20.8732859
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734397,
+              "center": {
+                "lat": 52.312084,
+                "lon": 20.8732564
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734402,
+              "center": {
+                "lat": 52.3188403,
+                "lon": 20.8693459
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734403,
+              "center": {
+                "lat": 52.3179763,
+                "lon": 20.8698931
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734404,
+              "center": {
+                "lat": 52.3206389,
+                "lon": 20.8696368
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734405,
+              "center": {
+                "lat": 52.3204651,
+                "lon": 20.8695912
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734406,
+              "center": {
+                "lat": 52.3209438,
+                "lon": 20.8695161
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734408,
+              "center": {
+                "lat": 52.3218025,
+                "lon": 20.8693925
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734409,
+              "center": {
+                "lat": 52.3231122,
+                "lon": 20.868505
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330734410,
+              "center": {
+                "lat": 52.323163,
+                "lon": 20.8685453
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770381,
+              "center": {
+                "lat": 52.2728454,
+                "lon": 20.8814114
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770382,
+              "center": {
+                "lat": 52.2729981,
+                "lon": 20.8822844
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770383,
+              "center": {
+                "lat": 52.2729431,
+                "lon": 20.8837623
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770384,
+              "center": {
+                "lat": 52.2742511,
+                "lon": 20.8866495
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770385,
+              "center": {
+                "lat": 52.2754849,
+                "lon": 20.889632
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770386,
+              "center": {
+                "lat": 52.2681582,
+                "lon": 20.8830297
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770387,
+              "center": {
+                "lat": 52.2683244,
+                "lon": 20.8831326
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770388,
+              "center": {
+                "lat": 52.26842,
+                "lon": 20.8836453
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770389,
+              "center": {
+                "lat": 52.2690749,
+                "lon": 20.886294
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770390,
+              "center": {
+                "lat": 52.2692505,
+                "lon": 20.8870973
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770391,
+              "center": {
+                "lat": 52.2697717,
+                "lon": 20.8887334
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770392,
+              "center": {
+                "lat": 52.2695057,
+                "lon": 20.8879422
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330770393,
+              "center": {
+                "lat": 52.2733686,
+                "lon": 20.8918595
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334717495,
+              "center": {
+                "lat": 52.2554679,
+                "lon": 20.8701854
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753806,
+              "center": {
+                "lat": 52.2711299,
+                "lon": 20.8781148
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753807,
+              "center": {
+                "lat": 52.2710339,
+                "lon": 20.8780633
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753815,
+              "center": {
+                "lat": 52.264507,
+                "lon": 20.8750018
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753816,
+              "center": {
+                "lat": 52.2671252,
+                "lon": 20.8767479
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753817,
+              "center": {
+                "lat": 52.267255,
+                "lon": 20.8797564
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753822,
+              "center": {
+                "lat": 52.2688648,
+                "lon": 20.8853254
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1334753823,
+              "center": {
+                "lat": 52.2694788,
+                "lon": 20.8782345
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1338649498,
+              "center": {
+                "lat": 52.3800819,
+                "lon": 20.8989727
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "0",
+                "building:levels:underground": "1",
+                "bunker_type": "pillbox",
+                "layer": "-1",
+                "military": "bunker",
+                "note": "Dawne stanowisko strzeleckie dla karabinu maszynowego",
+                "source": "aerial imagery;survey",
+                "website": "https://szlak.powiat-legionowski.pl/pl/szlak-czarny/mapa/pozostalosci-umocnien-niemieckich-z-ii-wojny-swiatowej-w-jablonnie-teren-miedzy-walem-przeciwpowodziowym-a-wisla"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339303432,
+              "center": {
+                "lat": 52.2126976,
+                "lon": 20.9812191
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339892362,
+              "center": {
+                "lat": 52.0446673,
+                "lon": 21.3617653
+              },
+              "tags": {
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339948472,
+              "center": {
+                "lat": 52.0651412,
+                "lon": 21.3754088
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339948473,
+              "center": {
+                "lat": 52.0653308,
+                "lon": 21.3732899
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339948477,
+              "center": {
+                "lat": 52.0665197,
+                "lon": 21.3707821
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339948478,
+              "center": {
+                "lat": 52.0663499,
+                "lon": 21.369626
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1339948480,
+              "center": {
+                "lat": 52.0661619,
+                "lon": 21.3709537
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1395341070,
+              "center": {
+                "lat": 52.2945034,
+                "lon": 21.2198817
+              },
+              "tags": {
+                "hazard": "shooting_range",
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1395341094,
+              "center": {
+                "lat": 52.3038905,
+                "lon": 21.2075715
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "military": "bunker",
+                "name": "schron kolejki wąskotorowej w Zielonce",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1395341102,
+              "center": {
+                "lat": 52.302239,
+                "lon": 21.2219505
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "military": "bunker",
+                "name": "schron kolejki wąskotorowej w Zielonce",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1396581168,
+              "center": {
+                "lat": 52.2574633,
+                "lon": 20.8809837
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1396581179,
+              "center": {
+                "lat": 52.257266,
+                "lon": 20.8808172
+              },
+              "tags": {
+                "barrier": "fence",
+                "construction": "military",
+                "landuse": "construction",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1408455775,
+              "center": {
+                "lat": 52.2127263,
+                "lon": 21.0248774
+              },
+              "tags": {
+                "landuse": "military",
+                "old_name": "Willa Urbanowicza i Muszyńskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1408455776,
+              "center": {
+                "lat": 52.213206,
+                "lon": 21.0259099
+              },
+              "tags": {
+                "landuse": "military",
+                "old_name": "Ujeżdżalnia manufaktury \"Belweder\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483489,
+              "center": {
+                "lat": 52.2616093,
+                "lon": 21.1861286
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483490,
+              "center": {
+                "lat": 52.2621951,
+                "lon": 21.1928542
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483491,
+              "center": {
+                "lat": 52.2616127,
+                "lon": 21.1933032
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483492,
+              "center": {
+                "lat": 52.2610745,
+                "lon": 21.1928116
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483493,
+              "center": {
+                "lat": 52.2613411,
+                "lon": 21.1928263
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483494,
+              "center": {
+                "lat": 52.2613758,
+                "lon": 21.1928765
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483495,
+              "center": {
+                "lat": 52.262179,
+                "lon": 21.1925902
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483496,
+              "center": {
+                "lat": 52.2612446,
+                "lon": 21.1924123
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483497,
+              "center": {
+                "lat": 52.2609405,
+                "lon": 21.1931524
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483498,
+              "center": {
+                "lat": 52.2607361,
+                "lon": 21.19202
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483499,
+              "center": {
+                "lat": 52.2603318,
+                "lon": 21.1906596
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483500,
+              "center": {
+                "lat": 52.2605942,
+                "lon": 21.1906637
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483501,
+              "center": {
+                "lat": 52.2605314,
+                "lon": 21.1889757
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483502,
+              "center": {
+                "lat": 52.2605624,
+                "lon": 21.1883775
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483503,
+              "center": {
+                "lat": 52.2585315,
+                "lon": 21.1870898
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483504,
+              "center": {
+                "lat": 52.2580792,
+                "lon": 21.1873724
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483505,
+              "center": {
+                "lat": 52.2577539,
+                "lon": 21.1867764
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483506,
+              "center": {
+                "lat": 52.2580099,
+                "lon": 21.1910173
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483507,
+              "center": {
+                "lat": 52.2575189,
+                "lon": 21.1881142
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483508,
+              "center": {
+                "lat": 52.2569124,
+                "lon": 21.1858695
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483509,
+              "center": {
+                "lat": 52.2566827,
+                "lon": 21.1844552
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483510,
+              "center": {
+                "lat": 52.2601259,
+                "lon": 21.1873001
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483511,
+              "center": {
+                "lat": 52.2599608,
+                "lon": 21.1869393
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483512,
+              "center": {
+                "lat": 52.2607825,
+                "lon": 21.1876749
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483513,
+              "center": {
+                "lat": 52.2608264,
+                "lon": 21.1862464
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483514,
+              "center": {
+                "lat": 52.2607682,
+                "lon": 21.185042
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483515,
+              "center": {
+                "lat": 52.2658364,
+                "lon": 21.1964452
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483516,
+              "center": {
+                "lat": 52.269402,
+                "lon": 21.1924053
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483517,
+              "center": {
+                "lat": 52.2693346,
+                "lon": 21.1917966
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483518,
+              "center": {
+                "lat": 52.2693413,
+                "lon": 21.1915852
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483519,
+              "center": {
+                "lat": 52.2691285,
+                "lon": 21.1915252
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483520,
+              "center": {
+                "lat": 52.2687543,
+                "lon": 21.1909753
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483521,
+              "center": {
+                "lat": 52.2685923,
+                "lon": 21.1903104
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483522,
+              "center": {
+                "lat": 52.2684978,
+                "lon": 21.1902426
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483523,
+              "center": {
+                "lat": 52.2679578,
+                "lon": 21.1906965
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483524,
+              "center": {
+                "lat": 52.2677537,
+                "lon": 21.1903571
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483525,
+              "center": {
+                "lat": 52.268329,
+                "lon": 21.1867206
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483526,
+              "center": {
+                "lat": 52.2661546,
+                "lon": 21.192308
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483527,
+              "center": {
+                "lat": 52.2662845,
+                "lon": 21.1918992
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483528,
+              "center": {
+                "lat": 52.2656844,
+                "lon": 21.194952
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483529,
+              "center": {
+                "lat": 52.2659625,
+                "lon": 21.1940789
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483530,
+              "center": {
+                "lat": 52.2661555,
+                "lon": 21.1927794
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483531,
+              "center": {
+                "lat": 52.2666291,
+                "lon": 21.1931503
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483532,
+              "center": {
+                "lat": 52.2668203,
+                "lon": 21.1924082
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483533,
+              "center": {
+                "lat": 52.2664846,
+                "lon": 21.1922728
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483534,
+              "center": {
+                "lat": 52.2662521,
+                "lon": 21.1921445
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483535,
+              "center": {
+                "lat": 52.2663511,
+                "lon": 21.1914492
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483536,
+              "center": {
+                "lat": 52.2665952,
+                "lon": 21.1912738
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483537,
+              "center": {
+                "lat": 52.267319,
+                "lon": 21.1914697
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483538,
+              "center": {
+                "lat": 52.2672903,
+                "lon": 21.1911742
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483539,
+              "center": {
+                "lat": 52.2671863,
+                "lon": 21.1904186
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483540,
+              "center": {
+                "lat": 52.2679409,
+                "lon": 21.1894054
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483541,
+              "center": {
+                "lat": 52.2676053,
+                "lon": 21.189319
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483542,
+              "center": {
+                "lat": 52.264539,
+                "lon": 21.1965808
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483543,
+              "center": {
+                "lat": 52.2642072,
+                "lon": 21.195758
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483544,
+              "center": {
+                "lat": 52.2635183,
+                "lon": 21.195178
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483545,
+              "center": {
+                "lat": 52.2594694,
+                "lon": 21.2120953
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483546,
+              "center": {
+                "lat": 52.2595106,
+                "lon": 21.2115033
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483547,
+              "center": {
+                "lat": 52.2597838,
+                "lon": 21.2118811
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483548,
+              "center": {
+                "lat": 52.259777,
+                "lon": 21.2108689
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483549,
+              "center": {
+                "lat": 52.2599182,
+                "lon": 21.2099711
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483550,
+              "center": {
+                "lat": 52.2600768,
+                "lon": 21.2092497
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483551,
+              "center": {
+                "lat": 52.2600123,
+                "lon": 21.2090589
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483552,
+              "center": {
+                "lat": 52.2608925,
+                "lon": 21.2050268
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483553,
+              "center": {
+                "lat": 52.2613654,
+                "lon": 21.2006171
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483554,
+              "center": {
+                "lat": 52.261303,
+                "lon": 21.1996996
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483555,
+              "center": {
+                "lat": 52.2613021,
+                "lon": 21.1982425
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483556,
+              "center": {
+                "lat": 52.2581295,
+                "lon": 21.2136638
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483557,
+              "center": {
+                "lat": 52.2561818,
+                "lon": 21.2135029
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483558,
+              "center": {
+                "lat": 52.2562533,
+                "lon": 21.2134178
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483559,
+              "center": {
+                "lat": 52.2554394,
+                "lon": 21.2132745
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483560,
+              "center": {
+                "lat": 52.2558115,
+                "lon": 21.2137361
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483561,
+              "center": {
+                "lat": 52.2561561,
+                "lon": 21.2132306
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483562,
+              "center": {
+                "lat": 52.2571049,
+                "lon": 21.2134291
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483563,
+              "center": {
+                "lat": 52.2568274,
+                "lon": 21.2128232
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483564,
+              "center": {
+                "lat": 52.2565129,
+                "lon": 21.2127684
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483565,
+              "center": {
+                "lat": 52.2566015,
+                "lon": 21.2124103
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483566,
+              "center": {
+                "lat": 52.2567166,
+                "lon": 21.2118119
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483567,
+              "center": {
+                "lat": 52.2567729,
+                "lon": 21.2109175
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483568,
+              "center": {
+                "lat": 52.2568206,
+                "lon": 21.2094398
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483569,
+              "center": {
+                "lat": 52.2471785,
+                "lon": 21.2227523
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483570,
+              "center": {
+                "lat": 52.2475183,
+                "lon": 21.2225951
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483571,
+              "center": {
+                "lat": 52.2472275,
+                "lon": 21.2236879
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483572,
+              "center": {
+                "lat": 52.2478277,
+                "lon": 21.2206997
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483573,
+              "center": {
+                "lat": 52.2480541,
+                "lon": 21.2198498
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483574,
+              "center": {
+                "lat": 52.249046,
+                "lon": 21.2089711
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483575,
+              "center": {
+                "lat": 52.2492325,
+                "lon": 21.2088649
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483576,
+              "center": {
+                "lat": 52.2488086,
+                "lon": 21.2090341
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483577,
+              "center": {
+                "lat": 52.248571,
+                "lon": 21.2089847
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483578,
+              "center": {
+                "lat": 52.2483773,
+                "lon": 21.2092252
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483579,
+              "center": {
+                "lat": 52.260629,
+                "lon": 21.2428346
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483580,
+              "center": {
+                "lat": 52.2604159,
+                "lon": 21.2427114
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483581,
+              "center": {
+                "lat": 52.2596009,
+                "lon": 21.2471697
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483582,
+              "center": {
+                "lat": 52.2738169,
+                "lon": 21.2469944
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483583,
+              "center": {
+                "lat": 52.2732605,
+                "lon": 21.2472592
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483584,
+              "center": {
+                "lat": 52.2735544,
+                "lon": 21.2465295
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483585,
+              "center": {
+                "lat": 52.2741513,
+                "lon": 21.2498638
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483586,
+              "center": {
+                "lat": 52.2741418,
+                "lon": 21.2494757
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483587,
+              "center": {
+                "lat": 52.2746272,
+                "lon": 21.2493776
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483588,
+              "center": {
+                "lat": 52.2729884,
+                "lon": 21.2588767
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483589,
+              "center": {
+                "lat": 52.2727002,
+                "lon": 21.2563192
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483590,
+              "center": {
+                "lat": 52.2727467,
+                "lon": 21.2561595
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483591,
+              "center": {
+                "lat": 52.2729447,
+                "lon": 21.2561928
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483592,
+              "center": {
+                "lat": 52.2720541,
+                "lon": 21.2552358
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483593,
+              "center": {
+                "lat": 52.2721037,
+                "lon": 21.254434
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483594,
+              "center": {
+                "lat": 52.2715745,
+                "lon": 21.2553064
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483595,
+              "center": {
+                "lat": 52.2695066,
+                "lon": 21.2570639
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483596,
+              "center": {
+                "lat": 52.2676864,
+                "lon": 21.2132945
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483597,
+              "center": {
+                "lat": 52.2674163,
+                "lon": 21.2133721
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483598,
+              "center": {
+                "lat": 52.2683351,
+                "lon": 21.2141644
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483599,
+              "center": {
+                "lat": 52.2685157,
+                "lon": 21.214957
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483600,
+              "center": {
+                "lat": 52.2597961,
+                "lon": 21.2228227
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483601,
+              "center": {
+                "lat": 52.2594991,
+                "lon": 21.2224734
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483602,
+              "center": {
+                "lat": 52.2636876,
+                "lon": 21.2220265
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483603,
+              "center": {
+                "lat": 52.2639734,
+                "lon": 21.2207207
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483604,
+              "center": {
+                "lat": 52.2642396,
+                "lon": 21.2193237
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483605,
+              "center": {
+                "lat": 52.2640323,
+                "lon": 21.2197757
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483606,
+              "center": {
+                "lat": 52.2639912,
+                "lon": 21.2194929
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483607,
+              "center": {
+                "lat": 52.2655088,
+                "lon": 21.2197831
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483608,
+              "center": {
+                "lat": 52.2668678,
+                "lon": 21.2192289
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483609,
+              "center": {
+                "lat": 52.2670059,
+                "lon": 21.2187532
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483610,
+              "center": {
+                "lat": 52.2675529,
+                "lon": 21.2174482
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483611,
+              "center": {
+                "lat": 52.2678067,
+                "lon": 21.217028
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483612,
+              "center": {
+                "lat": 52.2680988,
+                "lon": 21.2167871
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483613,
+              "center": {
+                "lat": 52.2682838,
+                "lon": 21.2163373
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483614,
+              "center": {
+                "lat": 52.2685035,
+                "lon": 21.2165875
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483615,
+              "center": {
+                "lat": 52.2689219,
+                "lon": 21.2160559
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483616,
+              "center": {
+                "lat": 52.2691893,
+                "lon": 21.2160997
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483617,
+              "center": {
+                "lat": 52.2693229,
+                "lon": 21.2167719
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483618,
+              "center": {
+                "lat": 52.2693864,
+                "lon": 21.2163999
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483619,
+              "center": {
+                "lat": 52.2695193,
+                "lon": 21.2163443
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483620,
+              "center": {
+                "lat": 52.2694915,
+                "lon": 21.2160718
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483621,
+              "center": {
+                "lat": 52.2464037,
+                "lon": 21.2313354
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483622,
+              "center": {
+                "lat": 52.2462011,
+                "lon": 21.231096
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483623,
+              "center": {
+                "lat": 52.2467824,
+                "lon": 21.2308972
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483624,
+              "center": {
+                "lat": 52.2471365,
+                "lon": 21.2303047
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483625,
+              "center": {
+                "lat": 52.24734,
+                "lon": 21.2298441
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483626,
+              "center": {
+                "lat": 52.2475781,
+                "lon": 21.2294213
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483627,
+              "center": {
+                "lat": 52.2475759,
+                "lon": 21.2289744
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483628,
+              "center": {
+                "lat": 52.2479332,
+                "lon": 21.2291044
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483629,
+              "center": {
+                "lat": 52.2485671,
+                "lon": 21.228778
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483630,
+              "center": {
+                "lat": 52.2483524,
+                "lon": 21.2289173
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483631,
+              "center": {
+                "lat": 52.248603,
+                "lon": 21.2278818
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483632,
+              "center": {
+                "lat": 52.2468135,
+                "lon": 21.2264028
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483633,
+              "center": {
+                "lat": 52.2469782,
+                "lon": 21.2253025
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483634,
+              "center": {
+                "lat": 52.2475059,
+                "lon": 21.2243821
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483635,
+              "center": {
+                "lat": 52.2459116,
+                "lon": 21.2465389
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483636,
+              "center": {
+                "lat": 52.2457785,
+                "lon": 21.2450138
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483637,
+              "center": {
+                "lat": 52.24615,
+                "lon": 21.2433337
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483638,
+              "center": {
+                "lat": 52.2468343,
+                "lon": 21.2432922
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483639,
+              "center": {
+                "lat": 52.2475093,
+                "lon": 21.2432361
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483640,
+              "center": {
+                "lat": 52.2475758,
+                "lon": 21.2428662
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483641,
+              "center": {
+                "lat": 52.2475113,
+                "lon": 21.2418039
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483642,
+              "center": {
+                "lat": 52.2621375,
+                "lon": 21.2303056
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483643,
+              "center": {
+                "lat": 52.261976,
+                "lon": 21.2301594
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483644,
+              "center": {
+                "lat": 52.2620047,
+                "lon": 21.2297151
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483645,
+              "center": {
+                "lat": 52.2623373,
+                "lon": 21.2295472
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483646,
+              "center": {
+                "lat": 52.2627009,
+                "lon": 21.2300873
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483647,
+              "center": {
+                "lat": 52.2608375,
+                "lon": 21.2270336
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483648,
+              "center": {
+                "lat": 52.2609413,
+                "lon": 21.2267086
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483649,
+              "center": {
+                "lat": 52.260976,
+                "lon": 21.2264177
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483650,
+              "center": {
+                "lat": 52.2611678,
+                "lon": 21.2258334
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483651,
+              "center": {
+                "lat": 52.2614389,
+                "lon": 21.2260343
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483652,
+              "center": {
+                "lat": 52.2614964,
+                "lon": 21.225685
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483653,
+              "center": {
+                "lat": 52.2614891,
+                "lon": 21.2256597
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483654,
+              "center": {
+                "lat": 52.2616076,
+                "lon": 21.2256879
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483655,
+              "center": {
+                "lat": 52.2617027,
+                "lon": 21.2255932
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483656,
+              "center": {
+                "lat": 52.2619452,
+                "lon": 21.2250066
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483657,
+              "center": {
+                "lat": 52.2621367,
+                "lon": 21.2247508
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483658,
+              "center": {
+                "lat": 52.2625813,
+                "lon": 21.2240953
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483659,
+              "center": {
+                "lat": 52.2626312,
+                "lon": 21.2241107
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483660,
+              "center": {
+                "lat": 52.2670487,
+                "lon": 21.2303495
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483661,
+              "center": {
+                "lat": 52.2672347,
+                "lon": 21.2301229
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483662,
+              "center": {
+                "lat": 52.2674521,
+                "lon": 21.229753
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483663,
+              "center": {
+                "lat": 52.2670309,
+                "lon": 21.2315652
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483664,
+              "center": {
+                "lat": 52.2666142,
+                "lon": 21.2322078
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483665,
+              "center": {
+                "lat": 52.2666379,
+                "lon": 21.2310924
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483666,
+              "center": {
+                "lat": 52.2660303,
+                "lon": 21.2326277
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483667,
+              "center": {
+                "lat": 52.2659093,
+                "lon": 21.2314698
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483668,
+              "center": {
+                "lat": 52.2658822,
+                "lon": 21.2308358
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483669,
+              "center": {
+                "lat": 52.2658495,
+                "lon": 21.230234
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483670,
+              "center": {
+                "lat": 52.2693416,
+                "lon": 21.2334379
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483671,
+              "center": {
+                "lat": 52.2686949,
+                "lon": 21.2327314
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483672,
+              "center": {
+                "lat": 52.2696427,
+                "lon": 21.24148
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483673,
+              "center": {
+                "lat": 52.2690805,
+                "lon": 21.2401754
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483674,
+              "center": {
+                "lat": 52.2689266,
+                "lon": 21.2426692
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483675,
+              "center": {
+                "lat": 52.2682618,
+                "lon": 21.2395314
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483676,
+              "center": {
+                "lat": 52.2673701,
+                "lon": 21.2409517
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483677,
+              "center": {
+                "lat": 52.2682011,
+                "lon": 21.2403782
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483678,
+              "center": {
+                "lat": 52.2685348,
+                "lon": 21.2529604
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483679,
+              "center": {
+                "lat": 52.2674021,
+                "lon": 21.2529577
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483680,
+              "center": {
+                "lat": 52.265945,
+                "lon": 21.2528034
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483681,
+              "center": {
+                "lat": 52.2667857,
+                "lon": 21.2557122
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483682,
+              "center": {
+                "lat": 52.2666008,
+                "lon": 21.2544014
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483683,
+              "center": {
+                "lat": 52.2666026,
+                "lon": 21.2546653
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483684,
+              "center": {
+                "lat": 52.2670102,
+                "lon": 21.2553447
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483685,
+              "center": {
+                "lat": 52.2677006,
+                "lon": 21.2567461
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483686,
+              "center": {
+                "lat": 52.267552,
+                "lon": 21.2561877
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483687,
+              "center": {
+                "lat": 52.2668407,
+                "lon": 21.2581793
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483688,
+              "center": {
+                "lat": 52.2675243,
+                "lon": 21.2600784
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483689,
+              "center": {
+                "lat": 52.2673994,
+                "lon": 21.258708
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483690,
+              "center": {
+                "lat": 52.2677547,
+                "lon": 21.2593944
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483691,
+              "center": {
+                "lat": 52.2688221,
+                "lon": 21.2510762
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483692,
+              "center": {
+                "lat": 52.2702448,
+                "lon": 21.2477647
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483693,
+              "center": {
+                "lat": 52.2686286,
+                "lon": 21.2478014
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483694,
+              "center": {
+                "lat": 52.2678264,
+                "lon": 21.2464614
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483695,
+              "center": {
+                "lat": 52.267252,
+                "lon": 21.247789
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483696,
+              "center": {
+                "lat": 52.2658213,
+                "lon": 21.2474417
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483697,
+              "center": {
+                "lat": 52.2649923,
+                "lon": 21.2449056
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483698,
+              "center": {
+                "lat": 52.2653504,
+                "lon": 21.2468472
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483699,
+              "center": {
+                "lat": 52.2627978,
+                "lon": 21.2526034
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483700,
+              "center": {
+                "lat": 52.2624327,
+                "lon": 21.2523354
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483701,
+              "center": {
+                "lat": 52.2637424,
+                "lon": 21.2512459
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483702,
+              "center": {
+                "lat": 52.2642969,
+                "lon": 21.2547485
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483703,
+              "center": {
+                "lat": 52.2652241,
+                "lon": 21.2546316
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483704,
+              "center": {
+                "lat": 52.2648154,
+                "lon": 21.2521919
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483705,
+              "center": {
+                "lat": 52.2645447,
+                "lon": 21.2516982
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483706,
+              "center": {
+                "lat": 52.2643886,
+                "lon": 21.251439
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483707,
+              "center": {
+                "lat": 52.2641452,
+                "lon": 21.2512047
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483708,
+              "center": {
+                "lat": 52.2639566,
+                "lon": 21.2508058
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483709,
+              "center": {
+                "lat": 52.2637854,
+                "lon": 21.2502013
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483710,
+              "center": {
+                "lat": 52.264334,
+                "lon": 21.2510673
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483711,
+              "center": {
+                "lat": 52.2642388,
+                "lon": 21.2511067
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483712,
+              "center": {
+                "lat": 52.2645723,
+                "lon": 21.2509321
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483713,
+              "center": {
+                "lat": 52.2644041,
+                "lon": 21.2503795
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483714,
+              "center": {
+                "lat": 52.2642451,
+                "lon": 21.2494649
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483715,
+              "center": {
+                "lat": 52.2647702,
+                "lon": 21.2462593
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483716,
+              "center": {
+                "lat": 52.2643899,
+                "lon": 21.2460835
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483717,
+              "center": {
+                "lat": 52.2645753,
+                "lon": 21.2457044
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483718,
+              "center": {
+                "lat": 52.2615487,
+                "lon": 21.2510989
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483719,
+              "center": {
+                "lat": 52.2608458,
+                "lon": 21.2503327
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483720,
+              "center": {
+                "lat": 52.2617527,
+                "lon": 21.2502122
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483721,
+              "center": {
+                "lat": 52.261196,
+                "lon": 21.2494525
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483722,
+              "center": {
+                "lat": 52.261376,
+                "lon": 21.2503553
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483723,
+              "center": {
+                "lat": 52.2619265,
+                "lon": 21.2500577
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483724,
+              "center": {
+                "lat": 52.2597976,
+                "lon": 21.2511333
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483725,
+              "center": {
+                "lat": 52.2599475,
+                "lon": 21.2496441
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483726,
+              "center": {
+                "lat": 52.2601457,
+                "lon": 21.2492136
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483727,
+              "center": {
+                "lat": 52.2565604,
+                "lon": 21.2446323
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483728,
+              "center": {
+                "lat": 52.2561193,
+                "lon": 21.2452506
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483729,
+              "center": {
+                "lat": 52.2579413,
+                "lon": 21.2508973
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483730,
+              "center": {
+                "lat": 52.2578204,
+                "lon": 21.2508962
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483731,
+              "center": {
+                "lat": 52.2587214,
+                "lon": 21.2489622
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483732,
+              "center": {
+                "lat": 52.2595076,
+                "lon": 21.2472177
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483733,
+              "center": {
+                "lat": 52.2595022,
+                "lon": 21.2470951
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483734,
+              "center": {
+                "lat": 52.2592889,
+                "lon": 21.2475905
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483735,
+              "center": {
+                "lat": 52.2593996,
+                "lon": 21.2474252
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483736,
+              "center": {
+                "lat": 52.2592484,
+                "lon": 21.2473406
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483737,
+              "center": {
+                "lat": 52.2590121,
+                "lon": 21.2468952
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483738,
+              "center": {
+                "lat": 52.2593646,
+                "lon": 21.2455735
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483739,
+              "center": {
+                "lat": 52.259393,
+                "lon": 21.245608
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483740,
+              "center": {
+                "lat": 52.2596319,
+                "lon": 21.2457927
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414483741,
+              "center": {
+                "lat": 52.2590047,
+                "lon": 21.2453595
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1414502370,
+              "center": {
+                "lat": 52.2346548,
+                "lon": 21.0801109
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1418303235,
+              "center": {
+                "lat": 52.2706554,
+                "lon": 21.1862218
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1418303236,
+              "center": {
+                "lat": 52.2720716,
+                "lon": 21.1829637
+              },
+              "tags": {
+                "access": "customers",
+                "boundary": "hazard",
+                "fixme": "północna część ogrodzenia strzelnicy",
+                "hazard": "shooting_range",
+                "landuse": "military",
+                "leisure": "sports_centre",
+                "name": "CWKS Legia Warszawa Sekcja Strzelecka- Strzelnica odkryta – Rembertów Poligon",
+                "opening_hours": "Mo-Su 08:00-19:00",
+                "sport": "shooting;shooting_range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1418303262,
+              "center": {
+                "lat": 52.2637158,
+                "lon": 21.1938487
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Bojowa Strzelnica Piechoty"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1422559186,
+              "center": {
+                "lat": 52.2615095,
+                "lon": 21.2336588
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1422559202,
+              "center": {
+                "lat": 52.2618956,
+                "lon": 21.2397623
+              },
+              "tags": {
+                "description": "poligon w większej części nieoznaczony ostrzeżeniami, nieogrodzony",
+                "landuse": "military",
+                "military": "training_area",
+                "note": "obszar w znacznej części pokryty piaskiem"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1422559216,
+              "center": {
+                "lat": 52.2631916,
+                "lon": 21.2524497
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1423012296,
+              "center": {
+                "lat": 52.2193879,
+                "lon": 21.0067148
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426586053,
+              "center": {
+                "lat": 52.2262429,
+                "lon": 20.9981048
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459395,
+              "center": {
+                "lat": 52.2707728,
+                "lon": 21.1903694
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459396,
+              "center": {
+                "lat": 52.2696837,
+                "lon": 21.1915429
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459397,
+              "center": {
+                "lat": 52.2564878,
+                "lon": 21.184567
+              },
+              "tags": {
+                "landuse": "military",
+                "note": "wzdłuż ul. Cyrulików stoją tablice informujące o tym, że jest tutaj teren wojskowy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459464,
+              "center": {
+                "lat": 52.2665634,
+                "lon": 21.1902799
+              },
+              "tags": {
+                "description": "obszar jest miejscami otoczony metalową siatką, występują prześwity",
+                "fixme": "dokładniejsza granica od północy/wschodu",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459496,
+              "center": {
+                "lat": 52.2727551,
+                "lon": 21.2071913
+              },
+              "tags": {
+                "hazard": "unexploded_ordnance",
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "Strefa rażenia odłamkami"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459503,
+              "center": {
+                "lat": 52.2537766,
+                "lon": 21.2460685
+              },
+              "tags": {
+                "description": "Las od ul. Okuniewskiej jest osaczony tablicami dot. terenu wojskowego - związane być może z przecinką",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459512,
+              "center": {
+                "lat": 52.2706493,
+                "lon": 21.222681
+              },
+              "tags": {
+                "description": "Obszar ograniczony od północy i południa otwartymi bramami z ostrzeżeniami. Wschodnią granicą jest poligon ze strzelnicą - której dotyczy zagrożenie - oraz dodatkowo ograniczony obszar od południowego wschodu. Zachodnia granica jest niejasna.",
+                "hazard": "shooting_range",
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429459522,
+              "center": {
+                "lat": 52.2919159,
+                "lon": 21.1698923
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1463526442,
+              "center": {
+                "lat": 52.2704674,
+                "lon": 21.1857897
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Osie strzeleckie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1504999028,
+              "center": {
+                "lat": 52.2660465,
+                "lon": 21.232842
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1505062745,
+              "center": {
+                "lat": 52.2685276,
+                "lon": 21.2375992
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 1380564,
+              "center": {
+                "lat": 52.1497359,
+                "lon": 20.7751428
+              },
+              "tags": {
+                "email": "ormon@ron.mil.pl",
+                "fax": "+48 26 189 20 48",
+                "landuse": "military",
+                "name": "Ośrodek Reprezentacyjny Ministerstwa Obrony Narodowej",
+                "phone": "+48 26 1892000",
+                "type": "multipolygon",
+                "website": "https://ormon.wp.mil.pl/"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

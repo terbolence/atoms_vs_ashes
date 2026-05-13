@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "site_id": "3bb6666f-de2f-4c6f-a28e-c3bddb71b54a",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:53:54.355625+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.051942,25.623344);\n  way[\"military\"](around:25000,42.051942,25.623344);\n  relation[\"military\"](around:25000,42.051942,25.623344);\n  node[\"landuse\"=\"military\"](around:25000,42.051942,25.623344);\n  way[\"landuse\"=\"military\"](around:25000,42.051942,25.623344);\n  relation[\"landuse\"=\"military\"](around:25000,42.051942,25.623344);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.051942,25.623344);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.051942,25.623344);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.051942,25.623344);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.051942,25.623344);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.051942,25.623344);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.051942,25.623344);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 2549,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:52:41Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 236601359,
+              "center": {
+                "lat": 41.9401125,
+                "lon": 25.5473441
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 236601360,
+              "center": {
+                "lat": 41.9409254,
+                "lon": 25.5600414
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 485645290,
+              "center": {
+                "lat": 41.8880933,
+                "lon": 25.5367908
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 800930210,
+              "center": {
+                "lat": 41.8306434,
+                "lon": 25.6708265
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Учебен полигон „Корен“"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1490811127,
+              "center": {
+                "lat": 41.9843517,
+                "lon": 25.543693
+              },
+              "tags": {
+                "landuse": "military",
+                "note": "redacted in MAF imagery"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1490964674,
+              "center": {
+                "lat": 41.9568225,
+                "lon": 25.5620367
+              },
+              "tags": {
+                "landuse": "military",
+                "note": "razed im MAF imagery"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

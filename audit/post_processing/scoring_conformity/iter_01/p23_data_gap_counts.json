@@ -1,0 +1,84 @@
+{
+  "audit_step": "P2-3",
+  "run_anchor": "20260513T030738_70d5bc2c",
+  "cohort_size": 361,
+  "generated": "2026-05-13",
+  "purpose": "Machine-readable counts backing data_gaps_followup.md so downstream tooling can detect connector coverage drift.",
+  "criteria": {
+    "HI-05": {
+      "verdict": "connector_coverage_gap",
+      "rubric_ok": true,
+      "fields": {
+        "hi05_quality": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        },
+        "hazmat_route_distance_km": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        }
+      },
+      "owner": "SP-F hazmat-corridor connector backlog (truck-route / pipeline / rail)",
+      "recommended_action": "Enable connector against existing cohort; no rubric change."
+    },
+    "HI-08": {
+      "verdict": "connector_coverage_gap",
+      "rubric_ok": true,
+      "fields": {
+        "hi08_quality": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        },
+        "nearest_nuclear_km": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        }
+      },
+      "owner": "SP-F other-nuclear-installations connector backlog (IAEA PRIS / WANO / OSM power=plant + plant:source=nuclear)",
+      "recommended_action": "Enable connector against existing cohort; no rubric change."
+    },
+    "NH-13": {
+      "verdict": "connector_coverage_gap + rubric_schema_mismatch",
+      "rubric_ok": false,
+      "fields": {
+        "combustible_veg_pct": {
+          "schema_present": false,
+          "note": "Rubric references this column but the table has no such field. Connector produces nh13_gee_burn_fraction_mean instead."
+        },
+        "nh13_quality": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        },
+        "nh13_gee_burn_fraction_mean": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        },
+        "nh13_gee_fire_recurrence_class": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        },
+        "nh13_gee_modis_burn_months": {
+          "non_null_count": 0,
+          "null_count": 361,
+          "coverage_pct": 0.0
+        }
+      },
+      "owner": "Rubric (NH-13 derivation alias OR re-band) + GEE wildfire connector backlog",
+      "recommended_action": "Add merge derivation: combustible_veg_pct = nh13_gee_burn_fraction_mean * 100 when GEE quality is in the search-completed set, then enable GEE NH-13 connector."
+    }
+  },
+  "scoring_engine_impact": {
+    "safe_eval_bug": "fixed_in_p0_1",
+    "band_ordering": "verified_in_p0_3",
+    "context_propagation": "verified_in_p2_2",
+    "military_airfield_default": "corrected_in_p2_1",
+    "conclusion": "Unscored cells for HI-05 / HI-08 / NH-13 are 100% upstream-data-gap caused, not engine/rubric bugs."
+  }
+}

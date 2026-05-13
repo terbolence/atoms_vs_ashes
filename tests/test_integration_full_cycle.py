@@ -1,4 +1,4 @@
-# man_hours: 8.0
+# man_hours: 8.1
 """Full-cycle integration tests for all controllers.
 
 Verifies that each controller can complete the entire cycle:
@@ -275,7 +275,7 @@ class TestEP01FullCycle:
 
         assert 0 <= result.composite_score <= 100
         assert result.verdict in ("pass", "fail", "inconclusive")
-        assert len(result.sub_scores) == 4
+        assert len(result.sub_scores) == 5
 
     def test_weights_sum_to_one(self):
         from atoms_vs_ashes.analysis.emergency_plan import WEIGHTS

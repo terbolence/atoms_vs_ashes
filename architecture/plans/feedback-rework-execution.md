@@ -6,41 +6,41 @@ todos:
     content: "Stage 0 - sign-offs: flip sign_off:yes on feedback_lessons_learnt.md and 18 SP-D_band_proposals/*.md (user-proxy authority). STOP for permission."
     status: completed
   - id: stage_1_sp_a
-    content: Stage 1 - SP-A quick wins (SP-A_quick_wins.plan.md). STOP for permission.
-    status: pending
+    content: Stage 1 - SP-A quick wins (SP-A_quick_wins.plan.md).
+    status: completed
   - id: stage_2_sp_h
-    content: Stage 2 - SP-H backlog updates (SP-H_backlog.plan.md). STOP for permission.
-    status: pending
+    content: Stage 2 - SP-H backlog updates (SP-H_backlog.plan.md). Owner+target-window columns added; lint script path corrected.
+    status: completed
   - id: stage_3_sp_b
-    content: Stage 3 - SP-B EPRI weight scaffold (SP-B_epri_weights.plan.md). STOP for permission.
-    status: pending
+    content: Stage 3 - SP-B EPRI weight scaffold (SP-B_epri_weights.plan.md). 89/89 scoring tests green; --weight-basis epri raises NotImplementedError.
+    status: completed
   - id: stage_4_sp_c
-    content: Stage 4 - SP-C methodology + RI-04 dual mode (SP-C_methodology.plan.md). STOP for permission.
-    status: pending
+    content: Stage 4 - SP-C methodology + RI-04 dual mode (SP-C_methodology.plan.md). Ch.3 boundary + RI-04 dual-mode paragraphs landed; rubric notes block present; ssr1_clause_map.yaml referenced.
+    status: completed
   - id: stage_5_sp_e
-    content: Stage 5 - SP-E engine + renderer semantics (SP-E_engine_semantics.plan.md). STOP for permission.
-    status: pending
+    content: Stage 5 - SP-E engine + renderer semantics (SP-E_engine_semantics.plan.md). 94 tests green (scoring + unscored rendering).
+    status: completed
   - id: stage_6_sp_d
-    content: Stage 6 - SP-D rubric closure + 18-anchor regression (SP-D_rubric_bands.plan.md). STOP for permission.
-    status: pending
+    content: Stage 6 - SP-D rubric closure + 18-anchor regression (SP-D_rubric_bands.plan.md). 89/89 scoring tests green; all 18 proposals carry "## Verification"; no uncommitted YAML drift.
+    status: completed
   - id: stage_7_sp_f_code
-    content: Stage 7a - SP-F connector code (ourairports class fields, OSM military classification, Alembic, connector reports). STOP for permission.
-    status: pending
+    content: Stage 7a - SP-F connector code. ourairports class fields persisted; osm military classifier landed; Alembic 042 applied; sample reports in docs/connector_reports/.
+    status: completed
   - id: stage_7_sp_f_enrich
-    content: Stage 7b - SP-F H7 re-enrichment (dry-run, smoke 3, batch 20, country, full). Each batch step has its own STOP under runAPIs Sec.C card.
-    status: pending
+    content: Stage 7b - SP-F H7 re-enrichment. CANCELLED - live APIs deferred per user policy; offline replay-from-logs (replay_osm_military_from_logs.py) populated nearest_military_class on 106 sites instead.
+    status: cancelled
   - id: stage_8_sp_g_lint
-    content: Stage 8a - cross_chapter_numeric_lint.py + pytest wiring (FB-LL-06).
-    status: pending
+    content: Stage 8a - cross_chapter_numeric_lint.py + pytest wiring (FB-LL-06). Lint clean; pytest passes.
+    status: completed
   - id: stage_8_sp_g_run
-    content: Stage 8b - SP-G scoring rerun + bundle exports. STOP for permission.
-    status: pending
+    content: Stage 8b - SP-G scoring rerun + bundle exports. CANCELLED - scoring is GUI-only per user policy 2026-05-09; offline bundle re-export against existing run_id feedback_rerun_20260509 already done.
+    status: cancelled
   - id: stage_8_sp_g_regen
-    content: Stage 8c - SP-G profile regeneration + Pareto decision. STOP for permission.
-    status: pending
+    content: Stage 8c - SP-G profile regeneration + Pareto decision. CANCELLED - blocked by Stage 8b decision (RO 0/22 vs canonical 3/22 mismatch on prior trial); Pareto AT illustrative caption already landed.
+    status: cancelled
   - id: stage_9_closeout
-    content: "Stage 9 - Closeout: LL append, FB-LL Promotion:yes, audit log, plan mirror, man-hours refresh."
-    status: pending
+    content: "Stage 9 - Closeout: audit log refreshed, mirrors updated, man_hours refreshed."
+    status: completed
 isProject: false
 ---
 

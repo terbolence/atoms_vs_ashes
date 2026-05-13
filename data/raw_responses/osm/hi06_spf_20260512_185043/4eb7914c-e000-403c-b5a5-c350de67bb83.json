@@ -1,0 +1,5085 @@
+{
+  "meta": {
+    "site_id": "4eb7914c-e000-403c-b5a5-c350de67bb83",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:04:25.451305+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.503,13.63617);\n  way[\"military\"](around:25000,50.503,13.63617);\n  relation[\"military\"](around:25000,50.503,13.63617);\n  node[\"landuse\"=\"military\"](around:25000,50.503,13.63617);\n  way[\"landuse\"=\"military\"](around:25000,50.503,13.63617);\n  relation[\"landuse\"=\"military\"](around:25000,50.503,13.63617);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.503,13.63617);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.503,13.63617);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.503,13.63617);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.503,13.63617);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.503,13.63617);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.503,13.63617);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4548,
+        "element_count": 264,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:02:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 1339093622,
+              "lat": 50.5716383,
+              "lon": 13.8085702,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./150a/B -",
+                "ref:ropiky.net": "1096630126",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630126"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371816457,
+              "lat": 50.4960731,
+              "lon": 13.4898848,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./109/C",
+                "ref:ropiky.net": "1075718032",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718032"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371816460,
+              "lat": 50.51776,
+              "lon": 13.575505,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./118/C",
+                "ref:ropiky.net": "1075718042",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718042"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371816464,
+              "lat": 50.55073,
+              "lon": 13.68699,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./136/B",
+                "ref:ropiky.net": "1075718062",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718062"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371816469,
+              "lat": 50.5538963,
+              "lon": 13.7699914,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./146/C",
+                "ref:ropiky.net": "1075718072",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718072"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882270,
+              "lat": 50.528008,
+              "lon": 13.591118,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/4/A-160",
+                "ref:ropiky.net": "1075720319",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720319"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882271,
+              "lat": 50.54613,
+              "lon": 13.619085,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/9c/A-200",
+                "ref:ropiky.net": "1075720327",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720327"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882273,
+              "lat": 50.5528886,
+              "lon": 13.6383543,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/9g/A-180",
+                "ref:ropiky.net": "1105598756",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1105598756"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882814,
+              "lat": 50.48715,
+              "lon": 13.42592,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/100/B",
+                "ref": "1075718023",
+                "source": "ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718023"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882819,
+              "lat": 50.4329,
+              "lon": 13.34271,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/53/C",
+                "ref": "1075717974",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717974"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882820,
+              "lat": 50.43758,
+              "lon": 13.34601,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/55/C",
+                "ref": "1075717976",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717976"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882829,
+              "lat": 50.4651607,
+              "lon": 13.3678794,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/67/B",
+                "ref": "1075717988",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717988"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371882840,
+              "lat": 50.481757,
+              "lon": 13.364607,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/76/B",
+                "ref": "1075717999",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717999"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968787,
+              "lat": 50.36231,
+              "lon": 13.84178,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/40/B1-80",
+                "ref:ropiky.net": "1075719327",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719327"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968791,
+              "lat": 50.36676,
+              "lon": 13.82237,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/46/A-160 Z",
+                "ref:ropiky.net": "1075719334",
+                "source": "ropiky.net",
+                "start_date": "1937",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719334"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968792,
+              "lat": 50.364385,
+              "lon": 13.81314,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/49/A-160",
+                "ref:ropiky.net": "1075719337",
+                "source": "ropiky.net",
+                "start_date": "1937",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719337"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968898,
+              "lat": 50.3597,
+              "lon": 13.736915,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/17/A-200",
+                "ref:ropiky.net": "1075719376",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719376"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968901,
+              "lat": 50.362605,
+              "lon": 13.73086,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/18a/A-180 Z",
+                "ref:ropiky.net": "1075719379",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719379"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968902,
+              "lat": 50.363745,
+              "lon": 13.72745,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/19/A-200 Z",
+                "ref:ropiky.net": "1075719381",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719381"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968904,
+              "lat": 50.361073,
+              "lon": 13.72145,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/20a/A-120 Z",
+                "ref:ropiky.net": "1075719383",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719383"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968907,
+              "lat": 50.35613,
+              "lon": 13.72218,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/22a/A-160 lom",
+                "ref:ropiky.net": "1075719385",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719385"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968921,
+              "lat": 50.351317,
+              "lon": 13.70681,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/34/A-140",
+                "ref:ropiky.net": "1075719401",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719401"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968974,
+              "lat": 50.30898,
+              "lon": 13.60226,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/50a/A-140",
+                "ref:ropiky.net": "1075719510",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719510"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371968990,
+              "lat": 50.33175,
+              "lon": 13.629565,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/62/A-160 Z",
+                "ref:ropiky.net": "1075719526",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719526"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371969011,
+              "lat": 50.348305,
+              "lon": 13.6928,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/37a/A-180",
+                "ref:ropiky.net": "1075719410",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719410"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371969013,
+              "lat": 50.343665,
+              "lon": 13.68844,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/38a/A-180",
+                "ref:ropiky.net": "1075719411",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719411"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371969019,
+              "lat": 50.34512,
+              "lon": 13.688125,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/45/A-140",
+                "ref:ropiky.net": "1075719413",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719413"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371969021,
+              "lat": 50.34341,
+              "lon": 13.68277,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/47/A-120",
+                "ref:ropiky.net": "1075719420",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719420"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371969023,
+              "lat": 50.33902,
+              "lon": 13.68032,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/49/A-160 Z",
+                "ref:ropiky.net": "1075719422",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719422"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7003970509,
+              "lat": 50.4975426,
+              "lon": 13.8343096,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Javor 50 - Červený Újezd V",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=549"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7003970510,
+              "lat": 50.4986405,
+              "lon": 13.8324189,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Javor 50 - Červený Újezd Z",
+                "website": "https://www.vhu.cz/akce-javor/"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7278420634,
+              "lat": 50.6064444,
+              "lon": 13.9292222,
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./168/B - Zasypán",
+                "ref:ropiky.net": "1096630379",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630379"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8521885180,
+              "lat": 50.6567047,
+              "lon": 13.8069095,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Cihlová stavba",
+                "military": "bunker",
+                "name": "Einmannbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8521885181,
+              "lat": 50.658662,
+              "lon": 13.8132158,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "military": "bunker",
+                "name": "Pozorovatelna CO Novosedlice"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067639959,
+              "lat": 50.337563,
+              "lon": 13.6814844,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/51/A-160",
+                "ref:ropiky.net": "1075719424",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719424"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067639960,
+              "lat": 50.3400415,
+              "lon": 13.685355,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/50/A-160",
+                "ref:ropiky.net": "1075719423",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719423"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067639992,
+              "lat": 50.3468393,
+              "lon": 13.6822095,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/46/A-140 Z",
+                "ref:ropiky.net": "1075719419",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719419"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067639997,
+              "lat": 50.3524483,
+              "lon": 13.6811731,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/41/A-220 Z",
+                "ref:ropiky.net": "1075719415",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719415"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640015,
+              "lat": 50.3503539,
+              "lon": 13.691004,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/39/A-220 Z",
+                "ref:ropiky.net": "1075719412",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719412"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640016,
+              "lat": 50.3467489,
+              "lon": 13.6934729,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/38/A-140",
+                "ref:ropiky.net": "1075719409",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719409"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640017,
+              "lat": 50.3442329,
+              "lon": 13.6927119,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/37/A-140",
+                "ref:ropiky.net": "1075719408",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719408"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640018,
+              "lat": 50.3448291,
+              "lon": 13.6961942,
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/36a/A-140",
+                "ref:ropiky.net": "1075719407",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719407"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640019,
+              "lat": 50.3447871,
+              "lon": 13.6998545,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/36/A-140",
+                "ref:ropiky.net": "1075719406",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719406"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640020,
+              "lat": 50.3457081,
+              "lon": 13.6985818,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/32/A-140",
+                "ref:ropiky.net": "1075719405",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719405"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10067640052,
+              "lat": 50.3480406,
+              "lon": 13.7009223,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/31a/A-120",
+                "ref:ropiky.net": "1075719404",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719404"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181015546,
+              "center": {
+                "lat": 50.366825,
+                "lon": 13.8406791
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/41/D1",
+                "ref:ropiky.net": "1075719329",
+                "ref:ruian:building": "52108848",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719329"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181015783,
+              "center": {
+                "lat": 50.3669715,
+                "lon": 13.8405015
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/42/D2",
+                "ref:ropiky.net": "1075719330",
+                "ref:ruian:building": "95703021",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719330"
+              }
+            },
+            {
+              "type": "way",
+              "id": 214460084,
+              "center": {
+                "lat": 50.4509118,
+                "lon": 13.3583356
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/62/C",
+                "ref": "1075717983",
+                "ref:ruian:building": "52083632",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717983"
+              }
+            },
+            {
+              "type": "way",
+              "id": 215106440,
+              "center": {
+                "lat": 50.4818099,
+                "lon": 13.4601235
+              },
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/18/A-200",
+                "ref:ropiky.net": "1075720309",
+                "ref:ruian:building": "48619426",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720309"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367181,
+              "center": {
+                "lat": 50.311932,
+                "lon": 13.6049043
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/65/A-120",
+                "ref:ropiky.net": "1075719530",
+                "ref:ruian:building": "50365959",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719530"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367199,
+              "center": {
+                "lat": 50.3156275,
+                "lon": 13.6049871
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/53a/A-160 Z",
+                "ref:ropiky.net": "1075719515",
+                "ref:ruian:building": "48892505",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719515"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367205,
+              "center": {
+                "lat": 50.3126502,
+                "lon": 13.6003457
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/52a/A-140 Z",
+                "ref:ropiky.net": "1075719513",
+                "ref:ruian:building": "45050945",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719513"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367208,
+              "center": {
+                "lat": 50.3111514,
+                "lon": 13.5980841
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/52/A-160 Z",
+                "ref:ropiky.net": "1075719512",
+                "ref:ruian:building": "43541658",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719512"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367210,
+              "center": {
+                "lat": 50.3143508,
+                "lon": 13.6021554
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/53/A-180 Z",
+                "ref:ropiky.net": "1075719514",
+                "ref:ruian:building": "41944666",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719514"
+              }
+            },
+            {
+              "type": "way",
+              "id": 247367212,
+              "center": {
+                "lat": 50.311395,
+                "lon": 13.6062013
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/64/A-160",
+                "ref:ropiky.net": "1075719528",
+                "ref:ruian:building": "41944674",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719528"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257175147,
+              "center": {
+                "lat": 50.364362,
+                "lon": 13.8410526
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/40a/A-160",
+                "ref:ropiky.net": "1075719328",
+                "ref:ruian:building": "52108881",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719328"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257193782,
+              "center": {
+                "lat": 50.3254929,
+                "lon": 13.620161
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/69/A-200",
+                "ref:ropiky.net": "1075719534",
+                "ref:ruian:building": "50353161",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719534"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257193789,
+              "center": {
+                "lat": 50.3166509,
+                "lon": 13.6079913
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/54/A-160 Z",
+                "ref:ropiky.net": "1075719516",
+                "ref:ruian:building": "48574678",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719516"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257193793,
+              "center": {
+                "lat": 50.3022284,
+                "lon": 13.5926502
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/49/A-140",
+                "ref:ropiky.net": "1075719508",
+                "ref:ruian:building": "43548261",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719508"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257193799,
+              "center": {
+                "lat": 50.3135373,
+                "lon": 13.6103002
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/64a/A-160",
+                "ref:ropiky.net": "1075719529",
+                "ref:ruian:building": "42335060",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719529"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257193800,
+              "center": {
+                "lat": 50.3070101,
+                "lon": 13.597905
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/50/A-140",
+                "ref:ropiky.net": "1075719509",
+                "ref:ruian:building": "43488111",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719509"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257982657,
+              "center": {
+                "lat": 50.3796823,
+                "lon": 13.9209774
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/3/A-140 Z",
+                "ref:ropiky.net": "1075719284",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1937",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719284"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262103817,
+              "center": {
+                "lat": 50.4881453,
+                "lon": 13.3887505
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/10/A-160",
+                "ref:ropiky.net": "1075720301",
+                "ref:ruian:building": "50316494",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720301"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262103983,
+              "center": {
+                "lat": 50.4917103,
+                "lon": 13.3824328
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/85/C",
+                "ref": "1075718008",
+                "ref:ruian:building": "52113612",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718008"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262103985,
+              "center": {
+                "lat": 50.4899873,
+                "lon": 13.3810054
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/84/B",
+                "ref": "1075718007",
+                "ref:ruian:building": "52113531",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718007"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262103992,
+              "center": {
+                "lat": 50.4913856,
+                "lon": 13.3862417
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/86/A",
+                "ref": "1075718009",
+                "ref:ruian:building": "52113001",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718009"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262103993,
+              "center": {
+                "lat": 50.4891073,
+                "lon": 13.374027
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/82/A",
+                "ref": "1075718005",
+                "ref:ruian:building": "52111164",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718005"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262104008,
+              "center": {
+                "lat": 50.490081,
+                "lon": 13.3890541
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/88/B",
+                "ref": "1075718011",
+                "ref:ruian:building": "43368492",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718011"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262104018,
+              "center": {
+                "lat": 50.4906722,
+                "lon": 13.3892695
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/87/C",
+                "ref": "1075718010",
+                "ref:ruian:building": "50316508",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718010"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262104028,
+              "center": {
+                "lat": 50.4897436,
+                "lon": 13.3784738
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/83/B",
+                "ref": "1075718006",
+                "ref:ruian:building": "52113485",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718006"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262104061,
+              "center": {
+                "lat": 50.4878888,
+                "lon": 13.3723611
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/81/B",
+                "ref": "1075718004",
+                "ref:ruian:building": "50316516",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718004"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550332,
+              "center": {
+                "lat": 50.4790785,
+                "lon": 13.3716339
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/71a/B",
+                "ref": "1075717993",
+                "ref:ruian:building": "49995375",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717993"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550343,
+              "center": {
+                "lat": 50.4773255,
+                "lon": 13.3604964
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/6/D1",
+                "ref:ropiky.net": "1075720297",
+                "ref:ruian:building": "43228071",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720297"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550369,
+              "center": {
+                "lat": 50.4802433,
+                "lon": 13.3593851
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/7/A-220",
+                "ref:ropiky.net": "1075720298",
+                "ref:ruian:building": "49995341",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720298"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550372,
+              "center": {
+                "lat": 50.4858824,
+                "lon": 13.3625794
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/9/A-220 Z",
+                "ref:ropiky.net": "1075720300",
+                "ref:ruian:building": "43229409",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720300"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550512,
+              "center": {
+                "lat": 50.4850228,
+                "lon": 13.3649317
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/78/B",
+                "ref": "1075718001",
+                "ref:ruian:building": "50027484",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718001"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550513,
+              "center": {
+                "lat": 50.4779249,
+                "lon": 13.3682867
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/73/B",
+                "ref": "1075717995",
+                "ref:ruian:building": "43228089",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717995"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550520,
+              "center": {
+                "lat": 50.4824541,
+                "lon": 13.3630977
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/77/B",
+                "ref": "1075718000",
+                "ref:ruian:building": "43228054",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718000"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550521,
+              "center": {
+                "lat": 50.4850059,
+                "lon": 13.3667809
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/80/C",
+                "ref": "1075718003",
+                "ref:ruian:building": "43228046",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718003"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550523,
+              "center": {
+                "lat": 50.4845155,
+                "lon": 13.3646373
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/79/C",
+                "ref": "1075718002",
+                "ref:ruian:building": "49995332",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718002"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550525,
+              "center": {
+                "lat": 50.4797314,
+                "lon": 13.3668088
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/71/B",
+                "ref": "1075717992",
+                "ref:ruian:building": "43228062",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717992"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550527,
+              "center": {
+                "lat": 50.4782757,
+                "lon": 13.3655859
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/72/B",
+                "ref": "1075717994",
+                "ref:ruian:building": "49995359",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717994"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550538,
+              "center": {
+                "lat": 50.4753388,
+                "lon": 13.3634687
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/75/B",
+                "ref": "1075717998",
+                "ref:ruian:building": "49995367",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717998"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262550548,
+              "center": {
+                "lat": 50.4789421,
+                "lon": 13.3647649
+              },
+              "tags": {
+                "building": "yes",
+                "building:flats": "0",
+                "building:levels": "0",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/8/E",
+                "ref:ropiky.net": "1075720299",
+                "ref:ruian:building": "49995383",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720299"
+              }
+            },
+            {
+              "type": "way",
+              "id": 299712429,
+              "center": {
+                "lat": 50.4829739,
+                "lon": 13.4771561
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/22/A-160 Z",
+                "ref:ropiky.net": "1075720313",
+                "ref:ruian:building": "48619418",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720313"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313787958,
+              "center": {
+                "lat": 50.2935824,
+                "lon": 13.5758326
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/45a/A-140",
+                "ref:ropiky.net": "1075719504",
+                "ref:ruian:building": "43520057",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719504"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313788749,
+              "center": {
+                "lat": 50.2934058,
+                "lon": 13.5678107
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/34a/A-160",
+                "ref:ropiky.net": "1075719490",
+                "ref:ruian:building": "43241778",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719490"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790350,
+              "center": {
+                "lat": 50.2832296,
+                "lon": 13.5678329
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/42/A-140",
+                "ref:ropiky.net": "1075719499",
+                "ref:ruian:building": "49610481",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719499"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790434,
+              "center": {
+                "lat": 50.2893423,
+                "lon": 13.5739506
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/45/B1-80",
+                "ref:ropiky.net": "1075719503",
+                "ref:ruian:building": "50028669",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719503"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790490,
+              "center": {
+                "lat": 50.2869693,
+                "lon": 13.559896
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/17/A-180",
+                "ref:ropiky.net": "1075719471",
+                "ref:ruian:building": "47111500",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719471"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790502,
+              "center": {
+                "lat": 50.295103,
+                "lon": 13.5684895
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/35/A-160",
+                "ref:ropiky.net": "1075719491",
+                "ref:ruian:building": "50033913",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719491"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790566,
+              "center": {
+                "lat": 50.2852664,
+                "lon": 13.5573429
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/16/A-200",
+                "ref:ropiky.net": "1075719470",
+                "ref:ruian:building": "49585738",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719470"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790621,
+              "center": {
+                "lat": 50.2893804,
+                "lon": 13.5624493
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/17a/A-200",
+                "ref:ropiky.net": "1075719472",
+                "ref:ruian:building": "40673197",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719472"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790627,
+              "center": {
+                "lat": 50.2870187,
+                "lon": 13.5659346
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/43/A-180",
+                "ref:ropiky.net": "1075719501",
+                "ref:ruian:building": "43165761",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719501"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790719,
+              "center": {
+                "lat": 50.2916111,
+                "lon": 13.5657944
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/34/A-180",
+                "ref:ropiky.net": "1075719489",
+                "ref:ruian:building": "50033905",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719489"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313790730,
+              "center": {
+                "lat": 50.2881937,
+                "lon": 13.5671077
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/44/A-160",
+                "ref:ropiky.net": "1075719502",
+                "ref:ruian:building": "43241760",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719502"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665360,
+              "center": {
+                "lat": 50.3029044,
+                "lon": 13.5776417
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/38/A-200",
+                "ref:ropiky.net": "1075719494",
+                "ref:ruian:building": "42734151",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719494"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665361,
+              "center": {
+                "lat": 50.2995756,
+                "lon": 13.5741398
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/37/A-200",
+                "ref:ropiky.net": "1075719493",
+                "ref:ruian:building": "49408828",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719493"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665362,
+              "center": {
+                "lat": 50.3062994,
+                "lon": 13.5899449
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/41/A-180",
+                "ref:ropiky.net": "1075719497",
+                "ref:ruian:building": "42734142",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719497"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665450,
+              "center": {
+                "lat": 50.297131,
+                "lon": 13.5688102
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/36/A-200 Z",
+                "ref:ropiky.net": "1075719492",
+                "ref:ruian:building": "42796245",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719492"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665451,
+              "center": {
+                "lat": 50.3002898,
+                "lon": 13.5864083
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/48/A-160",
+                "ref:ropiky.net": "1075719507",
+                "ref:ruian:building": "42796237",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719507"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665452,
+              "center": {
+                "lat": 50.2978397,
+                "lon": 13.5809241
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/47/A-160",
+                "ref:ropiky.net": "1075719506",
+                "ref:ruian:building": "49408810",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719506"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665453,
+              "center": {
+                "lat": 50.307042,
+                "lon": 13.5924862
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/41a/A-160",
+                "ref:ropiky.net": "1075719498",
+                "ref:ruian:building": "49180592",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719498"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665456,
+              "center": {
+                "lat": 50.3037669,
+                "lon": 13.5809174
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/39/A-200",
+                "ref:ropiky.net": "1075719495",
+                "ref:ruian:building": "49180606",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719495"
+              }
+            },
+            {
+              "type": "way",
+              "id": 315665457,
+              "center": {
+                "lat": 50.2952538,
+                "lon": 13.5777916
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/46/A-140",
+                "ref:ropiky.net": "1075719505",
+                "ref:ruian:building": "49473956",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719505"
+              }
+            },
+            {
+              "type": "way",
+              "id": 323484679,
+              "center": {
+                "lat": 50.5488843,
+                "lon": 13.6256802
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/9e/A-180 Z",
+                "ref:ropiky.net": "1105598686",
+                "ref:ruian:building": "49330829",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1105598686"
+              }
+            },
+            {
+              "type": "way",
+              "id": 326622455,
+              "center": {
+                "lat": 50.564448,
+                "lon": 13.7798287
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "munitions",
+                "description": "Toto je policejní muniční sklad v Bílině, který 15.9.2020 vybuchl.",
+                "military": "bunker",
+                "ref:ruian:building": "45060266",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190351,
+              "center": {
+                "lat": 50.3329152,
+                "lon": 13.6750141
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/56a/A-140",
+                "ref:ropiky.net": "1075719429",
+                "ref:ruian:building": "39088197",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719429"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190352,
+              "center": {
+                "lat": 50.3319998,
+                "lon": 13.6705947
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/57/A-180",
+                "ref:ropiky.net": "1075719431",
+                "ref:ruian:building": "45050937",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719431"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190354,
+              "center": {
+                "lat": 50.32843,
+                "lon": 13.666717
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/66/A-120",
+                "ref:ropiky.net": "1075719433",
+                "ref:ruian:building": "39088219",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719433"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190355,
+              "center": {
+                "lat": 50.329225,
+                "lon": 13.6656216
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/55/A-120 Z",
+                "ref:ropiky.net": "1075719434",
+                "ref:ruian:building": "45050902",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719434"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190356,
+              "center": {
+                "lat": 50.3332223,
+                "lon": 13.6676509
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/54/A-200",
+                "ref:ropiky.net": "1075719432",
+                "ref:ruian:building": "45050929",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719432"
+              }
+            },
+            {
+              "type": "way",
+              "id": 355190359,
+              "center": {
+                "lat": 50.328614,
+                "lon": 13.630529
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/71/A-140",
+                "ref:ropiky.net": "1075719536",
+                "ref:ruian:building": "61695424",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719536"
+              }
+            },
+            {
+              "type": "way",
+              "id": 356114939,
+              "center": {
+                "lat": 50.2852347,
+                "lon": 13.5650425
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/42a/A-200",
+                "ref:ropiky.net": "1075719500",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719500"
+              }
+            },
+            {
+              "type": "way",
+              "id": 372684024,
+              "center": {
+                "lat": 50.4897615,
+                "lon": 13.4307328
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/102/C",
+                "ref": "1075718025",
+                "ref:ruian:building": "48619451",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718025"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376036111,
+              "center": {
+                "lat": 50.3352811,
+                "lon": 13.6777569
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/52/A-160 Z",
+                "ref:ropiky.net": "1075719427",
+                "ref:ruian:building": "39088201",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719427"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376036113,
+              "center": {
+                "lat": 50.3343103,
+                "lon": 13.6718936
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/53/A-180 Z",
+                "ref:ropiky.net": "1075719430",
+                "ref:ruian:building": "39088189",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719430"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376036114,
+              "center": {
+                "lat": 50.3345588,
+                "lon": 13.6748757
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/52a/A-140 Z",
+                "ref:ropiky.net": "1075719428",
+                "ref:ruian:building": "45050911",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719428"
+              }
+            },
+            {
+              "type": "way",
+              "id": 383280851,
+              "center": {
+                "lat": 50.6079611,
+                "lon": 13.9343709
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./169/B -",
+                "ref:ropiky.net": "1096630396",
+                "ref:ruian:building": "80506496",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630396"
+              }
+            },
+            {
+              "type": "way",
+              "id": 383283005,
+              "center": {
+                "lat": 50.6036221,
+                "lon": 13.9237684
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./167/B -",
+                "ref:ropiky.net": "1096630363",
+                "ref:ruian:building": "78925843",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630363"
+              }
+            },
+            {
+              "type": "way",
+              "id": 416204949,
+              "center": {
+                "lat": 50.4756413,
+                "lon": 13.3734171
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/73a/B",
+                "ref": "1075717996",
+                "ref:ruian:building": "52111890",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717996"
+              }
+            },
+            {
+              "type": "way",
+              "id": 416204950,
+              "center": {
+                "lat": 50.4765672,
+                "lon": 13.3690955
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/74/B",
+                "ref": "1075717997",
+                "ref:ruian:building": "39086801",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717997"
+              }
+            },
+            {
+              "type": "way",
+              "id": 416548091,
+              "center": {
+                "lat": 50.6004025,
+                "lon": 13.9036372
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./166/C -",
+                "note": "Vzor \"C\", mel by odpovidat rozmer i natoceni.",
+                "ref:ropiky.net": "1096630339",
+                "ref:ruian:building": "83733621",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630339"
+              }
+            },
+            {
+              "type": "way",
+              "id": 416548092,
+              "center": {
+                "lat": 50.6002943,
+                "lon": 13.9157359
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./166a/C -",
+                "note": "Vzor \"C\", mel by odpovidat rozmer i natoceni.",
+                "ref:ropiky.net": "1096630350",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630350"
+              }
+            },
+            {
+              "type": "way",
+              "id": 416549247,
+              "center": {
+                "lat": 50.6013825,
+                "lon": 13.8936
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./165/C -",
+                "note": "Vzor \"C\", mel by odpovidat rozmer i natoceni.",
+                "ref:ropiky.net": "1096630326",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630326"
+              }
+            },
+            {
+              "type": "way",
+              "id": 430192995,
+              "center": {
+                "lat": 50.4835205,
+                "lon": 13.4490927
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/105/C",
+                "ref": "1075718028",
+                "ref:ruian:building": "41982291",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718028"
+              }
+            },
+            {
+              "type": "way",
+              "id": 458972832,
+              "center": {
+                "lat": 50.3050895,
+                "lon": 13.5838455
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/40/A-220",
+                "ref:ropiky.net": "1075719496",
+                "ref:ruian:building": "49180584",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719496"
+              }
+            },
+            {
+              "type": "way",
+              "id": 460314540,
+              "center": {
+                "lat": 50.6027832,
+                "lon": 13.939451
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./171/C -",
+                "ref:ropiky.net": "1096630420",
+                "ref:ruian:building": "82106681",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630420"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461337861,
+              "center": {
+                "lat": 50.48718,
+                "lon": 13.4202357
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/99/B",
+                "ref": "1075718022",
+                "ref:ruian:building": "41982321",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718022"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461337863,
+              "center": {
+                "lat": 50.4875992,
+                "lon": 13.4168322
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/98/C",
+                "ref": "1075718021",
+                "ref:ruian:building": "41982380",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718021"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461337864,
+              "center": {
+                "lat": 50.4884541,
+                "lon": 13.4123247
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/97/A",
+                "ref": "1075718020",
+                "ref:ruian:building": "41982398",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718020"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461337865,
+              "center": {
+                "lat": 50.4855134,
+                "lon": 13.4206475
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/13/A-160",
+                "ref:ropiky.net": "1075720304",
+                "ref:ruian:building": "41982371",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720304"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461339744,
+              "center": {
+                "lat": 50.4858755,
+                "lon": 13.4385472
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/15/A-160 Z",
+                "ref:ropiky.net": "1075720306",
+                "ref:ruian:building": "42388791",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720306"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461363826,
+              "center": {
+                "lat": 50.4507024,
+                "lon": 13.3508044
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/1b/A-180",
+                "ref:ropiky.net": "1075720292",
+                "ref:ruian:building": "52109585",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720292"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461363827,
+              "center": {
+                "lat": 50.451848,
+                "lon": 13.3525205
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/2/A-200",
+                "ref:ropiky.net": "1075720293",
+                "ref:ruian:building": "42441862",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720293"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461363830,
+              "center": {
+                "lat": 50.4546093,
+                "lon": 13.3615064
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/63/C",
+                "ref": "1075717984",
+                "ref:ruian:building": "52112021",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717984"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461363842,
+              "center": {
+                "lat": 50.4469648,
+                "lon": 13.3563848
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/60/B",
+                "ref": "1075717981",
+                "ref:ruian:building": "52110494",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717981"
+              }
+            },
+            {
+              "type": "way",
+              "id": 461363848,
+              "center": {
+                "lat": 50.4442282,
+                "lon": 13.3480428
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/1/A-180 Z",
+                "ref:ropiky.net": "1075720290",
+                "ref:ruian:building": "54582768",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720290"
+              }
+            },
+            {
+              "type": "way",
+              "id": 463261248,
+              "center": {
+                "lat": 50.360835,
+                "lon": 13.7168182
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/24/A-200 Z",
+                "ref:ropiky.net": "1075719389",
+                "ref:ruian:building": "83989285",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719389"
+              }
+            },
+            {
+              "type": "way",
+              "id": 463261249,
+              "center": {
+                "lat": 50.3618049,
+                "lon": 13.7180502
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/21/A-220",
+                "ref:ropiky.net": "1075719386",
+                "ref:ruian:building": "81737785",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719386"
+              }
+            },
+            {
+              "type": "way",
+              "id": 463261250,
+              "center": {
+                "lat": 50.3577359,
+                "lon": 13.7172652
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/25/A-140",
+                "ref:ropiky.net": "1075719390",
+                "ref:ruian:building": "81735065",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719390"
+              }
+            },
+            {
+              "type": "way",
+              "id": 474389938,
+              "center": {
+                "lat": 50.4867628,
+                "lon": 13.4614367
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/106/C",
+                "ref": "1075718029",
+                "ref:ruian:building": "48619434",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718029"
+              }
+            },
+            {
+              "type": "way",
+              "id": 474389939,
+              "center": {
+                "lat": 50.4797984,
+                "lon": 13.4702942
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/20/A-140",
+                "ref:ropiky.net": "1075720311",
+                "ref:ruian:building": "42889995",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720311"
+              }
+            },
+            {
+              "type": "way",
+              "id": 474389940,
+              "center": {
+                "lat": 50.4807784,
+                "lon": 13.4654549
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/19/A-180",
+                "ref:ropiky.net": "1075720310",
+                "ref:ruian:building": "41982282",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720310"
+              }
+            },
+            {
+              "type": "way",
+              "id": 474389943,
+              "center": {
+                "lat": 50.4813116,
+                "lon": 13.4747698
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/21/A-160 Z",
+                "ref:ropiky.net": "1075720312",
+                "ref:ruian:building": "49660080",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720312"
+              }
+            },
+            {
+              "type": "way",
+              "id": 474389944,
+              "center": {
+                "lat": 50.4895141,
+                "lon": 13.4745991
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./107/C",
+                "ref:ropiky.net": "1075718030",
+                "ref:ruian:building": "48619400",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718030"
+              }
+            },
+            {
+              "type": "way",
+              "id": 489795610,
+              "center": {
+                "lat": 50.5545945,
+                "lon": 13.7793149
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./147/B",
+                "ref:ropiky.net": "1075718073",
+                "ref:ruian:building": "84767693",
+                "source": "cuzk:ruian",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718073"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504743311,
+              "center": {
+                "lat": 50.5837969,
+                "lon": 13.8100559
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./150/C -",
+                "ref:ropiky.net": "1096630112",
+                "ref:ruian:building": "83733027",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630112"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504743331,
+              "center": {
+                "lat": 50.5886618,
+                "lon": 13.825521
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./153/C -",
+                "ref:ropiky.net": "1096630153",
+                "ref:ruian:building": "83733094",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630153"
+              }
+            },
+            {
+              "type": "way",
+              "id": 594540652,
+              "center": {
+                "lat": 50.3580648,
+                "lon": 13.7348733
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/15a/A-160",
+                "ref:ropiky.net": "1075719375",
+                "ref:ruian:building": "81736851",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719375"
+              }
+            },
+            {
+              "type": "way",
+              "id": 594540657,
+              "center": {
+                "lat": 50.3604754,
+                "lon": 13.7347493
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/17a/A-160 Z",
+                "ref:ropiky.net": "1075719377",
+                "ref:ruian:building": "81736894",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719377"
+              }
+            },
+            {
+              "type": "way",
+              "id": 637573649,
+              "center": {
+                "lat": 50.4884873,
+                "lon": 13.4043081
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/12/A-160",
+                "ref:ropiky.net": "1075720303",
+                "ref:ruian:building": "41982339",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720303"
+              }
+            },
+            {
+              "type": "way",
+              "id": 637573650,
+              "center": {
+                "lat": 50.4877752,
+                "lon": 13.4026282
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/92/A",
+                "ref": "1075718015",
+                "ref:ruian:building": "42388813",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718015"
+              }
+            },
+            {
+              "type": "way",
+              "id": 637573651,
+              "center": {
+                "lat": 50.4877537,
+                "lon": 13.4004695
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/11/A-160",
+                "ref:ropiky.net": "1075720302",
+                "ref:ruian:building": "41982347",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720302"
+              }
+            },
+            {
+              "type": "way",
+              "id": 637573652,
+              "center": {
+                "lat": 50.4888275,
+                "lon": 13.3963855
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/90/A",
+                "ref": "1075718013",
+                "ref:ruian:building": "41982355",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718013"
+              }
+            },
+            {
+              "type": "way",
+              "id": 637573653,
+              "center": {
+                "lat": 50.4889256,
+                "lon": 13.4008613
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/91/B",
+                "ref": "1075718014",
+                "ref:ruian:building": "41982401",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718014"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070155,
+              "center": {
+                "lat": 50.4877051,
+                "lon": 13.429863
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/103/B",
+                "ref": "1075718026",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718026"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070156,
+              "center": {
+                "lat": 50.4451,
+                "lon": 13.3499447
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/58/C",
+                "ref": "1075717979",
+                "ref:ruian:building": "53905032",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717979"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070157,
+              "center": {
+                "lat": 50.446257,
+                "lon": 13.3530843
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/59/C",
+                "ref": "1075717980",
+                "ref:ruian:building": "52109852",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717980"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070158,
+              "center": {
+                "lat": 50.457084,
+                "lon": 13.3639742
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/64/C",
+                "ref": "1075717985",
+                "ref:ruian:building": "52111938",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717985"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070159,
+              "center": {
+                "lat": 50.4635207,
+                "lon": 13.3717864
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/66/B",
+                "ref": "1075717987",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "source:geometry": "cuzk:km",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717987"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070160,
+              "center": {
+                "lat": 50.4652714,
+                "lon": 13.3644856
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/68/B",
+                "ref": "1075717989",
+                "ref:ruian:building": "96015900",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717989"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070161,
+              "center": {
+                "lat": 50.4663644,
+                "lon": 13.3633085
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/70/B",
+                "ref": "1075717991",
+                "ref:ruian:building": "52110630",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717991"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070162,
+              "center": {
+                "lat": 50.4659798,
+                "lon": 13.3634206
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/69/B",
+                "ref": "1075717990",
+                "ref:ruian:building": "52110435",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717990"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070163,
+              "center": {
+                "lat": 50.4898125,
+                "lon": 13.3936784
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/89/C",
+                "ref": "1075718012",
+                "ref:ruian:building": "41982363",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718012"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070164,
+              "center": {
+                "lat": 50.4898855,
+                "lon": 13.4046323
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/93/B",
+                "ref": "1075718016",
+                "ref:ruian:building": "48619442",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718016"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070165,
+              "center": {
+                "lat": 50.4906264,
+                "lon": 13.4092006
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/94/C",
+                "ref": "1075718017",
+                "ref:ruian:building": "42388805",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718017"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070167,
+              "center": {
+                "lat": 50.4910931,
+                "lon": 13.4109819
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/95/B",
+                "ref": "1075718018",
+                "ref:ruian:building": "41982312",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718018"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070171,
+              "center": {
+                "lat": 50.4914412,
+                "lon": 13.4122511
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/96/B",
+                "ref": "1075718019",
+                "ref:ruian:building": "41982304",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075718019"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655070174,
+              "center": {
+                "lat": 50.4606492,
+                "lon": 13.3666897
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "V.b/65/C",
+                "ref": "1075717986",
+                "source": "ropiky.net",
+                "source:geometry": "cuzk:km",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075717986"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195920,
+              "center": {
+                "lat": 50.4869185,
+                "lon": 13.4861153
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/23/A-180 Z",
+                "ref:ropiky.net": "1075720314",
+                "ref:ruian:building": "41982274",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720314"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195922,
+              "center": {
+                "lat": 50.4854022,
+                "lon": 13.4243895
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/14/A-160",
+                "ref:ropiky.net": "1075720305",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720305"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195924,
+              "center": {
+                "lat": 50.4628507,
+                "lon": 13.3597813
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/5/A-200",
+                "ref:ropiky.net": "1075720296",
+                "ref:ruian:building": "79513841",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720296"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195926,
+              "center": {
+                "lat": 50.4600307,
+                "lon": 13.3582381
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/4/A-180",
+                "ref:ropiky.net": "1075720295",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720295"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195928,
+              "center": {
+                "lat": 50.4557138,
+                "lon": 13.3562585
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/3/A-180",
+                "ref:ropiky.net": "1075720294",
+                "ref:ruian:building": "52084736",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720294"
+              }
+            },
+            {
+              "type": "way",
+              "id": 655195930,
+              "center": {
+                "lat": 50.4481277,
+                "lon": 13.3495847
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-51/9/A-220 Z",
+                "ref:ropiky.net": "1075720314",
+                "ref:ruian:building": "54583063",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075720314"
+              }
+            },
+            {
+              "type": "way",
+              "id": 689137295,
+              "center": {
+                "lat": 50.5864022,
+                "lon": 13.8180606
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./151/C -",
+                "ref:ropiky.net": "1096630135",
+                "ref:ruian:building": "83733043",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630135"
+              }
+            },
+            {
+              "type": "way",
+              "id": 692457046,
+              "center": {
+                "lat": 50.5942214,
+                "lon": 13.8654493
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./157/B -",
+                "ref:ropiky.net": "1096630205",
+                "ref:ruian:building": "91793653",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630205"
+              }
+            },
+            {
+              "type": "way",
+              "id": 692622887,
+              "center": {
+                "lat": 50.5562686,
+                "lon": 13.6501177
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./130/B",
+                "ref:ropiky.net": "1075718056",
+                "ruins": "yes",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718056"
+              }
+            },
+            {
+              "type": "way",
+              "id": 692961150,
+              "center": {
+                "lat": 50.3338868,
+                "lon": 13.6372917
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/65/A-180 Z",
+                "ref:ropiky.net": "1075719450",
+                "ref:ruian:building": "81739869",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719450"
+              }
+            },
+            {
+              "type": "way",
+              "id": 692961152,
+              "center": {
+                "lat": 50.3228219,
+                "lon": 13.6221539
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "C-14/68/B1-100",
+                "ref:ropiky.net": "1075719533",
+                "ref:ruian:building": "61695297",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719533"
+              }
+            },
+            {
+              "type": "way",
+              "id": 697130341,
+              "center": {
+                "lat": 50.4967752,
+                "lon": 13.4941212
+              },
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./110/C",
+                "ref:ropiky.net": "1075718033",
+                "ref:ruian:building": "79498523",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718033"
+              }
+            },
+            {
+              "type": "way",
+              "id": 710517277,
+              "center": {
+                "lat": 50.5535181,
+                "lon": 13.7474672
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./144/B",
+                "ref:ropiky.net": "1075718070",
+                "ref:ruian:building": "98740563",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718070"
+              }
+            },
+            {
+              "type": "way",
+              "id": 740268789,
+              "center": {
+                "lat": 50.5544708,
+                "lon": 13.6777058
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/13/A-160 Z",
+                "ref:ropiky.net": "1075720332",
+                "ref:ruian:building": "83733141",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720332"
+              }
+            },
+            {
+              "type": "way",
+              "id": 756950021,
+              "center": {
+                "lat": 50.3342982,
+                "lon": 13.6797753
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/56/A-120",
+                "ref:ropiky.net": "1075719426",
+                "ref:ruian:building": "81734778",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719426"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436732,
+              "center": {
+                "lat": 50.6095901,
+                "lon": 13.8814382
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./163/A -",
+                "ref:ropiky.net": "1096630289",
+                "ref:ruian:building": "90554833",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630289"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436733,
+              "center": {
+                "lat": 50.5884777,
+                "lon": 13.83751
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./154/C -",
+                "ref:ropiky.net": "1096630160",
+                "ref:ruian:building": "98740342",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630160"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436734,
+              "center": {
+                "lat": 50.5836302,
+                "lon": 13.8242733
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./152/B -",
+                "ref:ropiky.net": "1096630145",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630145"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436743,
+              "center": {
+                "lat": 50.6064573,
+                "lon": 13.9452893
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./172/B -",
+                "ref:ropiky.net": "1096630432",
+                "ref:ruian:building": "82106665",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630432"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436744,
+              "center": {
+                "lat": 50.6079795,
+                "lon": 13.9406317
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./170/B -",
+                "ref:ropiky.net": "1096630408",
+                "ref:ruian:building": "94764417",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630408"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436745,
+              "center": {
+                "lat": 50.5822091,
+                "lon": 13.8636092
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./158/B -",
+                "ref:ropiky.net": "1096630221",
+                "ref:ruian:building": "89595947",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630221"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436746,
+              "center": {
+                "lat": 50.585144,
+                "lon": 13.8488385
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./155/A -",
+                "ref:ropiky.net": "1096630176",
+                "ref:ruian:building": "98740326",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630176"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436747,
+              "center": {
+                "lat": 50.6040831,
+                "lon": 13.870501
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./162/C -",
+                "ref:ropiky.net": "1096630274",
+                "ref:ruian:building": "83733698",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630274"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436748,
+              "center": {
+                "lat": 50.6024798,
+                "lon": 13.8700314
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./161/A -",
+                "ref:ropiky.net": "1096630259",
+                "ref:ruian:building": "83733744",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630259"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436749,
+              "center": {
+                "lat": 50.5962155,
+                "lon": 13.8707044
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./159/B -",
+                "ref:ropiky.net": "1096630235",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630235"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779436750,
+              "center": {
+                "lat": 50.6000157,
+                "lon": 13.869556
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./160/C -",
+                "ref:ropiky.net": "1096630248",
+                "ref:ruian:building": "83733272",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630248"
+              }
+            },
+            {
+              "type": "way",
+              "id": 786500172,
+              "center": {
+                "lat": 50.3622734,
+                "lon": 13.81238
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/55/A-120",
+                "ref:ropiky.net": "1075719344",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719344"
+              }
+            },
+            {
+              "type": "way",
+              "id": 791760775,
+              "center": {
+                "lat": 50.3301637,
+                "lon": 13.6593595
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/58/A-120",
+                "ref:ropiky.net": "1075719437",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719437"
+              }
+            },
+            {
+              "type": "way",
+              "id": 799024208,
+              "center": {
+                "lat": 50.3574822,
+                "lon": 13.8020772
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/57/A-120",
+                "ref:ropiky.net": "1075719346",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1937",
+                "website": "http://www.ropiky.net/dbase_objekt.php?id=1075719346"
+              }
+            },
+            {
+              "type": "way",
+              "id": 837880014,
+              "center": {
+                "lat": 50.32824,
+                "lon": 13.6397273
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/72/A-120",
+                "ref:ropiky.net": "1075719538",
+                "ref:ruian:building": "100400612",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1960-02-01",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719538"
+              }
+            },
+            {
+              "type": "way",
+              "id": 852000829,
+              "center": {
+                "lat": 50.5576874,
+                "lon": 13.6527756
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./131/C",
+                "ref:ropiky.net": "1075718057",
+                "ref:ruian:building": "49361449",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718057"
+              }
+            },
+            {
+              "type": "way",
+              "id": 852018457,
+              "center": {
+                "lat": 50.5539093,
+                "lon": 13.7435053
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./143/B",
+                "ref:ropiky.net": "1075718069",
+                "ref:ruian:building": "83733183",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718069"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854900724,
+              "center": {
+                "lat": 50.5531273,
+                "lon": 13.6858752
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/14/A-160 Z",
+                "ref:ropiky.net": "1075720333",
+                "ref:ruian:building": "83733116",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720333"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854956422,
+              "center": {
+                "lat": 50.5481042,
+                "lon": 13.7337449
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./142/B",
+                "ref:ropiky.net": "1075718068",
+                "ref:ruian:building": "83733230",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718068"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854956423,
+              "center": {
+                "lat": 50.5496574,
+                "lon": 13.6871161
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./137/B",
+                "ref:ropiky.net": "1075718063",
+                "ref:ruian:building": "83733167",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718063"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854956424,
+              "center": {
+                "lat": 50.5475859,
+                "lon": 13.6299003
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./128/B",
+                "ref:ropiky.net": "1075718053",
+                "ref:ruian:building": "84767669",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718053"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854956425,
+              "center": {
+                "lat": 50.487388,
+                "lon": 13.4855004
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "VI./108/B",
+                "ref:ropiky.net": "1075718031",
+                "ref:ruian:building": "41982266",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075718031"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083904,
+              "center": {
+                "lat": 50.3481842,
+                "lon": 13.6761723
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/43/A-220 Z",
+                "ref:ropiky.net": "1075719417",
+                "ref:ruian:building": "83989331",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719417"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083905,
+              "center": {
+                "lat": 50.3386229,
+                "lon": 13.6525004
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/61/A-180 Z",
+                "ref:ropiky.net": "1075719443",
+                "ref:ruian:building": "81741871",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719443"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083906,
+              "center": {
+                "lat": 50.3361278,
+                "lon": 13.6537372
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/60a/A-220 Z",
+                "ref:ropiky.net": "1075719442",
+                "ref:ruian:building": "81741821",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719442"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083907,
+              "center": {
+                "lat": 50.3364503,
+                "lon": 13.6595607
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/59a/A-180 Z",
+                "ref:ropiky.net": "1075719440",
+                "ref:ruian:building": "81741774",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719440"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083910,
+              "center": {
+                "lat": 50.3379001,
+                "lon": 13.6572036
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/60/A-200 Z",
+                "ref:ropiky.net": "1075719441",
+                "ref:ruian:building": "100401732",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1960-02-01",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719441"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083911,
+              "center": {
+                "lat": 50.3588625,
+                "lon": 13.7195704
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/23a/D1",
+                "ref:ropiky.net": "1075719387",
+                "ref:ruian:building": "81737963",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719387"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083912,
+              "center": {
+                "lat": 50.3538223,
+                "lon": 13.7086362
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/33a/A-220",
+                "ref:ropiky.net": "1075719394",
+                "ref:ruian:building": "94332479",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719394"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905083913,
+              "center": {
+                "lat": 50.3531365,
+                "lon": 13.7115476
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/33/B1-100",
+                "ref:ropiky.net": "1075719393",
+                "ref:ruian:building": "81740026",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719393"
+              }
+            },
+            {
+              "type": "way",
+              "id": 908952202,
+              "center": {
+                "lat": 50.3944928,
+                "lon": 13.5033654
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "VÚ 6950"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913519235,
+              "center": {
+                "lat": 50.3608565,
+                "lon": 13.7323237
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/18/A-140",
+                "ref:ropiky.net": "1075719378",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719378"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913519236,
+              "center": {
+                "lat": 50.361509,
+                "lon": 13.7243249
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/20/A-140 Z",
+                "ref:ropiky.net": "1075719382",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719382"
+              }
+            },
+            {
+              "type": "way",
+              "id": 935169860,
+              "center": {
+                "lat": 50.37683,
+                "lon": 13.834404
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149095,
+              "center": {
+                "lat": 50.3295485,
+                "lon": 13.6575334
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/67a/A-160",
+                "ref:ropiky.net": "1075719436",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719436"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149096,
+              "center": {
+                "lat": 50.3310112,
+                "lon": 13.6534826
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/68/A-180",
+                "ref:ropiky.net": "1075719438",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719438"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149097,
+              "center": {
+                "lat": 50.3336975,
+                "lon": 13.6597535
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/59/A-160",
+                "ref:ropiky.net": "1075719439",
+                "ref:ruian:building": "81741847",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719439"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149098,
+              "center": {
+                "lat": 50.3385485,
+                "lon": 13.6495828
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/62/A-180",
+                "ref:ropiky.net": "1075719444",
+                "ref:ruian:building": "100401317",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1960-02-01",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719444"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149099,
+              "center": {
+                "lat": 50.3507056,
+                "lon": 13.678325
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/42/A-180 Z",
+                "ref:ropiky.net": "1075719416",
+                "ref:ruian:building": "81737408",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719416"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940149102,
+              "center": {
+                "lat": 50.3503642,
+                "lon": 13.6910051
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/39/A-220 Z",
+                "ref:ropiky.net": "1075719412",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719412"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788447,
+              "center": {
+                "lat": 50.35786,
+                "lon": 13.7296466
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/22/A-140",
+                "ref:ropiky.net": "1075719380",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719380"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788448,
+              "center": {
+                "lat": 50.3581498,
+                "lon": 13.7244366
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/23/A-140",
+                "ref:ropiky.net": "1075719384",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719384"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788449,
+              "center": {
+                "lat": 50.358639,
+                "lon": 13.7193359
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/23b/D2",
+                "ref:ropiky.net": "1075719388",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719388"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788450,
+              "center": {
+                "lat": 50.355959,
+                "lon": 13.7106559
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/27/A-160",
+                "ref:ropiky.net": "1075719392",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719392"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788451,
+              "center": {
+                "lat": 50.3573694,
+                "lon": 13.7075518
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/27a/A-220 Z",
+                "ref:ropiky.net": "1075719395",
+                "ref:ruian:building": "81737831",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719395"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788452,
+              "center": {
+                "lat": 50.3570563,
+                "lon": 13.7055931
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/28/A-200 Z",
+                "ref:ropiky.net": "1075719396",
+                "ref:ruian:building": "81734531",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719396"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788453,
+              "center": {
+                "lat": 50.3560407,
+                "lon": 13.7044668
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/28a/A-180 Z",
+                "ref:ropiky.net": "1075719397",
+                "ref:ruian:building": "90936353",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719397"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788455,
+              "center": {
+                "lat": 50.3469753,
+                "lon": 13.7050401
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/35/A-120",
+                "ref:ropiky.net": "1075719403",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719403"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788456,
+              "center": {
+                "lat": 50.3313658,
+                "lon": 13.634269
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/63/A-120 Z",
+                "ref:ropiky.net": "1075719527",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719527"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788457,
+              "center": {
+                "lat": 50.3290797,
+                "lon": 13.6252817
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/70/A-180 Z",
+                "ref:ropiky.net": "1075719535",
+                "ref:ruian:building": "96624442",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719535"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788460,
+              "center": {
+                "lat": 50.308751,
+                "lon": 13.594315
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/51/A-200",
+                "ref:ropiky.net": "1075719511",
+                "ref:ruian:building": "105577162",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1961-09-05",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719511"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788461,
+              "center": {
+                "lat": 50.3145476,
+                "lon": 13.6147976
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/66/A-120",
+                "ref:ropiky.net": "1075719531",
+                "ref:ruian:building": "106715020",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719531"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788462,
+              "center": {
+                "lat": 50.3178897,
+                "lon": 13.6192798
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/67/A-120",
+                "ref:ropiky.net": "1075719532",
+                "ref:ruian:building": "61695319",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719532"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788463,
+              "center": {
+                "lat": 50.3206799,
+                "lon": 13.6158952
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/56/A-120 Z",
+                "ref:ropiky.net": "1075719518",
+                "ref:ruian:building": "61695220",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719518"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788464,
+              "center": {
+                "lat": 50.3186178,
+                "lon": 13.6112369
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/55/A-160 Z",
+                "ref:ropiky.net": "1075719517",
+                "ref:ruian:building": "101610033",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1939-12-31",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719517"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788465,
+              "center": {
+                "lat": 50.3240265,
+                "lon": 13.6143265
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/57/A-160 Z",
+                "ref:ropiky.net": "1075719519",
+                "ref:ruian:building": "61695246",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719519"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788466,
+              "center": {
+                "lat": 50.3258603,
+                "lon": 13.6127727
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/58/A-180",
+                "ref:ropiky.net": "1075719520",
+                "ref:ruian:building": "61695106",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719520"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788467,
+              "center": {
+                "lat": 50.3302491,
+                "lon": 13.6169868
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/59a/A-180",
+                "ref:ropiky.net": "1075719522",
+                "ref:ruian:building": "61695181",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719522"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788468,
+              "center": {
+                "lat": 50.3308967,
+                "lon": 13.6197969
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/60/A-160 Z",
+                "ref:ropiky.net": "1075719523",
+                "ref:ruian:building": "61695271",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719523"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788469,
+              "center": {
+                "lat": 50.3290377,
+                "lon": 13.6143916
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/59/A-200 Z",
+                "ref:ropiky.net": "1075719521",
+                "ref:ruian:building": "61695149",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719521"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788470,
+              "center": {
+                "lat": 50.3332923,
+                "lon": 13.624456
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/61/A-220 Z",
+                "ref:ropiky.net": "1075719525",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719525"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788471,
+              "center": {
+                "lat": 50.3286423,
+                "lon": 13.6344881
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-14/71a/A-160",
+                "ref:ropiky.net": "1075719537",
+                "ref:ruian:building": "100400175",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1960-02-01",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719537"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788472,
+              "center": {
+                "lat": 50.3603285,
+                "lon": 13.7894472
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/58/A-120",
+                "ref:ropiky.net": "1075719347",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719347"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788473,
+              "center": {
+                "lat": 50.363128,
+                "lon": 13.7896735
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-12/59/A-220 Z",
+                "ref:ropiky.net": "1075719349",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1937",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719349"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788474,
+              "center": {
+                "lat": 50.3366609,
+                "lon": 13.64112
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/64/A-200 Z",
+                "ref:ropiky.net": "1075719449",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719449"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788475,
+              "center": {
+                "lat": 50.3298027,
+                "lon": 13.6430324
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/70/A-140",
+                "ref:ropiky.net": "1075719451",
+                "ref:ruian:building": "81742002",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719451"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788476,
+              "center": {
+                "lat": 50.3321012,
+                "lon": 13.6482713
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/69/A-180",
+                "ref:ropiky.net": "1075719447",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719447"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788477,
+              "center": {
+                "lat": 50.334743,
+                "lon": 13.6467087
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/63a/A-180",
+                "ref:ropiky.net": "1075719446",
+                "ref:ruian:building": "81742037",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719446"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788478,
+              "center": {
+                "lat": 50.3369557,
+                "lon": 13.6443182
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/63/A-160 Z",
+                "ref:ropiky.net": "1075719448",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719448"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788479,
+              "center": {
+                "lat": 50.3376621,
+                "lon": 13.6467887
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/62a/A-160",
+                "ref:ropiky.net": "1075719445",
+                "ref:ruian:building": "89276761",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719445"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788480,
+              "center": {
+                "lat": 50.3282496,
+                "lon": 13.6614368
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/67/A-140",
+                "ref:ropiky.net": "1075719435",
+                "ref:ruian:building": "100401465",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1960-02-01",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719435"
+              }
+            },
+            {
+              "type": "way",
+              "id": 940788485,
+              "center": {
+                "lat": 50.3363036,
+                "lon": 13.6798199
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/49a/A-120",
+                "ref:ropiky.net": "1075719425",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719425"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099740984,
+              "center": {
+                "lat": 50.6006046,
+                "lon": 13.8854012
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./164/B -",
+                "ref:ropiky.net": "1096630312",
+                "ref:ruian:building": "105860611",
+                "source": "cuzk:ruian;ropiky.net",
+                "start_date": "1938-12-31",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630312"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099741066,
+              "center": {
+                "lat": 50.342055,
+                "lon": 13.6811606
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/48/A-180 Z",
+                "ref:ropiky.net": "1075719421",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719421"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099741067,
+              "center": {
+                "lat": 50.3511498,
+                "lon": 13.6863911
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-27/40/A-160 Z",
+                "ref:ropiky.net": "1075719414",
+                "ref:ruian:building": "81732929",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719414"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1099741068,
+              "center": {
+                "lat": 50.3548053,
+                "lon": 13.7173164
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "C-13/26/A-120 Z",
+                "ref:ropiky.net": "1075719391",
+                "ref:ruian:building": "105855880",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075719391"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1100642424,
+              "center": {
+                "lat": 50.5542449,
+                "lon": 13.6433536
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "K-52/10/A-180 Z",
+                "ref:ropiky.net": "1075720329",
+                "ref:ruian:building": "43093361",
+                "source": "cuzk:ruian;ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075720329"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1479256120,
+              "center": {
+                "lat": 50.5883963,
+                "lon": 13.8541047
+              },
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XI./156/C -",
+                "ref:ropiky.net": "1096630192",
+                "ref:ruian:building": "149637659",
+                "source": "ropiky.net",
+                "start_date": "1936-01-02",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1096630192"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 8495156,
+              "center": {
+                "lat": 50.323093,
+                "lon": 13.565461
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "41. mechanizovaný prapor Žatec",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

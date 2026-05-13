@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "site_id": "3819acc8-761d-49ba-89e7-967d3d37ec0e",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:08:47.565284+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,39.79,26.3325);\n  way[\"military\"](around:25000,39.79,26.3325);\n  relation[\"military\"](around:25000,39.79,26.3325);\n  node[\"landuse\"=\"military\"](around:25000,39.79,26.3325);\n  way[\"landuse\"=\"military\"](around:25000,39.79,26.3325);\n  relation[\"landuse\"=\"military\"](around:25000,39.79,26.3325);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.79,26.3325);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.79,26.3325);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.79,26.3325);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.79,26.3325);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.79,26.3325);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.79,26.3325);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 952,
+        "element_count": 11,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 7076730931,
+              "lat": 40.0001611,
+              "lon": 26.2605429,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "heavy gun",
+                "ruins": "yes",
+                "source": "bing;gps"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7076730932,
+              "lat": 40.0005936,
+              "lon": 26.2595987,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "heavy gun",
+                "ruins": "yes",
+                "source": "bing;gps"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12204728452,
+              "lat": 39.8054595,
+              "lon": 26.1569645,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 212041527,
+              "center": {
+                "lat": 39.7960755,
+                "lon": 26.3293028
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Çanakkale Ezine 3. Jandarma Er Eğitim Tabur Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 212041628,
+              "center": {
+                "lat": 39.7930625,
+                "lon": 26.331293
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 491236868,
+              "center": {
+                "lat": 39.8319624,
+                "lon": 26.0665216
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Bozcaada İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 491237081,
+              "center": {
+                "lat": 39.832727,
+                "lon": 26.0742725
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 630749134,
+              "center": {
+                "lat": 39.8328084,
+                "lon": 26.0742903
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 630749137,
+              "center": {
+                "lat": 39.831148,
+                "lon": 26.0723827
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "5. Komando Alay Piyade Birlik Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1237836427,
+              "center": {
+                "lat": 39.8317596,
+                "lon": 26.0664495
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1237836437,
+              "center": {
+                "lat": 39.8320035,
+                "lon": 26.0666801
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

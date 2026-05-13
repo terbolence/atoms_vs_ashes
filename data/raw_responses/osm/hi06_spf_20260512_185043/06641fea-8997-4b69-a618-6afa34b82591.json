@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "site_id": "06641fea-8997-4b69-a618-6afa34b82591",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:22:48.819194+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.147965,23.169649);\n  way[\"military\"](around:25000,53.147965,23.169649);\n  relation[\"military\"](around:25000,53.147965,23.169649);\n  node[\"landuse\"=\"military\"](around:25000,53.147965,23.169649);\n  way[\"landuse\"=\"military\"](around:25000,53.147965,23.169649);\n  relation[\"landuse\"=\"military\"](around:25000,53.147965,23.169649);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.147965,23.169649);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.147965,23.169649);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.147965,23.169649);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.147965,23.169649);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.147965,23.169649);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.147965,23.169649);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1747,
+        "element_count": 13,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:21:01Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 76867733,
+              "center": {
+                "lat": 53.1029982,
+                "lon": 23.1315333
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "18 Białostocki Pułk Rozpoznawczy (JW 3519), 1 Podlaska Brygada Obrony Terytorialnej (JW 4857), 25 Wojskowy Oddział Gospodarczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 199912488,
+              "center": {
+                "lat": 53.1500978,
+                "lon": 23.2693102
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220171580,
+              "center": {
+                "lat": 53.1334726,
+                "lon": 23.1502882
+              },
+              "tags": {
+                "addr:city": "Białystok",
+                "addr:country": "PL",
+                "addr:housenumber": "35",
+                "addr:postcode": "15-424",
+                "addr:street": "Lipowa",
+                "building": "military",
+                "building:levels": "2",
+                "castle_type": "stately",
+                "heritage": "2",
+                "heritage:operator": "nid",
+                "historic": "castle",
+                "image": "File:Nowik's Palace in Białystok (2).JPG",
+                "military": "office",
+                "name": "Pałac Nowika",
+                "ref:nid": "475",
+                "start_date": "~1895",
+                "wikidata": "Q11814825",
+                "wikipedia": "pl:Pałac Nowika w Białymstoku"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220402874,
+              "center": {
+                "lat": 53.1210501,
+                "lon": 23.1349419
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "split_rail",
+                "landuse": "military",
+                "name": "Podlaski Oddział Straży Granicznej",
+                "website": "http://www.podlaski.strazgraniczna.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 229099494,
+              "center": {
+                "lat": 53.1022844,
+                "lon": 23.1359669
+              },
+              "tags": {
+                "addr:city": "Białystok",
+                "addr:housenumber": "70/3",
+                "addr:street": "Kawaleryjska",
+                "building": "military",
+                "building:levels": "3",
+                "military": "office",
+                "name": "Dowództwo garnizonu",
+                "source:addr": "EMUiA (emuia.gugik.gov.pl)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 230635840,
+              "center": {
+                "lat": 53.1001988,
+                "lon": 23.134554
+              },
+              "tags": {
+                "addr:city": "Białystok",
+                "addr:housenumber": "70",
+                "addr:street": "Kawaleryjska",
+                "building": "military",
+                "military": "checkpoint",
+                "name": "Wartownia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 236884785,
+              "center": {
+                "lat": 53.1089544,
+                "lon": 23.1922972
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "pole",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312994191,
+              "center": {
+                "lat": 53.1334144,
+                "lon": 23.1502149
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 489079954,
+              "center": {
+                "lat": 53.1497611,
+                "lon": 23.2757565
+              },
+              "tags": {
+                "alt_name": "Poligon Zielona",
+                "landuse": "military",
+                "name": "wojskowy kompleks ćwiczebny 5522"
+              }
+            },
+            {
+              "type": "way",
+              "id": 620859736,
+              "center": {
+                "lat": 53.0981701,
+                "lon": 23.1394861
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 713666625,
+              "center": {
+                "lat": 53.1020089,
+                "lon": 23.1369245
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1131938662,
+              "center": {
+                "lat": 53.0308637,
+                "lon": 23.0314164
+              },
+              "tags": {
+                "contact:email": "biuro@legionwschodni.pl",
+                "contact:phone": "+48 575 531 347",
+                "contact:website": "https://legionwschodni.pl/",
+                "email": "biuro@legionwschodni.pl",
+                "image": "https://legionwschodni.pl/wp-content/uploads/2019/06/DSC_9735.jpg",
+                "leisure": "pitch",
+                "military": "range",
+                "name": "Legion Wschodni",
+                "sport": "shooting",
+                "website": "https://legionwschodni.pl/kontakt/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1212811119,
+              "center": {
+                "lat": 53.1053593,
+                "lon": 23.1316371
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

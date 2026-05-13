@@ -1,0 +1,620 @@
+{
+  "meta": {
+    "site_id": "63601ccc-3f20-4cbd-95cb-0fbeaf821c6a",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:10:28.991276+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,49.677778,18.672778);\n  way[\"military\"](around:25000,49.677778,18.672778);\n  relation[\"military\"](around:25000,49.677778,18.672778);\n  node[\"landuse\"=\"military\"](around:25000,49.677778,18.672778);\n  way[\"landuse\"=\"military\"](around:25000,49.677778,18.672778);\n  relation[\"landuse\"=\"military\"](around:25000,49.677778,18.672778);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.677778,18.672778);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.677778,18.672778);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.677778,18.672778);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.677778,18.672778);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.677778,18.672778);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.677778,18.672778);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 13802,
+        "element_count": 40,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:08:53Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 2424039333,
+              "lat": 49.7637644,
+              "lon": 18.6195388,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "name": "Polski schron bojowy wz. 39",
+                "website": "https://www.militariacieszyn.pl/index.php?option=com_content&view=article&id=118&Itemid=82"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2682550314,
+              "lat": 49.580747,
+              "lon": 18.5230513,
+              "tags": {
+                "description": "Kopie zemního bunkru postavená v roce 1968 v upomínku na původní úkryt partyzánů působících na konci druhé světové války v okolí obce Morávka.",
+                "historic": "bunker",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Bývalý partyzánský bunkr",
+                "ruins": "yes",
+                "wikidata": "Q116166653"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724306,
+              "lat": 49.82511,
+              "lon": 18.56249,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/401/A-140 Z",
+                "ref:ropiky.net": "1075727538",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727538"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724307,
+              "lat": 49.77663,
+              "lon": 18.59722,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/425/D2",
+                "ref:ropiky.net": "1075727558",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727558"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724308,
+              "lat": 49.77537,
+              "lon": 18.59699,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/428/A-160 Z",
+                "ref:ropiky.net": "1075727559",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727559"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724309,
+              "lat": 49.77354,
+              "lon": 18.59715,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/429/A-160",
+                "ref:ropiky.net": "1075727560",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727560"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724310,
+              "lat": 49.77047,
+              "lon": 18.5976,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/431/A-180 Z",
+                "ref:ropiky.net": "1075727561",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727561"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724311,
+              "lat": 49.76819,
+              "lon": 18.59565,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/432/A-140 Z",
+                "ref:ropiky.net": "1075727562",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727562"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724312,
+              "lat": 49.77292,
+              "lon": 18.59349,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/600/B2-80",
+                "ref:ropiky.net": "1075727564",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727564"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724313,
+              "lat": 49.77134,
+              "lon": 18.59305,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/602/A-140",
+                "ref:ropiky.net": "1075727566",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727566"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724314,
+              "lat": 49.77992,
+              "lon": 18.5907,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/656/E",
+                "ref:ropiky.net": "1075727579",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727579"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724315,
+              "lat": 49.77739,
+              "lon": 18.59535,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/658/A-140",
+                "ref:ropiky.net": "1075727580",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727580"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724316,
+              "lat": 49.77589,
+              "lon": 18.59404,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XIX/659/B1-80",
+                "ref:ropiky.net": "1075727581",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727581"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3371724347,
+              "lat": 49.7441413,
+              "lon": 18.6041296,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "XX/448/A-120",
+                "ref:ropiky.net": "1075727598",
+                "ruins": "yes",
+                "source": "ropiky.net",
+                "website": "https://ropiky.net/dbase_objekt.php?id=1075727598"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7109645701,
+              "lat": 49.8085416,
+              "lon": 18.4417902,
+              "tags": {
+                "addr:city": "Havířov",
+                "addr:housenumber": "3",
+                "addr:street": "Šachetní",
+                "building": "bunker",
+                "description": "Zahájení výstavby proběhlo v roce 1960. Stavba byla uvedená do provozu v roce 1962. Počet ukrývaných: 450 osob na dobu isolace až 72 hodin. Celkem 6 pater.",
+                "email": "info@archaprojekt.cz",
+                "military": "bunker",
+                "name": "Muzeum Civilní Ochrany - Archa Projekt",
+                "phone": "+420 777 555 205",
+                "website": "https://www.archaprojekt.cz"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7296505364,
+              "lat": 49.744162,
+              "lon": 18.6212515,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Původně v kolejišti, přesunuto při modernizaci stanice",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11246125355,
+              "lat": 49.696818,
+              "lon": 18.9104834,
+              "tags": {
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Bunkier partyzancki w Diablim Młynie",
+                "opening_hours": "24/7",
+                "start_date": "1944.05.03",
+                "website": "https://turysta.brenna.org.pl/pl/szlak-ii-wojny-swiatowej",
+                "wheelchair": "no"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11246125386,
+              "lat": 49.7008932,
+              "lon": 18.8884873,
+              "tags": {
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Bunkier partyzancki w Grapach",
+                "opening_hours": "24/7",
+                "start_date": "1944.09",
+                "website": "https://turysta.brenna.org.pl/pl/szlak-ii-wojny-swiatowej",
+                "wheelchair": "no",
+                "wikidata": "Q11799436",
+                "wikipedia": "pl:Orłowa (szczyt)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832128,
+              "center": {
+                "lat": 49.7704889,
+                "lon": 18.5976115
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "47259701",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832129,
+              "center": {
+                "lat": 49.7681794,
+                "lon": 18.5956707
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "47259698",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832159,
+              "center": {
+                "lat": 49.7766367,
+                "lon": 18.5972248
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "47258471",
+                "source": "cuzk:ruian",
+                "website": "https://www.kvhchotebuz.cz/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832190,
+              "center": {
+                "lat": 49.7713424,
+                "lon": 18.5930171
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "40629597",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832195,
+              "center": {
+                "lat": 49.7728846,
+                "lon": 18.5934977
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "40629589",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 158832216,
+              "center": {
+                "lat": 49.7735346,
+                "lon": 18.5971186
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "47259680",
+                "source": "cuzk:ruian",
+                "website": "https://www.kvhchotebuz.cz/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 242316568,
+              "center": {
+                "lat": 49.7501303,
+                "lon": 18.608154
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243686478,
+              "center": {
+                "lat": 49.777551,
+                "lon": 18.5953978
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "42395801",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243686480,
+              "center": {
+                "lat": 49.7754025,
+                "lon": 18.5970249
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "40629571",
+                "source": "cuzk:ruian",
+                "website": "https://www.kvhchotebuz.cz/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243686485,
+              "center": {
+                "lat": 49.7799288,
+                "lon": 18.5906552
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243686493,
+              "center": {
+                "lat": 49.7799344,
+                "lon": 18.5906874
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "48951927",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 243686496,
+              "center": {
+                "lat": 49.7758023,
+                "lon": 18.5938841
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "ref:ruian:building": "48951935",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 284385130,
+              "center": {
+                "lat": 49.6895089,
+                "lon": 18.3987626
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "VÚ 4901"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075124,
+              "center": {
+                "lat": 49.6896612,
+                "lon": 18.3981193
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "A"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075128,
+              "center": {
+                "lat": 49.6891595,
+                "lon": 18.3985723
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "B"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075130,
+              "center": {
+                "lat": 49.6894094,
+                "lon": 18.4001388
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "D"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075133,
+              "center": {
+                "lat": 49.6891205,
+                "lon": 18.3994287
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "C"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075135,
+              "center": {
+                "lat": 49.6900017,
+                "lon": 18.4002104
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "E"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075137,
+              "center": {
+                "lat": 49.6904889,
+                "lon": 18.3996903
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "F"
+              }
+            },
+            {
+              "type": "way",
+              "id": 285075139,
+              "center": {
+                "lat": 49.6903151,
+                "lon": 18.39751
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 462590954,
+              "center": {
+                "lat": 49.6577448,
+                "lon": 18.4077778
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "yes",
+                "bunker_type": "observation",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "cuzk:km;bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1311370185,
+              "center": {
+                "lat": 49.4677231,
+                "lon": 18.7720969
+              },
+              "tags": {
+                "military": "trench"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "site_id": "5ed0a674-a292-44bc-997f-5c1990da1235",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:27:14.101904+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.214293,24.374654);\n  way[\"military\"](around:25000,50.214293,24.374654);\n  relation[\"military\"](around:25000,50.214293,24.374654);\n  node[\"landuse\"=\"military\"](around:25000,50.214293,24.374654);\n  way[\"landuse\"=\"military\"](around:25000,50.214293,24.374654);\n  relation[\"landuse\"=\"military\"](around:25000,50.214293,24.374654);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.214293,24.374654);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.214293,24.374654);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.214293,24.374654);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.214293,24.374654);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.214293,24.374654);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.214293,24.374654);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1181,
+        "element_count": 4,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 325744249,
+              "center": {
+                "lat": 50.2521779,
+                "lon": 24.1144673
+              },
+              "tags": {
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 931584976,
+              "center": {
+                "lat": 50.1091808,
+                "lon": 24.306494
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13547256,
+              "center": {
+                "lat": 50.099917,
+                "lon": 24.3562925
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13558923,
+              "center": {
+                "lat": 50.0968369,
+                "lon": 24.3694139
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

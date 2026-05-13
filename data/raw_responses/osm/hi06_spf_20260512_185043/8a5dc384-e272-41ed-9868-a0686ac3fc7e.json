@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "site_id": "8a5dc384-e272-41ed-9868-a0686ac3fc7e",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:51:06.696090+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,37.0333,35.8167);\n  way[\"military\"](around:25000,37.0333,35.8167);\n  relation[\"military\"](around:25000,37.0333,35.8167);\n  node[\"landuse\"=\"military\"](around:25000,37.0333,35.8167);\n  way[\"landuse\"=\"military\"](around:25000,37.0333,35.8167);\n  relation[\"landuse\"=\"military\"](around:25000,37.0333,35.8167);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.0333,35.8167);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.0333,35.8167);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.0333,35.8167);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.0333,35.8167);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.0333,35.8167);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.0333,35.8167);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 689,
+        "element_count": 1,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:49:34Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 499585922,
+              "center": {
+                "lat": 36.957719,
+                "lon": 35.6074476
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Yüreğir Jandarma Komutanlığı",
+                "source": "bing"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

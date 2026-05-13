@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "site_id": "021c723b-98af-4b72-8f6c-ade538885f10",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_184802",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:49:28.661350+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,46.75,14.816667);\n  way[\"military\"](around:25000,46.75,14.816667);\n  relation[\"military\"](around:25000,46.75,14.816667);\n  node[\"landuse\"=\"military\"](around:25000,46.75,14.816667);\n  way[\"landuse\"=\"military\"](around:25000,46.75,14.816667);\n  relation[\"landuse\"=\"military\"](around:25000,46.75,14.816667);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.75,14.816667);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.75,14.816667);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.75,14.816667);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.75,14.816667);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.75,14.816667);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.75,14.816667);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 6590,
+        "element_count": 4,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:47:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 19333858,
+              "center": {
+                "lat": 46.5818855,
+                "lon": 14.8007251
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Goiginger-Kaserne",
+                "source": "geoimage.at",
+                "wikidata": "Q102423668"
+              }
+            },
+            {
+              "type": "way",
+              "id": 38493172,
+              "center": {
+                "lat": 46.7878939,
+                "lon": 14.9702519
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "man_made": "tower",
+                "operator": "Österreichisches Bundesheer",
+                "source": "geoimage.at;survey",
+                "tower:construction": "dome",
+                "tower:type": "radar"
+              }
+            },
+            {
+              "type": "way",
+              "id": 317781138,
+              "center": {
+                "lat": 46.6202381,
+                "lon": 14.6168333
+              },
+              "tags": {
+                "fixme": "What's that triangular military zone?",
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "KruschitzGmBh"
+              }
+            },
+            {
+              "type": "way",
+              "id": 974159151,
+              "center": {
+                "lat": 46.7878658,
+                "lon": 14.9702716
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Radaranlage Speikkogel (OSR SPK)",
+                "wikidata": "Q128107921"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "site_id": "0fb50bcc-5616-40d8-9109-8136a958f18d",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:52:02.617559+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.52104,18.606443);\n  way[\"military\"](around:25000,44.52104,18.606443);\n  relation[\"military\"](around:25000,44.52104,18.606443);\n  node[\"landuse\"=\"military\"](around:25000,44.52104,18.606443);\n  way[\"landuse\"=\"military\"](around:25000,44.52104,18.606443);\n  relation[\"landuse\"=\"military\"](around:25000,44.52104,18.606443);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.52104,18.606443);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.52104,18.606443);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.52104,18.606443);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.52104,18.606443);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.52104,18.606443);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.52104,18.606443);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 6409,
+        "element_count": 8,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:50:31Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 8326329189,
+              "lat": 44.5258027,
+              "lon": 18.6749719,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "troops_crew_bunker",
+                "military": "bunker",
+                "name": "ostaci vojne fortifikacije 1941-1945"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10765233768,
+              "lat": 44.5467134,
+              "lon": 18.9106435,
+              "tags": {
+                "hazard": "minefield",
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10765233769,
+              "lat": 44.5469465,
+              "lon": 18.9094885,
+              "tags": {
+                "hazard": "minefield",
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10765233770,
+              "lat": 44.5460901,
+              "lon": 18.9084049,
+              "tags": {
+                "hazard": "minefield",
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 190338583,
+              "center": {
+                "lat": 44.5540259,
+                "lon": 18.6850485
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Vojna ekonomija Kozlovac",
+                "source": "http://www.eea.europa.eu/data-and-maps/data/clc-2006-vector-data-version-2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 233620419,
+              "center": {
+                "lat": 44.4730752,
+                "lon": 18.7045575
+              },
+              "tags": {
+                "access": "private",
+                "addr:city": "Živinice",
+                "addr:housenumber": "bb",
+                "addr:postcode": "75270",
+                "addr:street": "Dubrave Gornje",
+                "base_function": "headquarters;logistics",
+                "fax": "+387 35 305 002",
+                "landuse": "military",
+                "military": "base",
+                "military_service": "army",
+                "name": "Kasarna Dubrave",
+                "name:bs": "Kasarna Dubrave",
+                "name:hr": "Vojarna Dubrave",
+                "name:sr": "Касарна Дубраве",
+                "note": "Houses the Command of the 5th Infantry Brigade and the Armored Battalion (TacSup Bde).",
+                "official_name": "Kasarna i aerodrom „Dubrave“",
+                "operator": "Oružane snage Bosne i Hercegovine",
+                "operator:short": "OS BiH",
+                "phone": "+387 35 305 001",
+                "source": "mod.gov.ba;<Source_Description>",
+                "website": "http://os.mod.gov.ba/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1165006072,
+              "center": {
+                "lat": 44.3022764,
+                "lon": 18.5459599
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 11659361,
+              "center": {
+                "lat": 44.4647211,
+                "lon": 18.7262999
+              },
+              "tags": {
+                "access": "private",
+                "landuse": "military",
+                "military": "airfield",
+                "military_service": "air_force",
+                "name": "Vojni aerodrom Dubrave",
+                "name:bs": "Vojni aerodrom Dubrave",
+                "name:hr": "Vojna zračna luka Dubrave",
+                "name:sr": "Војни аеродром Дубраве",
+                "note": "Military apron/base co-located with Tuzla International Airport (LQTZ). Houses the 3rd Helicopter Squadron (AF Bde).",
+                "operator": "Oružane snage Bosne i Hercegovine",
+                "operator:short": "OS BiH",
+                "source": "mod.gov.ba;<Source_Description>",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

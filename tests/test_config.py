@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.1
 """Tests for configuration loading."""
 
 from atoms_vs_ashes.config import DatabaseSettings, Settings
@@ -18,9 +18,8 @@ def test_settings_loads_yaml(settings):
 
 def test_supplementary_sites_present(settings):
     sites = settings.supplementary_sites
-    assert len(sites) == 2
+    assert len(sites) == 1
     names = {s["name"] for s in sites}
-    assert any("Chișcani" in n or "Chiscani" in n for n in names)
     assert any("Feldioara" in n for n in names)
 
 

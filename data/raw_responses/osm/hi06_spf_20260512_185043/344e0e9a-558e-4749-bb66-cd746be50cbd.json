@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "site_id": "344e0e9a-558e-4749-bb66-cd746be50cbd",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:50:48.222474+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.766667,16.666667);\n  way[\"military\"](around:25000,44.766667,16.666667);\n  relation[\"military\"](around:25000,44.766667,16.666667);\n  node[\"landuse\"=\"military\"](around:25000,44.766667,16.666667);\n  way[\"landuse\"=\"military\"](around:25000,44.766667,16.666667);\n  relation[\"landuse\"=\"military\"](around:25000,44.766667,16.666667);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.766667,16.666667);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.766667,16.666667);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.766667,16.666667);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.766667,16.666667);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.766667,16.666667);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.766667,16.666667);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4069,
+        "element_count": 1,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:49:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 1130975006,
+              "center": {
+                "lat": 44.988213,
+                "lon": 16.7223661
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "name": "Kasarna \"Žarko Zgonjanin\" Prijedor",
+                "name:sr": "Касарна \"Жарко Згоњанин\" Приједор"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

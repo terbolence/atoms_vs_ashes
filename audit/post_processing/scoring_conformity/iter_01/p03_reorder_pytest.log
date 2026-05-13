@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0
+rootdir: /Users/terbolence/projects/atoms_vs_ashes
+configfile: pyproject.toml
+plugins: cov-7.1.0, anyio-4.13.0
+collected 118 items
+
+tests/scoring/test_compiler_parity.py ..............                     [ 11%]
+tests/scoring/test_exclusionary_floors_doc.py ..                         [ 13%]
+tests/scoring/test_persist_components.py ...                             [ 16%]
+tests/scoring/test_persist_failure.py ..                                 [ 17%]
+tests/scoring/test_run_profile.py ...........                            [ 27%]
+tests/scoring/test_safe_eval_disjuncts.py ...............                [ 39%]
+tests/scoring/test_safety_floor_pipeline.py ................             [ 53%]
+tests/scoring/test_scoring_pool.py ........                              [ 60%]
+tests/scoring/test_search_sentinel_bands.py ..............               [ 72%]
+tests/scoring/test_sensitivity_cli.py ...........                        [ 81%]
+tests/scoring/test_sensitivity_site_bands_persist.py ..                  [ 83%]
+tests/scoring/test_suitable_sites_audit.py .....                         [ 87%]
+tests/scoring/test_targeted_threshold_helpers.py .........               [ 94%]
+tests/scoring/test_threshold_band_runtime.py ...                         [ 97%]
+tests/scoring/test_threshold_db.py ...                                   [100%]
+
+============================= 118 passed in 2.78s ==============================

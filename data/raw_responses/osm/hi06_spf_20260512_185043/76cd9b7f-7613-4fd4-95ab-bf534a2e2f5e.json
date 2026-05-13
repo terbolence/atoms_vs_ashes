@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "site_id": "76cd9b7f-7613-4fd4-95ab-bf534a2e2f5e",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:12:58.567835+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.368944,31.587836);\n  way[\"military\"](around:25000,41.368944,31.587836);\n  relation[\"military\"](around:25000,41.368944,31.587836);\n  node[\"landuse\"=\"military\"](around:25000,41.368944,31.587836);\n  way[\"landuse\"=\"military\"](around:25000,41.368944,31.587836);\n  relation[\"landuse\"=\"military\"](around:25000,41.368944,31.587836);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.368944,31.587836);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.368944,31.587836);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.368944,31.587836);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.368944,31.587836);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.368944,31.587836);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.368944,31.587836);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 690,
+        "element_count": 10,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 133474360,
+              "center": {
+                "lat": 41.2901144,
+                "lon": 31.4025798
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Karadeniz Bölge Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 133474733,
+              "center": {
+                "lat": 41.2898002,
+                "lon": 31.4062542
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 133474754,
+              "center": {
+                "lat": 41.2897282,
+                "lon": 31.4060279
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1082414770,
+              "center": {
+                "lat": 41.2889018,
+                "lon": 31.4201247
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kaletepe",
+                "source": "gps, city GIS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1332868683,
+              "center": {
+                "lat": 41.2895677,
+                "lon": 31.4039232
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1332868684,
+              "center": {
+                "lat": 41.2895012,
+                "lon": 31.4037018
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1332868685,
+              "center": {
+                "lat": 41.2894252,
+                "lon": 31.4034869
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1332868686,
+              "center": {
+                "lat": 41.2890926,
+                "lon": 31.4039168
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1390474472,
+              "center": {
+                "lat": 41.2768963,
+                "lon": 31.4235006
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Bölge Komutanlığı Göztepe Askeri Lojmanları"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1390474486,
+              "center": {
+                "lat": 41.2773912,
+                "lon": 31.4230125
+              },
+              "tags": {
+                "building": "military",
+                "military": "checkpoint",
+                "name": "Bölge Komutanlığı Göztepe Askeri Lojmanları Nizamiyesi"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1192 @@
+{
+  "runs": [
+    {
+      "run_id": "score-214bab4e",
+      "label": "canonical (May 2)",
+      "per_criterion": {
+        "rows": [
+          {
+            "criterion_id": "EP-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 288,
+            "mean_score": 5.19,
+            "min_score": 0.0,
+            "max_score": 7.5
+          },
+          {
+            "criterion_id": "HI-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 238,
+            "mean_score": 4.82,
+            "min_score": 3.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "HI-02",
+            "rows": 361,
+            "unscored": 353,
+            "at_default_5": 353,
+            "favorable": 0,
+            "mid_band": 357,
+            "mean_score": 5.03,
+            "min_score": 5.0,
+            "max_score": 7.5
+          },
+          {
+            "criterion_id": "HI-04",
+            "rows": 361,
+            "unscored": 353,
+            "at_default_5": 353,
+            "favorable": 2,
+            "mid_band": 357,
+            "mean_score": 5.04,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "HI-05",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "HI-06",
+            "rows": 361,
+            "unscored": 42,
+            "at_default_5": 42,
+            "favorable": 0,
+            "mid_band": 42,
+            "mean_score": 1.64,
+            "min_score": 0.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "HI-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-03",
+            "rows": 361,
+            "unscored": 211,
+            "at_default_5": 211,
+            "favorable": 0,
+            "mid_band": 360,
+            "mean_score": 5.2,
+            "min_score": 1.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "NH-04",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 89,
+            "mid_band": 86,
+            "mean_score": 7.48,
+            "min_score": 3.5,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-05",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 3,
+            "mid_band": 306,
+            "mean_score": 5.48,
+            "min_score": 1.5,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-07",
+            "rows": 361,
+            "unscored": 240,
+            "at_default_5": 240,
+            "favorable": 16,
+            "mid_band": 248,
+            "mean_score": 5.88,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-09",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-11",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 0,
+            "mean_score": 4.0,
+            "min_score": 4.0,
+            "max_score": 4.0
+          },
+          {
+            "criterion_id": "NH-13",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-14",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "RI-04",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 2,
+            "mid_band": 89,
+            "mean_score": 3.82,
+            "min_score": 1.5,
+            "max_score": 9.5
+          }
+        ]
+      },
+      "composite": {
+        "rows": 361,
+        "null_composite": 109,
+        "full_pass": 36,
+        "failed_exclusionary": 109,
+        "failed_avoidance_only": 216,
+        "mean_composite": 5.33,
+        "min_composite": 4.01,
+        "max_composite": 6.79,
+        "p25": 4.96,
+        "p50": 5.32,
+        "p75": 5.71
+      },
+      "per_country_full_pass": [
+        {
+          "country_code": "AL",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "AT",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BA",
+          "sites_total": 11,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BG",
+          "sites_total": 15,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BY",
+          "sites_total": 2,
+          "full_pass": 0
+        },
+        {
+          "country_code": "CZ",
+          "sites_total": 29,
+          "full_pass": 0
+        },
+        {
+          "country_code": "HR",
+          "sites_total": 2,
+          "full_pass": 1
+        },
+        {
+          "country_code": "HU",
+          "sites_total": 11,
+          "full_pass": 2
+        },
+        {
+          "country_code": "LV",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MD",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "ME",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MK",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "PL",
+          "sites_total": 63,
+          "full_pass": 2
+        },
+        {
+          "country_code": "RO",
+          "sites_total": 22,
+          "full_pass": 3
+        },
+        {
+          "country_code": "RS",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SI",
+          "sites_total": 3,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SK",
+          "sites_total": 6,
+          "full_pass": 1
+        },
+        {
+          "country_code": "TR",
+          "sites_total": 146,
+          "full_pass": 16
+        },
+        {
+          "country_code": "UA",
+          "sites_total": 20,
+          "full_pass": 11
+        },
+        {
+          "country_code": "XK",
+          "sites_total": 4,
+          "full_pass": 0
+        }
+      ],
+      "fail_by_criterion": [
+        {
+          "criterion_id": "EP-01",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "criterion_id": "NH-02",
+          "fail_rows": 50,
+          "distinct_sites": 50
+        },
+        {
+          "criterion_id": "NS-08",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        },
+        {
+          "criterion_id": "NH-04",
+          "fail_rows": 3,
+          "distinct_sites": 3
+        },
+        {
+          "criterion_id": "NH-03",
+          "fail_rows": 1,
+          "distinct_sites": 1
+        }
+      ],
+      "fail_by_phase": [
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E8",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E1",
+          "fail_rows": 50,
+          "distinct_sites": 50
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E7",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E3",
+          "fail_rows": 3,
+          "distinct_sites": 3
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E2:floor",
+          "fail_rows": 1,
+          "distinct_sites": 1
+        }
+      ]
+    },
+    {
+      "run_id": "feedback_rerun_20260509",
+      "label": "feedback rerun (May 9)",
+      "per_criterion": {
+        "rows": [
+          {
+            "criterion_id": "EP-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 88,
+            "mean_score": 3.14,
+            "min_score": 0.0,
+            "max_score": 7.5
+          },
+          {
+            "criterion_id": "HI-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 238,
+            "mean_score": 4.82,
+            "min_score": 3.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "HI-02",
+            "rows": 361,
+            "unscored": 353,
+            "at_default_5": 353,
+            "favorable": 2,
+            "mid_band": 357,
+            "mean_score": 5.04,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "HI-04",
+            "rows": 361,
+            "unscored": 353,
+            "at_default_5": 353,
+            "favorable": 2,
+            "mid_band": 357,
+            "mean_score": 5.04,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "HI-05",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "HI-06",
+            "rows": 361,
+            "unscored": 42,
+            "at_default_5": 42,
+            "favorable": 0,
+            "mid_band": 110,
+            "mean_score": 3.0,
+            "min_score": 1.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "HI-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-03",
+            "rows": 361,
+            "unscored": 9,
+            "at_default_5": 9,
+            "favorable": 137,
+            "mid_band": 158,
+            "mean_score": 6.67,
+            "min_score": 0.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-04",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 3,
+            "mid_band": 160,
+            "mean_score": 4.63,
+            "min_score": 0.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-05",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 3,
+            "mid_band": 306,
+            "mean_score": 5.48,
+            "min_score": 1.5,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-07",
+            "rows": 361,
+            "unscored": 240,
+            "at_default_5": 240,
+            "favorable": 0,
+            "mid_band": 240,
+            "mean_score": 4.07,
+            "min_score": 1.5,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-09",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-11",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 0,
+            "mean_score": 4.0,
+            "min_score": 4.0,
+            "max_score": 4.0
+          },
+          {
+            "criterion_id": "NH-13",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-14",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "RI-04",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 2,
+            "mid_band": 89,
+            "mean_score": 3.82,
+            "min_score": 1.5,
+            "max_score": 9.5
+          }
+        ]
+      },
+      "composite": {
+        "rows": 361,
+        "null_composite": 332,
+        "full_pass": 11,
+        "failed_exclusionary": 332,
+        "failed_avoidance_only": 18,
+        "mean_composite": 5.85,
+        "min_composite": 5.07,
+        "max_composite": 7.02,
+        "p25": 5.48,
+        "p50": 5.84,
+        "p75": 6.06
+      },
+      "per_country_full_pass": [
+        {
+          "country_code": "AL",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "AT",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BA",
+          "sites_total": 11,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BG",
+          "sites_total": 15,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BY",
+          "sites_total": 2,
+          "full_pass": 0
+        },
+        {
+          "country_code": "CZ",
+          "sites_total": 29,
+          "full_pass": 0
+        },
+        {
+          "country_code": "HR",
+          "sites_total": 2,
+          "full_pass": 0
+        },
+        {
+          "country_code": "HU",
+          "sites_total": 11,
+          "full_pass": 0
+        },
+        {
+          "country_code": "LV",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MD",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "ME",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MK",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "PL",
+          "sites_total": 63,
+          "full_pass": 1
+        },
+        {
+          "country_code": "RO",
+          "sites_total": 22,
+          "full_pass": 0
+        },
+        {
+          "country_code": "RS",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SI",
+          "sites_total": 3,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SK",
+          "sites_total": 6,
+          "full_pass": 0
+        },
+        {
+          "country_code": "TR",
+          "sites_total": 146,
+          "full_pass": 5
+        },
+        {
+          "country_code": "UA",
+          "sites_total": 20,
+          "full_pass": 5
+        },
+        {
+          "country_code": "XK",
+          "sites_total": 4,
+          "full_pass": 0
+        }
+      ],
+      "fail_by_criterion": [
+        {
+          "criterion_id": "RI-04",
+          "fail_rows": 223,
+          "distinct_sites": 223
+        },
+        {
+          "criterion_id": "NH-04",
+          "fail_rows": 164,
+          "distinct_sites": 164
+        },
+        {
+          "criterion_id": "NH-07",
+          "fail_rows": 121,
+          "distinct_sites": 121
+        },
+        {
+          "criterion_id": "NH-02",
+          "fail_rows": 63,
+          "distinct_sites": 63
+        },
+        {
+          "criterion_id": "NH-03",
+          "fail_rows": 62,
+          "distinct_sites": 62
+        },
+        {
+          "criterion_id": "EP-01",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "criterion_id": "NS-08",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        }
+      ],
+      "fail_by_phase": [
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E_RI04:floor",
+          "fail_rows": 174,
+          "distinct_sites": 174
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E3:floor",
+          "fail_rows": 161,
+          "distinct_sites": 161
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E4:floor",
+          "fail_rows": 121,
+          "distinct_sites": 121
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E1",
+          "fail_rows": 63,
+          "distinct_sites": 63
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E2:floor",
+          "fail_rows": 61,
+          "distinct_sites": 61
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E8",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E_RI04",
+          "fail_rows": 49,
+          "distinct_sites": 49
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E7",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E3",
+          "fail_rows": 3,
+          "distinct_sites": 3
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E2",
+          "fail_rows": 1,
+          "distinct_sites": 1
+        }
+      ]
+    },
+    {
+      "run_id": "20260513T030738_70d5bc2c",
+      "label": "latest (May 13)",
+      "per_criterion": {
+        "rows": [
+          {
+            "criterion_id": "EP-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 88,
+            "mean_score": 3.14,
+            "min_score": 0.0,
+            "max_score": 7.5
+          },
+          {
+            "criterion_id": "HI-01",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 238,
+            "mean_score": 4.82,
+            "min_score": 3.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "HI-02",
+            "rows": 361,
+            "unscored": 346,
+            "at_default_5": 346,
+            "favorable": 9,
+            "mid_band": 350,
+            "mean_score": 5.13,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "HI-04",
+            "rows": 361,
+            "unscored": 346,
+            "at_default_5": 346,
+            "favorable": 9,
+            "mid_band": 350,
+            "mean_score": 5.13,
+            "min_score": 5.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "HI-05",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "HI-06",
+            "rows": 361,
+            "unscored": 35,
+            "at_default_5": 35,
+            "favorable": 0,
+            "mid_band": 97,
+            "mean_score": 2.85,
+            "min_score": 1.5,
+            "max_score": 5.5
+          },
+          {
+            "criterion_id": "HI-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-03",
+            "rows": 361,
+            "unscored": 9,
+            "at_default_5": 9,
+            "favorable": 137,
+            "mid_band": 158,
+            "mean_score": 6.67,
+            "min_score": 0.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-04",
+            "rows": 361,
+            "unscored": 9,
+            "at_default_5": 9,
+            "favorable": 3,
+            "mid_band": 166,
+            "mean_score": 4.65,
+            "min_score": 0.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-05",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 3,
+            "mid_band": 306,
+            "mean_score": 5.48,
+            "min_score": 1.5,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-07",
+            "rows": 361,
+            "unscored": 240,
+            "at_default_5": 240,
+            "favorable": 0,
+            "mid_band": 240,
+            "mean_score": 4.07,
+            "min_score": 1.5,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-08",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-09",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 361,
+            "mid_band": 0,
+            "mean_score": 9.5,
+            "min_score": 9.5,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "NH-11",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 0,
+            "mid_band": 0,
+            "mean_score": 4.0,
+            "min_score": 4.0,
+            "max_score": 4.0
+          },
+          {
+            "criterion_id": "NH-13",
+            "rows": 361,
+            "unscored": 361,
+            "at_default_5": 361,
+            "favorable": 0,
+            "mid_band": 361,
+            "mean_score": 5.0,
+            "min_score": 5.0,
+            "max_score": 5.0
+          },
+          {
+            "criterion_id": "NH-14",
+            "rows": 361,
+            "unscored": 66,
+            "at_default_5": 66,
+            "favorable": 3,
+            "mid_band": 273,
+            "mean_score": 5.01,
+            "min_score": 0.0,
+            "max_score": 9.5
+          },
+          {
+            "criterion_id": "RI-04",
+            "rows": 361,
+            "unscored": 0,
+            "at_default_5": 0,
+            "favorable": 2,
+            "mid_band": 89,
+            "mean_score": 3.82,
+            "min_score": 1.5,
+            "max_score": 9.5
+          }
+        ]
+      },
+      "composite": {
+        "rows": 361,
+        "null_composite": 330,
+        "full_pass": 11,
+        "failed_exclusionary": 330,
+        "failed_avoidance_only": 20,
+        "mean_composite": 6.08,
+        "min_composite": 5.3,
+        "max_composite": 7.02,
+        "p25": 5.78,
+        "p50": 6.14,
+        "p75": 6.27
+      },
+      "per_country_full_pass": [
+        {
+          "country_code": "AL",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "AT",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BA",
+          "sites_total": 11,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BG",
+          "sites_total": 15,
+          "full_pass": 0
+        },
+        {
+          "country_code": "BY",
+          "sites_total": 2,
+          "full_pass": 0
+        },
+        {
+          "country_code": "CZ",
+          "sites_total": 29,
+          "full_pass": 0
+        },
+        {
+          "country_code": "HR",
+          "sites_total": 2,
+          "full_pass": 0
+        },
+        {
+          "country_code": "HU",
+          "sites_total": 11,
+          "full_pass": 0
+        },
+        {
+          "country_code": "LV",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MD",
+          "sites_total": 1,
+          "full_pass": 0
+        },
+        {
+          "country_code": "ME",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "MK",
+          "sites_total": 4,
+          "full_pass": 0
+        },
+        {
+          "country_code": "PL",
+          "sites_total": 63,
+          "full_pass": 1
+        },
+        {
+          "country_code": "RO",
+          "sites_total": 22,
+          "full_pass": 0
+        },
+        {
+          "country_code": "RS",
+          "sites_total": 8,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SI",
+          "sites_total": 3,
+          "full_pass": 0
+        },
+        {
+          "country_code": "SK",
+          "sites_total": 6,
+          "full_pass": 0
+        },
+        {
+          "country_code": "TR",
+          "sites_total": 146,
+          "full_pass": 5
+        },
+        {
+          "country_code": "UA",
+          "sites_total": 20,
+          "full_pass": 5
+        },
+        {
+          "country_code": "XK",
+          "sites_total": 4,
+          "full_pass": 0
+        }
+      ],
+      "fail_by_criterion": [
+        {
+          "criterion_id": "RI-04",
+          "fail_rows": 223,
+          "distinct_sites": 223
+        },
+        {
+          "criterion_id": "NH-04",
+          "fail_rows": 158,
+          "distinct_sites": 158
+        },
+        {
+          "criterion_id": "NH-07",
+          "fail_rows": 121,
+          "distinct_sites": 121
+        },
+        {
+          "criterion_id": "NH-02",
+          "fail_rows": 63,
+          "distinct_sites": 63
+        },
+        {
+          "criterion_id": "NH-03",
+          "fail_rows": 62,
+          "distinct_sites": 62
+        },
+        {
+          "criterion_id": "EP-01",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "criterion_id": "NS-08",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        }
+      ],
+      "fail_by_phase": [
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E_RI04:floor",
+          "fail_rows": 174,
+          "distinct_sites": 174
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E3:floor",
+          "fail_rows": 155,
+          "distinct_sites": 155
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E4:floor",
+          "fail_rows": 121,
+          "distinct_sites": 121
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E1",
+          "fail_rows": 63,
+          "distinct_sites": 63
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E2:floor",
+          "fail_rows": 61,
+          "distinct_sites": 61
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E8",
+          "fail_rows": 56,
+          "distinct_sites": 56
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E_RI04",
+          "fail_rows": 49,
+          "distinct_sites": 49
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E7",
+          "fail_rows": 6,
+          "distinct_sites": 6
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E3",
+          "fail_rows": 3,
+          "distinct_sites": 3
+        },
+        {
+          "phase": "exclusionary",
+          "prompt_key": "E2",
+          "fail_rows": 1,
+          "distinct_sites": 1
+        }
+      ]
+    }
+  ],
+  "smr_filter": "nuscale_voygr6"
+}

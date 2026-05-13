@@ -1,0 +1,2034 @@
+{
+  "meta": {
+    "site_id": "29836b52-a882-4921-95a7-6417e636d9a2",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:40:19.296466+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.165033,27.923383);\n  way[\"military\"](around:25000,45.165033,27.923383);\n  relation[\"military\"](around:25000,45.165033,27.923383);\n  node[\"landuse\"=\"military\"](around:25000,45.165033,27.923383);\n  way[\"landuse\"=\"military\"](around:25000,45.165033,27.923383);\n  relation[\"landuse\"=\"military\"](around:25000,45.165033,27.923383);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.165033,27.923383);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.165033,27.923383);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.165033,27.923383);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.165033,27.923383);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.165033,27.923383);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.165033,27.923383);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 726,
+        "element_count": 154,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:38:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178834278,
+              "lat": 45.267918,
+              "lon": 27.950562,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Rândunicii, bl. 27 bis, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "751",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840751,
+              "lat": 45.242667,
+              "lon": 27.94875,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Mecanizatorilor, bl. U, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "671",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840778,
+              "lat": 45.24949,
+              "lon": 27.952065,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. C1, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "705",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863831,
+              "lat": 45.288677,
+              "lon": 27.966689,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A4, sc. 1, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "775",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863900,
+              "lat": 45.242956,
+              "lon": 27.948219,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D1, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "660",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870072,
+              "lat": 45.251212,
+              "lon": 27.949588,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "734",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870098,
+              "lat": 45.264136,
+              "lon": 27.953424,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. O4, sc. 4, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "765",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878305,
+              "lat": 45.275106,
+              "lon": 27.974908,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Mitropolia Ortodoxa de rit vechi, str. Nicolae Grigorescu, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "790",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878321,
+              "lat": 45.243861,
+              "lon": 27.948639,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D3, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "669",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878348,
+              "lat": 45.249887,
+              "lon": 27.952425,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. C1, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "703",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878374,
+              "lat": 45.251081,
+              "lon": 27.949714,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "738",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878400,
+              "lat": 45.263181,
+              "lon": 27.95461,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O5, sc. 4, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "769",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878469,
+              "lat": 45.246412,
+              "lon": 27.95066,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "654",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878495,
+              "lat": 45.268153,
+              "lon": 27.952264,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. 25 bis, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "681",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878521,
+              "lat": 45.249631,
+              "lon": 27.950484,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "715",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878548,
+              "lat": 45.269128,
+              "lon": 27.950998,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Rândunicii, bl. 29 bis, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "750",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878575,
+              "lat": 45.249734,
+              "lon": 27.960892,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC Vard SA, str. Celulozei, municipiul Brăila (1),SC Vard SA, str. Celulozei, municipiul Brăila (2), Brăila, BR",
+                "military": "bunker",
+                "ref": "781,782",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878591,
+              "lat": 45.243111,
+              "lon": 27.948806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D2, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "664",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878618,
+              "lat": 45.249973,
+              "lon": 27.952505,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. C1, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "702",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878644,
+              "lat": 45.251536,
+              "lon": 27.950078,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "733",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878670,
+              "lat": 45.288858,
+              "lon": 27.966684,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A4, sc. 2, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "776",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878739,
+              "lat": 45.243,
+              "lon": 27.948083,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D1, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "661",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878765,
+              "lat": 45.259833,
+              "lon": 27.951111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Policlinicii, bl. G12, sc. 3, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "692",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878791,
+              "lat": 45.251317,
+              "lon": 27.95053,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "730",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878818,
+              "lat": 45.26373,
+              "lon": 27.955801,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O3, sc. 4, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "761",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878834,
+              "lat": 45.250741,
+              "lon": 27.948123,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. F5, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "644",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878845,
+              "lat": 45.252135,
+              "lon": 27.940596,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Centru de hemodializă, şoseaua Buzăului nr. 2, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "792",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878861,
+              "lat": 45.265125,
+              "lon": 27.952915,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AB4, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "679",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878888,
+              "lat": 45.251387,
+              "lon": 27.947555,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Grigore Alexandrescu, bl. A5, sc. 1, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "713",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878914,
+              "lat": 45.248834,
+              "lon": 27.951776,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A10, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "740",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878940,
+              "lat": 45.288717,
+              "lon": 27.967411,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A2, sc. 1, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "771",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879010,
+              "lat": 45.247167,
+              "lon": 27.951361,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B3, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "656",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879037,
+              "lat": 45.259833,
+              "lon": 27.951212,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Policlinicii, bl. G12, sc. 1, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "691",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879063,
+              "lat": 45.249857,
+              "lon": 27.95011,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "725",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879090,
+              "lat": 45.263244,
+              "lon": 27.954889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O5, sc. 3, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "768",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879105,
+              "lat": 45.251639,
+              "lon": 27.949528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. F4, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "643",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879132,
+              "lat": 45.250872,
+              "lon": 27.953752,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A7, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "674",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879159,
+              "lat": 45.246278,
+              "lon": 27.950528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "653",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879185,
+              "lat": 45.30301,
+              "lon": 27.963986,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Industriei, bl. 7, sc. 3, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "684",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879211,
+              "lat": 45.250528,
+              "lon": 27.950778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "722",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879238,
+              "lat": 45.267806,
+              "lon": 27.951306,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Daciei, bl. 27, sc. 4, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "753",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879265,
+              "lat": 45.295486,
+              "lon": 27.961288,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. PROMEX SA str. Industriei, municipiul Brăila (3), Brăila, BR",
+                "military": "bunker",
+                "ref": "780",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879404,
+              "lat": 45.250469,
+              "lon": 27.949916,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "732",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879430,
+              "lat": 45.264065,
+              "lon": 27.952982,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. O4, sc. 2, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "763",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879499,
+              "lat": 45.244889,
+              "lon": 27.94925,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B1, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "648",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879525,
+              "lat": 45.302904,
+              "lon": 27.964013,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Industriei, bl. 7, sc. 2, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "683",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879551,
+              "lat": 45.250417,
+              "lon": 27.951028,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "717",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879578,
+              "lat": 45.263593,
+              "lon": 27.955846,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O3, sc. 3, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "760",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879621,
+              "lat": 45.243585,
+              "lon": 27.947936,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D2, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "666",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879648,
+              "lat": 45.250875,
+              "lon": 27.947679,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. D4, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "712",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879674,
+              "lat": 45.265639,
+              "lon": 27.953083,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AB3, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "743",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879700,
+              "lat": 45.298261,
+              "lon": 27.955894,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. PROMEX SA, str. Industriei, municipiul Brăila (1), Brăila, BR",
+                "military": "bunker",
+                "ref": "778",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879770,
+              "lat": 45.2431,
+              "lon": 27.949004,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D2, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "663",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879796,
+              "lat": 45.264648,
+              "lon": 27.970173,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. 104, sc. 2, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "694",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879822,
+              "lat": 45.250259,
+              "lon": 27.950518,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "724",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879849,
+              "lat": 45.266612,
+              "lon": 27.953993,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Erou Comisar Popovici, bl. AG5, sc. 4, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "755",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879864,
+              "lat": 45.244591,
+              "lon": 27.949029,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B1, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "646",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879875,
+              "lat": 45.269622,
+              "lon": 27.979928,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Centrul medical IHS, str. Anghel Saligny, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "795",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879891,
+              "lat": 45.250663,
+              "lon": 27.953335,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A6, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "673",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879918,
+              "lat": 45.252046,
+              "lon": 27.948763,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. D4, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "707",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879944,
+              "lat": 45.265056,
+              "lon": 27.953694,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AC2, sc. 4, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "742",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879970,
+              "lat": 45.288684,
+              "lon": 27.967059,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A3, sc. 1, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "773",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879997,
+              "lat": 45.267551,
+              "lon": 27.950794,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Daciei, bl. 27, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "752",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880024,
+              "lat": 45.281633,
+              "lon": 27.955924,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STATIA CFR BRAILA, str. G-ral Eremia Grigorescu, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "787",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880040,
+              "lat": 45.247444,
+              "lon": 27.951639,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B3, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "658",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880067,
+              "lat": 45.249662,
+              "lon": 27.952226,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. C1, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "704",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880093,
+              "lat": 45.250762,
+              "lon": 27.949168,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "735",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880119,
+              "lat": 45.259833,
+              "lon": 27.950944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Policlinicii, bl. G12, sc. 2, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "770",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880188,
+              "lat": 45.247028,
+              "lon": 27.951306,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B3, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "655",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880214,
+              "lat": 45.305996,
+              "lon": 27.961479,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cometei, bl. 14, sc. 3, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "686",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880240,
+              "lat": 45.250131,
+              "lon": 27.950736,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "716",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880267,
+              "lat": 45.26659,
+              "lon": 27.955947,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Anton Pann, bl. AF3, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "747",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880294,
+              "lat": 45.264142,
+              "lon": 27.966944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. ELECTRICA, str. Plevnei, municipiul Brăila (3),SC. ELECTRICA, str. Plevnei, municipiul Brăila (1),SC. ELECTRICA, str. Plevnei, municipiul Brăila (2),SC. ELECTRICA, str. Plevnei, municipiul Brăila (4), Brăila, BR",
+                "military": "bunker",
+                "ref": "785,783,784,786",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880310,
+              "lat": 45.243417,
+              "lon": 27.948083,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D2, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "665",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880337,
+              "lat": 45.264897,
+              "lon": 27.970377,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. 104, sc. 4, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "696",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880377,
+              "lat": 45.243208,
+              "lon": 27.947589,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D1, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "662",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880667,
+              "lat": 45.245611,
+              "lon": 27.949944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "650",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880693,
+              "lat": 45.264567,
+              "lon": 27.97006,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. 104, sc. 1, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "693",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880719,
+              "lat": 45.25011,
+              "lon": 27.949439,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "727",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880746,
+              "lat": 45.263977,
+              "lon": 27.952721,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. O4, sc. 1, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "762",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880762,
+              "lat": 45.2445,
+              "lon": 27.948861,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B1, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "645",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880789,
+              "lat": 45.264361,
+              "lon": 27.952667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Şcolilor, bl. AB1, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "676",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880816,
+              "lat": 45.247363,
+              "lon": 27.950484,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A1, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "714",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880842,
+              "lat": 45.265006,
+              "lon": 27.953141,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AB5, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "745",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880868,
+              "lat": 45.2889,
+              "lon": 27.967402,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A2, sc. 2, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "772",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880938,
+              "lat": 45.247278,
+              "lon": 27.951417,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B3, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "657",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880964,
+              "lat": 45.303983,
+              "lon": 27.962989,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Grindului, bl. 11, sc. 1, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "688",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880990,
+              "lat": 45.250279,
+              "lon": 27.950292,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "726",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881017,
+              "lat": 45.306799,
+              "lon": 27.95976,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Cometei, bl. 16, sc. 3, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "757",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881059,
+              "lat": 45.251333,
+              "lon": 27.953944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A8, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "675",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881086,
+              "lat": 45.251792,
+              "lon": 27.948345,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. D4, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "709",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881112,
+              "lat": 45.305894,
+              "lon": 27.96164,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cometei, bl. 14, sc. 2, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "685",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881138,
+              "lat": 45.250399,
+              "lon": 27.951466,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "719",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881165,
+              "lat": 45.268417,
+              "lon": 27.952444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. 25, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "754",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881192,
+              "lat": 45.272736,
+              "lon": 27.978214,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Biserica Baptista Sf.Treime, str. Belvedere, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "789",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881208,
+              "lat": 45.24375,
+              "lon": 27.948833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D3, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "668",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881235,
+              "lat": 45.249223,
+              "lon": 27.951809,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. C1, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "706",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881261,
+              "lat": 45.250758,
+              "lon": 27.949439,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "737",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881287,
+              "lat": 45.264101,
+              "lon": 27.953253,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. O4, sc. 3, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "764",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881356,
+              "lat": 45.2455,
+              "lon": 27.949861,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "649",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881382,
+              "lat": 45.265556,
+              "lon": 27.956806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Şcolilor, bl. AF1, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "680",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881408,
+              "lat": 45.250845,
+              "lon": 27.951628,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "718",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881435,
+              "lat": 45.266111,
+              "lon": 27.954111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Anton Pann, bl. AC3, sc. 3, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "749",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881478,
+              "lat": 45.243462,
+              "lon": 27.949347,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D3, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "667",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881505,
+              "lat": 45.252227,
+              "lon": 27.94117,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Şoseaua Buzăului, Spitalui Judeţean de Urgenţă Brăila, municipiul Brăila (3) (1) (2) (4), Brăila, BR",
+                "military": "bunker",
+                "ref": "698,699,700,701",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881531,
+              "lat": 45.265809,
+              "lon": 27.952782,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Anton Pann, bl. AB3, sc. 4, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "744",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881626,
+              "lat": 45.264793,
+              "lon": 27.970259,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. 104, sc. 3, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "695",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881652,
+              "lat": 45.250937,
+              "lon": 27.95005,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "729",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881679,
+              "lat": 45.306865,
+              "lon": 27.959411,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Cometei, bl. 16, sc. 2, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "756",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881695,
+              "lat": 45.244757,
+              "lon": 27.949191,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B1, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "647",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881706,
+              "lat": 45.274525,
+              "lon": 27.974178,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Şcoala privată Sf. Maria, str. Goleşti, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "791",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881722,
+              "lat": 45.264903,
+              "lon": 27.952152,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. AB2, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "678",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881749,
+              "lat": 45.251926,
+              "lon": 27.948471,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. D4, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "708",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881775,
+              "lat": 45.24855,
+              "lon": 27.951523,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. A9, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "739",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881801,
+              "lat": 45.288858,
+              "lon": 27.967027,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Ardealului, bl. A3, sc. 2, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "774",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881855,
+              "lat": 45.252783,
+              "lon": 27.944928,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Clădire O.M.V. BR., şoseaua Buzăului, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "788",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881871,
+              "lat": 45.242806,
+              "lon": 27.948694,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D1, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "659",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881898,
+              "lat": 45.26203,
+              "lon": 27.953535,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. 140, sc. 7, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "690",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881924,
+              "lat": 45.250352,
+              "lon": 27.948999,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E4, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "736",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881950,
+              "lat": 45.263283,
+              "lon": 27.955044,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O5, sc. 2, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "767",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881965,
+              "lat": 45.250194,
+              "lon": 27.951694,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. F3, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "642",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882019,
+              "lat": 45.246167,
+              "lon": 27.9505,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "652",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882045,
+              "lat": 45.300444,
+              "lon": 27.964889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Târgovişte, bl. 33 bis, sc. 1, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "687",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882071,
+              "lat": 45.251024,
+              "lon": 27.95119,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 1, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "721",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882098,
+              "lat": 45.266011,
+              "lon": 27.953622,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Anton Pann, bl. AC3, sc. 2, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "748",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882125,
+              "lat": 45.297658,
+              "lon": 27.95605,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. PROMEX SA str. Industriei, municipiul Brăila (2), Brăila, BR",
+                "military": "bunker",
+                "ref": "779",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882141,
+              "lat": 45.243933,
+              "lon": 27.948237,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. D3, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "670",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882168,
+              "lat": 45.270694,
+              "lon": 27.975861,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Rubinelor, nr. 16 - 18, municipiul Brăila, Universitatea Constantin Brâncoveanu, Brăila, BR",
+                "military": "bunker",
+                "ref": "697",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882194,
+              "lat": 45.250871,
+              "lon": 27.950337,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "731",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882220,
+              "lat": 45.263373,
+              "lon": 27.955271,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O5, sc. 1, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "766",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882289,
+              "lat": 45.245709,
+              "lon": 27.950111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Călăraşilor, bl. B2, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "651",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882315,
+              "lat": 45.302787,
+              "lon": 27.964037,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Industriei, bl. 7, sc. 1, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "682",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882341,
+              "lat": 45.250605,
+              "lon": 27.949793,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E3, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "728",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882368,
+              "lat": 45.263475,
+              "lon": 27.955912,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Învăţătorilor, bl. O3, sc. 2, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "759",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882411,
+              "lat": 45.264444,
+              "lon": 27.952889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Şcolilor, bl. AB1, sc. 3, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "677",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882438,
+              "lat": 45.251214,
+              "lon": 27.947801,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. D4, sc. 5, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "711",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882464,
+              "lat": 45.264922,
+              "lon": 27.95273,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AB5, sc. 3, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "746",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882603,
+              "lat": 45.262917,
+              "lon": 27.953167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Pietăţii, bl. 140, sc. 1, cartier Hipodrom, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "689",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882629,
+              "lat": 45.250722,
+              "lon": 27.950733,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E2, sc. 3, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "723",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882656,
+              "lat": 45.307382,
+              "lon": 27.959238,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Galaţi, bl. 37, sc. 2, cartier Vidin, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "758",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882671,
+              "lat": 45.25075,
+              "lon": 27.952167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. F2, sc. 2, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "641",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882682,
+              "lat": 45.272977,
+              "lon": 27.964621,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Asociaţia de proprietari nr. 887, bl. Perla, str. Plevnei, municipiul Brăila (2),Asociaţia de proprietari nr. 887, bl. Perla, str. Plevnei, municipiul Brăila (1), Brăila, BR",
+                "military": "bunker",
+                "ref": "793,794",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882698,
+              "lat": 45.243117,
+              "lon": 27.949117,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Mecanizatorilor, bl. U, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "672",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882725,
+              "lat": 45.251582,
+              "lon": 27.948101,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lebedei, bl. D4, sc. 4, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "710",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882751,
+              "lat": 45.265514,
+              "lon": 27.953363,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Oborului, bl. AC2, sc. 1, cartier Obor, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "741",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882777,
+              "lat": 45.249961,
+              "lon": 27.951026,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Cocorilor, bl. E1, sc. 6, cartier Viziru III, municipiul Brăila, Brăila, BR",
+                "military": "bunker",
+                "ref": "720",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 86796084,
+              "center": {
+                "lat": 45.2543112,
+                "lon": 27.9223674
+              },
+              "tags": {
+                "CLC:code": "222",
+                "CLC:explanation": "See http://wiki.openstreetmap.org/wiki/Romania_CLC_Import.",
+                "CLC:shapeId": "10936",
+                "CLC:year": "2006",
+                "landuse": "military",
+                "military": "base",
+                "source": "European Environment Agency (EEA), CORINE Land Cover, 2006",
+                "source:ro": "Agenţia Europeană de Mediu, CORINE Land Cover, 2006"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209279487,
+              "center": {
+                "lat": 45.252371,
+                "lon": 27.9569378
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Unitate Militară"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209279859,
+              "center": {
+                "lat": 45.2493493,
+                "lon": 27.9481504
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Unitate Militară"
+              }
+            },
+            {
+              "type": "way",
+              "id": 210077054,
+              "center": {
+                "lat": 45.2539732,
+                "lon": 27.9541867
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Comisariat"
+              }
+            },
+            {
+              "type": "way",
+              "id": 408659729,
+              "center": {
+                "lat": 45.2437979,
+                "lon": 27.9518478
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Unitate Militară"
+              }
+            },
+            {
+              "type": "way",
+              "id": 979886859,
+              "center": {
+                "lat": 45.2906194,
+                "lon": 27.9682023
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Inspectoratul Județean de Jandarmi Brăila"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1127447446,
+              "center": {
+                "lat": 45.248043,
+                "lon": 27.954238
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1363539082,
+              "center": {
+                "lat": 45.1554735,
+                "lon": 28.2182469
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "military": "bunker",
+                "source": "Facebook: Andrei Raftopol;survey"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1443 @@
+[06:52:26] === FIX-04 OSM preview (no DB writes) ===
+[06:52:26] Run ID: hi06-fix04-preview-20260510-065226
+[06:52:26] Sites in scope: 361
+2026-05-10 09:52:27 [info     ] osm_query_ok                   elapsed_ms=639 element_count=42
+2026-05-10 09:52:38 [info     ] osm_query_ok                   elapsed_ms=1190 element_count=199
+2026-05-10 09:52:53 [info     ] osm_query_ok                   elapsed_ms=4758 element_count=66
+2026-05-10 09:53:06 [info     ] osm_query_ok                   elapsed_ms=1089 element_count=9
+2026-05-10 09:53:21 [info     ] osm_query_ok                   elapsed_ms=4781 element_count=3832
+2026-05-10 09:53:38 [info     ] osm_query_ok                   elapsed_ms=2251 element_count=313
+2026-05-10 09:53:48 [info     ] osm_query_ok                   elapsed_ms=826 element_count=17
+2026-05-10 09:54:07 [info     ] osm_query_ok                   elapsed_ms=4396 element_count=2560
+2026-05-10 09:54:20 [info     ] osm_query_ok                   elapsed_ms=2378 element_count=447
+2026-05-10 09:54:33 [info     ] osm_query_ok                   elapsed_ms=689 element_count=14
+2026-05-10 09:54:52 [info     ] osm_query_ok                   elapsed_ms=6145 element_count=2154
+2026-05-10 09:55:08 [info     ] osm_query_ok                   elapsed_ms=2687 element_count=407
+2026-05-10 09:55:24 [info     ] osm_query_ok                   elapsed_ms=1189 element_count=4
+2026-05-10 09:55:40 [info     ] osm_query_ok                   elapsed_ms=4316 element_count=3327
+2026-05-10 09:55:56 [info     ] osm_query_ok                   elapsed_ms=1996 element_count=166
+2026-05-10 09:56:08 [info     ] osm_query_ok                   elapsed_ms=618 element_count=4
+2026-05-10 09:56:25 [info     ] osm_query_ok                   elapsed_ms=4892 element_count=1969
+2026-05-10 09:56:41 [info     ] osm_query_ok                   elapsed_ms=2145 element_count=123
+2026-05-10 09:57:06 [info     ] osm_query_ok                   elapsed_ms=10132 element_count=71
+2026-05-10 09:57:29 [info     ] osm_query_ok                   elapsed_ms=12350 element_count=3415
+2026-05-10 09:57:43 [info     ] osm_query_ok                   elapsed_ms=2880 element_count=225
+2026-05-10 09:58:03 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 09:58:03 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 09:59:02 [info     ] osm_query_ok                   elapsed_ms=727 element_count=49
+2026-05-10 09:59:15 [info     ] osm_query_ok                   elapsed_ms=3907 element_count=2036
+2026-05-10 09:59:29 [info     ] osm_query_ok                   elapsed_ms=2335 element_count=360
+2026-05-10 09:59:42 [info     ] osm_query_ok                   elapsed_ms=850 element_count=47
+2026-05-10 10:00:03 [info     ] osm_query_ok                   elapsed_ms=7703 element_count=1595
+2026-05-10 10:00:19 [info     ] osm_query_ok                   elapsed_ms=2858 element_count=232
+2026-05-10 10:00:36 [info     ] osm_query_ok                   elapsed_ms=3731 element_count=5
+2026-05-10 10:00:53 [info     ] osm_query_ok                   elapsed_ms=2632 element_count=83
+2026-05-10 10:01:05 [info     ] osm_query_ok                   elapsed_ms=1742 element_count=11
+[07:01:18] processed 10/361 | changes=9 | in_sync=1 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:01:20 [info     ] osm_query_ok                   elapsed_ms=1921 element_count=2
+2026-05-10 10:01:37 [info     ] osm_query_ok                   elapsed_ms=2185 element_count=78
+2026-05-10 10:02:00 [info     ] osm_query_ok                   elapsed_ms=8125 element_count=25
+2026-05-10 10:02:12 [info     ] osm_query_ok                   elapsed_ms=659 element_count=0
+2026-05-10 10:02:25 [info     ] osm_query_ok                   elapsed_ms=1617 element_count=41
+2026-05-10 10:02:40 [info     ] osm_query_ok                   elapsed_ms=1846 element_count=3
+2026-05-10 10:02:54 [info     ] osm_query_ok                   elapsed_ms=492 element_count=7
+2026-05-10 10:03:09 [info     ] osm_query_ok                   elapsed_ms=1907 element_count=109
+2026-05-10 10:03:21 [info     ] osm_query_ok                   elapsed_ms=2610 element_count=60
+2026-05-10 10:03:33 [info     ] osm_query_ok                   elapsed_ms=913 element_count=4
+2026-05-10 10:03:44 [info     ] osm_query_ok                   elapsed_ms=1535 element_count=85
+2026-05-10 10:04:00 [info     ] osm_query_ok                   elapsed_ms=1820 element_count=40
+2026-05-10 10:04:12 [info     ] osm_query_ok                   elapsed_ms=1124 element_count=1
+2026-05-10 10:04:32 [info     ] osm_query_ok                   elapsed_ms=7401 element_count=81
+2026-05-10 10:04:47 [info     ] osm_query_ok                   elapsed_ms=1802 element_count=13
+2026-05-10 10:05:04 [info     ] osm_query_ok                   elapsed_ms=3353 element_count=2
+2026-05-10 10:05:19 [info     ] osm_query_ok                   elapsed_ms=2802 element_count=136
+2026-05-10 10:05:34 [info     ] osm_query_ok                   elapsed_ms=2991 element_count=32
+2026-05-10 10:05:47 [info     ] osm_query_ok                   elapsed_ms=498 element_count=2
+2026-05-10 10:06:00 [info     ] osm_query_ok                   elapsed_ms=1416 element_count=57
+2026-05-10 10:06:13 [info     ] osm_query_ok                   elapsed_ms=1964 element_count=5
+2026-05-10 10:06:27 [info     ] osm_query_ok                   elapsed_ms=620 element_count=6
+2026-05-10 10:06:41 [info     ] osm_query_ok                   elapsed_ms=1424 element_count=74
+2026-05-10 10:06:53 [info     ] osm_query_ok                   elapsed_ms=1900 element_count=18
+2026-05-10 10:07:05 [info     ] osm_query_ok                   elapsed_ms=420 element_count=8
+2026-05-10 10:07:18 [info     ] osm_query_ok                   elapsed_ms=2160 element_count=81
+2026-05-10 10:07:31 [info     ] osm_query_ok                   elapsed_ms=1417 element_count=19
+2026-05-10 10:07:46 [info     ] osm_query_ok                   elapsed_ms=509 element_count=11
+2026-05-10 10:08:02 [info     ] osm_query_ok                   elapsed_ms=2685 element_count=96
+2026-05-10 10:08:18 [info     ] osm_query_ok                   elapsed_ms=1460 element_count=29
+[07:08:28] processed 20/361 | changes=18 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:08:28 [info     ] osm_query_ok                   elapsed_ms=446 element_count=4
+2026-05-10 10:08:40 [info     ] osm_query_ok                   elapsed_ms=1454 element_count=681
+2026-05-10 10:08:51 [info     ] osm_query_ok                   elapsed_ms=1245 element_count=11
+2026-05-10 10:09:06 [info     ] osm_query_ok                   elapsed_ms=400 element_count=0
+2026-05-10 10:09:19 [info     ] osm_query_ok                   elapsed_ms=1157 element_count=592
+2026-05-10 10:09:35 [info     ] osm_query_ok                   elapsed_ms=1198 element_count=29
+2026-05-10 10:09:50 [info     ] osm_query_ok                   elapsed_ms=656 element_count=27
+2026-05-10 10:10:06 [info     ] osm_query_ok                   elapsed_ms=2575 element_count=540
+2026-05-10 10:10:20 [info     ] osm_query_ok                   elapsed_ms=1750 element_count=65
+2026-05-10 10:10:33 [info     ] osm_query_ok                   elapsed_ms=372 element_count=2
+2026-05-10 10:10:45 [info     ] osm_query_ok                   elapsed_ms=834 element_count=302
+2026-05-10 10:10:57 [info     ] osm_query_ok                   elapsed_ms=1016 element_count=18
+2026-05-10 10:11:11 [info     ] osm_query_ok                   elapsed_ms=459 element_count=6
+2026-05-10 10:11:27 [info     ] osm_query_ok                   elapsed_ms=1350 element_count=600
+2026-05-10 10:11:43 [info     ] osm_query_ok                   elapsed_ms=1498 element_count=34
+2026-05-10 10:11:53 [info     ] osm_query_ok                   elapsed_ms=778 element_count=0
+2026-05-10 10:12:08 [info     ] osm_query_ok                   elapsed_ms=1128 element_count=592
+2026-05-10 10:12:24 [info     ] osm_query_ok                   elapsed_ms=1805 element_count=29
+2026-05-10 10:12:39 [info     ] osm_query_ok                   elapsed_ms=483 element_count=1
+2026-05-10 10:12:51 [info     ] osm_query_ok                   elapsed_ms=868 element_count=506
+2026-05-10 10:13:09 [info     ] osm_query_ok                   elapsed_ms=8050 element_count=27
+2026-05-10 10:13:23 [info     ] osm_query_ok                   elapsed_ms=1076 element_count=0
+2026-05-10 10:13:36 [info     ] osm_query_ok                   elapsed_ms=1355 element_count=596
+2026-05-10 10:13:56 [info     ] osm_query_ok                   elapsed_ms=10873 element_count=28
+2026-05-10 10:14:14 [info     ] osm_query_ok                   elapsed_ms=5640 element_count=0
+2026-05-10 10:14:27 [info     ] osm_query_ok                   elapsed_ms=2101 element_count=596
+2026-05-10 10:14:39 [info     ] osm_query_ok                   elapsed_ms=2666 element_count=28
+2026-05-10 10:14:52 [info     ] osm_query_ok                   elapsed_ms=513 element_count=31
+2026-05-10 10:15:11 [info     ] osm_query_ok                   elapsed_ms=4133 element_count=1303
+2026-05-10 10:15:28 [info     ] osm_query_ok                   elapsed_ms=6688 element_count=125
+[07:15:37] processed 30/361 | changes=28 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:15:37 [info     ] osm_query_ok                   elapsed_ms=418 element_count=35
+2026-05-10 10:15:48 [info     ] osm_query_ok                   elapsed_ms=1511 element_count=156
+2026-05-10 10:16:03 [info     ] osm_query_ok                   elapsed_ms=1019 element_count=37
+2026-05-10 10:16:13 [info     ] osm_query_ok                   elapsed_ms=400 element_count=22
+2026-05-10 10:16:26 [info     ] osm_query_ok                   elapsed_ms=890 element_count=236
+2026-05-10 10:16:43 [info     ] osm_query_ok                   elapsed_ms=1901 element_count=60
+2026-05-10 10:16:55 [info     ] osm_query_ok                   elapsed_ms=297 element_count=7
+2026-05-10 10:17:06 [info     ] osm_query_ok                   elapsed_ms=897 element_count=113
+2026-05-10 10:17:20 [info     ] osm_query_ok                   elapsed_ms=1315 element_count=8
+2026-05-10 10:17:34 [info     ] osm_query_ok                   elapsed_ms=678 element_count=38
+2026-05-10 10:17:48 [info     ] osm_query_ok                   elapsed_ms=1611 element_count=531
+2026-05-10 10:18:03 [info     ] osm_query_ok                   elapsed_ms=1382 element_count=74
+2026-05-10 10:18:16 [info     ] osm_query_ok                   elapsed_ms=415 element_count=7
+2026-05-10 10:18:27 [info     ] osm_query_ok                   elapsed_ms=1017 element_count=135
+2026-05-10 10:18:42 [info     ] osm_query_ok                   elapsed_ms=2796 element_count=51
+2026-05-10 10:18:56 [info     ] osm_query_ok                   elapsed_ms=348 element_count=2
+2026-05-10 10:19:10 [info     ] osm_query_ok                   elapsed_ms=793 element_count=149
+2026-05-10 10:19:26 [info     ] osm_query_ok                   elapsed_ms=1507 element_count=49
+2026-05-10 10:19:40 [info     ] osm_query_ok                   elapsed_ms=413 element_count=2
+2026-05-10 10:19:53 [info     ] osm_query_ok                   elapsed_ms=1449 element_count=574
+2026-05-10 10:20:04 [info     ] osm_query_ok                   elapsed_ms=1813 element_count=214
+2026-05-10 10:20:19 [info     ] osm_query_ok                   elapsed_ms=4965 element_count=113
+2026-05-10 10:20:35 [info     ] osm_query_ok                   elapsed_ms=6328 element_count=1705
+2026-05-10 10:20:53 [info     ] osm_query_ok                   elapsed_ms=3694 element_count=384
+2026-05-10 10:21:07 [info     ] osm_query_ok                   elapsed_ms=1211 element_count=64
+2026-05-10 10:21:29 [info     ] osm_query_ok                   elapsed_ms=8184 element_count=2943
+2026-05-10 10:21:47 [info     ] osm_query_ok                   elapsed_ms=3265 element_count=255
+2026-05-10 10:21:58 [info     ] osm_query_ok                   elapsed_ms=1018 element_count=95
+2026-05-10 10:22:12 [info     ] osm_query_ok                   elapsed_ms=5326 element_count=739
+2026-05-10 10:22:29 [info     ] osm_query_ok                   elapsed_ms=1873 element_count=127
+[07:22:41] processed 40/361 | changes=38 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:22:43 [info     ] osm_query_ok                   elapsed_ms=2047 element_count=59
+2026-05-10 10:23:02 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:23:02 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:24:04 [info     ] osm_query_ok                   elapsed_ms=6911 element_count=2401
+2026-05-10 10:24:20 [info     ] osm_query_ok                   elapsed_ms=2728 element_count=227
+2026-05-10 10:24:35 [info     ] osm_query_ok                   elapsed_ms=2569 element_count=116
+2026-05-10 10:25:08 [info     ] osm_query_ok                   elapsed_ms=22331 element_count=6473
+2026-05-10 10:25:25 [info     ] osm_query_ok                   elapsed_ms=2813 element_count=335
+2026-05-10 10:25:41 [info     ] osm_query_ok                   elapsed_ms=2383 element_count=46
+2026-05-10 10:25:56 [info     ] osm_query_ok                   elapsed_ms=3837 element_count=2560
+2026-05-10 10:26:17 [info     ] osm_query_ok                   elapsed_ms=8862 element_count=145
+2026-05-10 10:26:36 [info     ] osm_query_ok                   elapsed_ms=8723 element_count=31
+2026-05-10 10:26:57 [info     ] osm_query_ok                   elapsed_ms=6404 element_count=3014
+2026-05-10 10:27:15 [info     ] osm_query_ok                   elapsed_ms=7516 element_count=210
+2026-05-10 10:27:29 [info     ] osm_query_ok                   elapsed_ms=1206 element_count=57
+2026-05-10 10:27:48 [info     ] osm_query_ok                   elapsed_ms=8430 element_count=6437
+2026-05-10 10:28:04 [info     ] osm_query_ok                   elapsed_ms=3020 element_count=631
+2026-05-10 10:28:25 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:28:25 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:29:22 [info     ] osm_query_ok                   elapsed_ms=1076 element_count=98
+2026-05-10 10:29:49 [info     ] osm_query_ok                   elapsed_ms=16505 element_count=1753
+2026-05-10 10:30:01 [info     ] osm_query_ok                   elapsed_ms=2248 element_count=190
+2026-05-10 10:30:16 [info     ] osm_query_ok                   elapsed_ms=887 element_count=100
+2026-05-10 10:30:38 [info     ] osm_query_ok                   elapsed_ms=9027 element_count=6548
+2026-05-10 10:30:55 [info     ] osm_query_ok                   elapsed_ms=5320 element_count=155
+2026-05-10 10:31:09 [info     ] osm_query_ok                   elapsed_ms=840 element_count=98
+2026-05-10 10:31:29 [info     ] osm_query_ok                   elapsed_ms=5825 element_count=6181
+2026-05-10 10:31:42 [info     ] osm_query_ok                   elapsed_ms=1977 element_count=148
+2026-05-10 10:31:56 [info     ] osm_query_ok                   elapsed_ms=731 element_count=48
+2026-05-10 10:32:11 [info     ] osm_query_ok                   elapsed_ms=3948 element_count=2572
+2026-05-10 10:32:26 [info     ] osm_query_ok                   elapsed_ms=2532 element_count=156
+2026-05-10 10:32:42 [info     ] osm_query_ok                   elapsed_ms=1951 element_count=29
+2026-05-10 10:33:03 [info     ] osm_query_ok                   elapsed_ms=9087 element_count=581
+2026-05-10 10:33:30 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:33:30 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:34:31 [info     ] osm_query_ok                   elapsed_ms=1883 element_count=235
+[07:34:44] processed 50/361 | changes=48 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:34:44 [info     ] osm_query_ok                   elapsed_ms=822 element_count=181
+2026-05-10 10:34:58 [info     ] osm_query_ok                   elapsed_ms=2837 element_count=1683
+2026-05-10 10:35:13 [info     ] osm_query_ok                   elapsed_ms=1701 element_count=466
+2026-05-10 10:35:37 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:35:37 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:36:36 [info     ] osm_query_ok                   elapsed_ms=593 element_count=8
+2026-05-10 10:36:49 [info     ] osm_query_ok                   elapsed_ms=2867 element_count=1150
+2026-05-10 10:37:04 [info     ] osm_query_ok                   elapsed_ms=1392 element_count=196
+2026-05-10 10:37:18 [info     ] osm_query_ok                   elapsed_ms=708 element_count=41
+2026-05-10 10:37:35 [info     ] osm_query_ok                   elapsed_ms=3380 element_count=1713
+2026-05-10 10:37:47 [info     ] osm_query_ok                   elapsed_ms=1421 element_count=187
+2026-05-10 10:38:00 [info     ] osm_query_ok                   elapsed_ms=840 element_count=90
+2026-05-10 10:38:15 [info     ] osm_query_ok                   elapsed_ms=5226 element_count=1674
+2026-05-10 10:38:33 [info     ] osm_query_ok                   elapsed_ms=3920 element_count=190
+2026-05-10 10:38:44 [info     ] osm_query_ok                   elapsed_ms=1105 element_count=47
+2026-05-10 10:39:00 [info     ] osm_query_ok                   elapsed_ms=3112 element_count=2622
+2026-05-10 10:39:16 [info     ] osm_query_ok                   elapsed_ms=1330 element_count=146
+2026-05-10 10:39:33 [info     ] osm_query_ok                   elapsed_ms=3395 element_count=537
+2026-05-10 10:39:48 [info     ] osm_query_ok                   elapsed_ms=4020 element_count=1450
+2026-05-10 10:40:07 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:40:07 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:41:04 [info     ] osm_query_ok                   elapsed_ms=1773 element_count=144
+2026-05-10 10:41:19 [info     ] osm_query_ok                   elapsed_ms=827 element_count=30
+2026-05-10 10:41:36 [info     ] osm_query_ok                   elapsed_ms=3057 element_count=687
+2026-05-10 10:41:51 [info     ] osm_query_ok                   elapsed_ms=1714 element_count=234
+2026-05-10 10:42:16 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 10:42:16 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 10:43:16 [info     ] osm_query_ok                   elapsed_ms=578 element_count=46
+2026-05-10 10:43:34 [info     ] osm_query_ok                   elapsed_ms=5054 element_count=3394
+2026-05-10 10:43:47 [info     ] osm_query_ok                   elapsed_ms=2423 element_count=143
+2026-05-10 10:44:02 [info     ] osm_query_ok                   elapsed_ms=521 element_count=21
+2026-05-10 10:44:19 [info     ] osm_query_ok                   elapsed_ms=3767 element_count=2248
+2026-05-10 10:44:31 [info     ] osm_query_ok                   elapsed_ms=1623 element_count=151
+2026-05-10 10:44:45 [info     ] osm_query_ok                   elapsed_ms=637 element_count=21
+2026-05-10 10:45:01 [info     ] osm_query_ok                   elapsed_ms=4958 element_count=3501
+2026-05-10 10:45:15 [info     ] osm_query_ok                   elapsed_ms=2253 element_count=155
+[07:45:26] processed 60/361 | changes=58 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:45:28 [info     ] osm_query_ok                   elapsed_ms=1182 element_count=7
+2026-05-10 10:45:46 [info     ] osm_query_ok                   elapsed_ms=8269 element_count=1191
+2026-05-10 10:46:08 [info     ] osm_query_ok                   elapsed_ms=12096 element_count=145
+2026-05-10 10:46:23 [info     ] osm_query_ok                   elapsed_ms=4718 element_count=92
+2026-05-10 10:46:41 [info     ] osm_query_ok                   elapsed_ms=6584 element_count=1552
+2026-05-10 10:46:54 [info     ] osm_query_ok                   elapsed_ms=1987 element_count=174
+2026-05-10 10:47:06 [info     ] osm_query_ok                   elapsed_ms=830 element_count=26
+2026-05-10 10:47:26 [info     ] osm_query_ok                   elapsed_ms=6367 element_count=2172
+2026-05-10 10:47:39 [info     ] osm_query_ok                   elapsed_ms=2540 element_count=170
+2026-05-10 10:47:53 [info     ] osm_query_ok                   elapsed_ms=1939 element_count=31
+2026-05-10 10:48:08 [info     ] osm_query_ok                   elapsed_ms=5952 element_count=2121
+2026-05-10 10:48:25 [info     ] osm_query_ok                   elapsed_ms=2427 element_count=90
+2026-05-10 10:48:38 [info     ] osm_query_ok                   elapsed_ms=1167 element_count=10
+2026-05-10 10:48:55 [info     ] osm_query_ok                   elapsed_ms=3125 element_count=1492
+2026-05-10 10:49:11 [info     ] osm_query_ok                   elapsed_ms=5702 element_count=129
+2026-05-10 10:49:24 [info     ] osm_query_ok                   elapsed_ms=791 element_count=9
+2026-05-10 10:49:40 [info     ] osm_query_ok                   elapsed_ms=4317 element_count=788
+2026-05-10 10:49:54 [info     ] osm_query_ok                   elapsed_ms=2222 element_count=152
+2026-05-10 10:50:08 [info     ] osm_query_ok                   elapsed_ms=1891 element_count=9
+2026-05-10 10:50:20 [info     ] osm_query_ok                   elapsed_ms=1922 element_count=150
+2026-05-10 10:50:34 [info     ] osm_query_ok                   elapsed_ms=1600 element_count=27
+2026-05-10 10:50:52 [info     ] osm_query_ok                   elapsed_ms=8338 element_count=4
+2026-05-10 10:51:06 [info     ] osm_query_ok                   elapsed_ms=2242 element_count=675
+2026-05-10 10:51:19 [info     ] osm_query_ok                   elapsed_ms=3194 element_count=41
+2026-05-10 10:51:31 [info     ] osm_query_ok                   elapsed_ms=489 element_count=36
+2026-05-10 10:51:44 [info     ] osm_query_ok                   elapsed_ms=1621 element_count=699
+2026-05-10 10:51:56 [info     ] osm_query_ok                   elapsed_ms=2078 element_count=150
+2026-05-10 10:52:07 [info     ] osm_query_ok                   elapsed_ms=629 element_count=41
+2026-05-10 10:52:38 [info     ] osm_query_ok                   elapsed_ms=16385 element_count=1109
+2026-05-10 10:52:51 [info     ] osm_query_ok                   elapsed_ms=1588 element_count=224
+[07:53:01] processed 70/361 | changes=68 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 10:53:02 [info     ] osm_query_ok                   elapsed_ms=405 element_count=1
+2026-05-10 10:53:16 [info     ] osm_query_ok                   elapsed_ms=1381 element_count=683
+2026-05-10 10:53:38 [info     ] osm_query_ok                   elapsed_ms=7744 element_count=132
+2026-05-10 10:53:50 [info     ] osm_query_ok                   elapsed_ms=444 element_count=4
+2026-05-10 10:54:02 [info     ] osm_query_ok                   elapsed_ms=1405 element_count=291
+2026-05-10 10:54:20 [info     ] osm_query_ok                   elapsed_ms=9568 element_count=151
+2026-05-10 10:54:36 [info     ] osm_query_ok                   elapsed_ms=3080 element_count=5
+2026-05-10 10:54:51 [info     ] osm_query_ok                   elapsed_ms=1776 element_count=384
+2026-05-10 10:55:04 [info     ] osm_query_ok                   elapsed_ms=1601 element_count=150
+2026-05-10 10:55:15 [info     ] osm_query_ok                   elapsed_ms=1340 element_count=6
+2026-05-10 10:55:31 [info     ] osm_query_ok                   elapsed_ms=1364 element_count=335
+2026-05-10 10:55:42 [info     ] osm_query_ok                   elapsed_ms=1430 element_count=235
+2026-05-10 10:55:56 [info     ] osm_query_ok                   elapsed_ms=1827 element_count=9
+2026-05-10 10:56:10 [info     ] osm_query_ok                   elapsed_ms=1310 element_count=444
+2026-05-10 10:56:24 [info     ] osm_query_ok                   elapsed_ms=2028 element_count=170
+2026-05-10 10:56:39 [info     ] osm_query_ok                   elapsed_ms=541 element_count=30
+2026-05-10 10:56:58 [info     ] osm_query_ok                   elapsed_ms=5732 element_count=849
+2026-05-10 10:57:10 [info     ] osm_query_ok                   elapsed_ms=1342 element_count=229
+2026-05-10 10:57:23 [info     ] osm_query_ok                   elapsed_ms=452 element_count=8
+2026-05-10 10:57:35 [info     ] osm_query_ok                   elapsed_ms=1174 element_count=409
+2026-05-10 10:57:49 [info     ] osm_query_ok                   elapsed_ms=1513 element_count=250
+2026-05-10 10:58:01 [info     ] osm_query_ok                   elapsed_ms=472 element_count=1
+2026-05-10 10:58:18 [info     ] osm_query_ok                   elapsed_ms=1805 element_count=677
+2026-05-10 10:58:28 [info     ] osm_query_ok                   elapsed_ms=1536 element_count=131
+2026-05-10 10:58:41 [info     ] osm_query_ok                   elapsed_ms=524 element_count=16
+2026-05-10 10:58:59 [info     ] osm_query_ok                   elapsed_ms=6349 element_count=680
+2026-05-10 10:59:11 [info     ] osm_query_ok                   elapsed_ms=1481 element_count=206
+2026-05-10 10:59:22 [info     ] osm_query_ok                   elapsed_ms=1159 element_count=19
+2026-05-10 10:59:37 [info     ] osm_query_ok                   elapsed_ms=689 element_count=308
+2026-05-10 10:59:51 [info     ] osm_query_ok                   elapsed_ms=1397 element_count=194
+[08:00:01] processed 80/361 | changes=78 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:00:02 [info     ] osm_query_ok                   elapsed_ms=1013 element_count=12
+2026-05-10 11:00:14 [info     ] osm_query_ok                   elapsed_ms=1798 element_count=1102
+2026-05-10 11:00:30 [info     ] osm_query_ok                   elapsed_ms=1655 element_count=85
+2026-05-10 11:00:45 [info     ] osm_query_ok                   elapsed_ms=731 element_count=8
+2026-05-10 11:01:07 [info     ] osm_query_ok                   elapsed_ms=10083 element_count=450
+2026-05-10 11:01:21 [info     ] osm_query_ok                   elapsed_ms=1864 element_count=56
+2026-05-10 11:01:37 [info     ] osm_query_ok                   elapsed_ms=1620 element_count=3
+2026-05-10 11:01:51 [info     ] osm_query_ok                   elapsed_ms=4232 element_count=101
+2026-05-10 11:02:12 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 11:02:12 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 11:03:13 [info     ] osm_query_ok                   elapsed_ms=1834 element_count=12
+2026-05-10 11:03:24 [info     ] osm_query_ok                   elapsed_ms=677 element_count=1
+2026-05-10 11:03:36 [info     ] osm_query_ok                   elapsed_ms=1650 element_count=127
+2026-05-10 11:03:56 [info     ] osm_query_ok                   elapsed_ms=5903 element_count=16
+2026-05-10 11:04:09 [info     ] osm_query_ok                   elapsed_ms=533 element_count=1
+2026-05-10 11:04:25 [info     ] osm_query_ok                   elapsed_ms=1363 element_count=122
+2026-05-10 11:04:40 [info     ] osm_query_ok                   elapsed_ms=1503 element_count=14
+2026-05-10 11:04:52 [info     ] osm_query_ok                   elapsed_ms=2314 element_count=9
+2026-05-10 11:05:07 [info     ] osm_query_ok                   elapsed_ms=2532 element_count=121
+2026-05-10 11:05:22 [info     ] osm_query_ok                   elapsed_ms=1620 element_count=26
+2026-05-10 11:05:36 [info     ] osm_query_ok                   elapsed_ms=1801 element_count=1
+2026-05-10 11:05:46 [info     ] osm_query_ok                   elapsed_ms=980 element_count=132
+2026-05-10 11:06:01 [info     ] osm_query_ok                   elapsed_ms=1719 element_count=7
+2026-05-10 11:06:11 [info     ] osm_query_ok                   elapsed_ms=415 element_count=2
+2026-05-10 11:06:23 [info     ] osm_query_ok                   elapsed_ms=1133 element_count=102
+2026-05-10 11:06:35 [info     ] osm_query_ok                   elapsed_ms=1714 element_count=7
+2026-05-10 11:06:54 [info     ] osm_query_ok                   elapsed_ms=8176 element_count=3
+2026-05-10 11:07:05 [info     ] osm_query_ok                   elapsed_ms=1044 element_count=79
+2026-05-10 11:07:19 [info     ] osm_query_ok                   elapsed_ms=1587 element_count=15
+2026-05-10 11:07:32 [info     ] osm_query_ok                   elapsed_ms=614 element_count=28
+2026-05-10 11:09:02 [warning  ] osm_query_error                error='Timeout: [Errno 60] Operation timed out'
+2026-05-10 11:09:02 [warning  ] fix04_query_retry              attempt=1 status=408 wait_s=45
+2026-05-10 11:10:03 [info     ] osm_query_ok                   elapsed_ms=2987 element_count=799
+2026-05-10 11:10:19 [info     ] osm_query_ok                   elapsed_ms=1832 element_count=97
+[08:10:32] processed 90/361 | changes=88 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:10:34 [info     ] osm_query_ok                   elapsed_ms=1505 element_count=418
+2026-05-10 11:10:53 [info     ] osm_query_ok                   elapsed_ms=10051 element_count=5897
+2026-05-10 11:11:08 [info     ] osm_query_ok                   elapsed_ms=2934 element_count=497
+2026-05-10 11:11:20 [info     ] osm_query_ok                   elapsed_ms=583 element_count=17
+2026-05-10 11:11:36 [info     ] osm_query_ok                   elapsed_ms=6175 element_count=957
+2026-05-10 11:11:48 [info     ] osm_query_ok                   elapsed_ms=1752 element_count=100
+2026-05-10 11:11:58 [info     ] osm_query_ok                   elapsed_ms=718 element_count=9
+2026-05-10 11:12:15 [info     ] osm_query_ok                   elapsed_ms=5625 element_count=470
+2026-05-10 11:12:28 [info     ] osm_query_ok                   elapsed_ms=1877 element_count=95
+2026-05-10 11:12:42 [info     ] osm_query_ok                   elapsed_ms=801 element_count=22
+2026-05-10 11:12:58 [info     ] osm_query_ok                   elapsed_ms=6362 element_count=3669
+2026-05-10 11:13:09 [info     ] osm_query_ok                   elapsed_ms=2283 element_count=216
+2026-05-10 11:13:25 [info     ] osm_query_ok                   elapsed_ms=1459 element_count=24
+2026-05-10 11:13:42 [info     ] osm_query_ok                   elapsed_ms=4530 element_count=2478
+2026-05-10 11:13:56 [info     ] osm_query_ok                   elapsed_ms=1457 element_count=158
+2026-05-10 11:14:08 [info     ] osm_query_ok                   elapsed_ms=938 element_count=61
+2026-05-10 11:14:21 [info     ] osm_query_ok                   elapsed_ms=2968 element_count=933
+2026-05-10 11:14:34 [info     ] osm_query_ok                   elapsed_ms=2072 element_count=216
+2026-05-10 11:14:45 [info     ] osm_query_ok                   elapsed_ms=1434 element_count=427
+2026-05-10 11:15:02 [info     ] osm_query_ok                   elapsed_ms=6426 element_count=6026
+2026-05-10 11:15:17 [info     ] osm_query_ok                   elapsed_ms=3152 element_count=500
+2026-05-10 11:15:31 [info     ] osm_query_ok                   elapsed_ms=1150 element_count=39
+2026-05-10 11:15:48 [info     ] osm_query_ok                   elapsed_ms=6947 element_count=6126
+2026-05-10 11:16:04 [info     ] osm_query_ok                   elapsed_ms=2782 element_count=253
+2026-05-10 11:16:18 [info     ] osm_query_ok                   elapsed_ms=607 element_count=18
+2026-05-10 11:16:34 [info     ] osm_query_ok                   elapsed_ms=2784 element_count=2073
+2026-05-10 11:16:48 [info     ] osm_query_ok                   elapsed_ms=1534 element_count=168
+2026-05-10 11:17:00 [info     ] osm_query_ok                   elapsed_ms=803 element_count=46
+2026-05-10 11:17:15 [info     ] osm_query_ok                   elapsed_ms=2221 element_count=1462
+2026-05-10 11:17:31 [info     ] osm_query_ok                   elapsed_ms=2075 element_count=222
+[08:17:42] processed 100/361 | changes=98 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:17:43 [info     ] osm_query_ok                   elapsed_ms=1260 element_count=87
+2026-05-10 11:18:01 [info     ] osm_query_ok                   elapsed_ms=2982 element_count=1926
+2026-05-10 11:18:18 [info     ] osm_query_ok                   elapsed_ms=5502 element_count=282
+2026-05-10 11:18:31 [info     ] osm_query_ok                   elapsed_ms=1153 element_count=146
+2026-05-10 11:18:47 [info     ] osm_query_ok                   elapsed_ms=2311 element_count=1911
+2026-05-10 11:19:00 [info     ] osm_query_ok                   elapsed_ms=2074 element_count=252
+2026-05-10 11:19:15 [info     ] osm_query_ok                   elapsed_ms=1499 element_count=122
+2026-05-10 11:19:35 [info     ] osm_query_ok                   elapsed_ms=6418 element_count=5295
+2026-05-10 11:19:52 [info     ] osm_query_ok                   elapsed_ms=2454 element_count=300
+2026-05-10 11:20:07 [info     ] osm_query_ok                   elapsed_ms=1449 element_count=38
+2026-05-10 11:20:23 [info     ] osm_query_ok                   elapsed_ms=2722 element_count=666
+2026-05-10 11:20:36 [info     ] osm_query_ok                   elapsed_ms=1460 element_count=117
+2026-05-10 11:20:46 [info     ] osm_query_ok                   elapsed_ms=474 element_count=5
+2026-05-10 11:21:01 [info     ] osm_query_ok                   elapsed_ms=2802 element_count=1079
+2026-05-10 11:21:16 [info     ] osm_query_ok                   elapsed_ms=4223 element_count=101
+2026-05-10 11:21:28 [info     ] osm_query_ok                   elapsed_ms=1585 element_count=178
+2026-05-10 11:21:45 [info     ] osm_query_ok                   elapsed_ms=6716 element_count=6357
+2026-05-10 11:22:03 [info     ] osm_query_ok                   elapsed_ms=2856 element_count=480
+2026-05-10 11:22:13 [info     ] osm_query_ok                   elapsed_ms=1289 element_count=228
+2026-05-10 11:22:33 [info     ] osm_query_ok                   elapsed_ms=6285 element_count=6573
+2026-05-10 11:22:51 [info     ] osm_query_ok                   elapsed_ms=2778 element_count=493
+2026-05-10 11:23:03 [info     ] osm_query_ok                   elapsed_ms=1015 element_count=427
+2026-05-10 11:23:22 [info     ] osm_query_ok                   elapsed_ms=6249 element_count=6019
+2026-05-10 11:23:40 [info     ] osm_query_ok                   elapsed_ms=3686 element_count=517
+2026-05-10 11:23:57 [info     ] osm_query_ok                   elapsed_ms=3597 element_count=19
+2026-05-10 11:24:15 [info     ] osm_query_ok                   elapsed_ms=6910 element_count=3425
+2026-05-10 11:24:28 [info     ] osm_query_ok                   elapsed_ms=2006 element_count=165
+2026-05-10 11:24:40 [info     ] osm_query_ok                   elapsed_ms=705 element_count=19
+2026-05-10 11:25:00 [info     ] osm_query_ok                   elapsed_ms=5544 element_count=650
+2026-05-10 11:25:14 [info     ] osm_query_ok                   elapsed_ms=3168 element_count=123
+[08:25:28] processed 110/361 | changes=108 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:25:37 [info     ] osm_query_ok                   elapsed_ms=9422 element_count=23
+2026-05-10 11:25:55 [info     ] osm_query_ok                   elapsed_ms=3876 element_count=1100
+2026-05-10 11:26:12 [info     ] osm_query_ok                   elapsed_ms=2166 element_count=80
+2026-05-10 11:26:31 [info     ] osm_query_ok                   elapsed_ms=6632 element_count=84
+2026-05-10 11:26:48 [info     ] osm_query_ok                   elapsed_ms=6012 element_count=4182
+2026-05-10 11:27:03 [info     ] osm_query_ok                   elapsed_ms=3942 element_count=466
+2026-05-10 11:27:17 [info     ] osm_query_ok                   elapsed_ms=1241 element_count=414
+2026-05-10 11:27:35 [info     ] osm_query_ok                   elapsed_ms=5395 element_count=5896
+2026-05-10 11:27:50 [info     ] osm_query_ok                   elapsed_ms=5298 element_count=472
+2026-05-10 11:28:05 [info     ] osm_query_ok                   elapsed_ms=3249 element_count=71
+2026-05-10 11:28:28 [info     ] osm_query_ok                   elapsed_ms=11657 element_count=6490
+2026-05-10 11:28:42 [info     ] osm_query_ok                   elapsed_ms=2967 element_count=404
+2026-05-10 11:28:59 [info     ] osm_query_ok                   elapsed_ms=1758 element_count=13
+2026-05-10 11:29:12 [info     ] osm_query_ok                   elapsed_ms=2370 element_count=906
+2026-05-10 11:29:28 [info     ] osm_query_ok                   elapsed_ms=1849 element_count=155
+2026-05-10 11:29:42 [info     ] osm_query_ok                   elapsed_ms=1167 element_count=13
+2026-05-10 11:29:55 [info     ] osm_query_ok                   elapsed_ms=2389 element_count=906
+2026-05-10 11:30:11 [info     ] osm_query_ok                   elapsed_ms=2493 element_count=155
+2026-05-10 11:30:32 [info     ] osm_query_ok                   elapsed_ms=6040 element_count=18
+2026-05-10 11:30:48 [info     ] osm_query_ok                   elapsed_ms=4866 element_count=1602
+2026-05-10 11:31:05 [info     ] osm_query_ok                   elapsed_ms=1824 element_count=169
+2026-05-10 11:31:19 [info     ] osm_query_ok                   elapsed_ms=726 element_count=18
+2026-05-10 11:31:33 [info     ] osm_query_ok                   elapsed_ms=4111 element_count=1404
+2026-05-10 11:31:51 [info     ] osm_query_ok                   elapsed_ms=4569 element_count=251
+2026-05-10 11:32:08 [info     ] osm_query_ok                   elapsed_ms=2959 element_count=18
+2026-05-10 11:32:27 [info     ] osm_query_ok                   elapsed_ms=4888 element_count=1289
+2026-05-10 11:32:41 [info     ] osm_query_ok                   elapsed_ms=2361 element_count=247
+2026-05-10 11:32:51 [info     ] osm_query_ok                   elapsed_ms=826 element_count=18
+2026-05-10 11:33:07 [info     ] osm_query_ok                   elapsed_ms=4648 element_count=1525
+2026-05-10 11:33:26 [info     ] osm_query_ok                   elapsed_ms=8802 element_count=256
+[08:33:40] processed 120/361 | changes=118 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:33:41 [info     ] osm_query_ok                   elapsed_ms=636 element_count=19
+2026-05-10 11:33:56 [info     ] osm_query_ok                   elapsed_ms=2402 element_count=925
+2026-05-10 11:34:07 [info     ] osm_query_ok                   elapsed_ms=1748 element_count=195
+2026-05-10 11:34:28 [info     ] osm_query_ok                   elapsed_ms=6837 element_count=227
+2026-05-10 11:34:46 [info     ] osm_query_ok                   elapsed_ms=6951 element_count=6012
+2026-05-10 11:35:04 [info     ] osm_query_ok                   elapsed_ms=3049 element_count=455
+2026-05-10 11:35:30 [info     ] osm_query_ok                   elapsed_ms=16773 element_count=108
+2026-05-10 11:36:02 [info     ] osm_query_ok                   elapsed_ms=17084 element_count=6519
+2026-05-10 11:36:17 [info     ] osm_query_ok                   elapsed_ms=3532 element_count=483
+2026-05-10 11:36:33 [info     ] osm_query_ok                   elapsed_ms=839 element_count=13
+2026-05-10 11:36:46 [info     ] osm_query_ok                   elapsed_ms=3295 element_count=692
+2026-05-10 11:36:58 [info     ] osm_query_ok                   elapsed_ms=1680 element_count=64
+2026-05-10 11:37:12 [info     ] osm_query_ok                   elapsed_ms=896 element_count=20
+2026-05-10 11:37:30 [info     ] osm_query_ok                   elapsed_ms=4186 element_count=1976
+2026-05-10 11:37:47 [info     ] osm_query_ok                   elapsed_ms=3842 element_count=118
+2026-05-10 11:37:57 [info     ] osm_query_ok                   elapsed_ms=762 element_count=28
+2026-05-10 11:38:14 [info     ] osm_query_ok                   elapsed_ms=1951 element_count=315
+2026-05-10 11:38:26 [info     ] osm_query_ok                   elapsed_ms=1661 element_count=46
+2026-05-10 11:38:38 [info     ] osm_query_ok                   elapsed_ms=576 element_count=12
+2026-05-10 11:38:52 [info     ] osm_query_ok                   elapsed_ms=3505 element_count=699
+2026-05-10 11:39:04 [info     ] osm_query_ok                   elapsed_ms=1622 element_count=121
+2026-05-10 11:39:19 [info     ] osm_query_ok                   elapsed_ms=1001 element_count=85
+2026-05-10 11:39:40 [info     ] osm_query_ok                   elapsed_ms=5615 element_count=6393
+2026-05-10 11:39:52 [info     ] osm_query_ok                   elapsed_ms=2035 element_count=282
+2026-05-10 11:40:02 [info     ] osm_query_ok                   elapsed_ms=726 element_count=3
+2026-05-10 11:40:20 [info     ] osm_query_ok                   elapsed_ms=3638 element_count=657
+2026-05-10 11:40:32 [info     ] osm_query_ok                   elapsed_ms=1866 element_count=101
+2026-05-10 11:40:52 [info     ] osm_query_ok                   elapsed_ms=5409 element_count=7
+2026-05-10 11:41:13 [info     ] osm_query_ok                   elapsed_ms=10497 element_count=1281
+2026-05-10 11:41:28 [info     ] osm_query_ok                   elapsed_ms=1619 element_count=111
+[08:41:37] processed 130/361 | changes=128 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:41:38 [info     ] osm_query_ok                   elapsed_ms=970 element_count=64
+2026-05-10 11:41:53 [info     ] osm_query_ok                   elapsed_ms=4694 element_count=1424
+2026-05-10 11:42:06 [info     ] osm_query_ok                   elapsed_ms=4366 element_count=358
+2026-05-10 11:42:20 [info     ] osm_query_ok                   elapsed_ms=929 element_count=44
+2026-05-10 11:42:35 [info     ] osm_query_ok                   elapsed_ms=3150 element_count=1804
+2026-05-10 11:42:52 [info     ] osm_query_ok                   elapsed_ms=6766 element_count=538
+2026-05-10 11:43:03 [info     ] osm_query_ok                   elapsed_ms=494 element_count=7
+2026-05-10 11:43:19 [info     ] osm_query_ok                   elapsed_ms=1797 element_count=933
+2026-05-10 11:43:39 [info     ] osm_query_ok                   elapsed_ms=9258 element_count=74
+2026-05-10 11:43:54 [info     ] osm_query_ok                   elapsed_ms=1029 element_count=27
+2026-05-10 11:44:12 [info     ] osm_query_ok                   elapsed_ms=2690 element_count=1013
+2026-05-10 11:44:27 [info     ] osm_query_ok                   elapsed_ms=1429 element_count=89
+2026-05-10 11:44:38 [info     ] osm_query_ok                   elapsed_ms=516 element_count=27
+2026-05-10 11:44:51 [info     ] osm_query_ok                   elapsed_ms=2337 element_count=1013
+2026-05-10 11:45:05 [info     ] osm_query_ok                   elapsed_ms=1876 element_count=89
+2026-05-10 11:45:16 [info     ] osm_query_ok                   elapsed_ms=536 element_count=28
+2026-05-10 11:45:38 [info     ] osm_query_ok                   elapsed_ms=6796 element_count=963
+2026-05-10 11:45:52 [info     ] osm_query_ok                   elapsed_ms=1677 element_count=88
+2026-05-10 11:46:05 [info     ] osm_query_ok                   elapsed_ms=1096 element_count=33
+2026-05-10 11:46:20 [info     ] osm_query_ok                   elapsed_ms=6531 element_count=5408
+2026-05-10 11:46:32 [info     ] osm_query_ok                   elapsed_ms=2077 element_count=267
+2026-05-10 11:46:44 [info     ] osm_query_ok                   elapsed_ms=1074 element_count=67
+2026-05-10 11:47:01 [info     ] osm_query_ok                   elapsed_ms=3835 element_count=2538
+2026-05-10 11:47:18 [info     ] osm_query_ok                   elapsed_ms=2193 element_count=299
+2026-05-10 11:47:31 [info     ] osm_query_ok                   elapsed_ms=3660 element_count=179
+2026-05-10 11:47:52 [info     ] osm_query_ok                   elapsed_ms=11019 element_count=4684
+2026-05-10 11:48:09 [info     ] osm_query_ok                   elapsed_ms=3464 element_count=531
+2026-05-10 11:48:21 [info     ] osm_query_ok                   elapsed_ms=1546 element_count=174
+2026-05-10 11:48:42 [info     ] osm_query_ok                   elapsed_ms=6272 element_count=8081
+2026-05-10 11:48:56 [info     ] osm_query_ok                   elapsed_ms=1699 element_count=311
+[08:49:05] processed 140/361 | changes=138 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:49:07 [info     ] osm_query_ok                   elapsed_ms=1832 element_count=112
+2026-05-10 11:49:25 [info     ] osm_query_ok                   elapsed_ms=6000 element_count=4936
+2026-05-10 11:49:42 [info     ] osm_query_ok                   elapsed_ms=3049 element_count=466
+2026-05-10 11:49:55 [info     ] osm_query_ok                   elapsed_ms=836 element_count=22
+2026-05-10 11:50:11 [info     ] osm_query_ok                   elapsed_ms=3410 element_count=736
+2026-05-10 11:50:28 [info     ] osm_query_ok                   elapsed_ms=1911 element_count=71
+2026-05-10 11:50:39 [info     ] osm_query_ok                   elapsed_ms=1184 element_count=11
+2026-05-10 11:50:53 [info     ] osm_query_ok                   elapsed_ms=2455 element_count=898
+2026-05-10 11:51:08 [info     ] osm_query_ok                   elapsed_ms=1925 element_count=111
+2026-05-10 11:51:18 [info     ] osm_query_ok                   elapsed_ms=794 element_count=64
+2026-05-10 11:51:35 [info     ] osm_query_ok                   elapsed_ms=2402 element_count=1447
+2026-05-10 11:51:53 [info     ] osm_query_ok                   elapsed_ms=7498 element_count=373
+2026-05-10 11:52:17 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 11:52:17 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 11:53:12 [info     ] osm_query_ok                   elapsed_ms=786 element_count=409
+2026-05-10 11:53:30 [info     ] osm_query_ok                   elapsed_ms=3569 element_count=1766
+2026-05-10 11:53:44 [info     ] osm_query_ok                   elapsed_ms=1556 element_count=241
+2026-05-10 11:53:58 [info     ] osm_query_ok                   elapsed_ms=1664 element_count=81
+2026-05-10 11:54:19 [info     ] osm_query_ok                   elapsed_ms=8157 element_count=6524
+2026-05-10 11:54:38 [info     ] osm_query_ok                   elapsed_ms=5197 element_count=410
+2026-05-10 11:54:49 [info     ] osm_query_ok                   elapsed_ms=1219 element_count=76
+2026-05-10 11:55:07 [info     ] osm_query_ok                   elapsed_ms=4283 element_count=2412
+2026-05-10 11:55:22 [info     ] osm_query_ok                   elapsed_ms=2568 element_count=314
+2026-05-10 11:55:34 [info     ] osm_query_ok                   elapsed_ms=1386 element_count=190
+2026-05-10 11:55:54 [info     ] osm_query_ok                   elapsed_ms=6715 element_count=5930
+2026-05-10 11:56:12 [info     ] osm_query_ok                   elapsed_ms=3053 element_count=435
+2026-05-10 11:56:26 [info     ] osm_query_ok                   elapsed_ms=531 element_count=16
+2026-05-10 11:56:41 [info     ] osm_query_ok                   elapsed_ms=3095 element_count=986
+2026-05-10 11:56:54 [info     ] osm_query_ok                   elapsed_ms=1751 element_count=75
+2026-05-10 11:57:09 [info     ] osm_query_ok                   elapsed_ms=1885 element_count=196
+2026-05-10 11:57:28 [info     ] osm_query_ok                   elapsed_ms=5528 element_count=4748
+2026-05-10 11:57:43 [info     ] osm_query_ok                   elapsed_ms=3072 element_count=579
+[08:57:56] processed 150/361 | changes=148 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 11:57:57 [info     ] osm_query_ok                   elapsed_ms=688 element_count=51
+2026-05-10 11:58:15 [info     ] osm_query_ok                   elapsed_ms=7239 element_count=5041
+2026-05-10 11:58:29 [info     ] osm_query_ok                   elapsed_ms=2254 element_count=249
+2026-05-10 11:58:43 [info     ] osm_query_ok                   elapsed_ms=3705 element_count=339
+2026-05-10 11:59:03 [info     ] osm_query_ok                   elapsed_ms=5763 element_count=5597
+2026-05-10 11:59:18 [info     ] osm_query_ok                   elapsed_ms=5588 element_count=433
+2026-05-10 11:59:30 [info     ] osm_query_ok                   elapsed_ms=465 element_count=74
+2026-05-10 11:59:45 [info     ] osm_query_ok                   elapsed_ms=3117 element_count=129
+2026-05-10 11:59:56 [info     ] osm_query_ok                   elapsed_ms=1653 element_count=27
+2026-05-10 12:00:06 [info     ] osm_query_ok                   elapsed_ms=435 element_count=116
+2026-05-10 12:00:26 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 12:00:26 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 12:01:22 [info     ] osm_query_ok                   elapsed_ms=1003 element_count=148
+2026-05-10 12:01:35 [info     ] osm_query_ok                   elapsed_ms=1206 element_count=17
+2026-05-10 12:01:47 [info     ] osm_query_ok                   elapsed_ms=445 element_count=153
+2026-05-10 12:01:57 [info     ] osm_query_ok                   elapsed_ms=1258 element_count=274
+2026-05-10 12:02:10 [info     ] osm_query_ok                   elapsed_ms=2199 element_count=78
+2026-05-10 12:02:23 [info     ] osm_query_ok                   elapsed_ms=1036 element_count=188
+2026-05-10 12:02:38 [info     ] osm_query_ok                   elapsed_ms=1060 element_count=186
+2026-05-10 12:02:54 [info     ] osm_query_ok                   elapsed_ms=5829 element_count=50
+2026-05-10 12:03:09 [info     ] osm_query_ok                   elapsed_ms=943 element_count=1218
+2026-05-10 12:03:21 [info     ] osm_query_ok                   elapsed_ms=2129 element_count=416
+2026-05-10 12:03:38 [info     ] osm_query_ok                   elapsed_ms=1977 element_count=968
+2026-05-10 12:03:52 [info     ] osm_query_ok                   elapsed_ms=4998 element_count=218
+2026-05-10 12:04:05 [info     ] osm_query_ok                   elapsed_ms=3107 element_count=166
+2026-05-10 12:04:17 [info     ] osm_query_ok                   elapsed_ms=1911 element_count=51
+2026-05-10 12:04:33 [info     ] osm_query_ok                   elapsed_ms=1842 element_count=100
+2026-05-10 12:04:48 [info     ] osm_query_ok                   elapsed_ms=1445 element_count=217
+2026-05-10 12:05:03 [info     ] osm_query_ok                   elapsed_ms=2512 element_count=29
+2026-05-10 12:05:19 [info     ] osm_query_ok                   elapsed_ms=1974 element_count=190
+2026-05-10 12:05:34 [info     ] osm_query_ok                   elapsed_ms=1472 element_count=184
+2026-05-10 12:05:45 [info     ] osm_query_ok                   elapsed_ms=1814 element_count=64
+[09:05:55] processed 160/361 | changes=158 | in_sync=2 | errors mil=0 pwr=0 tx=0
+2026-05-10 12:05:56 [info     ] osm_query_ok                   elapsed_ms=409 element_count=335
+2026-05-10 12:06:09 [info     ] osm_query_ok                   elapsed_ms=2620 element_count=551
+2026-05-10 12:06:23 [info     ] osm_query_ok                   elapsed_ms=1988 element_count=285
+2026-05-10 12:06:37 [info     ] osm_query_ok                   elapsed_ms=812 element_count=35
+2026-05-10 12:06:50 [info     ] osm_query_ok                   elapsed_ms=2190 element_count=155
+2026-05-10 12:07:04 [info     ] osm_query_ok                   elapsed_ms=1618 element_count=36
+2026-05-10 12:07:18 [info     ] osm_query_ok                   elapsed_ms=490 element_count=86
+2026-05-10 12:07:34 [info     ] osm_query_ok                   elapsed_ms=1772 element_count=127
+2026-05-10 12:07:48 [info     ] osm_query_ok                   elapsed_ms=1591 element_count=30
+2026-05-10 12:08:05 [info     ] osm_query_ok                   elapsed_ms=4568 element_count=137
+2026-05-10 12:08:18 [info     ] osm_query_ok                   elapsed_ms=1619 element_count=1140
+2026-05-10 12:08:34 [info     ] osm_query_ok                   elapsed_ms=2221 element_count=119
+2026-05-10 12:08:51 [info     ] osm_query_ok                   elapsed_ms=3926 element_count=215
+2026-05-10 12:09:08 [info     ] osm_query_ok                   elapsed_ms=1667 element_count=134
+2026-05-10 12:09:20 [info     ] osm_query_ok                   elapsed_ms=1636 element_count=53
+2026-05-10 12:09:31 [info     ] osm_query_ok                   elapsed_ms=1642 element_count=18
+2026-05-10 12:09:45 [info     ] osm_query_ok                   elapsed_ms=1169 element_count=142
+2026-05-10 12:10:01 [info     ] osm_query_ok                   elapsed_ms=1874 element_count=34
+2026-05-10 12:10:25 [info     ] osm_query_ok                   elapsed_ms=11548 element_count=64
+2026-05-10 12:10:40 [info     ] osm_query_ok                   elapsed_ms=3025 element_count=132
+2026-05-10 12:11:01 [info     ] osm_query_ok                   elapsed_ms=8402 element_count=66
+2026-05-10 12:11:11 [info     ] osm_query_ok                   elapsed_ms=735 element_count=9
+2026-05-10 12:11:22 [info     ] osm_query_ok                   elapsed_ms=1436 element_count=177
+2026-05-10 12:11:34 [info     ] osm_query_ok                   elapsed_ms=1560 element_count=11
+2026-05-10 12:16:53 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 12:16:53 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 12:26:17 [info     ] osm_query_ok                   elapsed_ms=8102 element_count=27
+2026-05-10 12:34:12 [info     ] osm_query_ok                   elapsed_ms=1516 element_count=193
+2026-05-10 14:08:05 [warning  ] osm_query_error                error='Timeout: [Errno 60] Operation timed out'
+2026-05-10 14:08:05 [warning  ] fix04_query_retry              attempt=1 status=408 wait_s=45
+2026-05-10 14:12:33 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-10 14:12:33 [warning  ] fix04_query_retry              attempt=2 status=0 wait_s=90
+2026-05-10 15:13:57 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-10 15:13:57 [warning  ] fix04_query_retry              attempt=3 status=0 wait_s=180
+2026-05-10 17:01:45 [info     ] osm_query_ok                   elapsed_ms=6389 element_count=50
+2026-05-10 17:02:03 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:02:03 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 17:03:04 [info     ] osm_query_ok                   elapsed_ms=3519 element_count=53
+2026-05-10 17:03:18 [info     ] osm_query_ok                   elapsed_ms=1262 element_count=209
+2026-05-10 17:03:33 [info     ] osm_query_ok                   elapsed_ms=2419 element_count=17
+[14:03:45] processed 170/361 | changes=165 | in_sync=5 | errors mil=0 pwr=0 tx=0
+2026-05-10 17:03:55 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:03:55 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 17:04:51 [info     ] osm_query_ok                   elapsed_ms=726 element_count=34
+2026-05-10 17:05:05 [info     ] osm_query_ok                   elapsed_ms=1844 element_count=145
+2026-05-10 17:05:27 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:05:27 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 17:06:31 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:06:31 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-10 17:08:09 [info     ] osm_query_ok                   elapsed_ms=1624 element_count=22
+2026-05-10 17:08:22 [info     ] osm_query_ok                   elapsed_ms=544 element_count=53
+2026-05-10 17:08:33 [info     ] osm_query_ok                   elapsed_ms=828 element_count=109
+2026-05-10 17:08:46 [info     ] osm_query_ok                   elapsed_ms=3274 element_count=29
+2026-05-10 17:09:01 [info     ] osm_query_ok                   elapsed_ms=1254 element_count=51
+2026-05-10 17:09:17 [info     ] osm_query_ok                   elapsed_ms=2752 element_count=172
+2026-05-10 17:09:31 [info     ] osm_query_ok                   elapsed_ms=1356 element_count=12
+2026-05-10 17:09:43 [info     ] osm_query_ok                   elapsed_ms=321 element_count=8
+2026-05-10 17:10:03 [info     ] osm_query_ok                   elapsed_ms=8786 element_count=150
+2026-05-10 17:10:16 [info     ] osm_query_ok                   elapsed_ms=1468 element_count=21
+2026-05-10 17:10:28 [info     ] osm_query_ok                   elapsed_ms=370 element_count=4
+2026-05-10 17:10:43 [info     ] osm_query_ok                   elapsed_ms=1140 element_count=139
+2026-05-10 17:10:55 [info     ] osm_query_ok                   elapsed_ms=1562 element_count=60
+2026-05-10 17:11:09 [info     ] osm_query_ok                   elapsed_ms=4758 element_count=4
+2026-05-10 17:11:22 [info     ] osm_query_ok                   elapsed_ms=3217 element_count=447
+2026-05-10 17:11:33 [info     ] osm_query_ok                   elapsed_ms=1318 element_count=107
+2026-05-10 17:11:46 [info     ] osm_query_ok                   elapsed_ms=1013 element_count=4
+2026-05-10 17:12:05 [info     ] osm_query_ok                   elapsed_ms=5371 element_count=439
+2026-05-10 17:12:19 [info     ] osm_query_ok                   elapsed_ms=3781 element_count=105
+2026-05-10 17:12:31 [info     ] osm_query_ok                   elapsed_ms=466 element_count=6
+2026-05-10 17:12:44 [info     ] osm_query_ok                   elapsed_ms=1524 element_count=228
+2026-05-10 17:13:03 [info     ] osm_query_ok                   elapsed_ms=8212 element_count=79
+2026-05-10 17:13:15 [info     ] osm_query_ok                   elapsed_ms=743 element_count=6
+2026-05-10 17:13:27 [info     ] osm_query_ok                   elapsed_ms=2601 element_count=470
+2026-05-10 17:13:41 [info     ] osm_query_ok                   elapsed_ms=1168 element_count=71
+2026-05-10 17:13:53 [info     ] osm_query_ok                   elapsed_ms=469 element_count=4
+2026-05-10 17:14:08 [info     ] osm_query_ok                   elapsed_ms=4426 element_count=185
+2026-05-10 17:14:20 [info     ] osm_query_ok                   elapsed_ms=1664 element_count=60
+[14:14:32] processed 180/361 | changes=174 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-10 17:14:33 [info     ] osm_query_ok                   elapsed_ms=701 element_count=20
+2026-05-10 17:14:48 [info     ] osm_query_ok                   elapsed_ms=2729 element_count=479
+2026-05-10 17:14:59 [info     ] osm_query_ok                   elapsed_ms=1454 element_count=146
+2026-05-10 17:15:19 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:15:19 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 17:16:15 [info     ] osm_query_ok                   elapsed_ms=414 element_count=5
+2026-05-10 17:16:27 [info     ] osm_query_ok                   elapsed_ms=1636 element_count=120
+2026-05-10 17:16:42 [info     ] osm_query_ok                   elapsed_ms=1993 element_count=35
+2026-05-10 17:17:09 [info     ] osm_query_ok                   elapsed_ms=15151 element_count=7
+2026-05-10 17:17:25 [info     ] osm_query_ok                   elapsed_ms=5098 element_count=1368
+2026-05-10 17:17:47 [info     ] osm_query_ok                   elapsed_ms=8375 element_count=110
+2026-05-10 17:18:02 [info     ] osm_query_ok                   elapsed_ms=1214 element_count=32
+2026-05-10 17:18:18 [info     ] osm_query_ok                   elapsed_ms=5927 element_count=671
+2026-05-10 17:18:31 [info     ] osm_query_ok                   elapsed_ms=2857 element_count=320
+2026-05-10 17:18:48 [info     ] osm_query_ok                   elapsed_ms=2294 element_count=5
+2026-05-10 17:19:09 [info     ] osm_query_ok                   elapsed_ms=7089 element_count=809
+2026-05-10 17:19:22 [info     ] osm_query_ok                   elapsed_ms=2466 element_count=98
+2026-05-10 17:19:34 [info     ] osm_query_ok                   elapsed_ms=559 element_count=47
+2026-05-10 17:19:51 [info     ] osm_query_ok                   elapsed_ms=2814 element_count=744
+2026-05-10 17:20:16 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:20:16 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 17:21:24 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:21:24 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-10 17:38:45 [info     ] osm_query_ok                   elapsed_ms=1679 element_count=459
+2026-05-10 17:54:16 [info     ] osm_query_ok                   elapsed_ms=6108 element_count=19
+2026-05-10 17:54:38 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 17:54:38 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 18:37:59 [warning  ] osm_query_error                error='Timeout: The read operation timed out'
+2026-05-10 18:37:59 [warning  ] fix04_query_retry              attempt=2 status=408 wait_s=90
+2026-05-10 19:41:58 [info     ] osm_query_ok                   elapsed_ms=3480 element_count=803
+2026-05-10 19:42:19 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 19:42:19 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 21:25:16 [info     ] osm_query_ok                   elapsed_ms=7054 element_count=149
+2026-05-10 21:25:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-10 21:25:41 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-10 21:58:11 [warning  ] osm_query_error                error='Timeout: The read operation timed out'
+2026-05-10 21:58:11 [warning  ] fix04_query_retry              attempt=2 status=408 wait_s=90
+2026-05-10 22:01:35 [info     ] osm_query_ok                   elapsed_ms=936 element_count=14
+2026-05-10 22:07:59 [info     ] osm_query_ok                   elapsed_ms=3287 element_count=543
+2026-05-10 22:08:14 [info     ] osm_query_ok                   elapsed_ms=1691 element_count=109
+2026-05-10 22:08:29 [info     ] osm_query_ok                   elapsed_ms=1223 element_count=90
+2026-05-10 22:08:51 [info     ] osm_query_ok                   elapsed_ms=4805 element_count=932
+2026-05-10 22:09:08 [info     ] osm_query_ok                   elapsed_ms=2047 element_count=133
+2026-05-10 22:09:30 [info     ] osm_query_ok                   elapsed_ms=8155 element_count=33
+2026-05-10 22:15:35 [info     ] osm_query_ok                   elapsed_ms=7017 element_count=707
+2026-05-10 22:15:52 [info     ] osm_query_ok                   elapsed_ms=2102 element_count=433
+[19:16:05] processed 190/361 | changes=184 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-10 22:30:37 [warning  ] osm_query_error                error='Timeout: The read operation timed out'
+2026-05-10 22:30:37 [warning  ] fix04_query_retry              attempt=1 status=408 wait_s=45
+2026-05-10 22:49:30 [info     ] osm_query_ok                   elapsed_ms=1096 element_count=18
+2026-05-11 01:06:43 [warning  ] osm_query_error                error='Timeout: The read operation timed out'
+2026-05-11 01:06:43 [warning  ] fix04_query_retry              attempt=1 status=408 wait_s=45
+2026-05-11 01:21:19 [info     ] osm_query_ok                   elapsed_ms=2793 element_count=578
+2026-05-11 01:38:14 [info     ] osm_query_ok                   elapsed_ms=7256 element_count=183
+2026-05-11 01:38:37 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 01:38:37 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 02:56:07 [info     ] osm_query_ok                   elapsed_ms=4756 element_count=3
+2026-05-11 04:24:15 [info     ] osm_query_ok                   elapsed_ms=840 element_count=38
+2026-05-11 04:24:28 [info     ] osm_query_ok                   elapsed_ms=1188 element_count=20
+2026-05-11 04:24:40 [info     ] osm_query_ok                   elapsed_ms=286 element_count=1
+2026-05-11 04:24:52 [info     ] osm_query_ok                   elapsed_ms=957 element_count=149
+2026-05-11 04:42:35 [info     ] osm_query_ok                   elapsed_ms=1627 element_count=18
+2026-05-11 04:42:49 [info     ] osm_query_ok                   elapsed_ms=450 element_count=1
+2026-05-11 04:43:05 [info     ] osm_query_ok                   elapsed_ms=1780 element_count=150
+2026-05-11 05:11:16 [warning  ] osm_query_error                error='[Errno 51] Network is unreachable'
+2026-05-11 05:11:16 [warning  ] fix04_query_retry              attempt=1 status=0 wait_s=45
+2026-05-11 06:25:20 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-11 06:25:20 [warning  ] fix04_query_retry              attempt=2 status=0 wait_s=90
+2026-05-11 07:26:41 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-11 07:26:41 [warning  ] fix04_query_retry              attempt=3 status=0 wait_s=180
+2026-05-11 11:13:07 [info     ] osm_query_ok                   elapsed_ms=1503 element_count=16
+2026-05-11 11:13:19 [info     ] osm_query_ok                   elapsed_ms=398 element_count=1
+2026-05-11 11:13:34 [info     ] osm_query_ok                   elapsed_ms=1352 element_count=144
+2026-05-11 11:13:48 [info     ] osm_query_ok                   elapsed_ms=2530 element_count=34
+2026-05-11 11:13:59 [info     ] osm_query_ok                   elapsed_ms=413 element_count=1
+2026-05-11 11:14:13 [info     ] osm_query_ok                   elapsed_ms=921 element_count=59
+2026-05-11 11:14:24 [info     ] osm_query_ok                   elapsed_ms=1865 element_count=31
+2026-05-11 11:14:34 [info     ] osm_query_ok                   elapsed_ms=445 element_count=1
+2026-05-11 11:14:46 [info     ] osm_query_ok                   elapsed_ms=1259 element_count=108
+2026-05-11 11:15:07 [info     ] osm_query_ok                   elapsed_ms=8784 element_count=38
+2026-05-11 11:15:18 [info     ] osm_query_ok                   elapsed_ms=504 element_count=2
+2026-05-11 11:15:32 [info     ] osm_query_ok                   elapsed_ms=651 element_count=36
+2026-05-11 11:15:44 [info     ] osm_query_ok                   elapsed_ms=1601 element_count=10
+2026-05-11 11:15:58 [info     ] osm_query_ok                   elapsed_ms=1596 element_count=26
+2026-05-11 11:16:15 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:16:15 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:17:21 [info     ] osm_query_ok                   elapsed_ms=11843 element_count=441
+2026-05-11 11:17:36 [info     ] osm_query_ok                   elapsed_ms=1737 element_count=135
+2026-05-11 11:17:52 [info     ] osm_query_ok                   elapsed_ms=539 element_count=13
+2026-05-11 11:18:03 [info     ] osm_query_ok                   elapsed_ms=1843 element_count=88
+2026-05-11 11:18:15 [info     ] osm_query_ok                   elapsed_ms=1957 element_count=42
+[08:18:26] processed 200/361 | changes=194 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 11:18:27 [info     ] osm_query_ok                   elapsed_ms=774 element_count=15
+2026-05-11 11:18:41 [info     ] osm_query_ok                   elapsed_ms=2298 element_count=270
+2026-05-11 11:18:57 [info     ] osm_query_ok                   elapsed_ms=2002 element_count=18
+2026-05-11 11:19:16 [info     ] osm_query_ok                   elapsed_ms=6069 element_count=1
+2026-05-11 11:19:28 [info     ] osm_query_ok                   elapsed_ms=763 element_count=265
+2026-05-11 11:19:42 [info     ] osm_query_ok                   elapsed_ms=3567 element_count=24
+2026-05-11 11:19:52 [info     ] osm_query_ok                   elapsed_ms=473 element_count=10
+2026-05-11 11:20:06 [info     ] osm_query_ok                   elapsed_ms=1329 element_count=36
+2026-05-11 11:20:18 [info     ] osm_query_ok                   elapsed_ms=1656 element_count=40
+2026-05-11 11:20:31 [info     ] osm_query_ok                   elapsed_ms=477 element_count=2
+2026-05-11 11:20:46 [info     ] osm_query_ok                   elapsed_ms=2294 element_count=81
+2026-05-11 11:21:06 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:21:06 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:22:05 [info     ] osm_query_ok                   elapsed_ms=1961 element_count=27
+2026-05-11 11:22:20 [info     ] osm_query_ok                   elapsed_ms=581 element_count=2
+2026-05-11 11:22:34 [info     ] osm_query_ok                   elapsed_ms=1467 element_count=142
+2026-05-11 11:22:49 [info     ] osm_query_ok                   elapsed_ms=1459 element_count=25
+2026-05-11 11:23:00 [info     ] osm_query_ok                   elapsed_ms=583 element_count=7
+2026-05-11 11:23:14 [info     ] osm_query_ok                   elapsed_ms=2097 element_count=103
+2026-05-11 11:23:29 [info     ] osm_query_ok                   elapsed_ms=2854 element_count=37
+2026-05-11 11:23:43 [info     ] osm_query_ok                   elapsed_ms=486 element_count=7
+2026-05-11 11:23:58 [info     ] osm_query_ok                   elapsed_ms=4653 element_count=102
+2026-05-11 11:24:17 [info     ] osm_query_ok                   elapsed_ms=4171 element_count=42
+2026-05-11 11:24:31 [info     ] osm_query_ok                   elapsed_ms=1981 element_count=8
+2026-05-11 11:24:47 [info     ] osm_query_ok                   elapsed_ms=2365 element_count=131
+2026-05-11 11:25:00 [info     ] osm_query_ok                   elapsed_ms=1651 element_count=38
+2026-05-11 11:25:10 [info     ] osm_query_ok                   elapsed_ms=373 element_count=1
+2026-05-11 11:25:29 [info     ] osm_query_ok                   elapsed_ms=8078 element_count=150
+2026-05-11 11:25:44 [info     ] osm_query_ok                   elapsed_ms=5809 element_count=16
+2026-05-11 11:25:54 [info     ] osm_query_ok                   elapsed_ms=414 element_count=2
+2026-05-11 11:26:14 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:26:14 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:27:14 [info     ] osm_query_ok                   elapsed_ms=623 element_count=38
+2026-05-11 11:27:29 [info     ] osm_query_ok                   elapsed_ms=1641 element_count=35
+[08:27:41] processed 210/361 | changes=204 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 11:27:42 [info     ] osm_query_ok                   elapsed_ms=668 element_count=11
+2026-05-11 11:27:52 [info     ] osm_query_ok                   elapsed_ms=1639 element_count=189
+2026-05-11 11:28:07 [info     ] osm_query_ok                   elapsed_ms=1823 element_count=44
+2026-05-11 11:28:18 [info     ] osm_query_ok                   elapsed_ms=625 element_count=2
+2026-05-11 11:28:35 [info     ] osm_query_ok                   elapsed_ms=1211 element_count=98
+2026-05-11 11:28:48 [info     ] osm_query_ok                   elapsed_ms=1438 element_count=32
+2026-05-11 11:28:58 [info     ] osm_query_ok                   elapsed_ms=573 element_count=10
+2026-05-11 11:29:10 [info     ] osm_query_ok                   elapsed_ms=1223 element_count=189
+2026-05-11 11:29:23 [info     ] osm_query_ok                   elapsed_ms=1357 element_count=44
+2026-05-11 11:29:34 [info     ] osm_query_ok                   elapsed_ms=457 element_count=4
+2026-05-11 11:29:47 [info     ] osm_query_ok                   elapsed_ms=815 element_count=15
+2026-05-11 11:29:59 [info     ] osm_query_ok                   elapsed_ms=1537 element_count=4
+2026-05-11 11:30:11 [info     ] osm_query_ok                   elapsed_ms=543 element_count=1
+2026-05-11 11:30:28 [info     ] osm_query_ok                   elapsed_ms=6344 element_count=103
+2026-05-11 11:30:44 [info     ] osm_query_ok                   elapsed_ms=1386 element_count=45
+2026-05-11 11:30:55 [info     ] osm_query_ok                   elapsed_ms=383 element_count=7
+2026-05-11 11:31:11 [info     ] osm_query_ok                   elapsed_ms=689 element_count=16
+2026-05-11 11:31:34 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:31:34 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:32:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:32:41 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 11:34:23 [info     ] osm_query_ok                   elapsed_ms=2394 element_count=20
+2026-05-11 11:34:35 [info     ] osm_query_ok                   elapsed_ms=1059 element_count=0
+2026-05-11 11:34:47 [info     ] osm_query_ok                   elapsed_ms=1052 element_count=43
+2026-05-11 11:35:07 [info     ] osm_query_ok                   elapsed_ms=9445 element_count=23
+2026-05-11 11:35:21 [info     ] osm_query_ok                   elapsed_ms=488 element_count=10
+2026-05-11 11:35:37 [info     ] osm_query_ok                   elapsed_ms=2271 element_count=75
+2026-05-11 11:35:50 [info     ] osm_query_ok                   elapsed_ms=4119 element_count=53
+2026-05-11 11:36:08 [info     ] osm_query_ok                   elapsed_ms=4648 element_count=1
+2026-05-11 11:36:23 [info     ] osm_query_ok                   elapsed_ms=1149 element_count=178
+2026-05-11 11:36:36 [info     ] osm_query_ok                   elapsed_ms=2221 element_count=12
+2026-05-11 11:36:55 [info     ] osm_query_ok                   elapsed_ms=9383 element_count=3
+2026-05-11 11:37:07 [info     ] osm_query_ok                   elapsed_ms=2388 element_count=141
+2026-05-11 11:37:29 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:37:29 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:38:26 [info     ] osm_query_ok                   elapsed_ms=1663 element_count=40
+[08:38:38] processed 220/361 | changes=214 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 11:38:39 [info     ] osm_query_ok                   elapsed_ms=614 element_count=1
+2026-05-11 11:38:51 [info     ] osm_query_ok                   elapsed_ms=1731 element_count=120
+2026-05-11 11:39:06 [info     ] osm_query_ok                   elapsed_ms=1705 element_count=24
+2026-05-11 11:39:21 [info     ] osm_query_ok                   elapsed_ms=2472 element_count=1
+2026-05-11 11:39:42 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:39:42 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:40:38 [info     ] osm_query_ok                   elapsed_ms=1724 element_count=129
+2026-05-11 11:40:52 [info     ] osm_query_ok                   elapsed_ms=1837 element_count=23
+2026-05-11 11:41:12 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:41:12 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:42:19 [info     ] osm_query_ok                   elapsed_ms=9823 element_count=0
+2026-05-11 11:42:39 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:42:39 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:43:41 [info     ] osm_query_ok                   elapsed_ms=5639 element_count=48
+2026-05-11 11:44:03 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:44:03 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:44:59 [info     ] osm_query_ok                   elapsed_ms=1758 element_count=33
+2026-05-11 11:45:13 [info     ] osm_query_ok                   elapsed_ms=338 element_count=2
+2026-05-11 11:45:32 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:45:32 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 11:46:35 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 11:46:35 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 11:52:41 [info     ] osm_query_ok                   elapsed_ms=5947 element_count=44
+2026-05-11 11:52:56 [info     ] osm_query_ok                   elapsed_ms=1609 element_count=37
+2026-05-11 11:55:53 [info     ] osm_query_ok                   elapsed_ms=6013 element_count=0
+2026-05-11 12:21:06 [info     ] osm_query_ok                   elapsed_ms=1344 element_count=62
+2026-05-11 12:21:19 [info     ] osm_query_ok                   elapsed_ms=1364 element_count=26
+2026-05-11 12:21:33 [info     ] osm_query_ok                   elapsed_ms=1499 element_count=1
+2026-05-11 12:39:51 [info     ] osm_query_ok                   elapsed_ms=686 element_count=32
+2026-05-11 12:40:15 [info     ] osm_query_ok                   elapsed_ms=8729 element_count=24
+2026-05-11 12:40:40 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:40:40 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:41:35 [info     ] osm_query_ok                   elapsed_ms=427 element_count=16
+2026-05-11 12:41:46 [info     ] osm_query_ok                   elapsed_ms=1364 element_count=812
+2026-05-11 12:41:58 [info     ] osm_query_ok                   elapsed_ms=1515 element_count=286
+2026-05-11 12:42:17 [info     ] osm_query_ok                   elapsed_ms=6282 element_count=1
+2026-05-11 12:42:33 [info     ] osm_query_ok                   elapsed_ms=1504 element_count=142
+2026-05-11 12:42:48 [info     ] osm_query_ok                   elapsed_ms=1285 element_count=22
+2026-05-11 12:43:00 [info     ] osm_query_ok                   elapsed_ms=1749 element_count=0
+2026-05-11 12:43:24 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:43:24 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:44:22 [info     ] osm_query_ok                   elapsed_ms=1003 element_count=107
+2026-05-11 12:44:35 [info     ] osm_query_ok                   elapsed_ms=2261 element_count=29
+2026-05-11 12:44:49 [info     ] osm_query_ok                   elapsed_ms=2646 element_count=23
+2026-05-11 12:45:11 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:45:11 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:46:11 [info     ] osm_query_ok                   elapsed_ms=1322 element_count=887
+2026-05-11 12:46:27 [info     ] osm_query_ok                   elapsed_ms=4793 element_count=446
+[09:46:42] processed 230/361 | changes=224 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 12:46:42 [info     ] osm_query_ok                   elapsed_ms=388 element_count=0
+2026-05-11 12:47:06 [info     ] osm_query_ok                   elapsed_ms=9806 element_count=83
+2026-05-11 12:47:21 [info     ] osm_query_ok                   elapsed_ms=1964 element_count=20
+2026-05-11 12:47:41 [info     ] osm_query_ok                   elapsed_ms=7469 element_count=0
+2026-05-11 12:47:53 [info     ] osm_query_ok                   elapsed_ms=1334 element_count=63
+2026-05-11 12:48:06 [info     ] osm_query_ok                   elapsed_ms=1438 element_count=38
+2026-05-11 12:48:17 [info     ] osm_query_ok                   elapsed_ms=1319 element_count=2
+2026-05-11 12:48:32 [info     ] osm_query_ok                   elapsed_ms=1205 element_count=143
+2026-05-11 12:48:50 [info     ] osm_query_ok                   elapsed_ms=3239 element_count=15
+2026-05-11 12:49:07 [info     ] osm_query_ok                   elapsed_ms=3172 element_count=15
+2026-05-11 12:49:27 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:49:27 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:50:29 [info     ] osm_query_ok                   elapsed_ms=4651 element_count=270
+2026-05-11 12:50:50 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:50:50 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:51:54 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:51:54 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 12:53:33 [info     ] osm_query_ok                   elapsed_ms=2513 element_count=18
+2026-05-11 12:53:46 [info     ] osm_query_ok                   elapsed_ms=729 element_count=0
+2026-05-11 12:53:59 [info     ] osm_query_ok                   elapsed_ms=1421 element_count=62
+2026-05-11 12:54:16 [info     ] osm_query_ok                   elapsed_ms=3878 element_count=21
+2026-05-11 12:54:29 [info     ] osm_query_ok                   elapsed_ms=415 element_count=0
+2026-05-11 12:54:43 [info     ] osm_query_ok                   elapsed_ms=2284 element_count=69
+2026-05-11 12:54:54 [info     ] osm_query_ok                   elapsed_ms=1879 element_count=28
+2026-05-11 12:55:06 [info     ] osm_query_ok                   elapsed_ms=420 element_count=0
+2026-05-11 12:55:24 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 12:55:24 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 12:56:23 [info     ] osm_query_ok                   elapsed_ms=2986 element_count=154
+2026-05-11 12:56:34 [info     ] osm_query_ok                   elapsed_ms=2032 element_count=8
+2026-05-11 12:56:49 [info     ] osm_query_ok                   elapsed_ms=1270 element_count=13
+2026-05-11 12:57:00 [info     ] osm_query_ok                   elapsed_ms=1776 element_count=211
+2026-05-11 12:57:20 [info     ] osm_query_ok                   elapsed_ms=4985 element_count=120
+2026-05-11 12:57:35 [info     ] osm_query_ok                   elapsed_ms=348 element_count=2
+2026-05-11 12:57:52 [info     ] osm_query_ok                   elapsed_ms=3591 element_count=143
+2026-05-11 12:58:09 [info     ] osm_query_ok                   elapsed_ms=2417 element_count=15
+2026-05-11 12:58:23 [info     ] osm_query_ok                   elapsed_ms=486 element_count=1
+2026-05-11 12:58:34 [info     ] osm_query_ok                   elapsed_ms=1128 element_count=152
+2026-05-11 12:58:53 [info     ] osm_query_ok                   elapsed_ms=5358 element_count=16
+[09:59:08] processed 240/361 | changes=234 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 12:59:10 [info     ] osm_query_ok                   elapsed_ms=1716 element_count=9
+2026-05-11 12:59:25 [info     ] osm_query_ok                   elapsed_ms=4019 element_count=70
+2026-05-11 12:59:36 [info     ] osm_query_ok                   elapsed_ms=1655 element_count=39
+2026-05-11 12:59:48 [info     ] osm_query_ok                   elapsed_ms=404 element_count=20
+2026-05-11 13:00:05 [info     ] osm_query_ok                   elapsed_ms=1578 element_count=316
+2026-05-11 13:00:28 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:00:28 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:01:29 [info     ] osm_query_ok                   elapsed_ms=5679 element_count=116
+2026-05-11 13:01:44 [info     ] osm_query_ok                   elapsed_ms=718 element_count=20
+2026-05-11 13:02:04 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:02:04 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:03:03 [info     ] osm_query_ok                   elapsed_ms=5682 element_count=969
+2026-05-11 13:03:23 [info     ] osm_query_ok                   elapsed_ms=9654 element_count=408
+2026-05-11 13:03:33 [info     ] osm_query_ok                   elapsed_ms=883 element_count=10
+2026-05-11 13:03:56 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:03:56 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:04:54 [info     ] osm_query_ok                   elapsed_ms=1793 element_count=192
+2026-05-11 13:05:11 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:05:11 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:06:11 [info     ] osm_query_ok                   elapsed_ms=2093 element_count=44
+2026-05-11 13:06:33 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:06:33 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:07:28 [info     ] osm_query_ok                   elapsed_ms=759 element_count=49
+2026-05-11 13:07:42 [info     ] osm_query_ok                   elapsed_ms=2922 element_count=147
+2026-05-11 13:08:07 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:08:07 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:09:14 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:09:14 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 13:10:59 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:10:59 [warning  ] fix04_query_retry              attempt=3 status=504 wait_s=180
+2026-05-11 13:14:20 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:14:20 [warning  ] fix04_query_retry              attempt=4 status=504 wait_s=180
+2026-05-11 13:17:34 [info     ] osm_query_ok                   elapsed_ms=5664 element_count=42
+2026-05-11 13:17:46 [info     ] osm_query_ok                   elapsed_ms=431 element_count=6
+2026-05-11 13:18:07 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:18:07 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:19:10 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:19:10 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 13:20:54 [info     ] osm_query_ok                   elapsed_ms=5661 element_count=44
+2026-05-11 13:21:15 [info     ] osm_query_ok                   elapsed_ms=5661 element_count=44
+2026-05-11 13:21:31 [info     ] osm_query_ok                   elapsed_ms=1143 element_count=27
+2026-05-11 13:21:53 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:21:53 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:22:50 [info     ] osm_query_ok                   elapsed_ms=2224 element_count=450
+2026-05-11 13:23:04 [info     ] osm_query_ok                   elapsed_ms=1668 element_count=212
+2026-05-11 13:23:26 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:23:26 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:24:28 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:24:28 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 13:26:10 [info     ] osm_query_ok                   elapsed_ms=5539 element_count=7
+2026-05-11 13:26:25 [info     ] osm_query_ok                   elapsed_ms=719 element_count=17
+2026-05-11 13:26:38 [info     ] osm_query_ok                   elapsed_ms=1709 element_count=13
+2026-05-11 13:26:57 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:26:57 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:27:58 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:27:58 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 13:29:36 [info     ] osm_query_ok                   elapsed_ms=745 element_count=1
+2026-05-11 13:29:51 [info     ] osm_query_ok                   elapsed_ms=2173 element_count=143
+2026-05-11 13:30:07 [info     ] osm_query_ok                   elapsed_ms=4301 element_count=26
+2026-05-11 13:30:22 [info     ] osm_query_ok                   elapsed_ms=594 element_count=1
+2026-05-11 13:30:39 [info     ] osm_query_ok                   elapsed_ms=2679 element_count=213
+2026-05-11 13:30:51 [info     ] osm_query_ok                   elapsed_ms=1286 element_count=9
+[10:31:02] processed 250/361 | changes=244 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 13:31:10 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:31:10 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:32:11 [info     ] osm_query_ok                   elapsed_ms=5060 element_count=2
+2026-05-11 13:32:23 [info     ] osm_query_ok                   elapsed_ms=1414 element_count=69
+2026-05-11 13:32:38 [info     ] osm_query_ok                   elapsed_ms=2386 element_count=6
+2026-05-11 13:32:48 [info     ] osm_query_ok                   elapsed_ms=423 element_count=5
+2026-05-11 13:33:08 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:33:08 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:34:05 [info     ] osm_query_ok                   elapsed_ms=1234 element_count=76
+2026-05-11 13:34:24 [info     ] osm_query_ok                   elapsed_ms=7467 element_count=22
+2026-05-11 13:34:36 [info     ] osm_query_ok                   elapsed_ms=692 element_count=47
+2026-05-11 13:34:50 [info     ] osm_query_ok                   elapsed_ms=2851 element_count=157
+2026-05-11 13:35:12 [info     ] osm_query_ok                   elapsed_ms=7684 element_count=40
+2026-05-11 13:35:34 [info     ] osm_query_ok                   elapsed_ms=8230 element_count=8
+2026-05-11 13:35:49 [info     ] osm_query_ok                   elapsed_ms=1814 element_count=64
+2026-05-11 13:36:02 [info     ] osm_query_ok                   elapsed_ms=1841 element_count=29
+2026-05-11 13:36:19 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:36:19 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:37:18 [info     ] osm_query_ok                   elapsed_ms=434 element_count=12
+2026-05-11 13:37:38 [info     ] osm_query_ok                   elapsed_ms=8626 element_count=260
+2026-05-11 13:37:53 [info     ] osm_query_ok                   elapsed_ms=1579 element_count=17
+2026-05-11 13:38:16 [info     ] osm_query_ok                   elapsed_ms=8708 element_count=1
+2026-05-11 13:38:28 [info     ] osm_query_ok                   elapsed_ms=1438 element_count=148
+2026-05-11 13:38:53 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:38:53 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:39:55 [info     ] osm_query_ok                   elapsed_ms=4619 element_count=21
+2026-05-11 13:40:15 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:40:15 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:41:09 [info     ] osm_query_ok                   elapsed_ms=459 element_count=1
+2026-05-11 13:41:35 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:41:35 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:42:32 [info     ] osm_query_ok                   elapsed_ms=1291 element_count=144
+2026-05-11 13:42:50 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:42:50 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:43:48 [info     ] osm_query_ok                   elapsed_ms=2418 element_count=34
+2026-05-11 13:44:00 [info     ] osm_query_ok                   elapsed_ms=427 element_count=2
+2026-05-11 13:44:11 [info     ] osm_query_ok                   elapsed_ms=1472 element_count=143
+2026-05-11 13:44:29 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:44:29 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:45:30 [info     ] osm_query_ok                   elapsed_ms=2148 element_count=15
+2026-05-11 13:45:46 [info     ] osm_query_ok                   elapsed_ms=6422 element_count=1
+2026-05-11 13:46:04 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 13:46:04 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 13:47:02 [info     ] osm_query_ok                   elapsed_ms=3122 element_count=86
+2026-05-11 13:58:16 [info     ] osm_query_ok                   elapsed_ms=3118 element_count=39
+2026-05-11 13:58:28 [info     ] osm_query_ok                   elapsed_ms=1021 element_count=10
+2026-05-11 13:58:41 [info     ] osm_query_ok                   elapsed_ms=2798 element_count=36
+2026-05-11 14:02:47 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-11 14:02:47 [warning  ] fix04_query_retry              attempt=1 status=0 wait_s=45
+2026-05-11 14:08:29 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-11 14:08:29 [warning  ] fix04_query_retry              attempt=2 status=0 wait_s=90
+2026-05-11 14:10:12 [info     ] osm_query_ok                   elapsed_ms=4602 element_count=40
+[11:10:25] processed 260/361 | changes=254 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 14:11:53 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:11:53 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:12:55 [info     ] osm_query_ok                   elapsed_ms=4685 element_count=4
+2026-05-11 14:13:12 [info     ] osm_query_ok                   elapsed_ms=3427 element_count=143
+2026-05-11 14:13:27 [info     ] osm_query_ok                   elapsed_ms=1929 element_count=40
+2026-05-11 14:13:47 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:13:47 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:14:48 [info     ] osm_query_ok                   elapsed_ms=2270 element_count=2
+2026-05-11 14:15:11 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:15:11 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:16:09 [info     ] osm_query_ok                   elapsed_ms=1134 element_count=149
+2026-05-11 14:16:20 [info     ] osm_query_ok                   elapsed_ms=1991 element_count=45
+2026-05-11 14:16:32 [info     ] osm_query_ok                   elapsed_ms=2833 element_count=0
+2026-05-11 14:16:50 [info     ] osm_query_ok                   elapsed_ms=3338 element_count=31
+2026-05-11 14:17:07 [info     ] osm_query_ok                   elapsed_ms=2572 element_count=18
+2026-05-11 14:17:19 [info     ] osm_query_ok                   elapsed_ms=1046 element_count=7
+2026-05-11 14:17:34 [info     ] osm_query_ok                   elapsed_ms=1263 element_count=66
+2026-05-11 14:17:51 [info     ] osm_query_ok                   elapsed_ms=6109 element_count=41
+2026-05-11 14:18:11 [info     ] osm_query_ok                   elapsed_ms=5032 element_count=1
+2026-05-11 14:18:33 [info     ] osm_query_ok                   elapsed_ms=8649 element_count=147
+2026-05-11 14:18:49 [info     ] osm_query_ok                   elapsed_ms=2530 element_count=19
+2026-05-11 14:19:15 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:19:15 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:20:16 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:20:16 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 14:22:03 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:22:03 [warning  ] fix04_query_retry              attempt=3 status=504 wait_s=180
+2026-05-11 14:25:13 [info     ] osm_query_ok                   elapsed_ms=506 element_count=9
+2026-05-11 14:25:33 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:25:33 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:26:35 [info     ] osm_query_ok                   elapsed_ms=6079 element_count=100
+2026-05-11 14:26:51 [info     ] osm_query_ok                   elapsed_ms=1669 element_count=46
+2026-05-11 14:27:14 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:27:14 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:28:10 [info     ] osm_query_ok                   elapsed_ms=777 element_count=16
+2026-05-11 14:28:27 [info     ] osm_query_ok                   elapsed_ms=2398 element_count=270
+2026-05-11 14:28:45 [info     ] osm_query_ok                   elapsed_ms=6073 element_count=19
+2026-05-11 14:28:59 [info     ] osm_query_ok                   elapsed_ms=1066 element_count=1
+2026-05-11 14:29:22 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:29:22 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:30:21 [info     ] osm_query_ok                   elapsed_ms=2135 element_count=144
+2026-05-11 14:30:33 [info     ] osm_query_ok                   elapsed_ms=2313 element_count=34
+2026-05-11 14:30:52 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:30:52 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:31:51 [info     ] osm_query_ok                   elapsed_ms=777 element_count=1
+2026-05-11 14:32:10 [info     ] osm_query_ok                   elapsed_ms=5432 element_count=59
+2026-05-11 14:32:32 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:32:32 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:33:36 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:33:36 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 14:35:21 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:35:21 [warning  ] fix04_query_retry              attempt=3 status=504 wait_s=180
+2026-05-11 14:38:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:38:41 [warning  ] fix04_query_retry              attempt=4 status=504 wait_s=180
+2026-05-11 14:41:52 [info     ] osm_query_ok                   elapsed_ms=1642 element_count=29
+2026-05-11 14:42:08 [info     ] osm_query_ok                   elapsed_ms=2389 element_count=3
+2026-05-11 14:42:32 [info     ] osm_query_ok                   elapsed_ms=9155 element_count=56
+2026-05-11 14:42:48 [info     ] osm_query_ok                   elapsed_ms=5173 element_count=15
+[11:42:57] processed 270/361 | changes=264 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 14:42:57 [info     ] osm_query_ok                   elapsed_ms=400 element_count=0
+2026-05-11 14:43:09 [info     ] osm_query_ok                   elapsed_ms=2375 element_count=55
+2026-05-11 14:43:22 [info     ] osm_query_ok                   elapsed_ms=1598 element_count=9
+2026-05-11 14:43:32 [info     ] osm_query_ok                   elapsed_ms=407 element_count=0
+2026-05-11 14:43:42 [info     ] osm_query_ok                   elapsed_ms=762 element_count=55
+2026-05-11 14:44:04 [info     ] osm_query_ok                   elapsed_ms=7138 element_count=9
+2026-05-11 14:44:18 [info     ] osm_query_ok                   elapsed_ms=464 element_count=1
+2026-05-11 14:44:38 [info     ] osm_query_ok                   elapsed_ms=5001 element_count=105
+2026-05-11 14:44:50 [info     ] osm_query_ok                   elapsed_ms=2144 element_count=42
+2026-05-11 14:45:04 [info     ] osm_query_ok                   elapsed_ms=448 element_count=0
+2026-05-11 14:45:20 [info     ] osm_query_ok                   elapsed_ms=1307 element_count=27
+2026-05-11 14:45:36 [info     ] osm_query_ok                   elapsed_ms=2173 element_count=15
+2026-05-11 14:45:59 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:45:59 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:46:55 [info     ] osm_query_ok                   elapsed_ms=1039 element_count=0
+2026-05-11 14:47:10 [info     ] osm_query_ok                   elapsed_ms=5800 element_count=62
+2026-05-11 14:47:30 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:47:30 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:48:37 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:48:37 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 14:50:23 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:50:23 [warning  ] fix04_query_retry              attempt=3 status=504 wait_s=180
+2026-05-11 14:53:42 [info     ] osm_query_ok                   elapsed_ms=8562 element_count=29
+2026-05-11 14:53:53 [info     ] osm_query_ok                   elapsed_ms=728 element_count=0
+2026-05-11 14:54:07 [info     ] osm_query_ok                   elapsed_ms=2241 element_count=82
+2026-05-11 14:54:32 [info     ] osm_query_ok                   elapsed_ms=13635 element_count=4
+2026-05-11 14:54:56 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:54:56 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:55:52 [info     ] osm_query_ok                   elapsed_ms=1556 element_count=1
+2026-05-11 14:56:09 [info     ] osm_query_ok                   elapsed_ms=3180 element_count=151
+2026-05-11 14:56:21 [info     ] osm_query_ok                   elapsed_ms=1704 element_count=17
+2026-05-11 14:56:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:56:41 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 14:57:50 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 14:57:50 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 14:59:29 [info     ] osm_query_ok                   elapsed_ms=3594 element_count=6
+2026-05-11 14:59:43 [info     ] osm_query_ok                   elapsed_ms=1432 element_count=94
+2026-05-11 14:59:58 [info     ] osm_query_ok                   elapsed_ms=1433 element_count=28
+2026-05-11 15:00:16 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:00:16 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:01:19 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:01:19 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 15:02:59 [info     ] osm_query_ok                   elapsed_ms=1768 element_count=4
+2026-05-11 15:03:14 [info     ] osm_query_ok                   elapsed_ms=4465 element_count=140
+2026-05-11 15:03:32 [info     ] osm_query_ok                   elapsed_ms=3754 element_count=28
+2026-05-11 15:03:44 [info     ] osm_query_ok                   elapsed_ms=413 element_count=3
+2026-05-11 15:03:54 [info     ] osm_query_ok                   elapsed_ms=832 element_count=60
+2026-05-11 15:04:07 [info     ] osm_query_ok                   elapsed_ms=1513 element_count=18
+[12:04:19] processed 280/361 | changes=274 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 15:04:20 [info     ] osm_query_ok                   elapsed_ms=1040 element_count=7
+2026-05-11 15:04:32 [info     ] osm_query_ok                   elapsed_ms=2139 element_count=99
+2026-05-11 15:04:49 [info     ] osm_query_ok                   elapsed_ms=1916 element_count=22
+2026-05-11 15:05:01 [info     ] osm_query_ok                   elapsed_ms=2450 element_count=0
+2026-05-11 15:05:18 [info     ] osm_query_ok                   elapsed_ms=7959 element_count=48
+2026-05-11 15:05:40 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:05:40 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:06:46 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:06:46 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 15:08:28 [info     ] osm_query_ok                   elapsed_ms=1617 element_count=18
+2026-05-11 15:08:42 [info     ] osm_query_ok                   elapsed_ms=437 element_count=0
+2026-05-11 15:08:58 [info     ] osm_query_ok                   elapsed_ms=799 element_count=33
+2026-05-11 15:09:13 [info     ] osm_query_ok                   elapsed_ms=1378 element_count=16
+2026-05-11 15:09:28 [info     ] osm_query_ok                   elapsed_ms=4673 element_count=0
+2026-05-11 15:09:47 [info     ] osm_query_ok                   elapsed_ms=6623 element_count=76
+2026-05-11 15:10:00 [info     ] osm_query_ok                   elapsed_ms=1646 element_count=17
+2026-05-11 15:10:21 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:10:21 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:11:18 [info     ] osm_query_ok                   elapsed_ms=510 element_count=11
+2026-05-11 15:11:35 [info     ] osm_query_ok                   elapsed_ms=2080 element_count=139
+2026-05-11 15:11:46 [info     ] osm_query_ok                   elapsed_ms=1814 element_count=95
+2026-05-11 15:12:00 [info     ] osm_query_ok                   elapsed_ms=1430 element_count=15
+2026-05-11 15:12:16 [info     ] osm_query_ok                   elapsed_ms=1474 element_count=764
+2026-05-11 15:12:32 [info     ] osm_query_ok                   elapsed_ms=1758 element_count=223
+2026-05-11 15:12:48 [info     ] osm_query_ok                   elapsed_ms=3212 element_count=0
+2026-05-11 15:13:02 [info     ] osm_query_ok                   elapsed_ms=930 element_count=48
+2026-05-11 15:13:14 [info     ] osm_query_ok                   elapsed_ms=2757 element_count=18
+2026-05-11 15:13:29 [info     ] osm_query_ok                   elapsed_ms=613 element_count=8
+2026-05-11 15:13:45 [info     ] osm_query_ok                   elapsed_ms=1465 element_count=139
+2026-05-11 15:14:06 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:14:06 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:15:04 [info     ] osm_query_ok                   elapsed_ms=2548 element_count=58
+2026-05-11 15:15:20 [info     ] osm_query_ok                   elapsed_ms=1118 element_count=3
+2026-05-11 15:15:36 [info     ] osm_query_ok                   elapsed_ms=3164 element_count=38
+2026-05-11 15:15:59 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:15:59 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:17:10 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:17:10 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 15:22:34 [info     ] osm_query_ok                   elapsed_ms=8616 element_count=16
+2026-05-11 15:22:50 [info     ] osm_query_ok                   elapsed_ms=1942 element_count=1
+2026-05-11 15:23:07 [info     ] osm_query_ok                   elapsed_ms=4334 element_count=149
+2026-05-11 15:23:18 [info     ] osm_query_ok                   elapsed_ms=1686 element_count=18
+[12:23:30] processed 290/361 | changes=284 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 15:23:39 [info     ] osm_query_ok                   elapsed_ms=9087 element_count=5
+2026-05-11 15:24:02 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:24:02 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:24:59 [info     ] osm_query_ok                   elapsed_ms=1006 element_count=78
+2026-05-11 15:25:14 [info     ] osm_query_ok                   elapsed_ms=2697 element_count=23
+2026-05-11 15:25:25 [info     ] osm_query_ok                   elapsed_ms=430 element_count=47
+2026-05-11 15:25:41 [info     ] osm_query_ok                   elapsed_ms=1493 element_count=157
+2026-05-11 15:26:06 [info     ] osm_query_ok                   elapsed_ms=14392 element_count=40
+2026-05-11 15:26:19 [info     ] osm_query_ok                   elapsed_ms=539 element_count=1
+2026-05-11 15:26:36 [info     ] osm_query_ok                   elapsed_ms=3284 element_count=119
+2026-05-11 15:26:50 [info     ] osm_query_ok                   elapsed_ms=1872 element_count=46
+2026-05-11 15:27:07 [info     ] osm_query_ok                   elapsed_ms=5615 element_count=1
+2026-05-11 15:27:22 [info     ] osm_query_ok                   elapsed_ms=2986 element_count=167
+2026-05-11 15:27:35 [info     ] osm_query_ok                   elapsed_ms=2928 element_count=19
+2026-05-11 15:27:47 [info     ] osm_query_ok                   elapsed_ms=438 element_count=0
+2026-05-11 15:28:00 [info     ] osm_query_ok                   elapsed_ms=962 element_count=48
+2026-05-11 15:28:16 [info     ] osm_query_ok                   elapsed_ms=1697 element_count=33
+2026-05-11 15:28:32 [info     ] osm_query_ok                   elapsed_ms=2173 element_count=12
+2026-05-11 15:28:44 [info     ] osm_query_ok                   elapsed_ms=2432 element_count=249
+2026-05-11 15:29:01 [info     ] osm_query_ok                   elapsed_ms=3550 element_count=17
+2026-05-11 15:29:15 [info     ] osm_query_ok                   elapsed_ms=825 element_count=0
+2026-05-11 15:29:30 [info     ] osm_query_ok                   elapsed_ms=1582 element_count=59
+2026-05-11 15:29:45 [info     ] osm_query_ok                   elapsed_ms=1659 element_count=22
+2026-05-11 15:29:56 [info     ] osm_query_ok                   elapsed_ms=1109 element_count=6
+2026-05-11 15:30:18 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:30:18 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:31:15 [info     ] osm_query_ok                   elapsed_ms=1091 element_count=46
+2026-05-11 15:31:31 [info     ] osm_query_ok                   elapsed_ms=3106 element_count=52
+2026-05-11 15:31:49 [info     ] osm_query_ok                   elapsed_ms=7403 element_count=0
+2026-05-11 15:32:05 [info     ] osm_query_ok                   elapsed_ms=2479 element_count=43
+2026-05-11 15:32:25 [info     ] osm_query_ok                   elapsed_ms=9578 element_count=25
+2026-05-11 15:32:38 [info     ] osm_query_ok                   elapsed_ms=1718 element_count=1
+2026-05-11 15:32:51 [info     ] osm_query_ok                   elapsed_ms=2874 element_count=143
+2026-05-11 15:33:14 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:33:14 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:34:18 [info     ] osm_query_ok                   elapsed_ms=6388 element_count=27
+[12:34:28] processed 300/361 | changes=294 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 15:34:36 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:34:36 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:35:46 [info     ] osm_query_ok                   elapsed_ms=10564 element_count=11
+2026-05-11 15:36:05 [info     ] osm_query_ok                   elapsed_ms=7849 element_count=934
+2026-05-11 15:36:29 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:36:29 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:37:38 [info     ] osm_query_ok                   elapsed_ms=11536 element_count=306
+2026-05-11 15:37:52 [info     ] osm_query_ok                   elapsed_ms=2346 element_count=0
+2026-05-11 15:38:13 [info     ] osm_query_ok                   elapsed_ms=8225 element_count=134
+2026-05-11 15:38:24 [info     ] osm_query_ok                   elapsed_ms=1729 element_count=28
+2026-05-11 15:38:47 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:38:47 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:39:44 [info     ] osm_query_ok                   elapsed_ms=371 element_count=1
+2026-05-11 15:40:03 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:40:03 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:41:03 [info     ] osm_query_ok                   elapsed_ms=1964 element_count=149
+2026-05-11 15:41:26 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:41:26 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:42:25 [info     ] osm_query_ok                   elapsed_ms=2214 element_count=18
+2026-05-11 15:42:42 [info     ] osm_query_ok                   elapsed_ms=2606 element_count=3
+2026-05-11 15:44:05 [info     ] osm_query_ok                   elapsed_ms=2926 element_count=125
+2026-05-11 15:44:21 [info     ] osm_query_ok                   elapsed_ms=5011 element_count=46
+2026-05-11 15:44:38 [info     ] osm_query_ok                   elapsed_ms=6084 element_count=54
+2026-05-11 15:44:53 [info     ] osm_query_ok                   elapsed_ms=1627 element_count=153
+2026-05-11 15:45:08 [info     ] osm_query_ok                   elapsed_ms=2023 element_count=56
+2026-05-11 15:45:32 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:45:32 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:46:29 [info     ] osm_query_ok                   elapsed_ms=955 element_count=5
+2026-05-11 15:46:49 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:46:49 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:47:49 [info     ] osm_query_ok                   elapsed_ms=2523 element_count=87
+2026-05-11 15:48:02 [info     ] osm_query_ok                   elapsed_ms=2743 element_count=40
+2026-05-11 15:48:13 [info     ] osm_query_ok                   elapsed_ms=877 element_count=58
+2026-05-11 15:48:36 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:48:36 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:49:35 [info     ] osm_query_ok                   elapsed_ms=1039 element_count=79
+2026-05-11 15:49:57 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:49:57 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:50:58 [info     ] osm_query_ok                   elapsed_ms=3053 element_count=90
+2026-05-11 15:51:10 [info     ] osm_query_ok                   elapsed_ms=431 element_count=1
+2026-05-11 15:51:21 [info     ] osm_query_ok                   elapsed_ms=829 element_count=15
+2026-05-11 15:51:35 [info     ] osm_query_ok                   elapsed_ms=1645 element_count=10
+2026-05-11 15:51:48 [info     ] osm_query_ok                   elapsed_ms=2928 element_count=45
+2026-05-11 15:52:04 [info     ] osm_query_ok                   elapsed_ms=1705 element_count=73
+2026-05-11 15:52:26 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:52:26 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:53:25 [info     ] osm_query_ok                   elapsed_ms=2587 element_count=77
+2026-05-11 15:53:45 [info     ] osm_query_ok                   elapsed_ms=9524 element_count=56
+2026-05-11 15:53:59 [info     ] osm_query_ok                   elapsed_ms=4321 element_count=83
+2026-05-11 15:54:09 [info     ] osm_query_ok                   elapsed_ms=1704 element_count=88
+[12:54:18] processed 310/361 | changes=304 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 15:54:23 [info     ] osm_query_ok                   elapsed_ms=4182 element_count=1
+2026-05-11 15:54:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:54:41 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 15:55:48 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:55:48 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 15:57:35 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 15:57:35 [warning  ] fix04_query_retry              attempt=3 status=504 wait_s=180
+2026-05-11 16:00:56 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:00:56 [warning  ] fix04_query_retry              attempt=4 status=504 wait_s=180
+2026-05-11 16:04:15 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:04:15 [warning  ] fix04_query_retry              attempt=5 status=504 wait_s=180
+2026-05-11 16:07:29 [info     ] osm_query_ok                   elapsed_ms=2693 element_count=86
+2026-05-11 16:07:45 [info     ] osm_query_ok                   elapsed_ms=6111 element_count=30
+2026-05-11 16:08:07 [info     ] osm_query_ok                   elapsed_ms=7321 element_count=1
+2026-05-11 16:08:24 [info     ] osm_query_ok                   elapsed_ms=4139 element_count=86
+2026-05-11 16:08:49 [info     ] osm_query_ok                   elapsed_ms=14207 element_count=26
+2026-05-11 16:09:11 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:09:11 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:10:12 [info     ] osm_query_ok                   elapsed_ms=2708 element_count=9
+2026-05-11 16:10:26 [info     ] osm_query_ok                   elapsed_ms=1823 element_count=217
+2026-05-11 16:10:42 [info     ] osm_query_ok                   elapsed_ms=1925 element_count=14
+2026-05-11 16:10:55 [info     ] osm_query_ok                   elapsed_ms=1714 element_count=9
+2026-05-11 16:11:12 [info     ] osm_query_ok                   elapsed_ms=3497 element_count=66
+2026-05-11 16:11:28 [info     ] osm_query_ok                   elapsed_ms=3917 element_count=30
+2026-05-11 16:11:44 [info     ] osm_query_ok                   elapsed_ms=2362 element_count=10
+2026-05-11 16:12:00 [info     ] osm_query_ok                   elapsed_ms=1614 element_count=167
+2026-05-11 16:12:21 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:12:21 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:13:25 [info     ] osm_query_ok                   elapsed_ms=5406 element_count=81
+2026-05-11 16:13:41 [info     ] osm_query_ok                   elapsed_ms=7080 element_count=0
+2026-05-11 16:14:07 [info     ] osm_query_ok                   elapsed_ms=10535 element_count=20
+2026-05-11 16:14:23 [info     ] osm_query_ok                   elapsed_ms=1503 element_count=22
+2026-05-11 16:14:36 [info     ] osm_query_ok                   elapsed_ms=708 element_count=7
+2026-05-11 16:14:47 [info     ] osm_query_ok                   elapsed_ms=1766 element_count=103
+2026-05-11 16:15:06 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:15:06 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:16:07 [info     ] osm_query_ok                   elapsed_ms=3055 element_count=37
+2026-05-11 16:16:20 [info     ] osm_query_ok                   elapsed_ms=2649 element_count=4
+2026-05-11 16:16:38 [info     ] osm_query_ok                   elapsed_ms=3690 element_count=80
+2026-05-11 16:16:53 [info     ] osm_query_ok                   elapsed_ms=2424 element_count=28
+2026-05-11 16:17:08 [info     ] osm_query_ok                   elapsed_ms=390 element_count=0
+2026-05-11 16:17:22 [info     ] osm_query_ok                   elapsed_ms=1132 element_count=22
+2026-05-11 16:17:41 [info     ] osm_query_ok                   elapsed_ms=5809 element_count=18
+2026-05-11 16:17:55 [info     ] osm_query_ok                   elapsed_ms=771 element_count=0
+2026-05-11 16:18:13 [info     ] osm_query_ok                   elapsed_ms=3919 element_count=63
+2026-05-11 16:18:29 [info     ] osm_query_ok                   elapsed_ms=3082 element_count=21
+[13:18:43] processed 320/361 | changes=314 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 16:18:47 [info     ] osm_query_ok                   elapsed_ms=3366 element_count=0
+2026-05-11 16:19:10 [info     ] osm_query_ok                   elapsed_ms=8111 element_count=92
+2026-05-11 16:19:22 [info     ] osm_query_ok                   elapsed_ms=1670 element_count=5
+2026-05-11 16:19:35 [info     ] osm_query_ok                   elapsed_ms=2093 element_count=4
+2026-05-11 16:19:51 [info     ] osm_query_ok                   elapsed_ms=1187 element_count=42
+2026-05-11 16:20:16 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:20:16 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:21:16 [info     ] osm_query_ok                   elapsed_ms=5077 element_count=31
+2026-05-11 16:21:28 [info     ] osm_query_ok                   elapsed_ms=480 element_count=5
+2026-05-11 16:21:47 [info     ] osm_query_ok                   elapsed_ms=9466 element_count=838
+2026-05-11 16:22:02 [info     ] osm_query_ok                   elapsed_ms=1910 element_count=102
+2026-05-11 16:22:17 [info     ] osm_query_ok                   elapsed_ms=799 element_count=0
+2026-05-11 16:22:32 [info     ] osm_query_ok                   elapsed_ms=801 element_count=75
+2026-05-11 16:22:46 [info     ] osm_query_ok                   elapsed_ms=4691 element_count=28
+2026-05-11 16:22:59 [info     ] osm_query_ok                   elapsed_ms=699 element_count=1
+2026-05-11 16:23:12 [info     ] osm_query_ok                   elapsed_ms=1646 element_count=48
+2026-05-11 16:23:23 [info     ] osm_query_ok                   elapsed_ms=2168 element_count=12
+2026-05-11 16:23:45 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:23:45 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:24:52 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:24:52 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 16:26:32 [info     ] osm_query_ok                   elapsed_ms=1377 element_count=5
+2026-05-11 16:26:46 [info     ] osm_query_ok                   elapsed_ms=3409 element_count=90
+2026-05-11 16:27:02 [info     ] osm_query_ok                   elapsed_ms=1582 element_count=20
+2026-05-11 16:27:15 [info     ] osm_query_ok                   elapsed_ms=640 element_count=7
+2026-05-11 16:27:26 [info     ] osm_query_ok                   elapsed_ms=1936 element_count=133
+2026-05-11 16:27:44 [info     ] osm_query_ok                   elapsed_ms=2869 element_count=45
+2026-05-11 16:28:09 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:28:09 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 16:32:42 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 16:32:42 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 16:43:17 [warning  ] osm_query_error                error='[Errno 8] nodename nor servname provided, or not known'
+2026-05-11 16:43:17 [warning  ] fix04_query_retry              attempt=3 status=0 wait_s=180
+2026-05-11 17:56:47 [info     ] osm_query_ok                   elapsed_ms=3755 element_count=2
+2026-05-11 17:57:10 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 17:57:10 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 17:58:13 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 17:58:13 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 17:59:54 [info     ] osm_query_ok                   elapsed_ms=1795 element_count=36
+2026-05-11 18:00:06 [info     ] osm_query_ok                   elapsed_ms=3580 element_count=10
+2026-05-11 18:00:24 [info     ] osm_query_ok                   elapsed_ms=8046 element_count=6
+2026-05-11 18:00:53 [info     ] osm_query_ok                   elapsed_ms=14093 element_count=69
+2026-05-11 18:01:11 [info     ] osm_query_ok                   elapsed_ms=4826 element_count=33
+2026-05-11 18:01:26 [info     ] osm_query_ok                   elapsed_ms=921 element_count=0
+2026-05-11 18:01:42 [info     ] osm_query_ok                   elapsed_ms=2386 element_count=134
+2026-05-11 18:01:54 [info     ] osm_query_ok                   elapsed_ms=2415 element_count=28
+[15:02:04] processed 330/361 | changes=324 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 18:02:13 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:02:13 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:03:12 [info     ] osm_query_ok                   elapsed_ms=1254 element_count=1
+2026-05-11 18:03:29 [info     ] osm_query_ok                   elapsed_ms=3039 element_count=146
+2026-05-11 18:03:51 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:03:51 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:04:53 [info     ] osm_query_ok                   elapsed_ms=1736 element_count=12
+2026-05-11 18:05:03 [info     ] osm_query_ok                   elapsed_ms=466 element_count=1
+2026-05-11 18:05:16 [info     ] osm_query_ok                   elapsed_ms=978 element_count=35
+2026-05-11 18:05:39 [info     ] osm_query_ok                   elapsed_ms=8771 element_count=8
+2026-05-11 18:05:59 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:05:59 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:07:07 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:07:07 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 18:08:54 [info     ] osm_query_ok                   elapsed_ms=4889 element_count=10
+2026-05-11 18:09:13 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:09:13 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:10:16 [info     ] osm_query_ok                   elapsed_ms=1742 element_count=39
+2026-05-11 18:10:35 [info     ] osm_query_ok                   elapsed_ms=6380 element_count=46
+2026-05-11 18:10:54 [info     ] osm_query_ok                   elapsed_ms=7482 element_count=0
+2026-05-11 18:11:05 [info     ] osm_query_ok                   elapsed_ms=1002 element_count=64
+2026-05-11 18:11:17 [info     ] osm_query_ok                   elapsed_ms=1918 element_count=31
+2026-05-11 18:11:33 [info     ] osm_query_ok                   elapsed_ms=2152 element_count=0
+2026-05-11 18:11:51 [info     ] osm_query_ok                   elapsed_ms=4141 element_count=62
+2026-05-11 18:12:07 [info     ] osm_query_ok                   elapsed_ms=3518 element_count=21
+2026-05-11 18:12:19 [info     ] osm_query_ok                   elapsed_ms=1038 element_count=0
+2026-05-11 18:12:32 [info     ] osm_query_ok                   elapsed_ms=1628 element_count=73
+2026-05-11 18:12:52 [info     ] osm_query_ok                   elapsed_ms=9443 element_count=23
+2026-05-11 18:13:03 [info     ] osm_query_ok                   elapsed_ms=1457 element_count=2
+2026-05-11 18:13:14 [info     ] osm_query_ok                   elapsed_ms=1183 element_count=88
+2026-05-11 18:13:32 [info     ] osm_query_ok                   elapsed_ms=4102 element_count=20
+2026-05-11 18:13:45 [info     ] osm_query_ok                   elapsed_ms=964 element_count=0
+2026-05-11 18:14:02 [info     ] osm_query_ok                   elapsed_ms=3503 element_count=746
+2026-05-11 18:14:22 [info     ] osm_query_ok                   elapsed_ms=6128 element_count=60
+2026-05-11 18:14:35 [info     ] osm_query_ok                   elapsed_ms=1116 element_count=6
+2026-05-11 18:15:02 [info     ] osm_query_ok                   elapsed_ms=11756 element_count=710
+2026-05-11 18:15:22 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:15:22 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:16:19 [info     ] osm_query_ok                   elapsed_ms=1846 element_count=199
+2026-05-11 18:16:42 [info     ] osm_query_ok                   elapsed_ms=8560 element_count=0
+2026-05-11 18:17:08 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:17:08 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:18:06 [info     ] osm_query_ok                   elapsed_ms=1943 element_count=443
+2026-05-11 18:18:23 [info     ] osm_query_ok                   elapsed_ms=2932 element_count=31
+[15:18:33] processed 340/361 | changes=334 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 18:18:41 [info     ] osm_query_ok                   elapsed_ms=7651 element_count=124
+2026-05-11 18:18:54 [info     ] osm_query_ok                   elapsed_ms=3738 element_count=2859
+2026-05-11 18:19:12 [info     ] osm_query_ok                   elapsed_ms=2404 element_count=330
+2026-05-11 18:19:24 [info     ] osm_query_ok                   elapsed_ms=574 element_count=2
+2026-05-11 18:19:36 [info     ] osm_query_ok                   elapsed_ms=3009 element_count=964
+2026-05-11 18:19:49 [info     ] osm_query_ok                   elapsed_ms=2738 element_count=89
+2026-05-11 18:20:07 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:20:07 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:21:14 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:21:14 [warning  ] fix04_query_retry              attempt=2 status=504 wait_s=90
+2026-05-11 18:22:55 [info     ] osm_query_ok                   elapsed_ms=658 element_count=3
+2026-05-11 18:23:11 [info     ] osm_query_ok                   elapsed_ms=4878 element_count=992
+2026-05-11 18:23:31 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:23:31 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:24:30 [info     ] osm_query_ok                   elapsed_ms=4178 element_count=79
+2026-05-11 18:24:46 [info     ] osm_query_ok                   elapsed_ms=2423 element_count=4
+2026-05-11 18:25:04 [info     ] osm_query_ok                   elapsed_ms=3269 element_count=1027
+2026-05-11 18:25:22 [info     ] osm_query_ok                   elapsed_ms=5942 element_count=29
+2026-05-11 18:25:40 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:25:40 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:26:38 [info     ] osm_query_ok                   elapsed_ms=710 element_count=0
+2026-05-11 18:26:58 [info     ] osm_query_ok                   elapsed_ms=5708 element_count=1021
+2026-05-11 18:27:13 [info     ] osm_query_ok                   elapsed_ms=2437 element_count=35
+2026-05-11 18:27:26 [info     ] osm_query_ok                   elapsed_ms=1094 element_count=1
+2026-05-11 18:27:46 [info     ] osm_query_ok                   elapsed_ms=8496 element_count=1250
+2026-05-11 18:28:02 [info     ] osm_query_ok                   elapsed_ms=2298 element_count=36
+2026-05-11 18:28:14 [info     ] osm_query_ok                   elapsed_ms=697 element_count=2
+2026-05-11 18:28:31 [info     ] osm_query_ok                   elapsed_ms=6794 element_count=297
+2026-05-11 18:28:45 [info     ] osm_query_ok                   elapsed_ms=4011 element_count=140
+2026-05-11 18:29:06 [info     ] osm_query_ok                   elapsed_ms=7606 element_count=3
+2026-05-11 18:29:20 [info     ] osm_query_ok                   elapsed_ms=2551 element_count=581
+2026-05-11 18:29:36 [info     ] osm_query_ok                   elapsed_ms=2813 element_count=34
+2026-05-11 18:29:58 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:29:58 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:30:59 [info     ] osm_query_ok                   elapsed_ms=2223 element_count=2
+2026-05-11 18:31:21 [info     ] osm_query_ok                   elapsed_ms=11745 element_count=1513
+2026-05-11 18:31:38 [info     ] osm_query_ok                   elapsed_ms=1843 element_count=33
+2026-05-11 18:31:56 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:31:56 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:32:51 [info     ] osm_query_ok                   elapsed_ms=922 element_count=6
+2026-05-11 18:33:04 [info     ] osm_query_ok                   elapsed_ms=2213 element_count=1460
+2026-05-11 18:33:19 [info     ] osm_query_ok                   elapsed_ms=2455 element_count=212
+[15:33:32] processed 350/361 | changes=344 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 18:33:33 [info     ] osm_query_ok                   elapsed_ms=695 element_count=4
+2026-05-11 18:33:46 [info     ] osm_query_ok                   elapsed_ms=2466 element_count=956
+2026-05-11 18:34:00 [info     ] osm_query_ok                   elapsed_ms=5387 element_count=32
+2026-05-11 18:34:13 [info     ] osm_query_ok                   elapsed_ms=2090 element_count=7
+2026-05-11 18:34:27 [info     ] osm_query_ok                   elapsed_ms=2379 element_count=1709
+2026-05-11 18:34:44 [info     ] osm_query_ok                   elapsed_ms=6939 element_count=25
+2026-05-11 18:35:03 [info     ] osm_query_ok                   elapsed_ms=4787 element_count=22
+2026-05-11 18:35:32 [info     ] osm_query_ok                   elapsed_ms=14721 element_count=2745
+2026-05-11 18:35:48 [info     ] osm_query_ok                   elapsed_ms=4009 element_count=97
+2026-05-11 18:36:10 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:36:10 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:37:08 [info     ] osm_query_ok                   elapsed_ms=1329 element_count=2
+2026-05-11 18:37:30 [info     ] osm_query_ok                   elapsed_ms=7885 element_count=1611
+2026-05-11 18:37:45 [info     ] osm_query_ok                   elapsed_ms=2766 element_count=36
+2026-05-11 18:38:07 [info     ] osm_query_ok                   elapsed_ms=10210 element_count=0
+2026-05-11 18:38:30 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:38:30 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:39:30 [info     ] osm_query_ok                   elapsed_ms=2734 element_count=766
+2026-05-11 18:39:46 [info     ] osm_query_ok                   elapsed_ms=4039 element_count=39
+2026-05-11 18:40:00 [info     ] osm_query_ok                   elapsed_ms=1323 element_count=0
+2026-05-11 18:40:16 [info     ] osm_query_ok                   elapsed_ms=4781 element_count=785
+2026-05-11 18:40:33 [info     ] osm_query_ok                   elapsed_ms=2589 element_count=37
+2026-05-11 18:40:44 [info     ] osm_query_ok                   elapsed_ms=1313 element_count=10
+2026-05-11 18:40:56 [info     ] osm_query_ok                   elapsed_ms=2112 element_count=1973
+2026-05-11 18:41:12 [info     ] osm_query_ok                   elapsed_ms=3013 element_count=26
+2026-05-11 18:41:34 [info     ] osm_query_ok                   elapsed_ms=7429 element_count=3
+2026-05-11 18:41:49 [info     ] osm_query_ok                   elapsed_ms=1885 element_count=117
+2026-05-11 18:42:06 [info     ] osm_query_ok                   elapsed_ms=2738 element_count=29
+2026-05-11 18:42:17 [info     ] osm_query_ok                   elapsed_ms=2056 element_count=13
+2026-05-11 18:42:38 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:42:38 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:43:40 [info     ] osm_query_ok                   elapsed_ms=2772 element_count=119
+2026-05-11 18:43:59 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:43:59 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:45:02 [info     ] osm_query_ok                   elapsed_ms=1974 element_count=86
+2026-05-11 18:45:21 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:45:21 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:46:15 [info     ] osm_query_ok                   elapsed_ms=580 element_count=15
+2026-05-11 18:46:29 [info     ] osm_query_ok                   elapsed_ms=1498 element_count=119
+2026-05-11 18:46:49 [info     ] osm_query_ok                   elapsed_ms=5512 element_count=88
+[15:46:59] processed 360/361 | changes=354 | in_sync=6 | errors mil=0 pwr=0 tx=0
+2026-05-11 18:47:08 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-11 18:47:08 [warning  ] fix04_query_retry              attempt=1 status=504 wait_s=45
+2026-05-11 18:48:08 [info     ] osm_query_ok                   elapsed_ms=1143 element_count=13
+2026-05-11 18:48:24 [info     ] osm_query_ok                   elapsed_ms=1295 element_count=114
+2026-05-11 18:48:39 [info     ] osm_query_ok                   elapsed_ms=2546 element_count=86
+[15:48:50] processed 361/361 | changes=355 | in_sync=6 | errors mil=0 pwr=0 tx=0
+
+[15:48:50] === Preview complete ===
+[15:48:50] changes=355 in_sync=6
+[15:48:50]   errors military/HI-06: 0
+[15:48:50]   errors transmitter/HI-07: 0
+[15:48:50]   errors power/NS-02: 0
+[15:48:50] JSONL:  logs/hi06_fix04_preview.jsonl
+[15:48:50] Report: audit/post_processing/hi06_fix04_preview/hi06_fix04_preview_report.md

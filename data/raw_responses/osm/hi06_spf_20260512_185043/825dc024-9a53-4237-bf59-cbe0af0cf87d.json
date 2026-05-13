@@ -1,0 +1,1152 @@
+{
+  "meta": {
+    "site_id": "825dc024-9a53-4237-bf59-cbe0af0cf87d",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:42:20.793964+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.039047,24.287572);\n  way[\"military\"](around:25000,45.039047,24.287572);\n  relation[\"military\"](around:25000,45.039047,24.287572);\n  node[\"landuse\"=\"military\"](around:25000,45.039047,24.287572);\n  way[\"landuse\"=\"military\"](around:25000,45.039047,24.287572);\n  relation[\"landuse\"=\"military\"](around:25000,45.039047,24.287572);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.039047,24.287572);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.039047,24.287572);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.039047,24.287572);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.039047,24.287572);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.039047,24.287572);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.039047,24.287572);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1108,
+        "element_count": 87,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:40:28Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 6357510372,
+              "lat": 44.9588063,
+              "lon": 24.2365759,
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint",
+                "name": "Post de pază"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9455771934,
+              "lat": 45.1999712,
+              "lon": 24.2422661,
+              "tags": {
+                "addr:city": "Băile Olănești",
+                "military": "office",
+                "name": "Corpul de Gardă",
+                "source": "P.U.G. Băile Olănești"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870074,
+              "lat": 45.092701,
+              "lon": 24.370494,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tineretului, bl. S2, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3297",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870100,
+              "lat": 45.04826,
+              "lon": 24.306608,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. CHIMCOMPLEX SA, str.Uzinei nr.1 Adapost Oltisare, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3328",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878355,
+              "lat": 45.105957,
+              "lon": 24.363788,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea lui Traian, nr 124- Sucursala CEC Rm Valcea, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3341",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878376,
+              "lat": 45.094106,
+              "lon": 24.367774,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B13, sc. D, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3285",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878471,
+              "lat": 45.100886,
+              "lon": 24.366577,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S1, sc. F, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3268",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878523,
+              "lat": 45.09355,
+              "lon": 24.369787,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B12, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3278",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878550,
+              "lat": 45.077653,
+              "lon": 24.187026,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 70, Oras Baile Govora, VL",
+                "military": "bunker",
+                "ref": "3313",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878620,
+              "lat": 45.101573,
+              "lon": 24.36764,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S3, sc. G, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3265",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878646,
+              "lat": 45.092645,
+              "lon": 24.370871,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tineretului, bl. S2, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3296",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878793,
+              "lat": 45.093242,
+              "lon": 24.369914,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B12, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3277",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878820,
+              "lat": 45.095352,
+              "lon": 24.374675,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ostroveni ,bl A23 ,sc B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3308",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878890,
+              "lat": 45.102116,
+              "lon": 24.361662,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Independenţei, bl. 1, sc. F, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3260",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878916,
+              "lat": 45.094798,
+              "lon": 24.377529,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A26, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3303",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878942,
+              "lat": 45.049358,
+              "lon": 24.286748,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Industriilor nr. 10. SC VILMAR SA. - Hala productie, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3334",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879044,
+              "lat": 44.973304,
+              "lon": 24.235206,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Dragos Vranceanu ,nr 151, Oras Babeni, VL",
+                "military": "bunker",
+                "ref": "3344",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879065,
+              "lat": 45.094337,
+              "lon": 24.366986,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B14, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3288",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879161,
+              "lat": 45.100684,
+              "lon": 24.365956,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S1, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3267",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879187,
+              "lat": 45.092629,
+              "lon": 24.369517,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tineretului, bl. S2, sc. F, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3298",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879213,
+              "lat": 45.04916,
+              "lon": 24.286388,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Industriilor nr. 10. SC VILMAR SA. - Hala productie, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3333",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879406,
+              "lat": 45.092667,
+              "lon": 24.371208,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tineretului, bl. S2, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3295",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879432,
+              "lat": 45.050266,
+              "lon": 24.309605,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. CHIMCOMPLEX SA, str.Uzinei nr.1 Adapost BCM, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3326",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879553,
+              "lat": 45.093726,
+              "lon": 24.369188,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B12, sc. D, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3280",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879580,
+              "lat": 45.093107,
+              "lon": 24.377941,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A27/3, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3307",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879650,
+              "lat": 45.101847,
+              "lon": 24.361954,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Independenţei, bl. 1, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3259",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879655,
+              "lat": 45.10314,
+              "lon": 24.370141,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. V.Olanescu, nr.11, SC SELF ACTIV MEDICA, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3346",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879676,
+              "lat": 45.094513,
+              "lon": 24.366391,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B14, sc. D, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3290",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879824,
+              "lat": 45.094004,
+              "lon": 24.367097,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B14, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3287",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879920,
+              "lat": 45.102016,
+              "lon": 24.365877,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. D, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3270",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879946,
+              "lat": 45.094384,
+              "lon": 24.377622,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A27/1, sc.C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3305",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879972,
+              "lat": 45.104343,
+              "lon": 24.363829,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tudor Vladimirescu nr.4 .SC TELEKOM SA, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3336",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880074,
+              "lat": 45.106553,
+              "lon": 24.362602,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ferdinand I -Biblioteca Judeteana, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3338",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880095,
+              "lat": 45.093611,
+              "lon": 24.368531,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B13, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3282",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880121,
+              "lat": 45.085188,
+              "lon": 24.30617,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Al. Ioan. Cuza, Oras Ocnele Mari, VL",
+                "military": "bunker",
+                "ref": "3317",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880190,
+              "lat": 45.101472,
+              "lon": 24.365727,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. G, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3269",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880216,
+              "lat": 45.09579,
+              "lon": 24.375523,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A24/1, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3300",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880242,
+              "lat": 45.093368,
+              "lon": 24.36948,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B12, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3279",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880269,
+              "lat": 45.096485,
+              "lon": 24.373138,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Luceafărului,nr 10, bl. A16, sc.B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3310",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880339,
+              "lat": 45.101475,
+              "lon": 24.366722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S3, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3262",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880721,
+              "lat": 45.117967,
+              "lon": 24.366223,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Republicii, bl. S7, sc. 3 C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3274",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880748,
+              "lat": 45.096273,
+              "lon": 24.37303,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Luceafărului,nr 10, bl. A16, sc.A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3309",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880818,
+              "lat": 45.101373,
+              "lon": 24.366839,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S3, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3261",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880823,
+              "lat": 45.103688,
+              "lon": 24.372736,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Maior V. Popescu , nr 2.SRCF Craiova - STATIA CF Rm. Valcea, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3348",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880844,
+              "lat": 45.094427,
+              "lon": 24.368693,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. C10 sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3292",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880870,
+              "lat": 45.037733,
+              "lon": 24.29487,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Uzinei nr 2. SC USG SA, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3335",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880992,
+              "lat": 45.094435,
+              "lon": 24.366693,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B14, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3289",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881019,
+              "lat": 45.257131,
+              "lon": 24.331662,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea lui Traian, Bloc ANL, Oras Calimanesti, VL",
+                "military": "bunker",
+                "ref": "3320",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881088,
+              "lat": 45.118315,
+              "lon": 24.366233,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Republicii, bl. S7, sc. 1 A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3272",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881114,
+              "lat": 45.092493,
+              "lon": 24.368871,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul Tineretului, bl. S2, sc. I, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3299",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881140,
+              "lat": 45.034923,
+              "lon": 24.284803,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str, Aleea Nucilor nr.1 - Institulul de criogenie si separari izotopice, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3330",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881242,
+              "lat": 45.109169,
+              "lon": 24.37441,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. B-dul Nicoale Balcescu, nr 39, Universitatea Constantin Brancoveanu, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3340",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881263,
+              "lat": 45.094026,
+              "lon": 24.368068,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B13, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3284",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881289,
+              "lat": 45.047853,
+              "lon": 24.306775,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. CHIMCOMPLEX SA, str.Uzinei nr.1 Adapost ATM, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3327",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881410,
+              "lat": 45.093806,
+              "lon": 24.36891,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B12, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3281",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881437,
+              "lat": 45.079154,
+              "lon": 24.184858,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 75-77, Oras Baile Govora, VL",
+                "military": "bunker",
+                "ref": "3312",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881507,
+              "lat": 45.101704,
+              "lon": 24.367183,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S3, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3264",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881512,
+              "lat": 45.10697,
+              "lon": 24.364891,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. General Praporgescu. nr 2. Parchetul de pe langa Tribunalul Valcea, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3347",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881533,
+              "lat": 45.094589,
+              "lon": 24.366084,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B14, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3291",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881654,
+              "lat": 45.117459,
+              "lon": 24.367209,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Decebal, bl. S 11, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3276",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881751,
+              "lat": 45.115981,
+              "lon": 24.365944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Intrarea Pribeanu Casa de copii şcolari, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3271",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881777,
+              "lat": 45.095752,
+              "lon": 24.377195,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A25, sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3302",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881803,
+              "lat": 45.103716,
+              "lon": 24.374156,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ion Referendeanu nr 1.VAMA Valcea.- sediu administrativ, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3337",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881905,
+              "lat": 45.104663,
+              "lon": 24.36781,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tudor Vladimirescu , nr 18, Sediul ANAFP Valcea, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3339",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881926,
+              "lat": 45.093938,
+              "lon": 24.368379,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B13, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3283",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881952,
+              "lat": 45.077722,
+              "lon": 24.186859,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 80, Oras Baile Govora, VL",
+                "military": "bunker",
+                "ref": "3314",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882021,
+              "lat": 45.100404,
+              "lon": 24.366054,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S1, sc. B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3266",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882047,
+              "lat": 45.092092,
+              "lon": 24.366467,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aleea Narciselor, bl. B15, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3301",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882073,
+              "lat": 45.050543,
+              "lon": 24.286251,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str, Gura Vaii, nr 48, Uzina Mecanica Ramnicu Valcea - Hala productie, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3332",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882100,
+              "lat": 45.105498,
+              "lon": 24.377429,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "B-dul T. Vladimirescu, bl. O9, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3311",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882170,
+              "lat": 45.101663,
+              "lon": 24.366744,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "STR. Gl. Magheru, bl. S3, sc. C, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3263",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882196,
+              "lat": 45.094207,
+              "lon": 24.369723,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. C12, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3294",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882222,
+              "lat": 45.049081,
+              "lon": 24.30217,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "SC. CHIMCOMPLEX SA, str.Uzinei nr.1 Adapost Depozit, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3329",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882343,
+              "lat": 45.117605,
+              "lon": 24.366374,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Decebal, bl. S 10, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3275",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882370,
+              "lat": 45.093386,
+              "lon": 24.377911,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A27/3, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3306",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882466,
+              "lat": 45.094291,
+              "lon": 24.369249,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. C11, sc. A, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3293",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882610,
+              "lat": 45.203926,
+              "lon": 24.239031,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Bailor nr 10.- SC ALIROMAND SA, Oras Baile Olanesti, VL",
+                "military": "bunker",
+                "ref": "3342",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882631,
+              "lat": 45.094203,
+              "lon": 24.36747,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. M. Eminescu, bl. B13 sc. E, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3286",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882727,
+              "lat": 45.118167,
+              "lon": 24.366297,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Republicii, bl. S7, sc. 2, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3273",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882753,
+              "lat": 45.094476,
+              "lon": 24.377387,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. N. Iorga, bl. A27/1, sc.B, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3304",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882779,
+              "lat": 45.05094,
+              "lon": 24.285221,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str, Gura Vaii, nr 48, Uzina Mecanica Ramnicu Valcea - Hala productie, Mun. Ramnicu Valcea, VL",
+                "military": "bunker",
+                "ref": "3331",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 309025476,
+              "center": {
+                "lat": 45.2507825,
+                "lon": 24.3374127
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "office",
+                "name": "U.M jandarmeria"
+              }
+            },
+            {
+              "type": "way",
+              "id": 490840885,
+              "center": {
+                "lat": 45.1069073,
+                "lon": 24.3733109
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 522212745,
+              "center": {
+                "lat": 45.079515,
+                "lon": 24.3838927
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1025554250,
+              "center": {
+                "lat": 45.1983156,
+                "lon": 24.2430815
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1027333547,
+              "center": {
+                "lat": 45.0799018,
+                "lon": 24.3884563
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1063831069,
+              "center": {
+                "lat": 45.1057205,
+                "lon": 24.2005586
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Subunitatea Pompieri Bunești"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

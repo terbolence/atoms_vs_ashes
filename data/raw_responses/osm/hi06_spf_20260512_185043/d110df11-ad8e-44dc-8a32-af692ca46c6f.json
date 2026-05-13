@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "site_id": "d110df11-ad8e-44dc-8a32-af692ca46c6f",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:06:13.554059+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,37.31,27.78);\n  way[\"military\"](around:25000,37.31,27.78);\n  relation[\"military\"](around:25000,37.31,27.78);\n  node[\"landuse\"=\"military\"](around:25000,37.31,27.78);\n  way[\"landuse\"=\"military\"](around:25000,37.31,27.78);\n  relation[\"landuse\"=\"military\"](around:25000,37.31,27.78);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.31,27.78);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.31,27.78);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.31,27.78);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.31,27.78);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.31,27.78);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.31,27.78);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 821,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:04:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 468499275,
+              "center": {
+                "lat": 37.321374,
+                "lon": 27.787697
+              },
+              "tags": {
+                "addr:city": "Milas",
+                "addr:district": "Muğla",
+                "addr:housenumber": "4/A",
+                "addr:neighbourhood": "Hacıabti Mah.",
+                "addr:postcode": "48200",
+                "addr:street": "Eski Aydın Cad.",
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Milas İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498403427,
+              "center": {
+                "lat": 37.2404096,
+                "lon": 27.6734131
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 498562853,
+              "center": {
+                "lat": 37.229182,
+                "lon": 27.6816952
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 499039323,
+              "center": {
+                "lat": 37.2492333,
+                "lon": 27.684625
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 499050973,
+              "center": {
+                "lat": 37.2528719,
+                "lon": 27.670592
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 599781732,
+              "center": {
+                "lat": 37.3203638,
+                "lon": 27.7816408
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "wall",
+                "fixme": "Yeni kışlaların adı nedir?",
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

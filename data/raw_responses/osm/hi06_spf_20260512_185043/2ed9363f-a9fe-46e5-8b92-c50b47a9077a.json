@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "site_id": "2ed9363f-a9fe-46e5-8b92-c50b47a9077a",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:17:12.703014+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.519,32.094);\n  way[\"military\"](around:25000,41.519,32.094);\n  relation[\"military\"](around:25000,41.519,32.094);\n  node[\"landuse\"=\"military\"](around:25000,41.519,32.094);\n  way[\"landuse\"=\"military\"](around:25000,41.519,32.094);\n  relation[\"landuse\"=\"military\"](around:25000,41.519,32.094);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.519,32.094);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.519,32.094);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.519,32.094);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.519,32.094);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.519,32.094);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.519,32.094);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 797,
+        "element_count": 7,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:16:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12338023215,
+              "lat": 41.6465822,
+              "lon": 32.3350015,
+              "tags": {
+                "military": "office",
+                "name": "Bartın Alay Komutanlığı"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13625939191,
+              "lat": 41.6285352,
+              "lon": 32.3335613,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 288013799,
+              "center": {
+                "lat": 41.6847303,
+                "lon": 32.2372273
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "naval_base",
+                "name": "Bartın Deniz Üssü",
+                "name:en": "Bartın Naval Base",
+                "source": "bing",
+                "wikidata": "Q4865812",
+                "wikipedia": "tr:Bartın Deniz Üssü"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1392879247,
+              "center": {
+                "lat": 41.6287324,
+                "lon": 32.3311226
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1486407304,
+              "center": {
+                "lat": 41.6282693,
+                "lon": 32.3362723
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jandarma Sosyal Tesisleri"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1486407307,
+              "center": {
+                "lat": 41.6291792,
+                "lon": 32.334114
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Askeri Lojmanlar ve Bartın Askerlik Binası"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1486407308,
+              "center": {
+                "lat": 41.628666,
+                "lon": 32.3346781
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office",
+                "name": "Bartın Askerlik Binası"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "site_id": "46b96bc3-b190-4045-9c86-eb674e2ea35e",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:28:20.867095+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.994514,37.237077);\n  way[\"military\"](around:25000,47.994514,37.237077);\n  relation[\"military\"](around:25000,47.994514,37.237077);\n  node[\"landuse\"=\"military\"](around:25000,47.994514,37.237077);\n  way[\"landuse\"=\"military\"](around:25000,47.994514,37.237077);\n  relation[\"landuse\"=\"military\"](around:25000,47.994514,37.237077);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.994514,37.237077);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.994514,37.237077);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.994514,37.237077);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.994514,37.237077);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.994514,37.237077);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.994514,37.237077);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1150,
+        "element_count": 3,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3016264280,
+              "lat": 47.9508182,
+              "lon": 37.5514881,
+              "tags": {
+                "bunker_type": "аir-raid shelter",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 136891507,
+              "center": {
+                "lat": 47.9583086,
+                "lon": 37.5609907
+              },
+              "tags": {
+                "addr:housenumber": "1",
+                "addr:street": "Удачна вулиця",
+                "building": "yes",
+                "bunker_type": "аir-raid shelter",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 496296541,
+              "center": {
+                "lat": 47.9239699,
+                "lon": 37.514015
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint",
+                "official_status": "контрольний пункт в'їзду-виїзду"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

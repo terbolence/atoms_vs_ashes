@@ -1,0 +1,25 @@
+2026-05-12 21:26:52 [info     ] hi06_rerun_start               dry_run=False radius_km=25.0 run_id=hi06_spf_20260512_182652
+
+HI-06 SP-F rerun — 8 sites, run_id=hi06_spf_20260512_182652
+   #   CC  Site                                       count  class           nearest_km    hc_km
+-----------------------------------------------------------------------------------------------
+2026-05-12 21:26:59 [info     ] osm_query_ok                   elapsed_ms=7056 element_count=70
+   1   AT  Duernrohr power station                       70  training_area          7.9     11.0
+2026-05-12 21:27:17 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 21:27:17 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 21:27:23 [info     ] osm_query_ok                   elapsed_ms=2757 element_count=32
+   2   AT  Enns Power Station                            32  other                  0.4      6.4
+2026-05-12 21:27:39 [info     ] osm_query_ok                   elapsed_ms=3257 element_count=22
+   3   AT  Mellach power station                         22  other                  7.3     17.5
+2026-05-12 21:27:52 [info     ] osm_query_ok                   elapsed_ms=2928 element_count=4
+   4   AT  Riedersbach power station                      4  depot                 19.0     19.0
+2026-05-12 21:28:05 [info     ] osm_query_ok                   elapsed_ms=1457 element_count=4
+   5   AT  St Andrae power station                        4  other                 12.4     21.0
+2026-05-12 21:28:21 [info     ] osm_query_ok                   elapsed_ms=1555 element_count=81
+   6   AT  Timelkam power station                        81  depot                  5.9      5.9
+2026-05-12 21:28:36 [info     ] osm_query_ok                   elapsed_ms=1673 element_count=58
+   7   AT  Voitsberg power station                       58  training_area         16.1     16.9
+2026-05-12 21:28:50 [info     ] osm_query_ok                   elapsed_ms=1839 element_count=48
+   8   AT  Zeltweg power station                         48  training_area         12.1     13.1
+
+Done in 2.1 min — ok=8, skipped=0, errors=0

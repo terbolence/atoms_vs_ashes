@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "site_id": "5d53da59-04c8-43e6-b29e-220bea4d9eb7",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:45:31.326725+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.05,21.26);\n  way[\"military\"](around:25000,44.05,21.26);\n  relation[\"military\"](around:25000,44.05,21.26);\n  node[\"landuse\"=\"military\"](around:25000,44.05,21.26);\n  way[\"landuse\"=\"military\"](around:25000,44.05,21.26);\n  relation[\"landuse\"=\"military\"](around:25000,44.05,21.26);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.05,21.26);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.05,21.26);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.05,21.26);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.05,21.26);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.05,21.26);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.05,21.26);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 3572,
+        "element_count": 4,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:44:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 288853719,
+              "center": {
+                "lat": 43.875235,
+                "lon": 21.4034804
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Касарна Параћин",
+                "name:en": "Kasarna Paracin",
+                "name:sr": "Касарна Параћин",
+                "name:sr-Latn": "Kasarna Paraćin"
+              }
+            },
+            {
+              "type": "way",
+              "id": 301778158,
+              "center": {
+                "lat": 44.2273151,
+                "lon": 21.2082243
+              },
+              "tags": {
+                "int_name": "Kasarna",
+                "landuse": "military",
+                "name": "Касарна",
+                "name:sr": "Касарна",
+                "name:sr-Latn": "Kasarna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312664668,
+              "center": {
+                "lat": 43.8886964,
+                "lon": 21.4117549
+              },
+              "tags": {
+                "int_name": "Vojno skladiste „Karadjordjevo brdo”",
+                "landuse": "military",
+                "name": "Војно складиште „Карађорђево брдо”",
+                "name:sr": "Војно складиште „Карађорђево брдо”",
+                "name:sr-Latn": "Vojno skladište „Karađorđevo brdo”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1124143036,
+              "center": {
+                "lat": 44.0097477,
+                "lon": 21.1097957
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

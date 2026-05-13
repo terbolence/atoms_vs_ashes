@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:45:17.140364+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.669722,23.407778);\n  way[\"military\"](around:25000,44.669722,23.407778);\n  relation[\"military\"](around:25000,44.669722,23.407778);\n  node[\"landuse\"=\"military\"](around:25000,44.669722,23.407778);\n  way[\"landuse\"=\"military\"](around:25000,44.669722,23.407778);\n  relation[\"landuse\"=\"military\"](around:25000,44.669722,23.407778);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.669722,23.407778);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.669722,23.407778);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.669722,23.407778);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.669722,23.407778);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.669722,23.407778);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.669722,23.407778);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9339,
+        "element_count": 8,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:43:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178878310,
+              "lat": 44.681661,
+              "lon": 23.37207,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Muncii, nr. 19-22, Hotel Marigab, Oraş Turceni, GJ",
+                "military": "bunker",
+                "ref": "2044",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878999,
+              "lat": 44.682116,
+              "lon": 23.375356,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Culturii, Liceul Tehnologic Turceni, Oraş Turceni, GJ",
+                "military": "bunker",
+                "ref": "2043,2042",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879174,
+              "lat": 44.71556,
+              "lon": 23.512398,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Gării, Fostul Sediu al Petrom, Comuna Turburea, GJ",
+                "military": "bunker",
+                "ref": "2055",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880029,
+              "lat": 44.892221,
+              "lon": 23.44234,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Villneuve D’ascq, nr.22, Hotel Sara, Oraş Ţicleni, GJ",
+                "military": "bunker",
+                "ref": "2045",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880203,
+              "lat": 44.784979,
+              "lon": 23.297941,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Urdari,,Cămin Cultural, Comuna Urdari, GJ",
+                "military": "bunker",
+                "ref": "2057",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880831,
+              "lat": 44.80092,
+              "lon": 23.64581,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sediu Primărie, Comuna Hurezani, GJ",
+                "military": "bunker",
+                "ref": "2049",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881860,
+              "lat": 44.68069,
+              "lon": 23.373301,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Muncii, nr. 12, Sediu Primărie, Oraş Turceni, GJ",
+                "military": "bunker",
+                "ref": "2041",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882183,
+              "lat": 44.817501,
+              "lon": 23.20004,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Negomir, nr. 65, Sediu Primărie, Comuna Negomir, GJ",
+                "military": "bunker",
+                "ref": "2051",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -8,6 +8,8 @@ criteria:
     phases: [exclusionary, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
+    weight_factors: {baseline: 8, epri: 10}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-01 (SSG-35 §4.9; EPRI Steps 2-3 cooling water; E9)"}
     db_fields: {api: [site_infrastructure_v2.cooling_source_type, site_infrastructure_v2.cooling_source_name, site_infrastructure_v2.cooling_source_hyriv_id, site_infrastructure_v2.cooling_distance_km, site_infrastructure_v2.cooling_flow_m3s, site_infrastructure_v2.water_stress_score, site_natural_hazards.spi12_min], llm: ns01_cooling_text}
     aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
     sub_scores:
@@ -56,6 +58,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
+    weight_factors: {baseline: 8, epri: 10}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-02 (EPRI Steps 2-3 grid interconnection; project A13)"}
     db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.nearest_hv_line_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: ns02_grid_text}
     aggregation: {method: min_of_sub_scores}
     sub_scores:
@@ -84,6 +88,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
+    weight_factors: {baseline: 8, epri: 10}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-03 (EPRI Steps 2-3 transport; project A14; vendor logistics)"}
     db_fields: {api: [site_infrastructure_v2.nearest_highway_km, site_infrastructure_v2.nearest_rail_km, site_infrastructure_v2.nearest_waterway_km, site_infrastructure_v2.heavy_haul_capable], llm: ns03_transport_text}
     aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
     sub_scores:
@@ -122,6 +128,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-04 (SSG-35 Table I-1 (topography / grading))"}
     primary_metric: favourable_land_pct
     db_fields: {api: [site_infrastructure_v2.favourable_land_pct, site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.favourable_area_method], llm: ns04_topography_text}
     bands:
@@ -138,6 +146,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-05 (EPRI Steps 2-3 land use; project A15)"}
     primary_metric: composite
     db_fields: {api: [site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, site_infrastructure_v2.patch_count], llm: ns05_land_text}
     bands:
@@ -156,6 +166,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-06 (DOE coal-to-nuclear transitions guidance; EPRI Step 3 engineering)"}
     primary_metric: reuse_tier
     db_fields: {api: [], llm: ns06_reuse_text}
     bands:
@@ -171,6 +183,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-07 (SSG-35 §4.9; EPRI Step 3 environmental)"}
     primary_metric: env_impact_tier
     db_fields: {api: [], llm: ns07_env_impact_text}
     bands:
@@ -186,6 +200,8 @@ criteria:
     phases: [exclusionary, ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-08 (SSG-35 Table II-1; EU Natura 2000 / WDPA; E7)"}
     primary_metric: composite
     db_fields: {api: [site_infrastructure_v2.n2k_nearest_distance_km, site_infrastructure_v2.wdpa_nearest_distance_km, site_infrastructure_v2.ecological_natural_pct], llm: ns08_ecology_text}
     bands:
@@ -203,6 +219,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 6}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-09 (SSG-35 §4.9; EPRI Step 3 socioeconomic)"}
     primary_metric: socio_tier
     db_fields: {api: [site_socioeconomic.unemployment_pct, site_socioeconomic.gdp_per_capita_eur], llm: ns09_socioeconomic_text}
     bands:
@@ -218,6 +236,8 @@ criteria:
     phases: [ranking]
     weight_factor: 4
     normalised_weight_pct: 1.4
+    weight_factors: {baseline: 4, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-10 (DOE coal-to-nuclear transitions guidance; EPRI Step 3 workforce)"}
     primary_metric: workforce_tier
     db_fields: {api: [], llm: ns10_workforce_text}
     bands:
@@ -233,6 +253,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 6}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-11 (DOE / INL coal-to-nuclear; EPRI Step 3 brownfield synergies)"}
     primary_metric: ns11_synergy_index
     db_fields: {api: [site_infrastructure_v2.ns11_synergy_index], llm: ns11_synergy_text}
     bands:
@@ -248,6 +270,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 7}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-12 (EPRI Step 3 regulatory; national policy)"}
     primary_metric: policy_tier
     db_fields: {api: [], llm: ns12_policy_text}
     bands:
@@ -263,6 +287,8 @@ criteria:
     phases: [ranking]
     weight_factor: 4
     normalised_weight_pct: 1.4
+    weight_factors: {baseline: 4, epri: 6}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-13 (SSG-35 Annex II §II-9(c) (construction logistics))"}
     primary_metric: logistics_tier
     db_fields: {api: [], llm: ns13_construction_text}
     bands:

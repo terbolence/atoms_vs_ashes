@@ -1,0 +1,5378 @@
+{
+  "meta": {
+    "site_id": "de6735bd-7a79-43c8-baad-1fe23d50d6f0",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:28:36.974467+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.134526,18.844352);\n  way[\"military\"](around:25000,50.134526,18.844352);\n  relation[\"military\"](around:25000,50.134526,18.844352);\n  node[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  way[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  relation[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 15354,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.134526,18.844352);\n  way[\"military\"](around:25000,50.134526,18.844352);\n  relation[\"military\"](around:25000,50.134526,18.844352);\n  node[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  way[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  relation[\"landuse\"=\"military\"](around:25000,50.134526,18.844352);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.134526,18.844352);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.134526,18.844352);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9159,
+        "element_count": 385,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:27:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 450137732,
+              "lat": 50.3191931,
+              "lon": 18.8883996,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Punkt oporu Godula 1"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1714696822,
+              "lat": 50.1629032,
+              "lon": 18.8667052,
+              "tags": {
+                "military": "bunker",
+                "name": "Obszar Warowny \"Śląsk\""
+              }
+            },
+            {
+              "type": "node",
+              "id": 1714696825,
+              "lat": 50.165098,
+              "lon": 18.8649021,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Obszar Warowny \"Śląsk\"",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2119784830,
+              "lat": 50.2271863,
+              "lon": 18.6271841,
+              "tags": {
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Oberschlesien Stellung, Nieborowice, 702"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2119784831,
+              "lat": 50.22745,
+              "lon": 18.6276177,
+              "tags": {
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Oberschlesien Stellung, Nieborowice, 701"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3938354878,
+              "lat": 50.1455864,
+              "lon": 18.8847915,
+              "tags": {
+                "building": "bunker",
+                "fixme": "Poprawić lokalizację",
+                "military": "bunker",
+                "name": "Obszar Warowny \"Śląsk\""
+              }
+            },
+            {
+              "type": "node",
+              "id": 4004775892,
+              "lat": 50.0986248,
+              "lon": 18.5414353,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4004775893,
+              "lat": 50.0990529,
+              "lon": 18.5412611,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4230150502,
+              "lat": 50.3379429,
+              "lon": 18.8940073,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4230150506,
+              "lat": 50.3451931,
+              "lon": 18.8920486,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4262453902,
+              "lat": 50.3377535,
+              "lon": 18.894145,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4362150696,
+              "lat": 50.1444199,
+              "lon": 18.8590529,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4523500164,
+              "lat": 50.345129,
+              "lon": 18.8888714,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4919731444,
+              "lat": 50.2291716,
+              "lon": 19.1555609,
+              "tags": {
+                "description": "wieżyczka strzelnicza",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5020301033,
+              "lat": 50.1987189,
+              "lon": 19.0531604,
+              "tags": {
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne stanowisko radaru FuMG-62 Würzburg",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5020301955,
+              "lat": 50.1982969,
+              "lon": 19.0558525,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Bunkier wartowniczy",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5023925830,
+              "lat": 50.1985744,
+              "lon": 19.0586461,
+              "tags": {
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne stanowisko Flak 88mm",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5108219787,
+              "lat": 50.1037668,
+              "lon": 18.9054446,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506444301,
+              "lat": 50.2260317,
+              "lon": 19.1538708,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506454642,
+              "lat": 50.2268863,
+              "lon": 19.1573872,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506454643,
+              "lat": 50.2271156,
+              "lon": 19.1585458,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506454644,
+              "lat": 50.227054,
+              "lon": 19.1580818,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506454645,
+              "lat": 50.2273473,
+              "lon": 19.1573581,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506456264,
+              "lat": 50.2276465,
+              "lon": 19.1590199,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506456265,
+              "lat": 50.227807,
+              "lon": 19.1575254,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506456266,
+              "lat": 50.2278719,
+              "lon": 19.1570136,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506465613,
+              "lat": 50.2287245,
+              "lon": 19.1626137,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker",
+                "ref": "SOS-152-KBc"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5506465614,
+              "lat": 50.2290125,
+              "lon": 19.1602865,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker",
+                "ref": "SOS-153-KBz"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5514999316,
+              "lat": 50.2474085,
+              "lon": 19.1234927,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "description": "Schron Wartowniczy",
+                "historic": "yes",
+                "level": "-1",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5615885633,
+              "lat": 50.0928743,
+              "lon": 18.9214755,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5863683254,
+              "lat": 50.1160688,
+              "lon": 18.9893439,
+              "tags": {
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji w Tychach",
+                "office": "yes",
+                "short_name": "WCR Tychy"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6594749331,
+              "lat": 50.2638898,
+              "lon": 18.8685479,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "OWS Punkt Oporu \"Nowa Wieś Polowy Schron Piechoty"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6893344388,
+              "lat": 50.2506827,
+              "lon": 18.860707,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica wojskowa ?, na mapach od 1970 do 2004"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7640776894,
+              "lat": 50.1325509,
+              "lon": 18.8852264,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7775428552,
+              "lat": 50.2011876,
+              "lon": 18.550238,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7775428553,
+              "lat": 50.2029852,
+              "lon": 18.5515228,
+              "tags": {
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7923045074,
+              "lat": 50.2947423,
+              "lon": 18.7648737,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8733712655,
+              "lat": 50.2038522,
+              "lon": 18.5505388,
+              "tags": {
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9556630100,
+              "lat": 50.0932125,
+              "lon": 18.5455509,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron „Chrobry”"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9574748687,
+              "lat": 50.3390853,
+              "lon": 18.9109583,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "level": "-1",
+                "military": "bunker",
+                "name": "Podziemny schron przeciwlotniczy",
+                "source": "local knowledge"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9732155938,
+              "lat": 50.1792507,
+              "lon": 18.8306293,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9932099587,
+              "lat": 50.3027035,
+              "lon": 18.9153736,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "aircraft",
+                "description": "jednoosobowy schron przeciwlotniczy",
+                "military": "bunker",
+                "source": "survey",
+                "survey_date": "2022-07-20"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9983648721,
+              "lat": 50.2331427,
+              "lon": 19.1590823,
+              "tags": {
+                "building": "bunker",
+                "description": "Ringstad R67 b2-stellung",
+                "historic": "yes",
+                "image": "https://commons.wikimedia.org/wiki/File:Ringstad_R67.jpg",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10178775490,
+              "lat": 50.2037672,
+              "lon": 18.9572444,
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11020888357,
+              "lat": 50.2267316,
+              "lon": 19.1567412,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11020888358,
+              "lat": 50.2276922,
+              "lon": 19.1572962,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11802212809,
+              "lat": 50.3455858,
+              "lon": 18.8936661,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11802212810,
+              "lat": 50.3455661,
+              "lon": 18.8938599,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11802212811,
+              "lat": 50.3444231,
+              "lon": 18.8871667,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11802245479,
+              "lat": 50.2968763,
+              "lon": 18.7294539,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "4/042/N0023/102"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11893357434,
+              "lat": 50.001397,
+              "lon": 18.9292717,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12426709943,
+              "lat": 50.0575963,
+              "lon": 19.1630246,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12426709944,
+              "lat": 50.0598753,
+              "lon": 19.1703716,
+              "tags": {
+                "building": "bunker",
+                "check_date": "2024-12-14",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13121527894,
+              "lat": 50.3479727,
+              "lon": 18.9372303,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron zachodni"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13121527895,
+              "lat": 50.3489915,
+              "lon": 18.9367685,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron północny"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13121527896,
+              "lat": 50.3482654,
+              "lon": 18.9350383,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron wschodni"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13239825921,
+              "lat": 50.2195823,
+              "lon": 19.0596183,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13239831709,
+              "lat": 50.2260018,
+              "lon": 19.068559,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13743601263,
+              "lat": 50.2473905,
+              "lon": 18.8676856,
+              "tags": {
+                "heritage": "7",
+                "historic": "yes",
+                "military": "bunker",
+                "start_date": "1938",
+                "website": "https://www.fortyfikacja.pl/dane/SZARTURA/SZA13.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 33648608,
+              "center": {
+                "lat": 50.2719559,
+                "lon": 18.6197033
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Poligon Garnizonu Gliwice"
+              }
+            },
+            {
+              "type": "way",
+              "id": 89724145,
+              "center": {
+                "lat": 50.2985493,
+                "lon": 18.6362944
+              },
+              "tags": {
+                "contact:email": "3940.sekretariat@wp.mil.pl",
+                "contact:fax": "+48 26 111 13 04",
+                "contact:phone": "+48 26 111 13 03",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa AGAT im. gen. dyw. Stefana Roweckiego \"GROTA\", 131 Batalion Lekkiej Piechoty",
+                "website": "https://agat.wp.mil.pl/pl/index.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165939322,
+              "center": {
+                "lat": 50.263002,
+                "lon": 18.8841507
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "OSM Tracker, knowledge",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165996244,
+              "center": {
+                "lat": 50.2607255,
+                "lon": 18.8806986
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "OSM Tracker, knowledge",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165996245,
+              "center": {
+                "lat": 50.255275,
+                "lon": 18.8727036
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "OSM Tracker, knowledge",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165996248,
+              "center": {
+                "lat": 50.2566971,
+                "lon": 18.8748738
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "OSM Tracker, knowledge",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 167904464,
+              "center": {
+                "lat": 50.3274047,
+                "lon": 18.9221998
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 167991958,
+              "center": {
+                "lat": 50.3269795,
+                "lon": 18.9162782
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177809343,
+              "center": {
+                "lat": 50.3238837,
+                "lon": 18.9444942
+              },
+              "tags": {
+                "addr:city": "Chorzów",
+                "addr:housenumber": "168",
+                "addr:postcode": "41-500",
+                "addr:street": "Katowicka",
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "description": "Schron bojowy przy ul. Katowickiej 168 w Chorzowie, wchodził w skład punktu oporu/ sektora „Łagiewniki”, wybudowanego w latach 1936-38.",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bojowy Nr 5",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "phone": "+48 664433421",
+                "tourism": "attraction",
+                "website": "http://www.profort.org.pl/izby-muzealne/udostepnione/chorzow-ii/historia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177809782,
+              "center": {
+                "lat": 50.3263618,
+                "lon": 18.9491676
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bojowy Nr 4",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177809785,
+              "center": {
+                "lat": 50.3263582,
+                "lon": 18.9498409
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bojowy Nr 3",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177810671,
+              "center": {
+                "lat": 50.3294937,
+                "lon": 18.9497675
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bojowy Nr 2",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction",
+                "wikimedia_commons": "File:Bytom Lagiewniki combat bunker 2018.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177812109,
+              "center": {
+                "lat": 50.3322567,
+                "lon": 18.9846524
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "personnel_shelter",
+                "description": "Schron Bojowy Nr 46 OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction",
+                "wikidata": "Q113847687",
+                "wikimedia_commons": "File:Chorzow Kluczborska bunker semi-cupola 2022.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177814094,
+              "center": {
+                "lat": 50.3321768,
+                "lon": 18.9874528
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron bierny OWŚ",
+                "old_name": "polski Schron Bojowy",
+                "source": "survey",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "survey_date": "2022-04-18",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177815017,
+              "center": {
+                "lat": 50.3338497,
+                "lon": 18.9867433
+              },
+              "tags": {
+                "building": "yes",
+                "description": "Schron bojowy Nr 1 OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction",
+                "wikidata": "Q113848009",
+                "wikimedia_commons": "File:Siemianowice bunker semi-cupola 2022.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177817481,
+              "center": {
+                "lat": 50.3355115,
+                "lon": 18.9901335
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "description": "Schron Artyleryjski nr 14 OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Bunkier Artyleryjski",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177817485,
+              "center": {
+                "lat": 50.3348411,
+                "lon": 18.9930925
+              },
+              "tags": {
+                "building": "yes",
+                "description": "OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron - Koszary",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177817491,
+              "center": {
+                "lat": 50.3345821,
+                "lon": 18.9929622
+              },
+              "tags": {
+                "building": "yes",
+                "description": "OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron - Koszary",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177817749,
+              "center": {
+                "lat": 50.3369885,
+                "lon": 18.9919415
+              },
+              "tags": {
+                "building": "yes",
+                "description": "Schron Bojowy Nr 2 OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron Bojowy",
+                "source:building": "EGiB",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177817996,
+              "center": {
+                "lat": 50.3382147,
+                "lon": 18.9898339
+              },
+              "tags": {
+                "building": "yes",
+                "description": "Schron pozorny OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177818744,
+              "center": {
+                "lat": 50.3389184,
+                "lon": 18.9899775
+              },
+              "tags": {
+                "building": "yes",
+                "description": "Schron pozorny OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "old_name": "Obiekt Pozorny",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177988716,
+              "center": {
+                "lat": 50.3192035,
+                "lon": 18.8883856
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source": "zVID & Bing",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177993142,
+              "center": {
+                "lat": 50.3156812,
+                "lon": 18.8971183
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source": "zVID & Bing",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177993144,
+              "center": {
+                "lat": 50.3181108,
+                "lon": 18.8974313
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 179515625,
+              "center": {
+                "lat": 50.3295704,
+                "lon": 18.9369564
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 179519999,
+              "center": {
+                "lat": 50.3295485,
+                "lon": 18.9323949
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 179524216,
+              "center": {
+                "lat": 50.3260015,
+                "lon": 18.9660494
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bojowy Ppanc Nr 1",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl/isok",
+                "tourism": "attraction",
+                "wikidata": "Q106518911",
+                "wikimedia_commons": "File:Chorzow Maciejkowice bunker 2021.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 192591128,
+              "center": {
+                "lat": 50.2781471,
+                "lon": 18.8516469
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojowy nr 33",
+                "building": "yes",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Bojowy nr 33",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "start_date": "1936",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205532302,
+              "center": {
+                "lat": 50.2447412,
+                "lon": 18.8736319
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205532303,
+              "center": {
+                "lat": 50.2489015,
+                "lon": 18.8666251
+              },
+              "tags": {
+                "building": "yes",
+                "building:fireproof": "yes",
+                "ewmapa:warstwa": "Funkcja, numer najwyzszej kondygnacji, budynku ognioodpornego",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205532318,
+              "center": {
+                "lat": 50.2507836,
+                "lon": 18.8679309
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ nr 44 (Bunkier Szatana)",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction",
+                "url": "https://youtu.be/YCvj4e-yF_o",
+                "url:0": "https://rudaslaska.naszemiasto.pl/to-byl-ostatni-mord-rytualny-w-polsce-w-slaskim-bunkrze/ar/c1-7358151"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205533800,
+              "center": {
+                "lat": 50.242046,
+                "lon": 18.8884264
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205534492,
+              "center": {
+                "lat": 50.2494735,
+                "lon": 18.8674507
+              },
+              "tags": {
+                "building": "yes",
+                "building:fireproof": "yes",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205535633,
+              "center": {
+                "lat": 50.2426491,
+                "lon": 18.886788
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205536120,
+              "center": {
+                "lat": 50.2434481,
+                "lon": 18.8903439
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205537148,
+              "center": {
+                "lat": 50.2264722,
+                "lon": 18.8791652
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205537222,
+              "center": {
+                "lat": 50.2316896,
+                "lon": 18.8796544
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205537326,
+              "center": {
+                "lat": 50.2463663,
+                "lon": 18.8710343
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205537335,
+              "center": {
+                "lat": 50.2459749,
+                "lon": 18.8718427
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205537404,
+              "center": {
+                "lat": 50.2436476,
+                "lon": 18.8847628
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205645519,
+              "center": {
+                "lat": 50.3188719,
+                "lon": 18.8913821
+              },
+              "tags": {
+                "building": "yes",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z pomiaru w terenie",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source": "UM Ruda Śląska, survey, zVID"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205645528,
+              "center": {
+                "lat": 50.3135923,
+                "lon": 18.8794597
+              },
+              "tags": {
+                "alt_name": "Punkt oporu Godula 8",
+                "building": "yes",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z pomiaru w terenie",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source": "UM Ruda Śląska, survey, zVID",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 205645735,
+              "center": {
+                "lat": 50.3164967,
+                "lon": 18.8841381
+              },
+              "tags": {
+                "building": "yes",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 206399491,
+              "center": {
+                "lat": 50.3058702,
+                "lon": 18.838256
+              },
+              "tags": {
+                "building": "bunker",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "bunker_type": "pillbox",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Bunkier Regelbau 116a",
+                "regelbau": "116",
+                "source": "UM Ruda Śląska, raster"
+              }
+            },
+            {
+              "type": "way",
+              "id": 206408694,
+              "center": {
+                "lat": 50.2979203,
+                "lon": 18.8643341
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojowy nr 23",
+                "building": "yes",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z pomiaru w terenie",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source": "UM Ruda Śląska, survey, zVID",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209649091,
+              "center": {
+                "lat": 50.3144337,
+                "lon": 18.8953945
+              },
+              "tags": {
+                "addr:city": "Świętochłowice",
+                "addr:housenumber": "16",
+                "addr:postcode": "41-605",
+                "addr:street": "Bolesława Chrobrego",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "skład amunicji",
+                "source": "UM Świętochłowice",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209661203,
+              "center": {
+                "lat": 50.3219962,
+                "lon": 18.9072362
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "schron OWŚ do sprawdzena",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209661209,
+              "center": {
+                "lat": 50.321058,
+                "lon": 18.9043129
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "schron OWŚ do sprawdzena t terenie",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 218485059,
+              "center": {
+                "lat": 50.305806,
+                "lon": 18.8738497
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "layer": "-1",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu\"Godula\" Schron Bojowy P.Panc nr 22",
+                "old_name": "Polski Schron Bojowy",
+                "source": "zVID & Bing",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 218489698,
+              "center": {
+                "lat": 50.2810941,
+                "lon": 18.8480344
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 31",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Bojowy Ppanc nr 31",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 223825196,
+              "center": {
+                "lat": 50.2942901,
+                "lon": 18.9673367
+              },
+              "tags": {
+                "building": "bunker",
+                "heritage": "2",
+                "heritage:operator": "nid",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron Dowodzenia OWŚ",
+                "ref:nid": "A/454/15",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction",
+                "wikidata": "Q99521725"
+              }
+            },
+            {
+              "type": "way",
+              "id": 245732097,
+              "center": {
+                "lat": 50.2936877,
+                "lon": 18.8591211
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 25",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 255830916,
+              "center": {
+                "lat": 50.089916,
+                "lon": 18.5430315
+              },
+              "tags": {
+                "addr:city": "Rybnik",
+                "addr:housenumber": "2",
+                "addr:postcode": "44-200",
+                "addr:street": "Józefa Piłsudskiego",
+                "building": "office",
+                "building:colour": "green",
+                "building:levels": "4",
+                "military": "office",
+                "name": "Wojskowa Komenda Uzupełnień",
+                "roof:colour": "gray",
+                "roof:shape": "hipped"
+              }
+            },
+            {
+              "type": "way",
+              "id": 271921366,
+              "center": {
+                "lat": 50.2941857,
+                "lon": 18.9361111
+              },
+              "tags": {
+                "contact:phone": "+48 32 2412458",
+                "landuse": "military",
+                "military": "office",
+                "name": "Wojskowa Komenda Uzupełnień w Chorzowie",
+                "website": "https://chorzow.wku.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 292197946,
+              "center": {
+                "lat": 50.1091182,
+                "lon": 18.9007952
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "building:usage:pl": "Schron bojowy",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "OWŚ Schron Bojowy Sowiniec",
+                "source": "Powiat mikołowski",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 300933730,
+              "center": {
+                "lat": 50.213967,
+                "lon": 19.1642187
+              },
+              "tags": {
+                "highway": "footway",
+                "military": "yes",
+                "name": "Dawny schron",
+                "tunnel": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 300933731,
+              "center": {
+                "lat": 50.2140604,
+                "lon": 19.1643186
+              },
+              "tags": {
+                "highway": "footway",
+                "military": "yes",
+                "name": "Dawny schron",
+                "tunnel": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 300933732,
+              "center": {
+                "lat": 50.2139537,
+                "lon": 19.1641365
+              },
+              "tags": {
+                "highway": "footway",
+                "military": "yes",
+                "name": "Dawny schron",
+                "tunnel": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 302837465,
+              "center": {
+                "lat": 50.1590345,
+                "lon": 18.8752777
+              },
+              "tags": {
+                "building": "bunker",
+                "building:usage:pl": "Bunkier",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "source": "Powiat mikołowski; knowledge"
+              }
+            },
+            {
+              "type": "way",
+              "id": 302838655,
+              "center": {
+                "lat": 50.1491677,
+                "lon": 18.8803504
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 303357687,
+              "center": {
+                "lat": 50.2448223,
+                "lon": 18.9060997
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 308816680,
+              "center": {
+                "lat": 50.1953569,
+                "lon": 18.8604907
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "building:material": "concrete",
+                "building:usage:pl": "Inny",
+                "bunker_type": "pillbox",
+                "construction_date": "1932",
+                "military": "bunker",
+                "name": "Obszar Warowny \"Śląsk\"",
+                "source": "local knowledge"
+              }
+            },
+            {
+              "type": "way",
+              "id": 308818338,
+              "center": {
+                "lat": 50.1741244,
+                "lon": 18.8643432
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Obszar Warowny \"Śląsk\"m",
+                "source": "local knowledge"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312767241,
+              "center": {
+                "lat": 50.0636226,
+                "lon": 18.6890707
+              },
+              "tags": {
+                "military": "bunker",
+                "name": "Bunkier na Żwace"
+              }
+            },
+            {
+              "type": "way",
+              "id": 327444283,
+              "center": {
+                "lat": 50.0898058,
+                "lon": 18.542922
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 332543642,
+              "center": {
+                "lat": 50.3085542,
+                "lon": 18.9253359
+              },
+              "tags": {
+                "addr:city": "Świętochłowice",
+                "addr:housenumber": "4",
+                "addr:postcode": "41-608",
+                "addr:street": "Ślęzan",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "ref": "40",
+                "source": "UM Świętochłowice",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 345706001,
+              "center": {
+                "lat": 50.3405034,
+                "lon": 18.675617
+              },
+              "tags": {
+                "access": "military",
+                "landuse": "military",
+                "military": "training_area",
+                "name": "Poligon testowy Bumaru Łabędy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515765,
+              "center": {
+                "lat": 50.2278231,
+                "lon": 19.1570274
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515766,
+              "center": {
+                "lat": 50.2245734,
+                "lon": 19.1601254
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515767,
+              "center": {
+                "lat": 50.2272141,
+                "lon": 19.1581548
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515769,
+              "center": {
+                "lat": 50.2253066,
+                "lon": 19.1601335
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515770,
+              "center": {
+                "lat": 50.2262775,
+                "lon": 19.1595749
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 366515772,
+              "center": {
+                "lat": 50.2270433,
+                "lon": 19.1570212
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371936153,
+              "center": {
+                "lat": 50.2681914,
+                "lon": 18.8517978
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 35",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Bojowy nr 35",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371938432,
+              "center": {
+                "lat": 50.2133336,
+                "lon": 18.8752706
+              },
+              "tags": {
+                "building": "yes",
+                "description": "Polski Schron Bojowy OWŚ",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 386176785,
+              "center": {
+                "lat": 50.2455142,
+                "lon": 18.8956602
+              },
+              "tags": {
+                "building": "service",
+                "building:fireproof": "yes",
+                "building:levels": "1",
+                "building:use:pl": "Inny niemieszkalny",
+                "ewmapa:warstwa": "Przyziemie budynku ognioodpornego, podpory, podcienia z rastra",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "source": "UM Ruda Śląska, raster"
+              }
+            },
+            {
+              "type": "way",
+              "id": 386690574,
+              "center": {
+                "lat": 50.1980186,
+                "lon": 18.8678042
+              },
+              "tags": {
+                "abandoned": "no",
+                "heritage": "no",
+                "historic": "yes",
+                "military": "bunker",
+                "network": "Obszar Warowny Śląsk",
+                "ruins": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 390678050,
+              "center": {
+                "lat": 50.1484002,
+                "lon": 18.8804562
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404688679,
+              "center": {
+                "lat": 50.3025967,
+                "lon": 18.9151029
+              },
+              "tags": {
+                "addr:city": "Świętochłowice",
+                "addr:housenumber": "13",
+                "addr:postcode": "41-605",
+                "addr:street": "Juliana Zubrzyckiego",
+                "alt_name": "Polski Schron Bojowy nr 39",
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "opening_hours": "May-Sep Sa[1,3],Su[1,3] 15:00-19:00",
+                "source": "UM Świętochłowice",
+                "website": "http://profort.org.pl/izby-muzealne/swietochlowice-schron-bojowy-nr-39/",
+                "wikidata": "Q9334323",
+                "wikimedia_commons": "Category:Heavy combat bunker No. 39 in Świętochłowice",
+                "wikipedia": "pl:Schron bojowy w Piaśnikach"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404701039,
+              "center": {
+                "lat": 50.2835319,
+                "lon": 18.8508818
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 30",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Bojowy nr 30",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404701040,
+              "center": {
+                "lat": 50.2798114,
+                "lon": 18.8478853
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 32",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Artyleryjski nr 32",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404701513,
+              "center": {
+                "lat": 50.2722766,
+                "lon": 18.8478712
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 34",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Bojowy PPanc. nr 34",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404701514,
+              "center": {
+                "lat": 50.2701428,
+                "lon": 18.8501826
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Pozorny-Uzbrojony nr 146",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 470214584,
+              "center": {
+                "lat": 50.3377573,
+                "lon": 18.8939025
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 487078031,
+              "center": {
+                "lat": 50.1191892,
+                "lon": 18.5729011
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 487078032,
+              "center": {
+                "lat": 50.1198897,
+                "lon": 18.572434
+              },
+              "tags": {
+                "bunker_type": "munitions",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646787,
+              "center": {
+                "lat": 50.198051,
+                "lon": 19.0593615
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646788,
+              "center": {
+                "lat": 50.1983667,
+                "lon": 19.0588635
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646789,
+              "center": {
+                "lat": 50.1977992,
+                "lon": 19.0589325
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646790,
+              "center": {
+                "lat": 50.1985683,
+                "lon": 19.0582087
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646791,
+              "center": {
+                "lat": 50.1986223,
+                "lon": 19.0582111
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646792,
+              "center": {
+                "lat": 50.1979316,
+                "lon": 19.0581933
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646793,
+              "center": {
+                "lat": 50.1982366,
+                "lon": 19.0584643
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513646794,
+              "center": {
+                "lat": 50.1988117,
+                "lon": 19.053319
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "command",
+                "description": "Stanowisko dowodzenia Heimat-Flak-Bttr. 2??./VIII ''Emanuelssegen''",
+                "historic": "yes",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513859063,
+              "center": {
+                "lat": 50.1870028,
+                "lon": 19.0415026
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513859064,
+              "center": {
+                "lat": 50.1884312,
+                "lon": 19.0400607
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513859065,
+              "center": {
+                "lat": 50.1902756,
+                "lon": 19.039012
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 513859066,
+              "center": {
+                "lat": 50.192282,
+                "lon": 19.0444613
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160570,
+              "center": {
+                "lat": 50.1922835,
+                "lon": 19.0714403
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160571,
+              "center": {
+                "lat": 50.1911696,
+                "lon": 19.0694723
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160572,
+              "center": {
+                "lat": 50.1905967,
+                "lon": 19.0420328
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160573,
+              "center": {
+                "lat": 50.1909048,
+                "lon": 19.0706346
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160574,
+              "center": {
+                "lat": 50.1902139,
+                "lon": 19.0706596
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160575,
+              "center": {
+                "lat": 50.1892835,
+                "lon": 19.0707832
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160576,
+              "center": {
+                "lat": 50.1898518,
+                "lon": 19.0650777
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160578,
+              "center": {
+                "lat": 50.1881601,
+                "lon": 19.0695794
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160579,
+              "center": {
+                "lat": 50.1882966,
+                "lon": 19.0698622
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160581,
+              "center": {
+                "lat": 50.1874428,
+                "lon": 19.0675971
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160582,
+              "center": {
+                "lat": 50.1873933,
+                "lon": 19.0673606
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160583,
+              "center": {
+                "lat": 50.1876171,
+                "lon": 19.0663505
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160585,
+              "center": {
+                "lat": 50.1891763,
+                "lon": 19.0699241
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160586,
+              "center": {
+                "lat": 50.1882699,
+                "lon": 19.0652298
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160587,
+              "center": {
+                "lat": 50.1891632,
+                "lon": 19.0597786
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160588,
+              "center": {
+                "lat": 50.187958,
+                "lon": 19.0566234
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160589,
+              "center": {
+                "lat": 50.1878484,
+                "lon": 19.056999
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160590,
+              "center": {
+                "lat": 50.1883392,
+                "lon": 19.0581255
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160591,
+              "center": {
+                "lat": 50.1881953,
+                "lon": 19.057996
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160592,
+              "center": {
+                "lat": 50.1889272,
+                "lon": 19.0580668
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160593,
+              "center": {
+                "lat": 50.1870426,
+                "lon": 19.0527433
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160594,
+              "center": {
+                "lat": 50.1870944,
+                "lon": 19.0521205
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160595,
+              "center": {
+                "lat": 50.1885051,
+                "lon": 19.0539163
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160596,
+              "center": {
+                "lat": 50.1879853,
+                "lon": 19.0522477
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160597,
+              "center": {
+                "lat": 50.1884183,
+                "lon": 19.0527587
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160599,
+              "center": {
+                "lat": 50.1884823,
+                "lon": 19.0530356
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160600,
+              "center": {
+                "lat": 50.1883308,
+                "lon": 19.0534801
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160601,
+              "center": {
+                "lat": 50.1885286,
+                "lon": 19.0559514
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160602,
+              "center": {
+                "lat": 50.1883468,
+                "lon": 19.0534744
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160603,
+              "center": {
+                "lat": 50.1881155,
+                "lon": 19.0499992
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160604,
+              "center": {
+                "lat": 50.188104,
+                "lon": 19.0482059
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160605,
+              "center": {
+                "lat": 50.1874961,
+                "lon": 19.0532697
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160606,
+              "center": {
+                "lat": 50.1878522,
+                "lon": 19.0490877
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160607,
+              "center": {
+                "lat": 50.1877959,
+                "lon": 19.0486255
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160608,
+              "center": {
+                "lat": 50.1879458,
+                "lon": 19.047323
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160609,
+              "center": {
+                "lat": 50.1869169,
+                "lon": 19.0485184
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160610,
+              "center": {
+                "lat": 50.1867299,
+                "lon": 19.0494027
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160611,
+              "center": {
+                "lat": 50.1867192,
+                "lon": 19.0486814
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160612,
+              "center": {
+                "lat": 50.1869026,
+                "lon": 19.0473111
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160613,
+              "center": {
+                "lat": 50.1878545,
+                "lon": 19.0461703
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160614,
+              "center": {
+                "lat": 50.1873128,
+                "lon": 19.0438743
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160615,
+              "center": {
+                "lat": 50.1896084,
+                "lon": 19.0389104
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160616,
+              "center": {
+                "lat": 50.1908379,
+                "lon": 19.0400084
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160617,
+              "center": {
+                "lat": 50.1878054,
+                "lon": 19.045112
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160618,
+              "center": {
+                "lat": 50.1876308,
+                "lon": 19.0452195
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514160619,
+              "center": {
+                "lat": 50.1875442,
+                "lon": 19.0418576
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514165706,
+              "center": {
+                "lat": 50.1884366,
+                "lon": 19.0630681
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514165710,
+              "center": {
+                "lat": 50.198925,
+                "lon": 19.0530653
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235925,
+              "center": {
+                "lat": 50.1912784,
+                "lon": 19.0282254
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235927,
+              "center": {
+                "lat": 50.1943886,
+                "lon": 19.0203986
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235930,
+              "center": {
+                "lat": 50.193777,
+                "lon": 19.0249835
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235932,
+              "center": {
+                "lat": 50.1951844,
+                "lon": 19.015115
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235934,
+              "center": {
+                "lat": 50.1887858,
+                "lon": 19.0295398
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235937,
+              "center": {
+                "lat": 50.1896273,
+                "lon": 19.0275647
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235940,
+              "center": {
+                "lat": 50.1902528,
+                "lon": 19.0249835
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235942,
+              "center": {
+                "lat": 50.1929035,
+                "lon": 19.0183427
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235947,
+              "center": {
+                "lat": 50.1947934,
+                "lon": 19.0134037
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235949,
+              "center": {
+                "lat": 50.1951403,
+                "lon": 19.0128642
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235951,
+              "center": {
+                "lat": 50.196343,
+                "lon": 19.0126506
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235953,
+              "center": {
+                "lat": 50.1965282,
+                "lon": 19.0138635
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235955,
+              "center": {
+                "lat": 50.1977983,
+                "lon": 19.0141025
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235959,
+              "center": {
+                "lat": 50.2004883,
+                "lon": 19.0128048
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235962,
+              "center": {
+                "lat": 50.2005281,
+                "lon": 19.0121342
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235964,
+              "center": {
+                "lat": 50.2003073,
+                "lon": 19.0110163
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235966,
+              "center": {
+                "lat": 50.1983332,
+                "lon": 19.011417
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514235972,
+              "center": {
+                "lat": 50.205501,
+                "lon": 19.0038038
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514327740,
+              "center": {
+                "lat": 50.1935601,
+                "lon": 19.0515632
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514327741,
+              "center": {
+                "lat": 50.1934742,
+                "lon": 19.0491543
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514597964,
+              "center": {
+                "lat": 50.1762534,
+                "lon": 19.0094207
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514597965,
+              "center": {
+                "lat": 50.1761154,
+                "lon": 19.0095264
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 514597966,
+              "center": {
+                "lat": 50.1761118,
+                "lon": 19.0096849
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678721,
+              "center": {
+                "lat": 50.2252875,
+                "lon": 18.9289407
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678722,
+              "center": {
+                "lat": 50.2253095,
+                "lon": 18.9290535
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678723,
+              "center": {
+                "lat": 50.2253817,
+                "lon": 18.9289811
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678724,
+              "center": {
+                "lat": 50.2252403,
+                "lon": 18.9290227
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678725,
+              "center": {
+                "lat": 50.2256797,
+                "lon": 18.9289775
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678726,
+              "center": {
+                "lat": 50.2302269,
+                "lon": 18.9200776
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678727,
+              "center": {
+                "lat": 50.2301638,
+                "lon": 18.9200027
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678729,
+              "center": {
+                "lat": 50.230103,
+                "lon": 18.9206136
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678730,
+              "center": {
+                "lat": 50.2298102,
+                "lon": 18.9219481
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678731,
+              "center": {
+                "lat": 50.2294735,
+                "lon": 18.9230462
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678732,
+              "center": {
+                "lat": 50.229494,
+                "lon": 18.9233706
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678734,
+              "center": {
+                "lat": 50.2327417,
+                "lon": 18.9211745
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678736,
+              "center": {
+                "lat": 50.2326899,
+                "lon": 18.9204377
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678737,
+              "center": {
+                "lat": 50.2326261,
+                "lon": 18.9196509
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678738,
+              "center": {
+                "lat": 50.232655,
+                "lon": 18.9195226
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678739,
+              "center": {
+                "lat": 50.2329347,
+                "lon": 18.9186646
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678740,
+              "center": {
+                "lat": 50.2324603,
+                "lon": 18.9174643
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678741,
+              "center": {
+                "lat": 50.2328663,
+                "lon": 18.9184031
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678742,
+              "center": {
+                "lat": 50.2325501,
+                "lon": 18.917759
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678743,
+              "center": {
+                "lat": 50.2298071,
+                "lon": 18.9172024
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678744,
+              "center": {
+                "lat": 50.2298042,
+                "lon": 18.9171791
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678745,
+              "center": {
+                "lat": 50.2327987,
+                "lon": 18.9050824
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678746,
+              "center": {
+                "lat": 50.2331716,
+                "lon": 18.9045494
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678747,
+              "center": {
+                "lat": 50.2332,
+                "lon": 18.904459
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678748,
+              "center": {
+                "lat": 50.2332,
+                "lon": 18.9045987
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678749,
+              "center": {
+                "lat": 50.2316439,
+                "lon": 18.9039071
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678751,
+              "center": {
+                "lat": 50.2313913,
+                "lon": 18.9039937
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678752,
+              "center": {
+                "lat": 50.2312227,
+                "lon": 18.9040306
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678753,
+              "center": {
+                "lat": 50.2323594,
+                "lon": 18.9037302
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678754,
+              "center": {
+                "lat": 50.232455,
+                "lon": 18.9036147
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678755,
+              "center": {
+                "lat": 50.2322171,
+                "lon": 18.9041281
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678756,
+              "center": {
+                "lat": 50.2319844,
+                "lon": 18.9037787
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678757,
+              "center": {
+                "lat": 50.2323425,
+                "lon": 18.9052618
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678758,
+              "center": {
+                "lat": 50.2323121,
+                "lon": 18.9052119
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678759,
+              "center": {
+                "lat": 50.2319023,
+                "lon": 18.9048685
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678760,
+              "center": {
+                "lat": 50.2318233,
+                "lon": 18.9049172
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678761,
+              "center": {
+                "lat": 50.2318507,
+                "lon": 18.9048417
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678762,
+              "center": {
+                "lat": 50.2307955,
+                "lon": 18.9040105
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678763,
+              "center": {
+                "lat": 50.2306952,
+                "lon": 18.9045737
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678764,
+              "center": {
+                "lat": 50.2306853,
+                "lon": 18.9041139
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678765,
+              "center": {
+                "lat": 50.2306427,
+                "lon": 18.9041554
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678766,
+              "center": {
+                "lat": 50.2307065,
+                "lon": 18.9043729
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678767,
+              "center": {
+                "lat": 50.2304838,
+                "lon": 18.9047556
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678768,
+              "center": {
+                "lat": 50.2304861,
+                "lon": 18.9046248
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678769,
+              "center": {
+                "lat": 50.2303941,
+                "lon": 18.9047793
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678770,
+              "center": {
+                "lat": 50.2301965,
+                "lon": 18.905673
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678771,
+              "center": {
+                "lat": 50.23003,
+                "lon": 18.9058239
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678772,
+              "center": {
+                "lat": 50.2299631,
+                "lon": 18.906543
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678773,
+              "center": {
+                "lat": 50.2299671,
+                "lon": 18.9064234
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678774,
+              "center": {
+                "lat": 50.2300695,
+                "lon": 18.9059558
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678775,
+              "center": {
+                "lat": 50.2301038,
+                "lon": 18.906329
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678776,
+              "center": {
+                "lat": 50.2340727,
+                "lon": 18.9033247
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678777,
+              "center": {
+                "lat": 50.234091,
+                "lon": 18.9033746
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678778,
+              "center": {
+                "lat": 50.2333369,
+                "lon": 18.9026735
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678779,
+              "center": {
+                "lat": 50.2333681,
+                "lon": 18.9027199
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678780,
+              "center": {
+                "lat": 50.2314189,
+                "lon": 18.9059879
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678781,
+              "center": {
+                "lat": 50.2312121,
+                "lon": 18.9060164
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678782,
+              "center": {
+                "lat": 50.2309491,
+                "lon": 18.9062493
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678783,
+              "center": {
+                "lat": 50.2309278,
+                "lon": 18.9061483
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678784,
+              "center": {
+                "lat": 50.2308985,
+                "lon": 18.9064907
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678785,
+              "center": {
+                "lat": 50.230894,
+                "lon": 18.9063151
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678786,
+              "center": {
+                "lat": 50.230959,
+                "lon": 18.9060842
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678787,
+              "center": {
+                "lat": 50.2308632,
+                "lon": 18.9067985
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678788,
+              "center": {
+                "lat": 50.2308601,
+                "lon": 18.9072381
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678789,
+              "center": {
+                "lat": 50.2307823,
+                "lon": 18.9082929
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678790,
+              "center": {
+                "lat": 50.2305413,
+                "lon": 18.9089821
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678791,
+              "center": {
+                "lat": 50.2305834,
+                "lon": 18.9091485
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678792,
+              "center": {
+                "lat": 50.2301805,
+                "lon": 18.9109756
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678793,
+              "center": {
+                "lat": 50.2303942,
+                "lon": 18.9101687
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678794,
+              "center": {
+                "lat": 50.2300962,
+                "lon": 18.9118704
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678795,
+              "center": {
+                "lat": 50.2300643,
+                "lon": 18.9118183
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678796,
+              "center": {
+                "lat": 50.2300783,
+                "lon": 18.9115983
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678797,
+              "center": {
+                "lat": 50.2300517,
+                "lon": 18.911539
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678798,
+              "center": {
+                "lat": 50.2300653,
+                "lon": 18.9120636
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678799,
+              "center": {
+                "lat": 50.2299861,
+                "lon": 18.9119252
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678800,
+              "center": {
+                "lat": 50.2340978,
+                "lon": 18.9016741
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678801,
+              "center": {
+                "lat": 50.2340787,
+                "lon": 18.9015611
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678802,
+              "center": {
+                "lat": 50.2340864,
+                "lon": 18.9011713
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678803,
+              "center": {
+                "lat": 50.2340392,
+                "lon": 18.8996775
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678804,
+              "center": {
+                "lat": 50.2360688,
+                "lon": 18.897151
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 546678805,
+              "center": {
+                "lat": 50.2368525,
+                "lon": 18.8972235
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 548574453,
+              "center": {
+                "lat": 50.1511113,
+                "lon": 18.5954543
+              },
+              "tags": {
+                "addr:city": "Książenice",
+                "barrier": "fence",
+                "denomination": "roman_catholic",
+                "landuse": "cemetery",
+                "military": "no",
+                "religion": "christian",
+                "source": "survey",
+                "source:geometry": "geoportal.gov.pl:ortofoto"
+              }
+            },
+            {
+              "type": "way",
+              "id": 586120981,
+              "center": {
+                "lat": 50.0745962,
+                "lon": 19.0780351
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Paintball Zone Bieruń"
+              }
+            },
+            {
+              "type": "way",
+              "id": 680735567,
+              "center": {
+                "lat": 50.2477831,
+                "lon": 18.6063256
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 695858046,
+              "center": {
+                "lat": 50.3428413,
+                "lon": 18.8866695
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser"
+              }
+            },
+            {
+              "type": "way",
+              "id": 720889912,
+              "center": {
+                "lat": 50.1114787,
+                "lon": 18.5363384
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "description": "Schron bojowy w dzielnicy Wawok",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Polski Schron bojowy OWS „WAWOK”",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 720890587,
+              "center": {
+                "lat": 50.091385,
+                "lon": 18.5187683
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "description": "Schron bojowy w Levin",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron bojowy OWS „LEVIN”",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 720895405,
+              "center": {
+                "lat": 50.0969856,
+                "lon": 18.5186997
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron bojowy OWS „ALDI”",
+                "old_name": "Polski Schron Bojowy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 727438118,
+              "center": {
+                "lat": 50.3216812,
+                "lon": 18.8341647
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "name": "Bunkier Sonderwerk"
+              }
+            },
+            {
+              "type": "way",
+              "id": 746504972,
+              "center": {
+                "lat": 50.3371924,
+                "lon": 18.8938318
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 746504973,
+              "center": {
+                "lat": 50.3384272,
+                "lon": 18.894297
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 746504974,
+              "center": {
+                "lat": 50.3381407,
+                "lon": 18.894184
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 757919238,
+              "center": {
+                "lat": 50.3349662,
+                "lon": 18.8309793
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Koch",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB&GPS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 757973724,
+              "center": {
+                "lat": 50.3506977,
+                "lon": 18.9154055
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB&GPS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031311,
+              "center": {
+                "lat": 50.3010965,
+                "lon": 18.6369762
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031312,
+              "center": {
+                "lat": 50.3006822,
+                "lon": 18.6379596
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031313,
+              "center": {
+                "lat": 50.3002841,
+                "lon": 18.6389457
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031314,
+              "center": {
+                "lat": 50.3000111,
+                "lon": 18.639543
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031315,
+              "center": {
+                "lat": 50.2997616,
+                "lon": 18.6401473
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031316,
+              "center": {
+                "lat": 50.2992057,
+                "lon": 18.6399058
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031317,
+              "center": {
+                "lat": 50.2991577,
+                "lon": 18.6386766
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031318,
+              "center": {
+                "lat": 50.2994412,
+                "lon": 18.6380747
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031319,
+              "center": {
+                "lat": 50.3002405,
+                "lon": 18.6360904
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031320,
+              "center": {
+                "lat": 50.3000435,
+                "lon": 18.6379289
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 778031321,
+              "center": {
+                "lat": 50.3004473,
+                "lon": 18.6369795
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 779199929,
+              "center": {
+                "lat": 50.239702,
+                "lon": 19.0100205
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673651,
+              "center": {
+                "lat": 50.2241188,
+                "lon": 19.1610931
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673652,
+              "center": {
+                "lat": 50.2240641,
+                "lon": 19.1608365
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673653,
+              "center": {
+                "lat": 50.2247271,
+                "lon": 19.1605512
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673654,
+              "center": {
+                "lat": 50.2253627,
+                "lon": 19.1604181
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673655,
+              "center": {
+                "lat": 50.2258797,
+                "lon": 19.1600664
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673656,
+              "center": {
+                "lat": 50.2264697,
+                "lon": 19.1595768
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673657,
+              "center": {
+                "lat": 50.2256517,
+                "lon": 19.1587354
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673658,
+              "center": {
+                "lat": 50.2250008,
+                "lon": 19.1586355
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673659,
+              "center": {
+                "lat": 50.226146,
+                "lon": 19.1559058
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673660,
+              "center": {
+                "lat": 50.2280404,
+                "lon": 19.1557644
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673661,
+              "center": {
+                "lat": 50.2277485,
+                "lon": 19.1595292
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673662,
+              "center": {
+                "lat": 50.2278226,
+                "lon": 19.159477
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 790673663,
+              "center": {
+                "lat": 50.2277865,
+                "lon": 19.1593771
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793421519,
+              "center": {
+                "lat": 50.3364501,
+                "lon": 18.8566087
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "aircraft shelter",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 812627804,
+              "center": {
+                "lat": 50.2164632,
+                "lon": 19.0625901
+              },
+              "tags": {
+                "building": "bunker",
+                "fixme": "Dodałem. Proszę poprawnie oznaczyć",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 856702943,
+              "center": {
+                "lat": 50.2889384,
+                "lon": 18.8552012
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Polski Schron Bojowy nr 27 OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "operator": "Stowarzyszenie Paramilitarne „Prochownia 1910”",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 856702944,
+              "center": {
+                "lat": 50.2859388,
+                "lon": 18.8555056
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 30",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 857196491,
+              "center": {
+                "lat": 50.2845336,
+                "lon": 18.8633721
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 29",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 858217794,
+              "center": {
+                "lat": 50.2900705,
+                "lon": 18.8570674
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 26",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 858226128,
+              "center": {
+                "lat": 50.2856838,
+                "lon": 18.8617838
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy nr 29a",
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 922883359,
+              "center": {
+                "lat": 50.1187637,
+                "lon": 18.5717853
+              },
+              "tags": {
+                "building": "bunker",
+                "fixme": "geometry",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 922883360,
+              "center": {
+                "lat": 50.1195783,
+                "lon": 18.57397
+              },
+              "tags": {
+                "building": "bunker",
+                "fixme": "geometry",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 942696353,
+              "center": {
+                "lat": 50.2925503,
+                "lon": 18.8062469
+              },
+              "tags": {
+                "addr:city": "Zabrze",
+                "addr:housenumber": "11",
+                "addr:postcode": "41-800",
+                "addr:street": "Jodłowa",
+                "landuse": "military",
+                "military": "range",
+                "name": "Towarzystwo Sportowe Temida",
+                "website": "https://tstemida-zabrze.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 986121357,
+              "center": {
+                "lat": 50.0164665,
+                "lon": 18.9312247
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Schron piechoty (1939 r.)",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1016177523,
+              "center": {
+                "lat": 50.2992279,
+                "lon": 18.698866
+              },
+              "tags": {
+                "building": "bunker",
+                "fixme": "To jest schron miejski, z czasów, kiedy takie schrony były popularne.",
+                "military": "bunker",
+                "name": "Schron miejski"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1032029330,
+              "center": {
+                "lat": 50.3203691,
+                "lon": 18.9500911
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "bunker",
+                "fixme": "Sprawdzić geometrię po północno-zachodzniej stronie",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "ref": "A/893/2021",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1038847794,
+              "center": {
+                "lat": 50.3449524,
+                "lon": 18.9562254
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "schron poniemiecki typu Regelbau 111a",
+                "military": "bunker",
+                "name": "Pozycja Górnośląska",
+                "source": "survey",
+                "wikimedia_commons": "File:Bytom Siemianowicka German bunker entrance 2021.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1039824193,
+              "center": {
+                "lat": 50.2977498,
+                "lon": 18.8417512
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "name": "Bunkier Sonderwerk"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1042715767,
+              "center": {
+                "lat": 50.3266304,
+                "lon": 18.959243
+              },
+              "tags": {
+                "alt_name": "Obszar Warowny Śląsk",
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "schron pozorno-bojowy, Obszar Warowny Śląsk",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Pozorny-Uzbrojony Nr 157",
+                "note": "OWŚ",
+                "source": "survey",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "start_date": "1938",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1046295071,
+              "center": {
+                "lat": 50.3157551,
+                "lon": 19.0049394
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1058594773,
+              "center": {
+                "lat": 50.3460417,
+                "lon": 18.9559204
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "schron poniemiecki typu Sonderbau",
+                "military": "bunker",
+                "name": "Pozycja Górnośląska",
+                "source": "survey",
+                "survey:date": "2022-05-09"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1072455595,
+              "center": {
+                "lat": 49.980947,
+                "lon": 18.6355042
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica SW"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1096779227,
+              "center": {
+                "lat": 50.2481103,
+                "lon": 18.9165993
+              },
+              "tags": {
+                "building": "yes",
+                "description": "OWŚ",
+                "historic": "yes",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction",
+                "wikidata": "Q124060226"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1122692865,
+              "center": {
+                "lat": 50.1900256,
+                "lon": 18.8606169
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Numer 11 Odcinka Śmiłowice"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1154917922,
+              "center": {
+                "lat": 50.3083912,
+                "lon": 18.8319723
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Sonderwerk 2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1169865801,
+              "center": {
+                "lat": 50.2472272,
+                "lon": 18.7041032
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron bojowy typu Regelbau 116a"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1186584507,
+              "center": {
+                "lat": 50.2269654,
+                "lon": 19.1573233
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "yes",
+                "name": "Dawne okopy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1226398628,
+              "center": {
+                "lat": 50.3236779,
+                "lon": 18.9230928
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "OWŚ",
+                "note": "OWŚ",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1249304432,
+              "center": {
+                "lat": 50.2622454,
+                "lon": 18.8663189
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu\"Nowa Wieś\" Schron Pozorny-Uzbrojony nr 144",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1249304433,
+              "center": {
+                "lat": 50.2638062,
+                "lon": 18.8636613
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu\"Nowa Wieś\" Schron Pozorny-Uzbrojony nr 145",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1249304434,
+              "center": {
+                "lat": 50.2648157,
+                "lon": 18.8572353
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Nowa Wieś\" Schron Polowy Piechoty",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1341098798,
+              "center": {
+                "lat": 50.3198555,
+                "lon": 18.9778151
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Łącznicy Telefonicznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1341098799,
+              "center": {
+                "lat": 50.3188492,
+                "lon": 18.9490003
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Bierny-Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1341113815,
+              "center": {
+                "lat": 50.31992,
+                "lon": 18.9463588
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu \"Łagiewniki\" Schron Koszarowy Nr 8"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1373807380,
+              "center": {
+                "lat": 50.2402031,
+                "lon": 18.7026845
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1427279707,
+              "center": {
+                "lat": 50.1911936,
+                "lon": 19.0431577
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1427281813,
+              "center": {
+                "lat": 50.1865267,
+                "lon": 19.0501716
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1465602940,
+              "center": {
+                "lat": 50.3014076,
+                "lon": 18.6784004
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1469855627,
+              "center": {
+                "lat": 49.9230494,
+                "lon": 18.8457014
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1491161596,
+              "center": {
+                "lat": 50.312797,
+                "lon": 18.872018
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu\"Godula\" Schron Bojowy nr 21",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1491161597,
+              "center": {
+                "lat": 50.3099668,
+                "lon": 18.8718713
+              },
+              "tags": {
+                "alt_name": "Polski Schron Bojpwy Obiekt Pozorny",
+                "building": "yes",
+                "historic": "yes",
+                "inscription": "Grupa bojowa \"Wirek\", Schron pozorno - bojowy",
+                "military": "bunker",
+                "name": "OWŚ Punkt Oporu\"Godula\" Schron Pozorny-Uzbrojony nr 150",
+                "old_name": "Polski Schron Bojowy",
+                "source:geometry": "geoportal.gov.pl:ortofoto",
+                "tourism": "attraction"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

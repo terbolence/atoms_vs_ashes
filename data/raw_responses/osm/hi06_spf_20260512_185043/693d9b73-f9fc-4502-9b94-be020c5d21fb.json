@@ -1,0 +1,719 @@
+{
+  "meta": {
+    "site_id": "693d9b73-f9fc-4502-9b94-be020c5d21fb",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:44:38.801670+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.651873,26.298268);\n  way[\"military\"](around:25000,47.651873,26.298268);\n  relation[\"military\"](around:25000,47.651873,26.298268);\n  node[\"landuse\"=\"military\"](around:25000,47.651873,26.298268);\n  way[\"landuse\"=\"military\"](around:25000,47.651873,26.298268);\n  relation[\"landuse\"=\"military\"](around:25000,47.651873,26.298268);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.651873,26.298268);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.651873,26.298268);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.651873,26.298268);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.651873,26.298268);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.651873,26.298268);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.651873,26.298268);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1799,
+        "element_count": 53,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:43:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178834280,
+              "lat": 47.654417,
+              "lon": 26.246028,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ilie Ilaşcu, bl. D2, sc. A (locuinţe colective – SC General Construct SRL), Suceava, SV",
+                "military": "bunker",
+                "ref": "2831",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178840799,
+              "lat": 47.641556,
+              "lon": 26.238056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 4, bl. 56, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2804",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863859,
+              "lat": 47.64535,
+              "lon": 26.24368,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Universităţii, nr. 52(CEC Bank Suceava), Suceava, SV",
+                "military": "bunker",
+                "ref": "2826",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870067,
+              "lat": 47.641167,
+              "lon": 26.237722,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 4, bl. 56, sc. E, Suceava, SV",
+                "military": "bunker",
+                "ref": "2806",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878369,
+              "lat": 47.650833,
+              "lon": 26.24609,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Zamca, nr. 25, bl. 63, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2794",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878428,
+              "lat": 47.636528,
+              "lon": 26.234222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Castanilor, nr. 2 (locuinţe colective,SC General Construct SRL), Suceava, SV",
+                "military": "bunker",
+                "ref": "2828",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878516,
+              "lat": 47.674722,
+              "lon": 26.266667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Putna, nr. 10, bl. B 01, sc. B,Str. Putna, nr. 10, bl. B 01, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2785,2784",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878613,
+              "lat": 47.672111,
+              "lon": 26.276583,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Baladei, nr. 4, bl. 16, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2771",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878639,
+              "lat": 47.641417,
+              "lon": 26.237889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 4, bl. 56, sc. D, Suceava, SV",
+                "military": "bunker",
+                "ref": "2805",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878698,
+              "lat": 47.640917,
+              "lon": 26.24161,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Scurtă, nr. 6 (Cămin 4 –Universitatea „Ştefan cel Mare”), Suceava, SV",
+                "military": "bunker",
+                "ref": "2823",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878786,
+              "lat": 47.670583,
+              "lon": 26.280167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tineretului, nr. 4, bl. 36, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2783",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878935,
+              "lat": 47.67284,
+              "lon": 26.27811,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Celulozei, nr. 2, bl. 24, sc. E, Suceava, SV",
+                "military": "bunker",
+                "ref": "2776",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879058,
+              "lat": 47.645889,
+              "lon": 26.241389,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bld. George Enescu, bl. E 66, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2797",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879206,
+              "lat": 47.672028,
+              "lon": 26.27729,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Celulozei, nr. 1, bl. 25, sc. H, Suceava, SV",
+                "military": "bunker",
+                "ref": "2775",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879458,
+              "lat": 47.6486,
+              "lon": 26.24483,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Narciselor, nr. 29 (locuinţe colective – SC General Construct SRL), Suceava, SV",
+                "military": "bunker",
+                "ref": "2830",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879546,
+              "lat": 47.673944,
+              "lon": 26.266056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Putna, nr. 8, bl. A 05, sc. A,Str. Putna, nr. 8, bl. A 05, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2789,2788",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879607,
+              "lat": 47.458722,
+              "lon": 26.30775,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Izvor, f.n., bl. 3 A, Fălticeni, SV",
+                "military": "bunker",
+                "ref": "2807",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879669,
+              "lat": 47.643278,
+              "lon": 26.23706,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lalelelor, nr. 15, bl. 105, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2799",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879729,
+              "lat": 47.651806,
+              "lon": 26.2963,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Energeticianului, nr. 1(S.C. Termica S.A. Suceava), Suceava, SV",
+                "military": "bunker",
+                "ref": "2825",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879817,
+              "lat": 47.643667,
+              "lon": 26.2415,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Venus, nr. 1, bl. E 111, sc. E, Suceava, SV",
+                "military": "bunker",
+                "ref": "2796",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879877,
+              "lat": 47.633278,
+              "lon": 26.229833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bld. Sofia Vicoveanca, nr. 1(S.C. Primagra S.R.L. Suceava), Suceava, SV",
+                "military": "bunker",
+                "ref": "2822",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879965,
+              "lat": 47.673167,
+              "lon": 26.275194,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Celulozei, nr.7, bl.14, sc.A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2778",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879999,
+              "lat": 47.654301,
+              "lon": 26.245935,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ilie Ilaşcu, bl. D4, sc. A (locuinţe colective – SC General Construct SRL), Suceava, SV",
+                "military": "bunker",
+                "ref": "2832",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880088,
+              "lat": 47.650389,
+              "lon": 26.246583,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stejarului, nr. 14, bl. 59, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2791",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880235,
+              "lat": 47.674222,
+              "lon": 26.266361,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Putna, nr. 14, bl. A 01, sc. A,Str. Putna, nr. 14, bl. A 01, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2787,2786",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880626,
+              "lat": 47.63831,
+              "lon": 26.2389,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bld. 1 Decembrie 1918, nr. 21(Centrul de dializă Fresenius Nephrocare), Suceava, SV",
+                "military": "bunker",
+                "ref": "2824",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880714,
+              "lat": 47.673333,
+              "lon": 26.274917,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mircea Damaschin, nr. 12, bl. 5, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2780",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880775,
+              "lat": 47.45424,
+              "lon": 26.29806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. 2 Grăniceri, nr. 31, bl. 51, sc. B, Fălticeni, SV",
+                "military": "bunker",
+                "ref": "2809",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880837,
+              "lat": 47.642333,
+              "lon": 26.238639,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 11, bl. E 35, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2801",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880863,
+              "lat": 47.6725,
+              "lon": 26.2775,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Celulozei, nr. 3, bl. 16, sc. E, Suceava, SV",
+                "military": "bunker",
+                "ref": "2777",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880985,
+              "lat": 47.642861,
+              "lon": 26.237528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lalelelor, nr. 15, bl. 105, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2798",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881032,
+              "lat": 47.714124,
+              "lon": 26.511835,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Primăria Vlădeni, Com. Vlădeni, BT",
+                "military": "bunker",
+                "ref": "640",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881133,
+              "lat": 47.67198,
+              "lon": 26.27683,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Călimani, nr. 2, bl. 26, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2772",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881256,
+              "lat": 47.6505,
+              "lon": 26.245833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Vişinilor, nr.3, bl.59, sc.A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2793",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881315,
+              "lat": 47.670306,
+              "lon": 26.280861,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tineretului, f.n. (bloc de locuinţe,S.C. Loyal Impex S.R.L. Suceava), Suceava, SV",
+                "military": "bunker",
+                "ref": "2827",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881403,
+              "lat": 47.65,
+              "lon": 26.248889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Grigore Ureche, nr. 21, bl. 72, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2790",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881464,
+              "lat": 47.45421,
+              "lon": 26.29801,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. 2 Grăniceri, nr. 31, bl. 51, sc. A, Fălticeni, SV",
+                "military": "bunker",
+                "ref": "2808",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881500,
+              "lat": 47.671889,
+              "lon": 26.276889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Baladei, nr. 2, bl. 25, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2770",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881526,
+              "lat": 47.643333,
+              "lon": 26.237,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Lalelelor, nr. 15, bl. 105, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2800",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881647,
+              "lat": 47.6712274,
+              "lon": 26.2794902,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Tineretului, nr. 2, bl. 33, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2782",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881796,
+              "lat": 47.672889,
+              "lon": 26.274278,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mircea Damaschin, nr. 12, bl. 5, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2779",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881919,
+              "lat": 47.650222,
+              "lon": 26.246833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Stejarului, nr. 8, bl. 68, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2792",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882066,
+              "lat": 47.672583,
+              "lon": 26.277889,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Celulozei, nr. 1, bl. 25, sc. F, Suceava, SV",
+                "military": "bunker",
+                "ref": "2774",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882163,
+              "lat": 47.672056,
+              "lon": 26.276528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Baladei, nr. 1, bl. 12, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2769",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882189,
+              "lat": 47.641861,
+              "lon": 26.238389,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 4, bl. 56, sc. B, Suceava, SV",
+                "military": "bunker",
+                "ref": "2803",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882248,
+              "lat": 47.64368,
+              "lon": 26.25557,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Mihai Viteazul, nr. 13 (locuinţe colective – SC General Construct SRL), Suceava, SV",
+                "military": "bunker",
+                "ref": "2829",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882336,
+              "lat": 47.673611,
+              "lon": 26.27518,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Rarău, nr. 1, bl. 13, sc. F, Suceava, SV",
+                "military": "bunker",
+                "ref": "2781",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882397,
+              "lat": 47.45425,
+              "lon": 26.29803,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. 2 Grăniceri, nr. 31, bl. 51, sc. C, Fălticeni, SV",
+                "military": "bunker",
+                "ref": "2810",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882459,
+              "lat": 47.641889,
+              "lon": 26.238917,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Lazăr Vicol, nr. 4, bl. 56, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2802",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882624,
+              "lat": 47.644361,
+              "lon": 26.242167,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Venus, nr. 1, bl. E 111, sc. A, Suceava, SV",
+                "military": "bunker",
+                "ref": "2795",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882772,
+              "lat": 47.673722,
+              "lon": 26.277444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Calea Burdujeni, nr. 1, bl. 21, sc. C, Suceava, SV",
+                "military": "bunker",
+                "ref": "2773",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257214977,
+              "center": {
+                "lat": 47.6619264,
+                "lon": 26.38865
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Unitatea Militară Dumbrăveni"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1494603833,
+              "center": {
+                "lat": 47.7006625,
+                "lon": 26.2601206
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

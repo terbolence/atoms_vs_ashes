@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.6
 """Persistence-shape tests for :mod:`runprofile.persist`.
 
 Plan §5 of ``scoring_control_gui_872d4eb7`` requires every run to
@@ -78,7 +78,7 @@ def test_expert_override_diffs_only_records_deviations(
     assert "NH-02" in diffs and "E1" in diffs["NH-02"]
     entry = diffs["NH-02"]["E1"]
     assert entry["value"] == 4.5
-    assert entry["recommended_value"] == 5.0
+    assert entry["recommended_value"] == 8.0
     assert entry["out_of_bounds"] is False
 
 

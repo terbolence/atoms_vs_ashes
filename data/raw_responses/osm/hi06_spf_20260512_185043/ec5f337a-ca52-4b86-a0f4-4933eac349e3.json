@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "site_id": "ec5f337a-ca52-4b86-a0f4-4933eac349e3",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:54:55.606845+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.254053,26.134007);\n  way[\"military\"](around:25000,42.254053,26.134007);\n  relation[\"military\"](around:25000,42.254053,26.134007);\n  node[\"landuse\"=\"military\"](around:25000,42.254053,26.134007);\n  way[\"landuse\"=\"military\"](around:25000,42.254053,26.134007);\n  relation[\"landuse\"=\"military\"](around:25000,42.254053,26.134007);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.254053,26.134007);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.254053,26.134007);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.254053,26.134007);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.254053,26.134007);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.254053,26.134007);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.254053,26.134007);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 10910,
+        "element_count": 1,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:53:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 414648488,
+              "center": {
+                "lat": 42.4355401,
+                "lon": 26.1234092
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

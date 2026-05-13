@@ -1,0 +1,507 @@
+{
+  "meta": {
+    "site_id": "398cc0f2-25d5-428a-93c9-5e4859680e86",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:53:15.984422+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,43.196354,27.632675);\n  way[\"military\"](around:25000,43.196354,27.632675);\n  relation[\"military\"](around:25000,43.196354,27.632675);\n  node[\"landuse\"=\"military\"](around:25000,43.196354,27.632675);\n  way[\"landuse\"=\"military\"](around:25000,43.196354,27.632675);\n  relation[\"landuse\"=\"military\"](around:25000,43.196354,27.632675);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.196354,27.632675);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.196354,27.632675);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.196354,27.632675);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.196354,27.632675);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.196354,27.632675);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.196354,27.632675);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9124,
+        "element_count": 38,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:51:35Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4622421773,
+              "lat": 43.1787619,
+              "lon": 27.899689,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10021873805,
+              "lat": 43.1969602,
+              "lon": 27.9204031,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "image": "https://photos.app.goo.gl/b769kTARQNQ2zihf7",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 41265447,
+              "center": {
+                "lat": 43.2131193,
+                "lon": 27.9322279
+              },
+              "tags": {
+                "addr:city": "Варна",
+                "addr:housenumber": "73",
+                "addr:postcode": "9026",
+                "addr:street": "Васил Друмев",
+                "amenity": "university",
+                "barrier": "fence",
+                "fence_type": "metal",
+                "landuse": "military",
+                "name": "ВВМУ „Н. Й. Вапцаров“",
+                "name:en": "Nikola Yonkov Vaptsarov Naval Academy",
+                "website": "https://www.naval-acad.bg/",
+                "wikidata": "Q7035695"
+              }
+            },
+            {
+              "type": "way",
+              "id": 123942017,
+              "center": {
+                "lat": 43.19957,
+                "lon": 27.9159562
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Главен Щаб на Военноморските сили на Република България"
+              }
+            },
+            {
+              "type": "way",
+              "id": 135697249,
+              "center": {
+                "lat": 43.2521932,
+                "lon": 27.7601156
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военно стрелбище"
+              }
+            },
+            {
+              "type": "way",
+              "id": 135957604,
+              "center": {
+                "lat": 43.2624867,
+                "lon": 27.8593671
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Rocket Launchers. Launcher Pads"
+              }
+            },
+            {
+              "type": "way",
+              "id": 145571401,
+              "center": {
+                "lat": 43.1870104,
+                "lon": 27.7567417
+              },
+              "tags": {
+                "email": "office@krz-fa.com",
+                "fax": "+359 52 814 400",
+                "landuse": "military",
+                "name": "ТЕРЕМ-КРЗ Флотски Арсенал Варна ЕООД",
+                "phone": "+359 52 814 410",
+                "website": "https://krz-fa.com"
+              }
+            },
+            {
+              "type": "way",
+              "id": 146900587,
+              "center": {
+                "lat": 43.1920483,
+                "lon": 27.9113984
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 163214768,
+              "center": {
+                "lat": 43.1727255,
+                "lon": 27.8822468
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Поделение 26800 - буква \"Б\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 165273960,
+              "center": {
+                "lat": 43.1594252,
+                "lon": 27.919698
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Поделение 26800"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165274037,
+              "center": {
+                "lat": 43.1633541,
+                "lon": 27.9077802
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Под. 26800 буква \"В\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 165274189,
+              "center": {
+                "lat": 43.157139,
+                "lon": 27.9036258
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Поделение 28010 - ВВС"
+              }
+            },
+            {
+              "type": "way",
+              "id": 173833097,
+              "center": {
+                "lat": 43.254092,
+                "lon": 27.8936648
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военно поделение 28430"
+              }
+            },
+            {
+              "type": "way",
+              "id": 177210248,
+              "center": {
+                "lat": 43.3498943,
+                "lon": 27.8470205
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Военновременен резерв - с. Новаково"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186914964,
+              "center": {
+                "lat": 43.3269296,
+                "lon": 27.7738886
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "бивша военна база Калиманци"
+              }
+            },
+            {
+              "type": "way",
+              "id": 195191866,
+              "center": {
+                "lat": 43.2855671,
+                "lon": 27.4274771
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 258963086,
+              "center": {
+                "lat": 43.1868327,
+                "lon": 27.8493921
+              },
+              "tags": {
+                "aeroway": "heliport",
+                "icao": "LBWC",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Авиобаза „Чайка\"",
+                "name:en": "Military Airfield \"Chaika\"",
+                "operator": "Government",
+                "type": "military",
+                "wikipedia": "bg:Авиобаза Чайка"
+              }
+            },
+            {
+              "type": "way",
+              "id": 494925992,
+              "center": {
+                "lat": 43.2250508,
+                "lon": 27.6902968
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Под. 34960 \"Побити камъни\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 600152094,
+              "center": {
+                "lat": 43.170523,
+                "lon": 27.9316596
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 600419532,
+              "center": {
+                "lat": 43.1765032,
+                "lon": 27.856825
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Под. 32020 - Туфна кула"
+              }
+            },
+            {
+              "type": "way",
+              "id": 600781424,
+              "center": {
+                "lat": 43.1728557,
+                "lon": 27.9196492
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 907381327,
+              "center": {
+                "lat": 43.132319,
+                "lon": 27.8426688
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913574646,
+              "center": {
+                "lat": 43.2568111,
+                "lon": 27.901462
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "изнесен антенен пост"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913574647,
+              "center": {
+                "lat": 43.2583555,
+                "lon": 27.9015016
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "антенно поле"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913905085,
+              "center": {
+                "lat": 43.2565012,
+                "lon": 27.8952506
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913905086,
+              "center": {
+                "lat": 43.2567221,
+                "lon": 27.8992691
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913905087,
+              "center": {
+                "lat": 43.2544135,
+                "lon": 27.8967977
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913905089,
+              "center": {
+                "lat": 43.2549347,
+                "lon": 27.8980617
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1019207397,
+              "center": {
+                "lat": 43.2442286,
+                "lon": 27.9063149
+              },
+              "tags": {
+                "landuse": "quarry",
+                "military": "danger_area",
+                "name": "Големия дол",
+                "note": "Не работи от много години, опасно е",
+                "resource": "sand"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1053707518,
+              "center": {
+                "lat": 43.1899152,
+                "lon": 27.4405887
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военен завод"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1162844964,
+              "center": {
+                "lat": 43.261449,
+                "lon": 27.9029699
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1162844965,
+              "center": {
+                "lat": 43.2658969,
+                "lon": 27.9045158
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1162844966,
+              "center": {
+                "lat": 43.266026,
+                "lon": 27.904772
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1162844967,
+              "center": {
+                "lat": 43.2646587,
+                "lon": 27.905183
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1210571123,
+              "center": {
+                "lat": 43.2949831,
+                "lon": 27.8190302
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Изпитателен полигон за оборудване към \"Черно Море\" АД",
+                "name:en": "Equipment test site of Cherno More JSC"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1484071644,
+              "center": {
+                "lat": 43.2595446,
+                "lon": 27.9021412
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1484071645,
+              "center": {
+                "lat": 43.258559,
+                "lon": 27.902689
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 3768293,
+              "center": {
+                "lat": 43.0781327,
+                "lon": 27.9061332
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военноморска база Родни Балкани",
+                "natural": "wood",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

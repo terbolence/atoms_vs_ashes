@@ -1,0 +1,412 @@
+{
+  "meta": {
+    "site_id": "cdb6adfb-52ff-4631-939a-001080b20450",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:30:01.350342+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.133377,30.74667);\n  way[\"military\"](around:25000,50.133377,30.74667);\n  relation[\"military\"](around:25000,50.133377,30.74667);\n  node[\"landuse\"=\"military\"](around:25000,50.133377,30.74667);\n  way[\"landuse\"=\"military\"](around:25000,50.133377,30.74667);\n  relation[\"landuse\"=\"military\"](around:25000,50.133377,30.74667);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.133377,30.74667);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.133377,30.74667);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.133377,30.74667);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.133377,30.74667);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.133377,30.74667);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.133377,30.74667);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 7917,
+        "element_count": 27,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:28:11Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 2805512226,
+              "lat": 50.2869847,
+              "lon": 30.5701174,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 107 КИУР",
+                "name:en": "Bunker No 107 KIFR",
+                "name:pl": "Schron Nr 107 KI RU",
+                "name:ru": "ДОТ № 107 КИУР",
+                "name:uk": "ДВТ № 107 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3463710238,
+              "lat": 50.2910398,
+              "lon": 30.5806625,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 108 КИУР",
+                "name:en": "Bunker No 108 KIFR",
+                "name:pl": "Schron Nr 108 KI RU",
+                "name:ru": "ДОТ № 108 КИУР",
+                "name:uk": "ДВТ № 108 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3910557592,
+              "lat": 50.2935758,
+              "lon": 30.5042349,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 136 КИУР",
+                "name:en": "Bunker No 136 KIFR",
+                "name:pl": "Schron Nr 136 KI RU",
+                "name:uk": "ДВТ № 136 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3910557596,
+              "lat": 50.295286,
+              "lon": 30.5099587,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 137 КИУР",
+                "name:en": "Bunker No 137 KIFR",
+                "name:pl": "Schron Nr 137 KI RU",
+                "name:uk": "ДВТ № 137 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4457179329,
+              "lat": 50.2913889,
+              "lon": 30.5227778,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 126 КИУР",
+                "name:en": "Bunker No 126 KIFR",
+                "name:pl": "Schron Nr 126 KI RU",
+                "name:ru": "ДОТ № 126 КИУР",
+                "name:uk": "ДВТ № 126 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4457179330,
+              "lat": 50.2857609,
+              "lon": 30.5049187,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 128 КИУР",
+                "name:en": "Bunker No 128 KIFR",
+                "name:pl": "Schron Nr 128 KI RU",
+                "name:ru": "ДОТ № 128 КИУР",
+                "name:uk": "ДВТ № 128 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4457179331,
+              "lat": 50.2857661,
+              "lon": 30.5019013,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 129 КИУР",
+                "name:en": "Bunker No 129 KIFR",
+                "name:pl": "Schron Nr 129 KI RU",
+                "name:ru": "ДОТ № 129 КИУР",
+                "name:uk": "ДВТ № 129 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4457179332,
+              "lat": 50.2873,
+              "lon": 30.4953492,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 130 КИУР",
+                "name:en": "Bunker No 130 KIFR",
+                "name:pl": "Schron Nr 130 KI RU",
+                "name:ru": "ДОТ № 130 КИУР",
+                "name:uk": "ДВТ № 130 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4457179336,
+              "lat": 50.2924101,
+              "lon": 30.51193,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 138 КИУР",
+                "name:en": "Bunker No 138 KIFR",
+                "name:pl": "Schron Nr 138 KI RU",
+                "name:uk": "ДВТ № 138 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522815,
+              "lat": 50.2811265,
+              "lon": 30.6085432,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "ДВТ № 101 КИУР",
+                "name:en": "Bunker No 101 KIFR",
+                "name:pl": "Schron Nr 101 KI RU",
+                "name:ru": "ДОТ № 101 КИУР",
+                "name:uk": "ДВТ № 101 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522816,
+              "lat": 50.2787818,
+              "lon": 30.5940163,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 102 КИУР",
+                "name:en": "Bunker No 102 KIFR",
+                "name:pl": "Schron Nr 102 KI RU",
+                "name:ru": "ДОТ № 102 КИУР",
+                "name:uk": "ДВТ № 102 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522817,
+              "lat": 50.2836073,
+              "lon": 30.5939473,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 103 КИУР",
+                "name:en": "Bunker No 103 KIFR",
+                "name:pl": "Schron Nr 103 KI RU",
+                "name:ru": "ДОТ № 103 КИУР",
+                "name:uk": "ДВТ № 103 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522818,
+              "lat": 50.2767531,
+              "lon": 30.58183,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 104 КИУР",
+                "name:en": "Bunker No 104 KIFR",
+                "name:pl": "Schron Nr 104 KI RU",
+                "name:ru": "ДОТ № 104 КИУР",
+                "name:uk": "ДВТ № 104 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522819,
+              "lat": 50.2719129,
+              "lon": 30.5754634,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 105 КІУР",
+                "name:en": "Bunker No 105 KIFR",
+                "name:pl": "Schron Nr 105 KI RU",
+                "name:ru": "ДОТ № 105 КИУР",
+                "name:uk": "ДВТ № 105 КІУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522820,
+              "lat": 50.2839476,
+              "lon": 30.5530758,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 106 КИУР",
+                "name:en": "Bunker No 106 KIFR",
+                "name:pl": "Schron Nr 106 KI RU",
+                "name:ru": "ДОТ № 106 КИУР",
+                "name:uk": "ДВТ № 106 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4458522821,
+              "lat": 50.2931795,
+              "lon": 30.5914119,
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "ДВТ № 109 КИУР",
+                "name:en": "Bunker No 109 KIFR",
+                "name:pl": "Schron Nr 109 KI RU",
+                "name:ru": "ДОТ № 109 КИУР",
+                "name:uk": "ДВТ № 109 КИУР"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7597639749,
+              "lat": 50.1857689,
+              "lon": 30.6806686,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7597639750,
+              "lat": 50.185703,
+              "lon": 30.6804857,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8024811636,
+              "lat": 50.1057968,
+              "lon": 30.9932712,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Колишній полигон",
+                "name:uk": "Колишній полигон"
+              }
+            },
+            {
+              "type": "way",
+              "id": 113289632,
+              "center": {
+                "lat": 50.2844915,
+                "lon": 30.5181039
+              },
+              "tags": {
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "ДВТ № 127 КИУР",
+                "name:en": "Bunker No 127 KIFR",
+                "name:pl": "Schron Nr 127 KI RU",
+                "name:ru": "ДОТ № 127 КИУР",
+                "name:uk": "ДВТ № 127 КИУР"
+              }
+            },
+            {
+              "type": "way",
+              "id": 225912323,
+              "center": {
+                "lat": 50.279531,
+                "lon": 30.8082516
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 275889889,
+              "center": {
+                "lat": 50.2226472,
+                "lon": 30.5396194
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 424719382,
+              "center": {
+                "lat": 50.2375839,
+                "lon": 30.6782113
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 428468705,
+              "center": {
+                "lat": 50.2586433,
+                "lon": 30.6521187
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 606684157,
+              "center": {
+                "lat": 50.2355363,
+                "lon": 30.6562647
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 714743581,
+              "center": {
+                "lat": 50.238836,
+                "lon": 30.7382647
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1450334845,
+              "center": {
+                "lat": 50.2563062,
+                "lon": 30.867945
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

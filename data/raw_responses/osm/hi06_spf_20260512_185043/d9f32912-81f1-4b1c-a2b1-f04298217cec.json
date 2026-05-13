@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "site_id": "d9f32912-81f1-4b1c-a2b1-f04298217cec",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:31:06.495294+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.783333,20.483333);\n  way[\"military\"](around:25000,42.783333,20.483333);\n  relation[\"military\"](around:25000,42.783333,20.483333);\n  node[\"landuse\"=\"military\"](around:25000,42.783333,20.483333);\n  way[\"landuse\"=\"military\"](around:25000,42.783333,20.483333);\n  relation[\"landuse\"=\"military\"](around:25000,42.783333,20.483333);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.783333,20.483333);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.783333,20.483333);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.783333,20.483333);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.783333,20.483333);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.783333,20.483333);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.783333,20.483333);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 942,
+        "element_count": 3,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 241592034,
+              "center": {
+                "lat": 42.7810237,
+                "lon": 20.5367264
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Kazerma e FSK-së \"Ushtarët e NATO-s\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 446676368,
+              "center": {
+                "lat": 42.628602,
+                "lon": 20.2832947
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 481384810,
+              "center": {
+                "lat": 42.7679318,
+                "lon": 20.5373644
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

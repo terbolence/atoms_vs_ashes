@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "site_id": "28baef4d-44e3-4b2e-bbe3-75f736371553",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:03:28.005573+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,40.97,35.67);\n  way[\"military\"](around:25000,40.97,35.67);\n  relation[\"military\"](around:25000,40.97,35.67);\n  node[\"landuse\"=\"military\"](around:25000,40.97,35.67);\n  way[\"landuse\"=\"military\"](around:25000,40.97,35.67);\n  relation[\"landuse\"=\"military\"](around:25000,40.97,35.67);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.97,35.67);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.97,35.67);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.97,35.67);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.97,35.67);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.97,35.67);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.97,35.67);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 6086,
+        "element_count": 0,
+        "body": null,
+        "error": "Expecting value: line 1 column 1 (char 0)"
+      }
+    ]
+  }
+}

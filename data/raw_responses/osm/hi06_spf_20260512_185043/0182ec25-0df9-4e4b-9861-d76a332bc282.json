@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "site_id": "0182ec25-0df9-4e4b-9861-d76a332bc282",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:46:14.287267+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.480312,20.293538);\n  way[\"military\"](around:25000,44.480312,20.293538);\n  relation[\"military\"](around:25000,44.480312,20.293538);\n  node[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  way[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  relation[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 10090,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.480312,20.293538);\n  way[\"military\"](around:25000,44.480312,20.293538);\n  relation[\"military\"](around:25000,44.480312,20.293538);\n  node[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  way[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  relation[\"landuse\"=\"military\"](around:25000,44.480312,20.293538);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.480312,20.293538);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.480312,20.293538);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 14325,
+        "element_count": 5,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:44:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 391642648,
+              "center": {
+                "lat": 44.56567,
+                "lon": 20.5621955
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 463980532,
+              "center": {
+                "lat": 44.5628223,
+                "lon": 20.5554713
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854353724,
+              "center": {
+                "lat": 44.6707614,
+                "lon": 20.186158
+              },
+              "tags": {
+                "int_name": "Kasarna Obrenovac",
+                "landuse": "military",
+                "name": "Касарна Обреновац",
+                "name:sr-Latn": "Kasarna Obrenovac"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1107756340,
+              "center": {
+                "lat": 44.465917,
+                "lon": 20.5645502
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1335951901,
+              "center": {
+                "lat": 44.5281349,
+                "lon": 20.5970436
+              },
+              "tags": {
+                "military": "barracks"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

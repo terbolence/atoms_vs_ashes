@@ -1,4 +1,4 @@
-# man_hours: 6.0
+# man_hours: 6.1
 """EGDI WFS/WMS client and single-site fetch orchestration.
 
 Handles HTTP communication with the EGDI MapServer WFS endpoint,
@@ -533,7 +533,8 @@ class EgdiGeologyConnector:
             try:
                 resp = self._client.get(url, params=params)
                 elapsed_ms = int((time.monotonic() - t0) * 1000)
-                ct = resp.headers.get("content-type", "")
+                headers = getattr(resp, "headers", {}) or {}
+                ct = headers.get("content-type", "")
                 log.info(
                     "http_response",
                     layer=layer, status=resp.status_code,

@@ -8,14 +8,21 @@ criteria:
     phases: [exclusionary, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
+    weight_factors: {baseline: 8, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-01 (NS-R-3 §2.27-2.29; SSG-35 §4.6; E8)"}
     primary_metric: ep01_composite_score
     db_fields: {api: [site_emergency.ep01_composite_score, site_emergency.nearest_hospital_km, site_emergency.nearest_trauma_center_km], llm: ep01_feasibility_text}
+    # EP-01 v2 (May-2026 P3-2 option B): pass-mark softened so reviewer #112
+    # ladder lands the canonical Timelkam composite (44/100) at [5, 6] instead
+    # of [3, 4]. The [9, 10] / [7, 8] boundaries stay at 85 / 70 and the E8
+    # exclusion stays at composite < 30 (no change to exclusionary semantics);
+    # only the [5, 6] / [3, 4] / [1, 2] breakpoints shift to 42 / 35 / 30.
     bands:
       - {score_range: [9, 10], condition_expr: "ep01_composite_score >= 85", descriptor: ">= 85."}
       - {score_range: [7, 8], condition_expr: "ep01_composite_score >= 70", descriptor: "70-84."}
-      - {score_range: [5, 6], condition_expr: "ep01_composite_score >= 55", descriptor: "55-69."}
-      - {score_range: [3, 4], condition_expr: "ep01_composite_score >= 40", descriptor: "40-54; severe EP ranking penalty, not exclusionary by itself."}
-      - {score_range: [1, 2], condition_expr: "ep01_composite_score >= 30", descriptor: "30-39; borderline EP feasibility, ranking penalty unless E8 hard expression triggers."}
+      - {score_range: [5, 6], condition_expr: "ep01_composite_score >= 42", descriptor: "42-69; project pass-mark (softened from 55 on 2026-05-13 per FB-LL-12)."}
+      - {score_range: [3, 4], condition_expr: "ep01_composite_score >= 35", descriptor: "35-41; ranking penalty, not exclusionary by itself."}
+      - {score_range: [1, 2], condition_expr: "ep01_composite_score >= 30", descriptor: "30-34; borderline EP feasibility, ranking penalty unless E8 hard expression triggers."}
       - {score_range: [0, 0], condition_expr: "ep01_composite_score < 30 or nearest_trauma_center_km > 60", descriptor: "E8 confirmed."}
     fail_conditions:
       - {code: E8, action: exclude, condition_expr: "ep01_composite_score < 30 or nearest_trauma_center_km > 60", descriptor: "DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km."}
@@ -27,6 +34,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-02 (SSG-35 §4.6(a)-(b))"}
     primary_metric: road_density_km_per_km2
     db_fields: {api: [site_emergency.road_density_km_per_km2, site_emergency.has_motorway_access], llm: ep02_routes_text}
     bands:
@@ -43,6 +52,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-03 (SSG-35 §4.6(a))"}
     primary_metric: relief_m_per_10km
     db_fields: {api: [site_emergency.major_river_barrier, site_emergency.waterway_count_epz, site_emergency.relief_m_per_10km], llm: ep03_geography_text}
     bands:
@@ -58,6 +69,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-04 (SSG-35 §4.6(c))"}
     primary_metric: special_pop_count
     db_fields: {api: [site_emergency.hospital_count_epz, site_emergency.prison_count_epz, site_emergency.care_home_count_epz], llm: ep04_special_pop_text}
     bands:
@@ -73,6 +86,8 @@ criteria:
     phases: [ranking]
     weight_factor: 4
     normalised_weight_pct: 1.4
+    weight_factors: {baseline: 4, epri: 4}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-05 (SSG-35 §4.6(f))"}
     primary_metric: ep05_concurrent_index
     db_fields: {api: [site_emergency.ep05_concurrent_index], llm: ep05_concurrent_text}
     bands:

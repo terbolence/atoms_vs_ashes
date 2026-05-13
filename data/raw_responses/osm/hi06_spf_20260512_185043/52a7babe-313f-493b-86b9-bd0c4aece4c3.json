@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "site_id": "52a7babe-313f-493b-86b9-bd0c4aece4c3",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:42:56.600354+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.912791,22.826129);\n  way[\"military\"](around:25000,45.912791,22.826129);\n  relation[\"military\"](around:25000,45.912791,22.826129);\n  node[\"landuse\"=\"military\"](around:25000,45.912791,22.826129);\n  way[\"landuse\"=\"military\"](around:25000,45.912791,22.826129);\n  relation[\"landuse\"=\"military\"](around:25000,45.912791,22.826129);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.912791,22.826129);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.912791,22.826129);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.912791,22.826129);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.912791,22.826129);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.912791,22.826129);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.912791,22.826129);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1625,
+        "element_count": 19,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:41:28Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178863847,
+              "lat": 45.8617256,
+              "lon": 22.9238985,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Calea Zarandului, nr. 166 – adăpost 2, Deva, HD",
+                "military": "bunker",
+                "ref": "2110",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878537,
+              "lat": 45.845792,
+              "lon": 23.018314,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Atelierelor, nr. 36, Simeria, HD",
+                "military": "bunker",
+                "ref": "2131",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878686,
+              "lat": 45.8619533,
+              "lon": 22.923535,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Calea Zarandului, nr. 166 – adăpost 3, Deva, HD",
+                "military": "bunker",
+                "ref": "2111",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879052,
+              "lat": 45.861161,
+              "lon": 22.923633,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Calea Zarandului, nr. 166 – adăpost 1, Deva, HD",
+                "military": "bunker",
+                "ref": "2109",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879446,
+              "lat": 45.7571356,
+              "lon": 22.9136279,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. I.L. Caragiale, nr.14, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2115",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879716,
+              "lat": 45.756453,
+              "lon": 22.914369,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "b-dul. 1848, nr.4, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2114",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880614,
+              "lat": 45.757233,
+              "lon": 22.914569,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "b-dul. 1848, nr.2, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2117",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880979,
+              "lat": 45.859908,
+              "lon": 22.908281,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Mihai Eminescu, bl.T1, sc. A, Deva, HD",
+                "military": "bunker",
+                "ref": "2106",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881154,
+              "lat": 45.759308,
+              "lon": 22.911458,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Avram Iancu, nr. 16-18, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2119",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881250,
+              "lat": 45.873556,
+              "lon": 22.914736,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Aleea Moţilor, bl.2A, Deva, HD",
+                "military": "bunker",
+                "ref": "2105",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881303,
+              "lat": 45.757503,
+              "lon": 22.912453,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. I.L. Caragiale, nr.16, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2116",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881913,
+              "lat": 45.875725,
+              "lon": 22.901928,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Mihai Eminescu, nr. 48A, Deva, HD",
+                "military": "bunker",
+                "ref": "2108",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882236,
+              "lat": 45.746369,
+              "lon": 22.8846327,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Voinii, F.N, Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2118",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882506,
+              "lat": 45.754342,
+              "lon": 22.904128,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "description": "str. G. Enescu, nr.8/1(V),str. G. Enescu, nr.8(E), Hunedoara, HD",
+                "military": "bunker",
+                "ref": "2113,2112",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882618,
+              "lat": 45.859686,
+              "lon": 22.906172,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Mihai Eminescu, bl.T1, sc. B, Deva, HD",
+                "military": "bunker",
+                "ref": "2107",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 240823688,
+              "center": {
+                "lat": 45.8465128,
+                "lon": 23.0129259
+              },
+              "tags": {
+                "building": "yes",
+                "disused": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1160457410,
+              "center": {
+                "lat": 45.7241761,
+                "lon": 22.9283481
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1383073169,
+              "center": {
+                "lat": 45.9057424,
+                "lon": 22.8717158
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 3809103,
+              "center": {
+                "lat": 45.8680956,
+                "lon": 22.9041562
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Unitatea Militară 01794",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

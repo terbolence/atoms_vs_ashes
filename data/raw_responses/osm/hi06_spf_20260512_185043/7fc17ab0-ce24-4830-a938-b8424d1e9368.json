@@ -1,0 +1,424 @@
+{
+  "meta": {
+    "site_id": "7fc17ab0-ce24-4830-a938-b8424d1e9368",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:37:08.160156+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.393629,18.374224);\n  way[\"military\"](around:25000,53.393629,18.374224);\n  relation[\"military\"](around:25000,53.393629,18.374224);\n  node[\"landuse\"=\"military\"](around:25000,53.393629,18.374224);\n  way[\"landuse\"=\"military\"](around:25000,53.393629,18.374224);\n  relation[\"landuse\"=\"military\"](around:25000,53.393629,18.374224);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.393629,18.374224);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.393629,18.374224);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.393629,18.374224);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.393629,18.374224);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.393629,18.374224);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.393629,18.374224);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 5553,
+        "element_count": 27,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:35:18Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 599467373,
+              "lat": 53.35132,
+              "lon": 18.47883,
+              "tags": {
+                "addr:city": "Chełmno",
+                "landuse": "military",
+                "name": "strzelnica",
+                "source": "http://ump.waw.pl/ retrieved 11:19:07 11/17/09 (UMP-Torun/src/POI-Torun.pnt-converted.txt)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 599470960,
+              "lat": 53.4466319,
+              "lon": 18.4445626,
+              "tags": {
+                "addr:city": "Sulnowo",
+                "landuse": "military",
+                "name": "strzelnica",
+                "source": "http://ump.waw.pl/ retrieved 11:19:07 11/17/09 (UMP-Torun/src/POI-Torun.pnt-converted.txt)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9550719294,
+              "lat": 53.5633826,
+              "lon": 18.1633157,
+              "tags": {
+                "description": "Okopy dla ludzi i sprzętu na czas startu rakiety",
+                "historic": "yes",
+                "military": "shelter",
+                "source": "https://repozytorium.ukw.edu.pl/bitstream/handle/item/5862/Niemiecki%20poligon%20rakietowy%20Heidekraut%20w%20Borach%20Tucholskich.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9550719296,
+              "lat": 53.5629494,
+              "lon": 18.1436041,
+              "tags": {
+                "description": "Okopy dla ludzi i sprzętu na czas startu rakiety",
+                "historic": "yes",
+                "military": "shelter",
+                "source": "https://repozytorium.ukw.edu.pl/bitstream/handle/item/5862/Niemiecki%20poligon%20rakietowy%20Heidekraut%20w%20Borach%20Tucholskich.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9550719297,
+              "lat": 53.5638993,
+              "lon": 18.1467673,
+              "tags": {
+                "description": "Okopy dla ludzi i sprzętu na czas startu rakiety",
+                "historic": "yes",
+                "military": "shelter",
+                "source": "https://repozytorium.ukw.edu.pl/bitstream/handle/item/5862/Niemiecki%20poligon%20rakietowy%20Heidekraut%20w%20Borach%20Tucholskich.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9559132124,
+              "lat": 53.5639099,
+              "lon": 18.1452387,
+              "tags": {
+                "description": "Okopy dla ludzi i sprzętu na czas startu rakiety",
+                "historic": "yes",
+                "military": "shelter",
+                "source": "https://repozytorium.ukw.edu.pl/bitstream/handle/item/5862/Niemiecki%20poligon%20rakietowy%20Heidekraut%20w%20Borach%20Tucholskich.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9559132125,
+              "lat": 53.5645123,
+              "lon": 18.1440084,
+              "tags": {
+                "description": "Okopy dla ludzi i sprzętu na czas startu rakiety",
+                "historic": "yes",
+                "military": "shelter",
+                "source": "https://repozytorium.ukw.edu.pl/bitstream/handle/item/5862/Niemiecki%20poligon%20rakietowy%20Heidekraut%20w%20Borach%20Tucholskich.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 180739578,
+              "center": {
+                "lat": 53.5085048,
+                "lon": 18.4918922
+              },
+              "tags": {
+                "addr:city": "Jeżewo",
+                "addr:place": "Jeżewo",
+                "barrier": "fence",
+                "landuse": "cemetery",
+                "military": "no",
+                "name": "Cmentarz Parafialny",
+                "religion": "christian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 189453065,
+              "center": {
+                "lat": 53.520911,
+                "lon": 18.6276005
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Centrum Szkolenia Logistyki",
+                "website": "https://cslog.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234419847,
+              "center": {
+                "lat": 53.3859427,
+                "lon": 18.5074497
+              },
+              "tags": {
+                "denomination": "roman_catholic",
+                "landuse": "cemetery",
+                "military": "no",
+                "religion": "christian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 462506768,
+              "center": {
+                "lat": 53.347754,
+                "lon": 18.4330557
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "3. Włocławski Batalion Drogowo-Mostowy im. gen. Karola Sierakowskiego",
+                "old_name": "3 batalion drogowo - mostowy",
+                "website": "https://3bdm.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 520800416,
+              "center": {
+                "lat": 53.3441612,
+                "lon": 18.4082212
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 700747265,
+              "center": {
+                "lat": 53.4569718,
+                "lon": 18.7268362
+              },
+              "tags": {
+                "building": "bunker",
+                "building:condition": "completely_ruinous",
+                "building:levels": "1",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "schron piechoty",
+                "ruins": "yes",
+                "website": "http://www.grudziadz.fortyfikacje.pl/fort_nowa-wies.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 702105197,
+              "center": {
+                "lat": 53.4407207,
+                "lon": 18.7177907
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "building:condition": "partly_ruinous",
+                "building:levels": "1",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR 2",
+                "start_date": "1914",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_2.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 702105716,
+              "center": {
+                "lat": 53.437253,
+                "lon": 18.7104849
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR 1",
+                "start_date": "1914",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_1.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 702105717,
+              "center": {
+                "lat": 53.4432747,
+                "lon": 18.7214115
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "building:condition": "ruined",
+                "building:levels": "1",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR 3",
+                "start_date": "1914",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_3.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 702106144,
+              "center": {
+                "lat": 53.4410775,
+                "lon": 18.7339185
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "building:condition": "good",
+                "building:levels": "1",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR 4",
+                "start_date": "1914",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_4.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 786251187,
+              "center": {
+                "lat": 53.5083222,
+                "lon": 18.6468309
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR6",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_6L.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 786267018,
+              "center": {
+                "lat": 53.533058,
+                "lon": 18.6521223
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR5",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_5L.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 837921573,
+              "center": {
+                "lat": 53.5475256,
+                "lon": 18.6493989
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "IR4",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_4L.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 837939802,
+              "center": {
+                "lat": 53.479505,
+                "lon": 18.6414609
+              },
+              "tags": {
+                "building": "bunker",
+                "building:condition": "partly_ruinous",
+                "bunker_type": "personnel_shelter",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "IR8",
+                "website": "http://www.grudziadz.fortyfikacje.pl/schron_piechoty_ir_8L.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 914234997,
+              "center": {
+                "lat": 53.3514951,
+                "lon": 18.4807516
+              },
+              "tags": {
+                "abandoned": "yes",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 945898498,
+              "center": {
+                "lat": 53.3027107,
+                "lon": 18.3902364
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron amunicyjny M1",
+                "source": "www.geoportal.gov.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 977595170,
+              "center": {
+                "lat": 53.1800445,
+                "lon": 18.3267459
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1042172286,
+              "center": {
+                "lat": 53.3461441,
+                "lon": 18.4126291
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "3. Włocławski Batalion Drogowo-Mostowy im. gen. Karola Sierakowskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1042174828,
+              "center": {
+                "lat": 53.3445009,
+                "lon": 18.4595708
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1318041145,
+              "center": {
+                "lat": 53.3455757,
+                "lon": 18.4570175
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "obstacle_course"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

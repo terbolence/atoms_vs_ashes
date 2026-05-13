@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "site_id": "b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:33:21.996783+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.962892,18.711758);\n  way[\"military\"](around:25000,53.962892,18.711758);\n  relation[\"military\"](around:25000,53.962892,18.711758);\n  node[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  way[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  relation[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 9925,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.962892,18.711758);\n  way[\"military\"](around:25000,53.962892,18.711758);\n  relation[\"military\"](around:25000,53.962892,18.711758);\n  node[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  way[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  relation[\"landuse\"=\"military\"](around:25000,53.962892,18.711758);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.962892,18.711758);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.962892,18.711758);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1467,
+        "element_count": 22,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:32:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 2893023721,
+              "lat": 53.9990376,
+              "lon": 18.9844891,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8982659337,
+              "lat": 54.0498129,
+              "lon": 18.8098641,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8982659342,
+              "lat": 54.0530077,
+              "lon": 18.8107271,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11021958278,
+              "lat": 53.979954,
+              "lon": 18.8275764,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria artyleryjska Mały Garc"
+              }
+            },
+            {
+              "type": "way",
+              "id": 207176619,
+              "center": {
+                "lat": 54.0292544,
+                "lon": 19.0264784
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 207176739,
+              "center": {
+                "lat": 54.0303937,
+                "lon": 19.0253124
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jednostka Wojskowa 1128"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783860678,
+              "center": {
+                "lat": 53.9988331,
+                "lon": 19.0248622
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783860682,
+              "center": {
+                "lat": 53.9996048,
+                "lon": 19.0295722
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783860685,
+              "center": {
+                "lat": 54.003584,
+                "lon": 19.0356689
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783860686,
+              "center": {
+                "lat": 54.0011377,
+                "lon": 19.0411413
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783860694,
+              "center": {
+                "lat": 54.0003454,
+                "lon": 19.0366955
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783861410,
+              "center": {
+                "lat": 53.9996352,
+                "lon": 19.0004066
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783861411,
+              "center": {
+                "lat": 54.0013911,
+                "lon": 19.0070069
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783862688,
+              "center": {
+                "lat": 53.9957454,
+                "lon": 18.9840141
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783864312,
+              "center": {
+                "lat": 54.002672,
+                "lon": 19.0657532
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783864313,
+              "center": {
+                "lat": 54.0047458,
+                "lon": 19.0704833
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783864314,
+              "center": {
+                "lat": 54.0045011,
+                "lon": 19.0715883
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783867797,
+              "center": {
+                "lat": 54.0094656,
+                "lon": 19.0851838
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 788011505,
+              "center": {
+                "lat": 54.00856,
+                "lon": 19.0449708
+              },
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1064525829,
+              "center": {
+                "lat": 54.0023964,
+                "lon": 19.0175695
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker",
+                "ruins": "yes",
+                "url": "https://youtu.be/02XwZfogRKA?si=TUuYl6Q2zuktjq0O&t=595"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1240146801,
+              "center": {
+                "lat": 54.0733209,
+                "lon": 18.7603108
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Strzelnica"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1511396013,
+              "center": {
+                "lat": 53.9799566,
+                "lon": 18.82752
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "fixme": "prawdopodobnie obrys powinien sięgnąć dalej na północ, a południowa końcówka na zachód. niestety nie byłem na miejscu - zrysowane z lotniczych",
+                "historic": "yes",
+                "military": "bunker",
+                "start_date": "1901"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

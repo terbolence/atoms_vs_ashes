@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "site_id": "33a015dd-51e0-497e-b0d3-4b1b3f070438",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:56:03.832208+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.607124,23.078699);\n  way[\"military\"](around:25000,42.607124,23.078699);\n  relation[\"military\"](around:25000,42.607124,23.078699);\n  node[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  way[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  relation[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n);\nout center tags;\n",
+        "http_status": 504,
+        "elapsed_ms": 10698,
+        "element_count": 0,
+        "body": null,
+        "error": "Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.607124,23.078699);\n  way[\"military\"](around:25000,42.607124,23.078699);\n  relation[\"military\"](around:25000,42.607124,23.078699);\n  node[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  way[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  relation[\"landuse\"=\"military\"](around:25000,42.607124,23.078699);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.607124,23.078699);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.607124,23.078699);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 8727,
+        "element_count": 31,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:54:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4510465391,
+              "lat": 42.6633859,
+              "lon": 23.3747428,
+              "tags": {
+                "military": "office",
+                "name": "Съюз на офицерите и сержантите от запаса резерва район Младост"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4974174558,
+              "lat": 42.4805101,
+              "lon": 23.1486002,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "shelter",
+                "fee": "no",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "БосТек"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12391569985,
+              "lat": 42.6630942,
+              "lon": 23.2758044,
+              "tags": {
+                "access": "permissive",
+                "door": "automatic",
+                "level": "0",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12391569986,
+              "lat": 42.6637738,
+              "lon": 23.2763816,
+              "tags": {
+                "bicycle": "yes",
+                "foot": "yes",
+                "locked": "yes",
+                "material": "metal",
+                "military": "checkpoint",
+                "motor_vehicle": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 107993143,
+              "center": {
+                "lat": 42.7156581,
+                "lon": 23.062207
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "под.36210 ВВС"
+              }
+            },
+            {
+              "type": "way",
+              "id": 109062784,
+              "center": {
+                "lat": 42.698852,
+                "lon": 23.2561479
+              },
+              "tags": {
+                "abandoned": "yes",
+                "landuse": "military",
+                "name": "Бивше военно поделение"
+              }
+            },
+            {
+              "type": "way",
+              "id": 109073879,
+              "center": {
+                "lat": 42.7025995,
+                "lon": 23.247011
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Бивши АВ складове",
+                "natural": "wood"
+              }
+            },
+            {
+              "type": "way",
+              "id": 157707624,
+              "center": {
+                "lat": 42.6644149,
+                "lon": 23.2342159
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Войскови район \"Горна баня\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 220927613,
+              "center": {
+                "lat": 42.7195347,
+                "lon": 23.1699455
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220928604,
+              "center": {
+                "lat": 42.7237051,
+                "lon": 23.1716626
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220931980,
+              "center": {
+                "lat": 42.7268315,
+                "lon": 23.1592758
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220933775,
+              "center": {
+                "lat": 42.7282654,
+                "lon": 23.1593942
+              },
+              "tags": {
+                "description": "Antenna farm (Radio antenna field)",
+                "landuse": "military",
+                "name": "Антенно поле на МВР и МО"
+              }
+            },
+            {
+              "type": "way",
+              "id": 220934984,
+              "center": {
+                "lat": 42.7289434,
+                "lon": 23.143759
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Радиопеленгаторна уредба"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312086174,
+              "center": {
+                "lat": 42.7394914,
+                "lon": 23.271144
+              },
+              "tags": {
+                "abandoned": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Бивша казарма на Строителни войски"
+              }
+            },
+            {
+              "type": "way",
+              "id": 328239501,
+              "center": {
+                "lat": 42.7590112,
+                "lon": 23.2095157
+              },
+              "tags": {
+                "disused": "yes",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 328240365,
+              "center": {
+                "lat": 42.7550526,
+                "lon": 23.1951768
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 334366117,
+              "center": {
+                "lat": 42.6675908,
+                "lon": 23.3716202
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военно формирование 48960",
+                "note": "Военни поделения \"4-ти километър\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 390315468,
+              "center": {
+                "lat": 42.6112818,
+                "lon": 23.116694
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "ГУСВ под. 64920",
+                "note": "I'm guessing it's industrial from the sat pic, but a survey is needed to check"
+              }
+            },
+            {
+              "type": "way",
+              "id": 506737311,
+              "center": {
+                "lat": 42.5614687,
+                "lon": 23.2874807
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 506990134,
+              "center": {
+                "lat": 42.6253116,
+                "lon": 23.2478178
+              },
+              "tags": {
+                "fence_type": "metal_bars",
+                "fenced": "yes",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 508021532,
+              "center": {
+                "lat": 42.4819828,
+                "lon": 23.1465663
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 509415382,
+              "center": {
+                "lat": 42.6411054,
+                "lon": 23.2608048
+              },
+              "tags": {
+                "description": "Централен команден пункт на Военновъздушните сили.",
+                "landuse": "military",
+                "name": "Поделение 44 510 (ВВС)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 530890684,
+              "center": {
+                "lat": 42.550855,
+                "lon": 22.9626636
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 580961761,
+              "center": {
+                "lat": 42.4122804,
+                "lon": 23.0908241
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 673902823,
+              "center": {
+                "lat": 42.712929,
+                "lon": 23.3063971
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "МВР ДМТОСО",
+                "name:bg": "Дирекция “Материално-техническо осигуряване и социално обслужване” - МВР"
+              }
+            },
+            {
+              "type": "way",
+              "id": 815758015,
+              "center": {
+                "lat": 42.7053413,
+                "lon": 23.119213
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военно формирование 52 210"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854141930,
+              "center": {
+                "lat": 42.6822528,
+                "lon": 23.2838432
+              },
+              "tags": {
+                "addr:city": "София",
+                "addr:housenumber": "12",
+                "addr:postcode": "1612",
+                "addr:street": "Хайдушка поляна",
+                "landuse": "military",
+                "name": "Държавна агенция Разузнаване",
+                "name:bg": "Държавна агенция „Разузнаване“",
+                "name:en": "State Intelligence Agency",
+                "old_name": "Национална разузнавателна служба",
+                "website": "https://www.dar.bg/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 860790021,
+              "center": {
+                "lat": 42.5900499,
+                "lon": 23.3853899
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1340632884,
+              "center": {
+                "lat": 42.6631904,
+                "lon": 23.2767195
+              },
+              "tags": {
+                "addr:city": "София",
+                "addr:housenumber": "86",
+                "addr:postcode": "1618",
+                "addr:street": "Ген. Стефан Тошев",
+                "alt_name": "Служба \"Военна информация\"",
+                "alt_name:en": "Military information service of Bulgaria",
+                "alt_name:ru": "Служба военной информации Болгарии",
+                "email": "office@dis.mod.bg",
+                "landuse": "military",
+                "name": "Служба \"Военно разузнаване\"",
+                "name:en": "Military Intelligence Service of Bulgaria",
+                "name:ru": "Служба военной разведки Болгарии",
+                "website": "https://dis.mod.bg/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1387839318,
+              "center": {
+                "lat": 42.6910401,
+                "lon": 23.3043676
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1429218625,
+              "center": {
+                "lat": 42.5591618,
+                "lon": 23.3586386
+              },
+              "tags": {
+                "barrier": "fence",
+                "description": "Воено формирование, известно като \"Свързочният полк\", закрито 2001/2003 година.",
+                "landuse": "military",
+                "name": "Поделение 26450",
+                "source": "survey"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

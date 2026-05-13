@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "site_id": "9eb693f6-6994-4937-bc4d-e8213baa5d47",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:21:50.285113+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.948092,28.04148);\n  way[\"military\"](around:25000,41.948092,28.04148);\n  relation[\"military\"](around:25000,41.948092,28.04148);\n  node[\"landuse\"=\"military\"](around:25000,41.948092,28.04148);\n  way[\"landuse\"=\"military\"](around:25000,41.948092,28.04148);\n  relation[\"landuse\"=\"military\"](around:25000,41.948092,28.04148);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.948092,28.04148);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.948092,28.04148);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.948092,28.04148);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.948092,28.04148);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.948092,28.04148);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.948092,28.04148);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 533,
+        "element_count": 5,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 900282288,
+              "center": {
+                "lat": 42.1107627,
+                "lon": 27.8466893
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 900282293,
+              "center": {
+                "lat": 42.114093,
+                "lon": 27.847634
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1431720584,
+              "center": {
+                "lat": 41.9346674,
+                "lon": 27.9893536
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13309121,
+              "center": {
+                "lat": 41.9281441,
+                "lon": 28.0503165
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "İğneada Fırlatma Rampası Çevresi Yasak Bölgesi",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13309122,
+              "center": {
+                "lat": 41.928267,
+                "lon": 28.017474
+              },
+              "tags": {
+                "construction:aeroway": "spaceport",
+                "landuse": "military",
+                "name": "İğneada Fırlatma Rampası İnşaatı",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

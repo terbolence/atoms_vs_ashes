@@ -8,15 +8,31 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
+    weight_factors: {baseline: 7, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-01 (IAEA NS-G-3.1; SSG-35 Table II-1; A1-A4)"}
     primary_metric: composite
-    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_military_airfield_km, site_human_induced.flight_path_distance_km], llm: hi01_aircraft_text}
+    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_airport_class, site_human_induced.nearest_military_airfield_km, site_human_induced.nearest_military_class, site_human_induced.nearest_military_km, site_human_induced.nearest_high_consequence_military_class, site_human_induced.nearest_high_consequence_military_km, site_human_induced.hi06_quality, site_human_induced.flight_path_distance_km], llm: hi01_aircraft_text}
+    # SP-D HI-01 v2 (FB-LL-08): consume ``nearest_airport_class`` so the favourable
+    # branch fires when no MAJOR airport is within 30 km, even if a small / GA /
+    # heliport is close. Military distance treated as favourable when null
+    # (SP-F sentinel) so missing military-airfield data no longer drags every
+    # site to pass-mark. Legacy class aliases retained in the membership lists
+    # for backwards compatibility with the original rubric vocabulary.
+    # Band order is INTENTIONAL: the engine takes the first matching band,
+    # so the favourable [9, 10] block is checked first (no airport / small
+    # only / major > 30 km), then the severe bands ([0, 0] / [1, 2] / [3, 4])
+    # which would otherwise be shadowed by the permissive [5, 6] catch-all,
+    # then the high [7, 8] band, and finally the pass-mark [5, 6] for the
+    # "moderate proximity, no clear severe signal" case.
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_airport_km > 30 and nearest_military_airfield_km > 60", descriptor: "No airport within 30 km AND no military within 60 km."}
-      - {score_range: [7, 8], condition_expr: "nearest_airport_km >= 15 and nearest_military_airfield_km >= 30 and under_flight_path == false", descriptor: "Civilian 15-30 km, military 30-60 km; no flight path overhead."}
-      - {score_range: [5, 6], condition_expr: "nearest_airport_km >= 8 or nearest_military_airfield_km >= 30", descriptor: "Civilian 8-15 km OR military 30-60 km (project pass-mark)."}
-      - {score_range: [3, 4], condition_expr: "nearest_airport_km < 15 or nearest_military_airfield_km < 30", descriptor: "Civilian < 15 km OR military < 30 km (avoidance penalty)."}
-      - {score_range: [1, 2], condition_expr: "(nearest_airport_type == 'large_intl' and nearest_airport_km < 8) or nearest_military_airfield_km < 16", descriptor: "Large international < 8 km or military airbase < 16 km."}
-      - {score_range: [0, 0], condition_expr: "under_flight_path == true and nearest_airport_type in ['large_intl', 'military_major']", descriptor: "Direct under-flight of major corridor with no remedy."}
+      - {score_range: [9, 10], condition_expr: "nearest_airport_class is null", descriptor: "No airport in OurAirports search radius (search completed, nothing in range)."}
+      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['small_airport', 'small', 'small_ga', 'general_aviation', 'light', 'heliport', 'seaplane_base', 'balloonport'] and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Only small / GA / heliport airport nearby; no military airbase within 60 km."}
+      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km > 30 and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Major airport > 30 km AND no military airbase within 60 km."}
+      - {score_range: [0, 0], condition_expr: "under_flight_path == true and nearest_airport_class in ['large_airport', 'large_intl', 'military_major']", descriptor: "Direct under-flight of major corridor with no remedy."}
+      - {score_range: [1, 2], condition_expr: "(nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large'] and nearest_airport_km < 8) or nearest_military_airfield_km < 16", descriptor: "Large airport < 8 km or military airbase < 16 km."}
+      - {score_range: [3, 4], condition_expr: "(nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km < 15) or nearest_military_airfield_km < 30", descriptor: "Major airport < 15 km OR military airbase < 30 km (avoidance penalty)."}
+      - {score_range: [7, 8], condition_expr: "nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km >= 15 and nearest_airport_km <= 30 and (under_flight_path == false or under_flight_path is null)", descriptor: "Major airport 15-30 km, no overhead flight path."}
+      - {score_range: [5, 6], condition_expr: "nearest_airport_km >= 8 or nearest_military_airfield_km >= 30", descriptor: "Airport >= 8 km OR military airbase >= 30 km (project pass-mark)."}
     # A1-A4 split per report/sites_evaluation/10_appendices.md Table A.2 and
     # report/sites_evaluation/04_criteria_human_induced.md §4.3 HI-01. Each
     # aircraft-crash sub-threshold becomes its own verdict so appendix
@@ -33,10 +49,15 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
+    weight_factors: {baseline: 7, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-02 (NS-R-3 §3.49-3.50; NS-G-3.1; A7)"}
     primary_metric: nearest_seveso_km
-    db_fields: {api: [site_human_induced.nearest_seveso_km, site_human_induced.nearest_ied_km], llm: hi02_explosions_text}
+    db_fields: {api: [site_human_induced.nearest_seveso_km, site_human_induced.nearest_ied_km, site_human_induced.hi02_quality], llm: hi02_explosions_text}
+    # SP-F sentinel rework: distinguish "search completed - no facility found" (favourable)
+    # from "search not completed / data missing" (unscored). Compiler still rebuilds bands
+    # from band_recipe when called via spec path.
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_seveso_km > 20 or nearest_seveso_km is null", descriptor: "> 20 km or no Seveso facility resolved (screening-favourable default)."}
+      - {score_range: [9, 10], condition_expr: "(nearest_seveso_km is null and hi02_search_completed == true) or nearest_seveso_km > 20", descriptor: "> 20 km, or completed Seveso search found nothing in radius."}
       - {score_range: [7, 8], condition_expr: "nearest_seveso_km >= 10", descriptor: "10-20 km."}
       - {score_range: [5, 6], condition_expr: "nearest_seveso_km >= 5", descriptor: "5-10 km (project A7 pass-mark)."}
       - {score_range: [3, 4], condition_expr: "nearest_seveso_km >= 2", descriptor: "2-5 km."}
@@ -51,6 +72,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
+    weight_factors: {baseline: 7, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-03 (IAEA NS-G-3.1; SSG-35 Table II-1; A8)"}
     primary_metric: nearest_toxic_source_km
     db_fields: {api: [site_human_induced.nearest_toxic_source_km, site_human_induced.toxic_source_type], llm: hi03_toxic_text}
     bands:
@@ -69,10 +92,14 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-04 (IAEA NS-G-3.1)"}
     primary_metric: nearest_flammable_storage_km
-    db_fields: {api: [site_human_induced.nearest_flammable_storage_km, site_human_induced.nearest_pipeline_km], llm: hi04_external_fires_text}
+    db_fields: {api: [site_human_induced.nearest_flammable_storage_km, site_human_induced.nearest_pipeline_km, site_human_induced.hi04_quality], llm: hi04_external_fires_text}
+    # SP-F sentinel rework: distinguish "search completed - no major flammable storage"
+    # (favourable) from "search not completed" (unscored).
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_flammable_storage_km > 15 or nearest_flammable_storage_km is null", descriptor: "> 15 km or no major flammable storage resolved (screening default)."}
+      - {score_range: [9, 10], condition_expr: "(nearest_flammable_storage_km is null and hi04_search_completed == true) or nearest_flammable_storage_km > 15", descriptor: "> 15 km, or completed flammable-storage search found nothing in radius."}
       - {score_range: [7, 8], condition_expr: "nearest_flammable_storage_km >= 8", descriptor: "8-15 km."}
       - {score_range: [5, 6], condition_expr: "nearest_flammable_storage_km >= 4", descriptor: "4-8 km."}
       - {score_range: [3, 4], condition_expr: "nearest_flammable_storage_km >= 1", descriptor: "1-4 km."}
@@ -85,10 +112,18 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-05 (IAEA NS-G-3.1)"}
+    weight_factors: {baseline: 6, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-05 (IAEA NS-G-3.1)"}
     primary_metric: nearest_hazmat_corridor_km
-    db_fields: {api: [site_human_induced.nearest_hazmat_corridor_km], llm: hi05_transport_text}
+    db_fields: {api: [site_human_induced.nearest_hazmat_corridor_km, site_human_induced.hi05_quality], llm: hi05_transport_text}
+    # SP-F sentinel rework: score MAJOR hazmat corridors only (long-haul rail/pipe/highway
+    # carrying credible hazmat). ``hi05_search_completed`` is derived from
+    # ``site_human_hazards.hi05_quality`` (not null and not ``no_data``).
+    # Asymmetric NULL: ``has_pinch_point is null`` is treated as no-pinch-point, not a penalty.
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_hazmat_corridor_km > 10 or nearest_hazmat_corridor_km is null", descriptor: "> 10 km or hazmat corridor unresolved (screening default)."}
+      - {score_range: [9, 10], condition_expr: "(nearest_hazmat_corridor_km is null and hi05_search_completed == true) or nearest_hazmat_corridor_km > 10", descriptor: "> 10 km, or completed hazmat-corridor search found no major corridor in radius."}
       - {score_range: [7, 8], condition_expr: "nearest_hazmat_corridor_km >= 5", descriptor: "5-10 km."}
       - {score_range: [5, 6], condition_expr: "nearest_hazmat_corridor_km >= 2", descriptor: "2-5 km."}
       - {score_range: [3, 4], condition_expr: "nearest_hazmat_corridor_km >= 1", descriptor: "1-2 km."}
@@ -101,6 +136,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-06 (IAEA NS-G-3.1; SSG-35 Table II-1; A5-A6)"}
     primary_metric: nearest_military_km
     db_fields: {api: [site_human_induced.nearest_military_km, site_human_induced.military_type], llm: hi06_military_text}
     bands:
@@ -120,6 +157,8 @@ criteria:
     phases: [ranking]
     weight_factor: 2
     normalised_weight_pct: 0.7
+    weight_factors: {baseline: 2, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-07 (SSG-35 §4.4(c))"}
     primary_metric: transmitter_count_10km
     db_fields: {api: [site_human_induced.transmitter_count_10km], llm: hi07_emi_text}
     bands:
@@ -135,10 +174,16 @@ criteria:
     phases: [ranking]
     weight_factor: 3
     normalised_weight_pct: 1.1
+    weight_factors: {baseline: 3, epri: 3}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-08 (SSG-35 §3.24-3.27)"}
     primary_metric: nearest_nuclear_km
-    db_fields: {api: [site_human_induced.nearest_nuclear_km], llm: hi08_other_nuclear_text}
+    db_fields: {api: [site_human_induced.nearest_nuclear_km, site_human_induced.hi08_quality], llm: hi08_other_nuclear_text}
+    # SP-F sentinel rework: distinguish "search completed - no nuclear installation in radius"
+    # (favourable) from "search not completed" (unscored). Reactor-type distinction (operating
+    # / shutdown / research / waste / never-operated) is a future SP-F follow-up that needs
+    # a connector enhancement (currently only ``nearest_nuclear_km`` is populated).
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_nuclear_km > 100 or nearest_nuclear_km is null", descriptor: "> 100 km or no other nuclear installation resolved (screening default)."}
+      - {score_range: [9, 10], condition_expr: "(nearest_nuclear_km is null and hi08_search_completed == true) or nearest_nuclear_km > 100", descriptor: "> 100 km, or completed search found no relevant nuclear installation in radius."}
       - {score_range: [7, 8], condition_expr: "nearest_nuclear_km >= 50", descriptor: "50-100 km."}
       - {score_range: [5, 6], condition_expr: "nearest_nuclear_km >= 20", descriptor: "20-50 km."}
       - {score_range: [3, 4], condition_expr: "nearest_nuclear_km >= 5", descriptor: "5-20 km."}

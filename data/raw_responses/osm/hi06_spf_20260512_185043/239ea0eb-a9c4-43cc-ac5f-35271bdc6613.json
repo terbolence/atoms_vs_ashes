@@ -1,0 +1,422 @@
+{
+  "meta": {
+    "site_id": "239ea0eb-a9c4-43cc-ac5f-35271bdc6613",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:26:51.465394+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.34988,18.226184);\n  way[\"military\"](around:25000,50.34988,18.226184);\n  relation[\"military\"](around:25000,50.34988,18.226184);\n  node[\"landuse\"=\"military\"](around:25000,50.34988,18.226184);\n  way[\"landuse\"=\"military\"](around:25000,50.34988,18.226184);\n  relation[\"landuse\"=\"military\"](around:25000,50.34988,18.226184);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.34988,18.226184);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.34988,18.226184);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.34988,18.226184);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.34988,18.226184);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.34988,18.226184);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.34988,18.226184);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1413,
+        "element_count": 31,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:25:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 5403164505,
+              "lat": 50.1890625,
+              "lon": 18.3017059,
+              "tags": {
+                "location": "underground",
+                "military": "bunker",
+                "name": "Schron 1 Plutonu"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5403164978,
+              "lat": 50.1869888,
+              "lon": 18.3061972,
+              "tags": {
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8731190672,
+              "lat": 50.3020226,
+              "lon": 18.2310571,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9454215130,
+              "lat": 50.3728614,
+              "lon": 18.5373919,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11189256537,
+              "lat": 50.3281777,
+              "lon": 18.5332861,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12301712117,
+              "lat": 50.3575217,
+              "lon": 18.319589,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12301967367,
+              "lat": 50.357651,
+              "lon": 18.3204194,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12301967368,
+              "lat": 50.3577297,
+              "lon": 18.3209808,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12692648106,
+              "lat": 50.3268162,
+              "lon": 18.5338788,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12692648107,
+              "lat": 50.3270167,
+              "lon": 18.5348652,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12692648108,
+              "lat": 50.3275042,
+              "lon": 18.5335896,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12692648109,
+              "lat": 50.328379,
+              "lon": 18.5343044,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 290011212,
+              "center": {
+                "lat": 50.336682,
+                "lon": 18.1451209
+              },
+              "tags": {
+                "addr:city": "Kędzierzyn-Koźle",
+                "addr:housenumber": "11",
+                "addr:street": "Ignacego Łukasiewicza",
+                "building": "yes",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji w Kędzierzynie-Koźlu",
+                "source": "http://sdi.opolskie.pl/mapa_bazowa/request.aspx",
+                "website": "https://wcrkedzierzyn-kozle.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 338876993,
+              "center": {
+                "lat": 50.429398,
+                "lon": 18.5549434
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 438939714,
+              "center": {
+                "lat": 50.3578364,
+                "lon": 18.2833263
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "air_raid_shelter",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 438940016,
+              "center": {
+                "lat": 50.3542484,
+                "lon": 18.2923172
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "air_raid_shelter",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 556846394,
+              "center": {
+                "lat": 50.3623573,
+                "lon": 18.2908405
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "air_raid_shelter",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 556846407,
+              "center": {
+                "lat": 50.3587448,
+                "lon": 18.2882014
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "air_raid_shelter",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 556850196,
+              "center": {
+                "lat": 50.3596805,
+                "lon": 18.2841075
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "air_raid_shelter",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 560273033,
+              "center": {
+                "lat": 50.1875951,
+                "lon": 18.3005202
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 572589639,
+              "center": {
+                "lat": 50.3047582,
+                "lon": 18.2582308
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 572589642,
+              "center": {
+                "lat": 50.3092505,
+                "lon": 18.2500489
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 572589644,
+              "center": {
+                "lat": 50.310418,
+                "lon": 18.2468685
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 572589645,
+              "center": {
+                "lat": 50.301613,
+                "lon": 18.2666838
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 662915208,
+              "center": {
+                "lat": 50.4733197,
+                "lon": 18.215508
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Pozostałości terenów 333 kompanii radiotechnicznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 690430122,
+              "center": {
+                "lat": 50.1892558,
+                "lon": 18.4650038
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser"
+              }
+            },
+            {
+              "type": "way",
+              "id": 766757433,
+              "center": {
+                "lat": 50.3251252,
+                "lon": 18.2462304
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1213924176,
+              "center": {
+                "lat": 50.5110048,
+                "lon": 18.3036132
+              },
+              "tags": {
+                "building": "bunker",
+                "layer": "-1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1293624914,
+              "center": {
+                "lat": 50.1828419,
+                "lon": 18.4389174
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1329667304,
+              "center": {
+                "lat": 50.3577483,
+                "lon": 18.3181991
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1455019597,
+              "center": {
+                "lat": 50.3366762,
+                "lon": 18.1451282
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+[17:37:28] === FIX-04 replay from JSONL ===
+[17:37:28] Source JSONL: logs/hi06_fix04_preview.jsonl
+[17:37:28] Run ID:       fix04_replay_20260511_173728
+[17:37:28] Mode:         APPLY
+[17:37:29] processed=50 applied(mil/pwr/tx)=50/50/50 filtered=0
+[17:37:29] processed=100 applied(mil/pwr/tx)=100/100/100 filtered=0
+[17:37:29] processed=150 applied(mil/pwr/tx)=150/150/150 filtered=0
+[17:37:29] processed=200 applied(mil/pwr/tx)=200/200/200 filtered=0
+[17:37:29] processed=250 applied(mil/pwr/tx)=250/250/250 filtered=0
+[17:37:29] processed=300 applied(mil/pwr/tx)=300/300/300 filtered=0
+[17:37:29] processed=350 applied(mil/pwr/tx)=350/350/350 filtered=0
+
+[17:37:30] === FIX-04 replay complete ===
+[17:37:30] Run ID:        fix04_replay_20260511_173728
+[17:37:30] Considered:    361
+[17:37:30] Filtered out:  0
+[17:37:30]      military: applied=361  skip-error=0  skip-no-payload=0
+[17:37:30]         power: applied=361  skip-error=0  skip-no-payload=0
+[17:37:30]   transmitter: applied=361  skip-error=0  skip-no-payload=0
+[17:37:30] Commit errors: 0

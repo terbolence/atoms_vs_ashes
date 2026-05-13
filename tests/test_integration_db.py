@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.2
 """Integration tests: verify DB state after ingestion (requires live DB)."""
 
 import pytest
@@ -53,19 +53,14 @@ def test_all_countries_have_sites():
 
 
 def test_supplementary_sites_present():
+    settings = Settings()
     with session_scope() as session:
-        braila = session.scalar(
-            select(func.count(Site.site_id)).where(
-                Site.name.ilike("%chi%cani%")
+        for site in settings.supplementary_sites:
+            name = site["name"]
+            count = session.scalar(
+                select(func.count(Site.site_id)).where(Site.name.ilike(f"%{name}%"))
             )
-        )
-        feldioara = session.scalar(
-            select(func.count(Site.site_id)).where(
-                Site.name.ilike("%feldioara%")
-            )
-        )
-        assert braila >= 1, "Brăila-Chișcani not found"
-        assert feldioara >= 1, "FPCU Feldioara not found"
+            assert count >= 1, f"Supplementary site {name!r} not found"
 
 
 def test_ownership_linkage():

@@ -1,0 +1,116 @@
+{
+  "total_sites": 3,
+  "with_logged_payload": 3,
+  "no_logged_payload": 0,
+  "skipped_already_populated": 0,
+  "with_class_assigned": 3,
+  "with_high_consequence": 0,
+  "errors": 0,
+  "per_site": [
+    {
+      "site_id": "ad1e8841-e4e4-413b-820a-8c14e09da5a0",
+      "country": "TR",
+      "name": "\u00c7an (18 Mart) power station",
+      "elements": 1,
+      "nearest_class": "other",
+      "nearest_distance_km": 6.83,
+      "high_consequence_km": null,
+      "high_consequence_class": null,
+      "class_counts": {
+        "other": 1
+      },
+      "evidence": [
+        {
+          "column": "nearest_military_class",
+          "current": "other",
+          "replayed": "other",
+          "action": "skip-noop"
+        },
+        {
+          "column": "nearest_high_consequence_military_km",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        },
+        {
+          "column": "nearest_high_consequence_military_class",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    },
+    {
+      "site_id": "e71ec827-7143-48dd-8c8a-8e81705fa971",
+      "country": "TR",
+      "name": "\u00c7al\u0131\u015fkan Ceyhan power station",
+      "elements": 3,
+      "nearest_class": "other",
+      "nearest_distance_km": 16.59,
+      "high_consequence_km": null,
+      "high_consequence_class": null,
+      "class_counts": {
+        "other": 3
+      },
+      "evidence": [
+        {
+          "column": "nearest_military_class",
+          "current": "other",
+          "replayed": "other",
+          "action": "skip-noop"
+        },
+        {
+          "column": "nearest_high_consequence_military_km",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        },
+        {
+          "column": "nearest_high_consequence_military_class",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    },
+    {
+      "site_id": "28980273-0ba6-4c8c-b080-7ff9b33cc4c9",
+      "country": "TR",
+      "name": "\u00c7an-2 power station",
+      "elements": 1,
+      "nearest_class": "other",
+      "nearest_distance_km": 9.27,
+      "high_consequence_km": null,
+      "high_consequence_class": null,
+      "class_counts": {
+        "other": 1
+      },
+      "evidence": [
+        {
+          "column": "nearest_military_class",
+          "current": "other",
+          "replayed": "other",
+          "action": "skip-noop"
+        },
+        {
+          "column": "nearest_high_consequence_military_km",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        },
+        {
+          "column": "nearest_high_consequence_military_class",
+          "current": null,
+          "replayed": null,
+          "action": "skip-no-replay"
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    }
+  ]
+}

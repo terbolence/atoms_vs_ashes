@@ -1,0 +1,2100 @@
+{
+  "meta": {
+    "site_id": "e9a1ae49-ff79-462c-af4e-7c6843221d36",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:24:48.953045+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,54.378201,18.641284);\n  way[\"military\"](around:25000,54.378201,18.641284);\n  relation[\"military\"](around:25000,54.378201,18.641284);\n  node[\"landuse\"=\"military\"](around:25000,54.378201,18.641284);\n  way[\"landuse\"=\"military\"](around:25000,54.378201,18.641284);\n  relation[\"landuse\"=\"military\"](around:25000,54.378201,18.641284);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.378201,18.641284);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.378201,18.641284);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.378201,18.641284);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.378201,18.641284);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.378201,18.641284);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.378201,18.641284);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 2133,
+        "element_count": 151,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:23:11Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 2549703239,
+              "lat": 54.5438907,
+              "lon": 18.5554756,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2693233493,
+              "lat": 54.4975909,
+              "lon": 18.5614322,
+              "tags": {
+                "alt_name": "Bateria Artylerii Stałej BAS 11",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Stanowisko ogniowe nr 4",
+                "website": "http://www.fortyfikacje.eksploracja.pl/fr_11bas.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2693233496,
+              "lat": 54.4970763,
+              "lon": 18.5615054,
+              "tags": {
+                "alt_name": "Bateria Artylerii Stałej BAS 11",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Stanowisko ogniowe nr 3",
+                "website": "http://www.fortyfikacje.eksploracja.pl/fr_11bas.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2693233499,
+              "lat": 54.4963936,
+              "lon": 18.5619635,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Stanowisko ogniowe nr 2 - osunięte ze zbocza w 1984/85"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4306230130,
+              "lat": 54.4959144,
+              "lon": 18.5615901,
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Stanowisko ogniowe nr 1"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4306230131,
+              "lat": 54.4965745,
+              "lon": 18.5613143,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Stanowisko ogniowe nr 2 - pierwotna lokalizacja"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4331886999,
+              "lat": 54.4962153,
+              "lon": 18.5445032,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4534659587,
+              "lat": 54.2551395,
+              "lon": 18.662383,
+              "tags": {
+                "building": "bunker",
+                "description": "Z II wojny światowej, pozostałość po podobozie Stutthof.",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4724857812,
+              "lat": 54.5323206,
+              "lon": 18.3919765,
+              "tags": {
+                "abandoned": "yes",
+                "description": "Betonowe ruiny schronu dalmierza baterii flak 105mm z okresu II Wojny Światowej.",
+                "ele": "161",
+                "military": "bunker",
+                "name": "ruiny schronu dalmierza",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5809405256,
+              "lat": 54.3699275,
+              "lon": 18.6374996,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "shelter",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5809405339,
+              "lat": 54.3665582,
+              "lon": 18.6465974,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5810009237,
+              "lat": 54.3656199,
+              "lon": 18.6458789,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6252316561,
+              "lat": 54.501672,
+              "lon": 18.5113871,
+              "tags": {
+                "addr:city": "Gdynia",
+                "addr:housenumber": "2",
+                "addr:postcode": "81-660",
+                "addr:street": "Strażacka",
+                "government": "administrative",
+                "military": "barracks",
+                "name": "Regionalne Centrum Informatyki Gdynia",
+                "office": "government"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6400001494,
+              "lat": 54.4187627,
+              "lon": 18.6096091,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "historic": "ruins",
+                "location": "underground",
+                "man_made": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6400001495,
+              "lat": 54.417701,
+              "lon": 18.6120542,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6622438524,
+              "lat": 54.3551737,
+              "lon": 18.6616288,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7806869490,
+              "lat": 54.3644727,
+              "lon": 18.6273241,
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "building:material": "concrete",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "start_date": "1940s"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7806869493,
+              "lat": 54.3647123,
+              "lon": 18.6211473,
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Splitterschutzzelle",
+                "military": "bunker",
+                "ruins": "yes",
+                "start_date": "1940s"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7820545196,
+              "lat": 54.4076255,
+              "lon": 18.6488838,
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "observation",
+                "historic": "yes",
+                "material": "concrete",
+                "military": "bunker",
+                "name": "Krąg kierunkowy Baterii Wiejskiej",
+                "ruins": "yes",
+                "start_date": "1911"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8541041927,
+              "lat": 54.5808206,
+              "lon": 18.4920033,
+              "tags": {
+                "military": "range",
+                "name": "Strzelnica sportowa"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907348,
+              "lat": 54.5885478,
+              "lon": 18.5154421,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907349,
+              "lat": 54.5889935,
+              "lon": 18.5120036,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907350,
+              "lat": 54.5889513,
+              "lon": 18.5134359,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907351,
+              "lat": 54.5882919,
+              "lon": 18.5120551,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907352,
+              "lat": 54.5882589,
+              "lon": 18.5136646,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907353,
+              "lat": 54.5878944,
+              "lon": 18.5161474,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907354,
+              "lat": 54.5879393,
+              "lon": 18.5174627,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907367,
+              "lat": 54.5885801,
+              "lon": 18.5182676,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907368,
+              "lat": 54.5886029,
+              "lon": 18.5195997,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907376,
+              "lat": 54.5878683,
+              "lon": 18.5147586,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9129907393,
+              "lat": 54.58801,
+              "lon": 18.5224806,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9130264348,
+              "lat": 54.58807,
+              "lon": 18.5244562,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9130264356,
+              "lat": 54.5880832,
+              "lon": 18.525759,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9130264357,
+              "lat": 54.5887877,
+              "lon": 18.5241855,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9373703873,
+              "lat": 54.3767175,
+              "lon": 18.556021,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "dawna strzelnica"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9445745016,
+              "lat": 54.4990293,
+              "lon": 18.5585083,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9767470400,
+              "lat": 54.4890501,
+              "lon": 18.5656294,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron na samochody"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10003120638,
+              "lat": 54.3694016,
+              "lon": 18.5935691,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10181614183,
+              "lat": 54.4878766,
+              "lon": 18.5651041,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron techniczny"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11476233269,
+              "lat": 54.4187198,
+              "lon": 18.6095413,
+              "tags": {
+                "building": "bunker",
+                "historic": "ruins",
+                "inscription": "ERBAUT 1912",
+                "location": "underground",
+                "man_made": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11931829717,
+              "lat": 54.4879928,
+              "lon": 18.5660509,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron dowodzenia (wielopoziomowy)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12069778161,
+              "lat": 54.3455731,
+              "lon": 18.9479134,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12116446818,
+              "lat": 54.5798493,
+              "lon": 18.5373769,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "check_date": "2024-08-10",
+                "military": "bunker",
+                "name": "Schron przeciwlotniczy nr 1",
+                "start_date": "1942"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12116452858,
+              "lat": 54.5817271,
+              "lon": 18.5348771,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "check_date": "2024-08-10",
+                "military": "bunker",
+                "name": "Schron nr 2",
+                "start_date": "1942"
+              }
+            },
+            {
+              "type": "way",
+              "id": 60134103,
+              "center": {
+                "lat": 54.4118862,
+                "lon": 18.6671433
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa 2305 Gdańsk Westerplatte"
+              }
+            },
+            {
+              "type": "way",
+              "id": 111696917,
+              "center": {
+                "lat": 54.3108223,
+                "lon": 18.6302117
+              },
+              "tags": {
+                "addr:city": "Gdańsk",
+                "addr:country": "PL",
+                "addr:housenumber": "253",
+                "addr:postcode": "80-018",
+                "addr:street": "Trakt Świętego Wojciecha",
+                "building": "office",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji",
+                "source:addr": "Urząd Miasta Gdańsk"
+              }
+            },
+            {
+              "type": "way",
+              "id": 117136995,
+              "center": {
+                "lat": 54.5423429,
+                "lon": 18.5502506
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "military": "naval_base",
+                "name": "Port Wojenny Gdynia",
+                "name:de": "Marinestützpunkt",
+                "name:pl": "Port Wojenny Gdynia",
+                "wikidata": "Q11824860",
+                "wikipedia": "pl:Port Wojenny Gdynia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 123267826,
+              "center": {
+                "lat": 54.543872,
+                "lon": 18.5225745
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Centralny Zakład Sprzętu Ratowniczego Marynarki Wojennej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 132052139,
+              "center": {
+                "lat": 54.51781,
+                "lon": 18.442693
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Zespół Techniczny Komendy Portu Wojennego Gdynia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 136079929,
+              "center": {
+                "lat": 54.5437153,
+                "lon": 18.5478652
+              },
+              "tags": {
+                "email": "kpw.gdynia.kj@ron.mil.pl",
+                "landuse": "military",
+                "name": "Komenda Portu Wojennego Gdynia",
+                "website": "https://kpwgdynia.wp.mil.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 136079933,
+              "center": {
+                "lat": 54.5545176,
+                "lon": 18.5524455
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "6 Oliwski Ośrodek Radioelektroniczny im. adm. Arendta Dickmana"
+              }
+            },
+            {
+              "type": "way",
+              "id": 136887047,
+              "center": {
+                "lat": 54.5308819,
+                "lon": 18.5407144
+              },
+              "tags": {
+                "addr:city": "Gdynia",
+                "addr:country": "PL",
+                "addr:housenumber": "5",
+                "addr:street": "Polska",
+                "alt_name": "Prinz-Eugen-Bunker",
+                "building": "bunker",
+                "bunker_type": "troops_crew_bunker",
+                "military": "bunker",
+                "name": "T-750 Gdingen III"
+              }
+            },
+            {
+              "type": "way",
+              "id": 139206220,
+              "center": {
+                "lat": 54.5441623,
+                "lon": 18.5271057
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Wojskowa Jednostka Magazynowa"
+              }
+            },
+            {
+              "type": "way",
+              "id": 139333366,
+              "center": {
+                "lat": 54.5484244,
+                "lon": 18.5461284
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "troops_crew_bunker",
+                "military": "bunker",
+                "name": "T-750 Gdingen II"
+              }
+            },
+            {
+              "type": "way",
+              "id": 139541159,
+              "center": {
+                "lat": 54.5439178,
+                "lon": 18.555467
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "troops_crew_bunker",
+                "military": "yes",
+                "name": "T-750 Gdingen I"
+              }
+            },
+            {
+              "type": "way",
+              "id": 149601316,
+              "center": {
+                "lat": 54.51744,
+                "lon": 18.3757045
+              },
+              "tags": {
+                "addr:city": "Łężyce",
+                "addr:housenumber": "17",
+                "addr:postcode": "84-207",
+                "addr:street": "Limbowa",
+                "building": "yes",
+                "description": "ruiny niemieckiego radaru typu Jagdschloss (FuG404) z okresu II W.Ś.",
+                "disused": "yes",
+                "military": "shelter",
+                "name": "ruiny radaru z okresu II W. Ś.",
+                "source": "bing",
+                "source:addr": "wejherowo.e-mapa.net",
+                "source:building": "EGiB",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 150868206,
+              "center": {
+                "lat": 54.5178798,
+                "lon": 18.3545895
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 163727961,
+              "center": {
+                "lat": 54.5664444,
+                "lon": 18.5442697
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Skład amunicji i broni"
+              }
+            },
+            {
+              "type": "way",
+              "id": 163727963,
+              "center": {
+                "lat": 54.5930292,
+                "lon": 18.5168564
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 163727967,
+              "center": {
+                "lat": 54.5449837,
+                "lon": 18.5497528
+              },
+              "tags": {
+                "alt_name": "Zespół Zarządzania Wsparciem Teleinformatycznym w Gdyni",
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military",
+                "name": "Regionalne Centrum Informatyki Gdynia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 166381928,
+              "center": {
+                "lat": 54.5020452,
+                "lon": 18.5103139
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "name": "Oddzial Zabezpieczenia Marynarki Wojennej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 173571405,
+              "center": {
+                "lat": 54.5199535,
+                "lon": 18.5506847
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "man_made": "pier"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234810191,
+              "center": {
+                "lat": 54.5493316,
+                "lon": 18.5756646
+              },
+              "tags": {
+                "military": "training_area",
+                "name": "Strefa 15 zamknięta dla żeglugi i rybołówstwa",
+                "seamark:information": "http://www.bhmw.mw.mil.pl/index.php?akcja=on",
+                "seamark:name": "Strefa 15 zamknięta dla żeglugi i rybołówstwa",
+                "seamark:restricted_area:category": "military",
+                "seamark:restricted_area:information": "range_safety",
+                "seamark:source": "http://isap.sejm.gov.pl/DetailsServlet?id=WDU20051451216",
+                "seamark:status": "permanent",
+                "seamark:type": "restricted_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234810195,
+              "center": {
+                "lat": 54.5851697,
+                "lon": 18.5865001
+              },
+              "tags": {
+                "military": "training_area",
+                "name": "Strefa 2 okresowo zamykana dla żeglugi i rybołówstwa",
+                "seamark:information": "http://www.bhmw.mw.mil.pl/index.php?akcja=on",
+                "seamark:name": "Strefa 2 okresowo zamykana dla żeglugi i rybołówstwa",
+                "seamark:restricted_area:category": "military",
+                "seamark:restricted_area:information": "range_safety",
+                "seamark:source": "http://isap.sejm.gov.pl/DetailsServlet?id=WDU20051451216",
+                "seamark:status": "occasional",
+                "seamark:type": "restricted_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234810196,
+              "center": {
+                "lat": 54.5422516,
+                "lon": 18.5749322
+              },
+              "tags": {
+                "military": "training_area",
+                "name": "Strefa 3 zamknięta dla rybołówstwa",
+                "seamark:information": "http://www.bhmw.mw.mil.pl/index.php?akcja=on",
+                "seamark:name": "Strefa 3 zamknięta dla rybołówstwa",
+                "seamark:restricted_area:category": "military",
+                "seamark:restricted_area:information": "range_safety",
+                "seamark:source": "http://isap.sejm.gov.pl/DetailsServlet?id=WDU20051451216",
+                "seamark:status": "permanent",
+                "seamark:type": "restricted_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 248125587,
+              "center": {
+                "lat": 54.3853776,
+                "lon": 18.6587925
+              },
+              "tags": {
+                "addr:city": "Gdańsk",
+                "addr:city:simc": "0933016",
+                "addr:housenumber": "31",
+                "addr:postcode": "80-555",
+                "addr:street": "Mariana Chodackiego",
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "T-750 Gdansk I",
+                "source:addr": "gugik.gov.pl",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 248125588,
+              "center": {
+                "lat": 54.3761707,
+                "lon": 18.6524729
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "3",
+                "bunker_type": "troops_crew_bunker",
+                "material": "concrete",
+                "military": "bunker",
+                "name:de": "T-750 Danzig II",
+                "start_date": "1943"
+              }
+            },
+            {
+              "type": "way",
+              "id": 256603320,
+              "center": {
+                "lat": 54.3860037,
+                "lon": 18.7008628
+              },
+              "tags": {
+                "building": "yes",
+                "military": "buiding",
+                "name": "Zastępczy Punkt Kierowania Ogniem 25 BAS 607"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274740022,
+              "center": {
+                "lat": 54.4064734,
+                "lon": 18.6716922
+              },
+              "tags": {
+                "building": "yes",
+                "building:colour": "grey",
+                "building:levels": "2",
+                "historic": "ruins",
+                "military": "buiding",
+                "name": "Koszary",
+                "opening_hours": "24/7",
+                "wheelchair": "limited"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274782997,
+              "center": {
+                "lat": 54.4076,
+                "lon": 18.6770085
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Placówka \"Fort\"",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274782998,
+              "center": {
+                "lat": 54.4057341,
+                "lon": 18.6805449
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "5",
+                "man_made": "tower",
+                "military": "buiding",
+                "name": "Punkt obserwacyjny 25 BAS",
+                "tower:type": "observation"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274786378,
+              "center": {
+                "lat": 54.4060332,
+                "lon": 18.6759864
+              },
+              "tags": {
+                "building": "yes",
+                "fee": "yes",
+                "military": "buiding",
+                "name": "Wartownia nr 1",
+                "tourism": "museum"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274836794,
+              "center": {
+                "lat": 54.4048957,
+                "lon": 18.6813469
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "buiding",
+                "name": "Magazyn Amunicyjny nr 1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274836795,
+              "center": {
+                "lat": 54.4056289,
+                "lon": 18.680455
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Schron 25 BAS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286509192,
+              "center": {
+                "lat": 54.4059843,
+                "lon": 18.6798637
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Magazyn Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286509193,
+              "center": {
+                "lat": 54.4062983,
+                "lon": 18.6793962
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Magazyn Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286509197,
+              "center": {
+                "lat": 54.4065944,
+                "lon": 18.6788797
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Magazyn Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286509198,
+              "center": {
+                "lat": 54.4073307,
+                "lon": 18.6772288
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Magazyn Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286509200,
+              "center": {
+                "lat": 54.4075472,
+                "lon": 18.6766038
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "ruins",
+                "military": "bunker",
+                "name": "Magazyn Amunicyjny"
+              }
+            },
+            {
+              "type": "way",
+              "id": 289972362,
+              "center": {
+                "lat": 54.4825295,
+                "lon": 18.5652722
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron na reflektor"
+              }
+            },
+            {
+              "type": "way",
+              "id": 313115453,
+              "center": {
+                "lat": 54.3882981,
+                "lon": 18.6965633
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Główny Punkt Kierowania Ogniem 25 BAS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 318342530,
+              "center": {
+                "lat": 54.3550018,
+                "lon": 18.6375503
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "observation",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Schron obserwacyjny obrony przeciwlotniczej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 341830651,
+              "center": {
+                "lat": 54.5104956,
+                "lon": 18.5518285
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Prywatny schron hrabiny Magdaleny Łoś"
+              }
+            },
+            {
+              "type": "way",
+              "id": 352607406,
+              "center": {
+                "lat": 54.4027824,
+                "lon": 18.6440489
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "bunker",
+                "military": "bunker",
+                "source": "http://www.wojazer.pl/brzezno/forty.php"
+              }
+            },
+            {
+              "type": "way",
+              "id": 352607408,
+              "center": {
+                "lat": 54.4027016,
+                "lon": 18.6445128
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "bunker",
+                "military": "bunker",
+                "source": "http://www.wojazer.pl/brzezno/forty.php"
+              }
+            },
+            {
+              "type": "way",
+              "id": 352607409,
+              "center": {
+                "lat": 54.4024639,
+                "lon": 18.6458355
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "bunker",
+                "military": "bunker",
+                "source": "http://www.wojazer.pl/brzezno/forty.php",
+                "start_date": "1911"
+              }
+            },
+            {
+              "type": "way",
+              "id": 352607410,
+              "center": {
+                "lat": 54.4025399,
+                "lon": 18.6453976
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "bunker",
+                "military": "bunker",
+                "source": "http://www.wojazer.pl/brzezno/forty.php",
+                "start_date": "1911"
+              }
+            },
+            {
+              "type": "way",
+              "id": 352607411,
+              "center": {
+                "lat": 54.4026246,
+                "lon": 18.6449551
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "bunker",
+                "military": "bunker",
+                "source": "http://www.wojazer.pl/brzezno/forty.php"
+              }
+            },
+            {
+              "type": "way",
+              "id": 377761797,
+              "center": {
+                "lat": 54.2414789,
+                "lon": 18.6516981
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 384377286,
+              "center": {
+                "lat": 54.2451416,
+                "lon": 18.7007411
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 385091410,
+              "center": {
+                "lat": 54.5553005,
+                "lon": 18.4843095
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Rejonowy Zarząd Infrastruktury w Gdyni"
+              }
+            },
+            {
+              "type": "way",
+              "id": 385094667,
+              "center": {
+                "lat": 54.5791981,
+                "lon": 18.5157911
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "alt_name": "Oksywie",
+                "description": "IFR tylko dla wojskowych statków powietrznych",
+                "icao": "EPOK",
+                "ifr": "yes",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Port lotniczy Gdynia-Kosakowo",
+                "name:de": "Flughafen Gdingen-Kossakau",
+                "name:en": "Gdynia-Kosakowo Airport",
+                "name:pl": "Port lotniczy Gdynia-Kosakowo",
+                "name:ru": "Аэропорт Гдыня-Косаково",
+                "name:uk": "Аеропорт Ґдиня-Косаково",
+                "operator": "Jednostka Wojskowa nr 4651",
+                "wikidata": "Q2071029",
+                "wikipedia": "pl:Port lotniczy Gdynia-Kosakowo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 385094668,
+              "center": {
+                "lat": 54.5695679,
+                "lon": 18.5129667
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 389352176,
+              "center": {
+                "lat": 54.2412301,
+                "lon": 18.6805173
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 390615705,
+              "center": {
+                "lat": 54.2406287,
+                "lon": 18.745328
+              },
+              "tags": {
+                "access": "no",
+                "area": "yes",
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 434974992,
+              "center": {
+                "lat": 54.4024017,
+                "lon": 18.6448718
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "command",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 435045777,
+              "center": {
+                "lat": 54.5227895,
+                "lon": 18.4969838
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "33 Dywizjon Rakietowy Obrony Powietrznej",
+                "website": "https://33drop.wp.mil.pl/",
+                "wikidata": "Q9132569",
+                "wikipedia": "pl:33 Dywizjon Rakietowy Obrony Powietrznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 479370087,
+              "center": {
+                "lat": 54.5323217,
+                "lon": 18.3920486
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "-1",
+                "description": "ruiny schronu dalmierza baterii flak 105 mm pochodzącej z okresu II Wojny Światowej",
+                "disused": "yes",
+                "ele": "161",
+                "historic": "ruins",
+                "military": "shelter",
+                "name": "Ruiny schronu dalmierza",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 479371789,
+              "center": {
+                "lat": 54.5905855,
+                "lon": 18.529893
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "description": "Schron dalmierza bateri flak 105 mm z okresu II Wojny światowej",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "Schron dalmierza",
+                "source": "bing",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 479373112,
+              "center": {
+                "lat": 54.4687075,
+                "lon": 18.5505745
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "description": "Ruiny schronu dalmierza baterii flak kalibru 105 oraz 128 mm z okresu II Wojny Światowej",
+                "disused": "yes",
+                "historic": "ruins",
+                "military": "shelter",
+                "name": "Ruiny schronu dalmierza",
+                "source": "bing",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 494951505,
+              "center": {
+                "lat": 54.3752695,
+                "lon": 18.723862
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "command",
+                "military": "bunker",
+                "name": "Schron dowodzenia baterii wydmowej 1911",
+                "name:en": "Bunker from 1911",
+                "source:building": "EGiB",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 515856080,
+              "center": {
+                "lat": 54.340023,
+                "lon": 18.6901461
+              },
+              "tags": {
+                "abandoned": "yes",
+                "addr:city": "Gdańsk",
+                "addr:street": "Zawodzie",
+                "building": "yes",
+                "bunker_type": "technical",
+                "height": "12",
+                "material": "concrete",
+                "military": "bunker",
+                "name": "Bunkier elektrownia",
+                "roof:shape": "round",
+                "source:building": "EGiB",
+                "start_date": "1944"
+              }
+            },
+            {
+              "type": "way",
+              "id": 559145690,
+              "center": {
+                "lat": 54.496482,
+                "lon": 18.5293595
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 559145691,
+              "center": {
+                "lat": 54.5289691,
+                "lon": 18.5423614
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 592098622,
+              "center": {
+                "lat": 54.2470919,
+                "lon": 18.6740901
+              },
+              "tags": {
+                "addr:city": "Pruszcz Gdański",
+                "addr:housenumber": "28B",
+                "addr:postcode": "83-000",
+                "addr:street": "Powstańców Warszawy",
+                "aeroway": "aerodrome",
+                "email": "49blot@ron.mil.pl",
+                "icao": "EPPR",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "49. Baza Lotnicza",
+                "old_name": "49. Pułk Śmigłowców Bojowych",
+                "start_date": "1.01.2012",
+                "website": "https://49blot.wp.mil.pl/pl/index.html",
+                "wikidata": "Q9133778",
+                "wikipedia": "pl:49 Baza Lotnicza"
+              }
+            },
+            {
+              "type": "way",
+              "id": 614180049,
+              "center": {
+                "lat": 54.3662018,
+                "lon": 18.6436739
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "197B",
+                "note": "schron przeciwlotniczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 614379344,
+              "center": {
+                "lat": 54.4033056,
+                "lon": 18.6569841
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Morski Oddział Straży Granicznej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 615096889,
+              "center": {
+                "lat": 54.520014,
+                "lon": 18.5495584
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 685041262,
+              "center": {
+                "lat": 54.4058283,
+                "lon": 18.5510489
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Użytek ekologiczny \"Oliwskie Nocki\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 700732380,
+              "center": {
+                "lat": 54.3867556,
+                "lon": 18.6981634
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Elektrownia 609"
+              }
+            },
+            {
+              "type": "way",
+              "id": 700732381,
+              "center": {
+                "lat": 54.3860122,
+                "lon": 18.6974176
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Magazyn amunicji specjalnej 615"
+              }
+            },
+            {
+              "type": "way",
+              "id": 700732382,
+              "center": {
+                "lat": 54.3862038,
+                "lon": 18.6970856
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Magazyn amunicji specjalnej 616"
+              }
+            },
+            {
+              "type": "way",
+              "id": 739104715,
+              "center": {
+                "lat": 54.5223297,
+                "lon": 18.4024587
+              },
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767334384,
+              "center": {
+                "lat": 54.3108364,
+                "lon": 18.6302895
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "height": "2.5",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 788028951,
+              "center": {
+                "lat": 54.4570059,
+                "lon": 18.5579725
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 829495795,
+              "center": {
+                "lat": 54.4071012,
+                "lon": 18.6510096
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 834654959,
+              "center": {
+                "lat": 54.3648215,
+                "lon": 18.6277491
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "building:material": "concrete",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "start_date": "1940s"
+              }
+            },
+            {
+              "type": "way",
+              "id": 836425626,
+              "center": {
+                "lat": 54.3654106,
+                "lon": 18.6238051
+              },
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 837904311,
+              "center": {
+                "lat": 54.407659,
+                "lon": 18.6432084
+              },
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "gun_emplacement",
+                "casemate": "no",
+                "gun_emplacement_type": "howitzer",
+                "historic": "yes",
+                "material": "concrete",
+                "military": "bunker",
+                "name": "Bateria plażowa",
+                "old_name:de": "Strandbatterie",
+                "start_date": "1910"
+              }
+            },
+            {
+              "type": "way",
+              "id": 837904312,
+              "center": {
+                "lat": 54.4075209,
+                "lon": 18.6448941
+              },
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "material": "concrete",
+                "military": "bunker",
+                "ruined": "yes",
+                "start_date": "1905"
+              }
+            },
+            {
+              "type": "way",
+              "id": 920987758,
+              "center": {
+                "lat": 54.4005905,
+                "lon": 18.6831945
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 920987761,
+              "center": {
+                "lat": 54.4009903,
+                "lon": 18.6834944
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 920987762,
+              "center": {
+                "lat": 54.400805,
+                "lon": 18.6835042
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 945304519,
+              "center": {
+                "lat": 54.3923775,
+                "lon": 18.5624491
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 977443440,
+              "center": {
+                "lat": 54.3809848,
+                "lon": 18.5917248
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 977452242,
+              "center": {
+                "lat": 54.3801725,
+                "lon": 18.5930999
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Wojskowe Centrum Rekrutacji"
+              }
+            },
+            {
+              "type": "way",
+              "id": 978271459,
+              "center": {
+                "lat": 54.3816336,
+                "lon": 18.5946612
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 995567499,
+              "center": {
+                "lat": 54.4031947,
+                "lon": 18.661967
+              },
+              "tags": {
+                "description": "Area that belongs to Military treasury agency (pol. \"Agencja Mienia Wojskowego\"), on sale for few years. Around the area theres a metal fence separating it from the nearby residential buildings.",
+                "landuse": "military",
+                "name": "AMW"
+              }
+            },
+            {
+              "type": "way",
+              "id": 998289006,
+              "center": {
+                "lat": 54.4969029,
+                "lon": 18.5575726
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Stacja Utrzymania Infrastruktury Teleinformatycznej (SUIT) Gdynia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1057759546,
+              "center": {
+                "lat": 54.3628368,
+                "lon": 18.6525385
+              },
+              "tags": {
+                "building": "bunker",
+                "heritage": "2",
+                "heritage:operator": "nid",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "180A",
+                "natural": "scrub",
+                "note": "schron przeciwlotniczy",
+                "ref:nid": "A-1936 (21)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1075921515,
+              "center": {
+                "lat": 54.3789144,
+                "lon": 18.6095988
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1077629164,
+              "center": {
+                "lat": 54.5776537,
+                "lon": 18.5390613
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1078025145,
+              "center": {
+                "lat": 54.3652234,
+                "lon": 18.6239814
+              },
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1083186700,
+              "center": {
+                "lat": 54.5200129,
+                "lon": 18.5460074
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1091232645,
+              "center": {
+                "lat": 54.4428477,
+                "lon": 18.5642188
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1106551224,
+              "center": {
+                "lat": 54.5169703,
+                "lon": 18.5492193
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1129283435,
+              "center": {
+                "lat": 54.356127,
+                "lon": 18.641342
+              },
+              "tags": {
+                "building:part": "yes",
+                "bunker_type": "observation",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1129283440,
+              "center": {
+                "lat": 54.3548533,
+                "lon": 18.6369052
+              },
+              "tags": {
+                "building": "yes",
+                "bunker_type": "observation",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1153477975,
+              "center": {
+                "lat": 54.3800859,
+                "lon": 18.592041
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "17 Terenowy Oddział Lotniskowy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1169055151,
+              "center": {
+                "lat": 54.2684824,
+                "lon": 18.7957813
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1170413348,
+              "center": {
+                "lat": 54.3788259,
+                "lon": 18.6209662
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "bunker_type": "observation",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1183778236,
+              "center": {
+                "lat": 54.3720768,
+                "lon": 18.6103488
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1286430927,
+              "center": {
+                "lat": 54.4947658,
+                "lon": 18.5558986
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 106 - Artyleryjska stacja radiolokacyjna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1286430928,
+              "center": {
+                "lat": 54.4948519,
+                "lon": 18.5558627
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 107 - Główny Punkt Kierowania Ogniem (GPKO)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1286430929,
+              "center": {
+                "lat": 54.4947241,
+                "lon": 18.5556932
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Stanowisko kierowania ogniem baterii FLAK \"Redłowo\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 1308392268,
+              "center": {
+                "lat": 54.578581,
+                "lon": 18.5384687
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "technical",
+                "check_date": "2024-08-10",
+                "military": "bunker",
+                "name": "Podziemna Montownia Torped",
+                "start_date": "1942",
+                "website": "https://tv.trojmiasto.pl/Podziemna-montownia-torped-z-czasow-II-wojny-swiatowej-15-01-2012-video-2520.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1322588560,
+              "center": {
+                "lat": 54.5203596,
+                "lon": 18.5441942
+              },
+              "tags": {
+                "contact:phone": "+48261263524",
+                "landuse": "military",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji w Gdyni",
+                "opening_hours": "Mo-Fr 08:00-15:00; We 08:00-16:30",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1333217449,
+              "center": {
+                "lat": 54.4878075,
+                "lon": 18.5678112
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1333217450,
+              "center": {
+                "lat": 54.4877309,
+                "lon": 18.5680898
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1444622136,
+              "center": {
+                "lat": 54.5107084,
+                "lon": 18.549155
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 9518400,
+              "center": {
+                "lat": 54.5687406,
+                "lon": 18.461327
+              },
+              "tags": {
+                "alt_name": "Skład Gdynia 1 RBLog",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "1 Regionalna Baza Logistyczna - Skład Gdynia",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

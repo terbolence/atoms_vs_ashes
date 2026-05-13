@@ -269,37 +269,8 @@ HI-06:
       sources: ["Project site criteria"]
     bounds: {min: 2, max: 50}
 
-# Band-recipe pivot codes (``condition_expr`` fixed to "false" in engine; only rebands)
-BF-01:
-  B1:
-    metric: grid_export_capacity_mw
-    op: ">="
-    default_value: 462
-    units: MWe
-    kind: numeric
-    label: "Reference grid headroom (score-5 band pivot)"
-    recommended:
-      value: 462
-      rationale: >
-        Project reference net export (aligned to NuScale VOYGR-6
-        462 MWe class). Drives the higher_is_better band ladder only;
-        BF-01 screening and substation/voltage subscores are unchanged.
-      sources: ["Project engineering basis"]
-    bounds: {min: 50, max: 2000}
-
-BF-02:
-  B2:
-    metric: largest_contiguous_ha
-    op: ">="
-    default_value: 14
-    units: ha
-    kind: numeric
-    label: "Contiguous buildable area pivot (band recipe)"
-    recommended:
-      value: 14
-      rationale: >
-        Contiguous-plot pivot consistent with the mid rubric “standard
-        SMR” footprint. Used only to re-shape ranking bands, not the basic
-        land pass/fail screen in screening BF-02.
-      sources: ["Project rubric baseline"]
-    bounds: {min: 1, max: 200}
+# Band-recipe pivot codes:
+# - BF-01 / B1 was retired after SP-F (BF-01 is now a non-scored basic-filter note;
+#   NS-02 is the single scored grid-connection criterion).
+# - BF-02 / B2 was retired after SP-F (bands now use explicit required/ideal area-per-unit
+#   thresholds anchored to NuScale module count, expressed directly in the rubric YAML).

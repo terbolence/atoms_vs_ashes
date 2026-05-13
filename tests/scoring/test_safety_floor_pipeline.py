@@ -135,6 +135,15 @@ class TestSafetyFloorTransparency:
         assert fails == []
 
     def test_nh05_missing_mining_void_and_subsidence_data_passes(self, bundle):
+        """NH-05 with karst='none' and all other risk signals null lands in the
+        favourable [9,10] band: the rubric explicitly reads "mine distance
+        favourable or unknown with no subsidence signal" → [9,10]. The earlier
+        (5.0, 6.0) expectation captured the pre-fix safe_eval bug where a
+        TypeError in the first disjunct of the [9,10] / [7,8] bands poisoned
+        the whole expression and the site fell through to the conservative
+        pass-mark. After the P0-1 AST fix the intended favourable band fires.
+        The exclusionary contract (no E5/E6 fails) is unchanged.
+        """
         nh05 = bundle["NH-05"]
         ctx = {
             "karst_severity": "none",
@@ -147,7 +156,7 @@ class TestSafetyFloorTransparency:
 
         assert band_result.score >= 5.0
         assert band_result.matched_band is not None
-        assert band_result.matched_band.score_range == (5.0, 6.0)
+        assert band_result.matched_band.score_range == (9.0, 10.0)
         fails = [v for v in verdicts if v.verdict == "fail"]
         assert fails == []
 

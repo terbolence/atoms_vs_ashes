@@ -1,3 +1,4 @@
+<!-- man_hours: 0.35 -->
 # 4. Results and Findings
 
 This chapter presents the main results from the report's scoring and sensitivity analysis. It should be read together with the methodology in Chapters 2 and 3: the findings support prioritisation for Stage 3 characterization, not licensing, procurement, construction approval, or final site suitability.
@@ -17,7 +18,7 @@ The regional Coverage view should be read before the country profiles. It separa
 | Turkey | 8 | Largest regional top-tier contribution. |
 | Poland | 6 | Strongest Central European concentration. |
 | Hungary | 1 | Single regional top-tier site; country narrative needs site-level review. |
-| Romania | 1 | Single regional top-tier site; see note on full-pass count below. |
+| Romania | 1 | Single regional top-tier site; three **full-pass sites at country level** (Turceni, Rovinari, Brăila) — see interpretation note. |
 | Slovakia | 1 | Single regional top-tier site. |
 | Czechia | 1 | Single regional top-tier site. |
 | Ukraine | 1 | Single regional top-tier site; conflict and data-confidence caveats apply. |

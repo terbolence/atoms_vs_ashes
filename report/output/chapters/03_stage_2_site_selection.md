@@ -1,3 +1,4 @@
+<!-- man_hours: 0.05 -->
 # 3. Stage 2: Site Selection
 
 This chapter explains how the candidate sites carried forward from Stage 1 are evaluated, compared, ranked, and shortlisted. It links IAEA site-selection language with the project's scoring workflow, while keeping the interpretation within screening scope. Stage 2 supports prioritisation for further work; it does not replace Stage 3 characterization, regulatory review, design-basis analysis, environmental assessment, or stakeholder consent.
@@ -44,7 +45,7 @@ The natural-hazard family covers seismic, geological, hydrological, meteorologic
 
 Several safety-related criteria act as gates. A hard exclusionary condition removes a site from composite ranking where the screening evidence shows a condition that cannot be responsibly balanced by strengths elsewhere. A safety floor performs a related function: if a critical safety criterion scores below the minimum acceptable band, the site is not rescued by good performance on grid, workforce, or policy factors [4]. This protects the ranking from a common error in multi-criteria analysis, where a strong economic or infrastructure score masks a material safety weakness.
 
-The project criterion set maps to the substantive safety requirements in IAEA SSR-1 at screening resolution. Natural-hazard, human-induced, population, emergency-planning, dispersion, and combined-hazard requirements are covered fully by the scoring rubric. A small set of requirements is covered only partially because no desk study can close them out (long-term accumulation, engineered site protection), and operational and quality-assurance requirements are out of scope for pre-screening. The per-requirement coverage matrix is carried in Annex A [2].
+The project criterion set maps to the substantive safety requirements in IAEA SSR-1 at screening resolution. Natural-hazard, human-induced, population, emergency-planning, dispersion, and combined-hazard requirements are covered fully by the scoring rubric. A small set of requirements is covered only partially because no desk study can close them out (long-term accumulation, engineered site protection), and operational and quality-assurance requirements are out of scope for pre-screening. The per-requirement coverage matrix is carried in Annex A and is materialised in machine-readable form at `config/ssr1_clause_map.yaml`, which is the source of truth for every Stage 1 vs Stage 2 mapping referenced in this chapter [2].
 
 ## 3.4 Nuclear Security and Human-Induced Hazard Considerations
 

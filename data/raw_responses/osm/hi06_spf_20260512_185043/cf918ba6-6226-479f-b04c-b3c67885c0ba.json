@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "site_id": "cf918ba6-6226-479f-b04c-b3c67885c0ba",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:12:31.383963+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,37.767197,27.445695);\n  way[\"military\"](around:25000,37.767197,27.445695);\n  relation[\"military\"](around:25000,37.767197,27.445695);\n  node[\"landuse\"=\"military\"](around:25000,37.767197,27.445695);\n  way[\"landuse\"=\"military\"](around:25000,37.767197,27.445695);\n  relation[\"landuse\"=\"military\"](around:25000,37.767197,27.445695);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.767197,27.445695);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.767197,27.445695);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.767197,27.445695);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.767197,27.445695);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.767197,27.445695);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.767197,27.445695);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 3988,
+        "element_count": 11,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 5328759735,
+              "lat": 37.8568314,
+              "lon": 27.2594421,
+              "tags": {
+                "landuse": "military",
+                "military": "office",
+                "name": "Kuşadası Askerlik Şubesi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186911944,
+              "center": {
+                "lat": 37.7341713,
+                "lon": 27.397578
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "11. Motorlu Piyade Tugay Komutan Yardımcılığı ve Garnizon Komutanlığ",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186911945,
+              "center": {
+                "lat": 37.7290213,
+                "lon": 27.4020078
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "11. Motorlu Piyade Tugay Komutanlığı - Şehit Albay Kürşat Akın Kışlası",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186911960,
+              "center": {
+                "lat": 37.7310352,
+                "lon": 27.3985135
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 551814238,
+              "center": {
+                "lat": 37.8565019,
+                "lon": 27.2595382
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1044273148,
+              "center": {
+                "lat": 37.8792792,
+                "lon": 27.2723143
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office",
+                "name": "Kuşadası İlçe Jandarma Karakol Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1199752517,
+              "center": {
+                "lat": 37.836529,
+                "lon": 27.2654673
+              },
+              "tags": {
+                "access": "military",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Nato Lojmanları Küme Evleri"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1199896944,
+              "center": {
+                "lat": 37.8364849,
+                "lon": 27.2658798
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "name:signed": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1199896945,
+              "center": {
+                "lat": 37.8366085,
+                "lon": 27.2655627
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "name:signed": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1199896946,
+              "center": {
+                "lat": 37.8365732,
+                "lon": 27.2652171
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "name:signed": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1245681044,
+              "center": {
+                "lat": 37.7620852,
+                "lon": 27.3793481
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Söke İlçe Jandarma Komutanlığı"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+[18:47:52] === FIX-04 three-way verification (no Overpass) ===
+[18:47:52] Source JSONL: logs/hi06_fix04_preview.jsonl
+[18:47:52] Run ID:       fix04-verify-20260511-184752
+[18:47:53] verified=50 flips_landed=185/185 failures=0
+[18:47:53] verified=100 flips_landed=357/357 failures=0
+[18:47:53] verified=150 flips_landed=561/561 failures=0
+[18:47:53] verified=200 flips_landed=695/695 failures=0
+[18:47:53] verified=250 flips_landed=838/838 failures=0
+[18:47:53] verified=300 flips_landed=988/988 failures=0
+[18:47:53] verified=350 flips_landed=1104/1104 failures=0
+
+[18:47:53] === Verification complete ===
+[18:47:53] Sites verified:      361
+[18:47:53] Flips expected:      1121
+[18:47:53] Flips landed:        1121
+[18:47:53] Sites with failures: 0
+[18:47:53]       fail-flip-mismatch: 0
+[18:47:53]          fail-flip-no-op: 0
+[18:47:53]    fail-stable-drift-pre: 0
+[18:47:53]     fail-stable-mismatch: 0
+[18:47:53]                  ok-flip: 1121
+[18:47:53]                ok-stable: 3933
+[18:47:53] Report: audit/post_processing/hi06_fix04_preview/hi06_fix04_post_apply_verify.md

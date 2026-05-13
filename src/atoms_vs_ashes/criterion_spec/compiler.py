@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.3
 """Compile spec templates plus user controls into runtime criteria.
 
 Structured fail-threshold edits regenerate the matching fail-condition
@@ -138,12 +138,15 @@ def _compile_criterion(
         runtime_bands = [band_to_runtime(b) for b in bspecs]
     else:
         runtime_bands = [band_to_runtime(b) for b in template.bands]
+    extra = template.model_extra or {}
     return Criterion(
         criterion_id=template.criterion_id,
         name=template.name,
         phases=list(template.phases),
         weight_factor=weight_factor,
         normalised_weight_pct=template.normalised_weight_pct,
+        weight_factors=extra.get("weight_factors"),
+        weight_basis_source=extra.get("weight_basis_source"),
         primary_metric=template.primary_metric,
         db_fields=DbFields(
             api=list(template.db_fields.api),

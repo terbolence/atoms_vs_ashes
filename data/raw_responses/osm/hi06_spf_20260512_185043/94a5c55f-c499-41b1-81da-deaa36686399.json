@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "site_id": "94a5c55f-c499-41b1-81da-deaa36686399",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:19:07.821967+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,39.572967,29.88164);\n  way[\"military\"](around:25000,39.572967,29.88164);\n  relation[\"military\"](around:25000,39.572967,29.88164);\n  node[\"landuse\"=\"military\"](around:25000,39.572967,29.88164);\n  way[\"landuse\"=\"military\"](around:25000,39.572967,29.88164);\n  relation[\"landuse\"=\"military\"](around:25000,39.572967,29.88164);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.572967,29.88164);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.572967,29.88164);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,39.572967,29.88164);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.572967,29.88164);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.572967,29.88164);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,39.572967,29.88164);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 718,
+        "element_count": 12,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 89189664,
+              "center": {
+                "lat": 39.4241804,
+                "lon": 30.021998
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Hava Er Eğitim Tugayı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 309266556,
+              "center": {
+                "lat": 39.4106719,
+                "lon": 29.8611038
+              },
+              "tags": {
+                "barrier": "fence",
+                "description": "eskiden ACE High İstasyonu TKUZ",
+                "landuse": "military",
+                "name": "Radar Mevzi Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 321235857,
+              "center": {
+                "lat": 39.4267152,
+                "lon": 30.0159427
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "ele": "922",
+                "icao": "LTBN",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Kütahya Askeri Havaalanı",
+                "wikidata": "Q5469363",
+                "wikipedia": "en:Kütahya Air Base",
+                "wikipedia:tr": "Kütahya Askeri Havaalanı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371625594,
+              "center": {
+                "lat": 39.4117582,
+                "lon": 29.8637377
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 875155157,
+              "center": {
+                "lat": 39.4113499,
+                "lon": 30.0219563
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 978317752,
+              "center": {
+                "lat": 39.4113391,
+                "lon": 29.8614592
+              },
+              "tags": {
+                "access": "no",
+                "highway": "service",
+                "military": "exclusion_zone",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 978317753,
+              "center": {
+                "lat": 39.4130358,
+                "lon": 29.8605896
+              },
+              "tags": {
+                "access": "no",
+                "highway": "service",
+                "military": "exclusion_zone",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 978317755,
+              "center": {
+                "lat": 39.4106399,
+                "lon": 29.8632914
+              },
+              "tags": {
+                "access": "no",
+                "highway": "service",
+                "military": "exclusion_zone",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1089072303,
+              "center": {
+                "lat": 39.4175503,
+                "lon": 29.9860732
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kütahya Askerlik Şubesi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1090671802,
+              "center": {
+                "lat": 39.4208671,
+                "lon": 30.0206101
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1090671842,
+              "center": {
+                "lat": 39.4214774,
+                "lon": 30.0209556
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1160571560,
+              "center": {
+                "lat": 39.4206803,
+                "lon": 30.0111779
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "source": "microsoft/BuildingFootprints"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "site_id": "997474f6-9bfd-4abd-a2ac-d8618db8f0b4",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:18:28.698753+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,45.99593,18.67985);\n  way[\"military\"](around:25000,45.99593,18.67985);\n  relation[\"military\"](around:25000,45.99593,18.67985);\n  node[\"landuse\"=\"military\"](around:25000,45.99593,18.67985);\n  way[\"landuse\"=\"military\"](around:25000,45.99593,18.67985);\n  relation[\"landuse\"=\"military\"](around:25000,45.99593,18.67985);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.99593,18.67985);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.99593,18.67985);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,45.99593,18.67985);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.99593,18.67985);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.99593,18.67985);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,45.99593,18.67985);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1085,
+        "element_count": 10,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:16:57Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3892693289,
+              "lat": 46.0243819,
+              "lon": 18.9420062,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "katonai bunker romja"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3892693290,
+              "lat": 46.0256352,
+              "lon": 18.9418965,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "katonai bunker romja"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3936665346,
+              "lat": 46.0224483,
+              "lon": 18.9537562,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "katonai bunker romja"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3936699980,
+              "lat": 46.0258478,
+              "lon": 18.9488862,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "military": "bunker",
+                "name": "katonai bunker romja"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5197710387,
+              "lat": 46.075663,
+              "lon": 18.9175535,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11453238294,
+              "lat": 45.8369278,
+              "lon": 18.486909,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 390514640,
+              "center": {
+                "lat": 46.0190686,
+                "lon": 18.9407878
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "mg_nest",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 512836203,
+              "center": {
+                "lat": 46.0216451,
+                "lon": 18.962869
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Bunker romjai"
+              }
+            },
+            {
+              "type": "way",
+              "id": 512836275,
+              "center": {
+                "lat": 46.0206038,
+                "lon": 18.9635181
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 7166624,
+              "center": {
+                "lat": 46.0192658,
+                "lon": 18.9491863
+              },
+              "tags": {
+                "military": "bunker",
+                "name": "katonai bunker romja",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

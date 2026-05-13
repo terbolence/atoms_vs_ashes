@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "site_id": "a9385c82-79b7-4f8d-b609-0a12ed946fe6",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:20:59.023132+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,43.334574,19.32714);\n  way[\"military\"](around:25000,43.334574,19.32714);\n  relation[\"military\"](around:25000,43.334574,19.32714);\n  node[\"landuse\"=\"military\"](around:25000,43.334574,19.32714);\n  way[\"landuse\"=\"military\"](around:25000,43.334574,19.32714);\n  relation[\"landuse\"=\"military\"](around:25000,43.334574,19.32714);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.334574,19.32714);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.334574,19.32714);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.334574,19.32714);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.334574,19.32714);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.334574,19.32714);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.334574,19.32714);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1984,
+        "element_count": 1,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:19:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 321096397,
+              "center": {
+                "lat": 43.357204,
+                "lon": 19.3450985
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "name": "Kasarna \"Vladimir Knežević - Volođa\"",
+                "name:sr": "Касарна \"Владимир Кнежевић - Волођа\""
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

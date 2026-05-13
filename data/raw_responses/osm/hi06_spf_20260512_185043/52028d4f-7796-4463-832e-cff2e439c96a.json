@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "site_id": "52028d4f-7796-4463-832e-cff2e439c96a",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:23:28.308189+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,37.458403,28.674831);\n  way[\"military\"](around:25000,37.458403,28.674831);\n  relation[\"military\"](around:25000,37.458403,28.674831);\n  node[\"landuse\"=\"military\"](around:25000,37.458403,28.674831);\n  way[\"landuse\"=\"military\"](around:25000,37.458403,28.674831);\n  relation[\"landuse\"=\"military\"](around:25000,37.458403,28.674831);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.458403,28.674831);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.458403,28.674831);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.458403,28.674831);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.458403,28.674831);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.458403,28.674831);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.458403,28.674831);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 891,
+        "element_count": 2,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 1091361719,
+              "center": {
+                "lat": 37.4423396,
+                "lon": 28.8453727
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office",
+                "name": "Kale İlçe Jandarma"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1091932125,
+              "center": {
+                "lat": 37.4424224,
+                "lon": 28.8451911
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

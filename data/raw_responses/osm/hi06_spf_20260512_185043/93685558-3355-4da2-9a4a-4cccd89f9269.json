@@ -1,0 +1,945 @@
+{
+  "meta": {
+    "site_id": "93685558-3355-4da2-9a4a-4cccd89f9269",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:57:51.758801+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,42.654762,26.325853);\n  way[\"military\"](around:25000,42.654762,26.325853);\n  relation[\"military\"](around:25000,42.654762,26.325853);\n  node[\"landuse\"=\"military\"](around:25000,42.654762,26.325853);\n  way[\"landuse\"=\"military\"](around:25000,42.654762,26.325853);\n  relation[\"landuse\"=\"military\"](around:25000,42.654762,26.325853);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.654762,26.325853);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.654762,26.325853);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,42.654762,26.325853);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.654762,26.325853);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.654762,26.325853);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,42.654762,26.325853);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 80600,
+        "element_count": 68,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:54:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 11293650911,
+              "lat": 42.6759378,
+              "lon": 26.3345929,
+              "tags": {
+                "military": "checkpoint",
+                "name": "КПП ВМА Сливен"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92092198,
+              "center": {
+                "lat": 42.6592326,
+                "lon": 26.3031775
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Голям битмиш"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92109638,
+              "center": {
+                "lat": 42.7100394,
+                "lon": 26.3017138
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92113887,
+              "center": {
+                "lat": 42.6519453,
+                "lon": 26.3927797
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92113892,
+              "center": {
+                "lat": 42.641633,
+                "lon": 26.3596472
+              },
+              "tags": {
+                "addr:city": "Сливен",
+                "addr:postcode": "8800",
+                "aerodrome:type": "military",
+                "aeroway": "aerodrome",
+                "airport-database": "https://airportdatabase.net/bulgaria/sliven-airfield_85.html",
+                "alt_name": "Летище Бършен",
+                "icao": "LBSL",
+                "local_ref": "LB17",
+                "military": "yes",
+                "name": "Летище Сливен",
+                "name:de": "Flughafen Sliwen",
+                "name:en": "Sliven Airfield",
+                "note": "Reference \"Z07N\" unknown",
+                "wikidata": "Q11762750",
+                "wikipedia": "en:Sliven Airfield"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92113902,
+              "center": {
+                "lat": 42.7057138,
+                "lon": 26.3962315
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92113905,
+              "center": {
+                "lat": 42.6791652,
+                "lon": 26.4101729
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92126997,
+              "center": {
+                "lat": 42.6704059,
+                "lon": 26.346763
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "ВП 22220 - танков батальон"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92127026,
+              "center": {
+                "lat": 42.6590953,
+                "lon": 26.3189577
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 92127031,
+              "center": {
+                "lat": 42.6826104,
+                "lon": 26.3283771
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 109066247,
+              "center": {
+                "lat": 42.5095984,
+                "lon": 26.4886183
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 171060588,
+              "center": {
+                "lat": 42.6664718,
+                "lon": 26.2924641
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "Стрелкови полигон \"Батмиш\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 194574301,
+              "center": {
+                "lat": 42.4544797,
+                "lon": 26.3533127
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "airport-database": "https://airportdatabase.net/bulgaria/bezmer-air-base-jam_111.html",
+                "alt_name": "Yambol",
+                "ele": "155",
+                "iata": "JAM",
+                "icao": "LBIA",
+                "int_name": "Bezmer Airbase",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Военновъздушна база Безмер",
+                "name:en": "Bezmer Airbase",
+                "wikidata": "Q4900372",
+                "wikipedia": "en:Bezmer Air Base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 201801424,
+              "center": {
+                "lat": 42.7142024,
+                "lon": 26.6229189
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 291095408,
+              "center": {
+                "lat": 42.6757629,
+                "lon": 26.3494528
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 291754606,
+              "center": {
+                "lat": 42.6783719,
+                "lon": 26.3586836
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Барутни погреби"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067230,
+              "center": {
+                "lat": 42.4458032,
+                "lon": 26.3522336
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067233,
+              "center": {
+                "lat": 42.4459698,
+                "lon": 26.3511043
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067237,
+              "center": {
+                "lat": 42.4451543,
+                "lon": 26.3523992
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067238,
+              "center": {
+                "lat": 42.4453343,
+                "lon": 26.3512549
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067242,
+              "center": {
+                "lat": 42.4466072,
+                "lon": 26.3509331
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 357067279,
+              "center": {
+                "lat": 42.4464276,
+                "lon": 26.352086
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 475506496,
+              "center": {
+                "lat": 42.4838459,
+                "lon": 26.5239376
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 504852833,
+              "center": {
+                "lat": 42.7249613,
+                "lon": 26.5881817
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Военен полигон \"Ново Село\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 520843048,
+              "center": {
+                "lat": 42.4907798,
+                "lon": 26.5057351
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1070662325,
+              "center": {
+                "lat": 42.5081645,
+                "lon": 26.536258
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Бивша военна база \"Червен баир\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676149,
+              "center": {
+                "lat": 42.4450182,
+                "lon": 26.3593845
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676150,
+              "center": {
+                "lat": 42.4442353,
+                "lon": 26.3596683
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676151,
+              "center": {
+                "lat": 42.444587,
+                "lon": 26.3611354
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676152,
+              "center": {
+                "lat": 42.4441397,
+                "lon": 26.3608384
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676153,
+              "center": {
+                "lat": 42.4440448,
+                "lon": 26.3602631
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676154,
+              "center": {
+                "lat": 42.4454547,
+                "lon": 26.3623099
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676168,
+              "center": {
+                "lat": 42.4450329,
+                "lon": 26.3606268
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676169,
+              "center": {
+                "lat": 42.4460498,
+                "lon": 26.361939
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676170,
+              "center": {
+                "lat": 42.4459794,
+                "lon": 26.3608374
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676171,
+              "center": {
+                "lat": 42.4472657,
+                "lon": 26.3613901
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676172,
+              "center": {
+                "lat": 42.4468514,
+                "lon": 26.3606952
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676173,
+              "center": {
+                "lat": 42.4475924,
+                "lon": 26.3606158
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676174,
+              "center": {
+                "lat": 42.447504,
+                "lon": 26.3593334
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676175,
+              "center": {
+                "lat": 42.4478969,
+                "lon": 26.359134
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676176,
+              "center": {
+                "lat": 42.4480429,
+                "lon": 26.3588406
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676177,
+              "center": {
+                "lat": 42.4485602,
+                "lon": 26.35876
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676178,
+              "center": {
+                "lat": 42.4453133,
+                "lon": 26.3578732
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676179,
+              "center": {
+                "lat": 42.4448336,
+                "lon": 26.3585361
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676180,
+              "center": {
+                "lat": 42.4456727,
+                "lon": 26.3584627
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676181,
+              "center": {
+                "lat": 42.4461467,
+                "lon": 26.3594036
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676182,
+              "center": {
+                "lat": 42.4470259,
+                "lon": 26.3592875
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676183,
+              "center": {
+                "lat": 42.4463279,
+                "lon": 26.3584382
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676184,
+              "center": {
+                "lat": 42.446452,
+                "lon": 26.357337
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676185,
+              "center": {
+                "lat": 42.4472065,
+                "lon": 26.3581256
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159676186,
+              "center": {
+                "lat": 42.4469064,
+                "lon": 26.3575261
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "hangar",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678336,
+              "center": {
+                "lat": 42.4626236,
+                "lon": 26.3413435
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678339,
+              "center": {
+                "lat": 42.4627762,
+                "lon": 26.3443759
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678340,
+              "center": {
+                "lat": 42.4635237,
+                "lon": 26.3426189
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678341,
+              "center": {
+                "lat": 42.463967,
+                "lon": 26.3414816
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678342,
+              "center": {
+                "lat": 42.464276,
+                "lon": 26.3408925
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678343,
+              "center": {
+                "lat": 42.4642812,
+                "lon": 26.3385494
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678344,
+              "center": {
+                "lat": 42.4637005,
+                "lon": 26.3395885
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678345,
+              "center": {
+                "lat": 42.4631839,
+                "lon": 26.3402114
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678346,
+              "center": {
+                "lat": 42.4623003,
+                "lon": 26.3422241
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678347,
+              "center": {
+                "lat": 42.4618305,
+                "lon": 26.3428735
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678348,
+              "center": {
+                "lat": 42.4617521,
+                "lon": 26.3436139
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678349,
+              "center": {
+                "lat": 42.4615737,
+                "lon": 26.3446241
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678350,
+              "center": {
+                "lat": 42.4612233,
+                "lon": 26.3455335
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1159678351,
+              "center": {
+                "lat": 42.4608451,
+                "lon": 26.3463719
+              },
+              "tags": {
+                "aeroway": "hangar",
+                "building": "yes",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1236302349,
+              "center": {
+                "lat": 42.6912766,
+                "lon": 26.0924901
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 18505267,
+              "center": {
+                "lat": 42.6987866,
+                "lon": 26.4115138
+              },
+              "tags": {
+                "landuse": "military",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 19524331,
+              "center": {
+                "lat": 42.6738105,
+                "lon": 26.3312794
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "ВП 32730",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

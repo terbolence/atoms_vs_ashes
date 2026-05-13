@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "site_id": "903d6b94-cd9d-4c32-b7e2-4bbfbee929df",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:18:01.388925+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,48.016667,19.95);\n  way[\"military\"](around:25000,48.016667,19.95);\n  relation[\"military\"](around:25000,48.016667,19.95);\n  node[\"landuse\"=\"military\"](around:25000,48.016667,19.95);\n  way[\"landuse\"=\"military\"](around:25000,48.016667,19.95);\n  relation[\"landuse\"=\"military\"](around:25000,48.016667,19.95);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.016667,19.95);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.016667,19.95);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.016667,19.95);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.016667,19.95);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.016667,19.95);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.016667,19.95);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1297,
+        "element_count": 5,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:16:01Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 8306180555,
+              "lat": 47.8640363,
+              "lon": 19.9832776,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Lőtér"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10264594889,
+              "lat": 47.8075421,
+              "lon": 19.9748168,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "bunker vagy lőszer tároló"
+              }
+            },
+            {
+              "type": "way",
+              "id": 607963290,
+              "center": {
+                "lat": 48.1311915,
+                "lon": 19.8231796
+              },
+              "tags": {
+                "abandoned:tourism": "camp_site",
+                "landuse": "military",
+                "name": "Beszterce Kiképző Bázis"
+              }
+            },
+            {
+              "type": "way",
+              "id": 733297441,
+              "center": {
+                "lat": 48.0726971,
+                "lon": 19.7005238
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "A Nógrád Vármegyei Rendőr-főkapitányság sóshartyáni lőtere"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1053713960,
+              "center": {
+                "lat": 48.0229088,
+                "lon": 20.0927883
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Bem József laktanya"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

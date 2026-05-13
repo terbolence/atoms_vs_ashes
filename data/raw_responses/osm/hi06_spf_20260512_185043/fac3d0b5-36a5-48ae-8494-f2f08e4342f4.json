@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "site_id": "fac3d0b5-36a5-48ae-8494-f2f08e4342f4",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:59:27.578796+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.15,24.8167);\n  way[\"military\"](around:25000,53.15,24.8167);\n  relation[\"military\"](around:25000,53.15,24.8167);\n  node[\"landuse\"=\"military\"](around:25000,53.15,24.8167);\n  way[\"landuse\"=\"military\"](around:25000,53.15,24.8167);\n  relation[\"landuse\"=\"military\"](around:25000,53.15,24.8167);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.15,24.8167);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.15,24.8167);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.15,24.8167);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.15,24.8167);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.15,24.8167);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.15,24.8167);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 16376,
+        "element_count": 3,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:57:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 9629693930,
+              "lat": 53.1488182,
+              "lon": 24.8158742,
+              "tags": {
+                "level": "2",
+                "military": "office",
+                "name": "Ваенны камісарыят Зэльвенскага раёна",
+                "name:be": "Ваенны камісарыят Зэльвенскага раёна",
+                "name:ru": "Военный комиссариат Зельвенского района",
+                "opening_hours": "Mo-Fr 08:00-13:00,14:00-17:00; Sa,Su off",
+                "website": "https://zelva.grodno-region.by/ru/rvk/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 97518260,
+              "center": {
+                "lat": 53.1662482,
+                "lon": 24.45905
+              },
+              "tags": {
+                "addr:city": "Ваўкавыск",
+                "addr:housenumber": "7",
+                "addr:postcode": "231900",
+                "addr:street": "вуліца Дзяржынскага",
+                "building": "yes",
+                "building:levels": "3",
+                "int_name": "Vajenkamat",
+                "military": "office",
+                "name": "Ваенкамат",
+                "name:be": "Ваенкамат",
+                "name:ru": "Военкомат",
+                "office": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 196676688,
+              "center": {
+                "lat": 53.1506242,
+                "lon": 24.4566096
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

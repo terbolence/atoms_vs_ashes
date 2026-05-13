@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "site_id": "1739b1b7-a6f3-466c-9dfa-3d1de9d5b6db",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:21:11.363094+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.05832,21.484266);\n  way[\"military\"](around:25000,41.05832,21.484266);\n  relation[\"military\"](around:25000,41.05832,21.484266);\n  node[\"landuse\"=\"military\"](around:25000,41.05832,21.484266);\n  way[\"landuse\"=\"military\"](around:25000,41.05832,21.484266);\n  relation[\"landuse\"=\"military\"](around:25000,41.05832,21.484266);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.05832,21.484266);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.05832,21.484266);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.05832,21.484266);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.05832,21.484266);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.05832,21.484266);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.05832,21.484266);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1014,
+        "element_count": 10,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:19:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 9043618321,
+              "lat": 41.0250832,
+              "lon": 21.2050628,
+              "tags": {
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 219801999,
+              "center": {
+                "lat": 40.8748086,
+                "lon": 21.3326457
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 332450866,
+              "center": {
+                "lat": 40.8744787,
+                "lon": 21.5998654
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 332451859,
+              "center": {
+                "lat": 40.8838174,
+                "lon": 21.6119767
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404982119,
+              "center": {
+                "lat": 40.913016,
+                "lon": 21.4918955
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 817936866,
+              "center": {
+                "lat": 40.882056,
+                "lon": 21.3650217
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 879221727,
+              "center": {
+                "lat": 40.9091366,
+                "lon": 21.5166016
+              },
+              "tags": {
+                "landuse": "military",
+                "natural": "wood"
+              }
+            },
+            {
+              "type": "way",
+              "id": 977013897,
+              "center": {
+                "lat": 40.876142,
+                "lon": 21.3493196
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1359643620,
+              "center": {
+                "lat": 40.9196065,
+                "lon": 21.417872
+              },
+              "tags": {
+                "building": "yes",
+                "int_name": "Karaula Medzhitlija",
+                "military": "office",
+                "name": "Караула Меџитлија"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1459884847,
+              "center": {
+                "lat": 40.9194017,
+                "lon": 21.4178386
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

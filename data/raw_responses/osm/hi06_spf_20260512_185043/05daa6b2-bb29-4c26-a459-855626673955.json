@@ -1,0 +1,4056 @@
+{
+  "meta": {
+    "site_id": "05daa6b2-bb29-4c26-a459-855626673955",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:05:40.020416+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.12283,15.790765);\n  way[\"military\"](around:25000,50.12283,15.790765);\n  relation[\"military\"](around:25000,50.12283,15.790765);\n  node[\"landuse\"=\"military\"](around:25000,50.12283,15.790765);\n  way[\"landuse\"=\"military\"](around:25000,50.12283,15.790765);\n  relation[\"landuse\"=\"military\"](around:25000,50.12283,15.790765);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.12283,15.790765);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.12283,15.790765);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.12283,15.790765);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.12283,15.790765);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.12283,15.790765);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.12283,15.790765);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4121,
+        "element_count": 295,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:04:38Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4730531428,
+              "lat": 50.1355221,
+              "lon": 15.9519456,
+              "tags": {
+                "building": "bunker",
+                "description": "ZPS pro 41. samostatný dopravní dělostřelecký oddíl Dašice (VÚ 8884), vybudováno roku 1984. Nakrytí zeminou odstraněno. Nouzový výlez obnažen, opatřen deklem. Okopy pro techniku zčásti v sesuvu. ",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "UŽ-6 Polní postavení Bělečko - háj. Kindlovka",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=532"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5174472714,
+              "lat": 50.2039635,
+              "lon": 15.8814729,
+              "tags": {
+                "building": "bunker",
+                "description": "Úkryt ÚŽ-6c pro obsluhu zařízení dálné naváděcí stanice hradeckého letiště.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Dálná naváděcí stanice",
+                "website": "http://www.fortifikace.net/pov_uz6_hk_malsova_lhota.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5174472715,
+              "lat": 50.1784792,
+              "lon": 15.8339334,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Postavena v r.1960 jako jediná. Další dvě hradecké pozorovatelny postaveny o 20let později. Vstupní šachta s poklopem vede k tlakově odolným dveřím 80x197cm. Pozorovací místnost umožnila i prostor pro odpočinek. Stěny 60cm (beton B250), 3 průzory 10x40cm.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna CO NHK",
+                "note": "Jeji torzo je zakomponované do plotu. http://www.fortifikace.net/pov_poz_hk_kopec_sv_jana.html",
+                "source": "Pozorovatelny CO - Jiří Doupal",
+                "start_date": "1960",
+                "website": "http://www.fortifikace.net/pov_poz_hk_kopec_sv_jana.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5174472716,
+              "lat": 50.1778848,
+              "lon": 15.833707,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Kryt Štábu CO Nový Hradec Králové, Kopec sv. Jana. Tvar \"U\", 52 místností, plocha 853m2.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt štábu CO ŠTOK NHK",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=700"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5174474630,
+              "lat": 50.1707561,
+              "lon": 15.940086,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "pozorovatelna",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5178614575,
+              "lat": 50.2178985,
+              "lon": 15.9083338,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Vybudovaná po r. 1981",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna CO S-83 Svinary",
+                "note": "Pozorovatelna. Na oploceném soukromém pozemku, možná už byla zlikvidována. http://databaze.fortifikace.net/index.php?q=objekt&id=480",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=480"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5178615837,
+              "lat": 50.2341343,
+              "lon": 15.8029061,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Vchod 1",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5178615838,
+              "lat": 50.1117936,
+              "lon": 15.8463093,
+              "tags": {
+                "building": "bunker",
+                "description": "Využíváno 75. těžkou houfnicovou dělostřeleckou brigádou Pardubice(VÚ 5666), (později 2. dělostřelecká brigáda Pardubice) jako záložní prostor soustředění - stanoviště týlu. UŽ-6b",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "UŽ-6b Polní postavení Újezd",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=531"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5178615839,
+              "lat": 50.0360962,
+              "lon": 16.0337725,
+              "tags": {
+                "building": "bunker",
+                "description": "Uvnitř objektu výbuchem zdeformované dveře ŽDV-2, ostatní uzávěry vchodu již chybí (léto 2006). CE 05.54.31, VEČ 3185.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Ostřetín",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=115"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5182090724,
+              "lat": 50.2335124,
+              "lon": 15.9129972,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "technical",
+                "description": "Bývalé kerosinové nádrže pro letiště HK. Areál se nachází na pozemcích v k.ú. Slatina u Hradce Králové http://www.airsoft-divec.cz/clanek/23/o-posadce",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Zrušený sklad leteckého paliva",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=347"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5182142247,
+              "lat": 50.2352703,
+              "lon": 15.7579353,
+              "tags": {
+                "access": "private",
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Vybudovaná po r. 1981",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna CO S-83 Chaloupky",
+                "note": "http://databaze.fortifikace.net/index.php?q=objekt&id=479",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=479"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5185945714,
+              "lat": 50.2343525,
+              "lon": 15.8018751,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Dva samostatne kryty ve svahu smerem na jih. Kazdy mel tri vchody, nyni jsou dva vchody zasypane. Nejblize k Plotisti je kohoutek na vodu a ele. privod a take baho na podlaze. Elektroinstalace byla ze stropu strzena, vchody nejsou zajistene.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5185945715,
+              "lat": 50.2342153,
+              "lon": 15.8025112,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Vchod 2",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5574000048,
+              "lat": 50.2376229,
+              "lon": 15.8747663,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "technical",
+                "description": "Tato čerpací stanice patřila k infrastruktuře zásobování bývalého vojenského letiště Hradec Králové leteckými pohonnými hmotami. Přímo na letiště totiž, poněkud nestandardně oproti jiným letištím ČSLA, nikdy nebyla zavedena železniční vlečka. ",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Čerpací stanice leteckých pohonných hmot Piletice",
+                "website": "http://www.fortifikace.net/pov_vojenska_letiste_alph_piletice_hk.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5574128503,
+              "lat": 50.226205,
+              "lon": 15.8652284,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "technical",
+                "description": "Objekt byl vybudován jako část technologicky na sebe navazujících objektů k zabezpečení zásob pohonných hmot pro provoz vojenského letiště Hradec Králové. Potrubím byl propojen s objektem „Slatina“ a „Piletice“ a dále na letiště. ",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Bývalé stáčiště PLPH - Slezské Předměstí",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=348"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5574159900,
+              "lat": 50.2335654,
+              "lon": 15.8596614,
+              "tags": {
+                "building": "bunker",
+                "description": "Jako obraz doktríny zvyšování ochrany vojsk před účinky zbraní hromadného ničení byl souvislosti s intenzivní výstavbou při modernizaci hradeckého vojenského letiště vybudován také úkryt ÚŽ-6c pro obsluhu zařízení bližné naváděcí stanice.Areál této NS lež",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Bližná naváděcí stanice",
+                "website": "http://www.fortifikace.net/pov_uz6_hk_pouchov.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5574214678,
+              "lat": 50.1895333,
+              "lon": 15.8864768,
+              "tags": {
+                "description": "Muniční sklad zřízen již během 2. sv. války, patrně v souvislosti s Leteckou střelnicí Bělečko. Skladem byly rakety (Su-22, Mig-21 - 47. pzlp letiště HK), granáty, pistole a další věci včetně raket s imitací jaderného výbuchu.",
+                "landuse": "military",
+                "name": "Zrušený muniční sklad Malšovice",
+                "tourism": "attraction",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=445"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577011021,
+              "lat": 50.2734509,
+              "lon": 15.7510306,
+              "tags": {
+                "building": "bunker",
+                "description": "ÚŽ-6b, TRHS. VEČ 4647 (3155), číslo CE 05 54 01. Výhled do Hradecké kotliny.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6b Chlum u Hradce Králové",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=556"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577011023,
+              "lat": 50.2139783,
+              "lon": 15.5402969,
+              "tags": {
+                "building": "bunker",
+                "description": "ÚŽ-6a, TRHS VEČ 4646, VEČ 3154, CE 05 54 04.\n12.12.2020 Oplocení kompletní, pouze branka ukradená. Kolem bujné roští. Krycí panely sesunuté, všechny dveře zcizené. Pisoár na místě, uvnitř jedna ocelová stojna. Uvnitř čisto.  Nouzák otevřen. Na povrchu 0.5",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Barchůvek",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=564"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577011024,
+              "lat": 50.2545354,
+              "lon": 15.959,
+              "tags": {
+                "building": "bunker",
+                "description": "UŽ-6a, VEČ 4648 (3156), CE 05 54 05. Vstup od jihu, dále pisoár, jedny dveře a vstup do hlavní místnosti (není do \"L\", ale v přímce). Uvnitř do půlky zemina z prokopaného výlezu. Plot v pořádku, branka ukradena. Poblíž kóty 285 Vidrholec v lesním porostu.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Černilov - Vidrholec",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=565"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577011025,
+              "lat": 50.0807416,
+              "lon": 15.8142568,
+              "tags": {
+                "building": "bunker",
+                "description": "Jeden z vůbec nejstarších úkrytů ÚŽ-6, vybudovaných na Pardubicku. Pozn. v r.2006 - objekt sanován - terén srovnán",
+                "military": "bunker",
+                "name": "Lokace ÚŽ-6b Kunětická hora",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=45"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577011026,
+              "lat": 50.0226544,
+              "lon": 15.7899636,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "ÚŽ-6a. Objekt postaven za výcvikovým účelem pro potřeby 1. ženijní brigády v Pardubicích. VEČ 2829, CE 05.32.14 Uzavřen, uzamčeny vstupní dveře, ve využívaném VVP (VÚ 1923 Pardubice - 131. smíšený dělostřelecký oddíl).",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Technické cvičiště Pardubice",
+                "website": "http://www.fortifikace.net/pov_nezar_technicke_cviciste_pardubice.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577088105,
+              "lat": 50.0208175,
+              "lon": 15.653678,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "Střešní pozorovatelna z 50. let 20. st, ve věži jedné z budov bývalé projekce ÚVR. 5 průzorů (S,J,Z,2xV), tvarovaných v cihelném zdivu a zesílených silnostěnným plechem. Dnes v majetku Excalibur army s.r.o.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna - ÚVR Tesla Kokešov",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=494"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577088106,
+              "lat": 50.0290686,
+              "lon": 15.75879,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "Atypická betonovo - cihlová pozorovatelna pro 1 muže, s krátkou přístupovou chodbou. V areálu býv. \"Karantény\".",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna Kriegsnotspitals",
+                "website": "http://www.fortifikace.net/pov_poz_pce_milheimova.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577088107,
+              "lat": 50.1202675,
+              "lon": 15.5976234,
+              "tags": {
+                "building": "bunker",
+                "description": "VEČ 3182, CE 05.54.18  ÚŽ-6a, datum výstavby 17. 6.–30. 6. 1974, kolaudace pak 10. 7. 1974. Výstavba silami VÚ 5043 Pardubice (107. ženijní prapor).  Uzavřen, uzamčeny vstupní dveře, oplocen. Vedle úkrytu se nachází dalších 11 volně ležících žen. rámů.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Kasaličky + (polní pozorovatelna \"Zikmund 6\")",
+                "start_date": "1964-02-05",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=514"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577088109,
+              "lat": 50.0180348,
+              "lon": 15.5727058,
+              "tags": {
+                "building": "bunker",
+                "description": "VEČ 3183, CE 05.54.41 ÚŽ-6a, datum výstavby červen - září 1987, kolaudace pak 9.6. 1988. Výstavba silami VÚ 4336 Pardubice (108. ženijní prapor). Uzavřen, oplocen. Roku 2003 přesypán zeminou. Říjen 2020 vchod odkryt, pancéřová vrata zavřená. Vše zarostlé.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "ÚŽ-6a Mokošín",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=515"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577266089,
+              "lat": 50.0130364,
+              "lon": 15.6639977,
+              "tags": {
+                "building": "bunker",
+                "description": "Palebný rámový objekt pro obsluhu kulometu (2 osoby), bez uzávěru vchodu. Totožný jako objekty na severo-západním perimetru pardubického letiště.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kulometné hnízdo - Kokešov",
+                "website": "http://www.fortifikace.net/pov_pal_kokesov.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577266090,
+              "lat": 50.0181241,
+              "lon": 15.7175422,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Palebný rámový objekt pro obsluhu kulometu (2 osoby), bez uzávěru vchodu. Totožný s objekty Kulometné hnízdo - Kokešov, Kulometné hnízdo 2 - Letiště Pardubice.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kulometné hnízdo 1 - Letiště Pardubice",
+                "website": "http://www.fortifikace.net/pov_vojenska_letiste_fortifikace.html#pardubice"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577266091,
+              "lat": 50.0182453,
+              "lon": 15.7182243,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Palebný rámový objekt pro obsluhu kulometu (2 osoby), bez uzávěru vchodu. Totožný s objekty Kulometné hnízdo - Kokešov, Kulometné hnízdo 1 - Letiště Pardubice",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kulometné hnízdo 2 - Letiště Pardubice",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=538"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577266092,
+              "lat": 50.0300133,
+              "lon": 15.8921657,
+              "tags": {
+                "description": "Odloučené RL stanoviště malovýškového systému, podřízené 54. radiotechnickému praporu (VÚ 7494 Nepolisy).Radiolokační vybavení představovaly 2 ks PRL P-15, 1 ks P-15M, několik měsíců v polovině 70. let zde byl instalován i stožár s anténou UNŽA.",
+                "landuse": "military",
+                "military": "training_area",
+                "name": "3.rtb 54.rtpr Odloučené RL stanoviště - Dašice",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=606"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577304204,
+              "lat": 50.0292029,
+              "lon": 15.7438909,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "Objekt střežící vlečku v rafinerii Paramo a.s. Jde o typ Dywidag RL3-41/63, složený z podstavy, válce (těla objektu) a z kónické stříšky, upevněné šesti šrouby. Ve stříšce jsou též ponechány dva 2-3 cm široké otvory sloužící k provlečení lan při manipulac",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna Luftschutz - Splitterschutzzelle",
+                "website": "http://www.fortifikace.net/ii_sv_v_luftschutz_pardubice_paramo_1.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577304205,
+              "lat": 50.0291334,
+              "lon": 15.7404561,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "https://2024-09-15",
+                "description": "Tento typ Luftschutz - Splitterschutzzelle je opatřen pouze jedněmi dvířky a jednotlivé dílce objektu jsou pouze volně sesazeny. Rozhled poskytují čtyři široké pozorovací průzory.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna Luftschutz",
+                "ref:zabaged": "46999741472440320",
+                "website": "http://www.fortifikace.net/ii_sv_v_luftschutz_pardubice_paramo_2.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5577304206,
+              "lat": 50.0281691,
+              "lon": 15.7489327,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "Atypický objekt L-S, neboť jeho stříška je velice špičatá a štěrbinové průzory velmi, velmi úzké. Špička stříšky je odsazena a vzniklá štěrbina zřejmě slouží pro přirozenou ventilaci vzduchu v objektu. Vchod je také opatřen krycí zídkou.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Einmannbunker - Pardubice, Paramo, objekt 3",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=695"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384633,
+              "lat": 50.0589541,
+              "lon": 15.744055,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384634,
+              "lat": 50.0585777,
+              "lon": 15.7434513,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384635,
+              "lat": 50.0592288,
+              "lon": 15.74296,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384636,
+              "lat": 50.0588503,
+              "lon": 15.7425312,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384637,
+              "lat": 50.0776822,
+              "lon": 15.6991028,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384638,
+              "lat": 50.0675987,
+              "lon": 15.6999079,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384639,
+              "lat": 50.0672704,
+              "lon": 15.7008414,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384640,
+              "lat": 50.0643641,
+              "lon": 15.7015619,
+              "tags": {
+                "building": "bunker",
+                "description": "Další trojice se nachází kousek od Rybitví dva jsou zasypány poslední který se dochoval je zde.",
+                "landuse": "military",
+                "military": "bunker",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6051384641,
+              "lat": 50.0749614,
+              "lon": 15.732238,
+              "tags": {
+                "building": "bunker",
+                "description": "Z druhé světové války v době německé okupace pro zaměstnance Synthesia. Asi pro 50lidí. Ochrana pouze proti střepinám bomb.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Protiletecký kryt",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6279150781,
+              "lat": 50.2061615,
+              "lon": 15.8114511,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6279150782,
+              "lat": 50.2087615,
+              "lon": 15.8199076,
+              "tags": {
+                "building": "bunker",
+                "description": "Kryt z II. sv. války. Udržovaný a doplňovaný zdravotnickým materiálem až do r cca 1990.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6279150784,
+              "lat": 50.2110936,
+              "lon": 15.8411496,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6279335741,
+              "lat": 50.2197244,
+              "lon": 15.8292364,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6279335742,
+              "lat": 50.2216781,
+              "lon": 15.8337062,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6281209329,
+              "lat": 50.207796,
+              "lon": 15.8243841,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "Kryt z II. sv. války. Udržovaný a doplňovaný zdravotnickým materiálem až do r cca 1990.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6390440491,
+              "lat": 50.214761,
+              "lon": 15.811904,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války",
+                "website": "http://web2.mmhk.cz/dld/kp/radnice/radnice27.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6443662664,
+              "lat": 50.2534622,
+              "lon": 15.8374224,
+              "tags": {
+                "building": "bunker",
+                "description": "Volně přístupný",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Vojenský úkryt",
+                "website": "https://www.youtube.com/watch?v=C4KC1BKikks&feature=youtu.be"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6443662665,
+              "lat": 50.2458607,
+              "lon": 15.8368499,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6443662666,
+              "lat": 50.2325401,
+              "lon": 15.8339824,
+              "tags": {
+                "building": "bunker",
+                "description": "Záložní podzemní velitelství-řízení letového provozu.",
+                "military": "bunker",
+                "name": "PLES"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6443662667,
+              "lat": 50.1742121,
+              "lon": 15.862099,
+              "tags": {
+                "building": "bunker",
+                "description": "Bývalý objekt telefonní ústředny pro případ válečného konfliktu. Jde o několikapodlažní podzemní bunkr, postavený na konci 80. let, který měl zajišťovat spojení se státy tehdejší Varšavské smlouvy.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Zodolněná zesilovací stanice 052 Hradec Králové",
+                "website": "http://forum.fortifikace.net/viewtopic.php?t=680&start=0&postdays=0&postorder=asc&highlight="
+              }
+            },
+            {
+              "type": "node",
+              "id": 6474982498,
+              "lat": 50.2096951,
+              "lon": 15.8381452,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6545052639,
+              "lat": 50.2140859,
+              "lon": 15.8473402,
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7009704029,
+              "lat": 50.2157569,
+              "lon": 15.8290151,
+              "tags": {
+                "building": "bunker",
+                "description": "Největší hradecký úkryt leží pod Kongresovým centrem Aldis. „Celkem se do něj vejde více než dva tisíce osob. Nachází se v prostorách pod podzemním parkovištěm a je opatřený zvláštním zdrojem napětí a dvojitými protitlakovými dveřmi,“",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7021828852,
+              "lat": 50.2091334,
+              "lon": 15.8132754,
+              "tags": {
+                "building": "bunker",
+                "description": "Nejspíš zůstalo jen torzo, větší část musela být zničena při hloubení základů pro barák č.p. 1192/6. Lokalizováno ze starého leteckého snímku.",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7297036554,
+              "lat": 50.0069266,
+              "lon": 15.7118316,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Zodolněné velitelské stanoviště 47. průzkumného leteckého pluku, Máteřovský rozptyl",
+                "website": "http://www.fortifikace.net/pov_uz6_vs_materov.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7297036555,
+              "lat": 50.0081699,
+              "lon": 15.7143296,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Zodolněné velitelské stanoviště 1., 2. a 3. technické letky",
+                "website": "http://www.fortifikace.net/pov_uz6_vs_materov.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7407744174,
+              "lat": 50.126364,
+              "lon": 16.0374245,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "UO",
+                "website": "http://fortifikace.net/povalecne_ukryty_uo_z_vlniteho_plechu.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7408180159,
+              "lat": 50.1461463,
+              "lon": 16.0240673,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "UŽ-6a Suté Břehy"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7692082813,
+              "lat": 50.027986,
+              "lon": 15.8047854,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kryt z II. sv války"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7872934192,
+              "lat": 50.2124357,
+              "lon": 15.8170695,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8092356896,
+              "lat": 50.0268218,
+              "lon": 15.8027365,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8097264942,
+              "lat": 50.0443993,
+              "lon": 15.810547,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "V areálu Mateřské školy Erno Košťála. Pro 350 osob.",
+                "military": "bunker",
+                "name": "Kryt CO K2",
+                "website": "http://fortifikace.net/pov_kryty_pce_dubina.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8097264952,
+              "lat": 50.0237566,
+              "lon": 15.7900451,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "military": "bunker",
+                "name": "Zodolněná pozorovatelna \"Badabar\" - Technické cvičiště",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=516",
+                "wikidata": "Q110946907"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8187647636,
+              "lat": 49.9426389,
+              "lon": 15.7669107,
+              "tags": {
+                "building": "bunker",
+                "description": "2.12.2020 existuje kompletní plot, pouze branka je poškozená. Panely odsunuté.",
+                "military": "bunker",
+                "name": "UŽ-6a"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8225469571,
+              "lat": 50.04172,
+              "lon": 15.7784301,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Ústředna je vybavená telefonem, dálnopisem. Je zde také řada malých pracoven pro příslušníky štábu a pomocný personál. Pro dočasné obyvatele krytu zde byla zřízena strohá sociální zařízení. Ale žádná kuchyň ani vybavení pro dlouhodobý úkryt.",
+                "email": "rezervace@vcm.cz",
+                "military": "bunker",
+                "name": "Štáb civilní obrany okresu Pardubice (8-K)",
+                "phone": "+420607 034 110",
+                "start_date": "1953",
+                "website": "https://www.vcm.cz/zamek/kryt-civilni-obrany/"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9597635153,
+              "lat": 50.2566925,
+              "lon": 15.8385462,
+              "tags": {
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9597635289,
+              "lat": 50.255667,
+              "lon": 15.8386132,
+              "tags": {
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9672670188,
+              "lat": 50.1748908,
+              "lon": 15.9442289,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "pozorovatelna",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10278360872,
+              "lat": 50.2173871,
+              "lon": 15.8490859,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10824749586,
+              "lat": 50.0651774,
+              "lon": 15.746093,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Z druhé světové války v době německé okupace pro zaměstnance Synthesia. Asi pro 50lidí. Ochrana pouze proti střepinám bomb.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Protiletecký kryt",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11510600448,
+              "lat": 50.2104029,
+              "lon": 15.8025283,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kryt CO (střelnice Bara)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11556358906,
+              "lat": 50.0710581,
+              "lon": 15.7499847,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Z druhé světové války v době německé okupace pro zaměstnance Synthesia. Asi pro 50lidí. Ochrana pouze proti střepinám bomb.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Protiletecký kryt",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11556358907,
+              "lat": 50.0715011,
+              "lon": 15.7511993,
+              "tags": {
+                "building": "bunker",
+                "check_date:website": "2024-09-15",
+                "description": "Z druhé světové války v době německé okupace pro zaměstnance Synthesia. Asi pro 50lidí. Ochrana pouze proti střepinám bomb.",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Protiletecký kryt",
+                "website": "https://coord.info/GC7Q46F"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11623932459,
+              "lat": 50.0598361,
+              "lon": 15.7186038,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "Na parkovišti před Bránou č. 4 podniku Explosia, Semtín Objekt stavebně shodný například s prvním nalezeným semtínským objektem (u opuštěné vrátnice), objektem střežícím vlečku v pardubickém Paramu. Jde o typ Dywidag RL3-41/63",
+                "fixme": "coordinates",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna Luftschutz - Splitterschutzzelle",
+                "note": "Při úpravě povrchu někam přesunut / zlikvidován?",
+                "website": "https://www.fortifikace.net/ii_sv_v_luftschutz_pardubice_semtin_2.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11623932464,
+              "lat": 50.0613526,
+              "lon": 15.7240752,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "check_date:website": "2024-09-15",
+                "description": "U opuštěné vrátnice Explosie na Poděbradské ul. v Semtíně  Jde o typ Dywidag RL3-41/63, složený z podstavy, válce (těla objektu) a z kónické stříšky, upevněné šesti šrouby. Ve stříšce jsou též ponechány dva 2-3 cm široké otvory sloužící k provlečení lan p",
+                "fixme": "coordinates",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Pozorovatelna Luftschutz - Splitterschutzzelle",
+                "note": "Někam přesunut / zlikvidován?",
+                "website": "https://www.fortifikace.net/ii_sv_v_luftschutz_pardubice_semtin_1.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12453079616,
+              "lat": 50.0307008,
+              "lon": 15.7287429,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12545169673,
+              "lat": 50.0489779,
+              "lon": 15.8124862,
+              "tags": {
+                "addr:housenumber": "1100",
+                "addr:postcode": "53002",
+                "addr:street": "Hůrka",
+                "email": "kvv.pardubice@army.cz",
+                "military": "office",
+                "name": "Krajské vojenské velitelství Pardubice",
+                "phone": "973 243 222"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12545169674,
+              "lat": 50.0490458,
+              "lon": 15.8126292,
+              "tags": {
+                "addr:housenumber": "1100",
+                "addr:postcode": "53002",
+                "addr:street": "Hůrka",
+                "email": "pardubice.doarmady@mo.gov.cz",
+                "military": "office",
+                "mobile": "725 039 745",
+                "name": "Rekrutační pracoviště Pardubice",
+                "phone": "973 243 256"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12626228650,
+              "lat": 50.0486237,
+              "lon": 15.7135995,
+              "tags": {
+                "building": "bunker",
+                "check_date": "2026-01-24",
+                "military": "bunker",
+                "name": "Einmannbunker",
+                "ref:zabaged": "46999739459174400",
+                "source": "GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12812363964,
+              "lat": 50.0612002,
+              "lon": 15.7308742,
+              "tags": {
+                "description": "Centrum podpory operací",
+                "military": "office",
+                "name": "Velitelství pro operace - Pardubice"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13113017586,
+              "lat": 50.2420723,
+              "lon": 15.8474913,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 26144791,
+              "center": {
+                "lat": 50.1826722,
+                "lon": 15.4687721
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Radar NATO Nepolisy",
+                "source": "uhul:ortofoto"
+              }
+            },
+            {
+              "type": "way",
+              "id": 28078309,
+              "center": {
+                "lat": 50.2319662,
+                "lon": 15.7438738
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "wire",
+                "landuse": "military",
+                "material": "metal",
+                "military": "no",
+                "name": "Komunikační centrum MZV - Charbusice",
+                "source": "uhul:ortofoto",
+                "wikidata": "Q112898751",
+                "wikipedia": "cs:RKS Hradec Králové"
+              }
+            },
+            {
+              "type": "way",
+              "id": 28657519,
+              "center": {
+                "lat": 50.3086838,
+                "lon": 15.9458335
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Zásobovací základna řízených střel Jaroměř VZ 5512",
+                "source": "uhul:ortofoto"
+              }
+            },
+            {
+              "type": "way",
+              "id": 29025868,
+              "center": {
+                "lat": 50.0373387,
+                "lon": 15.5853564
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Vojenský sklad"
+              }
+            },
+            {
+              "type": "way",
+              "id": 31171555,
+              "center": {
+                "lat": 50.1867103,
+                "lon": 16.074613
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Muniční sklady AČR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 31426533,
+              "center": {
+                "lat": 50.0691068,
+                "lon": 16.1133138
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Muniční sklady AČR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 45076330,
+              "center": {
+                "lat": 50.0861243,
+                "lon": 15.6508262
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "vojenská střelnice Neratov",
+                "photography": "no",
+                "photography:signed": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 47287474,
+              "center": {
+                "lat": 50.0609407,
+                "lon": 15.7335714
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Logistické centrum Pardubice - Semtín"
+              }
+            },
+            {
+              "type": "way",
+              "id": 50444551,
+              "center": {
+                "lat": 50.0193826,
+                "lon": 15.7524217
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "military": "bunker",
+                "ref:ruian:building": "46771395",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 50444552,
+              "center": {
+                "lat": 50.0180422,
+                "lon": 15.7527694
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "military": "bunker",
+                "ref:ruian:building": "46771361",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 50564884,
+              "center": {
+                "lat": 50.2077531,
+                "lon": 15.8343578
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Žižkova kasárna",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 59033910,
+              "center": {
+                "lat": 49.9344917,
+                "lon": 15.7969999
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "43. výsadkový pluk"
+              }
+            },
+            {
+              "type": "way",
+              "id": 101575349,
+              "center": {
+                "lat": 50.1873023,
+                "lon": 15.8292455
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "civil_shelter",
+                "description": "Jsou tam velké železobetonové dveře, kapaciza krytu 400 osob, uvnitř zachovalá filtroventilace, kyslíkové lahve, suché záchody nepoužité, úplně čisté.\n\nPo revoluci to sloužilo jako zkušební místnost pro nějakou kapelu, pak dílna a nyní by se z toho měla u",
+                "layer": "1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt CO",
+                "ref:ruian:building": "48498556",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 105510187,
+              "center": {
+                "lat": 50.0693428,
+                "lon": 15.6857434
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Institut ochrany obyvatelstva"
+              }
+            },
+            {
+              "type": "way",
+              "id": 105510193,
+              "center": {
+                "lat": 50.0672557,
+                "lon": 15.6884606
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Základna oprav Lázně Bohdaneč"
+              }
+            },
+            {
+              "type": "way",
+              "id": 109088482,
+              "center": {
+                "lat": 50.0807722,
+                "lon": 15.8104614
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Pozorovací objekt konstrukce typické pro 60. léta byl vybudován roku 1964 (datum betonáže 28.4. 1964). Civilní osádka.",
+                "military": "bunker",
+                "name": "Pozorovatelna CO (Vlastislav)",
+                "note": "Opravdu sem patri tyto klice?: building:place=village a \nroof:shape=gabled",
+                "start_date": "1964-04-28",
+                "website": "http://www.fortifikace.net/pov_poz_kuneticka_hora.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 296086371,
+              "center": {
+                "lat": 50.0428591,
+                "lon": 15.813559
+              },
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "5",
+                "check_date:website": "2024-09-15",
+                "description": "S číslem 06-06-0192 (Východočeský kraj - okres Pardubice - úkryt s pořadovým číslem 192). pro 434 (470) osob. Odolnost je, vzhledem ke shodnému typovému řešení, u všech tří K1 - K3 objektů stejná - stupeň 4, s dobou zpohotovění do 72 hodin a dobou ukrytí",
+                "layer": "-1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt CO K1",
+                "ref:ruian:building": "46714197",
+                "source": "cuzk:ruian",
+                "website": "http://fortifikace.net/pov_kryty_pce_dubina.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 377771815,
+              "center": {
+                "lat": 49.9410103,
+                "lon": 15.7820087
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "height": "2",
+                "landuse": "military",
+                "surface": "grass"
+              }
+            },
+            {
+              "type": "way",
+              "id": 532465429,
+              "center": {
+                "lat": 50.2994958,
+                "lon": 15.8098982
+              },
+              "tags": {
+                "description": "Od r.2019 - soukromé vlastnictví, zákaz vstupu! 1944- Továrny koncernu AG Vormals Skodawerke na výrobu motorů pro tanky Jagdzpanzer (PZJ 38t). Následně v podzemí bývalo množství chemického odpadu Čs.lidové armády z 50-tých let. ",
+                "landuse": "military",
+                "name": "podzemní továrna AG Vormals Skodawerke",
+                "website": "https://www.smirice.eu/okoli/racice/tovarna.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 533346897,
+              "center": {
+                "lat": 50.2038076,
+                "lon": 15.8812217
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 534303323,
+              "center": {
+                "lat": 50.2336215,
+                "lon": 15.9131611
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 582981018,
+              "center": {
+                "lat": 50.2334407,
+                "lon": 15.8596759
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 669549348,
+              "center": {
+                "lat": 50.122894,
+                "lon": 15.8712583
+              },
+              "tags": {
+                "landuse": "quarry",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 671121812,
+              "center": {
+                "lat": 50.0394058,
+                "lon": 15.9045085
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 678372086,
+              "center": {
+                "lat": 50.0758603,
+                "lon": 15.8454868
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 706895223,
+              "center": {
+                "lat": 50.0037089,
+                "lon": 15.7418258
+              },
+              "tags": {
+                "description": "Radar letiště Pardubice",
+                "description:photography": "Tento vojenský objekt je zakázáno fotografovat dle zákona č. 222/1999 Sb.",
+                "landuse": "military",
+                "name": "Radar centrum",
+                "photography": "no",
+                "photography:outside": "no",
+                "photography:signed": "yes",
+                "ref": "VÚ 2436"
+              }
+            },
+            {
+              "type": "way",
+              "id": 771102461,
+              "center": {
+                "lat": 50.111536,
+                "lon": 15.8450938
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 771102462,
+              "center": {
+                "lat": 50.1112357,
+                "lon": 15.8454217
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 771102463,
+              "center": {
+                "lat": 50.1114135,
+                "lon": 15.8447442
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 771102464,
+              "center": {
+                "lat": 50.1113742,
+                "lon": 15.8460703
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188095,
+              "center": {
+                "lat": 50.0814568,
+                "lon": 15.7912706
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188096,
+              "center": {
+                "lat": 50.0804711,
+                "lon": 15.7920529
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188097,
+              "center": {
+                "lat": 50.0800972,
+                "lon": 15.7924668
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Využíváno 75. těžkou houfnicovou dělostřeleckou UŽ-6b  brigádou Pardubice (VÚ 5666), (později 2. dělostřelecká brigáda Pardubice) jako záložní prostor soustředění - palebné postavení jedné z děl. baterií. 50°4'52.022\"N, 15°47'40.134\"E  okopy pro techniku.",
+                "military": "bunker",
+                "name": "UŽ-6b Polní postavení Brozany - Kunětický les",
+                "note": "http://zapisnik.fortif.net/prefabrikovane-ukryty-uz-6-ve-vnitrozemi/",
+                "website": "http://www.fortifikace.net/pov_uz6_brozany_kuneticky_les.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188098,
+              "center": {
+                "lat": 50.0799686,
+                "lon": 15.7926285
+              },
+              "tags": {
+                "area": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188099,
+              "center": {
+                "lat": 50.0802128,
+                "lon": 15.7925837
+              },
+              "tags": {
+                "area": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188101,
+              "center": {
+                "lat": 50.0809757,
+                "lon": 15.7929403
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188102,
+              "center": {
+                "lat": 50.0810966,
+                "lon": 15.7918134
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188103,
+              "center": {
+                "lat": 50.0812026,
+                "lon": 15.7918514
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188104,
+              "center": {
+                "lat": 50.0811832,
+                "lon": 15.7917771
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188108,
+              "center": {
+                "lat": 50.0813781,
+                "lon": 15.7937448
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188109,
+              "center": {
+                "lat": 50.0812121,
+                "lon": 15.7935051
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188110,
+              "center": {
+                "lat": 50.0807799,
+                "lon": 15.7937117
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188111,
+              "center": {
+                "lat": 50.0805765,
+                "lon": 15.7936185
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188112,
+              "center": {
+                "lat": 50.0802757,
+                "lon": 15.7935514
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188115,
+              "center": {
+                "lat": 50.079432,
+                "lon": 15.7944646
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188116,
+              "center": {
+                "lat": 50.0801522,
+                "lon": 15.7947185
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188117,
+              "center": {
+                "lat": 50.0803056,
+                "lon": 15.7947284
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188118,
+              "center": {
+                "lat": 50.0813504,
+                "lon": 15.7946482
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188119,
+              "center": {
+                "lat": 50.0811508,
+                "lon": 15.7946784
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188120,
+              "center": {
+                "lat": 50.0812931,
+                "lon": 15.794768
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188121,
+              "center": {
+                "lat": 50.0801436,
+                "lon": 15.7949433
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 782188124,
+              "center": {
+                "lat": 50.0804971,
+                "lon": 15.7915671
+              },
+              "tags": {
+                "area": "yes",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783995314,
+              "center": {
+                "lat": 50.0379742,
+                "lon": 16.0853455
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Polní postavení, zřejmě SA (posádka Vysoké Mýto). Nespecifikovaný, betonový, podzemní, částečně nakrytý ženijní kryt, 1x okop pro vozidlo, 1x nadzemní stavba. Vchodová a vjezdová část, 6 místností oddělených vyzděnými přepážkami. Dezolátní stav.",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "Polní postavení Horní Jelení",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=534"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783995316,
+              "center": {
+                "lat": 50.0380801,
+                "lon": 16.0854625
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783995317,
+              "center": {
+                "lat": 50.0378448,
+                "lon": 16.0853786
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783995318,
+              "center": {
+                "lat": 50.0380884,
+                "lon": 16.0848713
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 783995319,
+              "center": {
+                "lat": 50.0382985,
+                "lon": 16.0847735
+              },
+              "tags": {
+                "area": "yes",
+                "description": "Cihlou vyzděný zákop",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656214,
+              "center": {
+                "lat": 50.1394094,
+                "lon": 15.6476442
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656215,
+              "center": {
+                "lat": 50.1403515,
+                "lon": 15.6465563
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656216,
+              "center": {
+                "lat": 50.14008,
+                "lon": 15.6465513
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656217,
+              "center": {
+                "lat": 50.1399783,
+                "lon": 15.6467661
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656218,
+              "center": {
+                "lat": 50.140409,
+                "lon": 15.6475326
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656219,
+              "center": {
+                "lat": 50.1402859,
+                "lon": 15.6471288
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656220,
+              "center": {
+                "lat": 50.1403028,
+                "lon": 15.647279
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656221,
+              "center": {
+                "lat": 50.1402107,
+                "lon": 15.6474596
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656222,
+              "center": {
+                "lat": 50.1402768,
+                "lon": 15.6475159
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "ÚŽ-6b, Stav 2007: Bez vstupních dveří, schodiště pokryto sutí, chybí panely nouzového výlezu, uvnitř nepořádek a vlhkost. Okopy pro techniku s vyhnilou výdřevou, v pokročilém sesuvu.",
+                "military": "bunker",
+                "name": "ÚŽ-6b Polní postavení Dobřenice",
+                "website": "http://databaze.fortifikace.net/index.php?q=objekt&id=535"
+              }
+            },
+            {
+              "type": "way",
+              "id": 787656223,
+              "center": {
+                "lat": 50.1387612,
+                "lon": 15.647637
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318161,
+              "center": {
+                "lat": 50.1263555,
+                "lon": 16.0375965
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318162,
+              "center": {
+                "lat": 50.1262856,
+                "lon": 16.0376811
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318163,
+              "center": {
+                "lat": 50.1261931,
+                "lon": 16.0373656
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318164,
+              "center": {
+                "lat": 50.1261141,
+                "lon": 16.0379035
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318165,
+              "center": {
+                "lat": 50.1259754,
+                "lon": 16.0373049
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318166,
+              "center": {
+                "lat": 50.1267857,
+                "lon": 16.0380581
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318176,
+              "center": {
+                "lat": 50.1461685,
+                "lon": 16.022195
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318177,
+              "center": {
+                "lat": 50.146159,
+                "lon": 16.022543
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 792318178,
+              "center": {
+                "lat": 50.1463239,
+                "lon": 16.0223876
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039282,
+              "center": {
+                "lat": 50.1354353,
+                "lon": 15.9517662
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039283,
+              "center": {
+                "lat": 50.1355795,
+                "lon": 15.9520748
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039285,
+              "center": {
+                "lat": 50.1355911,
+                "lon": 15.9518867
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039286,
+              "center": {
+                "lat": 50.1354578,
+                "lon": 15.9518684
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039287,
+              "center": {
+                "lat": 50.1353343,
+                "lon": 15.9535305
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039288,
+              "center": {
+                "lat": 50.135941,
+                "lon": 15.9537834
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039289,
+              "center": {
+                "lat": 50.1361256,
+                "lon": 15.9540785
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039290,
+              "center": {
+                "lat": 50.1362072,
+                "lon": 15.9534334
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039291,
+              "center": {
+                "lat": 50.1359889,
+                "lon": 15.9535188
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039292,
+              "center": {
+                "lat": 50.1356567,
+                "lon": 15.9531844
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039293,
+              "center": {
+                "lat": 50.1357525,
+                "lon": 15.9531181
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039295,
+              "center": {
+                "lat": 50.1373287,
+                "lon": 15.9521879
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039296,
+              "center": {
+                "lat": 50.1367175,
+                "lon": 15.9523018
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793039298,
+              "center": {
+                "lat": 50.1362151,
+                "lon": 15.9504718
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 793852667,
+              "center": {
+                "lat": 50.0817216,
+                "lon": 15.7894412
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 795332480,
+              "center": {
+                "lat": 50.0540499,
+                "lon": 16.0666716
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 815879417,
+              "center": {
+                "lat": 49.9937958,
+                "lon": 15.7860216
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "2",
+                "building:ruian:type": "19",
+                "bunker_type": "observation",
+                "description": "Objekt spravuje Military klub Ostřešany a sbor aktivních záloh ČR. Byl vybudován roku 1964 (datum betonáže 24.4. 1964).Objekt byl vybaven filtroventilačním zařízením (typu FVZ 55c/60), ventilační komínek vyúsťuje do týlové místnosti pákovým šoupátkem.",
+                "email": "t.whitney@seznam.cz",
+                "military": "bunker",
+                "name": "Pozorovatelna CO (Ivana) na Mikulovickém kopci",
+                "phone": "+420739635372",
+                "ref:ruian:building": "98804243",
+                "source": "cuzk:ruian",
+                "start_date": "1964-04-24",
+                "website": "https://www.mkostresany.com/pozorovatelna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 815879419,
+              "center": {
+                "lat": 49.9938705,
+                "lon": 15.7860539
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 815879420,
+              "center": {
+                "lat": 49.9937848,
+                "lon": 15.7858744
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 817887722,
+              "center": {
+                "lat": 50.0376776,
+                "lon": 15.6665921
+              },
+              "tags": {
+                "area": "yes",
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "V r.2020 v zachovalém stavu, dřevěné okenice, uzamčený vchod, dřevěný sloup s anténou a VF svodem. Kompletní hromosvod. Plot naproti brance shrnutý.",
+                "military": "bunker",
+                "name": "Pozorovatelna CO (Blahoslav) Lány na Důlku",
+                "start_date": "1964-04-30"
+              }
+            },
+            {
+              "type": "way",
+              "id": 869125910,
+              "center": {
+                "lat": 50.1042857,
+                "lon": 15.8102232
+              },
+              "tags": {
+                "area": "yes",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Štáb velitelství CO Pardubického okresu",
+                "start_date": "1965",
+                "website": "http://www.dritec.cz/index.php/uredni-deska/112-zamer-obce-dritec-o-pronajmu-casti-nemovitosti-ov-objektu-byvaleho-skladu-civilni-obrany-oznacovane-jako-sklad-c-9-prostory-c-2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 883717197,
+              "center": {
+                "lat": 50.0111305,
+                "lon": 15.8132337
+              },
+              "tags": {
+                "barrier": "fence",
+                "description:photography": "Tento vojenský objekt je zakázáno fotografovat dle zákona č. 222/1999 Sb.",
+                "landuse": "military",
+                "name": "VÚ 2436",
+                "photography": "no",
+                "photography:outside": "no",
+                "photography:signed": "yes",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 902365610,
+              "center": {
+                "lat": 50.1846393,
+                "lon": 15.8707725
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913546854,
+              "center": {
+                "lat": 50.1206768,
+                "lon": 15.5987731
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 913546855,
+              "center": {
+                "lat": 50.1204668,
+                "lon": 15.598021
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 939981601,
+              "center": {
+                "lat": 50.2437099,
+                "lon": 15.8002397
+              },
+              "tags": {
+                "bunker_type": "personnel_shelter",
+                "description": "Kryt z 2. sv. války. Největší kryt pak byl v Plotištích za slévárnou lehkých kovů v bývalé cihelně pana Součka,“ upřesňuje Zdeněk Doubek. Měl táhnout až na druhou stranu hlavní silnice. Měl několik vstupů, ale vše je asi zazděně/zasypané max. jsou sklípky",
+                "highway": "footway",
+                "layer": "-1",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války",
+                "note": "Poloha +- Mimo článku v Radnici č.27/2007 od p. Doubka jsem o krytu slyšel od místních.",
+                "tunnel": "yes",
+                "website": "http://web2.mmhk.cz/dld/kp/radnice/radnice27.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 939981602,
+              "center": {
+                "lat": 50.2431599,
+                "lon": 15.8020337
+              },
+              "tags": {
+                "bunker_type": "personnel_shelter",
+                "highway": "footway",
+                "layer": "-1",
+                "military": "bunker",
+                "tunnel": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 939981603,
+              "center": {
+                "lat": 50.243398,
+                "lon": 15.8009824
+              },
+              "tags": {
+                "bunker_type": "personnel_shelter",
+                "highway": "footway",
+                "layer": "-1",
+                "military": "bunker",
+                "tunnel": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 941571814,
+              "center": {
+                "lat": 50.0221537,
+                "lon": 15.735087
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980872001,
+              "center": {
+                "lat": 50.0177313,
+                "lon": 15.7337419
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980872002,
+              "center": {
+                "lat": 50.0173204,
+                "lon": 15.7334723
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980872003,
+              "center": {
+                "lat": 50.0169042,
+                "lon": 15.7332083
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980872004,
+              "center": {
+                "lat": 50.0165374,
+                "lon": 15.7326893
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873370,
+              "center": {
+                "lat": 50.0164736,
+                "lon": 15.7345907
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873371,
+              "center": {
+                "lat": 50.0164077,
+                "lon": 15.7354129
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873372,
+              "center": {
+                "lat": 50.0163814,
+                "lon": 15.7372335
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873373,
+              "center": {
+                "lat": 50.0168569,
+                "lon": 15.7354805
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873374,
+              "center": {
+                "lat": 50.0175595,
+                "lon": 15.7351675
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873375,
+              "center": {
+                "lat": 50.0170476,
+                "lon": 15.7347906
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873376,
+              "center": {
+                "lat": 50.0181518,
+                "lon": 15.7351254
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873377,
+              "center": {
+                "lat": 50.0182663,
+                "lon": 15.7341809
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980873378,
+              "center": {
+                "lat": 50.0180527,
+                "lon": 15.7358627
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875246,
+              "center": {
+                "lat": 50.0178841,
+                "lon": 15.7367249
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875247,
+              "center": {
+                "lat": 50.0172163,
+                "lon": 15.7368428
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875248,
+              "center": {
+                "lat": 50.016624,
+                "lon": 15.7367887
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875249,
+              "center": {
+                "lat": 50.0175471,
+                "lon": 15.7390639
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875250,
+              "center": {
+                "lat": 50.0170576,
+                "lon": 15.739018
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875251,
+              "center": {
+                "lat": 50.0165518,
+                "lon": 15.7389813
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875252,
+              "center": {
+                "lat": 50.0177315,
+                "lon": 15.7375745
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875253,
+              "center": {
+                "lat": 50.0172576,
+                "lon": 15.7375315
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875254,
+              "center": {
+                "lat": 50.016764,
+                "lon": 15.7375744
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875255,
+              "center": {
+                "lat": 50.0162565,
+                "lon": 15.7424233
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875256,
+              "center": {
+                "lat": 50.016232,
+                "lon": 15.7431242
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875257,
+              "center": {
+                "lat": 50.0162134,
+                "lon": 15.7438467
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875258,
+              "center": {
+                "lat": 50.0161897,
+                "lon": 15.744563
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875259,
+              "center": {
+                "lat": 50.0161713,
+                "lon": 15.7452378
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875260,
+              "center": {
+                "lat": 50.0169008,
+                "lon": 15.7428197
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 980875261,
+              "center": {
+                "lat": 50.0169572,
+                "lon": 15.7439385
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1093534797,
+              "center": {
+                "lat": 50.2046002,
+                "lon": 15.8354749
+              },
+              "tags": {
+                "area": "yes",
+                "building": "bunker",
+                "layer": "-1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt CO"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1149485115,
+              "center": {
+                "lat": 50.0215749,
+                "lon": 15.790551
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Využíváno osobou bez domova",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1188422148,
+              "center": {
+                "lat": 50.0802334,
+                "lon": 15.7946735
+              },
+              "tags": {
+                "area": "yes",
+                "landuse": "military",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1242824339,
+              "center": {
+                "lat": 50.025689,
+                "lon": 15.7854859
+              },
+              "tags": {
+                "building": "bunker",
+                "layer": "-1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246102736,
+              "center": {
+                "lat": 50.0195641,
+                "lon": 15.7907889
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246119177,
+              "center": {
+                "lat": 50.0232231,
+                "lon": 15.7893277
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246119178,
+              "center": {
+                "lat": 50.0199762,
+                "lon": 15.7912858
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246119179,
+              "center": {
+                "lat": 50.0197006,
+                "lon": 15.7911075
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246119180,
+              "center": {
+                "lat": 50.0196382,
+                "lon": 15.7910438
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1246119181,
+              "center": {
+                "lat": 50.019552,
+                "lon": 15.7910065
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1249060916,
+              "center": {
+                "lat": 50.0607926,
+                "lon": 15.72245
+              },
+              "tags": {
+                "area": "yes",
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "N28/1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1250474385,
+              "center": {
+                "lat": 50.0882265,
+                "lon": 15.7168719
+              },
+              "tags": {
+                "area": "yes",
+                "building": "yes",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1288440153,
+              "center": {
+                "lat": 50.2132736,
+                "lon": 15.8259125
+              },
+              "tags": {
+                "area": "yes",
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "description": "To je klasický protistřepinový krytý zákop (LS Deckungsgräben ) vybudovaný do otevřeného výkopu. Jelikož zde nejspíš podle geologie narazili při hloubení výkopu na skalní podklad, je založený dost mělce, proto vyčuhuje nad terén.",
+                "military": "bunker",
+                "name": "Kryt z II. sv. války",
+                "website": "http://forum.fortifikace.net/viewtopic.php?f=45&t=1897&p=24006&hilit=Hradec+Kr%C3%A1lov%C3%A9#p24006",
+                "website:note": "not accessible without registration"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1330611747,
+              "center": {
+                "lat": 50.0448442,
+                "lon": 15.8134434
+              },
+              "tags": {
+                "building": "bunker",
+                "building:ruian:type": "5",
+                "check_date:website": "2024-09-15",
+                "description": "Pro 190 osob.",
+                "layer": "-1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt CO K3",
+                "ref:ruian:building": "7676697",
+                "source": "cuzk:ruian",
+                "website": "http://fortifikace.net/pov_kryty_pce_dubina.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1348362144,
+              "center": {
+                "lat": 50.016655,
+                "lon": 15.7457946
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1348362145,
+              "center": {
+                "lat": 50.0174363,
+                "lon": 15.7400279
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1348362146,
+              "center": {
+                "lat": 50.016355,
+                "lon": 15.7397588
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1351953800,
+              "center": {
+                "lat": 50.0124708,
+                "lon": 15.7705306
+              },
+              "tags": {
+                "description:photography": "Tento vojenský objekt je zakázáno fotografovat dle zákona č. 222/1999 Sb.",
+                "landuse": "military",
+                "name": "VÚ 2436",
+                "photography": "no",
+                "photography:outside": "no",
+                "photography:signed": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1355522428,
+              "center": {
+                "lat": 50.0490413,
+                "lon": 15.8123129
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1368808971,
+              "center": {
+                "lat": 50.022594,
+                "lon": 15.7916513
+              },
+              "tags": {
+                "area": "yes",
+                "military": "trench",
+                "note": "Zákop pro tank"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792166,
+              "center": {
+                "lat": 50.008824,
+                "lon": 15.7099775
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792167,
+              "center": {
+                "lat": 50.0084652,
+                "lon": 15.7106227
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792168,
+              "center": {
+                "lat": 50.0090785,
+                "lon": 15.7117543
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792169,
+              "center": {
+                "lat": 50.0092164,
+                "lon": 15.7127445
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792170,
+              "center": {
+                "lat": 50.0084887,
+                "lon": 15.7114334
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792171,
+              "center": {
+                "lat": 50.0086436,
+                "lon": 15.7122528
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792172,
+              "center": {
+                "lat": 50.0078577,
+                "lon": 15.7099949
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792173,
+              "center": {
+                "lat": 50.0073745,
+                "lon": 15.7105843
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792174,
+              "center": {
+                "lat": 50.0077222,
+                "lon": 15.7113493
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792175,
+              "center": {
+                "lat": 50.0067198,
+                "lon": 15.7100663
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792176,
+              "center": {
+                "lat": 50.0067038,
+                "lon": 15.7112028
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792177,
+              "center": {
+                "lat": 50.0072037,
+                "lon": 15.712507
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792178,
+              "center": {
+                "lat": 50.0074805,
+                "lon": 15.7130994
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792179,
+              "center": {
+                "lat": 50.0081737,
+                "lon": 15.7134647
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792180,
+              "center": {
+                "lat": 50.0085612,
+                "lon": 15.7141773
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792181,
+              "center": {
+                "lat": 50.0078408,
+                "lon": 15.7144217
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792182,
+              "center": {
+                "lat": 50.0071509,
+                "lon": 15.7139204
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1372792183,
+              "center": {
+                "lat": 50.0072963,
+                "lon": 15.7152875
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467950,
+              "center": {
+                "lat": 50.2441092,
+                "lon": 15.8372102
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467951,
+              "center": {
+                "lat": 50.2445683,
+                "lon": 15.8381359
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H192"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467952,
+              "center": {
+                "lat": 50.2445036,
+                "lon": 15.8362422
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "12"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467953,
+              "center": {
+                "lat": 50.2452045,
+                "lon": 15.8358699
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H190"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467954,
+              "center": {
+                "lat": 50.2454382,
+                "lon": 15.8373432
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H189"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467955,
+              "center": {
+                "lat": 50.245935,
+                "lon": 15.8352989
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H188"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467956,
+              "center": {
+                "lat": 50.2461325,
+                "lon": 15.8391247
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467957,
+              "center": {
+                "lat": 50.246151,
+                "lon": 15.8388509
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467958,
+              "center": {
+                "lat": 50.2464842,
+                "lon": 15.8370999
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H187"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467959,
+              "center": {
+                "lat": 50.2465998,
+                "lon": 15.8355911
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H186"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467960,
+              "center": {
+                "lat": 50.2477629,
+                "lon": 15.8349247
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H183"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467961,
+              "center": {
+                "lat": 50.2488588,
+                "lon": 15.835565
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H185"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467962,
+              "center": {
+                "lat": 50.2486536,
+                "lon": 15.8345505
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "H184"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467963,
+              "center": {
+                "lat": 50.2480215,
+                "lon": 15.8364862
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "5"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467966,
+              "center": {
+                "lat": 50.2531755,
+                "lon": 15.8414609
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467967,
+              "center": {
+                "lat": 50.2530863,
+                "lon": 15.840316
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467968,
+              "center": {
+                "lat": 50.2537965,
+                "lon": 15.840088
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467969,
+              "center": {
+                "lat": 50.253727,
+                "lon": 15.8389945
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467970,
+              "center": {
+                "lat": 50.2542983,
+                "lon": 15.8407491
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467971,
+              "center": {
+                "lat": 50.2547014,
+                "lon": 15.8395289
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467972,
+              "center": {
+                "lat": 50.2551972,
+                "lon": 15.8399531
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467973,
+              "center": {
+                "lat": 50.2560398,
+                "lon": 15.8394736
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467974,
+              "center": {
+                "lat": 50.2433676,
+                "lon": 15.8452262
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467975,
+              "center": {
+                "lat": 50.2438724,
+                "lon": 15.8459407
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467976,
+              "center": {
+                "lat": 50.2437354,
+                "lon": 15.8470681
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467977,
+              "center": {
+                "lat": 50.2431373,
+                "lon": 15.8476698
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467978,
+              "center": {
+                "lat": 50.241744,
+                "lon": 15.8487837
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467979,
+              "center": {
+                "lat": 50.241057,
+                "lon": 15.8483924
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467980,
+              "center": {
+                "lat": 50.2403931,
+                "lon": 15.8478435
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467981,
+              "center": {
+                "lat": 50.2396705,
+                "lon": 15.8476592
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467982,
+              "center": {
+                "lat": 50.2394702,
+                "lon": 15.848839
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467983,
+              "center": {
+                "lat": 50.2400612,
+                "lon": 15.8495764
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467984,
+              "center": {
+                "lat": 50.2408922,
+                "lon": 15.8498483
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426467985,
+              "center": {
+                "lat": 50.2415565,
+                "lon": 15.8503247
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426470096,
+              "center": {
+                "lat": 50.2579794,
+                "lon": 15.8380505
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1426470097,
+              "center": {
+                "lat": 50.2573524,
+                "lon": 15.8383836
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1428999915,
+              "center": {
+                "lat": 50.217162,
+                "lon": 15.8419929
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1493831993,
+              "center": {
+                "lat": 50.0228984,
+                "lon": 15.7910475
+              },
+              "tags": {
+                "area": "yes",
+                "military": "trench",
+                "note": "Křížový okop pro tank"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 12417063,
+              "center": {
+                "lat": 50.0142544,
+                "lon": 15.7382424
+              },
+              "tags": {
+                "aerodrome": "international",
+                "aerodrome:type": "public",
+                "aeroway": "aerodrome",
+                "check_date:website": "https://2024-09-15",
+                "closest_town": "Pardubice",
+                "description:photography": "Tento vojenský objekt je zakázáno fotografovat dle zákona č. 222/1999 Sb.",
+                "ele": "226",
+                "iata": "PED",
+                "icao": "LKPD",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Letiště Pardubice",
+                "name:cs": "Letiště Pardubice",
+                "name:de": "Flughafen Pardubitz",
+                "name:en": "Pardubice Airport",
+                "operator": "Armáda České republiky - Správa letiště Pardubice",
+                "photography": "no",
+                "photography:outside": "no",
+                "photography:signed": "yes",
+                "type": "multipolygon",
+                "website": "https://slp.mo.gov.cz/",
+                "wikidata": "Q2115080",
+                "wikipedia": "cs:Letiště Pardubice"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

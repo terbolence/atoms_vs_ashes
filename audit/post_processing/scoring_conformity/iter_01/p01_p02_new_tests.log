@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0 -- /Users/terbolence/projects/atoms_vs_ashes/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/terbolence/projects/atoms_vs_ashes
+configfile: pyproject.toml
+plugins: cov-7.1.0, anyio-4.13.0
+collecting ... collected 29 items
+
+tests/scoring/test_safe_eval_disjuncts.py::TestOrShortCircuitsErroringDisjunct::test_or_with_typeerror_left_and_true_right PASSED [  3%]
+tests/scoring/test_safe_eval_disjuncts.py::TestOrShortCircuitsErroringDisjunct::test_sp_f_sentinel_pattern PASSED [  6%]
+tests/scoring/test_safe_eval_disjuncts.py::TestOrShortCircuitsErroringDisjunct::test_or_with_sentinel_pattern_inverted_order PASSED [ 10%]
+tests/scoring/test_safe_eval_disjuncts.py::TestOrShortCircuitsErroringDisjunct::test_or_with_all_false_returns_false PASSED [ 13%]
+tests/scoring/test_safe_eval_disjuncts.py::TestOrShortCircuitsErroringDisjunct::test_or_with_all_indeterminate_returns_none PASSED [ 17%]
+tests/scoring/test_safe_eval_disjuncts.py::TestAndIsFailClosed::test_and_with_typeerror_left_and_true_right_is_false PASSED [ 20%]
+tests/scoring/test_safe_eval_disjuncts.py::TestAndIsFailClosed::test_and_with_all_true_is_true PASSED [ 24%]
+tests/scoring/test_safe_eval_disjuncts.py::TestAndIsFailClosed::test_and_with_explicit_false_is_false PASSED [ 27%]
+tests/scoring/test_safe_eval_disjuncts.py::TestSingleNodeBehaviourUnchanged::test_single_comparison_with_none_returns_none PASSED [ 31%]
+tests/scoring/test_safe_eval_disjuncts.py::TestSingleNodeBehaviourUnchanged::test_single_comparison_with_value PASSED [ 34%]
+tests/scoring/test_safe_eval_disjuncts.py::TestSingleNodeBehaviourUnchanged::test_default_sentinel PASSED [ 37%]
+tests/scoring/test_safe_eval_disjuncts.py::TestSingleNodeBehaviourUnchanged::test_syntax_error_returns_none PASSED [ 41%]
+tests/scoring/test_safe_eval_disjuncts.py::TestNestedBoolOp::test_nested_or_within_and PASSED [ 44%]
+tests/scoring/test_safe_eval_disjuncts.py::TestNestedBoolOp::test_nested_and_within_or PASSED [ 48%]
+tests/scoring/test_safe_eval_disjuncts.py::TestNestedBoolOp::test_nested_or_all_indeterminate_under_and PASSED [ 51%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_with_search_completed_lands_high[HI-02-nearest_seveso_km-hi02_search_completed] PASSED [ 55%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_with_search_completed_lands_high[HI-04-nearest_flammable_storage_km-hi04_search_completed] PASSED [ 58%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_with_search_completed_lands_high[HI-05-nearest_hazmat_corridor_km-hi05_search_completed] PASSED [ 62%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_with_search_completed_lands_high[HI-08-nearest_nuclear_km-hi08_search_completed] PASSED [ 65%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_without_search_completed_is_unscored[HI-02-nearest_seveso_km-hi02_search_completed] PASSED [ 68%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_without_search_completed_is_unscored[HI-04-nearest_flammable_storage_km-hi04_search_completed] PASSED [ 72%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_without_search_completed_is_unscored[HI-05-nearest_hazmat_corridor_km-hi05_search_completed] PASSED [ 75%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_null_distance_without_search_completed_is_unscored[HI-08-nearest_nuclear_km-hi08_search_completed] PASSED [ 79%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_concrete_far_distance_still_lands_high[HI-02-nearest_seveso_km-hi02_search_completed] PASSED [ 82%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_concrete_far_distance_still_lands_high[HI-04-nearest_flammable_storage_km-hi04_search_completed] PASSED [ 86%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_concrete_far_distance_still_lands_high[HI-05-nearest_hazmat_corridor_km-hi05_search_completed] PASSED [ 89%]
+tests/scoring/test_search_sentinel_bands.py::TestHiSearchSentinelFavorableFires::test_concrete_far_distance_still_lands_high[HI-08-nearest_nuclear_km-hi08_search_completed] PASSED [ 93%]
+tests/scoring/test_search_sentinel_bands.py::test_nh07_null_volcano_distance_lands_high PASSED [ 96%]
+tests/scoring/test_search_sentinel_bands.py::test_nh08_landlocked_country_lands_high PASSED [100%]
+
+============================== 29 passed in 0.47s ==============================

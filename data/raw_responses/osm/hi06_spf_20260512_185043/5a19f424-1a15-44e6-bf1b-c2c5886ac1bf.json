@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "site_id": "5a19f424-1a15-44e6-bf1b-c2c5886ac1bf",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:06:35.451347+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,40.889,35.597);\n  way[\"military\"](around:25000,40.889,35.597);\n  relation[\"military\"](around:25000,40.889,35.597);\n  node[\"landuse\"=\"military\"](around:25000,40.889,35.597);\n  way[\"landuse\"=\"military\"](around:25000,40.889,35.597);\n  relation[\"landuse\"=\"military\"](around:25000,40.889,35.597);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.889,35.597);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.889,35.597);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.889,35.597);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.889,35.597);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.889,35.597);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.889,35.597);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1067,
+        "element_count": 9,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 5424575029,
+              "lat": 40.8116959,
+              "lon": 35.5946265,
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 183771833,
+              "center": {
+                "lat": 40.8380928,
+                "lon": 35.5214171
+              },
+              "tags": {
+                "aerodrome:type": "military/public",
+                "aeroway": "aerodrome",
+                "alt_name": "Merzifon 5. Ana Jet Üs Komutanlığı",
+                "ele": "536",
+                "geonames:id": "6299733",
+                "iata": "MZH",
+                "icao": "LTAP",
+                "landuse": "military",
+                "name": "Amasya Merzifon Havalimanı",
+                "name:en": "Amasya Merzifon Airport",
+                "name:tr": "Amasya Merzifon Havalimanı",
+                "source": "Wikipedia (tr)",
+                "wikidata": "Q1164142",
+                "wikipedia": "en:Amasya Merzifon Airport"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186188712,
+              "center": {
+                "lat": 40.8992437,
+                "lon": 35.4582879
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Merzifon Hava Radar Mevzi Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 188280149,
+              "center": {
+                "lat": 40.9052721,
+                "lon": 35.391786
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 188280154,
+              "center": {
+                "lat": 40.9524318,
+                "lon": 35.3839862
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 188280168,
+              "center": {
+                "lat": 40.9542107,
+                "lon": 35.3921423
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 228173579,
+              "center": {
+                "lat": 40.952495,
+                "lon": 35.3823688
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 283810240,
+              "center": {
+                "lat": 40.8269951,
+                "lon": 35.5269761
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "5. Ana Jet Üssü",
+                "source": "bing;local knowledge"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1472028969,
+              "center": {
+                "lat": 40.883631,
+                "lon": 35.4531079
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Merzifon Hava Lojmanları"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

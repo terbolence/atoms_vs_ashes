@@ -1,0 +1,357 @@
+{
+  "generated_at": "2026-05-11T20:47:09",
+  "rubric_dir": "config/scoring_rubrics",
+  "criteria": {
+    "BF-01": {
+      "name": "Grid export / connection adequacy",
+      "family": "BF",
+      "baseline_factor": 8,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 3.652968,
+      "epri_pct": 2.352941
+    },
+    "BF-02": {
+      "name": "Land / nuclear-island footprint",
+      "family": "BF",
+      "baseline_factor": 5,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.352941
+    },
+    "EP-02": {
+      "name": "Evacuation routes (road network)",
+      "family": "EP",
+      "baseline_factor": 6,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 2.352941
+    },
+    "EP-03": {
+      "name": "Physical-geography constraints",
+      "family": "EP",
+      "baseline_factor": 5,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.352941
+    },
+    "EP-04": {
+      "name": "Special populations (hospitals, prisons, care homes)",
+      "family": "EP",
+      "baseline_factor": 6,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 2.352941
+    },
+    "EP-05": {
+      "name": "Concurrent-hazard impact on EP",
+      "family": "EP",
+      "baseline_factor": 4,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 1.826484,
+      "epri_pct": 2.352941
+    },
+    "HI-01": {
+      "name": "Aircraft crash hazard",
+      "family": "HI",
+      "baseline_factor": 7,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 3.196347,
+      "epri_pct": 1.764706
+    },
+    "HI-02": {
+      "name": "Industrial explosions (Seveso / IED)",
+      "family": "HI",
+      "baseline_factor": 7,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 3.196347,
+      "epri_pct": 1.764706
+    },
+    "HI-03": {
+      "name": "Toxic / gas releases",
+      "family": "HI",
+      "baseline_factor": 7,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 3.196347,
+      "epri_pct": 1.764706
+    },
+    "HI-04": {
+      "name": "External fires",
+      "family": "HI",
+      "baseline_factor": 6,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 1.764706
+    },
+    "HI-05": {
+      "name": "Transport hazards (hazmat road / rail / pipe)",
+      "family": "HI",
+      "baseline_factor": 6,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 1.764706
+    },
+    "HI-06": {
+      "name": "Military installations",
+      "family": "HI",
+      "baseline_factor": 6,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 1.764706
+    },
+    "HI-07": {
+      "name": "Electromagnetic interference",
+      "family": "HI",
+      "baseline_factor": 2,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 0.913242,
+      "epri_pct": 1.764706
+    },
+    "HI-08": {
+      "name": "Other nuclear installations",
+      "family": "HI",
+      "baseline_factor": 3,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 1.369863,
+      "epri_pct": 1.764706
+    },
+    "NH-01": {
+      "name": "Seismic ground motion (PGA)",
+      "family": "NH",
+      "baseline_factor": 9,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 4.109589,
+      "epri_pct": 2.941176
+    },
+    "NH-05": {
+      "name": "Subsidence / karst / mining / oil & gas",
+      "family": "NH",
+      "baseline_factor": 7,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 3.196347,
+      "epri_pct": 2.352941
+    },
+    "NH-06": {
+      "name": "Foundation conditions (bearing, bedrock, groundwater)",
+      "family": "NH",
+      "baseline_factor": 5,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 1.764706
+    },
+    "NH-08": {
+      "name": "Coastal flooding (storm surge, tsunami)",
+      "family": "NH",
+      "baseline_factor": 6,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 1.764706
+    },
+    "NH-09": {
+      "name": "River flooding",
+      "family": "NH",
+      "baseline_factor": 8,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 3.652968,
+      "epri_pct": 1.764706
+    },
+    "NH-11": {
+      "name": "Extreme precipitation (rain, snow, drought)",
+      "family": "NH",
+      "baseline_factor": 3,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 1.369863,
+      "epri_pct": 1.764706
+    },
+    "NH-12": {
+      "name": "Extreme temperatures",
+      "family": "NH",
+      "baseline_factor": 4,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 1.826484,
+      "epri_pct": 1.764706
+    },
+    "NH-13": {
+      "name": "Forest / wildfire",
+      "family": "NH",
+      "baseline_factor": 3,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 1.369863,
+      "epri_pct": 1.764706
+    },
+    "NH-14": {
+      "name": "Combined hazards",
+      "family": "NH",
+      "baseline_factor": 3,
+      "epri_factor": 3,
+      "basis_used": "epri",
+      "baseline_pct": 1.369863,
+      "epri_pct": 1.764706
+    },
+    "NS-02": {
+      "name": "Grid connection (detailed)",
+      "family": "NS",
+      "baseline_factor": 8,
+      "epri_factor": 10,
+      "basis_used": "epri",
+      "baseline_pct": 3.652968,
+      "epri_pct": 5.882353
+    },
+    "NS-03": {
+      "name": "Transport access (heavy haul road / rail / port)",
+      "family": "NS",
+      "baseline_factor": 8,
+      "epri_factor": 10,
+      "basis_used": "epri",
+      "baseline_pct": 3.652968,
+      "epri_pct": 5.882353
+    },
+    "NS-04": {
+      "name": "Site topography / grading",
+      "family": "NS",
+      "baseline_factor": 6,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 2.352941
+    },
+    "NS-05": {
+      "name": "Land availability / ownership / zoning",
+      "family": "NS",
+      "baseline_factor": 5,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.941176
+    },
+    "NS-06": {
+      "name": "Existing infrastructure reuse",
+      "family": "NS",
+      "baseline_factor": 5,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.352941
+    },
+    "NS-07": {
+      "name": "Environmental impact (non-radiological)",
+      "family": "NS",
+      "baseline_factor": 5,
+      "epri_factor": 4,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.352941
+    },
+    "NS-09": {
+      "name": "Socioeconomic impact",
+      "family": "NS",
+      "baseline_factor": 5,
+      "epri_factor": 6,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 3.529412
+    },
+    "NS-10": {
+      "name": "Workforce availability",
+      "family": "NS",
+      "baseline_factor": 4,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 1.826484,
+      "epri_pct": 2.941176
+    },
+    "NS-11": {
+      "name": "Coal-to-nuclear synergies",
+      "family": "NS",
+      "baseline_factor": 6,
+      "epri_factor": 6,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 3.529412
+    },
+    "NS-12": {
+      "name": "Regulatory / political environment",
+      "family": "NS",
+      "baseline_factor": 6,
+      "epri_factor": 7,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 4.117647
+    },
+    "NS-13": {
+      "name": "Construction logistics",
+      "family": "NS",
+      "baseline_factor": 4,
+      "epri_factor": 6,
+      "basis_used": "epri",
+      "baseline_pct": 1.826484,
+      "epri_pct": 3.529412
+    },
+    "RI-01": {
+      "name": "Atmospheric dispersion (wind, stability, BLH)",
+      "family": "RI",
+      "baseline_factor": 6,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 2.739726,
+      "epri_pct": 2.941176
+    },
+    "RI-02": {
+      "name": "Surface water dispersion",
+      "family": "RI",
+      "baseline_factor": 5,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.941176
+    },
+    "RI-03": {
+      "name": "Groundwater dispersion",
+      "family": "RI",
+      "baseline_factor": 5,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.941176
+    },
+    "RI-05": {
+      "name": "Distance to large population centres (>50 k)",
+      "family": "RI",
+      "baseline_factor": 10,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 4.56621,
+      "epri_pct": 2.941176
+    },
+    "RI-06": {
+      "name": "Population projections (60-yr design life)",
+      "family": "RI",
+      "baseline_factor": 5,
+      "epri_factor": 5,
+      "basis_used": "epri",
+      "baseline_pct": 2.283105,
+      "epri_pct": 2.941176
+    }
+  }
+}

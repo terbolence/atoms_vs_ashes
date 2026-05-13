@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "site_id": "83d3abe4-2049-47ad-a66b-46034edb7569",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:21:40.872313+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.483333,22.1);\n  way[\"military\"](around:25000,41.483333,22.1);\n  relation[\"military\"](around:25000,41.483333,22.1);\n  node[\"landuse\"=\"military\"](around:25000,41.483333,22.1);\n  way[\"landuse\"=\"military\"](around:25000,41.483333,22.1);\n  relation[\"landuse\"=\"military\"](around:25000,41.483333,22.1);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.483333,22.1);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.483333,22.1);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.483333,22.1);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.483333,22.1);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.483333,22.1);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.483333,22.1);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 705,
+        "element_count": 2,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:20:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 8548166724,
+              "lat": 41.5435346,
+              "lon": 22.1229172,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Krivolak Trainig Area  KTA"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 7427309,
+              "center": {
+                "lat": 41.573141,
+                "lon": 22.042122
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area",
+                "name": "Центар за воена обука „Криволак“",
+                "name:en": "Krivolak Military Training Center",
+                "type": "multipolygon",
+                "wikidata": "Q47456389",
+                "wikipedia": "mk:Центар за воена обука „Криволак“"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

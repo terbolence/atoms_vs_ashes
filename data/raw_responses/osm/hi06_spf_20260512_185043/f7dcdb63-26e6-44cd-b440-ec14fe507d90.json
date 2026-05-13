@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "site_id": "f7dcdb63-26e6-44cd-b440-ec14fe507d90",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:17:28.354143+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.904814,21.055306);\n  way[\"military\"](around:25000,47.904814,21.055306);\n  relation[\"military\"](around:25000,47.904814,21.055306);\n  node[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n);\nout center tags;\n",
+        "http_status": 408,
+        "elapsed_ms": 120831,
+        "element_count": 0,
+        "body": null,
+        "error": "_ssl.c:1063: The handshake operation timed out"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.904814,21.055306);\n  way[\"military\"](around:25000,47.904814,21.055306);\n  relation[\"military\"](around:25000,47.904814,21.055306);\n  node[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n);\nout center tags;\n",
+        "http_status": 0,
+        "elapsed_ms": 119570,
+        "element_count": 0,
+        "body": null,
+        "error": "[Errno 54] Connection reset by peer"
+      },
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,47.904814,21.055306);\n  way[\"military\"](around:25000,47.904814,21.055306);\n  relation[\"military\"](around:25000,47.904814,21.055306);\n  node[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"landuse\"=\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,47.904814,21.055306);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,47.904814,21.055306);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 2856,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:16:01Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 317252710,
+              "center": {
+                "lat": 47.9268079,
+                "lon": 21.028436
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 317252730,
+              "center": {
+                "lat": 47.9263996,
+                "lon": 21.0293883
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 317252737,
+              "center": {
+                "lat": 47.9279509,
+                "lon": 21.0255749
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 317252752,
+              "center": {
+                "lat": 47.9262368,
+                "lon": 21.0296037
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 387232189,
+              "center": {
+                "lat": 48.0170809,
+                "lon": 20.7590108
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1191911928,
+              "center": {
+                "lat": 47.9020763,
+                "lon": 21.0585715
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

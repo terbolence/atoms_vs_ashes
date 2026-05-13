@@ -1,0 +1,40 @@
+criterion_id,name,family,baseline_factor,epri_factor,basis_used,baseline_pct,epri_pct,delta_pct
+BF-01,Grid export / connection adequacy,BF,8,4,epri,3.6530,2.3529,-1.3000
+BF-02,Land / nuclear-island footprint,BF,5,4,epri,2.2831,2.3529,+0.0698
+EP-02,Evacuation routes (road network),EP,6,4,epri,2.7397,2.3529,-0.3868
+EP-03,Physical-geography constraints,EP,5,4,epri,2.2831,2.3529,+0.0698
+EP-04,"Special populations (hospitals, prisons, care homes)",EP,6,4,epri,2.7397,2.3529,-0.3868
+EP-05,Concurrent-hazard impact on EP,EP,4,4,epri,1.8265,2.3529,+0.5265
+HI-01,Aircraft crash hazard,HI,7,3,epri,3.1963,1.7647,-1.4316
+HI-02,Industrial explosions (Seveso / IED),HI,7,3,epri,3.1963,1.7647,-1.4316
+HI-03,Toxic / gas releases,HI,7,3,epri,3.1963,1.7647,-1.4316
+HI-04,External fires,HI,6,3,epri,2.7397,1.7647,-0.9750
+HI-05,Transport hazards (hazmat road / rail / pipe),HI,6,3,epri,2.7397,1.7647,-0.9750
+HI-06,Military installations,HI,6,3,epri,2.7397,1.7647,-0.9750
+HI-07,Electromagnetic interference,HI,2,3,epri,0.9132,1.7647,+0.8515
+HI-08,Other nuclear installations,HI,3,3,epri,1.3699,1.7647,+0.3948
+NH-01,Seismic ground motion (PGA),NH,9,5,epri,4.1096,2.9412,-1.1684
+NH-05,Subsidence / karst / mining / oil & gas,NH,7,4,epri,3.1963,2.3529,-0.8434
+NH-06,"Foundation conditions (bearing, bedrock, groundwater)",NH,5,3,epri,2.2831,1.7647,-0.5184
+NH-08,"Coastal flooding (storm surge, tsunami)",NH,6,3,epri,2.7397,1.7647,-0.9750
+NH-09,River flooding,NH,8,3,epri,3.6530,1.7647,-1.8883
+NH-11,"Extreme precipitation (rain, snow, drought)",NH,3,3,epri,1.3699,1.7647,+0.3948
+NH-12,Extreme temperatures,NH,4,3,epri,1.8265,1.7647,-0.0618
+NH-13,Forest / wildfire,NH,3,3,epri,1.3699,1.7647,+0.3948
+NH-14,Combined hazards,NH,3,3,epri,1.3699,1.7647,+0.3948
+NS-02,Grid connection (detailed),NS,8,10,epri,3.6530,5.8824,+2.2294
+NS-03,Transport access (heavy haul road / rail / port),NS,8,10,epri,3.6530,5.8824,+2.2294
+NS-04,Site topography / grading,NS,6,4,epri,2.7397,2.3529,-0.3868
+NS-05,Land availability / ownership / zoning,NS,5,5,epri,2.2831,2.9412,+0.6581
+NS-06,Existing infrastructure reuse,NS,5,4,epri,2.2831,2.3529,+0.0698
+NS-07,Environmental impact (non-radiological),NS,5,4,epri,2.2831,2.3529,+0.0698
+NS-09,Socioeconomic impact,NS,5,6,epri,2.2831,3.5294,+1.2463
+NS-10,Workforce availability,NS,4,5,epri,1.8265,2.9412,+1.1147
+NS-11,Coal-to-nuclear synergies,NS,6,6,epri,2.7397,3.5294,+0.7897
+NS-12,Regulatory / political environment,NS,6,7,epri,2.7397,4.1176,+1.3779
+NS-13,Construction logistics,NS,4,6,epri,1.8265,3.5294,+1.7029
+RI-01,"Atmospheric dispersion (wind, stability, BLH)",RI,6,5,epri,2.7397,2.9412,+0.2015
+RI-02,Surface water dispersion,RI,5,5,epri,2.2831,2.9412,+0.6581
+RI-03,Groundwater dispersion,RI,5,5,epri,2.2831,2.9412,+0.6581
+RI-05,Distance to large population centres (>50 k),RI,10,5,epri,4.5662,2.9412,-1.6250
+RI-06,Population projections (60-yr design life),RI,5,5,epri,2.2831,2.9412,+0.6581

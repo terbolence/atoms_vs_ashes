@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "site_id": "166f5fcc-1cc4-4cf5-9e52-59e7ce1557c6",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:15:04.703607+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,36.24,33.75);\n  way[\"military\"](around:25000,36.24,33.75);\n  relation[\"military\"](around:25000,36.24,33.75);\n  node[\"landuse\"=\"military\"](around:25000,36.24,33.75);\n  way[\"landuse\"=\"military\"](around:25000,36.24,33.75);\n  relation[\"landuse\"=\"military\"](around:25000,36.24,33.75);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.24,33.75);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.24,33.75);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.24,33.75);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.24,33.75);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.24,33.75);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.24,33.75);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 699,
+        "element_count": 4,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 142517586,
+              "center": {
+                "lat": 36.2814616,
+                "lon": 33.8358015
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 524208632,
+              "center": {
+                "lat": 36.284211,
+                "lon": 33.8386446
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "marines",
+                "name": "Taşucu Askeri Limanı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 687733122,
+              "center": {
+                "lat": 36.2775419,
+                "lon": 33.8358976
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1333177174,
+              "center": {
+                "lat": 36.3744777,
+                "lon": 33.9363169
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "T.C. Silifke Kaymakamlığı İlçe Jandarma Komutanlığı"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

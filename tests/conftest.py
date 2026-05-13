@@ -1,9 +1,10 @@
-# man_hours: 4.0
+# man_hours: 4.2
 """Shared test fixtures."""
 
 from __future__ import annotations
 
 from pathlib import Path
+import os
 from unittest.mock import patch
 
 import pytest
@@ -19,6 +20,23 @@ def project_root() -> Path:
 @pytest.fixture()
 def settings(project_root: Path) -> Settings:
     return Settings(project_root / "config" / "default.yml")
+
+
+def pytest_collection_modifyitems(config, items):
+    """Keep smoke tests opt-in for local/unit sweeps.
+
+    Smoke tests touch live services or large local raster fixtures. They should
+    still be runnable explicitly, but the default project test command must not
+    fail just because those external prerequisites are absent.
+    """
+    if os.environ.get("AVA_RUN_SMOKE") in {"1", "true", "TRUE", "yes"}:
+        return
+    skip_smoke = pytest.mark.skip(
+        reason="smoke tests require AVA_RUN_SMOKE=1 and external/local data prerequisites"
+    )
+    for item in items:
+        if "smoke" in item.keywords:
+            item.add_marker(skip_smoke)
 
 
 @pytest.fixture()

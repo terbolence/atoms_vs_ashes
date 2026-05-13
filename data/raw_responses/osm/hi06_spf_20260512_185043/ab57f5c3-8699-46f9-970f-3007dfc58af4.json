@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "site_id": "ab57f5c3-8699-46f9-970f-3007dfc58af4",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:32:25.695916+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,52.302,18.237);\n  way[\"military\"](around:25000,52.302,18.237);\n  relation[\"military\"](around:25000,52.302,18.237);\n  node[\"landuse\"=\"military\"](around:25000,52.302,18.237);\n  way[\"landuse\"=\"military\"](around:25000,52.302,18.237);\n  relation[\"landuse\"=\"military\"](around:25000,52.302,18.237);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.302,18.237);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.302,18.237);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,52.302,18.237);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.302,18.237);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.302,18.237);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,52.302,18.237);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 6280,
+        "element_count": 17,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:31:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 11835063543,
+              "lat": 52.1249454,
+              "lon": 18.4519254,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Polski schron bojowy z 1939 roku służący do oberwacji przedpola w zakresie 180°",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJUsyzjNRtX/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 6"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11835063544,
+              "lat": 52.122249,
+              "lon": 18.455791,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJPhRX7MHAt/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 7"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11835063545,
+              "lat": 52.1252148,
+              "lon": 18.4518073,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJXUfUHt0NW/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 5"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11835063549,
+              "lat": 52.1697517,
+              "lon": 18.4614767,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "description": "Polski schron bojowy z 1939 roku służący do oberwacji przedpola w zakresie 180°",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJH8ERgNcYP/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 3"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11835063558,
+              "lat": 52.1811208,
+              "lon": 18.4512194,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na dwa ciężkie karabiny maszynowe",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJE_-ZuNHrP/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 1"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12486990584,
+              "lat": 52.4063619,
+              "lon": 18.3464249,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMn3gotM3lX/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 9",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12486990585,
+              "lat": 52.4072209,
+              "lon": 18.349199,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMlUnD2tH82/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 8",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12486990586,
+              "lat": 52.4092051,
+              "lon": 18.3509305,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMgI5istDlj/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 7",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12486990587,
+              "lat": 52.4220083,
+              "lon": 18.362571,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMqdWuqsFhp/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 4",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12486990596,
+              "lat": 52.4159787,
+              "lon": 18.352545,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMa94G2NIRp/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 5",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 403666151,
+              "center": {
+                "lat": 52.3726906,
+                "lon": 18.1816655
+              },
+              "tags": {
+                "disused:amenity": "school",
+                "fixme": "Nazwa i rodzaj obiektu",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 562463077,
+              "center": {
+                "lat": 52.383089,
+                "lon": 17.855146
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "icao": "EPPW",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "33 Baza Lotnictwa Transportowego",
+                "name:en": "33rd Air Base",
+                "name:pl": "33 Baza Lotnictwa Transportowego",
+                "wikidata": "Q4635247",
+                "wikipedia": "en:33rd Air Base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 849637741,
+              "center": {
+                "lat": 52.2566936,
+                "lon": 18.2477903
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1274628478,
+              "center": {
+                "lat": 52.1487884,
+                "lon": 18.4290063
+              },
+              "tags": {
+                "access": "private",
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na dwa ciężkie karabiny maszynowe",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJM_Z7Gth92/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 4"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1274628485,
+              "center": {
+                "lat": 52.1740663,
+                "lon": 18.4521875
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DJKT76_tHV9/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Przedmoście Koło - Schron nr 2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1349837834,
+              "center": {
+                "lat": 52.412451,
+                "lon": 18.3510644
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na jeden ciężki karabin maszynowy",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMdmwGCNx73/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 6",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1349837835,
+              "center": {
+                "lat": 52.4102764,
+                "lon": 18.3587073
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Polski schron bojowy z 1939 roku z miejscem monatażowym na dwa ciężkie karabiny maszynowe",
+                "historic": "yes",
+                "image": "https://www.instagram.com/p/DMTOXQotg5z/",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Ślesin - Schron nr 10",
+                "source:name": "http://www.schrony1939.fortyfikacje.pl/slesin.htm"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

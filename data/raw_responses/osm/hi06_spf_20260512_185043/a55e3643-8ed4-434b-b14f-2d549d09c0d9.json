@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "site_id": "a55e3643-8ed4-434b-b14f-2d549d09c0d9",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:38:42.988818+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,54.787416,18.085672);\n  way[\"military\"](around:25000,54.787416,18.085672);\n  relation[\"military\"](around:25000,54.787416,18.085672);\n  node[\"landuse\"=\"military\"](around:25000,54.787416,18.085672);\n  way[\"landuse\"=\"military\"](around:25000,54.787416,18.085672);\n  relation[\"landuse\"=\"military\"](around:25000,54.787416,18.085672);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.787416,18.085672);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.787416,18.085672);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,54.787416,18.085672);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.787416,18.085672);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.787416,18.085672);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,54.787416,18.085672);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 793,
+        "element_count": 17,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:37:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3524527623,
+              "lat": 54.821341,
+              "lon": 18.3486386,
+              "tags": {
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 903, SO3, 34 BAS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3524527624,
+              "lat": 54.8252003,
+              "lon": 18.3448989,
+              "tags": {
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 918, SLR, 34 BAS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3524527625,
+              "lat": 54.8205377,
+              "lon": 18.3475914,
+              "tags": {
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 914, MA, 34 BAS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3524527838,
+              "lat": 54.8204077,
+              "lon": 18.3504354,
+              "tags": {
+                "building": "bunker",
+                "historic": "bunker",
+                "military": "bunker",
+                "name": "Obiekt 902, SO2, 34 BAS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6896999514,
+              "lat": 54.8193047,
+              "lon": 17.8978492,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7216816253,
+              "lat": 54.7804063,
+              "lon": 18.4523156,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "military": "bunker",
+                "name": "Magazyn amunicyjny",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12923437907,
+              "lat": 54.8242607,
+              "lon": 17.9575264,
+              "tags": {
+                "military": "bunker",
+                "name": "Schron"
+              }
+            },
+            {
+              "type": "way",
+              "id": 89126062,
+              "center": {
+                "lat": 54.7858461,
+                "lon": 18.3771581
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kompania radiotechniczna Władysławowo (JW 5021)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 99872263,
+              "center": {
+                "lat": 54.8168415,
+                "lon": 18.3401429
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kompania chemiczna Rozewie (JW 1832)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 142676880,
+              "center": {
+                "lat": 54.5989176,
+                "lon": 18.1993499
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 162926476,
+              "center": {
+                "lat": 54.7776253,
+                "lon": 18.4134066
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 164621562,
+              "center": {
+                "lat": 54.6019462,
+                "lon": 18.2162206
+              },
+              "tags": {
+                "addr:city": "Wejherowo",
+                "addr:housenumber": "227",
+                "addr:postcode": "84-200",
+                "addr:street": "Jana III Sobieskiego",
+                "fax": "+48 261251787",
+                "landuse": "military",
+                "name": "Batalion Dowodzenia Marynarki Wojennej im. Pułkownika Kazimierza Pruszkowskiego",
+                "phone": "+48 261251851",
+                "website": "https://bdowmw.wp.mil.pl/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165344296,
+              "center": {
+                "lat": 54.6202933,
+                "lon": 18.2152251
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica garnizonowa typu B, klasy I w Wejherowie",
+                "operator": "Rejonowy Zarząd Infrastruktury w Gdyni"
+              }
+            },
+            {
+              "type": "way",
+              "id": 165789179,
+              "center": {
+                "lat": 54.6051352,
+                "lon": 18.2171912
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "18 Wojskowy Oddział Gospodarczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 234810186,
+              "center": {
+                "lat": 54.8297497,
+                "lon": 18.5880837
+              },
+              "tags": {
+                "description": "okresowo zamykana dla żeglugi i rybołówstwa",
+                "military": "training_area",
+                "name": "Strefa 10",
+                "seamark:information": "Zone 10 periodically closed for shipping and fishing",
+                "seamark:name": "Strefa 10 okresowo zamykana dla żeglugi i rybołówstwa",
+                "seamark:reference": "http://www.bhmw.mw.mil.pl/index.php?akcja=on",
+                "seamark:restricted_area:category": "military",
+                "seamark:restricted_area:information": "range_safety",
+                "seamark:source": "http://isap.sejm.gov.pl/DetailsServlet?id=WDU20051451216",
+                "seamark:status": "occasional",
+                "seamark:type": "restricted_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 302310356,
+              "center": {
+                "lat": 54.8247804,
+                "lon": 17.933767
+              },
+              "tags": {
+                "description": "Wchodzi w skład Zautomatyzowanego Systemu Radarowego Nadzoru",
+                "landuse": "military",
+                "name": "Posterunek Obserwacyjny Białogóra"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062818616,
+              "center": {
+                "lat": 54.8150751,
+                "lon": 18.352009
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "site_id": "e1649639-2e45-4226-9c7a-783d2dcb6724",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:19:04.191349+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,46.064103,18.263048);\n  way[\"military\"](around:25000,46.064103,18.263048);\n  relation[\"military\"](around:25000,46.064103,18.263048);\n  node[\"landuse\"=\"military\"](around:25000,46.064103,18.263048);\n  way[\"landuse\"=\"military\"](around:25000,46.064103,18.263048);\n  relation[\"landuse\"=\"military\"](around:25000,46.064103,18.263048);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.064103,18.263048);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.064103,18.263048);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.064103,18.263048);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.064103,18.263048);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.064103,18.263048);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.064103,18.263048);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1045,
+        "element_count": 9,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:18:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4439618843,
+              "lat": 46.1093399,
+              "lon": 18.2027945,
+              "tags": {
+                "height": "50",
+                "man_made": "tower",
+                "military": "yes",
+                "note": "height is estimated",
+                "tower:type": "communication"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4743663010,
+              "lat": 46.1594369,
+              "lon": 18.3450611,
+              "tags": {
+                "bunker_type": "gun_emplacement",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12772074423,
+              "lat": 46.188095,
+              "lon": 18.2648333,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "légó"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13626388420,
+              "lat": 46.2213335,
+              "lon": 18.1047875,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "military": "bunker",
+                "name": "Hidegháborús lőállás"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13640538852,
+              "lat": 46.2234211,
+              "lon": 18.1048798,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "military": "bunker",
+                "name": "Hidegháborús lőállás"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257127368,
+              "center": {
+                "lat": 46.0911061,
+                "lon": 18.2796307
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "4",
+                "military": "barracks",
+                "name": "Magyar Honvédség 101. Szigetvári Zrínyi Miklós Vegyes Tüzérdandár"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371334878,
+              "center": {
+                "lat": 45.888369,
+                "lon": 18.2507479
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 446727569,
+              "center": {
+                "lat": 46.1096728,
+                "lon": 18.2029119
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 690346233,
+              "center": {
+                "lat": 45.8641756,
+                "lon": 18.2877218
+              },
+              "tags": {
+                "abandoned": "yes",
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

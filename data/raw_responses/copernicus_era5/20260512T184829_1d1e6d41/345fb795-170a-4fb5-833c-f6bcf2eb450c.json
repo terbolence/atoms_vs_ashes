@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+    "connector_slug": "copernicus_era5",
+    "run_id": "20260512T184829_1d1e6d41",
+    "request_url": "https://cds.climate.copernicus.eu/",
+    "request_params": null,
+    "http_status": null,
+    "fetched_at": "2026-05-12T18:49:25.205657+00:00"
+  },
+  "response": {
+    "type": "raster_extraction",
+    "source_url": "https://cds.climate.copernicus.eu/",
+    "crs": "EPSG:4326",
+    "extracted_values": {
+      "site_lat": 44.669722,
+      "site_lon": 23.407778,
+      "grid_distance_km": 11.523609251188436,
+      "reference_period": "1991-2020",
+      "quality": "medium",
+      "wind": {
+        "wind_gust_50yr_ms": 6.654886472509621,
+        "max_wind_gust_ms": 6.753411293029785,
+        "mean_wind_speed_ms": 0.7492597449623761,
+        "wind_speed_99p_ms": 6.355216474533082,
+        "prevailing_direction_deg": 45.0,
+        "tropical_storm_exposure_index": 0.0,
+        "gev_fit_quality": "ok"
+      },
+      "temperature": {
+        "max_temp_record_c": 25.723291015625023,
+        "min_temp_record_c": -4.666326904296852,
+        "mean_summer_temp_c": 21.708710394965298,
+        "hot_days_above_35c": 0.0,
+        "cold_days_below_minus20c": 0.0
+      },
+      "precipitation": {
+        "mean_annual_precip_mm": 28.216711680094402,
+        "max_daily_precip_mm": 0.36867041336862666,
+        "annual_snow_days": 124.64,
+        "spi_12_min": -2.0581290168531234,
+        "drought_severity_index": 0.045941506613522275
+      },
+      "climate_projections": {
+        "warming_2050_ssp245_c": 1.5346304787529839,
+        "warming_2080_ssp585_c": 4.4045079761081265
+      }
+    },
+    "resolution_m": 27750.0
+  }
+}

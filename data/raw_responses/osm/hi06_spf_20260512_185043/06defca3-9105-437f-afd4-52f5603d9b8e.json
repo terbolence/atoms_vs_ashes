@@ -1,0 +1,313 @@
+{
+  "meta": {
+    "site_id": "06defca3-9105-437f-afd4-52f5603d9b8e",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:49:06.602784+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,49.059218,18.907019);\n  way[\"military\"](around:25000,49.059218,18.907019);\n  relation[\"military\"](around:25000,49.059218,18.907019);\n  node[\"landuse\"=\"military\"](around:25000,49.059218,18.907019);\n  way[\"landuse\"=\"military\"](around:25000,49.059218,18.907019);\n  relation[\"landuse\"=\"military\"](around:25000,49.059218,18.907019);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.059218,18.907019);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.059218,18.907019);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.059218,18.907019);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.059218,18.907019);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.059218,18.907019);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.059218,18.907019);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9576,
+        "element_count": 21,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:47:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3711108579,
+              "lat": 49.1680694,
+              "lon": 18.8795836,
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Partizánske zemľanky",
+                "source": "survey, gps"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4548240678,
+              "lat": 49.119572,
+              "lon": 19.2268614,
+              "tags": {
+                "historic": "yes",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4548240679,
+              "lat": 49.1199687,
+              "lon": 19.2259066,
+              "tags": {
+                "historic": "yes",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "Mbox, survey"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4992664320,
+              "lat": 48.8811123,
+              "lon": 19.0358588,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Partizánsky bunker SNP",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5090783013,
+              "lat": 48.9294542,
+              "lon": 18.9356111,
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "pillbox",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "name": "BUNKER",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10134078152,
+              "lat": 48.9686305,
+              "lon": 19.1392511,
+              "tags": {
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11258666409,
+              "lat": 49.0042106,
+              "lon": 19.2014033,
+              "tags": {
+                "bunker_type": "observation",
+                "historic": "yes",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11258666410,
+              "lat": 49.0041103,
+              "lon": 19.2011712,
+              "tags": {
+                "bunker_type": "observation",
+                "historic": "yes",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11975605402,
+              "lat": 49.1472697,
+              "lon": 19.1093083,
+              "tags": {
+                "access": "yes",
+                "bunker_type": "gun_emplacement",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12753682211,
+              "lat": 48.9486096,
+              "lon": 18.8600362,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "observation",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes",
+                "source": "survey, GPS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 319316516,
+              "center": {
+                "lat": 49.1333875,
+                "lon": 18.9115159
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source": "kapor2"
+              }
+            },
+            {
+              "type": "way",
+              "id": 623762280,
+              "center": {
+                "lat": 49.0724817,
+                "lon": 18.9049877
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "concrete",
+                "height": "4",
+                "landuse": "military",
+                "name": "Základňa výcviku a mobilizačného doplňovania",
+                "source": "ZBgis, survey"
+              }
+            },
+            {
+              "type": "way",
+              "id": 740803638,
+              "center": {
+                "lat": 49.0758493,
+                "lon": 18.9299199
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Kasárne Československej armády Martin-Sever"
+              }
+            },
+            {
+              "type": "way",
+              "id": 756385289,
+              "center": {
+                "lat": 49.1272012,
+                "lon": 18.9991056
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Vojenský obvod Zaťkovo",
+                "source": "Ortofotomozaika SR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 816316032,
+              "center": {
+                "lat": 48.8768807,
+                "lon": 19.0782802
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "height": "3",
+                "landuse": "military",
+                "name": "RADAR armády SR",
+                "source:geometry": "Ortofotomozaika SR 2021-2023;survey"
+              }
+            },
+            {
+              "type": "way",
+              "id": 905847553,
+              "center": {
+                "lat": 49.0701519,
+                "lon": 18.6736645
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strelnica"
+              }
+            },
+            {
+              "type": "way",
+              "id": 992148095,
+              "center": {
+                "lat": 48.9980288,
+                "lon": 19.2037143
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Vojenská zotavovňa Smrekovica",
+                "source": "Ortofotomozaika SR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1001533119,
+              "center": {
+                "lat": 49.2340904,
+                "lon": 18.7457814
+              },
+              "tags": {
+                "building": "yes",
+                "description": "strieľna",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1050607288,
+              "center": {
+                "lat": 49.0032387,
+                "lon": 19.2019858
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "Ortofotomozaika SR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1058166314,
+              "center": {
+                "lat": 49.0758814,
+                "lon": 18.934299
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1215179569,
+              "center": {
+                "lat": 49.0041635,
+                "lon": 19.2012953
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "Ortofotomozaika SR"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,751 @@
+2026-05-12 21:50:43 [info     ] hi06_rerun_start               dry_run=False radius_km=25.0 run_id=hi06_spf_20260512_185043
+
+HI-06 SP-F rerun — 361 sites, run_id=hi06_spf_20260512_185043
+   #   CC  Site                                       count  class           nearest_km    hc_km
+-----------------------------------------------------------------------------------------------
+   1   AL  Porto Romano Power Station                     -  cached                   -        -
+   2   AT  Duernrohr power station                        -  cached                   -        -
+   3   AT  Enns Power Station                             -  cached                   -        -
+   4   AT  Mellach power station                          -  cached                   -        -
+   5   AT  Riedersbach power station                      -  cached                   -        -
+   6   AT  St Andrae power station                        -  cached                   -        -
+   7   AT  Timelkam power station                         -  cached                   -        -
+   8   AT  Voitsberg power station                        -  cached                   -        -
+   9   AT  Zeltweg power station                          -  cached                   -        -
+  10   BA  Banovici power station                         -  cached                   -        -
+  11   BA  Bugojno Thermal Power Project                  -  cached                   -        -
+  12   BA  Gacko Thermal Power Plant                      -  cached                   -        -
+  13   BA  Glinica power station                          -  cached                   -        -
+  14   BA  Kakanj Thermal Power Plant                     -  cached                   -        -
+2026-05-12 21:50:48 [info     ] osm_query_ok                   elapsed_ms=4069 element_count=1
+  15   BA  Kamengrad Thermal Power Plant                  1  other                 25.0        -
+2026-05-12 21:51:12 [info     ] osm_query_ok                   elapsed_ms=10645 element_count=14
+  16   BA  Kongora Thermal Power Plant                   14  depot                 16.0     16.0
+2026-05-12 21:51:28 [info     ] osm_query_ok                   elapsed_ms=5170 element_count=40
+  17   BA  Miljevina power station                       40  depot                  7.4      7.4
+2026-05-12 21:51:45 [info     ] osm_query_ok                   elapsed_ms=5254 element_count=7
+  18   BA  Stanari Thermal Power Plant                    7  other                 10.5     10.6
+2026-05-12 21:52:02 [info     ] osm_query_ok                   elapsed_ms=6409 element_count=8
+  19   BA  Tuzla Thermal Power Plant                      8  depot                  5.5      5.5
+2026-05-12 21:52:18 [info     ] osm_query_ok                   elapsed_ms=1592 element_count=11
+  20   BA  Ugljevik power station                        11  depot                  2.5      2.5
+2026-05-12 21:52:38 [info     ] osm_query_ok                   elapsed_ms=5001 element_count=4
+  21   BG  Bobov Dol power station                        4  other                 10.8     23.6
+2026-05-12 21:52:56 [info     ] osm_query_ok                   elapsed_ms=7564 element_count=0
+  22   BG  Brikel power station                           0  none                     -        -
+2026-05-12 21:53:15 [info     ] osm_query_ok                   elapsed_ms=9124 element_count=38
+  23   BG  Deven power station                           38  other                  5.7     17.6
+2026-05-12 21:53:37 [info     ] osm_query_ok                   elapsed_ms=6780 element_count=2
+  24   BG  Lom Power Station                              2  other                  3.9        -
+2026-05-12 21:53:54 [info     ] osm_query_ok                   elapsed_ms=2549 element_count=6
+  25   BG  Maritsa 3 power station                        6  other                 10.0        -
+2026-05-12 21:54:17 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 21:54:17 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 21:54:35 [info     ] osm_query_ok                   elapsed_ms=10253 element_count=0
+  26   BG  Maritsa Iztok-1 power station                  0  none                     -        -
+2026-05-12 21:54:55 [info     ] osm_query_ok                   elapsed_ms=10910 element_count=1
+  27   BG  Maritsa Iztok-2 power station                  1  other                 20.2        -
+2026-05-12 21:55:12 [info     ] osm_query_ok                   elapsed_ms=3198 element_count=0
+  28   BG  Maritsa Iztok-3 power station                  0  none                     -        -
+2026-05-12 21:55:27 [info     ] osm_query_ok                   elapsed_ms=2995 element_count=0
+  29   BG  Maritsa Iztok-4 power station                  0  none                     -        -
+2026-05-12 21:55:48 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 21:55:48 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 21:56:03 [info     ] osm_query_ok                   elapsed_ms=8727 element_count=31
+  30   BG  Republika power station                       31  other                  3.1     15.2
+2026-05-12 21:56:17 [info     ] osm_query_ok                   elapsed_ms=4272 element_count=35
+  31   BG  Ruse Iztok power station                      35  depot                  3.4      3.4
+2026-05-12 21:57:51 [info     ] osm_query_ok                   elapsed_ms=80600 element_count=68
+  32   BG  Sliven power station                          68  other                  0.7      3.0
+2026-05-12 21:58:02 [info     ] osm_query_ok                   elapsed_ms=1151 element_count=7
+  33   BG  Svilosa power station                          7  depot                  4.7      4.7
+2026-05-12 21:58:29 [info     ] osm_query_ok                   elapsed_ms=14062 element_count=49
+  34   BG  Varna power station                           49  other                  1.1      6.9
+2026-05-12 21:58:44 [info     ] osm_query_ok                   elapsed_ms=5462 element_count=9
+  35   BG  Vidin Works power station                      9  other                  5.4        -
+2026-05-12 21:58:56 [info     ] osm_query_ok                   elapsed_ms=1876 element_count=2
+  36   BY  Lelchitsy power station                        2  training_area          0.1      7.3
+2026-05-12 21:59:27 [info     ] osm_query_ok                   elapsed_ms=16376 element_count=3
+  37   BY  Zelwa power station                            3  other                  0.1        -
+2026-05-12 21:59:50 [info     ] osm_query_ok                   elapsed_ms=9478 element_count=174
+  38   CZ  Chvaletice power station                     174  depot                  8.8      8.8
+2026-05-12 22:00:10 [info     ] osm_query_ok                   elapsed_ms=8888 element_count=159
+  39   CZ  Detmarovice power station                    159  depot                  1.1      1.1
+2026-05-12 22:00:41 [info     ] osm_query_ok                   elapsed_ms=18325 element_count=104
+  40   CZ  Hodonin power station                        104  depot                  9.3      9.3
+2026-05-12 22:01:04 [info     ] osm_query_ok                   elapsed_ms=10833 element_count=135
+  41   CZ  Karvina power station                        135  depot                  3.2      3.2
+2026-05-12 22:01:34 [info     ] osm_query_ok                   elapsed_ms=17794 element_count=154
+  42   CZ  Kladno power station                         154  depot                  1.4      1.4
+2026-05-12 22:01:52 [info     ] osm_query_ok                   elapsed_ms=8944 element_count=238
+  43   CZ  Komorany power station                       238  depot                  0.6      0.6
+2026-05-12 22:02:13 [info     ] osm_query_ok                   elapsed_ms=5825 element_count=121
+  44   CZ  Ledvice power station                        121  depot                  1.4      1.4
+2026-05-12 22:02:32 [info     ] osm_query_ok                   elapsed_ms=9267 element_count=66
+  45   CZ  Malesice power station                        66  airfield               4.3      4.3
+2026-05-12 22:02:49 [info     ] osm_query_ok                   elapsed_ms=3657 element_count=211
+  46   CZ  Marianske Hory power station                 211  depot                  2.1      2.1
+2026-05-12 22:03:09 [info     ] osm_query_ok                   elapsed_ms=10640 element_count=107
+  47   CZ  Melnik power station                         107  depot                  1.6      1.6
+2026-05-12 22:03:42 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:03:42 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:04:07 [info     ] osm_query_ok                   elapsed_ms=17648 element_count=106
+  48   CZ  Mondi Steti power station                    106  depot                  1.0      1.0
+2026-05-12 22:04:25 [info     ] osm_query_ok                   elapsed_ms=4548 element_count=264
+  49   CZ  Mostecka Power Station                       264  depot                  4.2      4.2
+2026-05-12 22:04:52 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:04:52 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:05:26 [info     ] osm_query_ok                   elapsed_ms=15049 element_count=39
+  50   CZ  Olomouc power station                         39  other                  3.0      4.3
+2026-05-12 22:05:40 [info     ] osm_query_ok                   elapsed_ms=4121 element_count=295
+  51   CZ  Opatovice power station                      295  depot                  2.5      2.5
+2026-05-12 22:05:55 [info     ] osm_query_ok                   elapsed_ms=5309 element_count=9
+  52   CZ  Plana Nad Luznici power station                9  other                  6.3      9.9
+2026-05-12 22:06:20 [info     ] osm_query_ok                   elapsed_ms=10446 element_count=87
+  53   CZ  Plzen CHP power station                       87  depot                  1.0      1.0
+2026-05-12 22:06:40 [info     ] osm_query_ok                   elapsed_ms=7034 element_count=165
+  54   CZ  Plzenska energetika ELU III power statio     165  depot                  1.8      1.8
+2026-05-12 22:06:58 [info     ] osm_query_ok                   elapsed_ms=6294 element_count=321
+  55   CZ  Pocerady power station                       321  depot                  7.8      7.8
+2026-05-12 22:07:59 [info     ] osm_query_ok                   elapsed_ms=47919 element_count=594
+  56   CZ  Porici power station                         594  depot                  0.2      0.2
+2026-05-12 22:08:21 [info     ] osm_query_ok                   elapsed_ms=11119 element_count=39
+  57   CZ  Prerov power station                          39  airfield               2.7      2.7
+2026-05-12 22:08:34 [info     ] osm_query_ok                   elapsed_ms=2088 element_count=54
+  58   CZ  Pribram power station                         54  other                  6.5      8.7
+2026-05-12 22:09:03 [warning  ] osm_query_error                error='Server disconnected without sending a response.'
+2026-05-12 22:09:03 [warning  ] osm_query_retry                attempt=1 status=0 wait_s=45
+2026-05-12 22:09:14 [info     ] osm_query_ok                   elapsed_ms=4139 element_count=172
+  59   CZ  Prunerov power station                       172  depot                  1.6      1.6
+2026-05-12 22:09:35 [info     ] osm_query_ok                   elapsed_ms=10411 element_count=27
+  60   CZ  Sko-Energo power station                      27  depot                  2.5      2.5
+2026-05-12 22:09:52 [info     ] osm_query_ok                   elapsed_ms=6472 element_count=8
+  61   CZ  Tisova power station                           8  depot                  5.1      5.1
+2026-05-12 22:10:06 [info     ] osm_query_ok                   elapsed_ms=4369 element_count=212
+  62   CZ  Trebovice power station                      212  depot                  1.1      1.1
+2026-05-12 22:10:28 [info     ] osm_query_ok                   elapsed_ms=13802 element_count=40
+  63   CZ  Trinec-E3 power station                       40  depot                  8.3      8.3
+2026-05-12 22:10:51 [info     ] osm_query_ok                   elapsed_ms=12470 element_count=391
+  64   CZ  Tusimice power station                       391  depot                  4.1      4.1
+2026-05-12 22:11:06 [info     ] osm_query_ok                   elapsed_ms=3215 element_count=19
+  65   CZ  Vresova TPS power station                     19  depot                  7.9      7.9
+2026-05-12 22:11:24 [info     ] osm_query_ok                   elapsed_ms=5862 element_count=9
+  66   CZ  Zlin power station                             9  depot                  1.3      1.3
+2026-05-12 22:11:36 [info     ] osm_query_ok                   elapsed_ms=1266 element_count=10
+  67   HR  Ploče power station                           10  other                  1.1      8.9
+2026-05-12 22:11:51 [info     ] osm_query_ok                   elapsed_ms=2448 element_count=4
+  68   HR  Plomin power station                           4  depot                  4.2      4.2
+2026-05-12 22:12:01 [info     ] osm_query_ok                   elapsed_ms=1076 element_count=354
+  69   HU  Bakony power station                         354  training_area         12.4     14.0
+2026-05-12 22:12:13 [info     ] osm_query_ok                   elapsed_ms=1653 element_count=59
+  70   HU  Banhida-II power station                      59  depot                  9.7      9.7
+2026-05-12 22:14:23 [warning  ] osm_query_error                error='Timeout: _ssl.c:1063: The handshake operation timed out'
+2026-05-12 22:14:23 [warning  ] osm_query_retry                attempt=1 status=408 wait_s=45
+2026-05-12 22:17:17 [warning  ] osm_query_error                error='[Errno 54] Connection reset by peer'
+2026-05-12 22:17:17 [warning  ] osm_query_retry                attempt=2 status=0 wait_s=90
+2026-05-12 22:17:28 [info     ] osm_query_ok                   elapsed_ms=2856 element_count=6
+  71   HU  Borsod power station                           6  depot                  0.4      0.4
+2026-05-12 22:17:47 [info     ] osm_query_ok                   elapsed_ms=5167 element_count=4
+  72   HU  Matra power station                            4  depot                  6.9      6.9
+2026-05-12 22:18:01 [info     ] osm_query_ok                   elapsed_ms=1297 element_count=5
+  73   HU  Matraterenye power station                     5  other                 10.6     23.3
+2026-05-12 22:18:14 [info     ] osm_query_ok                   elapsed_ms=3956 element_count=7
+  74   HU  Mecsek Hills power station                     7  other                  9.3     13.6
+2026-05-12 22:18:28 [info     ] osm_query_ok                   elapsed_ms=1085 element_count=10
+  75   HU  Mohacs power station                          10  depot                 20.3     20.3
+2026-05-12 22:18:48 [info     ] osm_query_ok                   elapsed_ms=7332 element_count=40
+  76   HU  Oroszlány power station                       40  depot                  6.1      6.1
+2026-05-12 22:19:04 [info     ] osm_query_ok                   elapsed_ms=1045 element_count=9
+  77   HU  Pecs power station                             9  other                  3.3     12.3
+2026-05-12 22:19:15 [info     ] osm_query_ok                   elapsed_ms=1677 element_count=6
+  78   HU  Tiszapalkonya power station                    6  depot                  2.1      2.1
+2026-05-12 22:19:31 [info     ] osm_query_ok                   elapsed_ms=3978 element_count=20
+  79   HU  Torony power station                          20  other                  4.8      7.6
+2026-05-12 22:19:44 [info     ] osm_query_ok                   elapsed_ms=807 element_count=137
+  80   LV  Kurzeme power station                        137  training_area          4.2      4.7
+2026-05-12 22:19:59 [info     ] osm_query_ok                   elapsed_ms=5629 element_count=13
+  81   MD  Kuchurgan power station                       13  depot                 11.4     11.4
+2026-05-12 22:20:13 [info     ] osm_query_ok                   elapsed_ms=1013 element_count=8
+  82   ME  Bar power station                              8  other                  0.9     23.9
+2026-05-12 22:20:32 [info     ] osm_query_ok                   elapsed_ms=6097 element_count=3
+  83   ME  Berane power station                           3  other                 14.8        -
+2026-05-12 22:20:43 [info     ] osm_query_ok                   elapsed_ms=1744 element_count=1
+  84   ME  Maoce Power Station                            1  other                  1.2        -
+2026-05-12 22:20:59 [info     ] osm_query_ok                   elapsed_ms=1984 element_count=1
+  85   ME  Pljevlja power station                         1  other                  2.9        -
+2026-05-12 22:21:11 [info     ] osm_query_ok                   elapsed_ms=1014 element_count=10
+  86   MK  Bitola power station                          10  other                 16.2        -
+2026-05-12 22:21:25 [info     ] osm_query_ok                   elapsed_ms=1813 element_count=2
+  87   MK  Mariovo power station                          2  other                 11.2        -
+2026-05-12 22:21:40 [info     ] osm_query_ok                   elapsed_ms=705 element_count=2
+  88   MK  Negotino power station                         2  training_area          7.0        -
+2026-05-12 22:21:58 [info     ] osm_query_ok                   elapsed_ms=5433 element_count=3
+  89   MK  Oslomej power station                          3  other                  7.3        -
+2026-05-12 22:22:11 [info     ] osm_query_ok                   elapsed_ms=3078 element_count=65
+  90   PL  Adamow power station                          65  other                  4.3     10.3
+2026-05-12 22:22:25 [info     ] osm_query_ok                   elapsed_ms=4117 element_count=1082
+  91   PL  Bedzin power station                        1082  other                  1.4      1.7
+2026-05-12 22:22:37 [info     ] osm_query_ok                   elapsed_ms=1390 element_count=28
+  92   PL  Belchatow power station                       28  depot                  4.7      4.7
+2026-05-12 22:22:48 [info     ] osm_query_ok                   elapsed_ms=1747 element_count=13
+  93   PL  Bialystok power station                       13  other                  2.1        -
+2026-05-12 22:23:00 [info     ] osm_query_ok                   elapsed_ms=2505 element_count=35
+  94   PL  Bielsko-Biala power station                   35  other                  0.8      2.8
+2026-05-12 22:23:17 [info     ] osm_query_ok                   elapsed_ms=1713 element_count=38
+  95   PL  Blachownia power station                      38  depot                  2.1      2.1
+2026-05-12 22:23:32 [info     ] osm_query_ok                   elapsed_ms=4632 element_count=84
+  96   PL  Bydgoszcz power station                       84  depot                  1.1      1.1
+2026-05-12 22:23:50 [info     ] osm_query_ok                   elapsed_ms=4759 element_count=1172
+  97   PL  Chorzow Elcho power station                 1172  depot                  1.5      1.5
+2026-05-12 22:24:04 [info     ] osm_query_ok                   elapsed_ms=3390 element_count=57
+  98   PL  Czeczott power station                        57  depot                  4.1      4.1
+2026-05-12 22:24:21 [info     ] osm_query_ok                   elapsed_ms=3281 element_count=32
+  99   PL  Czestochowa CHP power station                 32  other                  4.8      4.8
+2026-05-12 22:24:37 [info     ] osm_query_ok                   elapsed_ms=1595 element_count=85
+ 100   PL  Dolna Odra power station                      85  training_area         11.3     15.2
+2026-05-12 22:24:48 [info     ] osm_query_ok                   elapsed_ms=2133 element_count=151
+ 101   PL  Gdansk-2 power station                       151  depot                  0.8      0.8
+2026-05-12 22:25:05 [info     ] osm_query_ok                   elapsed_ms=3698 element_count=286
+ 102   PL  Gdynia-3 power station                       286  other                  0.3      3.6
+2026-05-12 22:25:17 [info     ] osm_query_ok                   elapsed_ms=2971 element_count=460
+ 103   PL  Gliwice Works power station                  460  other                  2.0      4.1
+2026-05-12 22:25:27 [info     ] osm_query_ok                   elapsed_ms=1184 element_count=62
+ 104   PL  Gorzow power station                          62  other                  1.4      2.9
+2026-05-12 22:25:41 [info     ] osm_query_ok                   elapsed_ms=1428 element_count=25
+ 105   PL  Gubin Power Project                           25  depot                 14.0     14.0
+2026-05-12 22:26:04 [info     ] osm_query_ok                   elapsed_ms=8254 element_count=670
+ 106   PL  Halemba power station                        670  depot                  2.0      2.0
+2026-05-12 22:26:21 [info     ] osm_query_ok                   elapsed_ms=4390 element_count=743
+ 107   PL  Jaworzno power station                       743  depot                  2.5      2.5
+2026-05-12 22:26:36 [info     ] osm_query_ok                   elapsed_ms=2412 element_count=1097
+ 108   PL  Katowice PKE power station                  1097  depot                  4.4      4.4
+2026-05-12 22:26:51 [info     ] osm_query_ok                   elapsed_ms=1413 element_count=31
+ 109   PL  Kedzierzyn CCS Project                        31  depot                  3.1      3.1
+2026-05-12 22:27:08 [info     ] osm_query_ok                   elapsed_ms=4791 element_count=29
+ 110   PL  Konin power station                           29  depot                  3.3      3.3
+2026-05-12 22:27:24 [info     ] osm_query_ok                   elapsed_ms=1514 element_count=27
+ 111   PL  Kozienice power station                       27  other                 15.5     20.8
+2026-05-12 22:27:40 [info     ] osm_query_ok                   elapsed_ms=3747 element_count=149
+ 112   PL  Krakow-Leg power station                     149  other                  2.4      3.6
+2026-05-12 22:27:55 [info     ] osm_query_ok                   elapsed_ms=3847 element_count=1076
+ 113   PL  Lagisza power station                       1076  depot                  1.9      1.9
+2026-05-12 22:28:20 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:28:20 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:28:36 [info     ] osm_query_ok                   elapsed_ms=9159 element_count=385
+ 114   PL  Laziska power station                        385  depot                  1.5      1.5
+2026-05-12 22:28:50 [info     ] osm_query_ok                   elapsed_ms=1525 element_count=68
+ 115   PL  Leczna Power Station (Bogdanka SA)            68  other                 10.8     22.9
+2026-05-12 22:29:08 [info     ] osm_query_ok                   elapsed_ms=4831 element_count=68
+ 116   PL  Leczna Power Station (Enea)                   68  other                 10.8     22.9
+2026-05-12 22:29:23 [info     ] osm_query_ok                   elapsed_ms=4437 element_count=39
+ 117   PL  Legnica Power Station                         39  depot                  0.7      0.7
+2026-05-12 22:29:37 [info     ] osm_query_ok                   elapsed_ms=4918 element_count=31
+ 118   PL  Lodz-2 power station                          31  other                  2.6      2.7
+2026-05-12 22:29:56 [info     ] osm_query_ok                   elapsed_ms=5128 element_count=31
+ 119   PL  Lodz-3 power station                          31  training_area          3.4      4.9
+2026-05-12 22:30:19 [info     ] osm_query_ok                   elapsed_ms=9155 element_count=31
+ 120   PL  Lodz-4 power station                          31  depot                  5.5      5.5
+2026-05-12 22:30:31 [info     ] osm_query_ok                   elapsed_ms=2406 element_count=76
+ 121   PL  Lublin Power Station                          76  other                  1.0      1.8
+2026-05-12 22:31:06 [info     ] osm_query_ok                   elapsed_ms=21130 element_count=720
+ 122   PL  Miechowice power station                     720  depot                  1.7      1.7
+2026-05-12 22:31:19 [info     ] osm_query_ok                   elapsed_ms=3807 element_count=685
+ 123   PL  Murcki-Staszic power station                 685  depot                  0.5      0.5
+2026-05-12 22:31:32 [info     ] osm_query_ok                   elapsed_ms=1004 element_count=63
+ 124   PL  Opalenie power station                        63  depot                 13.6     13.6
+2026-05-12 22:31:47 [info     ] osm_query_ok                   elapsed_ms=1411 element_count=32
+ 125   PL  Opole power station                           32  depot                  6.7      6.7
+2026-05-12 22:32:05 [info     ] osm_query_ok                   elapsed_ms=2498 element_count=33
+ 126   PL  Ostrołęka power station                       33  other                  1.4      4.6
+2026-05-12 22:32:25 [info     ] osm_query_ok                   elapsed_ms=6280 element_count=17
+ 127   PL  Patnow power station                          17  depot                  5.1      5.1
+2026-05-12 22:32:38 [info     ] osm_query_ok                   elapsed_ms=3135 element_count=258
+ 128   PL  Piast Ruch Power Station                     258  depot                  6.6      6.6
+2026-05-12 22:32:49 [info     ] osm_query_ok                   elapsed_ms=1944 element_count=4
+ 129   PL  Polaniec power station                         4  depot                 17.0     17.0
+2026-05-12 22:33:13 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:33:13 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:33:21 [info     ] osm_query_ok                   elapsed_ms=1467 element_count=22
+ 130   PL  Pólnoc power station                          22  depot                  7.8      7.8
+2026-05-12 22:33:36 [info     ] osm_query_ok                   elapsed_ms=1735 element_count=115
+ 131   PL  Pomorzany power station                      115  other                  3.4      3.6
+2026-05-12 22:33:50 [info     ] osm_query_ok                   elapsed_ms=1739 element_count=194
+ 132   PL  Poznan Karolin power station                 194  depot                  0.7      0.7
+2026-05-12 22:34:14 [info     ] osm_query_ok                   elapsed_ms=13961 element_count=27
+ 133   PL  Puchaczow power station                       27  other                  5.8     24.0
+2026-05-12 22:34:32 [info     ] osm_query_ok                   elapsed_ms=2697 element_count=31
+ 134   PL  Pulawy power station (Grupa Azoty)            31  other                  0.2      3.3
+2026-05-12 22:34:49 [info     ] osm_query_ok                   elapsed_ms=2791 element_count=31
+ 135   PL  Pulawy power station (Vattenfall)             31  other                  0.2      3.3
+2026-05-12 22:35:08 [info     ] osm_query_ok                   elapsed_ms=4383 element_count=32
+ 136   PL  Pulawy ZAP Works power station                32  depot                  3.6      3.6
+2026-05-12 22:35:25 [info     ] osm_query_ok                   elapsed_ms=3499 element_count=69
+ 137   PL  Rybnik power station                          69  depot                  2.7      2.7
+2026-05-12 22:35:45 [info     ] osm_query_ok                   elapsed_ms=9729 element_count=145
+ 138   PL  Siechnice power station                      145  depot                  5.0      5.0
+2026-05-12 22:36:08 [info     ] osm_query_ok                   elapsed_ms=8585 element_count=565
+ 139   PL  Siekierki power station                      565  other                  2.9      5.7
+2026-05-12 22:36:22 [info     ] osm_query_ok                   elapsed_ms=3552 element_count=487
+ 140   PL  Siersza power station                        487  depot                  5.2      5.2
+2026-05-12 22:36:34 [info     ] osm_query_ok                   elapsed_ms=2936 element_count=187
+ 141   PL  Skawina power station                        187  depot                  7.2      7.2
+2026-05-12 22:36:48 [info     ] osm_query_ok                   elapsed_ms=5397 element_count=181
+ 142   PL  Stalowa Wola power station                   181  other                  3.2     13.2
+2026-05-12 22:37:08 [info     ] osm_query_ok                   elapsed_ms=5553 element_count=27
+ 143   PL  Swiecie Pulp Mill power station               27  other                  5.9     10.2
+2026-05-12 22:37:24 [info     ] osm_query_ok                   elapsed_ms=4215 element_count=115
+ 144   PL  Szczecin power station                       115  depot                  1.4      1.4
+2026-05-12 22:37:44 [info     ] osm_query_ok                   elapsed_ms=5285 element_count=513
+ 145   PL  Turów power station                          513  depot                  9.3      9.3
+2026-05-12 22:38:01 [info     ] osm_query_ok                   elapsed_ms=2519 element_count=466
+ 146   PL  Tychy power station                          466  other                  2.1      6.8
+2026-05-12 22:38:16 [info     ] osm_query_ok                   elapsed_ms=2157 element_count=153
+ 147   PL  Wroclaw power station                        153  depot                  0.5      0.5
+2026-05-12 22:38:31 [info     ] osm_query_ok                   elapsed_ms=2468 element_count=658
+ 148   PL  Zabrze power station                         658  depot                  3.4      3.4
+2026-05-12 22:38:42 [info     ] osm_query_ok                   elapsed_ms=793 element_count=17
+ 149   PL  Zarnowiec power station                       17  depot                  9.2      9.2
+2026-05-12 22:38:58 [info     ] osm_query_ok                   elapsed_ms=5328 element_count=681
+ 150   PL  Zeran power station                          681  other                  2.6      3.5
+2026-05-12 22:39:21 [info     ] osm_query_ok                   elapsed_ms=13332 element_count=117
+ 151   PL  Zofiowka Mine power station                  117  training_area          2.0     11.9
+2026-05-12 22:39:35 [info     ] osm_query_ok                   elapsed_ms=5050 element_count=875
+ 152   PL  ZW Nowa power station                        875  depot                  2.1      2.1
+2026-05-12 22:39:51 [info     ] osm_query_ok                   elapsed_ms=1123 element_count=74
+ 153   RO  Arad power station                            74  depot                  3.1      3.1
+2026-05-12 22:40:04 [info     ] osm_query_ok                   elapsed_ms=1497 element_count=118
+ 154   RO  Bacau CHP power station                      118  depot                  1.4      1.4
+2026-05-12 22:40:19 [info     ] osm_query_ok                   elapsed_ms=726 element_count=154
+ 155   RO  Braila power station                         154  depot                  8.9      8.9
+2026-05-12 22:40:33 [info     ] osm_query_ok                   elapsed_ms=1870 element_count=194
+ 156   RO  Brasov power station                         194  depot                  1.4      1.4
+2026-05-12 22:40:46 [info     ] osm_query_ok                   elapsed_ms=2735 element_count=1284
+ 157   RO  Bucharest North East power station          1284  depot                  0.3      0.3
+2026-05-12 22:40:58 [info     ] osm_query_ok                   elapsed_ms=1027 element_count=218
+ 158   RO  Craiova II power station                     218  depot                  1.3      1.3
+2026-05-12 22:41:22 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:41:22 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:41:36 [info     ] osm_query_ok                   elapsed_ms=8879 element_count=103
+ 159   RO  Doicesti power station                       103  depot                  5.7      5.7
+2026-05-12 22:41:46 [info     ] osm_query_ok                   elapsed_ms=1022 element_count=190
+ 160   RO  FPCU Feldioara                               190  other                  8.5      8.7
+2026-05-12 22:41:58 [info     ] osm_query_ok                   elapsed_ms=745 element_count=339
+ 161   RO  Galati Power Station                         339  depot                  0.1      0.1
+2026-05-12 22:42:09 [info     ] osm_query_ok                   elapsed_ms=674 element_count=35
+ 162   RO  Giurgiu power station                         35  depot                  0.6      0.6
+2026-05-12 22:42:20 [info     ] osm_query_ok                   elapsed_ms=1108 element_count=87
+ 163   RO  Govora power station                          87  depot                  0.5      0.5
+2026-05-12 22:42:33 [info     ] osm_query_ok                   elapsed_ms=910 element_count=137
+ 164   RO  Iasi-2 power station                         137  depot                  2.4      2.4
+2026-05-12 22:42:44 [info     ] osm_query_ok                   elapsed_ms=786 element_count=215
+ 165   RO  Isalnita power station                       215  other                  5.4      6.8
+2026-05-12 22:42:56 [info     ] osm_query_ok                   elapsed_ms=1625 element_count=19
+ 166   RO  Mintia-Deva power station                     19  other                  3.6      7.2
+2026-05-12 22:43:09 [info     ] osm_query_ok                   elapsed_ms=853 element_count=72
+ 167   RO  Oradea power station                          72  depot                  1.8      1.8
+2026-05-12 22:43:32 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:43:32 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:43:37 [info     ] osm_query_ok                   elapsed_ms=642 element_count=9
+ 168   RO  Paroseni power station                         9  depot                  2.7      2.7
+2026-05-12 22:43:51 [info     ] osm_query_ok                   elapsed_ms=1089 element_count=27
+ 169   RO  Romag Termo power station                     27  depot                  4.6      4.6
+2026-05-12 22:44:08 [info     ] osm_query_ok                   elapsed_ms=1063 element_count=53
+ 170   RO  Rovinari power station                        53  depot                  8.0      8.0
+2026-05-12 22:44:23 [info     ] osm_query_ok                   elapsed_ms=4790 element_count=34
+ 171   RO  Slatina power station                         34  depot                  0.3      0.3
+2026-05-12 22:44:38 [info     ] osm_query_ok                   elapsed_ms=1799 element_count=53
+ 172   RO  Suceava power station                         53  depot                  0.1      0.1
+2026-05-12 22:44:53 [info     ] osm_query_ok                   elapsed_ms=3811 element_count=51
+ 173   RO  Târgu Jiu Thermal Plant                       51  other                  0.2      0.3
+2026-05-12 22:45:17 [info     ] osm_query_ok                   elapsed_ms=9339 element_count=8
+ 174   RO  Turceni power station                          8  depot                  2.9      2.9
+2026-05-12 22:45:31 [info     ] osm_query_ok                   elapsed_ms=3572 element_count=4
+ 175   RS  Despotovac power station                       4  other                 12.8        -
+2026-05-12 22:45:52 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:45:52 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:46:14 [info     ] osm_query_ok                   elapsed_ms=14325 element_count=5
+ 176   RS  Kolubara A power station                       5  other                 21.6        -
+2026-05-12 22:46:25 [info     ] osm_query_ok                   elapsed_ms=2152 element_count=4
+ 177   RS  Kolubara B power station                       4  other                 22.2        -
+2026-05-12 22:46:38 [info     ] osm_query_ok                   elapsed_ms=1614 element_count=6
+ 178   RS  Kostolac power station                         6  other                  9.7     17.8
+2026-05-12 22:46:54 [info     ] osm_query_ok                   elapsed_ms=2803 element_count=6
+ 179   RS  Kovin power station                            6  airfield               2.4      2.4
+2026-05-12 22:47:19 [info     ] osm_query_ok                   elapsed_ms=9225 element_count=4
+ 180   RS  Morava power station                           4  other                  3.6        -
+2026-05-12 22:47:34 [info     ] osm_query_ok                   elapsed_ms=2268 element_count=27
+ 181   RS  Nikola Tesla power station                    27  other                  2.2     21.3
+2026-05-12 22:47:49 [info     ] osm_query_ok                   elapsed_ms=879 element_count=5
+ 182   RS  Štavalj Power Station                          5  other                  0.4      3.9
+2026-05-12 22:48:03 [info     ] osm_query_ok                   elapsed_ms=1924 element_count=8
+ 183   SI  Sostanj power station                          8  other                 15.2     20.5
+2026-05-12 22:48:15 [info     ] osm_query_ok                   elapsed_ms=2514 element_count=63
+ 184   SI  Te-Tol power station                          63  other                  1.4      3.8
+2026-05-12 22:48:28 [info     ] osm_query_ok                   elapsed_ms=3119 element_count=5
+ 185   SI  Trbovlje power station                         5  training_area         18.8     19.5
+2026-05-12 22:48:43 [info     ] osm_query_ok                   elapsed_ms=1690 element_count=134
+ 186   SK  Kosice power station                         134  depot                  2.7      2.7
+2026-05-12 22:49:06 [info     ] osm_query_ok                   elapsed_ms=9576 element_count=21
+ 187   SK  Martinska power station                       21  other                  1.5      8.2
+2026-05-12 22:49:17 [info     ] osm_query_ok                   elapsed_ms=1444 element_count=14
+ 188   SK  Novaky power station                          14  other                  3.1      6.8
+2026-05-12 22:49:35 [info     ] osm_query_ok                   elapsed_ms=4129 element_count=258
+ 189   SK  Trebisov power station                       258  other                  1.1     11.1
+2026-05-12 22:49:46 [info     ] osm_query_ok                   elapsed_ms=1254 element_count=72
+ 190   SK  U.S. Steel Kosice Works power station         72  other                  4.0     12.9
+2026-05-12 22:49:58 [info     ] osm_query_ok                   elapsed_ms=1130 element_count=20
+ 191   SK  Vojany I power station                        20  depot                 14.9     14.9
+2026-05-12 22:50:10 [info     ] osm_query_ok                   elapsed_ms=1066 element_count=4
+ 192   TR  Ada Yesildag Enerji power station              4  other                  0.4        -
+2026-05-12 22:50:26 [info     ] osm_query_ok                   elapsed_ms=1450 element_count=1
+ 193   TR  Ada Yumurtalık power station                   1  other                 19.8        -
+2026-05-12 22:50:49 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:50:49 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:50:54 [info     ] osm_query_ok                   elapsed_ms=743 element_count=1
+ 194   TR  Adana Akdeniz power station                    1  other                 20.0        -
+2026-05-12 22:51:06 [info     ] osm_query_ok                   elapsed_ms=689 element_count=1
+ 195   TR  Adana Ceyhan power station                     1  other                 20.4        -
+2026-05-12 22:51:23 [info     ] osm_query_ok                   elapsed_ms=5780 element_count=1
+ 196   TR  Afşin-Elbistan power stations                  1  other                  2.4        -
+2026-05-12 22:51:40 [info     ] osm_query_ok                   elapsed_ms=2164 element_count=3
+ 197   TR  Ağan power station                             3  other                 21.7        -
+2026-05-12 22:51:50 [info     ] osm_query_ok                   elapsed_ms=674 element_count=3
+ 198   TR  Akdeniz Enerji power station                   3  other                 17.0        -
+2026-05-12 22:52:05 [info     ] osm_query_ok                   elapsed_ms=1318 element_count=32
+ 199   TR  Aksa Akrilik power station                    32  airfield               2.5      2.5
+2026-05-12 22:52:19 [info     ] osm_query_ok                   elapsed_ms=2575 element_count=18
+ 200   TR  Albayrak Varaka Paper power station           18  other                  6.5        -
+2026-05-12 22:52:43 [info     ] osm_query_ok                   elapsed_ms=12557 element_count=25
+ 201   TR  Aliağa Enka power station                     25  other                  6.6     22.7
+2026-05-12 22:52:55 [info     ] osm_query_ok                   elapsed_ms=733 element_count=1
+ 202   TR  Alpu power station                             1  airfield              27.0     27.0
+2026-05-12 22:53:07 [info     ] osm_query_ok                   elapsed_ms=1101 element_count=12
+ 203   TR  Amasra Bartın power station                   12  other                  3.2     10.5
+2026-05-12 22:53:18 [info     ] osm_query_ok                   elapsed_ms=1668 element_count=2
+ 204   TR  Ant Enerji power station                       2  other                 22.3        -
+2026-05-12 22:53:41 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:53:41 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:53:47 [info     ] osm_query_ok                   elapsed_ms=1350 element_count=2
+ 205   TR  Astoria Ceyhan power station                   2  other                 20.2        -
+2026-05-12 22:53:58 [info     ] osm_query_ok                   elapsed_ms=1099 element_count=10
+ 206   TR  Atakaş power station                          10  other                  7.8        -
+2026-05-12 22:54:13 [info     ] osm_query_ok                   elapsed_ms=1107 element_count=10
+ 207   TR  Atlas Enerji İskenderun power station         10  other                  7.0        -
+2026-05-12 22:54:30 [info     ] osm_query_ok                   elapsed_ms=6445 element_count=9
+ 208   TR  Avdan power station                            9  other                  1.0        -
+2026-05-12 22:54:45 [info     ] osm_query_ok                   elapsed_ms=1347 element_count=1
+ 209   TR  Ayas power station                             1  other                 20.4        -
+2026-05-12 22:55:00 [info     ] osm_query_ok                   elapsed_ms=2994 element_count=3
+ 210   TR  Babadere power station                         3  depot                 22.0     22.0
+2026-05-12 22:55:20 [info     ] osm_query_ok                   elapsed_ms=6210 element_count=32
+ 211   TR  Bandırma Elektrik power station               32  other                 11.5     19.4
+2026-05-12 22:55:33 [info     ] osm_query_ok                   elapsed_ms=900 element_count=2
+ 212   TR  Bandırma III power station                     2  other                 17.1        -
+2026-05-12 22:55:46 [info     ] osm_query_ok                   elapsed_ms=892 element_count=28
+ 213   TR  Bandırma Karat power station                  28  other                  0.4      2.2
+2026-05-12 22:56:00 [info     ] osm_query_ok                   elapsed_ms=851 element_count=4
+ 214   TR  Barbaros-1 power station                       4  other                 24.7        -
+2026-05-12 22:56:14 [info     ] osm_query_ok                   elapsed_ms=711 element_count=3
+ 215   TR  Biga power station                             3  other                 21.2        -
+2026-05-12 22:56:27 [info     ] osm_query_ok                   elapsed_ms=1102 element_count=7
+ 216   TR  Bingöl power station                           7  other                 10.6        -
+2026-05-12 22:56:42 [info     ] osm_query_ok                   elapsed_ms=670 element_count=0
+ 217   TR  Bolu Göynük power station                      0  none                     -        -
+2026-05-12 22:56:56 [info     ] osm_query_ok                   elapsed_ms=1458 element_count=14
+ 218   TR  Burnaz power station                          14  other                  8.2        -
+2026-05-12 22:57:29 [info     ] osm_query_ok                   elapsed_ms=20525 element_count=1
+ 219   TR  Bursa power station                            1  other                 16.4        -
+2026-05-12 22:57:41 [info     ] osm_query_ok                   elapsed_ms=1112 element_count=3
+ 220   TR  Çalışkan Ceyhan power station                  3  other                 16.6        -
+2026-05-12 22:57:56 [info     ] osm_query_ok                   elapsed_ms=871 element_count=1
+ 221   TR  Çan (18 Mart) power station                    1  other                  6.8        -
+2026-05-12 22:58:06 [info     ] osm_query_ok                   elapsed_ms=692 element_count=1
+ 222   TR  Çan-2 power station                            1  other                  9.3        -
+2026-05-12 22:58:22 [info     ] osm_query_ok                   elapsed_ms=927 element_count=0
+ 223   TR  Çankırı Orta power station                     0  none                     -        -
+2026-05-12 22:58:43 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 22:58:43 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 22:58:51 [info     ] osm_query_ok                   elapsed_ms=866 element_count=4
+ 224   TR  Çankırı Yıldızlar power station                4  other                 24.5        -
+2026-05-12 22:59:07 [info     ] osm_query_ok                   elapsed_ms=1528 element_count=0
+ 225   TR  Çatalağzı power station                        0  none                     -        -
+2026-05-12 22:59:19 [info     ] osm_query_ok                   elapsed_ms=783 element_count=3
+ 226   TR  Çayırhan power station                         3  other                 20.4        -
+2026-05-12 22:59:33 [info     ] osm_query_ok                   elapsed_ms=828 element_count=19
+ 227   TR  Çebi Enerji power station                     19  other                  5.1        -
+2026-05-12 23:00:00 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 23:00:00 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 23:00:05 [info     ] osm_query_ok                   elapsed_ms=922 element_count=1
+ 228   TR  Çelikler Yumurtalık power station              1  other                 24.6        -
+2026-05-12 23:00:34 [info     ] osm_query_ok                   elapsed_ms=18217 element_count=1
+ 229   TR  Cenal power station                            1  other                 17.9        -
+2026-05-12 23:00:46 [info     ] osm_query_ok                   elapsed_ms=2216 element_count=30
+ 230   TR  Çerkezköy power station                       30  other                  0.4        -
+2026-05-12 23:01:02 [info     ] osm_query_ok                   elapsed_ms=6705 element_count=0
+ 231   TR  Çırpılar power station                         0  none                     -        -
+2026-05-12 23:01:14 [info     ] osm_query_ok                   elapsed_ms=753 element_count=0
+ 232   TR  Çoban Yıldız power station                     0  none                     -        -
+2026-05-12 23:01:26 [info     ] osm_query_ok                   elapsed_ms=1606 element_count=2
+ 233   TR  Demirtaş power station                         2  other                 10.1        -
+2026-05-12 23:01:43 [info     ] osm_query_ok                   elapsed_ms=2414 element_count=25
+ 234   TR  Deniz power station                           25  other                  6.6     22.7
+2026-05-12 23:01:59 [info     ] osm_query_ok                   elapsed_ms=4187 element_count=0
+ 235   TR  DETES 1 power station                          0  none                     -        -
+2026-05-12 23:02:12 [info     ] osm_query_ok                   elapsed_ms=614 element_count=0
+ 236   TR  Diler (Akbayir) Elbistan power station         0  none                     -        -
+2026-05-12 23:02:27 [info     ] osm_query_ok                   elapsed_ms=677 element_count=0
+ 237   TR  Dinar power station                            0  none                     -        -
+2026-05-12 23:02:41 [info     ] osm_query_ok                   elapsed_ms=1043 element_count=19
+ 238   TR  DOSAB cogeneration plant                      19  other                  3.5        -
+2026-05-12 23:02:55 [info     ] osm_query_ok                   elapsed_ms=701 element_count=2
+ 239   TR  Ece power station                              2  other                 10.1        -
+2026-05-12 23:03:09 [info     ] osm_query_ok                   elapsed_ms=1402 element_count=1
+ 240   TR  EMBA Hunutlu power station                     1  other                 19.3        -
+2026-05-12 23:03:28 [warning  ] osm_parse_error                error='Expecting value: line 1 column 1 (char 0)'
+ 241   TR  Enyat Samsun power station                     0  none                     -        -
+2026-05-12 23:03:41 [info     ] osm_query_ok                   elapsed_ms=3224 element_count=38
+ 242   TR  Eren-1 power station                          38  depot                 14.5     14.5
+2026-05-12 23:03:57 [info     ] osm_query_ok                   elapsed_ms=1197 element_count=25
+ 243   TR  Ergene power station                          25  other                  1.9        -
+2026-05-12 23:04:13 [info     ] osm_query_ok                   elapsed_ms=2296 element_count=28
+ 244   TR  Eti Maden Bandirma power station              28  airfield               2.1      2.1
+2026-05-12 23:04:28 [info     ] osm_query_ok                   elapsed_ms=4484 element_count=55
+ 245   TR  Evrese power station                          55  other                  1.4      9.2
+2026-05-12 23:04:43 [info     ] osm_query_ok                   elapsed_ms=775 element_count=7
+ 246   TR  Filyos power station                           7  depot                 19.1     19.1
+2026-05-12 23:04:59 [info     ] osm_query_ok                   elapsed_ms=994 element_count=41
+ 247   TR  Gebze Çolakoğlu power station                 41  other                  4.7     17.0
+2026-05-12 23:05:15 [info     ] osm_query_ok                   elapsed_ms=1203 element_count=7
+ 248   TR  Gerze power station                            7  other                 17.4     18.8
+2026-05-12 23:05:35 [info     ] osm_query_ok                   elapsed_ms=7885 element_count=1
+ 249   TR  Gölovası power station                         1  other                 23.3        -
+2026-05-12 23:05:48 [info     ] osm_query_ok                   elapsed_ms=862 element_count=4
+ 250   TR  Gönen power station                            4  other                  0.9        -
+2026-05-12 23:06:03 [info     ] osm_query_ok                   elapsed_ms=871 element_count=3
+ 251   TR  Güney Akdeniz power station                    3  other                  0.4        -
+2026-05-12 23:06:13 [info     ] osm_query_ok                   elapsed_ms=821 element_count=6
+ 252   TR  Güneybatı Anadolu power station                6  other                  1.2        -
+2026-05-12 23:06:24 [info     ] osm_query_ok                   elapsed_ms=868 element_count=52
+ 253   TR  Güreci power station                          52  other                  6.8     16.3
+2026-05-12 23:06:35 [info     ] osm_query_ok                   elapsed_ms=1067 element_count=9
+ 254   TR  Gürmin Enerji Amasya power station             9  airfield               8.5      8.5
+2026-05-12 23:06:46 [info     ] osm_query_ok                   elapsed_ms=872 element_count=22
+ 255   TR  Habaş power station                           22  other                  2.9        -
+2026-05-12 23:06:56 [info     ] osm_query_ok                   elapsed_ms=1387 element_count=1
+ 256   TR  Hakan Enerji power station                     1  other                 22.2        -
+2026-05-12 23:07:12 [info     ] osm_query_ok                   elapsed_ms=2110 element_count=1
+ 257   TR  Hakan Kömür power station                      1  other                 20.4        -
+2026-05-12 23:07:22 [info     ] osm_query_ok                   elapsed_ms=982 element_count=2
+ 258   TR  Hande power station                            2  other                 10.1        -
+2026-05-12 23:07:35 [info     ] osm_query_ok                   elapsed_ms=877 element_count=1
+ 259   TR  Helvacı power station                          1  other                 12.1        -
+2026-05-12 23:07:49 [info     ] osm_query_ok                   elapsed_ms=1804 element_count=12
+ 260   TR  HEMA Amasra power station                     12  other                  2.7     10.2
+2026-05-12 23:08:03 [info     ] osm_query_ok                   elapsed_ms=3409 element_count=5
+ 261   TR  İÇDAŞ Bekirli power station                    5  other                 22.9        -
+2026-05-12 23:08:17 [info     ] osm_query_ok                   elapsed_ms=1179 element_count=3
+ 262   TR  İÇDAŞ Biga power station                       3  other                 19.2        -
+2026-05-12 23:08:31 [info     ] osm_query_ok                   elapsed_ms=917 element_count=0
+ 263   TR  Ilgın power station                            0  none                     -        -
+2026-05-12 23:08:47 [info     ] osm_query_ok                   elapsed_ms=952 element_count=11
+ 264   TR  Irmak power station                           11  other                  0.4     15.1
+2026-05-12 23:08:58 [info     ] osm_query_ok                   elapsed_ms=1816 element_count=1
+ 265   TR  İsken Sugözü power station                     1  other                 21.4        -
+2026-05-12 23:09:18 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 23:09:18 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 23:09:25 [info     ] osm_query_ok                   elapsed_ms=1237 element_count=13
+ 266   TR  İskenderun power station                      13  other                  1.2        -
+2026-05-12 23:09:48 [info     ] osm_query_ok                   elapsed_ms=8168 element_count=26
+ 267   TR  İzdemir Enerji power station                  26  other                  6.4     22.6
+2026-05-12 23:10:01 [info     ] osm_query_ok                   elapsed_ms=623 element_count=1
+ 268   TR  Iztek Ceyhan Komur power station               1  other                 20.4        -
+2026-05-12 23:10:17 [info     ] osm_query_ok                   elapsed_ms=1562 element_count=1
+ 269   TR  Kahramanmaraş Anadolu power station            1  other                  4.1        -
+2026-05-12 23:10:30 [info     ] osm_query_ok                   elapsed_ms=697 element_count=10
+ 270   TR  Kandilli power station                        10  other                  9.4        -
+2026-05-12 23:10:45 [info     ] osm_query_ok                   elapsed_ms=1145 element_count=1
+ 271   TR  Kangal Etyemez power station                   1  other                 19.5        -
+2026-05-12 23:11:05 [warning  ] osm_query_error                error="Server error '504 Gateway Timeout' for url 'https://overpass-api.de/api/interpreter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504" status=504
+2026-05-12 23:11:05 [warning  ] osm_query_retry                attempt=1 status=504 wait_s=45
+2026-05-12 23:11:10 [info     ] osm_query_ok                   elapsed_ms=582 element_count=1
+ 272   TR  Kangal power station                           1  other                 19.5        -
+2026-05-12 23:11:25 [info     ] osm_query_ok                   elapsed_ms=771 element_count=3
+ 273   TR  Karaburun power station                        3  other                 21.9        -
+2026-05-12 23:11:39 [info     ] osm_query_ok                   elapsed_ms=502 element_count=0
+ 274   TR  Karapinar Konya Şeker power station            0  none                     -        -
+2026-05-12 23:11:49 [info     ] osm_query_ok                   elapsed_ms=725 element_count=0
+ 275   TR  Kardemir Karabük Demir Çelik power stati       0  none                     -        -
+2026-05-12 23:12:00 [info     ] osm_query_ok                   elapsed_ms=735 element_count=0
+ 276   TR  Kemerköy power station                         0  none                     -        -
+2026-05-12 23:12:15 [info     ] osm_query_ok                   elapsed_ms=978 element_count=1
+ 277   TR  Kilikya power station                          1  other                 20.8        -
+2026-05-12 23:12:31 [info     ] osm_query_ok                   elapsed_ms=3988 element_count=11
+ 278   TR  Kipas MMP power station                       11  other                  5.6        -
+2026-05-12 23:12:44 [info     ] osm_query_ok                   elapsed_ms=831 element_count=4
+ 279   TR  Kirazlıdere power complex                      4  other                 21.5        -
+2026-05-12 23:12:58 [info     ] osm_query_ok                   elapsed_ms=690 element_count=10
+ 280   TR  Kireçlik power station                        10  other                 16.6        -
+2026-05-12 23:13:11 [info     ] osm_query_ok                   elapsed_ms=1044 element_count=10
+ 281   TR  Kınık power station                           10  other                  6.1        -
+2026-05-12 23:13:24 [info     ] osm_query_ok                   elapsed_ms=862 element_count=3
+ 282   TR  Kıvanç power station                           3  other                  0.2        -
+2026-05-12 23:13:34 [info     ] osm_query_ok                   elapsed_ms=592 element_count=0
+ 283   TR  Konya Karapınar power station                  0  none                     -        -
+2026-05-12 23:13:47 [info     ] osm_query_ok                   elapsed_ms=793 element_count=0
+ 284   TR  Kütahya Domaniç power station                  0  none                     -        -
+2026-05-12 23:14:02 [info     ] osm_query_ok                   elapsed_ms=755 element_count=13
+ 285   TR  Lüminer Enerji power station                  13  other                  0.6        -
+2026-05-12 23:14:17 [info     ] osm_query_ok                   elapsed_ms=3011 element_count=18
+ 286   TR  Meda power station                            18  other                  0.8        -
+2026-05-12 23:14:30 [info     ] osm_query_ok                   elapsed_ms=618 element_count=3
+ 287   TR  Mersin Gülnar power station                    3  other                  0.7        -
+2026-05-12 23:14:53 [info     ] osm_query_ok                   elapsed_ms=11390 element_count=11
+ 288   TR  Mert power station                            11  other                  2.6        -
+2026-05-12 23:15:04 [info     ] osm_query_ok                   elapsed_ms=699 element_count=4
+ 289   TR  METES power station                            4  other                  8.8        -
+2026-05-12 23:15:22 [info     ] osm_query_ok                   elapsed_ms=5418 element_count=1
+ 290   TR  Misis Adana power station                      1  other                 19.8        -
+2026-05-12 23:15:36 [info     ] osm_query_ok                   elapsed_ms=748 element_count=6
+ 291   TR  Muğla power station                            6  other                 14.0        -
+2026-05-12 23:15:51 [info     ] osm_query_ok                   elapsed_ms=751 element_count=52
+ 292   TR  Namal power station                           52  other                  6.8     16.3
+2026-05-12 23:16:06 [info     ] osm_query_ok                   elapsed_ms=948 element_count=3
+ 293   TR  Naren Karabiga power station                   3  other                 20.9        -
+2026-05-12 23:16:19 [info     ] osm_query_ok                   elapsed_ms=665 element_count=1
+ 294   TR  Orhaneli power station                         1  other                 11.0        -
+2026-05-12 23:16:34 [info     ] osm_query_ok                   elapsed_ms=864 element_count=0
+ 295   TR  Orta Anadolu power station                     0  none                     -        -
+2026-05-12 23:16:48 [info     ] osm_query_ok                   elapsed_ms=840 element_count=22
+ 296   TR  Petkim power station                          22  other                  0.5        -
+2026-05-12 23:17:02 [info     ] osm_query_ok                   elapsed_ms=881 element_count=0
+ 297   TR  Polat power station                            0  none                     -        -
+2026-05-12 23:17:12 [info     ] osm_query_ok                   elapsed_ms=797 element_count=7
+ 298   TR  Saltukova power station                        7  depot                 21.9     21.9
+2026-05-12 23:17:23 [info     ] osm_query_ok                   elapsed_ms=758 element_count=0
+ 299   TR  Sanko Gölbaşı power station                    0  none                     -        -
+2026-05-12 23:17:36 [info     ] osm_query_ok                   elapsed_ms=611 element_count=1
+ 300   TR  Sanko Yumurtalık power station                 1  other                 23.4        -
+2026-05-12 23:18:00 [info     ] osm_query_ok                   elapsed_ms=9665 element_count=13
+ 301   TR  Saray Tekirdağ power station                  13  other                  1.2        -
+2026-05-12 23:18:13 [info     ] osm_query_ok                   elapsed_ms=865 element_count=0
+ 302   TR  Sarp Golvasi power station                     0  none                     -        -
+2026-05-12 23:18:25 [info     ] osm_query_ok                   elapsed_ms=910 element_count=1
+ 303   TR  Sedef II TES power station                     1  other                 19.8        -
+2026-05-12 23:18:40 [info     ] osm_query_ok                   elapsed_ms=695 element_count=3
+ 304   TR  Selena power station                           3  other                 12.6        -
+2026-05-12 23:18:56 [info     ] osm_query_ok                   elapsed_ms=632 element_count=63
+ 305   TR  Şevketiye Lapseki power station               63  other                  9.2     11.5
+2026-05-12 23:19:07 [info     ] osm_query_ok                   elapsed_ms=718 element_count=12
+ 306   TR  Seyitömer power station                       12  other                 17.9     19.9
+2026-05-12 23:19:20 [info     ] osm_query_ok                   elapsed_ms=1064 element_count=95
+ 307   TR  Silopi (Şırnak) power station                 95  other                  2.7     23.6
+2026-05-12 23:19:35 [info     ] osm_query_ok                   elapsed_ms=770 element_count=1
+ 308   TR  Sinop Akfen power station                      1  other                 10.6        -
+2026-05-12 23:19:49 [info     ] osm_query_ok                   elapsed_ms=865 element_count=51
+ 309   TR  Şırnak Galata power station                   51  other                  3.7        -
+2026-05-12 23:20:05 [info     ] osm_query_ok                   elapsed_ms=968 element_count=91
+ 310   TR  Şırnak Silopi (CİNER) power station           91  other                  3.5     18.8
+2026-05-12 23:20:18 [info     ] osm_query_ok                   elapsed_ms=715 element_count=1
+ 311   TR  Soma Kolin power station                       1  other                 22.8        -
+2026-05-12 23:20:29 [info     ] osm_query_ok                   elapsed_ms=1675 element_count=1
+ 312   TR  Soma power station                             1  other                  8.4        -
+2026-05-12 23:20:40 [info     ] osm_query_ok                   elapsed_ms=1360 element_count=15
+ 313   TR  Star Refinery Socar power station             15  other                  5.2        -
+2026-05-12 23:20:55 [info     ] osm_query_ok                   elapsed_ms=861 element_count=10
+ 314   TR  Suluova power station                         10  training_area          7.2     11.1
+2026-05-12 23:21:10 [info     ] osm_query_ok                   elapsed_ms=847 element_count=15
+ 315   TR  Tekirdağ Malkara power station                15  other                 10.2     12.2
+2026-05-12 23:21:23 [info     ] osm_query_ok                   elapsed_ms=1533 element_count=0
+ 316   TR  Teyo Tufanbeyli power station                  0  none                     -        -
+2026-05-12 23:21:36 [info     ] osm_query_ok                   elapsed_ms=1169 element_count=10
+ 317   TR  Tosyalı İskenderun power station              10  other                  7.8        -
+2026-05-12 23:21:50 [info     ] osm_query_ok                   elapsed_ms=533 element_count=5
+ 318   TR  Trakya Emba power station                      5  depot                  2.3      2.3
+2026-05-12 23:22:01 [info     ] osm_query_ok                   elapsed_ms=875 element_count=0
+ 319   TR  Tufanbeyli power station                       0  none                     -        -
+2026-05-12 23:22:17 [info     ] osm_query_ok                   elapsed_ms=1049 element_count=0
+ 320   TR  Tunçbilek power station                        0  none                     -        -
+2026-05-12 23:22:31 [info     ] osm_query_ok                   elapsed_ms=809 element_count=0
+ 321   TR  Uluköy power station                           0  none                     -        -
+2026-05-12 23:22:46 [info     ] osm_query_ok                   elapsed_ms=874 element_count=6
+ 322   TR  Umut power station                             6  other                  9.5        -
+2026-05-12 23:22:57 [info     ] osm_query_ok                   elapsed_ms=749 element_count=6
+ 323   TR  Vize power station                             6  other                  3.7        -
+2026-05-12 23:23:13 [info     ] osm_query_ok                   elapsed_ms=878 element_count=0
+ 324   TR  Yatağan power station                          0  none                     -        -
+2026-05-12 23:23:28 [info     ] osm_query_ok                   elapsed_ms=891 element_count=2
+ 325   TR  Yenidere power station                         2  other                 15.1        -
+2026-05-12 23:23:41 [info     ] osm_query_ok                   elapsed_ms=793 element_count=6
+ 326   TR  Yeniköy power station                          6  other                 19.5        -
+2026-05-12 23:23:54 [info     ] osm_query_ok                   elapsed_ms=735 element_count=10
+ 327   TR  Yeniyurt power station                        10  other                  9.1        -
+2026-05-12 23:24:05 [info     ] osm_query_ok                   elapsed_ms=713 element_count=3
+ 328   TR  Yeşilovacık power station                      3  other                 17.6        -
+2026-05-12 23:24:21 [info     ] osm_query_ok                   elapsed_ms=1906 element_count=8
+ 329   TR  Yıldırım Elazığ power station                  8  other                 12.1        -
+2026-05-12 23:24:32 [info     ] osm_query_ok                   elapsed_ms=798 element_count=0
+ 330   TR  Yüksek Gölovası power station                  0  none                     -        -
+2026-05-12 23:24:44 [info     ] osm_query_ok                   elapsed_ms=633 element_count=1
+ 331   TR  Yumurtalık IC İçtaş power station              1  other                 15.0        -
+2026-05-12 23:24:57 [info     ] osm_query_ok                   elapsed_ms=636 element_count=3
+ 332   TR  Yunus Emre power station                       3  other                 18.5        -
+2026-05-12 23:25:08 [info     ] osm_query_ok                   elapsed_ms=679 element_count=12
+ 333   TR  Zafer power station                           12  other                 14.8     24.4
+2026-05-12 23:25:22 [info     ] osm_query_ok                   elapsed_ms=1542 element_count=0
+ 334   TR  ZETES power stations                           0  none                     -        -
+2026-05-12 23:25:33 [info     ] osm_query_ok                   elapsed_ms=773 element_count=0
+ 335   TR  Zonguldak Modern power station                 0  none                     -        -
+2026-05-12 23:25:54 [info     ] osm_query_ok                   elapsed_ms=7016 element_count=0
+ 336   TR  Zorlu Akçakoca power station                   0  none                     -        -
+2026-05-12 23:26:06 [info     ] osm_query_ok                   elapsed_ms=861 element_count=2
+ 337   TR  Zorlu Soma power station                       2  other                  8.6        -
+2026-05-12 23:26:17 [info     ] osm_query_ok                   elapsed_ms=1156 element_count=2
+ 338   UA  Burshtyn power station                         2  depot                 18.8     18.8
+2026-05-12 23:26:34 [info     ] osm_query_ok                   elapsed_ms=1114 element_count=8
+ 339   UA  Cherkasy power station                         8  other                 13.7     24.6
+2026-05-12 23:26:49 [info     ] osm_query_ok                   elapsed_ms=926 element_count=2
+ 340   UA  Chernihiv power station                        2  other                  3.1     11.1
+2026-05-12 23:27:03 [info     ] osm_query_ok                   elapsed_ms=3054 element_count=170
+ 341   UA  Darnytska power station                      170  depot                  2.4      2.4
+2026-05-12 23:27:14 [info     ] osm_query_ok                   elapsed_ms=1181 element_count=4
+ 342   UA  Dobrotvir power station                        4  depot                 12.7     12.7
+2026-05-12 23:27:33 [info     ] osm_query_ok                   elapsed_ms=9556 element_count=15
+ 343   UA  Kalush power station                          15  other                  0.4        -
+2026-05-12 23:27:45 [info     ] osm_query_ok                   elapsed_ms=1033 element_count=6
+ 344   UA  Kramatorskaya power station                    6  depot                  3.4      3.4
+2026-05-12 23:28:05 [info     ] osm_query_ok                   elapsed_ms=8006 element_count=0
+ 345   UA  Kryvorizka power station                       0  none                     -        -
+2026-05-12 23:28:20 [info     ] osm_query_ok                   elapsed_ms=1150 element_count=3
+ 346   UA  Kurakhov power station                         3  other                 22.1     23.9
+2026-05-12 23:28:37 [info     ] osm_query_ok                   elapsed_ms=1491 element_count=2
+ 347   UA  Ladyzhyn power station                         2  training_area         10.6     24.6
+2026-05-12 23:28:48 [info     ] osm_query_ok                   elapsed_ms=829 element_count=25
+ 348   UA  Luganskaya power station                      25  training_area          4.5        -
+2026-05-12 23:29:01 [info     ] osm_query_ok                   elapsed_ms=1188 element_count=1159
+ 349   UA  Myronivskyi power station                   1159  depot                  3.0      3.0
+2026-05-12 23:29:16 [info     ] osm_query_ok                   elapsed_ms=1259 element_count=7
+ 350   UA  Prydniprovska power station                    7  other                  9.4     11.4
+2026-05-12 23:29:29 [info     ] osm_query_ok                   elapsed_ms=961 element_count=6
+ 351   UA  Slavyansk power station                        6  other                  7.2     20.0
+2026-05-12 23:29:43 [info     ] osm_query_ok                   elapsed_ms=1110 element_count=243
+ 352   UA  Starobesheve power station                   243  depot                  8.3      8.3
+2026-05-12 23:30:01 [info     ] osm_query_ok                   elapsed_ms=7917 element_count=27
+ 353   UA  Trypilska power station                       27  other                  7.5     19.1
+2026-05-12 23:30:13 [info     ] osm_query_ok                   elapsed_ms=1111 element_count=1107
+ 354   UA  Vuglegirska power station                   1107  depot                  1.9      1.9
+2026-05-12 23:30:28 [info     ] osm_query_ok                   elapsed_ms=792 element_count=1
+ 355   UA  Zaporizhia power station                       1  other                 17.5        -
+2026-05-12 23:30:39 [info     ] osm_query_ok                   elapsed_ms=1266 element_count=0
+ 356   UA  Zmiivska power station                         0  none                     -        -
+2026-05-12 23:30:54 [info     ] osm_query_ok                   elapsed_ms=918 element_count=69
+ 357   UA  Zuevskaya power station                       69  depot                  5.9      5.9
+2026-05-12 23:31:06 [info     ] osm_query_ok                   elapsed_ms=942 element_count=3
+ 358   XK  Istok power station                            3  other                  4.4        -
+2026-05-12 23:31:21 [info     ] osm_query_ok                   elapsed_ms=1275 element_count=14
+ 359   XK  Kosovo A power station                        14  other                  3.9     11.2
+2026-05-12 23:31:33 [info     ] osm_query_ok                   elapsed_ms=1091 element_count=16
+ 360   XK  Kosovo B power station                        16  other                  7.0     13.9
+2026-05-12 23:31:46 [info     ] osm_query_ok                   elapsed_ms=1182 element_count=14
+ 361   XK  Kosovo C power station                        14  other                  1.8      4.6
+
+Done in 101.2 min — ok=347, skipped=14, errors=0

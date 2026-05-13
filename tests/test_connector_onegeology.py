@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.1
 """Tests for the S-03 OneGeology connector.
 
 All tests run without network access (pure unit tests and mocked HTTP).
@@ -140,7 +140,7 @@ MOCK_REGISTRY: dict = {
 def _make_connector(registry: dict | None = None) -> OneGeologyConnector:
     settings = MagicMock()
     settings.connector_config.return_value = {
-        "endpoint_registry": registry or MOCK_REGISTRY,
+        "endpoint_registry": registry if registry is not None else MOCK_REGISTRY,
         "timeout_s": 5,
         "inter_request_delay_s": 0.0,
         "cache_ttl_days": 180,

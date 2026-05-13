@@ -1,0 +1,16 @@
+[18:12:45] === FIX-04 DB vs JSONL verification (no Overpass) ===
+[18:12:45] Source JSONL: logs/hi06_fix04_preview.jsonl
+[18:12:45] Run ID:       fix04-verify-20260511-181245
+[18:12:46] verified=50 diffs=0 in_sync=50
+[18:12:46] verified=100 diffs=0 in_sync=100
+[18:12:46] verified=150 diffs=0 in_sync=150
+[18:12:46] verified=200 diffs=0 in_sync=200
+[18:12:46] verified=250 diffs=0 in_sync=250
+[18:12:46] verified=300 diffs=0 in_sync=300
+[18:12:46] verified=350 diffs=0 in_sync=350
+
+[18:12:46] === Verification complete ===
+[18:12:46] Verified:    361
+[18:12:46] Residual diffs: 0
+[18:12:46] In sync:        361
+[18:12:46] Report:         audit/post_processing/v2_close_out/p1_fix04_recheck_verify.md

@@ -1,4 +1,4 @@
-<!-- man_hours: 2.1 -->
+<!-- man_hours: 2.7 -->
 # Feedback rework execution -- 13-stage gated plan, offline wave landed
 
 **Date:** 2026-05-09
@@ -395,3 +395,107 @@ uses **Site (country)** and a short rationale cell plus a pointer to
 full prose in 4.1.2 / 4.2.1. The execution plan (`.cursor/plans` +
 `architecture/plans` + `audit/plans`) and `SP-A_quick_wins.plan.md` now
 include **table layout** in Stage 1 actions and definition of done.
+
+### Execution sweep (plan implementation pass, 2026-05-09)
+
+- **Romania numeric lint (#568):** Table 4.1.1 Romania summary cell now
+  contains the phrase **full-pass sites at country level** so
+  `cross_chapter_numeric_lint` ROMANIA_FULL_PASS_RECONCILIATION rule is
+  satisfied (interpretation note unchanged).
+- **SP-H backlog:** `SP-H_backlog.plan.md` now includes **Owner** and
+  **Target window** columns per Stage 2 definition of done; cross-chapter
+  lint script path corrected to `src/scripts/cross_chapter_numeric_lint.py`.
+- **FB-LL-06 promotion text:** `feedback_lessons_learnt.md` references the
+  landed lint script by canonical path.
+
+### Plan-implementation closeout (2026-05-09 evening pass)
+
+Walked the gated 13-stage plan end to end, verified each stage's
+definition of done, and recorded outcomes in the
+`architecture/plans/feedback-rework-execution.md` and
+`audit/plans/feedback-rework-execution.md` mirrors:
+
+- **Stages 0-6, 7a, 8a:** completed (offline). All definition-of-done
+  checks rerun in this session: `pytest tests/scoring/` 89/89; renderer
+  tests 5/5; cross-chapter lint clean; `score run --weight-basis epri`
+  raises NotImplementedError; all 18 SP-D proposals carry a Verification
+  section; ourairports class fields + OSM military classifier + Alembic
+  `042` + connector reports verified present.
+- **Stage 4 (SP-C) micro-edit:** `report/output/chapters/03_stage_2_site_selection.md`
+  now references `config/ssr1_clause_map.yaml` from the SSR-1 coverage
+  paragraph (per Stage 4 actions); first-line `man_hours` comment added
+  and registered.
+- **Stages 7b, 8b, 8c:** cancelled in the plan mirrors with reason -
+  Stage 7b (live API) and Stage 8b (scoring rerun) are blocked by the
+  user's standing policy (live APIs deferred + scoring is GUI-only);
+  Stage 8c is dependency-blocked on 8b. The replay-from-logs offline
+  path already landed the SP-F military fields on 106 sites.
+- **Stage 9 (closeout):** audit log + plan mirrors updated; man-hours
+  registry + summary regenerated.
+
+**Test-suite note (background job 205232 follow-up).** A full
+`pytest tests/ -q --ignore=tests/integrationSnapshots` run during the
+follow-up turn finished in ~7 minutes with **2152 passed, 55 failed,
+18 skipped**. The 55 failures are environment / missing-data smoke
+tests (EEA, EFSM20, GHSL, Seveso, WOKAM, Zhu, etc.) and are not caused
+by the rework edits; the focused rework-related batches (scoring,
+unscored renderer, cross-chapter lint, smr-scope propagation) remain
+98/98 green.
+
+### SP-F log-driven backfill (2026-05-10 morning pass; no-API)
+
+Implemented the user-requested non-destructive log-driven enrichment
+for HI-01 (ourairports) and HI-06 (osm military) per the new plan
+`/Users/terbolence/.cursor/plans/sp-f_log-driven_backfill_80034562.plan.md`.
+All work is offline — no live API calls, no scoring/sensitivity
+triggered, legacy rubric columns untouched.
+
+- **Phase 1 (read-only audit):** wrote
+  `audit/post_processing/sp_f_log_replay/{hi01_ourairports_audit.md,
+  hi06_osm_military_audit.md}` covering rubric→DB→parser→log maps,
+  the 361-site null census, and the parser-gap report. Findings:
+  HI-01 has 253 NULL `nearest_airport_runway_length_m`, HI-06 has 255
+  NULL `nearest_military_class` and 324 NULL
+  `nearest_high_consequence_military_*`.
+- **Phase 2 (parser-completeness):** no parser code changes — the one
+  fixable item that would touch scoring inputs
+  (`merge_context_derivations._derive_boolean_defaults` hard-codes
+  `nearest_military_airfield_km = 999.0`) is documented and deferred
+  behind the user's GUI scoring gate. See `phase2_closeout.md`.
+- **Phase 3 (scripts):** new
+  `src/scripts/replay_ourairports_from_csv.py` (HI-01 SP-F columns
+  only) plus extended `src/scripts/replay_osm_military_from_logs.py`
+  with `--only-nulls` (default), `--overwrite-with-better`, `--dry-run`,
+  per-row evidence in the per-site summary. Pure-logic unit tests:
+  `tests/scripts/test_replay_ourairports_from_csv.py` (7 tests),
+  `tests/scripts/test_replay_osm_military_decisions.py` (5 tests) →
+  12/12 green.
+- **Phase 4 (gate):** wrote `PHASE_4_GATE.md` with full 361-site dry-run
+  forecasts in both `--only-nulls` and `--overwrite-with-better` modes
+  for both connectors. **Result: 0 writes warranted in either mode.**
+  HI-01: 830 skip-noop / 253 skip-no-replay (the cached
+  `runways.csv` simply has no row for the 253 heliport / sport
+  airfield idents). HI-06: 318 skip-noop / 765 skip-no-replay (perfect
+  1:1 correlation between NULL SP-F class and 0-element OSM logs;
+  recovery would require a fresh Overpass call).
+- **Phase 5 (writes):** consequently a no-op against current cached
+  state. Both per-connector replay logs (`ourairports_replay_log.md`,
+  `osm_military_replay_log.md`) record the dry-run decision matrix
+  with `DB writes committed = 0` and explicit "live re-run gated on
+  user policy change" disposition.
+- **Phase 6 (closeout):** SP-H backlog now carries five new rows —
+  HI-01 / HI-06 SP-F backfill (offline pass marked done; live
+  re-enrichment deferred), the
+  `nearest_military_airfield_km` derivation gap, and the HI-06 rubric
+  A5/A6 / SP-F class taxonomy mismatch. `man_hours_registry.yml` +
+  `audit/man_hours_summary.md` regenerated below.
+
+**Honest summary for the reviewer**: the log-driven path proves that
+the SP-F SP-F columns the reviewer wanted populated cannot be filled
+from the data we already have in hand. The 253 + 255 + 324 NULL
+positions are upstream gaps (heliports without runway records;
+Overpass calls that returned 0 elements). Closing those gaps requires
+new API calls, which remain deferred per project policy. The offline
+pass we just landed is the largest non-API win available today; it
+also leaves the codebase ready to re-run idempotently the moment the
+live-API gate opens.

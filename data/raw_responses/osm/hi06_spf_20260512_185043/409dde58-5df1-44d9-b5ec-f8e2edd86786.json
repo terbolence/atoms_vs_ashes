@@ -1,0 +1,2005 @@
+{
+  "meta": {
+    "site_id": "409dde58-5df1-44d9-b5ec-f8e2edd86786",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:27:40.972024+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.054021,20.006018);\n  way[\"military\"](around:25000,50.054021,20.006018);\n  relation[\"military\"](around:25000,50.054021,20.006018);\n  node[\"landuse\"=\"military\"](around:25000,50.054021,20.006018);\n  way[\"landuse\"=\"military\"](around:25000,50.054021,20.006018);\n  relation[\"landuse\"=\"military\"](around:25000,50.054021,20.006018);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.054021,20.006018);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.054021,20.006018);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.054021,20.006018);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.054021,20.006018);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.054021,20.006018);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.054021,20.006018);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 3747,
+        "element_count": 149,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:26:14Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 1976089308,
+              "lat": 50.0671611,
+              "lon": 19.8387496,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron dla broni maszynowej Olszanica",
+                "opening_hours": "24/7",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2125015540,
+              "lat": 50.1113025,
+              "lon": 19.7127605,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2125015947,
+              "lat": 50.111192,
+              "lon": 19.7051671,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2125016176,
+              "lat": 50.1156692,
+              "lon": 19.6987211,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2125016177,
+              "lat": 50.1158572,
+              "lon": 19.6985301,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 701"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2125016178,
+              "lat": 50.1158723,
+              "lon": 19.6980189,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2331130509,
+              "lat": 50.1565515,
+              "lon": 19.7342731,
+              "tags": {
+                "military": "bunker",
+                "name": "Schron bojowy",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3859007495,
+              "lat": 50.0457305,
+              "lon": 19.9424998,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4121339048,
+              "lat": 50.0683146,
+              "lon": 19.7947867,
+              "tags": {
+                "barrier": "lift_gate",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6031969475,
+              "lat": 50.1005376,
+              "lon": 19.9923913,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bunkier po dawnej strzelnicy artyleryjskiej",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6854620728,
+              "lat": 50.1918335,
+              "lon": 20.2757313,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6854620738,
+              "lat": 50.1881908,
+              "lon": 20.2745488,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6854620765,
+              "lat": 50.1869458,
+              "lon": 20.2809858,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7873581040,
+              "lat": 50.1258927,
+              "lon": 19.7182147,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "Regelbau_668",
+                "contact:phone": "+48 507 006 617",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Regelbau 668",
+                "regelbau": "668",
+                "source": "gps",
+                "start_date": "1944",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7873581041,
+              "lat": 50.1271456,
+              "lon": 19.7182995,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 701",
+                "source": "gps"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8296033270,
+              "lat": 50.1019805,
+              "lon": 19.8598528,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B3 Pasternik"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8299848154,
+              "lat": 50.1120793,
+              "lon": 19.9636803,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B2 Węgrzce"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8299848447,
+              "lat": 50.0394805,
+              "lon": 19.834483,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron bojowy Fortu \"Bielany\""
+              }
+            },
+            {
+              "type": "node",
+              "id": 9469240389,
+              "lat": 50.0380734,
+              "lon": 20.1202648,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "technical",
+                "historic": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9707865342,
+              "lat": 50.0690111,
+              "lon": 19.9258874,
+              "tags": {
+                "building": "bunker",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9820875795,
+              "lat": 50.115917,
+              "lon": 19.9640762,
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Airsoft Shooting Park Kraków"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9933896503,
+              "lat": 50.0676466,
+              "lon": 19.7032926,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9933901063,
+              "lat": 50.076704,
+              "lon": 19.7212698,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 67"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9933901064,
+              "lat": 50.075947,
+              "lon": 19.7231158,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9933913583,
+              "lat": 50.1151287,
+              "lon": 19.6966439,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9939421394,
+              "lat": 50.1255725,
+              "lon": 19.7195616,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9939421395,
+              "lat": 50.125222,
+              "lon": 19.7169194,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9939421396,
+              "lat": 50.1268415,
+              "lon": 19.71647,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9939421402,
+              "lat": 50.1260379,
+              "lon": 19.7152832,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942092490,
+              "lat": 50.1534435,
+              "lon": 19.7290852,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942107276,
+              "lat": 50.1923403,
+              "lon": 19.7465455,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942108167,
+              "lat": 50.1734067,
+              "lon": 19.7382718,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942479787,
+              "lat": 50.0381074,
+              "lon": 19.6921824,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942479788,
+              "lat": 50.0376165,
+              "lon": 19.6924775,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942479789,
+              "lat": 50.0375829,
+              "lon": 19.6913241,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942479790,
+              "lat": 50.0376681,
+              "lon": 19.6898047,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 701"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942479791,
+              "lat": 50.0379016,
+              "lon": 19.6893675,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510284,
+              "lat": 50.0395539,
+              "lon": 19.6904354,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510285,
+              "lat": 50.0398803,
+              "lon": 19.69072,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 701"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510286,
+              "lat": 50.0393137,
+              "lon": 19.6907647,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510287,
+              "lat": 50.0396775,
+              "lon": 19.691493,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510288,
+              "lat": 50.0392185,
+              "lon": 19.6916963,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510289,
+              "lat": 50.0394975,
+              "lon": 19.692274,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510290,
+              "lat": 50.0387965,
+              "lon": 19.6918807,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668 + Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9942510291,
+              "lat": 50.0387612,
+              "lon": 19.6916219,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9944578183,
+              "lat": 50.1183339,
+              "lon": 19.8935397,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B3 Tonie"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945073372,
+              "lat": 50.029984,
+              "lon": 19.6683528,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945073373,
+              "lat": 50.0284403,
+              "lon": 19.6712942,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945073374,
+              "lat": 50.0282505,
+              "lon": 19.6700893,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945073375,
+              "lat": 50.027844,
+              "lon": 19.6692242,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945119687,
+              "lat": 50.0269557,
+              "lon": 19.6667397,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9945119688,
+              "lat": 50.0266699,
+              "lon": 19.6631345,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9947353086,
+              "lat": 50.1856496,
+              "lon": 20.2867909,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9947378308,
+              "lat": 50.2517972,
+              "lon": 20.0698103,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9947378309,
+              "lat": 50.2521265,
+              "lon": 20.0675143,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker (zasypany)"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9947378310,
+              "lat": 50.2524676,
+              "lon": 20.0649079,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9947378314,
+              "lat": 50.2528733,
+              "lon": 20.0632823,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11027753377,
+              "lat": 50.1214137,
+              "lon": 19.9064169,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B3 Pękowice"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11060622742,
+              "lat": 50.2081253,
+              "lon": 20.0682992,
+              "tags": {
+                "military": "office",
+                "name": "Biuro przepustek"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11665557322,
+              "lat": 50.0223428,
+              "lon": 20.3181858,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Poniemiecki magazyn amunicyjny"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13015830134,
+              "lat": 50.0428145,
+              "lon": 19.9584625,
+              "tags": {
+                "abandoned": "yes",
+                "access": "no",
+                "bunker_type": "munitions",
+                "disused": "yes",
+                "heritage": "yes",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 43322268,
+              "center": {
+                "lat": 50.0793013,
+                "lon": 19.9126614
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "military:ref": "4495",
+                "name": "16 Batalion Powietrznodesantowy im. gen. bryg. Mariana Zdrzałki",
+                "short_name": "16. Batalion Powietrznodesantowy",
+                "wikidata": "Q9129306",
+                "wikipedia": "pl:16 Batalion Powietrznodesantowy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 58833595,
+              "center": {
+                "lat": 50.0363654,
+                "lon": 19.9020688
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa NIL",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 83493939,
+              "center": {
+                "lat": 50.0554382,
+                "lon": 19.9729179
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "barracks",
+                "name": "Jednostka wojskowa"
+              }
+            },
+            {
+              "type": "way",
+              "id": 115973620,
+              "center": {
+                "lat": 50.087618,
+                "lon": 19.8558502
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 115973622,
+              "center": {
+                "lat": 50.0981817,
+                "lon": 19.856139
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Jednostka wojskowa Rząska"
+              }
+            },
+            {
+              "type": "way",
+              "id": 115977403,
+              "center": {
+                "lat": 50.0705916,
+                "lon": 19.9559951
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Centrum Operacji Lądowych – Dowództwo Komponentu Lądowego",
+                "website": "https://coladdkl.wp.mil.pl/pl/index.html",
+                "wikidata": "Q24947036",
+                "wikipedia": "pl:Centrum Operacji Lądowych – Dowództwo Komponentu Lądowego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 116609048,
+              "center": {
+                "lat": 50.0656425,
+                "lon": 19.9737815
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:housenumber": "85",
+                "addr:postcode": "30-901",
+                "addr:street": "Mogilska",
+                "landuse": "military",
+                "name": "Rejonowy Zarząd Infrastruktury",
+                "website": "https://rzikrakow.wp.mil.pl/pl/5.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 118311606,
+              "center": {
+                "lat": 50.0769157,
+                "lon": 19.9284444
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "6 Brygada Powietrznodesantowa im. gen. bryg. Stanisława Sosabowskiego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 172595486,
+              "center": {
+                "lat": 50.0820339,
+                "lon": 19.9832776
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "6. Batalion Dowodzenia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 202537202,
+              "center": {
+                "lat": 50.1119227,
+                "lon": 19.703477
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Schron bierny typu Regelbau 668",
+                "military": "bunker",
+                "name": "Regelbau 668",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 230244834,
+              "center": {
+                "lat": 50.0779016,
+                "lon": 19.9022735
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "19",
+                "addr:postcode": "30-087",
+                "addr:street": "Lucjana Rydla",
+                "building": "office",
+                "email": "wcrkrakow@ron.mil.pl",
+                "military": "office",
+                "name": "Wojskowe Centrum Rekrutacji",
+                "phone": "+48 26 113 41 96; +48 26 113 74 41",
+                "website": "https://wcrkrakow.wp.mil.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231216643,
+              "center": {
+                "lat": 50.0898342,
+                "lon": 19.8708137
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "description": "schron amunicji wybudowany przez Austriaków",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron amunicyjny „Bronowice”",
+                "wikidata": "Q9334310",
+                "wikipedia": "pl:Schron amunicyjny „Bronowice”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231320488,
+              "center": {
+                "lat": 50.1056747,
+                "lon": 19.8807891
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Podchruście"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231347173,
+              "center": {
+                "lat": 50.1154101,
+                "lon": 19.8994308
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "35",
+                "addr:street": "Na Zielonki",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron amunicyjny Tonie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231347198,
+              "center": {
+                "lat": 50.1149266,
+                "lon": 19.9095672
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron amunicyjny Pękowice"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231920173,
+              "center": {
+                "lat": 50.0561615,
+                "lon": 19.8965069
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "18",
+                "addr:street": "Aleja Mieczysława Małeckiego",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Zespół Bramny 3a"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231920319,
+              "center": {
+                "lat": 50.0584409,
+                "lon": 19.8977743
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "124d",
+                "addr:postcode": "30-209",
+                "addr:street": "Królowej Jadwigi",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ostróg Bramny Wola Justowska"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231920677,
+              "center": {
+                "lat": 50.0571679,
+                "lon": 19.8967648
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "23",
+                "addr:postcode": "30-210",
+                "addr:street": "Vlastimila Hofmana",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Zespół Bramny 3b"
+              }
+            },
+            {
+              "type": "way",
+              "id": 231921972,
+              "center": {
+                "lat": 50.0491493,
+                "lon": 19.9031538
+              },
+              "tags": {
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:housenumber": "65",
+                "addr:postcode": "30-206",
+                "addr:street": "Księcia Józefa",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ostróg Bramny Bielany",
+                "wikidata": "Q30161380",
+                "wikimedia_commons": "Category:Ostróg bramy fortecznej „Bielany”",
+                "wikipedia": "pl:Ostróg bramny „Bielany”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 232081531,
+              "center": {
+                "lat": 50.0441739,
+                "lon": 19.8471275
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Bielany"
+              }
+            },
+            {
+              "type": "way",
+              "id": 232082885,
+              "center": {
+                "lat": 50.0530065,
+                "lon": 19.8415016
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Las Wolski"
+              }
+            },
+            {
+              "type": "way",
+              "id": 232813413,
+              "center": {
+                "lat": 50.1079297,
+                "lon": 19.8626579
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 233373760,
+              "center": {
+                "lat": 50.0336781,
+                "lon": 19.8673598
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Tradytor Fortu Bodzów"
+              }
+            },
+            {
+              "type": "way",
+              "id": 235370543,
+              "center": {
+                "lat": 50.1259164,
+                "lon": 19.9422054
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B1 Marszowiec"
+              }
+            },
+            {
+              "type": "way",
+              "id": 235370707,
+              "center": {
+                "lat": 50.1240245,
+                "lon": 19.9364518
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 235370709,
+              "center": {
+                "lat": 50.1237493,
+                "lon": 19.935791
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 235370711,
+              "center": {
+                "lat": 50.1238814,
+                "lon": 19.9361179
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B3 Marszowiec"
+              }
+            },
+            {
+              "type": "way",
+              "id": 237041409,
+              "center": {
+                "lat": 50.0174187,
+                "lon": 20.3105135
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa nr 2515"
+              }
+            },
+            {
+              "type": "way",
+              "id": 237152686,
+              "center": {
+                "lat": 50.0875192,
+                "lon": 19.7386957
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Stacja radarowa NUR-12M \"Edyta\" w Brzoskwini"
+              }
+            },
+            {
+              "type": "way",
+              "id": 240145533,
+              "center": {
+                "lat": 50.0036447,
+                "lon": 20.2989486
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa nr 4228 Skład Kłaj"
+              }
+            },
+            {
+              "type": "way",
+              "id": 245039267,
+              "center": {
+                "lat": 50.0053281,
+                "lon": 19.9830376
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron amunicyjny \"Kosocice\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 245054275,
+              "center": {
+                "lat": 50.0197119,
+                "lon": 19.9384326
+              },
+              "tags": {
+                "end_date": "1918",
+                "historic": "memorial",
+                "landuse": "cemetery",
+                "material": "stone",
+                "memorial": "stele",
+                "military": "yes",
+                "name": "Cmentarz wojenny nr 384 – Łagiewniki",
+                "name:hu": "384. számú katonai temető (Łagiewniki)",
+                "religion": "christian",
+                "start_date": "1914",
+                "wikidata": "Q8512142",
+                "wikipedia": "pl:Cmentarz wojenny nr 384 – Łagiewniki"
+              }
+            },
+            {
+              "type": "way",
+              "id": 261127277,
+              "center": {
+                "lat": 50.1102394,
+                "lon": 19.7809837
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 301830586,
+              "center": {
+                "lat": 50.105234,
+                "lon": 19.9692122
+              },
+              "tags": {
+                "abandoned": "yes",
+                "addr:city": "Kraków",
+                "addr:country": "PL",
+                "addr:street": "Węgrzecka",
+                "building": "bunker",
+                "building:levels": "1",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron amunicyjny \"Łysa Góra\"",
+                "start_date": "1913",
+                "wikidata": "Q9334321",
+                "wikipedia": "pl:Schron amunicyjny „Łysa Góra”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 321728107,
+              "center": {
+                "lat": 50.0980378,
+                "lon": 19.8545557
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 321728115,
+              "center": {
+                "lat": 50.0987784,
+                "lon": 19.854205
+              },
+              "tags": {
+                "addr:city": "Rząska",
+                "addr:city:simc": "0343912",
+                "addr:housenumber": "1",
+                "addr:postcode": "30-199",
+                "addr:street": "Krakowska",
+                "addr:street:sym_ul": "09796",
+                "building": "yes",
+                "military": "barracks",
+                "source:addr": "emuia.gugik.gov.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 321728120,
+              "center": {
+                "lat": 50.0984074,
+                "lon": 19.8543806
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 323270409,
+              "center": {
+                "lat": 50.1114314,
+                "lon": 19.9425635
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Marszowiec",
+                "url": "http://kaponiera.pl/5/schronmarszowiec.html"
+              }
+            },
+            {
+              "type": "way",
+              "id": 334828873,
+              "center": {
+                "lat": 50.2110364,
+                "lon": 20.0663291
+              },
+              "tags": {
+                "addr:city": "Niedźwiedź",
+                "addr:postcode": "32-090",
+                "addr:street": "Leśna",
+                "landuse": "military",
+                "name": "3 Regionalna Baza Logistyczna – Skład Niedźwiedź",
+                "operator:phone": "+48 26 113 78 08",
+                "source": "https://3rblog.wp.mil.pl/pl/pages/struktura-2017-01-16-j/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 337263775,
+              "center": {
+                "lat": 49.9940113,
+                "lon": 19.9472388
+              },
+              "tags": {
+                "building": "outbuilding",
+                "building:levels": "1",
+                "bunker_type": "munitions",
+                "heritage": "2",
+                "heritage:operator": "nid",
+                "heritage:website": "https://zabytek.pl/pl/obiekty/g-234207",
+                "historic": "fort",
+                "military": "bunker",
+                "name": "Schron amunicyjny Swoszowice",
+                "nid:inscription_date": "2012-11-07",
+                "ref:nid": "A-1303/M",
+                "source:building": "BDOT",
+                "source:geometry": "EGiB",
+                "start_date": "1913..1914",
+                "tourism": "attraction",
+                "wikidata": "Q30161694",
+                "wikimedia_commons": "Category:Bunker Swoszowice",
+                "wikipedia": "pl:Schron amunicyjny „Swoszowice”"
+              }
+            },
+            {
+              "type": "way",
+              "id": 337429511,
+              "center": {
+                "lat": 49.9944298,
+                "lon": 19.9621796
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Rajsko"
+              }
+            },
+            {
+              "type": "way",
+              "id": 339705836,
+              "center": {
+                "lat": 50.0658796,
+                "lon": 19.7988511
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa nr 4658"
+              }
+            },
+            {
+              "type": "way",
+              "id": 339829499,
+              "center": {
+                "lat": 50.0744621,
+                "lon": 19.942594
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "yes",
+                "name": "3 Regionalna Baza Logistyczna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 410090044,
+              "center": {
+                "lat": 50.0721133,
+                "lon": 19.7832068
+              },
+              "tags": {
+                "addr:city": "Balice",
+                "addr:street": "Kapitana Mieczysława Medweckiego",
+                "email": "8bltr.sekretariat@wp.mil.pl",
+                "fax": "+48 261136269",
+                "landuse": "military",
+                "name": "8. Baza Lotnictwa Transportowego",
+                "phone": "+48 261136211",
+                "ref": "JW1155",
+                "website": "https://3sltr.wp.mil.pl/pl/21.html",
+                "wikidata": "Q9136339",
+                "wikipedia": "pl:8 Baza Lotnictwa Transportowego"
+              }
+            },
+            {
+              "type": "way",
+              "id": 410575240,
+              "center": {
+                "lat": 50.071137,
+                "lon": 19.7723875
+              },
+              "tags": {
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 603394555,
+              "center": {
+                "lat": 50.1094656,
+                "lon": 19.700489
+              },
+              "tags": {
+                "bunker_type": "technical",
+                "military": "bunker",
+                "name": "Niemiecka komora kabli telefonicznych z II Wojny Światowej."
+              }
+            },
+            {
+              "type": "way",
+              "id": 731859918,
+              "center": {
+                "lat": 50.1844619,
+                "lon": 20.2900529
+              },
+              "tags": {
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Kochbunker",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731859919,
+              "center": {
+                "lat": 50.1845281,
+                "lon": 20.2900951
+              },
+              "tags": {
+                "alt_name": "Stellung A2",
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731859920,
+              "center": {
+                "lat": 50.1845961,
+                "lon": 20.2901451
+              },
+              "tags": {
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731859921,
+              "center": {
+                "lat": 50.1845642,
+                "lon": 20.2901969
+              },
+              "tags": {
+                "alt_name": "Stellung A2",
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731859922,
+              "center": {
+                "lat": 50.1846015,
+                "lon": 20.2902121
+              },
+              "tags": {
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731863059,
+              "center": {
+                "lat": 50.1869276,
+                "lon": 20.2638208
+              },
+              "tags": {
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731863060,
+              "center": {
+                "lat": 50.185056,
+                "lon": 20.2676274
+              },
+              "tags": {
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731889120,
+              "center": {
+                "lat": 50.1893836,
+                "lon": 20.2745235
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731889121,
+              "center": {
+                "lat": 50.189485,
+                "lon": 20.274032
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731892311,
+              "center": {
+                "lat": 50.1870765,
+                "lon": 20.2832355
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731925922,
+              "center": {
+                "lat": 50.1922855,
+                "lon": 20.2806306
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731925923,
+              "center": {
+                "lat": 50.1916875,
+                "lon": 20.2824874
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731925924,
+              "center": {
+                "lat": 50.1906502,
+                "lon": 20.2831414
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731925925,
+              "center": {
+                "lat": 50.1891126,
+                "lon": 20.2789162
+              },
+              "tags": {
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931270,
+              "center": {
+                "lat": 50.1777554,
+                "lon": 20.2930035
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau VF 51a",
+                "note": "Ledwo widoczny",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931271,
+              "center": {
+                "lat": 50.1778458,
+                "lon": 20.2934168
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau VF",
+                "note": "Ledwo widoczny",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931272,
+              "center": {
+                "lat": 50.1785459,
+                "lon": 20.2974201
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau VF",
+                "note": "Ledwo widoczny",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931273,
+              "center": {
+                "lat": 50.1787113,
+                "lon": 20.2972379
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau VF",
+                "note": "Ledwo widoczny",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931274,
+              "center": {
+                "lat": 50.1788828,
+                "lon": 20.296933
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau VF 51a w renowacji",
+                "note": "w renowacji",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 731931275,
+              "center": {
+                "lat": 50.1799745,
+                "lon": 20.2966716
+              },
+              "tags": {
+                "access": "no",
+                "alt_name": "Stellung A2",
+                "building": "bunker",
+                "layer": "-1",
+                "military": "bunker",
+                "name": "Regelbau VF pod ziemią",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 749062095,
+              "center": {
+                "lat": 50.1148449,
+                "lon": 19.9684238
+              },
+              "tags": {
+                "building": "yes",
+                "military": "bunker",
+                "name": "Ostróg forteczny",
+                "source:building": "EGiB"
+              }
+            },
+            {
+              "type": "way",
+              "id": 749062096,
+              "center": {
+                "lat": 50.1148984,
+                "lon": 19.9691488
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 749062097,
+              "center": {
+                "lat": 50.1147132,
+                "lon": 19.9694147
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Bateria B1 Węgrzce"
+              }
+            },
+            {
+              "type": "way",
+              "id": 749062098,
+              "center": {
+                "lat": 50.1145255,
+                "lon": 19.9696823
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 812443764,
+              "center": {
+                "lat": 50.1116531,
+                "lon": 19.7039481
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 817931489,
+              "center": {
+                "lat": 50.1151786,
+                "lon": 19.6978365
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "way",
+              "id": 885594878,
+              "center": {
+                "lat": 50.082707,
+                "lon": 19.9089906
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron pogotowia fortu N-8 \"Łobzów\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 886992192,
+              "center": {
+                "lat": 50.0771407,
+                "lon": 20.0586317
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron amunicyjny Mogiła"
+              }
+            },
+            {
+              "type": "way",
+              "id": 886993340,
+              "center": {
+                "lat": 50.0156367,
+                "lon": 19.9929155
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Schron Amunicyjny Prokocim"
+              }
+            },
+            {
+              "type": "way",
+              "id": 894047864,
+              "center": {
+                "lat": 50.1120637,
+                "lon": 19.7035499
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Schron bojowy typu Ringstand 58c",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "subject:wikipedia": "pl:Ringstand 58c",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 894047865,
+              "center": {
+                "lat": 50.1121693,
+                "lon": 19.7034517
+              },
+              "tags": {
+                "building": "bunker",
+                "description": "Schron bojowy typu Ringstand 58c",
+                "military": "bunker",
+                "name": "Ringstand 58c",
+                "subject:wikipedia": "pl:Ringstand 58c",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 894047866,
+              "center": {
+                "lat": 50.1149197,
+                "lon": 19.6973792
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 668"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1019759245,
+              "center": {
+                "lat": 50.0659349,
+                "lon": 20.0981778
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica sportowa LOK HTS Kraków im. Krzysztofa Solarskiego."
+              }
+            },
+            {
+              "type": "way",
+              "id": 1036058209,
+              "center": {
+                "lat": 50.0783667,
+                "lon": 19.9142535
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1084034220,
+              "center": {
+                "lat": 50.1148953,
+                "lon": 19.6972943
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Ringstand 58c"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1084034221,
+              "center": {
+                "lat": 50.1147434,
+                "lon": 19.6971239
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "Regelbau 701"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1207750761,
+              "center": {
+                "lat": 50.1259268,
+                "lon": 19.9414177
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1239734017,
+              "center": {
+                "lat": 50.0865321,
+                "lon": 19.9905303
+              },
+              "tags": {
+                "abandoned": "yes",
+                "access": "no",
+                "building": "bunker",
+                "building:levels": "0",
+                "building:levels:underground": "1",
+                "bunker_type": "technical",
+                "description": "Schron przeciwlotniczy dawnego lotniska Luftwaffe z czasu 2 Wojny Światowej",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes",
+                "website": "https://cogiteon.pl/cogiteon/aktualnosci/cogiteon-z-odnowionym-schronem"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1270688005,
+              "center": {
+                "lat": 50.0836761,
+                "lon": 19.9827988
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1307582992,
+              "center": {
+                "lat": 49.9872278,
+                "lon": 19.9577493
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1355357716,
+              "center": {
+                "lat": 50.0779424,
+                "lon": 19.9024263
+              },
+              "tags": {
+                "access": "no",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1462396490,
+              "center": {
+                "lat": 50.038523,
+                "lon": 19.968926
+              },
+              "tags": {
+                "building": "military",
+                "historic": "yes",
+                "material": "concrete",
+                "military": "abandoned",
+                "name": "Niemiecka zapora przeciwczołgowa z II wojny światowej",
+                "start_date": "1944"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

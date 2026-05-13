@@ -1,0 +1,108 @@
+{
+  "mode": "only-nulls",
+  "dry_run": true,
+  "total_sites": 3,
+  "decisions": {
+    "write-null": 0,
+    "overwrite": 0,
+    "skip-nonnull": 0,
+    "skip-noop": 7,
+    "skip-no-replay": 2
+  },
+  "rows_with_writes": 0,
+  "per_site": [
+    {
+      "site_id": "e6ecead0-54d1-41fe-8268-1253d0d7ef3e",
+      "country": "AL",
+      "name": "Porto Romano Power Station",
+      "lat": 41.371141,
+      "lon": 19.425201,
+      "nearest_ident": "LATI",
+      "nearest_name": "Tirana International Airport Mother Teresa",
+      "decisions": [
+        {
+          "column": "nearest_airport_class",
+          "action": "skip-noop",
+          "current": "large_airport",
+          "replayed": "large_airport"
+        },
+        {
+          "column": "nearest_airport_runway_length_m",
+          "action": "skip-noop",
+          "current": 3000.1,
+          "replayed": 3000.1464
+        },
+        {
+          "column": "nearest_airport_scheduled_service",
+          "action": "skip-noop",
+          "current": true,
+          "replayed": true
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    },
+    {
+      "site_id": "82011c29-a3d3-4a81-a27b-019d2649a251",
+      "country": "BA",
+      "name": "Banovici power station",
+      "lat": 44.4,
+      "lon": 18.5333,
+      "nearest_ident": "BA-0001",
+      "nearest_name": "Ciljuge Sport Airfield",
+      "decisions": [
+        {
+          "column": "nearest_airport_class",
+          "action": "skip-noop",
+          "current": "small_airport",
+          "replayed": "small_airport"
+        },
+        {
+          "column": "nearest_airport_runway_length_m",
+          "action": "skip-no-replay",
+          "current": null,
+          "replayed": null
+        },
+        {
+          "column": "nearest_airport_scheduled_service",
+          "action": "skip-noop",
+          "current": false,
+          "replayed": false
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    },
+    {
+      "site_id": "9699244b-14c0-4e27-afd1-105494fccd60",
+      "country": "TR",
+      "name": "Alpu power station",
+      "lat": 39.897,
+      "lon": 30.862,
+      "nearest_ident": "TR-0021",
+      "nearest_name": "\u00c7ukurhisar Airport",
+      "decisions": [
+        {
+          "column": "nearest_airport_class",
+          "action": "skip-noop",
+          "current": "medium_airport",
+          "replayed": "medium_airport"
+        },
+        {
+          "column": "nearest_airport_runway_length_m",
+          "action": "skip-no-replay",
+          "current": null,
+          "replayed": null
+        },
+        {
+          "column": "nearest_airport_scheduled_service",
+          "action": "skip-noop",
+          "current": false,
+          "replayed": false
+        }
+      ],
+      "writes_planned": 0,
+      "writes_committed": 0
+    }
+  ]
+}

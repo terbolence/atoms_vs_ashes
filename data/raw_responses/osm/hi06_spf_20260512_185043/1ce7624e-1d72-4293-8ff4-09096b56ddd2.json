@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "site_id": "1ce7624e-1d72-4293-8ff4-09096b56ddd2",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:54:13.879746+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,36.69028,36.20909);\n  way[\"military\"](around:25000,36.69028,36.20909);\n  relation[\"military\"](around:25000,36.69028,36.20909);\n  node[\"landuse\"=\"military\"](around:25000,36.69028,36.20909);\n  way[\"landuse\"=\"military\"](around:25000,36.69028,36.20909);\n  relation[\"landuse\"=\"military\"](around:25000,36.69028,36.20909);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.69028,36.20909);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.69028,36.20909);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,36.69028,36.20909);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.69028,36.20909);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.69028,36.20909);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,36.69028,36.20909);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1107,
+        "element_count": 10,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:52:43Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 7928408855,
+              "lat": 36.5916181,
+              "lon": 36.1591057,
+              "tags": {
+                "military": "office",
+                "name": "İskenderun Orduevi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 129560237,
+              "center": {
+                "lat": 36.5544228,
+                "lon": 36.2655352
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "TUSLOG",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 190447002,
+              "center": {
+                "lat": 36.5906009,
+                "lon": 36.1973791
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Deniz İkmal Destek Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 266074512,
+              "center": {
+                "lat": 36.5570941,
+                "lon": 36.1504487
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "1.Deniz Er Eğitim Alayı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 311756851,
+              "center": {
+                "lat": 36.5927159,
+                "lon": 36.1610723
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "39. Mekanize Tugay Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1089693790,
+              "center": {
+                "lat": 36.5919604,
+                "lon": 36.1602029
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1089693791,
+              "center": {
+                "lat": 36.5915712,
+                "lon": 36.1601581
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1128233237,
+              "center": {
+                "lat": 36.5856243,
+                "lon": 36.1996599
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1231917015,
+              "center": {
+                "lat": 36.5868179,
+                "lon": 36.4065591
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1461941730,
+              "center": {
+                "lat": 36.6268649,
+                "lon": 36.209851
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Şehit Ahmet Tor Kışlası"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

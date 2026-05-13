@@ -8,6 +8,8 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
+    weight_factors: {baseline: 6, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-01 (IAEA NS-G-3.2; SSG-35 §4.5)"}
     db_fields: {api: [site_radiological.wind_rose_json, site_radiological.pg_class_f_fraction, site_radiological.pg_class_e_fraction, site_radiological.mean_mixing_height_m], llm: ri01_dispersion_text}
     aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
     sub_scores:
@@ -45,6 +47,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-02 (IAEA NS-G-3.2)"}
     primary_metric: cooling_flow_m3s
     db_fields: {api: [site_infrastructure_v2.cooling_flow_m3s], llm: ri02_surface_water_text}
     bands:
@@ -60,6 +64,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-03 (IAEA NS-G-3.2)"}
     primary_metric: groundwater_vulnerability_class
     db_fields: {api: [site_radiological.aquifer_type, site_radiological.groundwater_vulnerability_class], llm: ri03_groundwater_text}
     bands:
@@ -75,6 +81,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
+    weight_factors: {baseline: 8, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-04 (IAEA NS-G-3.2; SSG-35 §A.39; A12)"}
     db_fields: {api: [site_radiological.pop_density_5km, site_radiological.pop_density_16km, site_radiological.pop_density_25km, site_radiological.pop_density_80km], llm: ri04_population_text}
     aggregation: {method: min_of_sub_scores}
     sub_scores:
@@ -135,6 +143,8 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 10
     normalised_weight_pct: 3.5
+    weight_factors: {baseline: 10, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
     primary_metric: composite
     db_fields: {api: [site_radiological.nearest_city_pop_25k_km, site_radiological.nearest_city_pop_100k_km, site_radiological.nearest_city_pop_500k_km, site_radiological.nearest_city_pop_1M_km], llm: ri05_population_centres_text}
     bands:
@@ -152,6 +162,8 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
+    weight_factors: {baseline: 5, epri: 5}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-06 (SSG-35 §A.39)"}
     primary_metric: pop_growth_rate_pct
     db_fields: {api: [site_radiological.pop_growth_rate_pct, site_radiological.projected_pop_25km_60yr], llm: ri06_pop_projections_text}
     bands:

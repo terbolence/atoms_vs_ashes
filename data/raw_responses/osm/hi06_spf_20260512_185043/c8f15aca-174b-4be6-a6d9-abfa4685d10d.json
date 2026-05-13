@@ -1,0 +1,379 @@
+{
+  "meta": {
+    "site_id": "c8f15aca-174b-4be6-a6d9-abfa4685d10d",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:47:34.695969+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.671341,20.158418);\n  way[\"military\"](around:25000,44.671341,20.158418);\n  relation[\"military\"](around:25000,44.671341,20.158418);\n  node[\"landuse\"=\"military\"](around:25000,44.671341,20.158418);\n  way[\"landuse\"=\"military\"](around:25000,44.671341,20.158418);\n  relation[\"landuse\"=\"military\"](around:25000,44.671341,20.158418);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.671341,20.158418);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.671341,20.158418);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.671341,20.158418);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.671341,20.158418);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.671341,20.158418);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.671341,20.158418);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 2268,
+        "element_count": 27,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:46:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12726948222,
+              "lat": 44.7884205,
+              "lon": 20.4220919,
+              "tags": {
+                "building": "bunker",
+                "image": "https://photos.app.goo.gl/ttX5USm8z8LxKYY17",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12726948223,
+              "lat": 44.7883933,
+              "lon": 20.4220398,
+              "tags": {
+                "building": "bunker",
+                "image": "https://photos.app.goo.gl/Jye5wvzcTGH3AbKR7",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 282471873,
+              "center": {
+                "lat": 44.7442547,
+                "lon": 20.2775796
+              },
+              "tags": {
+                "int_name": "Kasarna Jakovo",
+                "landuse": "military",
+                "name": "Касарна Јаково",
+                "name:sr": "Касарна Јаково",
+                "name:sr-Latn": "Kasarna Jakovo",
+                "photo": "no",
+                "video": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 287327528,
+              "center": {
+                "lat": 44.766475,
+                "lon": 20.4474246
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 288984392,
+              "center": {
+                "lat": 44.7333354,
+                "lon": 20.2555916
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 383512821,
+              "center": {
+                "lat": 44.7366258,
+                "lon": 20.4588005
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404553751,
+              "center": {
+                "lat": 44.7669479,
+                "lon": 20.4142524
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404553752,
+              "center": {
+                "lat": 44.7674018,
+                "lon": 20.4136195
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404553753,
+              "center": {
+                "lat": 44.7679033,
+                "lon": 20.41407
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 404553755,
+              "center": {
+                "lat": 44.7665236,
+                "lon": 20.4150707
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 419219459,
+              "center": {
+                "lat": 44.732375,
+                "lon": 20.4386078
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 431464654,
+              "center": {
+                "lat": 44.7842868,
+                "lon": 20.4052677
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 431466624,
+              "center": {
+                "lat": 44.7836237,
+                "lon": 20.4016521
+              },
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 644368742,
+              "center": {
+                "lat": 44.7312152,
+                "lon": 20.4351774
+              },
+              "tags": {
+                "barrier": "fence",
+                "int_name": "Kasarna Knezevac",
+                "landuse": "military",
+                "name": "Касарна Кнежевац",
+                "name:sr": "Касарна Кнежевац",
+                "name:sr-Latn": "Kasarna Kneževac"
+              }
+            },
+            {
+              "type": "way",
+              "id": 653486972,
+              "center": {
+                "lat": 44.7424137,
+                "lon": 20.4059395
+              },
+              "tags": {
+                "addr:housenumber": "1",
+                "addr:street": "Ратка Ресановића",
+                "alt_name": "ВТИ",
+                "alt_name:sr-Latn": "VTI",
+                "int_name": "Vojnotehnicki institut",
+                "landuse": "military",
+                "name": "Војнотехнички институт",
+                "name:sr": "Војнотехнички институт",
+                "name:sr-Latn": "Vojnotehnički institut",
+                "wikidata": "Q17098299",
+                "wikipedia": "sr:Војнотехнички институт"
+              }
+            },
+            {
+              "type": "way",
+              "id": 672312164,
+              "center": {
+                "lat": 44.7282081,
+                "lon": 20.4364055
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 688738311,
+              "center": {
+                "lat": 44.7323921,
+                "lon": 20.4386054
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 746808746,
+              "center": {
+                "lat": 44.7763998,
+                "lon": 20.4467485
+              },
+              "tags": {
+                "int_name": "Kasarna Topcider",
+                "landuse": "military",
+                "name": "Касарна Топчидер",
+                "name:sr": "Касарна Топчидер",
+                "name:sr-Latn": "Kasarna Topčider"
+              }
+            },
+            {
+              "type": "way",
+              "id": 799071549,
+              "center": {
+                "lat": 44.7418699,
+                "lon": 20.4097733
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 799071550,
+              "center": {
+                "lat": 44.7413218,
+                "lon": 20.4093767
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 799071551,
+              "center": {
+                "lat": 44.7427676,
+                "lon": 20.4098788
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 854353724,
+              "center": {
+                "lat": 44.6707614,
+                "lon": 20.186158
+              },
+              "tags": {
+                "int_name": "Kasarna Obrenovac",
+                "landuse": "military",
+                "name": "Касарна Обреновац",
+                "name:sr-Latn": "Kasarna Obrenovac"
+              }
+            },
+            {
+              "type": "way",
+              "id": 875593953,
+              "center": {
+                "lat": 44.782483,
+                "lon": 20.4041285
+              },
+              "tags": {
+                "int_name": "MUP nastavni centar „Makis”",
+                "landuse": "military",
+                "name": "МУП наставни центар „Макиш”",
+                "name:sr": "МУП наставни центар „Макиш”",
+                "name:sr-Latn": "MUP nastavni centar „Makiš”",
+                "police": "training_area",
+                "wikidata": "Q15244014",
+                "wikipedia": "sr:СЦ МУП Макиш"
+              }
+            },
+            {
+              "type": "way",
+              "id": 914479692,
+              "center": {
+                "lat": 44.7341735,
+                "lon": 20.4551811
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1320693853,
+              "center": {
+                "lat": 44.7155466,
+                "lon": 20.3320696
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1484948283,
+              "center": {
+                "lat": 44.7475998,
+                "lon": 20.2744946
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1495437932,
+              "center": {
+                "lat": 44.78117,
+                "lon": 19.8979582
+              },
+              "tags": {
+                "int_name": "Centar za ispitivanje NVO Nikinci",
+                "landuse": "military",
+                "military": "range",
+                "name": "Центар за испитивање НВО Никинци",
+                "name:sr": "Центар за испитивање НВО Никинци",
+                "name:sr-Latn": "Centar za ispitivanje NVO Nikinci",
+                "website": "http://www.toc.vs.rs/cin_l.html"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

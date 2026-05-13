@@ -1,0 +1,570 @@
+{
+  "meta": {
+    "site_id": "187b4fd7-6a61-4e94-8ed4-495ac6dfc317",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:29:23.375663+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,51.207007,16.155323);\n  way[\"military\"](around:25000,51.207007,16.155323);\n  relation[\"military\"](around:25000,51.207007,16.155323);\n  node[\"landuse\"=\"military\"](around:25000,51.207007,16.155323);\n  way[\"landuse\"=\"military\"](around:25000,51.207007,16.155323);\n  relation[\"landuse\"=\"military\"](around:25000,51.207007,16.155323);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.207007,16.155323);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.207007,16.155323);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.207007,16.155323);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.207007,16.155323);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.207007,16.155323);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.207007,16.155323);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4437,
+        "element_count": 39,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:28:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3202373024,
+              "lat": 51.236753,
+              "lon": 16.4696898,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373047,
+              "lat": 51.2412519,
+              "lon": 16.4680226,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373069,
+              "lat": 51.2453938,
+              "lon": 16.4685711,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373070,
+              "lat": 51.2534089,
+              "lon": 16.460522,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373078,
+              "lat": 51.2591419,
+              "lon": 16.4575128,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373081,
+              "lat": 51.2610983,
+              "lon": 16.4581851,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3202373272,
+              "lat": 51.2798311,
+              "lon": 16.4285093,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207468,
+              "lat": 51.3155485,
+              "lon": 16.4421289,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207469,
+              "lat": 51.3161493,
+              "lon": 16.4427746,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207470,
+              "lat": 51.3196712,
+              "lon": 16.4488382,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207471,
+              "lat": 51.3203026,
+              "lon": 16.4500345,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207472,
+              "lat": 51.3222515,
+              "lon": 16.4544774,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207473,
+              "lat": 51.3235052,
+              "lon": 16.4567601,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3815207474,
+              "lat": 51.3255783,
+              "lon": 16.4585204,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "description": "Linia Środkowej Odry",
+                "historic": "ruins",
+                "military": "bunker",
+                "wikidata": "Q56702768",
+                "wikipedia": "pl:Linia Środkowej Odry"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10606100802,
+              "lat": 51.2130248,
+              "lon": 16.1588993,
+              "tags": {
+                "abandoned:building": "bunker",
+                "bunker_type": "mg_nest",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 201238558,
+              "center": {
+                "lat": 51.0832401,
+                "lon": 15.9100905
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376232664,
+              "center": {
+                "lat": 51.0908937,
+                "lon": 16.3238209
+              },
+              "tags": {
+                "military": "trench",
+                "trench": "dugout",
+                "width": "1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376232670,
+              "center": {
+                "lat": 51.0911244,
+                "lon": 16.3241085
+              },
+              "tags": {
+                "military": "trench",
+                "trench": "dugout",
+                "width": "1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376232679,
+              "center": {
+                "lat": 51.0912655,
+                "lon": 16.3229228
+              },
+              "tags": {
+                "layer": "-1",
+                "military": "trench",
+                "trench": "dugout",
+                "tunnel": "culvert",
+                "width": "1"
+              }
+            },
+            {
+              "type": "way",
+              "id": 445245280,
+              "center": {
+                "lat": 51.1308911,
+                "lon": 15.9313436
+              },
+              "tags": {
+                "landuse": "military",
+                "lockable": "yes",
+                "military": "range",
+                "name": "Strzelnica do broni kulowej"
+              }
+            },
+            {
+              "type": "way",
+              "id": 839926080,
+              "center": {
+                "lat": 51.1305202,
+                "lon": 16.2614897
+              },
+              "tags": {
+                "military": "trench",
+                "source:geometry": "geoportal.gov.pl:Orto/ISOK_CIEŃ-laser/EGB&GPS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 937275522,
+              "center": {
+                "lat": 51.3818969,
+                "lon": 16.2013276
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 937275523,
+              "center": {
+                "lat": 51.3820215,
+                "lon": 16.2009175
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 937275524,
+              "center": {
+                "lat": 51.3822612,
+                "lon": 16.2009247
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 937275527,
+              "center": {
+                "lat": 51.3821358,
+                "lon": 16.2013439
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "source:geometry": "geoportal.gov.pl:ISOK_CIEŃ-laser",
+                "tourism": "attraction"
+              }
+            },
+            {
+              "type": "way",
+              "id": 956031907,
+              "center": {
+                "lat": 51.1385657,
+                "lon": 15.9550857
+              },
+              "tags": {
+                "description": "Klub Strzelecki Agat",
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica \"Złote Wzgórza\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 1221535374,
+              "center": {
+                "lat": 51.2047235,
+                "lon": 16.1675576
+              },
+              "tags": {
+                "building": "disused",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1221535375,
+              "center": {
+                "lat": 51.2045988,
+                "lon": 16.1679159
+              },
+              "tags": {
+                "building": "disused",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1221535376,
+              "center": {
+                "lat": 51.2064178,
+                "lon": 16.1651531
+              },
+              "tags": {
+                "building": "disused",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1221535377,
+              "center": {
+                "lat": 51.2062508,
+                "lon": 16.1646625
+              },
+              "tags": {
+                "building": "disused",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1244054874,
+              "center": {
+                "lat": 51.2576419,
+                "lon": 16.4620283
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1244054875,
+              "center": {
+                "lat": 51.2918498,
+                "lon": 16.4489292
+              },
+              "tags": {
+                "building": "yes",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505158,
+              "center": {
+                "lat": 51.2942853,
+                "lon": 16.1828748
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505159,
+              "center": {
+                "lat": 51.2946083,
+                "lon": 16.1867693
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505160,
+              "center": {
+                "lat": 51.294567,
+                "lon": 16.1872801
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505161,
+              "center": {
+                "lat": 51.2942321,
+                "lon": 16.1868848
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505162,
+              "center": {
+                "lat": 51.2944497,
+                "lon": 16.1855942
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505163,
+              "center": {
+                "lat": 51.2943876,
+                "lon": 16.1843148
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1507505164,
+              "center": {
+                "lat": 51.296163,
+                "lon": 16.1829915
+              },
+              "tags": {
+                "abandoned": "yes",
+                "bunker_type": "technical",
+                "military": "bunker"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

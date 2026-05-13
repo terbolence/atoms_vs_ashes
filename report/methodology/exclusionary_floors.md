@@ -99,7 +99,7 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
-| **9-10** | `nearest_volcano_km > 1000 or nearest_volcano_km is null` | No plausible pathway (including connector-null / beyond search radius). |
+| **9-10** | `nearest_volcano_km is null or nearest_volcano_km > 1000` | No plausible pathway (including connector-null / beyond search radius). |
 | **7-8** | `nearest_volcano_km >= 500` | Distant; ashfall climatology benign. |
 | **5-6** | `nearest_volcano_km >= 300` | Meets project minimum (>= 300 km). |
 | **3-4** | `nearest_volcano_km >= 200` | Sub-threshold; specialist study required. |

@@ -1,0 +1,633 @@
+{
+  "meta": {
+    "site_id": "cf9150af-0325-44d8-bbaf-493e742f2e2b",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:19:49.425882+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,37.468,42.391);\n  way[\"military\"](around:25000,37.468,42.391);\n  relation[\"military\"](around:25000,37.468,42.391);\n  node[\"landuse\"=\"military\"](around:25000,37.468,42.391);\n  way[\"landuse\"=\"military\"](around:25000,37.468,42.391);\n  relation[\"landuse\"=\"military\"](around:25000,37.468,42.391);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.468,42.391);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.468,42.391);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,37.468,42.391);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.468,42.391);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.468,42.391);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,37.468,42.391);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 865,
+        "element_count": 51,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12560724645,
+              "lat": 37.3988037,
+              "lon": 42.1800708,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94814651,
+              "center": {
+                "lat": 37.5638157,
+                "lon": 42.3929883
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94852252,
+              "center": {
+                "lat": 37.5385172,
+                "lon": 42.4906415
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94852304,
+              "center": {
+                "lat": 37.5176615,
+                "lon": 42.4705709
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "23. Jandarma Sınır Tümen Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94852316,
+              "center": {
+                "lat": 37.5163623,
+                "lon": 42.4684557
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94852322,
+              "center": {
+                "lat": 37.4390576,
+                "lon": 42.1104798
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "6. İç Güvenlik Motorlu Piyade Tugayı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 94957338,
+              "center": {
+                "lat": 37.2612817,
+                "lon": 42.3246082
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 122266844,
+              "center": {
+                "lat": 37.5324781,
+                "lon": 42.4408215
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Çakırsöğüt Komando Tugay Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 129775318,
+              "center": {
+                "lat": 37.3446801,
+                "lon": 42.1764986
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "172.Zırhlı Tugay komutan Yardımcılığı Cizre Garnizon Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 129775320,
+              "center": {
+                "lat": 37.3369484,
+                "lon": 42.1963856
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Cizre Askeri Lojmanlar",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 129786349,
+              "center": {
+                "lat": 37.3298651,
+                "lon": 42.563414
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Görümlü Jandarma Karakol Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 129819835,
+              "center": {
+                "lat": 37.4485567,
+                "lon": 42.6565976
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 172405980,
+              "center": {
+                "lat": 37.4032601,
+                "lon": 42.1817851
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kasrik Jandarma Karakolu",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 172405982,
+              "center": {
+                "lat": 37.5462667,
+                "lon": 42.2344557
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Görmeç Jandarma Taburu",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181770495,
+              "center": {
+                "lat": 37.4864753,
+                "lon": 42.5671828
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jandarma",
+                "police": "gendarmerie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181770498,
+              "center": {
+                "lat": 37.5382028,
+                "lon": 42.490701
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Namaz Dağı Üs Bölgesi",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181826010,
+              "center": {
+                "lat": 37.4962103,
+                "lon": 42.4126368
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181826092,
+              "center": {
+                "lat": 37.4601666,
+                "lon": 42.3351902
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "İkizce Bolu Komando Tugayı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 209345482,
+              "center": {
+                "lat": 37.6199184,
+                "lon": 42.350878
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Yeniaslanbaşar Jandarma Karakol Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 227830452,
+              "center": {
+                "lat": 37.2626852,
+                "lon": 42.4896522
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 286207312,
+              "center": {
+                "lat": 37.3690065,
+                "lon": 42.2080732
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Askeri Karakol"
+              }
+            },
+            {
+              "type": "way",
+              "id": 342810225,
+              "center": {
+                "lat": 37.4501714,
+                "lon": 42.214566
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jandarma",
+                "police": "gendarmerie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371749073,
+              "center": {
+                "lat": 37.5014672,
+                "lon": 42.1620494
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371749091,
+              "center": {
+                "lat": 37.5016837,
+                "lon": 42.1616786
+              },
+              "tags": {
+                "landuse": "military",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371976338,
+              "center": {
+                "lat": 37.4206798,
+                "lon": 42.1294333
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 381181144,
+              "center": {
+                "lat": 37.5009766,
+                "lon": 42.4420634
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Özel Harekat Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 395491496,
+              "center": {
+                "lat": 37.4540381,
+                "lon": 42.2634543
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 397248327,
+              "center": {
+                "lat": 37.6426122,
+                "lon": 42.4563177
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 493626686,
+              "center": {
+                "lat": 37.3543518,
+                "lon": 42.3266321
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 495361437,
+              "center": {
+                "lat": 37.5367352,
+                "lon": 42.4468195
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Çakırsöğüt Jandarma Komando Tugay Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 828084211,
+              "center": {
+                "lat": 37.3958526,
+                "lon": 42.4933197
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 828474831,
+              "center": {
+                "lat": 37.2604035,
+                "lon": 42.4644795
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 835107117,
+              "center": {
+                "lat": 37.5336651,
+                "lon": 42.4411091
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 836277333,
+              "center": {
+                "lat": 37.3300715,
+                "lon": 42.5636424
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1036808094,
+              "center": {
+                "lat": 37.3403262,
+                "lon": 42.1981591
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Cizre İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1076338326,
+              "center": {
+                "lat": 37.5121107,
+                "lon": 42.4701613
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "MİT"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1097549302,
+              "center": {
+                "lat": 37.3137239,
+                "lon": 42.1952093
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1097638106,
+              "center": {
+                "lat": 37.300887,
+                "lon": 42.2186813
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1097638112,
+              "center": {
+                "lat": 37.2881145,
+                "lon": 42.2200427
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1097638116,
+              "center": {
+                "lat": 37.3063813,
+                "lon": 42.2240975
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1327838560,
+              "center": {
+                "lat": 37.3437471,
+                "lon": 42.1746258
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1327838563,
+              "center": {
+                "lat": 37.3313589,
+                "lon": 42.2666222
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1338357602,
+              "center": {
+                "lat": 37.5385162,
+                "lon": 42.4898742
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1356370173,
+              "center": {
+                "lat": 37.5274997,
+                "lon": 42.1789551
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1356370174,
+              "center": {
+                "lat": 37.5467559,
+                "lon": 42.1971447
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1356370176,
+              "center": {
+                "lat": 37.5607481,
+                "lon": 42.2033481
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1378042734,
+              "center": {
+                "lat": 37.3263493,
+                "lon": 42.321623
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1424960285,
+              "center": {
+                "lat": 37.4083513,
+                "lon": 42.5265371
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1466754705,
+              "center": {
+                "lat": 37.5263243,
+                "lon": 42.1278861
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1466959529,
+              "center": {
+                "lat": 37.5778181,
+                "lon": 42.1734273
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1486246878,
+              "center": {
+                "lat": 37.5186919,
+                "lon": 42.1695264
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

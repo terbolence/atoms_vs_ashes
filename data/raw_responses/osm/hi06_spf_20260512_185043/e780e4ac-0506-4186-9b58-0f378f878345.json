@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "site_id": "e780e4ac-0506-4186-9b58-0f378f878345",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:05:15.287816+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.86621,35.12424);\n  way[\"military\"](around:25000,41.86621,35.12424);\n  relation[\"military\"](around:25000,41.86621,35.12424);\n  node[\"landuse\"=\"military\"](around:25000,41.86621,35.12424);\n  way[\"landuse\"=\"military\"](around:25000,41.86621,35.12424);\n  relation[\"landuse\"=\"military\"](around:25000,41.86621,35.12424);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.86621,35.12424);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.86621,35.12424);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.86621,35.12424);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.86621,35.12424);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.86621,35.12424);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.86621,35.12424);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1203,
+        "element_count": 7,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:03:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12889353321,
+              "lat": 42.0246772,
+              "lon": 35.1670314,
+              "tags": {
+                "military": "office",
+                "name": "Sinop İl Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 206986016,
+              "center": {
+                "lat": 42.0300391,
+                "lon": 35.1723406
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 506427030,
+              "center": {
+                "lat": 42.0314728,
+                "lon": 35.1712419
+              },
+              "tags": {
+                "building": "bunker",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 888343138,
+              "center": {
+                "lat": 42.0257421,
+                "lon": 35.1428387
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 890567829,
+              "center": {
+                "lat": 42.0248695,
+                "lon": 35.1665534
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Jandarma Nizam Karakolu"
+              }
+            },
+            {
+              "type": "way",
+              "id": 890567851,
+              "center": {
+                "lat": 42.0317184,
+                "lon": 35.1880352
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 893636263,
+              "center": {
+                "lat": 41.8820643,
+                "lon": 34.9149183
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

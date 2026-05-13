@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "site_id": "8781d874-5923-4795-9c9f-b2a6c709025a",
+    "connector_slug": "copernicus_dem",
+    "run_id": "20260512T184804_724e6d22",
+    "request_url": "https://registry.opendata.aws/copernicus-dem/",
+    "request_params": null,
+    "http_status": null,
+    "fetched_at": "2026-05-12T19:22:00.900650+00:00"
+  },
+  "response": {
+    "type": "raster_extraction",
+    "source_url": "https://registry.opendata.aws/copernicus-dem/",
+    "crs": "EPSG:4326",
+    "extracted_values": {
+      "elevation_m": 17.212461471557617,
+      "slope_max_deg": 66.2832495462247,
+      "slope_mean_deg": 4.2568032293561195,
+      "slope_stability_class": "gentle"
+    },
+    "pixel_coords": [
+      28.0425,
+      45.423333
+    ],
+    "resolution_m": 30
+  }
+}

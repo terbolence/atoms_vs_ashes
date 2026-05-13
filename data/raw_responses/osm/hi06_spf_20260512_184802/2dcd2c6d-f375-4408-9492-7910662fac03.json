@@ -1,0 +1,810 @@
+{
+  "meta": {
+    "site_id": "2dcd2c6d-f375-4408-9492-7910662fac03",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_184802",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:49:49.820069+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,48.0122,13.5895);\n  way[\"military\"](around:25000,48.0122,13.5895);\n  relation[\"military\"](around:25000,48.0122,13.5895);\n  node[\"landuse\"=\"military\"](around:25000,48.0122,13.5895);\n  way[\"landuse\"=\"military\"](around:25000,48.0122,13.5895);\n  relation[\"landuse\"=\"military\"](around:25000,48.0122,13.5895);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.0122,13.5895);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.0122,13.5895);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.0122,13.5895);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.0122,13.5895);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.0122,13.5895);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.0122,13.5895);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 7546,
+        "element_count": 81,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:48:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 3637988499,
+              "lat": 48.0577517,
+              "lon": 13.8479964,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988500,
+              "lat": 48.0580114,
+              "lon": 13.8496509,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988501,
+              "lat": 48.0584093,
+              "lon": 13.8485746,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988502,
+              "lat": 48.0587425,
+              "lon": 13.8498314,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988503,
+              "lat": 48.0591052,
+              "lon": 13.8489404,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988504,
+              "lat": 48.0593199,
+              "lon": 13.8511228,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988505,
+              "lat": 48.0594483,
+              "lon": 13.8501331,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988506,
+              "lat": 48.0598315,
+              "lon": 13.8491682,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988507,
+              "lat": 48.0600204,
+              "lon": 13.8522797,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988508,
+              "lat": 48.0600364,
+              "lon": 13.8512141,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988509,
+              "lat": 48.0603877,
+              "lon": 13.8502407,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988510,
+              "lat": 48.0605776,
+              "lon": 13.8491881,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988511,
+              "lat": 48.0607564,
+              "lon": 13.851175,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988512,
+              "lat": 48.0607733,
+              "lon": 13.8522645,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988513,
+              "lat": 48.0611049,
+              "lon": 13.853212,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988514,
+              "lat": 48.0611091,
+              "lon": 13.8501546,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988515,
+              "lat": 48.0613302,
+              "lon": 13.8427494,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988516,
+              "lat": 48.061343,
+              "lon": 13.8489979,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988517,
+              "lat": 48.0614509,
+              "lon": 13.8510245,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988518,
+              "lat": 48.0615061,
+              "lon": 13.8522027,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988519,
+              "lat": 48.0618214,
+              "lon": 13.8530994,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988520,
+              "lat": 48.062325,
+              "lon": 13.8496134,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988521,
+              "lat": 48.0623409,
+              "lon": 13.8509725,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988522,
+              "lat": 48.0623786,
+              "lon": 13.8540959,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988523,
+              "lat": 48.0628256,
+              "lon": 13.8485153,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988524,
+              "lat": 48.0629237,
+              "lon": 13.8519685,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988525,
+              "lat": 48.0629586,
+              "lon": 13.8502158,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988526,
+              "lat": 48.0630393,
+              "lon": 13.844864,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988527,
+              "lat": 48.0631683,
+              "lon": 13.8547091,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988528,
+              "lat": 48.0633901,
+              "lon": 13.8558358,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988529,
+              "lat": 48.0634062,
+              "lon": 13.8527448,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988530,
+              "lat": 48.0634244,
+              "lon": 13.8491548,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988531,
+              "lat": 48.063553,
+              "lon": 13.8510291,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988532,
+              "lat": 48.0637822,
+              "lon": 13.8458992,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988533,
+              "lat": 48.0639894,
+              "lon": 13.8498829,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988534,
+              "lat": 48.0640559,
+              "lon": 13.8518185,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988535,
+              "lat": 48.0641168,
+              "lon": 13.8564414,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988536,
+              "lat": 48.0641796,
+              "lon": 13.8425652,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988537,
+              "lat": 48.0642292,
+              "lon": 13.848394,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988538,
+              "lat": 48.0643253,
+              "lon": 13.8470922,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988539,
+              "lat": 48.0643449,
+              "lon": 13.8576352,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988540,
+              "lat": 48.0644748,
+              "lon": 13.8550681,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988541,
+              "lat": 48.0645398,
+              "lon": 13.8525556,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988542,
+              "lat": 48.0645489,
+              "lon": 13.8506212,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988543,
+              "lat": 48.0646975,
+              "lon": 13.844272,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988544,
+              "lat": 48.0647478,
+              "lon": 13.8491522,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988545,
+              "lat": 48.0648148,
+              "lon": 13.8539808,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988546,
+              "lat": 48.0650407,
+              "lon": 13.8454283,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988547,
+              "lat": 48.065059,
+              "lon": 13.8512462,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988548,
+              "lat": 48.065073,
+              "lon": 13.8570386,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988549,
+              "lat": 48.0651405,
+              "lon": 13.8582331,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988550,
+              "lat": 48.0651409,
+              "lon": 13.8558915,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988551,
+              "lat": 48.0652579,
+              "lon": 13.8498926,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988552,
+              "lat": 48.0653957,
+              "lon": 13.8548736,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988553,
+              "lat": 48.0655021,
+              "lon": 13.8483139,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988554,
+              "lat": 48.0656632,
+              "lon": 13.8538826,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988555,
+              "lat": 48.0658271,
+              "lon": 13.8506149,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988556,
+              "lat": 48.0661696,
+              "lon": 13.8575371,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988557,
+              "lat": 48.0662266,
+              "lon": 13.8564335,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988558,
+              "lat": 48.0662292,
+              "lon": 13.8489954,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988559,
+              "lat": 48.0662741,
+              "lon": 13.8586638,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988560,
+              "lat": 48.066276,
+              "lon": 13.8553789,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988561,
+              "lat": 48.0663819,
+              "lon": 13.8512776,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988562,
+              "lat": 48.0664986,
+              "lon": 13.8543167,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988563,
+              "lat": 48.0669368,
+              "lon": 13.8497646,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988564,
+              "lat": 48.0669415,
+              "lon": 13.8519456,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988565,
+              "lat": 48.0670038,
+              "lon": 13.8565804,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3637988566,
+              "lat": 48.0671197,
+              "lon": 13.8578962,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5157139875,
+              "lat": 47.9594094,
+              "lon": 13.5813137,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "gun_emplacement",
+                "landuse": "military",
+                "military": "bunker",
+                "name": "Ehemaliger FLAK-Turm"
+              }
+            },
+            {
+              "type": "way",
+              "id": 46931720,
+              "center": {
+                "lat": 48.0291421,
+                "lon": 13.5135716
+              },
+              "tags": {
+                "access": "private",
+                "building": "bunker",
+                "bunker_type": "technical",
+                "location": "overground",
+                "military": "bunker",
+                "name": "Trafobunker",
+                "note": "Im Privatbesitz",
+                "technical_type": "power_generator",
+                "url": "http://www.schlier.at",
+                "wikidata": "Q105646571"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773020,
+              "center": {
+                "lat": 48.2168638,
+                "lon": 13.4761003
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "General Zehner Kaserne - Panzergrenadierbataillon 13 (PzGrenB13)"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773036,
+              "center": {
+                "lat": 48.2153648,
+                "lon": 13.4746382
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773037,
+              "center": {
+                "lat": 48.2151892,
+                "lon": 13.4761605
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773039,
+              "center": {
+                "lat": 48.2156988,
+                "lon": 13.476331
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773041,
+              "center": {
+                "lat": 48.2151094,
+                "lon": 13.4746138
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773042,
+              "center": {
+                "lat": 48.2156306,
+                "lon": 13.4746806
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773043,
+              "center": {
+                "lat": 48.2149287,
+                "lon": 13.4761106
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773044,
+              "center": {
+                "lat": 48.2154567,
+                "lon": 13.4762069
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773046,
+              "center": {
+                "lat": 48.2158756,
+                "lon": 13.4747538
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 127773048,
+              "center": {
+                "lat": 48.2150247,
+                "lon": 13.4753701
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 377869273,
+              "center": {
+                "lat": 48.0656736,
+                "lon": 13.8554039
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Heeresmunitionsanstalt Stadl-Paura"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

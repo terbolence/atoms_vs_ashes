@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "site_id": "d3f986d9-a023-4d43-a0fb-03361f310873",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:22:46.938524+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,41.133,37.156);\n  way[\"military\"](around:25000,41.133,37.156);\n  relation[\"military\"](around:25000,41.133,37.156);\n  node[\"landuse\"=\"military\"](around:25000,41.133,37.156);\n  way[\"landuse\"=\"military\"](around:25000,41.133,37.156);\n  relation[\"landuse\"=\"military\"](around:25000,41.133,37.156);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.133,37.156);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.133,37.156);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,41.133,37.156);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.133,37.156);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.133,37.156);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,41.133,37.156);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 874,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 10799409847,
+              "lat": 41.11876,
+              "lon": 37.3036536,
+              "tags": {
+                "landuse": "military",
+                "military": "training_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 420344227,
+              "center": {
+                "lat": 41.2094145,
+                "lon": 36.9713217
+              },
+              "tags": {
+                "addr:postcode": "55600",
+                "addr:street": "Çarşamba Caddesi",
+                "building": "yes",
+                "government": "military",
+                "military": "office",
+                "name": "Terme İlçe Jandarma Komutanlığı",
+                "office": "government"
+              }
+            },
+            {
+              "type": "way",
+              "id": 550884468,
+              "center": {
+                "lat": 41.1411311,
+                "lon": 37.2898866
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 875601876,
+              "center": {
+                "lat": 41.1326773,
+                "lon": 37.2865306
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Ünye Askerlik Şubesi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1152892070,
+              "center": {
+                "lat": 41.0637813,
+                "lon": 37.0893784
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "İkizce İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1238389884,
+              "center": {
+                "lat": 41.0163561,
+                "lon": 37.0958904
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office",
+                "name": "Çaybaşı Jandarma Komutanlığı"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

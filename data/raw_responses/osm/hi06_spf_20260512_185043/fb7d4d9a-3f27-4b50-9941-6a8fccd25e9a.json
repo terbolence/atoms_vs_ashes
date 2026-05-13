@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "site_id": "fb7d4d9a-3f27-4b50-9941-6a8fccd25e9a",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:27:33.865223+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,49.07049,24.318522);\n  way[\"military\"](around:25000,49.07049,24.318522);\n  relation[\"military\"](around:25000,49.07049,24.318522);\n  node[\"landuse\"=\"military\"](around:25000,49.07049,24.318522);\n  way[\"landuse\"=\"military\"](around:25000,49.07049,24.318522);\n  relation[\"landuse\"=\"military\"](around:25000,49.07049,24.318522);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.07049,24.318522);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.07049,24.318522);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,49.07049,24.318522);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.07049,24.318522);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.07049,24.318522);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,49.07049,24.318522);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9556,
+        "element_count": 15,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:26:07Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 5899692174,
+              "lat": 48.9403537,
+              "lon": 24.1587542,
+              "tags": {
+                "military": "office",
+                "name": "Рожнятівський РВК",
+                "name:uk": "Рожнятівський РВК"
+              }
+            },
+            {
+              "type": "node",
+              "id": 11509061306,
+              "lat": 49.022945,
+              "lon": 24.3753517,
+              "tags": {
+                "military": "office",
+                "name": "Калуський РТЦК та СП",
+                "name:uk": "Калуський РТЦК та СП"
+              }
+            },
+            {
+              "type": "way",
+              "id": 173919249,
+              "center": {
+                "lat": 49.0383773,
+                "lon": 24.3498237
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 507902890,
+              "center": {
+                "lat": 49.0723577,
+                "lon": 24.3226866
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 508581694,
+              "center": {
+                "lat": 49.0384178,
+                "lon": 24.349708
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 512113084,
+              "center": {
+                "lat": 49.0701307,
+                "lon": 24.2814051
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 512113085,
+              "center": {
+                "lat": 49.0703857,
+                "lon": 24.2813033
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 538972071,
+              "center": {
+                "lat": 49.0424616,
+                "lon": 24.4238834
+              },
+              "tags": {
+                "barrier": "ditch",
+                "military": "trench"
+              }
+            },
+            {
+              "type": "way",
+              "id": 552240802,
+              "center": {
+                "lat": 49.0809082,
+                "lon": 24.3137987
+              },
+              "tags": {
+                "amenity": "shelter",
+                "building": "yes",
+                "military": "checkpoint",
+                "shelter_type": "lean_to"
+              }
+            },
+            {
+              "type": "way",
+              "id": 554976179,
+              "center": {
+                "lat": 49.0769073,
+                "lon": 24.3085658
+              },
+              "tags": {
+                "amenity": "shelter",
+                "building": "yes",
+                "military": "checkpoint",
+                "shelter_type": "lean_to"
+              }
+            },
+            {
+              "type": "way",
+              "id": 554976180,
+              "center": {
+                "lat": 49.0809483,
+                "lon": 24.3062882
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 554976183,
+              "center": {
+                "lat": 49.0799676,
+                "lon": 24.3068349
+              },
+              "tags": {
+                "amenity": "shelter",
+                "building": "yes",
+                "military": "checkpoint",
+                "shelter_type": "lean_to"
+              }
+            },
+            {
+              "type": "way",
+              "id": 554976185,
+              "center": {
+                "lat": 49.0758472,
+                "lon": 24.3167077
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 558110843,
+              "center": {
+                "lat": 49.0788538,
+                "lon": 24.3075136
+              },
+              "tags": {
+                "amenity": "shelter",
+                "building": "yes",
+                "military": "checkpoint",
+                "shelter_type": "lean_to"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062686409,
+              "center": {
+                "lat": 49.0729186,
+                "lon": 24.3110694
+              },
+              "tags": {
+                "amenity": "shelter",
+                "building": "yes",
+                "military": "checkpoint",
+                "shelter_type": "lean_to"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1543 @@
+{
+  "meta": {
+    "site_id": "e2c23866-db1e-4316-82b5-7e3fe50c3c09",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:33:36.522318+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,53.390996,14.524786);\n  way[\"military\"](around:25000,53.390996,14.524786);\n  relation[\"military\"](around:25000,53.390996,14.524786);\n  node[\"landuse\"=\"military\"](around:25000,53.390996,14.524786);\n  way[\"landuse\"=\"military\"](around:25000,53.390996,14.524786);\n  relation[\"landuse\"=\"military\"](around:25000,53.390996,14.524786);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.390996,14.524786);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.390996,14.524786);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,53.390996,14.524786);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.390996,14.524786);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.390996,14.524786);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,53.390996,14.524786);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1735,
+        "element_count": 115,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:32:15Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 534940699,
+              "lat": 53.3521148,
+              "lon": 14.5804744,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 687635505,
+              "lat": 53.3758513,
+              "lon": 14.6341778,
+              "tags": {
+                "disused": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4745562386,
+              "lat": 53.4196344,
+              "lon": 14.5523013,
+              "tags": {
+                "building": "bunker",
+                "disused": "no",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron Atomowy i przeciwlotniczy",
+                "website": "https://schron.szczecin.pl/",
+                "wikidata": "Q24941780",
+                "wikipedia": "pl:Podziemne trasy turystyczne w Szczecinie"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7260103160,
+              "lat": 53.3627352,
+              "lon": 14.5926603,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7260103203,
+              "lat": 53.3614693,
+              "lon": 14.5926984,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7260103204,
+              "lat": 53.3614027,
+              "lon": 14.5928028,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7260103320,
+              "lat": 53.3625426,
+              "lon": 14.5903926,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7264183215,
+              "lat": 53.3589511,
+              "lon": 14.5861796,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8210342683,
+              "lat": 53.3624883,
+              "lon": 14.5825715,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8210342684,
+              "lat": 53.3624451,
+              "lon": 14.5826408,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8210343659,
+              "lat": 53.3643694,
+              "lon": 14.5870881,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8222259974,
+              "lat": 53.3588743,
+              "lon": 14.5907231,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8225854862,
+              "lat": 53.3426397,
+              "lon": 14.6062082,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8784872769,
+              "lat": 53.3448112,
+              "lon": 14.6047153,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9201336278,
+              "lat": 53.3756665,
+              "lon": 14.6121507,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9232890762,
+              "lat": 53.4767685,
+              "lon": 14.6034197,
+              "tags": {
+                "access": "no",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075372,
+              "lat": 53.3340214,
+              "lon": 14.5975825,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075373,
+              "lat": 53.3344384,
+              "lon": 14.5979771,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075374,
+              "lat": 53.3343194,
+              "lon": 14.5975916,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075375,
+              "lat": 53.3342032,
+              "lon": 14.5971541,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075376,
+              "lat": 53.334099,
+              "lon": 14.5967829,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075377,
+              "lat": 53.3333514,
+              "lon": 14.5969118,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075378,
+              "lat": 53.3335516,
+              "lon": 14.5967241,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075379,
+              "lat": 53.333794,
+              "lon": 14.5965837,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075380,
+              "lat": 53.3337564,
+              "lon": 14.5956965,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075381,
+              "lat": 53.3330171,
+              "lon": 14.5960513,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075382,
+              "lat": 53.3326571,
+              "lon": 14.5952014,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075383,
+              "lat": 53.332925,
+              "lon": 14.5951061,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9330075384,
+              "lat": 53.3334405,
+              "lon": 14.5948143,
+              "tags": {
+                "access": "no",
+                "building": "bunker",
+                "bunker_type": "munitions",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9450927617,
+              "lat": 53.4267297,
+              "lon": 14.5613307,
+              "tags": {
+                "access": "no",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "no"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255824,
+              "lat": 53.3629988,
+              "lon": 14.5908219,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255825,
+              "lat": 53.3668922,
+              "lon": 14.5984102,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255826,
+              "lat": 53.3651091,
+              "lon": 14.5985778,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255829,
+              "lat": 53.3629346,
+              "lon": 14.5897963,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255830,
+              "lat": 53.3559537,
+              "lon": 14.590121,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255831,
+              "lat": 53.3516647,
+              "lon": 14.578897,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9677255844,
+              "lat": 53.3725923,
+              "lon": 14.6236845,
+              "tags": {
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10072838863,
+              "lat": 53.4221842,
+              "lon": 14.5467757,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10072838864,
+              "lat": 53.4219338,
+              "lon": 14.5466536,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13229916582,
+              "lat": 53.4631011,
+              "lon": 14.5245859,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13563765636,
+              "lat": 53.4269003,
+              "lon": 14.5603062,
+              "tags": {
+                "access": "no",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "ruins": "no"
+              }
+            },
+            {
+              "type": "way",
+              "id": 32257051,
+              "center": {
+                "lat": 53.362785,
+                "lon": 14.5907086
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 32257052,
+              "center": {
+                "lat": 53.3622012,
+                "lon": 14.590043
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "39",
+                "addr:street": "Metalowa",
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k",
+                "source:addr": "geoportal.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 32257053,
+              "center": {
+                "lat": 53.3586571,
+                "lon": 14.5860127
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 32257054,
+              "center": {
+                "lat": 53.3577723,
+                "lon": 14.5850028
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 32927315,
+              "center": {
+                "lat": 53.4619725,
+                "lon": 14.4886776
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "12 Brygada Zmechanizowana imienia generała broni Józefa Hallera",
+                "ref": "JW1749",
+                "wikidata": "Q9128591",
+                "wikipedia": "pl:12 Brygada Zmechanizowana"
+              }
+            },
+            {
+              "type": "way",
+              "id": 40856444,
+              "center": {
+                "lat": 53.4445046,
+                "lon": 14.4556688
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica Garnizonowa 1911 Bezrzecze"
+              }
+            },
+            {
+              "type": "way",
+              "id": 40966991,
+              "center": {
+                "lat": 53.4231961,
+                "lon": 14.5055724
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "33A",
+                "addr:street": "Ku Słońcu",
+                "landuse": "military",
+                "name": "12 batalion dowodzenia Ułanów Podolskich",
+                "wikidata": "Q9128573",
+                "wikipedia": "pl:12 Batalion Rozpoznawczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 42424380,
+              "center": {
+                "lat": 53.309545,
+                "lon": 14.8755249
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "12 Batalion Zaopatrzenia"
+              }
+            },
+            {
+              "type": "way",
+              "id": 42784002,
+              "center": {
+                "lat": 53.3761177,
+                "lon": 14.6124472
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 43210954,
+              "center": {
+                "lat": 53.4433961,
+                "lon": 14.4919667
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Wielonarodowy Korpus Północno-Wschodni",
+                "name:de": "Multinationales Korps Nord-Ost",
+                "name:en": "Multinational Corps Northeast",
+                "name:pl": "Wielonarodowy Korpus Północno-Wschodni",
+                "short_name": "MNC NE",
+                "website": "https://mncne.pl/",
+                "wikidata": "Q129107",
+                "wikipedia": "pl:Wielonarodowy Korpus Północno-Wschodni"
+              }
+            },
+            {
+              "type": "way",
+              "id": 43344963,
+              "center": {
+                "lat": 53.4445322,
+                "lon": 14.5229146
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Dowództwo 12 Dywizji Zmechanizowanej i Garnizonu Szczecin",
+                "name:de": "Kommandeur der 12. Mechanisierten Division und Garnison Stettin",
+                "name:pl": "Dowództwo 12 Dywizji Zmechanizowanej i Garnizonu Szczecin"
+              }
+            },
+            {
+              "type": "way",
+              "id": 53153964,
+              "center": {
+                "lat": 53.4229626,
+                "lon": 14.542819
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "17a",
+                "addr:street": "Mikołaja Kopernika",
+                "building": "office",
+                "building:levels": "3",
+                "building:usage:pl": "Biurowy",
+                "military": "office",
+                "min_height": "office",
+                "name": "Wojskowa Komenda Uzupełnień w Szczecinie",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 53677844,
+              "center": {
+                "lat": 53.4194193,
+                "lon": 14.5432798
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "15 Wojskowy Oddział Gospodarczy"
+              }
+            },
+            {
+              "type": "way",
+              "id": 58702947,
+              "center": {
+                "lat": 53.4620412,
+                "lon": 14.5922259
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "5",
+                "addr:street": "Marzanny",
+                "building": "bunker",
+                "building:levels": "5",
+                "building:usage:pl": "Inny niemieszkalny lub podziemny",
+                "location": "overground",
+                "military": "bunker",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 58703436,
+              "center": {
+                "lat": 53.466663,
+                "lon": 14.5969055
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "building:usage:pl": "Inny niemieszkalny lub podziemny",
+                "location": "overground",
+                "military": "bunker",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 58970674,
+              "center": {
+                "lat": 53.493708,
+                "lon": 14.6070601
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "building:usage:pl": "Inny niemieszkalny lub podziemny",
+                "military": "bunker",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 59437344,
+              "center": {
+                "lat": 53.4557133,
+                "lon": 14.5318487
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "building:usage:pl": "inny budynek niemieszkalny",
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "source": "MODGiK Szczecin"
+              }
+            },
+            {
+              "type": "way",
+              "id": 60612657,
+              "center": {
+                "lat": 53.4183421,
+                "lon": 14.5650688
+              },
+              "tags": {
+                "building": "warehouse",
+                "building:levels": "1",
+                "building:usage:pl": "Zbiornik, silos lub budynek magazynowy",
+                "bunker_type": "personnel_shelter",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 60612757,
+              "center": {
+                "lat": 53.4244462,
+                "lon": 14.5692639
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "3",
+                "building:usage:pl": "Inny niemieszkalny lub podziemny",
+                "bunker_type": "bomb_shelter",
+                "military": "bunker",
+                "source": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 95867745,
+              "center": {
+                "lat": 53.4484592,
+                "lon": 14.5101083
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Filia Rejonowego Zarządu Infrastruktury w Szczecinie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 160515234,
+              "center": {
+                "lat": 53.4574849,
+                "lon": 14.4827864
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Strzelnica Garnizonowa Kompleks Nr 1915 Krzekowo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 181601284,
+              "center": {
+                "lat": 53.5520105,
+                "lon": 14.5475087
+              },
+              "tags": {
+                "addr:city": "Police",
+                "addr:housenumber": "1a",
+                "addr:last_update": "2011-11-18 09:59:04",
+                "addr:street": "Usługowa",
+                "building": "service",
+                "building:levels": "1",
+                "disused": "yes",
+                "historic": "yes",
+                "military": "bunker",
+                "source": "Gmina Police"
+              }
+            },
+            {
+              "type": "way",
+              "id": 186836127,
+              "center": {
+                "lat": 53.5536712,
+                "lon": 14.5447362
+              },
+              "tags": {
+                "abandoned": "no",
+                "abandoned:building": "bunker",
+                "building": "service",
+                "building:levels": "1",
+                "historic": "yes",
+                "military": "bunker",
+                "name": "Schron III"
+              }
+            },
+            {
+              "type": "way",
+              "id": 188829023,
+              "center": {
+                "lat": 53.3061792,
+                "lon": 14.8725971
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 271255375,
+              "center": {
+                "lat": 53.3435184,
+                "lon": 14.6097263
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "barbed_wire",
+                "landuse": "military",
+                "note": "area approximate"
+              }
+            },
+            {
+              "type": "way",
+              "id": 303214622,
+              "center": {
+                "lat": 53.5763151,
+                "lon": 14.5535792
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "landuse": "military",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 303315310,
+              "center": {
+                "lat": 53.5538376,
+                "lon": 14.5508474
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 303851999,
+              "center": {
+                "lat": 53.538028,
+                "lon": 14.5581679
+              },
+              "tags": {
+                "building": "service",
+                "building:levels": "1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 304003205,
+              "center": {
+                "lat": 53.5409775,
+                "lon": 14.5640755
+              },
+              "tags": {
+                "building": "yes",
+                "building:levels": "1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 305415834,
+              "center": {
+                "lat": 53.5509495,
+                "lon": 14.5690965
+              },
+              "tags": {
+                "addr:city": "Police",
+                "addr:housenumber": "15e",
+                "addr:last_update": "2010-12-03 14:33:31",
+                "addr:street": "Grunwaldzka",
+                "building": "service",
+                "building:levels": "1",
+                "military": "bunker",
+                "source": "Gmina Police"
+              }
+            },
+            {
+              "type": "way",
+              "id": 333403264,
+              "center": {
+                "lat": 53.4805073,
+                "lon": 14.4583698
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "name": "Strzelnica"
+              }
+            },
+            {
+              "type": "way",
+              "id": 455263125,
+              "center": {
+                "lat": 53.374769,
+                "lon": 14.6194875
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "ruins",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 501077365,
+              "center": {
+                "lat": 53.4795448,
+                "lon": 14.4605798
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638607432,
+              "center": {
+                "lat": 53.3220721,
+                "lon": 14.5908651
+              },
+              "tags": {
+                "fixme": "Sprawdzić, co faktycznie się tu znajduje.",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842023,
+              "center": {
+                "lat": 53.4213445,
+                "lon": 14.5452481
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842024,
+              "center": {
+                "lat": 53.4216884,
+                "lon": 14.5453579
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842025,
+              "center": {
+                "lat": 53.4218216,
+                "lon": 14.5455428
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842026,
+              "center": {
+                "lat": 53.422113,
+                "lon": 14.5455402
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842027,
+              "center": {
+                "lat": 53.422471,
+                "lon": 14.5455068
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842030,
+              "center": {
+                "lat": 53.4228724,
+                "lon": 14.5457656
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842031,
+              "center": {
+                "lat": 53.4232546,
+                "lon": 14.5462082
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "3",
+                "addr:postcode": "70-230",
+                "addr:street": "Potulicka",
+                "building": "yes",
+                "military": "office",
+                "name": "Wojewódzki Sztab Wojskowy w Szczecinie"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842032,
+              "center": {
+                "lat": 53.4235428,
+                "lon": 14.5455634
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842033,
+              "center": {
+                "lat": 53.4235118,
+                "lon": 14.5457978
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 638842034,
+              "center": {
+                "lat": 53.4234523,
+                "lon": 14.5438129
+              },
+              "tags": {
+                "building": "yes",
+                "military": "office"
+              }
+            },
+            {
+              "type": "way",
+              "id": 674283040,
+              "center": {
+                "lat": 53.4463959,
+                "lon": 14.4961578
+              },
+              "tags": {
+                "fixme": "potrzebny lepszy tag dla obszaru",
+                "landuse": "military",
+                "name": "Komenda Wojewódzka Policji w Szczecinie - Wydział Transportu"
+              }
+            },
+            {
+              "type": "way",
+              "id": 675690773,
+              "center": {
+                "lat": 53.4605995,
+                "lon": 14.4975956
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 718336532,
+              "center": {
+                "lat": 53.4473348,
+                "lon": 14.4895229
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Placówka Straży Granicznej w Szczecinie",
+                "short_name": "Placówka SG Szczecin"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620676,
+              "center": {
+                "lat": 53.3574624,
+                "lon": 14.585744
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620677,
+              "center": {
+                "lat": 53.3589415,
+                "lon": 14.5869072
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620678,
+              "center": {
+                "lat": 53.3580645,
+                "lon": 14.5858957
+              },
+              "tags": {
+                "addr:city": "Szczecin",
+                "addr:housenumber": "52",
+                "addr:street": "Metalowa",
+                "building": "residential",
+                "building:levels": "3",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k",
+                "source:addr": "gis.um.szczecin.pl"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620684,
+              "center": {
+                "lat": 53.3614463,
+                "lon": 14.5899454
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620707,
+              "center": {
+                "lat": 53.3620169,
+                "lon": 14.5905931
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "3",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 767620708,
+              "center": {
+                "lat": 53.362572,
+                "lon": 14.5912228
+              },
+              "tags": {
+                "building": "residential",
+                "building:levels": "4",
+                "building:usage:pl": "budynek zbiorowego zamieszkania",
+                "military": "barracks",
+                "source": "BDOT10k"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853365,
+              "center": {
+                "lat": 53.3645225,
+                "lon": 14.5854241
+              },
+              "tags": {
+                "building": "service",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853383,
+              "center": {
+                "lat": 53.3628216,
+                "lon": 14.5830048
+              },
+              "tags": {
+                "building": "service",
+                "building:levels": "1",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853406,
+              "center": {
+                "lat": 53.3632518,
+                "lon": 14.5869469
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "obstacle_course"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853461,
+              "center": {
+                "lat": 53.3624796,
+                "lon": 14.5855432
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853468,
+              "center": {
+                "lat": 53.3621773,
+                "lon": 14.5848789
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853469,
+              "center": {
+                "lat": 53.3620966,
+                "lon": 14.5850692
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 882853479,
+              "center": {
+                "lat": 53.3621316,
+                "lon": 14.5849417
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "way",
+              "id": 967683859,
+              "center": {
+                "lat": 53.3341629,
+                "lon": 14.5536208
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "military": "bunker",
+                "name": "Wieża obserwacyjna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1002377345,
+              "center": {
+                "lat": 53.4676922,
+                "lon": 14.4732501
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1053024219,
+              "center": {
+                "lat": 53.3493986,
+                "lon": 14.5701114
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1053024220,
+              "center": {
+                "lat": 53.3493062,
+                "lon": 14.5709204
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1053024221,
+              "center": {
+                "lat": 53.3730788,
+                "lon": 14.623431
+              },
+              "tags": {
+                "building": "bunker",
+                "building:levels": "0",
+                "building:levels:underground": "1",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1202704539,
+              "center": {
+                "lat": 53.4175922,
+                "lon": 14.567188
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1376863818,
+              "center": {
+                "lat": 53.5480699,
+                "lon": 14.5168428
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "military": "bunker",
+                "url": "https://youtu.be/hTIpCczFweE?si=cvm2JSDpB5o2lGqw"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1376863819,
+              "center": {
+                "lat": 53.54822,
+                "lon": 14.5167956
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "military": "bunker",
+                "url": "https://youtu.be/hTIpCczFweE?si=cvm2JSDpB5o2lGqw"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1379036894,
+              "center": {
+                "lat": 53.4220762,
+                "lon": 14.5374656
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "historic": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1379036895,
+              "center": {
+                "lat": 53.4217059,
+                "lon": 14.539969
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "historic": "yes",
+                "image": "https://photos.app.goo.gl/xVZrWrtpH6K5o8Ds5",
+                "military": "bunker",
+                "name": "11"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1379036896,
+              "center": {
+                "lat": 53.4215557,
+                "lon": 14.540823
+              },
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "historic": "yes",
+                "image": "https://photos.app.goo.gl/k7L83nCB1SvdHBkj9",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 10646511,
+              "center": {
+                "lat": 53.3610729,
+                "lon": 14.5862182
+              },
+              "tags": {
+                "alt_name": "5 Pułk Inżynieryjny im. gen. dyw. Ignacego Prądzyńskiego",
+                "email": "5pinz@ron.mil.pl",
+                "fax": "+48 26 145 45 08",
+                "landuse": "military",
+                "name": "Jednostka Wojskowa nr 2901 - 5 Pułk Inżynieryjny imienia generała dywizji Ignacego Prądzyńskiego",
+                "old_name:de": "42. Pionier Bataillon",
+                "phone": "+48 26 145 45 52",
+                "short_name": "Jednostka Wojskowa nr 2901 - 5 Pułk Inżynieryjny im. gen. dyw. Ignacego Prądzyńskiego",
+                "shortest_name": "JW nr 2901 - 5. PINŻ im. gen. dyw. I. Prądzyńskiego",
+                "start_date": "2001-1-1",
+                "type": "multipolygon",
+                "website": "https://5pinz.wp.mil.pl/pl/",
+                "wikidata": "Q9134816",
+                "wikipedia": "pl:5 Pułk Inżynieryjny"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 15069366,
+              "center": {
+                "lat": 53.4224835,
+                "lon": 14.5442996
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "15 Wojskowy Oddział Gospodarczy",
+                "type": "multipolygon"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 16249582,
+              "center": {
+                "lat": 53.4182176,
+                "lon": 14.5615479
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

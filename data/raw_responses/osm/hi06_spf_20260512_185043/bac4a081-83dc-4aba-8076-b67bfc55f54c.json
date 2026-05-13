@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "site_id": "bac4a081-83dc-4aba-8076-b67bfc55f54c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:14:02.263639+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,40.892,26.901);\n  way[\"military\"](around:25000,40.892,26.901);\n  relation[\"military\"](around:25000,40.892,26.901);\n  node[\"landuse\"=\"military\"](around:25000,40.892,26.901);\n  way[\"landuse\"=\"military\"](around:25000,40.892,26.901);\n  relation[\"landuse\"=\"military\"](around:25000,40.892,26.901);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.892,26.901);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.892,26.901);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,40.892,26.901);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.892,26.901);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.892,26.901);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,40.892,26.901);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 755,
+        "element_count": 13,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 180154001,
+              "center": {
+                "lat": 40.8745841,
+                "lon": 26.9145553
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "95'inci Zırhlı Tugay Eken Kışlası",
+                "name:en": "Malkara 1st Army/5 Corps/95 ABde",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 242734045,
+              "center": {
+                "lat": 40.7918682,
+                "lon": 26.6339202
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Fevzi Mengüç Kışlası",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312888630,
+              "center": {
+                "lat": 40.8636,
+                "lon": 26.6341694
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain",
+                "landuse": "military",
+                "name": "4. Mekanize Piyade Tugay Komutanlığı - Muzaffer Alankuş Kışlası",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 312888631,
+              "center": {
+                "lat": 40.8318706,
+                "lon": 26.638667
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain",
+                "landuse": "military",
+                "name": "4. Mekanize Piyade Tugay K.lığı - Lojistik Destek Komutanlığı",
+                "source": "bing"
+              }
+            },
+            {
+              "type": "way",
+              "id": 457162342,
+              "center": {
+                "lat": 40.8509773,
+                "lon": 26.6325321
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Keşan Subay Orduevi"
+              }
+            },
+            {
+              "type": "way",
+              "id": 462942461,
+              "center": {
+                "lat": 40.8641312,
+                "lon": 26.6350572
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 462942462,
+              "center": {
+                "lat": 40.8638004,
+                "lon": 26.6350243
+              },
+              "tags": {
+                "aeroway": "helipad",
+                "military": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 503131843,
+              "center": {
+                "lat": 40.8899483,
+                "lon": 26.7749648
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 520930143,
+              "center": {
+                "lat": 40.9045251,
+                "lon": 26.893807
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1208073743,
+              "center": {
+                "lat": 40.8936415,
+                "lon": 26.9078515
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1210123009,
+              "center": {
+                "lat": 40.8909522,
+                "lon": 26.9080562
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1457626684,
+              "center": {
+                "lat": 40.8664076,
+                "lon": 26.6324858
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Keşan İlçe Jandarma Komutanlığı"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 7659348,
+              "center": {
+                "lat": 40.8033488,
+                "lon": 26.6170603
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "102'nci Topçu Alayı",
+                "source": "bing",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

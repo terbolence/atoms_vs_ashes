@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "site_id": "e75c63e5-ef2f-4e08-8f8c-3da41215af9d",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:51:45.803326+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.753861,17.792444);\n  way[\"military\"](around:25000,44.753861,17.792444);\n  relation[\"military\"](around:25000,44.753861,17.792444);\n  node[\"landuse\"=\"military\"](around:25000,44.753861,17.792444);\n  way[\"landuse\"=\"military\"](around:25000,44.753861,17.792444);\n  relation[\"landuse\"=\"military\"](around:25000,44.753861,17.792444);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.753861,17.792444);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.753861,17.792444);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.753861,17.792444);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.753861,17.792444);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.753861,17.792444);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.753861,17.792444);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 5254,
+        "element_count": 7,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:50:31Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 169173830,
+              "center": {
+                "lat": 44.9558232,
+                "lon": 17.9223529
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Rabić"
+              }
+            },
+            {
+              "type": "way",
+              "id": 248344728,
+              "center": {
+                "lat": 44.6834048,
+                "lon": 18.07392
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "SFOR Base Ševarlije"
+              }
+            },
+            {
+              "type": "way",
+              "id": 742030547,
+              "center": {
+                "lat": 44.7917928,
+                "lon": 17.6700662
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 742030548,
+              "center": {
+                "lat": 44.7917971,
+                "lon": 17.6699919
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 943349489,
+              "center": {
+                "lat": 44.7239007,
+                "lon": 18.0710497
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "name": "Kasarna \"Vojvoda Radomir Putnik\" Doboj",
+                "name:bs": "Kasarna \"Vojvoda Radomir Putnik\" Doboj",
+                "name:hr": "Kasarna \"Vojvoda Radomir Putnik\" Doboj",
+                "name:sr-Latn": "Kasarna \"Vojvoda Radomir Putnik\" Doboj"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1071070241,
+              "center": {
+                "lat": 44.645912,
+                "lon": 17.8852457
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area",
+                "name": "подручје сумњиво на мине"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1448025396,
+              "center": {
+                "lat": 44.7224932,
+                "lon": 18.0743088
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "site_id": "d3b9e403-7744-44c5-b5c3-999c4c1911d8",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:27:45.088354+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,48.747705,37.572339);\n  way[\"military\"](around:25000,48.747705,37.572339);\n  relation[\"military\"](around:25000,48.747705,37.572339);\n  node[\"landuse\"=\"military\"](around:25000,48.747705,37.572339);\n  way[\"landuse\"=\"military\"](around:25000,48.747705,37.572339);\n  relation[\"landuse\"=\"military\"](around:25000,48.747705,37.572339);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.747705,37.572339);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.747705,37.572339);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,48.747705,37.572339);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.747705,37.572339);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.747705,37.572339);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,48.747705,37.572339);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1033,
+        "element_count": 6,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 1368715103,
+              "lat": 48.8550035,
+              "lon": 37.615505,
+              "tags": {
+                "addr:housenumber": "14",
+                "addr:street": "Торська вулиця",
+                "military": "office",
+                "name": "Військкомат",
+                "name:uk": "Військкомат",
+                "office": "government"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1862210656,
+              "lat": 48.7365855,
+              "lon": 37.5166029,
+              "tags": {
+                "bunker_type": "pillbox",
+                "military": "bunker",
+                "name": "ДВТ",
+                "name:en": "pillbox",
+                "name:ru": "ДОТ",
+                "name:uk": "ДВТ",
+                "source": "Bing"
+              }
+            },
+            {
+              "type": "node",
+              "id": 4395817361,
+              "lat": 48.7255711,
+              "lon": 37.6039493,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5514600263,
+              "lat": 48.8726009,
+              "lon": 37.6663911,
+              "tags": {
+                "landuse": "military",
+                "military": "checkpoint",
+                "name": "Весовой контроль",
+                "name:uk": "Весовой контроль"
+              }
+            },
+            {
+              "type": "way",
+              "id": 274573504,
+              "center": {
+                "lat": 48.7092761,
+                "lon": 37.6305208
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "ele": "197",
+                "fixme": "rough",
+                "iata": "KRQ",
+                "icao": "UKCK",
+                "landuse": "grass",
+                "military": "airfield",
+                "name:en": "Kramatorsk",
+                "wikidata": "Q20529086"
+              }
+            },
+            {
+              "type": "way",
+              "id": 417967362,
+              "center": {
+                "lat": 48.8730774,
+                "lon": 37.6668672
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "checkpoint"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

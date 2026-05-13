@@ -1,0 +1,475 @@
+{
+  "meta": {
+    "site_id": "d498ded8-449c-4672-8bb9-0ed6c8fef775",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:44:23.307518+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.429722,24.364167);\n  way[\"military\"](around:25000,44.429722,24.364167);\n  relation[\"military\"](around:25000,44.429722,24.364167);\n  node[\"landuse\"=\"military\"](around:25000,44.429722,24.364167);\n  way[\"landuse\"=\"military\"](around:25000,44.429722,24.364167);\n  relation[\"landuse\"=\"military\"](around:25000,44.429722,24.364167);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.429722,24.364167);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.429722,24.364167);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.429722,24.364167);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.429722,24.364167);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.429722,24.364167);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.429722,24.364167);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 4790,
+        "element_count": 34,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:42:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178870082,
+              "lat": 44.370806,
+              "lon": 24.261361,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Florilor, Blocurile ANL, blocul 2, sc C, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2625",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878384,
+              "lat": 44.346139,
+              "lon": 24.114833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl.ANL, sc.A, Balş, OT",
+                "military": "bunker",
+                "ref": "2613",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878410,
+              "lat": 44.422766,
+              "lon": 24.366932,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Strada Arcului, nr. 20, Slatina, OT",
+                "military": "bunker",
+                "ref": "2644",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878479,
+              "lat": 44.427056,
+              "lon": 24.373778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Tipografului, bl. GA 24, Slatina, OT",
+                "military": "bunker",
+                "ref": "2596",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878654,
+              "lat": 44.370333,
+              "lon": 24.260806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Florilor, Blocurile ANL, blocul 2, sc B, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2624",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878749,
+              "lat": 44.435083,
+              "lon": 24.369528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cornișei bl. GA2, Slatina, OT",
+                "military": "bunker",
+                "ref": "2611",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878924,
+              "lat": 44.370361,
+              "lon": 24.26075,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str.Florilor, Blocurile ANL, blocul 2, sc A, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2623",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879020,
+              "lat": 44.431528,
+              "lon": 24.372944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Primaverii, bl. GA 15, sc. A, Slatina, OT",
+                "military": "bunker",
+                "ref": "2606",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879073,
+              "lat": 44.344179,
+              "lon": 24.133362,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.208, Balş, OT",
+                "military": "bunker",
+                "ref": "2616",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879169,
+              "lat": 44.426611,
+              "lon": 24.370333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Rozelor, bl. GA 20, Slatina, OT",
+                "military": "bunker",
+                "ref": "2603",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879414,
+              "lat": 44.346306,
+              "lon": 24.114944,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl. ANL, sc.C, Balş, OT",
+                "military": "bunker",
+                "ref": "2615",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879509,
+              "lat": 44.429889,
+              "lon": 24.368444,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str Libertatii, bl. GA 8D, Slatina, OT",
+                "military": "bunker",
+                "ref": "2598",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879658,
+              "lat": 44.42775,
+              "lon": 24.369222,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. A.I. Cuza, bl. CAM 1, Slatina, OT",
+                "military": "bunker",
+                "ref": "2595",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879780,
+              "lat": 44.433917,
+              "lon": 24.368611,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cornisei, bl. GA 5, Slatina, OT",
+                "military": "bunker",
+                "ref": "2605",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880129,
+              "lat": 44.424167,
+              "lon": 24.378056,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Tineretului, nr. 1 D, Slatina, OT",
+                "military": "bunker",
+                "ref": "2645",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880198,
+              "lat": 44.427111,
+              "lon": 24.369333,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. A.I. Cuza, bl. FA 21, sc. C, Slatina, OT",
+                "military": "bunker",
+                "ref": "2597",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880387,
+              "lat": 44.426278,
+              "lon": 24.371667,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Rozelor, bl. GA 23, Slatina, OT",
+                "military": "bunker",
+                "ref": "2604",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880677,
+              "lat": 44.421361,
+              "lon": 24.385528,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Ecaterina Teodoroiu, bl. 19 D, Slatina, OT",
+                "military": "bunker",
+                "ref": "2608",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880703,
+              "lat": 44.43169,
+              "lon": 24.356261,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul NicolaeTitulescu, nr. 19, bloc U, sc. A, Slatina, OT",
+                "military": "bunker",
+                "ref": "2643",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880852,
+              "lat": 44.369833,
+              "lon": 24.260361,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Florilor, Blocurile ANL, sc A, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2620",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880948,
+              "lat": 44.426583,
+              "lon": 24.374778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. A.I. Cuza, bl. V5, Slatina, OT",
+                "military": "bunker",
+                "ref": "2607",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881096,
+              "lat": 44.433139,
+              "lon": 24.367778,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Viorelelor, bl. GA 5B, Slatina, OT",
+                "military": "bunker",
+                "ref": "2600",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881271,
+              "lat": 44.434694,
+              "lon": 24.369,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cornișei bl. GA3, Slatina, OT",
+                "military": "bunker",
+                "ref": "2612",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881366,
+              "lat": 44.43285,
+              "lon": 24.36801,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Viorelelor, bl. GA 5C, Slatina, OT",
+                "military": "bunker",
+                "ref": "2599",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881392,
+              "lat": 44.60275,
+              "lon": 24.538306,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Aleea Plapcei nr. 47, bl. S1 sc. A, Scorniceşti, OT",
+                "military": "bunker",
+                "ref": "2630",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881610,
+              "lat": 44.435694,
+              "lon": 24.371,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Cornișei, bl. GA9, Slatina, OT",
+                "military": "bunker",
+                "ref": "2610",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881785,
+              "lat": 44.369778,
+              "lon": 24.260111,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Florilor, Blocurile ANL, sc C, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2622",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882029,
+              "lat": 44.426222,
+              "lon": 24.372306,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Rozelor, bl. GA 22, Slatina, OT",
+                "military": "bunker",
+                "ref": "2602",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882055,
+              "lat": 44.600722,
+              "lon": 24.542,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bulevardul Muncii nr. 56, bl. 52, sc. A, Scorniceşti, OT",
+                "military": "bunker",
+                "ref": "2629",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882204,
+              "lat": 44.346333,
+              "lon": 24.114806,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Nicolae Bălcescu, nr.152A, bl.ANL, sc.B, Balş, OT",
+                "military": "bunker",
+                "ref": "2614",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882299,
+              "lat": 44.426444,
+              "lon": 24.368278,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Arcului, bl. GA18, Slatina, OT",
+                "military": "bunker",
+                "ref": "2609",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882474,
+              "lat": 44.370139,
+              "lon": 24.26075,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Florilor, Blocurile ANL, sc B, F.n., Piatra Olt, OT",
+                "military": "bunker",
+                "ref": "2621",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882735,
+              "lat": 44.431806,
+              "lon": 24.369972,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Libertăţii, bl. GA 15C, Slatina, OT",
+                "military": "bunker",
+                "ref": "2601",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1190040696,
+              "center": {
+                "lat": 44.5695283,
+                "lon": 24.2473841
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "note": "Based on Cadastral Map"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

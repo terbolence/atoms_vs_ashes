@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-05-09T18:51:41Z
+**Generated:** 2026-05-13T20:12:53Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,17 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 2,197,303 |
-| `tests/` (Tests) | 27,223 |
+| `src/` (Core application) | 2,202,777 |
+| `tests/` (Tests) | 28,736 |
 | `scripts/` (Scripts) | 639 |
-| `src/scripts/` (Operational scripts) | 28,092 |
+| `src/scripts/` (Operational scripts) | 33,313 |
 | `alembic/` (Migrations) | 0 |
 | `export/` (Export tooling) | 935 |
-| **Total Python** | **2,254,192** |
+| **Total Python** | **2,266,400** |
 | | |
-| Markdown (docs, specs, reports, audits) | 114,609 |
-| YAML (config, registry) | 8,557 |
-| **Grand total (all authored content)** | **~2,377,358** |
+| Markdown (docs, specs, reports, audits) | 122,299 |
+| YAML (config, registry) | 9,493 |
+| **Grand total (all authored content)** | **~2,398,192** |
 
 ---
 
@@ -29,20 +29,20 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 13 | 57.9 |
-| Implementation | 125 | 764.5 |
-| Testing | 18 | 60.1 |
+| Architecture & Design | 14 | 62.0 |
+| Implementation | 133 | 779.0 |
+| Testing | 24 | 68.3 |
 | Database & Migrations | 31 | 41.8 |
-| Configuration & DevOps | 21 | 30.0 |
+| Configuration & DevOps | 23 | 33.5 |
 | Research & Data Sources | 26 | 235.5 |
 | AI Prompts & Tooling | 6 | 30.5 |
-| Project Management & QA | 39 | 55.2 |
+| Project Management & QA | 79 | 87.8 |
 | Other | 1 | 1.6 |
-| Connectors & Data Acquisition | 3 | 2.7 |
-| Report Authoring & Documentation | 23 | 18.5 |
+| Connectors & Data Acquisition | 12 | 11.1 |
+| Report Authoring & Documentation | 26 | 20.9 |
 | Reporting & Visualization | 1 | 2.0 |
-| Testing & Quality Assurance | 2 | 1.5 |
-| **Project Total** | **329** | **1441.2** |
+| Testing & Quality Assurance | 7 | 4.0 |
+| **Project Total** | **403** | **1517.5** |
 
 ---
 
@@ -77,7 +77,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 13 files, 57.9 hours
+**Subtotal:** 14 files, 62.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -88,16 +88,17 @@
 | `architecture/specs/03_backend_services.md` | 6.0 |
 | `architecture/specs/06_execution_observability.md` | 6.0 |
 | `architecture/specs/07_test_validation_strategy.md` | 5.0 |
+| `architecture/plans/scoring_engine_fixes_a34981cd.plan.md` | 4.0 |
 | `architecture/specs/00_index.md` | 1.5 |
 | `architecture/plans/feedback-context-enrichment.md` | 0.4 |
-| `architecture/plans/feedback-rework-execution.md` | 0.3 |
+| `architecture/plans/feedback-rework-execution.md` | 0.4 |
 | `architecture/plans/log-replay-feedback-rework.md` | 0.3 |
 | `architecture/plans/README.md` | 0.2 |
 | `architecture/plans/docx-comment-extraction.md` | 0.2 |
 
 ### Implementation
 
-**Subtotal:** 125 files, 764.5 hours
+**Subtotal:** 133 files, 779.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -142,6 +143,7 @@
 | `src/atoms_vs_ashes/llm/prompts/avoidance.py` | 8.0 |
 | `src/atoms_vs_ashes/llm/prompts/exclusionary.py` | 8.0 |
 | `src/atoms_vs_ashes/screening/grid_capacity.py` | 8.0 |
+| `src/atoms_vs_ashes/connectors/egdi_geology/client.py` | 6.1 |
 | `scripts/enrich_sa_progressive.py` | 6.0 |
 | `scripts/report_enrichment_coverage.py` | 6.0 |
 | `src/atoms_vs_ashes/analysis/ecological_sensitivity.py` | 6.0 |
@@ -208,14 +210,21 @@
 | `src/atoms_vs_ashes/connectors/population/models.py` | 2.0 |
 | `src/atoms_vs_ashes/db/engine.py` | 2.0 |
 | `src/atoms_vs_ashes/llm/config.py` | 2.0 |
+| `src/scripts/build_scoring_conformity_matrix.py` | 1.8 |
 | `src/atoms_vs_ashes/logging.py` | 1.5 |
 | `src/scripts/_docx_comment_writers.py` | 1.5 |
+| `src/scripts/_sp_b_epri_weight_patch.py` | 1.5 |
+| `src/scripts/replay_scoring_at_anchors.py` | 1.5 |
+| `src/scripts/build_epri_weights_artefact.py` | 1.4 |
 | `src/atoms_vs_ashes/ingest/models.py` | 1.0 |
 | `src/atoms_vs_ashes/llm/prompts/__init__.py` | 1.0 |
 | `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md` | 1.0 |
+| `src/scripts/cohort_reliability_summary.py` | 0.9 |
+| `src/scripts/debug_context_propagation.py` | 0.8 |
 | `src/atoms_vs_ashes/connectors/__init__.py` | 0.5 |
 | `src/atoms_vs_ashes/llm/__init__.py` | 0.5 |
 | `src/atoms_vs_ashes/screening/__init__.py` | 0.5 |
+| `src/scripts/inventory_scoring_runs.py` | 0.5 |
 | `src/atoms_vs_ashes/connectors/corine/__init__.py` | 0.2 |
 | `src/atoms_vs_ashes/connectors/osm/__init__.py` | 0.2 |
 | `src/atoms_vs_ashes/connectors/population/__init__.py` | 0.2 |
@@ -229,27 +238,33 @@
 
 ### Testing
 
-**Subtotal:** 18 files, 60.1 hours
+**Subtotal:** 24 files, 68.3 hours
 
 | File | Hours |
 | --- | ---: |
 | `src/scripts/live_integration_snapshots.py` | 12.0 |
-| `tests/test_integration_full_cycle.py` | 8.0 |
+| `tests/test_integration_full_cycle.py` | 8.1 |
 | `tests/test_connectors_osm.py` | 6.0 |
 | `tests/test_screening_grid_capacity.py` | 5.0 |
 | `tests/test_screening_land_area.py` | 5.0 |
-| `tests/conftest.py` | 4.0 |
-| `tests/test_connector_db_compatibility.py` | 4.0 |
-| `tests/test_integration_db.py` | 4.0 |
+| `tests/conftest.py` | 4.2 |
+| `tests/test_integration_db.py` | 4.2 |
+| `tests/test_connector_db_compatibility.py` | 4.1 |
+| `tests/test_connector_onegeology.py` | 4.1 |
 | `tests/test_ingest_sites.py` | 3.0 |
 | `tests/test_models.py` | 2.0 |
+| `tests/runprofile/test_persist.py` | 1.6 |
+| `tests/test_config.py` | 1.1 |
 | `scripts/probe_copernicus_dem_rate_limits.py` | 1.0 |
 | `scripts/probe_efehr_rate_limits.py` | 1.0 |
 | `scripts/probe_efsm20_rate_limits.py` | 1.0 |
 | `scripts/probe_natura2000_rate_limits.py` | 1.0 |
 | `scripts/probe_wdpa_rate_limits.py` | 1.0 |
-| `tests/test_config.py` | 1.0 |
 | `tests/test_ingest_ownership.py` | 1.0 |
+| `tests/scoring/test_search_sentinel_bands.py` | 0.7 |
+| `tests/scoring/test_context_derivations.py` | 0.4 |
+| `tests/scoring/test_safe_eval_disjuncts.py` | 0.4 |
+| `tests/test_coverage_report_phantom_handling.py` | 0.3 |
 | `tests/__init__.py` | 0.1 |
 
 ### Database & Migrations
@@ -292,13 +307,14 @@
 
 ### Configuration & DevOps
 
-**Subtotal:** 21 files, 30.0 hours
+**Subtotal:** 23 files, 33.5 hours
 
 | File | Hours |
 | --- | ---: |
 | `config/default.yml` | 8.0 |
 | `src/scripts/man_hours_report.py` | 3.6 |
 | `.cursor/rules/man-hours.mdc` | 3.2 |
+| `config/epri/weights.yaml` | 3.0 |
 | `.cursor/rules/audit-trail.mdc` | 2.3 |
 | `pyproject.toml` | 1.5 |
 | `.cursor/rules/co-located-site-variants.mdc` | 1.2 |
@@ -311,6 +327,7 @@
 | `.cursor/rules/connector-reports.mdc` | 0.8 |
 | `.cursor/rules/data-quality-discipline.mdc` | 0.8 |
 | `.cursor/rules/integration-tests.mdc` | 0.8 |
+| `config/epri/README.md` | 0.5 |
 | `docker-compose.yml` | 0.5 |
 | `scripts/list_large_files.py` | 0.5 |
 | `src/alembic/versions/042_hi01_hi06_classification_columns.py` | 0.4 |
@@ -366,29 +383,43 @@
 
 ### Project Management & QA
 
-**Subtotal:** 39 files, 55.2 hours
+**Subtotal:** 79 files, 87.8 hours
 
 | File | Hours |
 | --- | ---: |
 | `audit/siting_expert_audits (30 audit packs × FINDINGS.md + SAMPLES.json)` | 12.0 |
+| `audit/conversations/2026-05-13_scoring-engine-rubric-fixes.md` | 8.8 |
 | `audit/plans/SMR_land_area_estimations.md` | 4.0 |
+| `audit/plans/scoring_engine_fixes_a34981cd.plan.md` | 4.0 |
 | `audit/plans/grid_capacity_screening_check_1fb3af4b.plan.md` | 3.0 |
 | `audit/post_processing/01_requirements_coverage/20260418_gaps.md` | 3.0 |
 | `audit/post_processing/02_data_verification/20260418_column_readability.md` | 3.0 |
 | `audit/post_processing/02_data_verification/20260418_engineer_audit.md` | 3.0 |
-| `audit/conversations/2026-05-09_feedback-rework-execution.md` | 2.1 |
+| `audit/conversations/2026-05-09_feedback-rework-execution.md` | 2.7 |
 | `audit/README.md` | 2.0 |
 | `audit/post_processing/02_data_verification/20260418_data_inventory.md` | 2.0 |
 | `audit/post_processing/02_data_verification/bulk_source_verification.md` | 2.0 |
+| `audit/conversations/2026-05-10_hi01-hi06-preview-apply.md` | 1.8 |
 | `audit/plans/automated_system_architecture_split_e8922903.plan.md` | 1.5 |
 | `audit/plans/data_source_pricing_update_3872d49e.plan.md` | 1.5 |
 | `audit/plans/split_requirements_by_phase_ace3875d.plan.md` | 1.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_7_scoring_method.md` | 1.5 |
 | `audit/post_processing/monday_rerun_list.md` | 1.5 |
+| `audit/post_processing/scoring_conformity/band_reliability_conclusion_post_fix.md` | 1.4 |
+| `audit/post_processing/scoring_conformity/implementation_audit.md` | 1.4 |
+| `audit/post_processing/scoring_conformity/anchor_score_conformity.md` | 1.3 |
 | `audit/plans/project_audit_trail_setup_3b3c0d91.plan.md` | 1.0 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_3_cooling_sources.md` | 1.0 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_6_population_emergency.md` | 1.0 |
+| `audit/post_processing/epri_weights/baseline_vs_epri.md` | 1.0 |
+| `audit/post_processing/scoring_conformity/data_gaps_followup.md` | 0.8 |
 | `audit/conversations/2026-03-11_database-backend-foundation.md` | 0.8 |
+| `audit/post_processing/scoring_conformity/cohort_reliability_summary.md` | 0.7 |
+| `audit/post_processing/scoring_conformity/full_pass_drift_decision.md` | 0.7 |
+| `audit/post_processing/scoring_conformity/nh11_framing_decision.md` | 0.7 |
+| `audit/post_processing/scoring_conformity/band_reliability_conclusion.md` | 0.6 |
+| `audit/post_processing/scoring_conformity/ep01_direction_decision.md` | 0.6 |
+| `audit/post_processing/sp_f_log_replay/hi01_ourairports_audit.md` | 0.6 |
 | `audit/conversations/2026-03-10_methodology-and-data-pricing.md` | 0.5 |
 | `audit/conversations/2026-03-10_requirements-expansion.md` | 0.5 |
 | `audit/conversations/2026-03-10_requirements-split.md` | 0.5 |
@@ -398,17 +429,43 @@
 | `audit/conversations/2026-03-24_man-hours-tracking-system.md` | 0.5 |
 | `audit/conversations/2026-04-02_fix-01-controller-fixes-expansions.md` | 0.5 |
 | `audit/conversations/2026-05-09_cursor-rules-optimization.md` | 0.5 |
+| `audit/conversations/2026-05-13_scoring-conformity-assessment.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md` | 0.5 |
+| `audit/post_processing/scoring_conformity/context_propagation_findings.md` | 0.5 |
+| `audit/post_processing/sp_f_log_replay/PHASE_4_GATE.md` | 0.5 |
+| `audit/post_processing/sp_f_log_replay/hi06_osm_military_audit.md` | 0.5 |
 | `audit/plans/feedback-context-enrichment.md` | 0.4 |
-| `audit/plans/feedback-rework-execution.md` | 0.3 |
+| `audit/plans/feedback-rework-execution.md` | 0.4 |
+| `audit/post_processing/epri_weights/README.md` | 0.4 |
+| `audit/post_processing/hi06_fix04_preview/hi06_fix04_post_apply_verify.md` | 0.4 |
+| `audit/post_processing/scoring_conformity/ovidiu_comment_conformity.md` | 0.4 |
+| `audit/post_processing/v2_close_out/README.md` | 0.4 |
 | `audit/plans/log-replay-feedback-rework.md` | 0.3 |
+| `audit/post_processing/hi01_preview/README.md` | 0.3 |
+| `audit/post_processing/hi06_fix04_preview/README.md` | 0.3 |
+| `audit/post_processing/scoring_conformity/README.md` | 0.3 |
+| `audit/post_processing/scoring_conformity/anchor_replay_post_fix.md` | 0.3 |
+| `audit/post_processing/scoring_conformity/cohort_reliability.md` | 0.3 |
+| `audit/post_processing/scoring_conformity/iter_01/p23_data_gap_counts.json` | 0.3 |
+| `audit/post_processing/scoring_conformity/iter_01/p_final_cohort_distribution.md` | 0.3 |
+| `audit/post_processing/v2_close_out/p1_fix04_recheck_verify.md` | 0.3 |
 | `audit/conversations/2026-03-11_process-diagram.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-architecture.md` | 0.2 |
 | `audit/conversations/2026-03-24_aggregated-requirements.md` | 0.2 |
 | `audit/conversations/2026-05-09_feedback-sub-plans-handoff.md` | 0.2 |
 | `audit/plans/README.md` | 0.2 |
 | `audit/plans/docx-comment-extraction.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/anchor_delta_canonical_vs_latest.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/anchor_delta_feedbackrerun_vs_latest.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/iter_01/p22_context_propagation_refresh.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/iter_01/p_final_anchor_replay.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/run_inventory.md` | 0.2 |
+| `audit/post_processing/scoring_conformity/iter_01/p31_ep01_cohort_after.md` | 0.1 |
+| `audit/post_processing/scoring_conformity/iter_01/p31_ep01_replay.md` | 0.1 |
+| `audit/post_processing/sp_f_log_replay/osm_military_replay_log.md` | 0.1 |
+| `audit/post_processing/sp_f_log_replay/ourairports_replay_log.md` | 0.1 |
+| `audit/post_processing/sp_f_log_replay/phase2_closeout.md` | 0.1 |
 
 ### Other
 
@@ -420,23 +477,34 @@
 
 ### Connectors & Data Acquisition
 
-**Subtotal:** 3 files, 2.7 hours
+**Subtotal:** 12 files, 11.1 hours
 
 | File | Hours |
 | --- | ---: |
-| `src/scripts/replay_osm_military_from_logs.py` | 1.6 |
+| `src/scripts/replay_osm_military_from_logs.py` | 1.9 |
+| `src/scripts/apply_fix04_from_preview_jsonl.py` | 1.4 |
+| `src/scripts/replay_ourairports_from_csv.py` | 1.4 |
+| `src/scripts/verify_fix04_db_vs_jsonl.py` | 1.4 |
+| `src/scripts/preview_fix04_osm_vs_db.py` | 1.0 |
+| `src/scripts/_verify_fix04_threeway.py` | 0.7 |
+| `src/scripts/preview_ourairports_vs_db.py` | 0.7 |
 | `docs/connector_reports/ourairports_s39_sample_report.md` | 0.6 |
+| `src/scripts/_apply_fix04_from_jsonl.py` | 0.6 |
 | `docs/connector_reports/osm_military_hi06_sample_report.md` | 0.5 |
+| `src/scripts/_preview_fix04_diff.py` | 0.5 |
+| `src/scripts/_preview_ourairports_diff.py` | 0.4 |
 
 ### Report Authoring & Documentation
 
-**Subtotal:** 23 files, 18.5 hours
+**Subtotal:** 26 files, 20.9 hours
 
 | File | Hours |
 | --- | ---: |
 | `report/output/feedback/synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml` | 4.8 |
 | `report/output/feedback/plans/SP-G_rerun_regenerate.plan.md` | 3.3 |
 | `report/output/feedback/plans/SP-A_quick_wins.plan.md` | 1.7 |
+| `report/output/feedback/plans/feedback_lessons_learnt.md` | 1.6 |
+| `report/output/feedback/plans/SP-H_backlog.plan.md` | 0.8 |
 | `report/output/feedback/plans/SP-D_band_proposals/README.md` | 0.7 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-03.md` | 0.6 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-04.md` | 0.6 |
@@ -457,6 +525,7 @@
 | `report/output/feedback/plans/SP-D_band_proposals/HI-04.md` | 0.3 |
 | `report/output/feedback/plans/SP-D_band_proposals/HI-05.md` | 0.3 |
 | `report/output/feedback/plans/SP-D_band_proposals/NH-12.md` | 0.3 |
+| `report/output/chapters/03_stage_2_site_selection.md` | 0.1 |
 
 ### Reporting & Visualization
 
@@ -468,13 +537,18 @@
 
 ### Testing & Quality Assurance
 
-**Subtotal:** 2 files, 1.5 hours
+**Subtotal:** 7 files, 4.0 hours
 
 | File | Hours |
 | --- | ---: |
 | `tests/test_smr_scope_propagation.py` | 1.1 |
+| `tests/scripts/test_apply_fix04_from_jsonl.py` | 0.6 |
+| `tests/scripts/test_replay_ourairports_from_csv.py` | 0.6 |
+| `tests/scripts/test_preview_ourairports_vs_db.py` | 0.5 |
+| `tests/scripts/test_verify_fix04_threeway.py` | 0.5 |
 | `tests/scripts/test_cross_chapter_numeric_lint.py` | 0.4 |
+| `tests/scripts/test_replay_osm_military_decisions.py` | 0.3 |
 
 ---
 
-*Report generated by `src/scripts/man_hours_report.py` at 2026-05-09T18:51:41Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-13T20:12:53Z*

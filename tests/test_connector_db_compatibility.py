@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.1
 """Verify that connector persist logic writes to the new domain tables.
 
 Two test layers:
@@ -20,7 +20,7 @@ import pytest
 # Helpers — extract seeded criterion IDs from Alembic migrations
 # ---------------------------------------------------------------------------
 
-_ALEMBIC_DIR = Path(__file__).resolve().parents[1] / "alembic" / "versions"
+_ALEMBIC_DIR = Path(__file__).resolve().parents[1] / "src" / "alembic" / "versions"
 _CRITERION_ID_RE = re.compile(r'"criterion_id"\s*:\s*"([A-Z]{1,2}-\d{2})"')
 
 

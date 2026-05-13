@@ -246,6 +246,7 @@ def test_gui_runner_passes_profile_to_score_sensitivity(
 
     def _fake_load_active():
         return SimpleNamespace(
+            db_profile="api",
             spec_dir="config/scoring_specs",
             weight_profile="baseline",
             output=SimpleNamespace(audit_dir="audit/post_processing/06_scoring"),

@@ -1,4 +1,4 @@
-# man_hours: 2.3
+# man_hours: 2.5
 # Man-hours registry — auto-maintained per .cursor/rules/man-hours.mdc
 # Each entry: file path -> { hours (cumulative total), category }
 
@@ -326,6 +326,10 @@ files:
     hours: 4.0
     category: "Implementation"
 
+  src/atoms_vs_ashes/connectors/egdi_geology/client.py:
+    hours: 6.1
+    category: "Implementation"
+
   src/atoms_vs_ashes/screening/__init__.py:
     hours: 0.5
     category: "Implementation"
@@ -349,11 +353,11 @@ files:
     category: "Testing"
 
   tests/conftest.py:
-    hours: 4.0
+    hours: 4.2
     category: "Testing"
 
   tests/test_config.py:
-    hours: 1.0
+    hours: 1.1
     category: "Testing"
 
   tests/test_connectors_osm.py:
@@ -369,7 +373,7 @@ files:
     category: "Testing"
 
   tests/test_integration_db.py:
-    hours: 4.0
+    hours: 4.2
     category: "Testing"
 
   tests/test_models.py:
@@ -381,11 +385,23 @@ files:
     category: "Testing"
 
   tests/test_connector_db_compatibility.py:
-    hours: 4.0
+    hours: 4.1
     category: "Testing"
 
   tests/test_integration_full_cycle.py:
-    hours: 8.0
+    hours: 8.1
+    category: "Testing"
+
+  tests/test_connector_onegeology.py:
+    hours: 4.1
+    category: "Testing"
+
+  tests/runprofile/test_persist.py:
+    hours: 1.6
+    category: "Testing"
+
+  tests/test_coverage_report_phantom_handling.py:
+    hours: 0.3
     category: "Testing"
 
   tests/test_screening_land_area.py:
@@ -1154,12 +1170,24 @@ files:
     hours: 5.5
     category: "AI Prompts & Tooling"
 
+  report/output/feedback/plans/feedback_lessons_learnt.md:
+    hours: 1.55
+    category: "Report Authoring & Documentation"
+
   report/output/feedback/plans/SP-A_quick_wins.plan.md:
     hours: 1.7
     category: "Report Authoring & Documentation"
 
+  report/output/feedback/plans/SP-H_backlog.plan.md:
+    hours: 0.75
+    category: "Report Authoring & Documentation"
+
   report/output/chapters/04_results_and_findings.md:
-    hours: 0.3
+    hours: 0.35
+    category: "Report Authoring & Documentation"
+
+  report/output/chapters/03_stage_2_site_selection.md:
+    hours: 0.05
     category: "Report Authoring & Documentation"
 
   report/output/feedback/plans/SP-D_band_proposals/README.md:
@@ -1321,7 +1349,7 @@ files:
     category: "Project Management & QA"
 
   audit/conversations/2026-05-09_feedback-rework-execution.md:
-    hours: 2.1
+    hours: 2.7
     category: "Project Management & QA"
 
   src/alembic/versions/042_hi01_hi06_classification_columns.py:
@@ -1341,11 +1369,11 @@ files:
     category: "Connectors & Data Acquisition"
 
   architecture/plans/feedback-rework-execution.md:
-    hours: 0.3
+    hours: 0.4
     category: "Architecture & Design"
 
   audit/plans/feedback-rework-execution.md:
-    hours: 0.3
+    hours: 0.4
     category: "Project Management & QA"
 
   src/scripts/cross_chapter_numeric_lint.py:
@@ -1357,8 +1385,104 @@ files:
     category: "Testing & Quality Assurance"
 
   src/scripts/replay_osm_military_from_logs.py:
-    hours: 1.6
+    hours: 1.9
     category: "Connectors & Data Acquisition"
+
+  src/scripts/replay_ourairports_from_csv.py:
+    hours: 1.4
+    category: "Connectors & Data Acquisition"
+
+  tests/scripts/test_replay_ourairports_from_csv.py:
+    hours: 0.6
+    category: "Testing & Quality Assurance"
+
+  tests/scripts/test_replay_osm_military_decisions.py:
+    hours: 0.3
+    category: "Testing & Quality Assurance"
+
+  audit/post_processing/sp_f_log_replay/hi01_ourairports_audit.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  audit/post_processing/sp_f_log_replay/hi06_osm_military_audit.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/sp_f_log_replay/phase2_closeout.md:
+    hours: 0.1
+    category: "Project Management & QA"
+
+  audit/post_processing/sp_f_log_replay/PHASE_4_GATE.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/sp_f_log_replay/ourairports_replay_log.md:
+    hours: 0.1
+    category: "Project Management & QA"
+
+  audit/post_processing/sp_f_log_replay/osm_military_replay_log.md:
+    hours: 0.1
+    category: "Project Management & QA"
+
+  src/scripts/preview_ourairports_vs_db.py:
+    hours: 0.7
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/_preview_ourairports_diff.py:
+    hours: 0.4
+    category: "Connectors & Data Acquisition"
+
+  tests/scripts/test_preview_ourairports_vs_db.py:
+    hours: 0.5
+    category: "Testing & Quality Assurance"
+
+  audit/post_processing/hi01_preview/README.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  src/scripts/preview_fix04_osm_vs_db.py:
+    hours: 1.0
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/_preview_fix04_diff.py:
+    hours: 0.5
+    category: "Connectors & Data Acquisition"
+
+  audit/post_processing/hi06_fix04_preview/README.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-10_hi01-hi06-preview-apply.md:
+    hours: 1.8
+    category: "Project Management & QA"
+
+  src/scripts/apply_fix04_from_preview_jsonl.py:
+    hours: 1.4
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/_apply_fix04_from_jsonl.py:
+    hours: 0.6
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/verify_fix04_db_vs_jsonl.py:
+    hours: 1.4
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/_verify_fix04_threeway.py:
+    hours: 0.7
+    category: "Connectors & Data Acquisition"
+
+  tests/scripts/test_apply_fix04_from_jsonl.py:
+    hours: 0.6
+    category: "Testing & Quality Assurance"
+
+  tests/scripts/test_verify_fix04_threeway.py:
+    hours: 0.5
+    category: "Testing & Quality Assurance"
+
+  audit/post_processing/hi06_fix04_preview/hi06_fix04_post_apply_verify.md:
+    hours: 0.4
+    category: "Project Management & QA"
 
   architecture/plans/log-replay-feedback-rework.md:
     hours: 0.3
@@ -1369,5 +1493,183 @@ files:
     category: "Project Management & QA"
 
   tests/test_smr_scope_propagation.py:
-    hours: 1.1
+    hours: 1.12
     category: "Testing & Quality Assurance"
+
+  # ── SP-B EPRI weights wiring (2026-05-11) ───────────────────────
+
+  config/epri/weights.yaml:
+    hours: 3.0
+    category: "Configuration & DevOps"
+
+  config/epri/README.md:
+    hours: 0.5
+    category: "Configuration & DevOps"
+
+  src/scripts/_sp_b_epri_weight_patch.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/scripts/build_epri_weights_artefact.py:
+    hours: 1.4
+    category: "Implementation"
+
+  audit/post_processing/epri_weights/README.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
+  audit/post_processing/epri_weights/baseline_vs_epri.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  # ── v2 close-out P1 (FIX-04 todo) (2026-05-11) ─────────────────
+
+  audit/post_processing/v2_close_out/README.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
+  audit/post_processing/v2_close_out/p1_fix04_recheck_verify.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  # ── Scoring conformity assessment (2026-05-13) ─────────────────
+
+  src/scripts/build_scoring_conformity_matrix.py:
+    hours: 1.8
+    category: "Implementation"
+
+  src/scripts/inventory_scoring_runs.py:
+    hours: 0.5
+    category: "Implementation"
+
+  src/scripts/cohort_reliability_summary.py:
+    hours: 0.9
+    category: "Implementation"
+
+  audit/post_processing/scoring_conformity/README.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/ovidiu_comment_conformity.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/implementation_audit.md:
+    hours: 1.4
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/run_inventory.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/anchor_delta_canonical_vs_latest.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/anchor_delta_feedbackrerun_vs_latest.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/anchor_score_conformity.md:
+    hours: 1.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/cohort_reliability.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/cohort_reliability_summary.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/band_reliability_conclusion.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-13_scoring-conformity-assessment.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-13_scoring-engine-rubric-fixes.md:
+    hours: 8.8
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/anchor_replay_post_fix.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/data_gaps_followup.md:
+    hours: 0.8
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/nh11_framing_decision.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/ep01_direction_decision.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/full_pass_drift_decision.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/band_reliability_conclusion_post_fix.md:
+    hours: 1.4
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/context_propagation_findings.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p23_data_gap_counts.json:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p_final_anchor_replay.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p_final_cohort_distribution.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p31_ep01_replay.md:
+    hours: 0.1
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p31_ep01_cohort_after.md:
+    hours: 0.1
+    category: "Project Management & QA"
+
+  audit/post_processing/scoring_conformity/iter_01/p22_context_propagation_refresh.md:
+    hours: 0.2
+    category: "Project Management & QA"
+
+  architecture/plans/scoring_engine_fixes_a34981cd.plan.md:
+    hours: 4.0
+    category: "Architecture & Design"
+
+  audit/plans/scoring_engine_fixes_a34981cd.plan.md:
+    hours: 4.0
+    category: "Project Management & QA"
+
+  src/scripts/replay_scoring_at_anchors.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/scripts/debug_context_propagation.py:
+    hours: 0.8
+    category: "Implementation"
+
+  tests/scoring/test_safe_eval_disjuncts.py:
+    hours: 0.4
+    category: "Testing"
+
+  tests/scoring/test_search_sentinel_bands.py:
+    hours: 0.7
+    category: "Testing"
+
+  tests/scoring/test_context_derivations.py:
+    hours: 0.4
+    category: "Testing"

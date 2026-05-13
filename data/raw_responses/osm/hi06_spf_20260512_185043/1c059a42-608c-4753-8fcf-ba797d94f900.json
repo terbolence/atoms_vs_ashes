@@ -1,0 +1,890 @@
+{
+  "meta": {
+    "site_id": "1c059a42-608c-4753-8fcf-ba797d94f900",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:02:32.197923+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,50.084967,14.525273);\n  way[\"military\"](around:25000,50.084967,14.525273);\n  relation[\"military\"](around:25000,50.084967,14.525273);\n  node[\"landuse\"=\"military\"](around:25000,50.084967,14.525273);\n  way[\"landuse\"=\"military\"](around:25000,50.084967,14.525273);\n  relation[\"landuse\"=\"military\"](around:25000,50.084967,14.525273);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.084967,14.525273);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.084967,14.525273);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,50.084967,14.525273);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.084967,14.525273);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.084967,14.525273);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,50.084967,14.525273);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 9267,
+        "element_count": 66,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:00:45Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 26820514,
+              "lat": 50.0065778,
+              "lon": 14.754427,
+              "tags": {
+                "military": "bunker",
+                "name": "Bunkr"
+              }
+            },
+            {
+              "type": "node",
+              "id": 29782609,
+              "lat": 50.0309688,
+              "lon": 14.7265809,
+              "tags": {
+                "building": "bunker",
+                "description": "Situovaná vpravo. Panely odsunuté, dveře i pisorár ukradené, nouzák prokpnutý a sesunutá zemina.",
+                "military": "bunker",
+                "name": "UŽ-6a"
+              }
+            },
+            {
+              "type": "node",
+              "id": 296435799,
+              "lat": 50.0967803,
+              "lon": 14.2868442,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 297593225,
+              "lat": 50.0897047,
+              "lon": 14.3983035,
+              "tags": {
+                "barrier": "gate",
+                "bollard": "removable",
+                "entrance": "exit",
+                "foot": "yes",
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 344430186,
+              "lat": 50.2422239,
+              "lon": 14.3055653,
+              "tags": {
+                "bunker_type": "pillbox",
+                "disused": "yes",
+                "military": "bunker",
+                "name": "řopík",
+                "pillbox": "ww2",
+                "tourism": "viewpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 880754899,
+              "lat": 50.107681,
+              "lon": 14.277056,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1679763732,
+              "lat": 50.0900676,
+              "lon": 14.3980407,
+              "tags": {
+                "access": "permissive",
+                "barrier": "gate",
+                "bicycle": "no",
+                "entrance": "yes",
+                "foot": "yes",
+                "maxwidth:physical": "1.2",
+                "military": "checkpoint",
+                "source:maxwidth:physical": "ARCore"
+              }
+            },
+            {
+              "type": "node",
+              "id": 1853491744,
+              "lat": 49.976247,
+              "lon": 14.4227595,
+              "tags": {
+                "building": "bunker",
+                "description": "Točná – 71. PLRB – 11.PLRO (71 protiletadlová raketová brigáda – 11. protiletadlový raketový oddíl) V 70. letech vznikal na kopci Čihadlo systém protiletecké raketové obrany.",
+                "height": "35",
+                "military": "bunker",
+                "name": "Protivzdušná ochrana Prahy",
+                "tower:construction": "lattice",
+                "tower:type": "communication",
+                "website": "https://mistamehomesta.cz/?p=3356",
+                "wikidata": "Q65007161",
+                "wikipedia": "cs:11. protiletadlový raketový oddíl Točná"
+              }
+            },
+            {
+              "type": "node",
+              "id": 2572681613,
+              "lat": 49.9749466,
+              "lon": 14.7569916,
+              "tags": {
+                "military": "bunker",
+                "name": "torzo bunkru"
+              }
+            },
+            {
+              "type": "node",
+              "id": 3427484099,
+              "lat": 50.1075933,
+              "lon": 14.2769597,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5027282280,
+              "lat": 50.0873039,
+              "lon": 14.4022892,
+              "tags": {
+                "direction": "backward",
+                "highway": "stop",
+                "military": "checkpoint",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6804710280,
+              "lat": 50.0328304,
+              "lon": 14.8228326,
+              "tags": {
+                "building": "bunker",
+                "description": "Bývalá telefonní ústředna pro případ válečného konfliktu. Jde o několikapodlažní podzemní bunkr, postavený na konci 80. let Nyní kryt The Oppidum. \nhttps://www.idnes.cz/bydleni/stavba/oppidum-nejvetsi-obytny-bunkr-na-svete.A151227_212554_stavba_rez\n",
+                "military": "bunker",
+                "name": "Zodolněná zesilovací stanice 019- Vrátkov",
+                "website": "http://forum.fortifikace.net/viewtopic.php?t=680&start=0&postdays=0&postorder=asc&highlight="
+              }
+            },
+            {
+              "type": "node",
+              "id": 6811154257,
+              "lat": 50.0852178,
+              "lon": 14.4592921,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 6811154258,
+              "lat": 50.0845087,
+              "lon": 14.4591701,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "capacity": "2500",
+                "capacity:physical": "5000",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt civilního obyvatelstva Parukářka",
+                "tourism": "attraction",
+                "website": "https://vojenske-prostory.cz/ukryt-co-parukarka-bezovka/",
+                "wikidata": "Q12047247"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7014999413,
+              "lat": 50.0846619,
+              "lon": 14.4620902,
+              "tags": {
+                "building": "bunker",
+                "description": "Sloužil jako záložní zesilovací stanice dálkových kabelů a záložní pracoviště Českého rozhlasu. MKKM-1 (Berlín- Praha - Moskva)",
+                "military": "bunker",
+                "name": "Zodolněná zesilovací stanice Žižkov IV",
+                "website": "https://www.idnes.cz/jihlava/zpravy/vysocina-veprikov-varsavska-smlouva-telefon-kabel-linka-berlin-praha-moskva-ozs-400-mkkm-1.A191009_506875_jihlava-zpravy_epsal",
+                "website:stock": "https://www.blesk.cz/clanek/regiony-praha-praha-zpravy/376884/protiatomovy-kryt-v-praze-se-nedari-prodat-cena-klesla-uz-o-miliony.html"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7190050558,
+              "lat": 50.0595352,
+              "lon": 14.3508072,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "hardened_aircraft_shelter",
+                "military": "bunker",
+                "name": "Protivzdušná ochrana"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7319894599,
+              "lat": 50.0945043,
+              "lon": 14.2877532,
+              "tags": {
+                "military": "checkpoint",
+                "name": "Vrátnice 6"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7319894600,
+              "lat": 50.0958047,
+              "lon": 14.2920922,
+              "tags": {
+                "military": "checkpoint",
+                "name": "Vrátnice 1"
+              }
+            },
+            {
+              "type": "node",
+              "id": 7588338328,
+              "lat": 50.1449252,
+              "lon": 14.5285667,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8231631927,
+              "lat": 50.0929373,
+              "lon": 14.7850894,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "name": "UŽ-6a"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8330148560,
+              "lat": 50.0967845,
+              "lon": 14.2868841,
+              "tags": {
+                "military": "checkpoint"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8330207618,
+              "lat": 50.0967821,
+              "lon": 14.2870014,
+              "tags": {
+                "building:ruian:type": "19",
+                "military": "checkpoint",
+                "ref:ruian:building": "42780659",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8455746241,
+              "lat": 50.0891738,
+              "lon": 14.4504272,
+              "tags": {
+                "abandoned": "yes",
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8521578181,
+              "lat": 49.9950337,
+              "lon": 14.344421,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "observation",
+                "military": "bunker",
+                "name": "Pozorovatelna CO Radotín"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8595210183,
+              "lat": 50.0898506,
+              "lon": 14.4531885,
+              "tags": {
+                "building": "bunker",
+                "disused": "yes",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8595210184,
+              "lat": 50.0897832,
+              "lon": 14.4532221,
+              "tags": {
+                "building": "bunker",
+                "disused": "yes",
+                "height": "2",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8595812717,
+              "lat": 50.0895856,
+              "lon": 14.453237,
+              "tags": {
+                "building": "bunker",
+                "disused": "yes",
+                "height": "2",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8693818787,
+              "lat": 49.9767209,
+              "lon": 14.4363519,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9550535810,
+              "lat": 50.0926383,
+              "lon": 14.3985438,
+              "tags": {
+                "military": "checkpoint",
+                "traffic_calming": "chicane"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10252966521,
+              "lat": 50.0652305,
+              "lon": 14.4712066,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 10260304512,
+              "lat": 50.0566654,
+              "lon": 14.4644713,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 4914259,
+              "center": {
+                "lat": 50.130318,
+                "lon": 14.348271
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Armáda ČR",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 25541012,
+              "center": {
+                "lat": 50.2227787,
+                "lon": 14.5944803
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military",
+                "name": "Vojenské zařízení 5512"
+              }
+            },
+            {
+              "type": "way",
+              "id": 28276248,
+              "center": {
+                "lat": 50.0653822,
+                "lon": 14.2413251
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "VÚ3082 - Centrum výstrahy ZHN"
+              }
+            },
+            {
+              "type": "way",
+              "id": 30170360,
+              "center": {
+                "lat": 50.0831846,
+                "lon": 14.3908312
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "danger_area"
+              }
+            },
+            {
+              "type": "way",
+              "id": 47038197,
+              "center": {
+                "lat": 50.0881094,
+                "lon": 14.3109138
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Vojenský prostor Ruzyně",
+                "name:de": "Truppenübungsplatz Rusun",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 118237800,
+              "center": {
+                "lat": 50.1272075,
+                "lon": 14.5352891
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "armádní kasárna"
+              }
+            },
+            {
+              "type": "way",
+              "id": 154993520,
+              "center": {
+                "lat": 50.2214922,
+                "lon": 14.683658
+              },
+              "tags": {
+                "barrier": "wall",
+                "description": "Původní ÚVS PVOS - Stará Boleslav, nyní ANCC (Národní středisko řízení a velení) a patří do sestavy 26. pluku velení, řízení a průzkumu Stará Boleslav.",
+                "landuse": "military",
+                "name": "ANCC",
+                "website": "https://forum.cspvo.cz/viewtopic.php?t=155"
+              }
+            },
+            {
+              "type": "way",
+              "id": 166136036,
+              "center": {
+                "lat": 50.002779,
+                "lon": 14.3001254
+              },
+              "tags": {
+                "barrier": "fence",
+                "inscription": "Objekt MV",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 170066608,
+              "center": {
+                "lat": 50.2709555,
+                "lon": 14.4306569
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Radiokomunikační středisko MVČR",
+                "natural": "grassland"
+              }
+            },
+            {
+              "type": "way",
+              "id": 235637703,
+              "center": {
+                "lat": 50.0230687,
+                "lon": 14.7139554
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257144130,
+              "center": {
+                "lat": 50.1872007,
+                "lon": 14.3053189
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "location": "underground",
+                "military": "bunker",
+                "ref:ruian:building": "47701625",
+                "source": "cuzk:ruian"
+              }
+            },
+            {
+              "type": "way",
+              "id": 257144244,
+              "center": {
+                "lat": 50.1875302,
+                "lon": 14.3051442
+              },
+              "tags": {
+                "building": "yes",
+                "building:ruian:type": "19",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Opornyj Uzel Svjazi (OUS-11, pozivnoj ,,Kljon\")",
+                "ref:ruian:building": "41421396",
+                "source": "cuzk:ruian",
+                "website": "http://forum.fortifikace.net/viewtopic.php?f=26&t=1980&hilit=Tursko"
+              }
+            },
+            {
+              "type": "way",
+              "id": 266103148,
+              "center": {
+                "lat": 50.1383007,
+                "lon": 14.6562203
+              },
+              "tags": {
+                "access": "no",
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 290510382,
+              "center": {
+                "lat": 49.9809494,
+                "lon": 14.4955004
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 292652866,
+              "center": {
+                "lat": 50.2224478,
+                "lon": 14.7059118
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "way",
+              "id": 293394496,
+              "center": {
+                "lat": 50.2159573,
+                "lon": 14.6941683
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 334729249,
+              "center": {
+                "lat": 50.0970765,
+                "lon": 14.3828074
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 362885274,
+              "center": {
+                "lat": 50.0518156,
+                "lon": 14.3714921
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371733331,
+              "center": {
+                "lat": 50.0869856,
+                "lon": 14.3862817
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 371733338,
+              "center": {
+                "lat": 50.0972879,
+                "lon": 14.3932825
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 376918466,
+              "center": {
+                "lat": 49.9232167,
+                "lon": 14.5162495
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "source": "cuzk:km"
+              }
+            },
+            {
+              "type": "way",
+              "id": 393435410,
+              "center": {
+                "lat": 50.2078107,
+                "lon": 14.6879383
+              },
+              "tags": {
+                "barrier": "wall",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 412831102,
+              "center": {
+                "lat": 49.9307716,
+                "lon": 14.4745704
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "barbed_wire",
+                "landuse": "military",
+                "name": "Radiové vysílací středisko Libeř",
+                "website": "https://vojenske-prostory.cz/radiove-vysilaci-stredisko-liber/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 468678838,
+              "center": {
+                "lat": 49.9762278,
+                "lon": 14.422804
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1000625667,
+              "center": {
+                "lat": 50.1093432,
+                "lon": 14.3914419
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Armáda ČR"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1107510378,
+              "center": {
+                "lat": 50.0758673,
+                "lon": 14.3216078
+              },
+              "tags": {
+                "building": "bunker",
+                "layer": "1",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1248150434,
+              "center": {
+                "lat": 50.1718904,
+                "lon": 14.3227285
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1443618723,
+              "center": {
+                "lat": 50.0960281,
+                "lon": 14.3112399
+              },
+              "tags": {
+                "access": "permit",
+                "building": "bunker",
+                "bunker_type": "bomb_shelter",
+                "layer": "-1",
+                "location": "underground",
+                "military": "bunker",
+                "name": "bývalý protiletecký kryt v Divoké Šárce",
+                "note": "pro vstup kontaktujte správce"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1450065381,
+              "center": {
+                "lat": 50.0577132,
+                "lon": 14.3763996
+              },
+              "tags": {
+                "building": "bunker",
+                "building:colour": "beige",
+                "building:levels": "1",
+                "bunker_type": "observation",
+                "military": "bunker",
+                "roof:colour": "beige",
+                "roof:levels": "0",
+                "roof:shape": "dome",
+                "wikidata": "Q130356764",
+                "wikimedia_commons": "File:Praha Jinonice Park Waltrovka bunkr.jpg"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1465212898,
+              "center": {
+                "lat": 50.0706681,
+                "lon": 14.3917384
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 2163958,
+              "center": {
+                "lat": 50.1222532,
+                "lon": 14.5422003
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "ele": "286",
+                "icao": "LKKB",
+                "landuse": "military",
+                "military": "airfield",
+                "name": "Vojenské letiště Kbely",
+                "name:en": "Kbely Air Base",
+                "name:it": "Aeroporto militare di Kbely",
+                "name:ja": "クベリィ空軍基地",
+                "source": "ourairports.com",
+                "twr": "120,875",
+                "type": "multipolygon",
+                "wikidata": "Q1935013",
+                "wikipedia": "cs:Letiště Praha-Kbely"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 6841972,
+              "center": {
+                "lat": 50.094598,
+                "lon": 14.4004223
+              },
+              "tags": {
+                "access": "no",
+                "authority": "defence",
+                "barrier": "fence",
+                "landuse": "military",
+                "name": "Ministerstvo obrany",
+                "name:cs": "Ministerstvo obrany",
+                "name:de": "Verteidigungsministerium",
+                "name:en": "Ministry of Defence",
+                "name:fr": "Ministère de la Défense",
+                "name:ja": "国防省",
+                "name:lt": "Gynybos ministerija",
+                "name:nl": "Ministerie van Defensie",
+                "name:pt": "Ministério da Defesa",
+                "name:ru": "Министерство обороны",
+                "name:zh": "国防部",
+                "surveillance": "outdoor",
+                "type": "multipolygon",
+                "wikidata": "Q3564646",
+                "wikipedia": "cs:Ministerstvo obrany České republiky"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 10324998,
+              "center": {
+                "lat": 50.0432875,
+                "lon": 14.3759739
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "K-116 Vojenský objekt",
+                "type": "multipolygon",
+                "wikipedia": "cs:Vojenský objekt v Prokopském údolí"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13875461,
+              "center": {
+                "lat": 50.0843677,
+                "lon": 14.4586238
+              },
+              "tags": {
+                "bunker_type": "personnel_shelter",
+                "capacity": "2500",
+                "military": "bunker",
+                "type": "site"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 13875652,
+              "center": {
+                "lat": 50.0892457,
+                "lon": 14.4542124
+              },
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "personnel_shelter",
+                "capacity": "1200",
+                "layer": "-3",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Kryt civilního obyvatelstva Žižkov",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

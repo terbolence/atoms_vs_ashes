@@ -57,6 +57,45 @@ from atoms_vs_ashes.scoring.scoring_definition_snapshots import (
 log = get_logger(__name__)
 
 
+# Underlying NH criteria that feed the SP-F derived NH-14 (combined hazards).
+# NH-13 is intentionally omitted: wildfire is a separate weighted criterion and
+# does not interact with the other natural-hazard pairs the way seismic + flood
+# do. See ``config/scoring_rubrics/nh_natural_hazards.yaml`` NH-14 block.
+_NH14_UNDERLYING_IDS: tuple[str, ...] = (
+    "NH-01", "NH-03", "NH-04", "NH-08", "NH-09", "NH-10", "NH-11",
+)
+
+
+def _inject_nh14_derived_metrics(
+    nh14_values: dict, all_results: dict[str, BandResult]
+) -> None:
+    """Compute SP-F NH-14 derived metrics from resolved underlying NH scores.
+
+    The metrics ignore underlying criteria that are ``unscored`` or have no
+    matched band, so missing data never drags NH-14 down to a synthetic 5.0
+    (Ovidiu feedback). If fewer than 5 underlying scores resolve, NH-14
+    itself will land in the unscored tail (no band matches).
+    """
+    resolved: list[float] = []
+    for cid in _NH14_UNDERLYING_IDS:
+        result = all_results.get(cid)
+        if result is None or result.matched_band is None:
+            continue
+        notes = result.notes or []
+        if "unscored" in notes:
+            continue
+        resolved.append(float(result.score))
+    nh14_values["nh_resolved_count"] = len(resolved)
+    if resolved:
+        nh14_values["nh_min_resolved_score"] = min(resolved)
+        nh14_values["nh_count_below_5"] = sum(1 for s in resolved if s < 5)
+        nh14_values["nh_count_below_7"] = sum(1 for s in resolved if s < 7)
+    else:
+        nh14_values.setdefault("nh_min_resolved_score", None)
+        nh14_values.setdefault("nh_count_below_5", None)
+        nh14_values.setdefault("nh_count_below_7", None)
+
+
 @dataclass
 class ScoringSummary:
     """Aggregate counts returned after a scoring run."""
@@ -149,6 +188,13 @@ class ScoringEngine:
                 values[criterion.criterion_id] = evaluate_criterion_value(
                     criterion, ctx.values, quality=ctx.quality
                 )
+        if "NH-14" in b and "NH-14" in ctxs:
+            _inject_nh14_derived_metrics(ctxs["NH-14"].values, values)
+            values["NH-14"] = evaluate_criterion_value(
+                b["NH-14"],
+                ctxs["NH-14"].values,
+                quality=ctxs["NH-14"].quality,
+            )
         return ctxs, values
 
     def _process_criterion(

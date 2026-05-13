@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "site_id": "e4c6a713-99e6-4fdf-afaa-d456779c504c",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T20:26:49.115547+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,51.45496,31.260173);\n  way[\"military\"](around:25000,51.45496,31.260173);\n  relation[\"military\"](around:25000,51.45496,31.260173);\n  node[\"landuse\"=\"military\"](around:25000,51.45496,31.260173);\n  way[\"landuse\"=\"military\"](around:25000,51.45496,31.260173);\n  relation[\"landuse\"=\"military\"](around:25000,51.45496,31.260173);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.45496,31.260173);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.45496,31.260173);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,51.45496,31.260173);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.45496,31.260173);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.45496,31.260173);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,51.45496,31.260173);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 926,
+        "element_count": 2,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T20:01:44Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "way",
+              "id": 766084394,
+              "center": {
+                "lat": 51.5485272,
+                "lon": 31.3140614
+              },
+              "tags": {
+                "aeroway": "aerodrome",
+                "icao": "UKKP",
+                "landuse": "grass",
+                "military": "airfield",
+                "wikidata": "Q1708442",
+                "wikipedia": "uk:Авіабаза Чернігів"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1046934207,
+              "center": {
+                "lat": 51.4827363,
+                "lon": 31.2533041
+              },
+              "tags": {
+                "landuse": "grass",
+                "military": "obstacle_course"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

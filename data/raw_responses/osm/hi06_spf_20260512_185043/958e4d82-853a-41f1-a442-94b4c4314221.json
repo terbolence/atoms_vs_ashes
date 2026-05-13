@@ -1,0 +1,723 @@
+{
+  "meta": {
+    "site_id": "958e4d82-853a-41f1-a442-94b4c4314221",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:44:08.009500+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,44.910633,23.134754);\n  way[\"military\"](around:25000,44.910633,23.134754);\n  relation[\"military\"](around:25000,44.910633,23.134754);\n  node[\"landuse\"=\"military\"](around:25000,44.910633,23.134754);\n  way[\"landuse\"=\"military\"](around:25000,44.910633,23.134754);\n  relation[\"landuse\"=\"military\"](around:25000,44.910633,23.134754);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.910633,23.134754);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.910633,23.134754);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,44.910633,23.134754);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.910633,23.134754);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.910633,23.134754);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,44.910633,23.134754);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 1063,
+        "element_count": 53,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:42:30Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 12178834283,
+              "lat": 45.02458,
+              "lon": 23.27978,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.26, sc. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2005",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863862,
+              "lat": 45.024203,
+              "lon": 23.278882,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.1, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1996",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178863889,
+              "lat": 44.800581,
+              "lon": 22.967492,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Gării, nr. 1, Sediu Primărie, Mun. Motru, GJ",
+                "military": "bunker",
+                "ref": "2030",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178870061,
+              "lat": 44.846381,
+              "lon": 23.08949,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Principală, nr. 253A, sat Mătăsari, Sediu Primărie, Comuna Mătăsari, GJ",
+                "military": "bunker",
+                "ref": "2050",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878458,
+              "lat": 45.027244,
+              "lon": 23.269417,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. 1 Decembrie 1918, bl. 4, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2019",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878553,
+              "lat": 45.024181,
+              "lon": 23.27965,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.7, sc. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2000",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878607,
+              "lat": 45.067202,
+              "lon": 23.293402,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Ecaterina Teodoroiu, bl. 365D, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2011",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878701,
+              "lat": 45.0242,
+              "lon": 23.27866,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.1, sc. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1997",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878877,
+              "lat": 45.043064,
+              "lon": 23.273349,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Ecaterina Teodoroiu, bl. 3A, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2009,2010",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878903,
+              "lat": 44.91071,
+              "lon": 22.911381,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Iormăneşti,,Sediu Primărie, Comuna Glogova, GJ",
+                "military": "bunker",
+                "ref": "2048",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178878972,
+              "lat": 45.040357,
+              "lon": 23.27419,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 20, BRD, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1992",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879121,
+              "lat": 45.046911,
+              "lon": 23.278521,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Ecaterina Teodoroiu, nr. 46, Independent Oil Tools, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1989",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879148,
+              "lat": 45.026534,
+              "lon": 23.275945,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Mioritei, nr. 5, bl. 3, (MK), Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2023,2022",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879243,
+              "lat": 45.02418,
+              "lon": 23.279651,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.7, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1999",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879488,
+              "lat": 44.805085,
+              "lon": 22.975274,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Calea Tismanei. Sediu CEZ, Mun. Motru, GJ",
+                "military": "bunker",
+                "ref": "2034",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879637,
+              "lat": 45.023733,
+              "lon": 23.270032,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Săvineşti, bl.4, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2014",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879663,
+              "lat": 44.86498,
+              "lon": 23.213191,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Fărcăşeşti, nr. 72, Sediu Primărie, Comuna Fărcăşeşti, GJ",
+                "military": "bunker",
+                "ref": "2047",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879732,
+              "lat": 45.068263,
+              "lon": 23.305582,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str.Ciocîrlău, nr. 38, S.C. Artego S.A., Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1991",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879759,
+              "lat": 45.036321,
+              "lon": 23.271741,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Siret, nr. 22, Grădiniţa nr. 5, Vis de Copil, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2029",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178879907,
+              "lat": 45.045694,
+              "lon": 23.278572,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Comuna din Paris, bl. 9A, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2021",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880002,
+              "lat": 45.02452,
+              "lon": 23.28022,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.24, sc. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2002",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880029,
+              "lat": 44.892221,
+              "lon": 23.44234,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "str. Villneuve D’ascq, nr.22, Hotel Sara, Oraş Ţicleni, GJ",
+                "military": "bunker",
+                "ref": "2045",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880177,
+              "lat": 45.04197,
+              "lon": 23.27305,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Traian, nr. 5, Casa Sindicatelor, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2016",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880203,
+              "lat": 44.784979,
+              "lon": 23.297941,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Urdari,,Cămin Cultural, Comuna Urdari, GJ",
+                "military": "bunker",
+                "ref": "2057",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880272,
+              "lat": 45.0246,
+              "lon": 23.28022,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.24, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2001",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880326,
+              "lat": 45.024712,
+              "lon": 23.270343,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Săvineşti, bl.1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2013,2012",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880366,
+              "lat": 44.8012,
+              "lon": 22.96833,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Trandafirilor, nr.5,Hotel Restaurant Victoria, Mun. Motru, GJ",
+                "military": "bunker",
+                "ref": "2032",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880629,
+              "lat": 45.0762157,
+              "lon": 23.305191,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Ecaterina Teodoroiu,Depozit Petrom, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1994",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880805,
+              "lat": 45.02447,
+              "lon": 23.27992,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.26, sc. 3, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2006",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880900,
+              "lat": 45.039462,
+              "lon": 23.287151,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Narciselor, nr. 1,Engie România, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1993",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178880927,
+              "lat": 44.80149,
+              "lon": 22.96877,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Macului, nr. 36, Sediu ITL, Mun. Motru, GJ",
+                "military": "bunker",
+                "ref": "2031",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881048,
+              "lat": 45.039163,
+              "lon": 23.275349,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Geneva, nr. 11, Parchetul de pe langa Tribunalul Gorj, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1986",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881075,
+              "lat": 45.052313,
+              "lon": 23.274622,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Complex Debarcader Univ. C-Tin Brancusi, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2028,2026,2025,2024,2027",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881170,
+              "lat": 45.02469,
+              "lon": 23.279751,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.26, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2004",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881318,
+              "lat": 45.04067,
+              "lon": 23.27304,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 14, CEC BANK, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1985",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881494,
+              "lat": 45.023803,
+              "lon": 23.270042,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Săvineşti, bl.4, sc. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2015",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881520,
+              "lat": 45.080932,
+              "lon": 23.05489,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Peştişani,,Cămin Cultural, Comuna Peştişani, GJ",
+                "military": "bunker",
+                "ref": "2052",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881738,
+              "lat": 45.043811,
+              "lon": 23.273411,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Iosif Keber, bl. 5, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2008",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881833,
+              "lat": 45.02468,
+              "lon": 23.28017,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.24, sc. 3, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2003",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178881981,
+              "lat": 45.05034,
+              "lon": 23.28122,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Bd. Ecaterina Teodoroiu, nr. 88,S.C. Velpitar S.A., Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1988",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882008,
+              "lat": 45.038501,
+              "lon": 23.28648,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. T. Vladimirescu, nr. 124, Colegiul Economic, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2017",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882103,
+              "lat": 45.023411,
+              "lon": 23.27842,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Plopilor, bl.6, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1998",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882183,
+              "lat": 44.817501,
+              "lon": 23.20004,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Negomir, nr. 65, Sediu Primărie, Comuna Negomir, GJ",
+                "military": "bunker",
+                "ref": "2051",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882251,
+              "lat": 45.048178,
+              "lon": 23.227866,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Bârseşti, nr. 216,CRH Ciment, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1995",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882278,
+              "lat": 44.799447,
+              "lon": 22.975118,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Aleea Teilor, nr. 43, Biserica Catolică, Mun. Motru, GJ",
+                "military": "bunker",
+                "ref": "2033",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882427,
+              "lat": 45.044316,
+              "lon": 23.273268,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Iosif Keber, bl. 4, sc. 1, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2007",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882453,
+              "lat": 44.843655,
+              "lon": 22.918726,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Sat Valea Perilor, Sediu Primărie, Comuna Cătunele, GJ",
+                "military": "bunker",
+                "ref": "2046",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882522,
+              "lat": 45.04498,
+              "lon": 23.292632,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Narciselor, nr. 10, VAMA Tg Jiu, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1990",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882687,
+              "lat": 45.03775,
+              "lon": 23.27513,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. Geneva, nr. 4, B.N.R., Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "1987",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "node",
+              "id": 12178882714,
+              "lat": 45.027223,
+              "lon": 23.269387,
+              "tags": {
+                "bunker_type": "bomb_shelter",
+                "description": "Str. 1 Decembrie 1918, bl. 2, Mun. Tg Jiu, GJ",
+                "military": "bunker",
+                "ref": "2020",
+                "source": "https://igsu.ro/Resources/Documente_Generale/Situatia_adaposturilor_de_protectie_civila.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 88172682,
+              "center": {
+                "lat": 45.0405122,
+                "lon": 23.3043724
+              },
+              "tags": {
+                "CLC:code": "121",
+                "CLC:explanation": "See http://wiki.openstreetmap.org/wiki/Romania_CLC_Import.",
+                "CLC:shapeId": "21838",
+                "CLC:year": "2006",
+                "comment": "This area is a result of an automated import, but it cannot tell if it is an industrial or retail area;all such areas have been tagged as industrial because retail ones are less in number;if you know this area is a retail one, please change the tags.",
+                "landuse": "military",
+                "source": "European Environment Agency (EEA), CORINE Land Cover, 2006",
+                "source:ro": "Agenţia Europeană de Mediu, CORINE Land Cover, 2006"
+              }
+            },
+            {
+              "type": "way",
+              "id": 890761603,
+              "center": {
+                "lat": 45.0350788,
+                "lon": 23.277107
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Cercul Militar Județean Gorj"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1452199954,
+              "center": {
+                "lat": 45.0402943,
+                "lon": 23.2937618
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+2026-05-12 21:48:02 [info     ] hi06_rerun_start               dry_run=False radius_km=25.0 run_id=hi06_spf_20260512_184802
+
+HI-06 SP-F rerun — 8 sites, run_id=hi06_spf_20260512_184802
+   #   CC  Site                                       count  class           nearest_km    hc_km
+-----------------------------------------------------------------------------------------------
+2026-05-12 21:48:06 [info     ] osm_query_ok                   elapsed_ms=3531 element_count=70
+   1   AT  Duernrohr power station                       70  training_area          7.9     11.0
+2026-05-12 21:48:24 [info     ] osm_query_ok                   elapsed_ms=7956 element_count=32
+   2   AT  Enns Power Station                            32  other                  0.4      6.4
+2026-05-12 21:48:51 [info     ] osm_query_ok                   elapsed_ms=14615 element_count=22
+   3   AT  Mellach power station                         22  other                  7.3     17.5
+2026-05-12 21:49:09 [info     ] osm_query_ok                   elapsed_ms=3828 element_count=4
+   4   AT  Riedersbach power station                      4  depot                 19.0     19.0
+2026-05-12 21:49:28 [info     ] osm_query_ok                   elapsed_ms=6590 element_count=4
+   5   AT  St Andrae power station                        4  other                 12.4     21.0
+2026-05-12 21:49:49 [info     ] osm_query_ok                   elapsed_ms=7546 element_count=81
+   6   AT  Timelkam power station                        81  depot                  5.9      5.9
+2026-05-12 21:50:14 [info     ] osm_query_ok                   elapsed_ms=10985 element_count=58
+   7   AT  Voitsberg power station                       58  training_area         16.1     16.9
+2026-05-12 21:50:32 [info     ] osm_query_ok                   elapsed_ms=4743 element_count=48
+   8   AT  Zeltweg power station                         48  training_area         12.1     13.1
+
+Done in 2.7 min — ok=8, skipped=0, errors=0

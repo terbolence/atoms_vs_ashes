@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "site_id": "aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T18:51:28.578442+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,43.518304,18.652091);\n  way[\"military\"](around:25000,43.518304,18.652091);\n  relation[\"military\"](around:25000,43.518304,18.652091);\n  node[\"landuse\"=\"military\"](around:25000,43.518304,18.652091);\n  way[\"landuse\"=\"military\"](around:25000,43.518304,18.652091);\n  relation[\"landuse\"=\"military\"](around:25000,43.518304,18.652091);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.518304,18.652091);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.518304,18.652091);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,43.518304,18.652091);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.518304,18.652091);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.518304,18.652091);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,43.518304,18.652091);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 5170,
+        "element_count": 40,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T18:49:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 13615763239,
+              "lat": 43.4421915,
+              "lon": 18.7562768,
+              "tags": {
+                "military": "barracks",
+                "name": "Radničko naselje HES \"Gornja Drina\""
+              }
+            },
+            {
+              "type": "way",
+              "id": 174360849,
+              "center": {
+                "lat": 43.5951169,
+                "lon": 18.7807015
+              },
+              "tags": {
+                "landuse": "military",
+                "name": "Kasarna Kosova"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398711,
+              "center": {
+                "lat": 43.5453802,
+                "lon": 18.3783038
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398712,
+              "center": {
+                "lat": 43.5554807,
+                "lon": 18.3994371
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398713,
+              "center": {
+                "lat": 43.5713274,
+                "lon": 18.4748967
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398714,
+              "center": {
+                "lat": 43.6086293,
+                "lon": 18.5036233
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398715,
+              "center": {
+                "lat": 43.6216673,
+                "lon": 18.4875847
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289398716,
+              "center": {
+                "lat": 43.6352599,
+                "lon": 18.5017482
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435023,
+              "center": {
+                "lat": 43.6253509,
+                "lon": 18.4867823
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435024,
+              "center": {
+                "lat": 43.5753971,
+                "lon": 18.5923997
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435025,
+              "center": {
+                "lat": 43.5324648,
+                "lon": 18.5620933
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435026,
+              "center": {
+                "lat": 43.6134907,
+                "lon": 18.412292
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435027,
+              "center": {
+                "lat": 43.6025139,
+                "lon": 18.3898043
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435028,
+              "center": {
+                "lat": 43.5880459,
+                "lon": 18.4120988
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435029,
+              "center": {
+                "lat": 43.5670992,
+                "lon": 18.4042775
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435030,
+              "center": {
+                "lat": 43.5667415,
+                "lon": 18.4120988
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435032,
+              "center": {
+                "lat": 43.7214589,
+                "lon": 18.5173702
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435033,
+              "center": {
+                "lat": 43.7219552,
+                "lon": 18.5279273
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435036,
+              "center": {
+                "lat": 43.6168541,
+                "lon": 18.4503686
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435037,
+              "center": {
+                "lat": 43.5931201,
+                "lon": 18.4373546
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435038,
+              "center": {
+                "lat": 43.5957232,
+                "lon": 18.4777701
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435039,
+              "center": {
+                "lat": 43.5941302,
+                "lon": 18.4825337
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435040,
+              "center": {
+                "lat": 43.5944877,
+                "lon": 18.392508
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435041,
+              "center": {
+                "lat": 43.5771654,
+                "lon": 18.4040093
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435042,
+              "center": {
+                "lat": 43.5213792,
+                "lon": 18.3711039
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435043,
+              "center": {
+                "lat": 43.623619,
+                "lon": 18.577441
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435044,
+              "center": {
+                "lat": 43.6273619,
+                "lon": 18.5262107
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435045,
+              "center": {
+                "lat": 43.5363777,
+                "lon": 18.3411812
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435046,
+              "center": {
+                "lat": 43.6191532,
+                "lon": 18.5537517
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435047,
+              "center": {
+                "lat": 43.6932671,
+                "lon": 18.5882771
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1289435062,
+              "center": {
+                "lat": 43.5079895,
+                "lon": 18.3664262
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124749,
+              "center": {
+                "lat": 43.6054886,
+                "lon": 18.4022283
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124753,
+              "center": {
+                "lat": 43.5770001,
+                "lon": 18.4335565
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124754,
+              "center": {
+                "lat": 43.5940048,
+                "lon": 18.5254061
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124755,
+              "center": {
+                "lat": 43.5805036,
+                "lon": 18.5432213
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124756,
+              "center": {
+                "lat": 43.5158638,
+                "lon": 18.3459019
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124757,
+              "center": {
+                "lat": 43.5000287,
+                "lon": 18.3640122
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124758,
+              "center": {
+                "lat": 43.5815566,
+                "lon": 18.5977399
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124759,
+              "center": {
+                "lat": 43.5840436,
+                "lon": 18.5847258
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1291124760,
+              "center": {
+                "lat": 43.5826602,
+                "lon": 18.5685038
+              },
+              "tags": {
+                "description": "Minski sumnjivo područje",
+                "description:en": "Mine suspect area",
+                "hazard": "minefield",
+                "military": "danger_area",
+                "source": "https://www.euforbih.org/images/infopoint/2782/2782-II.pdf"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

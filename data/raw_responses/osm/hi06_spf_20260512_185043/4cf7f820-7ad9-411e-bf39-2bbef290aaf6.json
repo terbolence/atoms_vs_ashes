@@ -1,0 +1,883 @@
+{
+  "meta": {
+    "site_id": "4cf7f820-7ad9-411e-bf39-2bbef290aaf6",
+    "connector_slug": "osm",
+    "run_id": "hi06_spf_20260512_185043",
+    "request_url": "https://overpass-api.de/api/interpreter",
+    "request_params": null,
+    "http_status": 200,
+    "fetched_at": "2026-05-12T19:48:15.124149+00:00"
+  },
+  "response": {
+    "scope": "hi06_spf_rerun",
+    "calls": [
+      {
+        "query": "[out:json][timeout:90];\n(\n  node[\"military\"](around:25000,46.05796,14.54513);\n  way[\"military\"](around:25000,46.05796,14.54513);\n  relation[\"military\"](around:25000,46.05796,14.54513);\n  node[\"landuse\"=\"military\"](around:25000,46.05796,14.54513);\n  way[\"landuse\"=\"military\"](around:25000,46.05796,14.54513);\n  relation[\"landuse\"=\"military\"](around:25000,46.05796,14.54513);\n  node[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.05796,14.54513);\n  way[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.05796,14.54513);\n  relation[\"aeroway\"=\"aerodrome\"][\"military\"](around:25000,46.05796,14.54513);\n  node[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.05796,14.54513);\n  way[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.05796,14.54513);\n  relation[\"aeroway\"=\"aerodrome\"][\"aerodrome:type\"=\"military\"](around:25000,46.05796,14.54513);\n);\nout center tags;\n",
+        "http_status": 200,
+        "elapsed_ms": 2514,
+        "element_count": 63,
+        "body": {
+          "version": 0.6,
+          "generator": "Overpass API 0.7.62.11 87bfad18",
+          "osm3s": {
+            "timestamp_osm_base": "2026-05-12T19:46:29Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+          },
+          "elements": [
+            {
+              "type": "node",
+              "id": 4364713770,
+              "lat": 46.0980846,
+              "lon": 14.2285649,
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "source": "survey"
+              }
+            },
+            {
+              "type": "node",
+              "id": 5204390600,
+              "lat": 46.1339911,
+              "lon": 14.5322086,
+              "tags": {
+                "hazard": "shooting_range",
+                "landuse": "military",
+                "military": "range"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8023362631,
+              "lat": 45.9308086,
+              "lon": 14.2933879,
+              "tags": {
+                "access": "yes",
+                "building": "bunker",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8840260457,
+              "lat": 46.0961568,
+              "lon": 14.5667316,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8840260458,
+              "lat": 46.0966438,
+              "lon": 14.5679494,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8979101490,
+              "lat": 46.1688635,
+              "lon": 14.321469,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 8979101491,
+              "lat": 46.1741039,
+              "lon": 14.3364801,
+              "tags": {
+                "building": "bunker",
+                "bunker_type": "pillbox",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9168384676,
+              "lat": 46.0956771,
+              "lon": 14.5673697,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9168384677,
+              "lat": 46.0954186,
+              "lon": 14.5676395,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9169018461,
+              "lat": 46.0964751,
+              "lon": 14.5672584,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9176105492,
+              "lat": 46.0953911,
+              "lon": 14.5671066,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 9176105499,
+              "lat": 46.0968062,
+              "lon": 14.5680325,
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "node",
+              "id": 13256779307,
+              "lat": 46.1433144,
+              "lon": 14.4021023,
+              "tags": {
+                "building": "bunker",
+                "construction_date": "1925/1950",
+                "image": "https://www.partizanstvo.si/media/geopedia_slike/othermemorials/12/Voja%C5%A1ki%20bunker%20ob%20%C5%BEelezni%C5%A1kem%20mostu_Medvode-2916.jpg",
+                "military": "bunker",
+                "ref:eid": "1-16244",
+                "source:url": "https://geohub.gov.si/ghapp/giskd"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057471,
+              "center": {
+                "lat": 46.0652257,
+                "lon": 14.5592773
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057472,
+              "center": {
+                "lat": 46.0658353,
+                "lon": 14.5603584
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057473,
+              "center": {
+                "lat": 46.0658566,
+                "lon": 14.5592374
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057474,
+              "center": {
+                "lat": 46.0654919,
+                "lon": 14.5603548
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057475,
+              "center": {
+                "lat": 46.0651227,
+                "lon": 14.5603706
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057476,
+              "center": {
+                "lat": 46.0655037,
+                "lon": 14.5615173
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 23057478,
+              "center": {
+                "lat": 46.0666525,
+                "lon": 14.5588878
+              },
+              "tags": {
+                "building": "yes",
+                "landuse": "military",
+                "military": "barracks",
+                "source": "yahoo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 121088542,
+              "center": {
+                "lat": 46.2042788,
+                "lon": 14.3774576
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain",
+                "landuse": "military",
+                "military": "base",
+                "name": "Skladišče Drulovka"
+              }
+            },
+            {
+              "type": "way",
+              "id": 160506039,
+              "center": {
+                "lat": 45.9502146,
+                "lon": 14.2794066
+              },
+              "tags": {
+                "addr:city": "Vrhnika",
+                "addr:housenumber": "50",
+                "addr:postcode": "1360",
+                "addr:street": "Raskovec",
+                "landuse": "military",
+                "military": "base",
+                "military_service": "army",
+                "name": "Vojašnica Ivana Cankarja",
+                "website": "https://www.slovenskavojska.si/o-vojski/infrastruktura/vojasnice/osrednja-regija/vojasnica-ivana-cankarja/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 239404196,
+              "center": {
+                "lat": 45.9308075,
+                "lon": 14.2968962
+              },
+              "tags": {
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "base",
+                "name": "Radar Ljubljanski vrh",
+                "operator": "Slovenska vojska"
+              }
+            },
+            {
+              "type": "way",
+              "id": 262601090,
+              "center": {
+                "lat": 46.1002441,
+                "lon": 14.4746855
+              },
+              "tags": {
+                "addr:city": "Ljubljana - Šentvid",
+                "addr:housenumber": "51",
+                "addr:postcode": "1210",
+                "addr:street": "Ulica bratov Komel",
+                "barrier": "fence",
+                "landuse": "military",
+                "military": "base",
+                "name": "Vojašnica slovenske Teritorialne obrambe",
+                "website": "https://www.slovenskavojska.si/o-vojski/infrastruktura/vojasnice/osrednja-regija/vojasnica-slovenske-teritorialne-obrambe/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 264943769,
+              "center": {
+                "lat": 46.1997893,
+                "lon": 14.3164665
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "range",
+                "military_service": "army",
+                "name": "Strelišče Crngrob"
+              }
+            },
+            {
+              "type": "way",
+              "id": 264959369,
+              "center": {
+                "lat": 46.198,
+                "lon": 14.3168932
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks",
+                "ref:gurs:sta_sid": "27632048"
+              }
+            },
+            {
+              "type": "way",
+              "id": 277439751,
+              "center": {
+                "lat": 46.1060446,
+                "lon": 14.4756331
+              },
+              "tags": {
+                "addr:city": "Ljubljana",
+                "addr:housenumber": "112",
+                "addr:street": "Obvozna cesta",
+                "landuse": "military",
+                "name": "Državni logistični center URSZR, Skladišče Roje",
+                "website": "https://www.gov.si/drzavni-organi/organi-v-sestavi/uprava-za-zascito-in-resevanje/o-upravi/urad-za-operativo/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 323404222,
+              "center": {
+                "lat": 45.9605274,
+                "lon": 14.6723758
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "name": "Vojašnica Grosuplje",
+                "operator": "Slovenska vojska",
+                "phone": "01 471 22 11",
+                "website": "https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-obrambo/"
+              }
+            },
+            {
+              "type": "way",
+              "id": 407676097,
+              "center": {
+                "lat": 45.9886796,
+                "lon": 14.538902
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 407676100,
+              "center": {
+                "lat": 45.9886002,
+                "lon": 14.5393853
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 407676102,
+              "center": {
+                "lat": 45.9889165,
+                "lon": 14.5388873
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 407676103,
+              "center": {
+                "lat": 45.9883915,
+                "lon": 14.5391173
+              },
+              "tags": {
+                "building": "yes",
+                "military": "barracks"
+              }
+            },
+            {
+              "type": "way",
+              "id": 457879931,
+              "center": {
+                "lat": 45.9285691,
+                "lon": 14.4701797
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 477926095,
+              "center": {
+                "lat": 46.0995651,
+                "lon": 14.5184872
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 518107715,
+              "center": {
+                "lat": 46.0716676,
+                "lon": 14.5172245
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "office",
+                "operator": "Ministrstvo za obrambo"
+              }
+            },
+            {
+              "type": "way",
+              "id": 553473339,
+              "center": {
+                "lat": 45.9886646,
+                "lon": 14.5391432
+              },
+              "tags": {
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "way",
+              "id": 842777209,
+              "center": {
+                "lat": 45.9307444,
+                "lon": 14.2930385
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 860850802,
+              "center": {
+                "lat": 45.9308343,
+                "lon": 14.2931509
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 902092668,
+              "center": {
+                "lat": 46.0992592,
+                "lon": 14.572038
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1001144002,
+              "center": {
+                "lat": 46.0265621,
+                "lon": 14.523433
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1001144003,
+              "center": {
+                "lat": 46.029228,
+                "lon": 14.5180087
+              },
+              "tags": {
+                "building": "bunker",
+                "historic": "yes",
+                "location": "overground",
+                "military": "bunker",
+                "ruins": "yes"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1062150445,
+              "center": {
+                "lat": 46.0779612,
+                "lon": 14.4888356
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1115553413,
+              "center": {
+                "lat": 46.2257297,
+                "lon": 14.4659588
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "military_service": "air_force",
+                "name": "Letalska baza Brnik",
+                "website": "https://www.slovenskavojska.si/o-vojski/infrastruktura/vojasnice/gorenjska/letalska-baza-brnik/",
+                "wikipedia": "sl:Letalska baza Brnik"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1153244913,
+              "center": {
+                "lat": 46.0395738,
+                "lon": 14.4976493
+              },
+              "tags": {
+                "access": "private",
+                "building": "yes",
+                "building:levels": "1",
+                "bunker_type": "technical",
+                "height": "2",
+                "historic": "yes",
+                "location": "underground",
+                "military": "bunker",
+                "name": "Jamarska zveza Slovenije",
+                "name:sl": "Jamarska Zveza Slovenije"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1154779358,
+              "center": {
+                "lat": 46.0522448,
+                "lon": 14.4737537
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1154779359,
+              "center": {
+                "lat": 46.0515355,
+                "lon": 14.4741157
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1154779360,
+              "center": {
+                "lat": 46.0510101,
+                "lon": 14.4747171
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1198805066,
+              "center": {
+                "lat": 46.0503679,
+                "lon": 14.47574
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1219089754,
+              "center": {
+                "lat": 46.0133804,
+                "lon": 14.6780746
+              },
+              "tags": {
+                "abandoned": "yes",
+                "access": "permit",
+                "building": "bunker",
+                "layer": "-1",
+                "location": "underground",
+                "military": "bunker"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630424,
+              "center": {
+                "lat": 46.0523189,
+                "lon": 14.4435689
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630425,
+              "center": {
+                "lat": 46.0526567,
+                "lon": 14.4433039
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630426,
+              "center": {
+                "lat": 46.0531634,
+                "lon": 14.4432801
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630427,
+              "center": {
+                "lat": 46.0533251,
+                "lon": 14.4434697
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630428,
+              "center": {
+                "lat": 46.053483,
+                "lon": 14.4447205
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630429,
+              "center": {
+                "lat": 46.0525684,
+                "lon": 14.4434898
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630430,
+              "center": {
+                "lat": 46.0528352,
+                "lon": 14.4434311
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1257630431,
+              "center": {
+                "lat": 46.0534711,
+                "lon": 14.4440817
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1354769082,
+              "center": {
+                "lat": 46.0513038,
+                "lon": 14.4755715
+              },
+              "tags": {
+                "barrier": "ditch",
+                "historic": "yes",
+                "military": "trench",
+                "trench": "dugout"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1361966930,
+              "center": {
+                "lat": 46.2252539,
+                "lon": 14.4650946
+              },
+              "tags": {
+                "building": "bunker",
+                "building:material": "grass",
+                "military": "bunker",
+                "roof:material": "grass",
+                "roof:shape": "round"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1363121586,
+              "center": {
+                "lat": 46.1983942,
+                "lon": 14.3174072
+              },
+              "tags": {
+                "building": "yes",
+                "construction_date": "1995",
+                "military": "barracks",
+                "ref:gurs:sta_sid": "27632052",
+                "source:construction_date": "GURS",
+                "source:geometry": "GURS"
+              }
+            },
+            {
+              "type": "way",
+              "id": 1388578965,
+              "center": {
+                "lat": 45.9721206,
+                "lon": 14.2920715
+              },
+              "tags": {
+                "barrier": "fence",
+                "fence_type": "chain_link",
+                "landuse": "military"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 16365847,
+              "center": {
+                "lat": 46.0656061,
+                "lon": 14.5657223
+              },
+              "tags": {
+                "landuse": "military",
+                "military": "base",
+                "name": "Vojašnica Edvarda Peperka",
+                "operator": "Slovenska vojska",
+                "type": "multipolygon",
+                "wikidata": "Q5341377",
+                "wikipedia": "sl:Vojašnica Edvarda Peperka"
+              }
+            },
+            {
+              "type": "relation",
+              "id": 16611291,
+              "center": {
+                "lat": 46.0133804,
+                "lon": 14.6780746
+              },
+              "tags": {
+                "building": "bunker",
+                "military": "bunker",
+                "type": "multipolygon"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

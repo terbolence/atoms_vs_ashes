@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0 -- /Users/terbolence/projects/atoms_vs_ashes/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/terbolence/projects/atoms_vs_ashes
+configfile: pyproject.toml
+plugins: cov-7.1.0, anyio-4.13.0
+collecting ... collected 13 items
+
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_explicit_value_preserved PASSED [  7%]
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_high_consequence_airfield_used_as_primary_signal PASSED [ 15%]
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_falls_back_to_nearest_military_when_airfield_is_nearest PASSED [ 23%]
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_search_completed_no_airfield_yields_null_sentinel PASSED [ 30%]
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_search_not_run_leaves_key_absent PASSED [ 38%]
+tests/scoring/test_context_derivations.py::TestMilitaryAirfieldDistanceDerivation::test_no_data_quality_leaves_key_absent PASSED [ 46%]
+tests/scoring/test_context_derivations.py::TestHiSearchCompletedSentinels::test_search_completed_when_quality_is_ok PASSED [ 53%]
+tests/scoring/test_context_derivations.py::TestHiSearchCompletedSentinels::test_search_not_completed_when_quality_missing PASSED [ 61%]
+tests/scoring/test_context_derivations.py::TestHiSearchCompletedSentinels::test_search_not_completed_when_quality_is_failure PASSED [ 69%]
+tests/scoring/test_context_derivations.py::TestLandlockedDerivation::test_austria_is_landlocked PASSED [ 76%]
+tests/scoring/test_context_derivations.py::TestLandlockedDerivation::test_romania_is_not_landlocked PASSED [ 84%]
+tests/scoring/test_context_derivations.py::TestLandlockedDerivation::test_country_code_lowercase_normalised PASSED [ 92%]
+tests/scoring/test_context_derivations.py::TestLandlockedDerivation::test_missing_country_code_defaults_false PASSED [100%]
+
+============================== 13 passed in 0.32s ==============================

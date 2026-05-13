@@ -40,6 +40,17 @@ def test_merge_resolver_supports_rubric_era_aliases() -> None:
 
 
 def test_derived_context_values_unlock_multi_clause_expressions() -> None:
+    """The derivation helpers must populate the multi-clause derivations that
+    the HI-01 / EP-01 / NH-05 / NH-08 rubrics use.
+
+    Note: the legacy unconditional ``nearest_military_airfield_km = 999.0``
+    default was removed in the May 2026 fix (FB-LL-08 follow-up). With no
+    HI-06 OSM data in the context, the key is now left absent so the rubric
+    can fall through to the unscored default; with a completed HI-06 search
+    a null sentinel is set so the HI-01 ``... is null`` favourable branch
+    can match. The legacy 999.0 silently treated missing SP-F data as
+    "favourable" which is the bug the fix corrects.
+    """
     values = {
         "flight_path_distance_km": 3.5,
         "hospital_count_epz": 2,
@@ -53,7 +64,7 @@ def test_derived_context_values_unlock_multi_clause_expressions() -> None:
     apply_derived_context_values(values)
 
     assert values["under_flight_path"] is False
-    assert values["nearest_military_airfield_km"] == 999.0
+    assert "nearest_military_airfield_km" not in values
     assert values["special_pop_count"] == 7
     assert values["pg_fe_fraction"] == 10.0
     assert values["site_within_strict_protected"] is True

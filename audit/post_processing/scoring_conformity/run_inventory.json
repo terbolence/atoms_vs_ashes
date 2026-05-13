@@ -1,0 +1,912 @@
+{
+  "ranking_scores": [
+    {
+      "run_id": "20260513T030738_70d5bc2c",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-05-13T06:07:39.111557+03:00",
+      "last_scored_at": "2026-05-13T06:09:00.732774+03:00"
+    },
+    {
+      "run_id": "feedback_rerun_20260509",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-05-09T20:36:02.466868+03:00",
+      "last_scored_at": "2026-05-09T20:39:36.456756+03:00"
+    },
+    {
+      "run_id": "score-214bab4e",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-05-02T10:28:44.496998+03:00",
+      "last_scored_at": "2026-05-02T10:29:01.552281+03:00"
+    },
+    {
+      "run_id": "score-53102a9e",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-05-01T22:08:10.691361+03:00",
+      "last_scored_at": "2026-05-01T22:08:23.054748+03:00"
+    },
+    {
+      "run_id": "score-fae96308",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-29T23:05:22.896837+03:00",
+      "last_scored_at": "2026-04-29T23:05:34.990274+03:00"
+    },
+    {
+      "run_id": "score-23cd6c7a",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T15:02:33.089294+03:00",
+      "last_scored_at": "2026-04-28T15:02:42.734257+03:00"
+    },
+    {
+      "run_id": "score-e58d84f6",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T13:34:05.402536+03:00",
+      "last_scored_at": "2026-04-28T13:34:17.935206+03:00"
+    },
+    {
+      "run_id": "score-e803c23c",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T13:17:13.190301+03:00",
+      "last_scored_at": "2026-04-28T13:17:25.287391+03:00"
+    },
+    {
+      "run_id": "score-88160b85",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T10:04:06.106931+03:00",
+      "last_scored_at": "2026-04-28T10:04:15.531726+03:00"
+    },
+    {
+      "run_id": "score-bd69e170",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T09:46:36.177098+03:00",
+      "last_scored_at": "2026-04-28T09:46:49.050329+03:00"
+    },
+    {
+      "run_id": "score-4464ea34",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T01:16:31.779976+03:00",
+      "last_scored_at": "2026-04-28T01:16:41.288259+03:00"
+    },
+    {
+      "run_id": "score-e535b6e2",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T01:02:45.783556+03:00",
+      "last_scored_at": "2026-04-28T01:02:54.778025+03:00"
+    },
+    {
+      "run_id": "val-ep24-8d2ddd31",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T01:00:23.799061+03:00",
+      "last_scored_at": "2026-04-28T01:00:33.527424+03:00"
+    },
+    {
+      "run_id": "val-ep30-febd842d",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T01:00:11.938213+03:00",
+      "last_scored_at": "2026-04-28T01:00:22.141873+03:00"
+    },
+    {
+      "run_id": "score-dfaa4937",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T00:32:51.651805+03:00",
+      "last_scored_at": "2026-04-28T00:33:01.039125+03:00"
+    },
+    {
+      "run_id": "score-d76f7a82",
+      "rows": 17328,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T00:30:30.639339+03:00",
+      "last_scored_at": "2026-04-28T00:30:39.823129+03:00"
+    },
+    {
+      "run_id": "score-3483a9ad",
+      "rows": 9312,
+      "distinct_sites": 194,
+      "distinct_smrs": 1,
+      "first_scored_at": "2026-04-28T00:18:56.848348+03:00",
+      "last_scored_at": "2026-04-28T00:19:05.231635+03:00"
+    },
+    {
+      "run_id": "score-ef5ccab4",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-04-27T18:12:51.171243+03:00",
+      "last_scored_at": "2026-04-27T18:14:11.275002+03:00"
+    },
+    {
+      "run_id": "score-3d18f5c5",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-04-27T18:04:12.976891+03:00",
+      "last_scored_at": "2026-04-27T18:05:30.434460+03:00"
+    },
+    {
+      "run_id": "score-64299b36",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-04-27T17:56:57.565359+03:00",
+      "last_scored_at": "2026-04-27T17:58:12.242576+03:00"
+    },
+    {
+      "run_id": "score-f9a079f0",
+      "rows": 138624,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "first_scored_at": "2026-04-27T17:52:31.160932+03:00",
+      "last_scored_at": "2026-04-27T17:53:43.736783+03:00"
+    }
+  ],
+  "composite_rankings": [
+    {
+      "run_id": "20260513T030738_70d5bc2c",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-05-13T06:09:00.733457+03:00",
+      "last_ranked_at": "2026-05-13T06:09:01.559787+03:00"
+    },
+    {
+      "run_id": "feedback_rerun_20260509",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-05-09T20:39:36.458266+03:00",
+      "last_ranked_at": "2026-05-09T20:39:38.262207+03:00"
+    },
+    {
+      "run_id": "sens-7b609bd0",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_10000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-05-02T10:29:14.227232+03:00",
+      "last_ranked_at": "2026-05-02T10:31:09.076520+03:00"
+    },
+    {
+      "run_id": "score-214bab4e",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-05-02T10:29:01.553572+03:00",
+      "last_ranked_at": "2026-05-02T10:29:01.780289+03:00"
+    },
+    {
+      "run_id": "sens-e01d74b7",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_10000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-05-01T22:08:28.599872+03:00",
+      "last_ranked_at": "2026-05-01T22:09:49.469708+03:00"
+    },
+    {
+      "run_id": "score-53102a9e",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-05-01T22:08:23.055448+03:00",
+      "last_ranked_at": "2026-05-01T22:08:23.174989+03:00"
+    },
+    {
+      "run_id": "sens-a9f3e400",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-29T23:05:42.838329+03:00",
+      "last_ranked_at": "2026-04-29T23:06:28.591560+03:00"
+    },
+    {
+      "run_id": "score-fae96308",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-29T23:05:34.991058+03:00",
+      "last_ranked_at": "2026-04-29T23:05:35.139599+03:00"
+    },
+    {
+      "run_id": "sens-76d54365",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_10000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T15:05:26.368415+03:00",
+      "last_ranked_at": "2026-04-28T15:06:58.777605+03:00"
+    },
+    {
+      "run_id": "sens-e8d5ff91",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T15:02:48.647293+03:00",
+      "last_ranked_at": "2026-04-28T15:03:40.228356+03:00"
+    },
+    {
+      "run_id": "score-23cd6c7a",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T15:02:42.734940+03:00",
+      "last_ranked_at": "2026-04-28T15:02:42.856205+03:00"
+    },
+    {
+      "run_id": "sens-2a9112ac",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T14:17:02.378593+03:00",
+      "last_ranked_at": "2026-04-28T14:17:55.486454+03:00"
+    },
+    {
+      "run_id": "sens-42c1a9aa",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T13:34:22.953415+03:00",
+      "last_ranked_at": "2026-04-28T13:35:14.892327+03:00"
+    },
+    {
+      "run_id": "score-e58d84f6",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T13:34:17.935880+03:00",
+      "last_ranked_at": "2026-04-28T13:34:18.052950+03:00"
+    },
+    {
+      "run_id": "sens-2f22886b",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T13:17:30.697461+03:00",
+      "last_ranked_at": "2026-04-28T13:18:23.226162+03:00"
+    },
+    {
+      "run_id": "score-e803c23c",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T13:17:25.288062+03:00",
+      "last_ranked_at": "2026-04-28T13:17:25.414801+03:00"
+    },
+    {
+      "run_id": "sens-b999a02c",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T10:04:22.306614+03:00",
+      "last_ranked_at": "2026-04-28T10:05:07.062335+03:00"
+    },
+    {
+      "run_id": "score-88160b85",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T10:04:15.532414+03:00",
+      "last_ranked_at": "2026-04-28T10:04:15.618227+03:00"
+    },
+    {
+      "run_id": "sens-55dcf9f6",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T09:48:27.609520+03:00",
+      "last_ranked_at": "2026-04-28T09:49:15.698815+03:00"
+    },
+    {
+      "run_id": "score-bd69e170",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T09:46:49.051067+03:00",
+      "last_ranked_at": "2026-04-28T09:46:49.172568+03:00"
+    },
+    {
+      "run_id": "sens-a00e8e3a",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T01:16:45.431302+03:00",
+      "last_ranked_at": "2026-04-28T01:17:31.756601+03:00"
+    },
+    {
+      "run_id": "score-4464ea34",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T01:16:41.288968+03:00",
+      "last_ranked_at": "2026-04-28T01:16:41.372412+03:00"
+    },
+    {
+      "run_id": "sens-aec56513",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T01:03:06.793098+03:00",
+      "last_ranked_at": "2026-04-28T01:03:45.281843+03:00"
+    },
+    {
+      "run_id": "score-e535b6e2",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T01:02:54.778694+03:00",
+      "last_ranked_at": "2026-04-28T01:02:54.856458+03:00"
+    },
+    {
+      "run_id": "val-sens-ep24-8d2ddd31",
+      "rows": 3971,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T01:00:34.208881+03:00",
+      "last_ranked_at": "2026-04-28T01:00:34.929886+03:00"
+    },
+    {
+      "run_id": "val-ep24-8d2ddd31",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T01:00:33.527799+03:00",
+      "last_ranked_at": "2026-04-28T01:00:33.609434+03:00"
+    },
+    {
+      "run_id": "val-sens-ep30-febd842d",
+      "rows": 3971,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T01:00:22.807543+03:00",
+      "last_ranked_at": "2026-04-28T01:00:23.518750+03:00"
+    },
+    {
+      "run_id": "val-ep30-febd842d",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T01:00:22.142721+03:00",
+      "last_ranked_at": "2026-04-28T01:00:22.231225+03:00"
+    },
+    {
+      "run_id": "sens-30ad58e2",
+      "rows": 5415,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-28T00:33:11.404456+03:00",
+      "last_ranked_at": "2026-04-28T00:33:24.285898+03:00"
+    },
+    {
+      "run_id": "score-dfaa4937",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T00:33:01.040017+03:00",
+      "last_ranked_at": "2026-04-28T00:33:01.118331+03:00"
+    },
+    {
+      "run_id": "score-d76f7a82",
+      "rows": 361,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T00:30:39.823852+03:00",
+      "last_ranked_at": "2026-04-28T00:30:39.918103+03:00"
+    },
+    {
+      "run_id": "score-3483a9ad",
+      "rows": 194,
+      "distinct_sites": 194,
+      "distinct_smrs": 1,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-28T00:19:05.232225+03:00",
+      "last_ranked_at": "2026-04-28T00:19:05.296378+03:00"
+    },
+    {
+      "run_id": "sens-2e121597",
+      "rows": 2910,
+      "distinct_sites": 194,
+      "distinct_smrs": 1,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-27T21:50:49.305916+03:00",
+      "last_ranked_at": "2026-04-27T21:50:55.943934+03:00"
+    },
+    {
+      "run_id": "sens-80514f8e",
+      "rows": 43320,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "country_balanced,mc_5000,threshold_minus_25,threshold_plus_25,w_EP_minus_20,w_EP_plus_20,w_HI_minus_20,w_HI_plus_20,w_NH_minus_20,w_NH_plus_20,w_NS_minus_20,w_NS_plus_20,w_RI_minus_20,w_RI_plus_20,w_swing",
+      "first_ranked_at": "2026-04-27T19:19:45.265620+03:00",
+      "last_ranked_at": "2026-04-27T19:20:44.331052+03:00"
+    },
+    {
+      "run_id": "score-ef5ccab4",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-27T18:14:11.275682+03:00",
+      "last_ranked_at": "2026-04-27T18:14:11.826359+03:00"
+    },
+    {
+      "run_id": "score-3d18f5c5",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-27T18:05:30.435055+03:00",
+      "last_ranked_at": "2026-04-27T18:05:30.997826+03:00"
+    },
+    {
+      "run_id": "score-64299b36",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-27T17:58:12.243199+03:00",
+      "last_ranked_at": "2026-04-27T17:58:12.778863+03:00"
+    },
+    {
+      "run_id": "score-f9a079f0",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "weight_profiles": "baseline",
+      "first_ranked_at": "2026-04-27T17:53:43.737795+03:00",
+      "last_ranked_at": "2026-04-27T17:53:44.296435+03:00"
+    }
+  ],
+  "screening_verdicts": [
+    {
+      "run_id": "20260513T030738_70d5bc2c",
+      "rows": 76288,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 5512,
+      "first_screened_at": "2026-05-13T06:07:39.102851+03:00",
+      "last_screened_at": "2026-05-13T06:09:00.731600+03:00"
+    },
+    {
+      "run_id": "feedback_rerun_20260509",
+      "rows": 76336,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 5560,
+      "first_screened_at": "2026-05-09T20:36:02.463420+03:00",
+      "last_screened_at": "2026-05-09T20:39:36.454206+03:00"
+    },
+    {
+      "run_id": "score-214bab4e",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-05-02T10:28:44.486496+03:00",
+      "last_screened_at": "2026-05-02T10:29:01.551330+03:00"
+    },
+    {
+      "run_id": "score-53102a9e",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-05-01T22:08:10.684227+03:00",
+      "last_screened_at": "2026-05-01T22:08:23.054234+03:00"
+    },
+    {
+      "run_id": "score-fae96308",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-04-29T23:05:22.888050+03:00",
+      "last_screened_at": "2026-04-29T23:05:34.989716+03:00"
+    },
+    {
+      "run_id": "score-23cd6c7a",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-04-28T15:02:33.084833+03:00",
+      "last_screened_at": "2026-04-28T15:02:42.733759+03:00"
+    },
+    {
+      "run_id": "score-e58d84f6",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-04-28T13:34:05.398205+03:00",
+      "last_screened_at": "2026-04-28T13:34:17.934707+03:00"
+    },
+    {
+      "run_id": "score-e803c23c",
+      "rows": 8665,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 116,
+      "first_screened_at": "2026-04-28T13:17:13.185506+03:00",
+      "last_screened_at": "2026-04-28T13:17:25.286876+03:00"
+    },
+    {
+      "run_id": "score-88160b85",
+      "rows": 9387,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 176,
+      "first_screened_at": "2026-04-28T10:04:06.102172+03:00",
+      "last_screened_at": "2026-04-28T10:04:15.531241+03:00"
+    },
+    {
+      "run_id": "score-bd69e170",
+      "rows": 9387,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 176,
+      "first_screened_at": "2026-04-28T09:46:36.171752+03:00",
+      "last_screened_at": "2026-04-28T09:46:49.049824+03:00"
+    },
+    {
+      "run_id": "score-4464ea34",
+      "rows": 9391,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 180,
+      "first_screened_at": "2026-04-28T01:16:31.777117+03:00",
+      "last_screened_at": "2026-04-28T01:16:41.287751+03:00"
+    },
+    {
+      "run_id": "score-e535b6e2",
+      "rows": 9574,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 376,
+      "first_screened_at": "2026-04-28T01:02:45.780590+03:00",
+      "last_screened_at": "2026-04-28T01:02:54.777540+03:00"
+    },
+    {
+      "run_id": "val-ep24-8d2ddd31",
+      "rows": 9574,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 376,
+      "first_screened_at": "2026-04-28T01:00:23.798675+03:00",
+      "last_screened_at": "2026-04-28T01:00:33.526690+03:00"
+    },
+    {
+      "run_id": "val-ep30-febd842d",
+      "rows": 9574,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 417,
+      "first_screened_at": "2026-04-28T01:00:11.933691+03:00",
+      "last_screened_at": "2026-04-28T01:00:22.141329+03:00"
+    },
+    {
+      "run_id": "score-dfaa4937",
+      "rows": 10107,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 909,
+      "first_screened_at": "2026-04-28T00:32:51.647953+03:00",
+      "last_screened_at": "2026-04-28T00:33:01.038541+03:00"
+    },
+    {
+      "run_id": "score-d76f7a82",
+      "rows": 10107,
+      "distinct_sites": 361,
+      "distinct_smrs": 1,
+      "fail_rows": 909,
+      "first_screened_at": "2026-04-28T00:30:30.634351+03:00",
+      "last_screened_at": "2026-04-28T00:30:39.822654+03:00"
+    },
+    {
+      "run_id": "score-3483a9ad",
+      "rows": 5428,
+      "distinct_sites": 194,
+      "distinct_smrs": 1,
+      "fail_rows": 511,
+      "first_screened_at": "2026-04-28T00:18:56.837395+03:00",
+      "last_screened_at": "2026-04-28T00:19:05.231126+03:00"
+    },
+    {
+      "run_id": "score-ef5ccab4",
+      "rows": 79560,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 6256,
+      "first_screened_at": "2026-04-27T18:12:51.164724+03:00",
+      "last_screened_at": "2026-04-27T18:14:11.274494+03:00"
+    },
+    {
+      "run_id": "score-3d18f5c5",
+      "rows": 79560,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 6256,
+      "first_screened_at": "2026-04-27T18:04:12.972198+03:00",
+      "last_screened_at": "2026-04-27T18:05:30.433951+03:00"
+    },
+    {
+      "run_id": "score-64299b36",
+      "rows": 79560,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 6256,
+      "first_screened_at": "2026-04-27T17:56:57.560326+03:00",
+      "last_screened_at": "2026-04-27T17:58:12.242089+03:00"
+    },
+    {
+      "run_id": "score-f9a079f0",
+      "rows": 79560,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 6256,
+      "first_screened_at": "2026-04-27T17:52:31.153238+03:00",
+      "last_screened_at": "2026-04-27T17:53:43.736136+03:00"
+    },
+    {
+      "run_id": "audit_20260419T221957",
+      "rows": 8,
+      "distinct_sites": 1,
+      "distinct_smrs": 8,
+      "fail_rows": 0,
+      "first_screened_at": "2026-04-21T00:35:12.045494+03:00",
+      "last_screened_at": "2026-04-21T00:35:12.057209+03:00"
+    },
+    {
+      "run_id": "20260416T200739_42e0cd3f",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 456,
+      "first_screened_at": "2026-04-17T00:49:15.601754+03:00",
+      "last_screened_at": "2026-04-17T00:49:17.081631+03:00"
+    },
+    {
+      "run_id": "20260414T134029_5ba12f7c",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 328,
+      "first_screened_at": "2026-04-14T16:42:12.003005+03:00",
+      "last_screened_at": "2026-04-14T16:50:23.369928+03:00"
+    },
+    {
+      "run_id": "20260414T043004_b778fa3b",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 176,
+      "first_screened_at": "2026-04-14T07:30:05.200390+03:00",
+      "last_screened_at": "2026-04-14T16:40:52.583720+03:00"
+    },
+    {
+      "run_id": "20260414T050105_d387a54c",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 344,
+      "first_screened_at": "2026-04-14T08:01:33.081621+03:00",
+      "last_screened_at": "2026-04-14T08:02:15.350277+03:00"
+    },
+    {
+      "run_id": "20260414T044248_9b724744",
+      "rows": 24,
+      "distinct_sites": 3,
+      "distinct_smrs": 8,
+      "fail_rows": 0,
+      "first_screened_at": "2026-04-14T07:42:48.521179+03:00",
+      "last_screened_at": "2026-04-14T07:53:23.751103+03:00"
+    },
+    {
+      "run_id": "20260413T194958_aefba24a",
+      "rows": 2888,
+      "distinct_sites": 361,
+      "distinct_smrs": 8,
+      "fail_rows": 320,
+      "first_screened_at": "2026-04-13T22:49:59.612420+03:00",
+      "last_screened_at": "2026-04-13T22:51:27.123143+03:00"
+    }
+  ],
+  "scoring_run_snapshots": [
+    {
+      "run_id": "20260513T030738_70d5bc2c",
+      "snapshot_id": "scdef-85e7a461ec02b7d6",
+      "created_at": "2026-05-13T06:07:39.081392+03:00"
+    },
+    {
+      "run_id": "feedback_rerun_20260509",
+      "snapshot_id": "scdef-ef3f619776e43837",
+      "created_at": "2026-05-09T20:36:02.426156+03:00"
+    },
+    {
+      "run_id": "sens-7b609bd0",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-05-02T10:29:13.099060+03:00"
+    },
+    {
+      "run_id": "score-214bab4e",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-05-02T10:28:44.464264+03:00"
+    },
+    {
+      "run_id": "sens-e01d74b7",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-05-01T22:08:27.938937+03:00"
+    },
+    {
+      "run_id": "score-53102a9e",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-05-01T22:08:09.217246+03:00"
+    },
+    {
+      "run_id": "sens-a9f3e400",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-29T23:05:42.183313+03:00"
+    },
+    {
+      "run_id": "score-fae96308",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-29T23:05:22.869353+03:00"
+    },
+    {
+      "run_id": "sens-76d54365",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T15:05:25.698467+03:00"
+    },
+    {
+      "run_id": "sens-e8d5ff91",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T15:02:47.991471+03:00"
+    },
+    {
+      "run_id": "score-23cd6c7a",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T15:02:33.067731+03:00"
+    },
+    {
+      "run_id": "sens-2a9112ac",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T14:17:01.571221+03:00"
+    },
+    {
+      "run_id": "sens-42c1a9aa",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T13:34:22.165987+03:00"
+    },
+    {
+      "run_id": "score-e58d84f6",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T13:34:05.381394+03:00"
+    },
+    {
+      "run_id": "sens-2f22886b",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T13:17:29.925484+03:00"
+    },
+    {
+      "run_id": "score-e803c23c",
+      "snapshot_id": "scdef-cfc651693c89f428",
+      "created_at": "2026-04-28T13:17:13.168094+03:00"
+    },
+    {
+      "run_id": "sens-b999a02c",
+      "snapshot_id": "scdef-16df902bc31421ce",
+      "created_at": "2026-04-28T10:04:21.696362+03:00"
+    },
+    {
+      "run_id": "score-88160b85",
+      "snapshot_id": "scdef-16df902bc31421ce",
+      "created_at": "2026-04-28T10:04:06.083842+03:00"
+    },
+    {
+      "run_id": "sens-55dcf9f6",
+      "snapshot_id": "scdef-16df902bc31421ce",
+      "created_at": "2026-04-28T09:48:26.932977+03:00"
+    },
+    {
+      "run_id": "score-bd69e170",
+      "snapshot_id": "scdef-16df902bc31421ce",
+      "created_at": "2026-04-28T09:46:36.152571+03:00"
+    },
+    {
+      "run_id": "sens-a00e8e3a",
+      "snapshot_id": "scdef-55a87159a4480cd8",
+      "created_at": "2026-04-28T01:16:44.832729+03:00"
+    },
+    {
+      "run_id": "score-4464ea34",
+      "snapshot_id": "scdef-55a87159a4480cd8",
+      "created_at": "2026-04-28T01:16:31.758497+03:00"
+    },
+    {
+      "run_id": "sens-aec56513",
+      "snapshot_id": "scdef-af7b0c1943e5f32e",
+      "created_at": "2026-04-28T01:03:06.248786+03:00"
+    },
+    {
+      "run_id": "score-e535b6e2",
+      "snapshot_id": "scdef-af7b0c1943e5f32e",
+      "created_at": "2026-04-28T01:02:45.763349+03:00"
+    },
+    {
+      "run_id": "val-sens-ep24-8d2ddd31",
+      "snapshot_id": "scdef-af7b0c1943e5f32e",
+      "created_at": "2026-04-28T01:00:33.797344+03:00"
+    },
+    {
+      "run_id": "val-ep24-8d2ddd31",
+      "snapshot_id": "scdef-af7b0c1943e5f32e",
+      "created_at": "2026-04-28T01:00:23.785409+03:00"
+    },
+    {
+      "run_id": "val-sens-ep30-febd842d",
+      "snapshot_id": "scdef-841676396f9d4989",
+      "created_at": "2026-04-28T01:00:22.392036+03:00"
+    },
+    {
+      "run_id": "val-ep30-febd842d",
+      "snapshot_id": "scdef-841676396f9d4989",
+      "created_at": "2026-04-28T01:00:11.914998+03:00"
+    }
+  ]
+}
