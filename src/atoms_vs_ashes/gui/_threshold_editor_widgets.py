@@ -1,4 +1,4 @@
-# man_hours: 1.75
+# man_hours: 2.0
 """Streamlit widgets for the threshold editor (norms table, criterion cards, save)."""
 
 from __future__ import annotations
@@ -33,44 +33,18 @@ from atoms_vs_ashes.gui._threshold_editor_palette import (
     action_kind_label,
     fc_accent_bar,
 )
+from atoms_vs_ashes.gui._criterion_info import (
+    criterion_infobox,
+    criterion_info_popover,
+)
 from atoms_vs_ashes.gui._threshold_editor_criteria_header import criterion_summary_row
 from atoms_vs_ashes.gui._threshold_editor_weight import criterion_weight_input
 
 
-def _value_line_for_action(fc: FailConditionPreview) -> str:
-    if fc.action == "exclude":
-        return (
-            f"**Fail value:** `{fc.recommended_value}`"
-            f"{' ' + fc.units if fc.units else ''}  \n"
-            "*(Exclusion: site fails this criterion if the hard E-code "
-            "triggers or the 0–10 band score is strictly below the pass mark.)*"
-        )
-    return (
-        f"**Score boundary (mark 5):** `{fc.recommended_value}`"
-        f"{' ' + fc.units if fc.units else ''}  \n"
-        "*(Ranking / avoidance: this is not a pass–fail gate; it sets where "
-        "the rubric maps to a score of 5 — the site is not globally excluded "
-        "for this alone.)*"
-    )
-
-
 def _help_caption(fc: FailConditionPreview) -> str:
-    lines = [
-        _value_line_for_action(fc),
-        f"Expression: `{fc.condition_expr}`  \n**Action:** `{fc.action}`",
-    ]
-    if fc.recommended_rationale:
-        lines.append(str(fc.recommended_rationale))
-    if fc.recommended_sources:
-        lines.append(
-            "Sources: " + ", ".join(f"`{s}`" for s in fc.recommended_sources)
-        )
-    if fc.bounds_min is not None or fc.bounds_max is not None:
-        lines.append(
-            f"Bounds: [{fc.bounds_min if fc.bounds_min is not None else '-∞'}"
-            f", {fc.bounds_max if fc.bounds_max is not None else '+∞'}]"
-        )
-    return "  \n".join(lines)
+    # Number inputs can only show a tooltip string, not a popover, so reuse
+    # the same rule-level content without the criterion weight header.
+    return criterion_infobox(None, fc)
 
 
 def _input_label(fc: FailConditionPreview) -> str:
@@ -218,6 +192,7 @@ def threshold_input(
 def criterion_card(crit: CriterionPreview, expert_override: bool) -> None:
     with st.container(border=True):
         criterion_summary_row(crit)
+        criterion_info_popover(crit)
         with st.expander(f"{crit.criterion_id} details", expanded=False):
             criterion_weight_input(crit)
             st.divider()
@@ -244,6 +219,8 @@ def criterion_card(crit: CriterionPreview, expert_override: bool) -> None:
 
 __all__ = [
     "criterion_card",
+    "criterion_infobox",
+    "criterion_info_popover",
     "norms_differences_table",
     "threshold_input",
 ]

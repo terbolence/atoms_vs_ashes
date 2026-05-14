@@ -1,11 +1,5 @@
-# man_hours: 1.0
-"""Tool 4 — Site detail drawer (rendered in the right column of Sites).
-
-Answers the workshop question "*why did this site fail and by how
-much?*" with a header, severity-coloured failed-criteria cards (each with a
-tiny inline gauge so the gap is graspable at a glance), strengths cards,
-a per-criterion bar across all rubric scores, and a single-row family-contribution stack.
-"""
+# man_hours: 1.2
+"""Tool 4 — Site detail drawer rendered in the right column of Sites."""
 
 from __future__ import annotations
 
@@ -15,6 +9,9 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+from atoms_vs_ashes.criterion_spec.preview import CriterionPreview
+from atoms_vs_ashes.gui._criterion_info import criterion_info_popover
+from atoms_vs_ashes.gui._criterion_preview_lookup import criterion_preview_lookup
 from atoms_vs_ashes.gui._results_data_detail import (
     FailedCriterion,
     SiteDetail,
@@ -52,20 +49,21 @@ def render_site_detail(
         return
 
     _render_header(detail, show_smr=show_smr)
+    criteria = criterion_preview_lookup(weight_profile)
     if detail.failed_criteria:
         st.markdown("##### Failed criteria (exclusionary)")
         for fc in sorted(
             detail.failed_criteria,
             key=lambda f: (-(f.gap_pct or 0.0), f.criterion_id),
         ):
-            _render_failed_card(fc)
+            _render_failed_card(fc, criteria.get(fc.criterion_id))
     if detail.avoidance_flags:
         st.markdown("##### Avoidance flags")
         for fc in sorted(
             detail.avoidance_flags,
             key=lambda f: (-(f.gap_pct or 0.0), f.criterion_id),
         ):
-            _render_failed_card(fc)
+            _render_failed_card(fc, criteria.get(fc.criterion_id))
     if detail.strengths:
         st.markdown("##### Strengths (score ≥ 8)")
         for s in sorted(detail.strengths, key=lambda x: -x.score_0_10):
@@ -131,7 +129,7 @@ def _capacity_label(mw: float | None) -> str:
     return f"{mw:.0f} MW"
 
 
-def _render_failed_card(fc: FailedCriterion) -> None:
+def _render_failed_card(fc: FailedCriterion, crit: CriterionPreview | None = None) -> None:
     colour = severity_hex(fc.severity)
     measured = fc.measured_value or "—"
     units = fc.measured_units or ""
@@ -157,6 +155,8 @@ def _render_failed_card(fc: FailedCriterion) -> None:
     if fc.justification:
         with st.expander(f"Justification — {fc.criterion_id}"):
             st.write(fc.justification)
+    if crit is not None:
+        criterion_info_popover(crit)
 
 
 def _gauge_svg(measured: float | None, threshold: float | None, colour: str) -> str:

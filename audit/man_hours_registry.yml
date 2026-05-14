@@ -1673,3 +1673,107 @@ files:
   tests/scoring/test_context_derivations.py:
     hours: 0.4
     category: "Testing"
+
+  src/scripts/sync_merged_from_source.py:
+    hours: 2.0
+    category: "Implementation"
+
+  audit/post_processing/02_data_verification/20260514_merged_resync.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  config/scoring_rubrics/ri_radiological.yaml:
+    hours: 4.0
+    category: "Configuration & DevOps"
+
+  config/scoring_specs/ri_radiological.yaml:
+    hours: 4.0
+    category: "Configuration & DevOps"
+
+  src/atoms_vs_ashes/criterion_spec/preview.py:
+    hours: 3.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_criterion_info.py:
+    hours: 1.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_criterion_preview_lookup.py:
+    hours: 0.3
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_threshold_editor_widgets.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_render_drawer.py:
+    hours: 1.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_data_avoidance_diag.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_render_avoidance_diag.py:
+    hours: 1.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_page_main.py:
+    hours: 1.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_codes.py:
+    hours: 2.0
+    category: "Implementation"
+
+  tests/criterion_spec/test_preview_descriptor.py:
+    hours: 0.7
+    category: "Testing"
+
+  tests/gui/test_results_avoidance_diag.py:
+    hours: 0.6
+    category: "Testing"
+
+  tests/scoring/test_ri04_no_exclusion.py:
+    hours: 0.5
+    category: "Testing"
+
+  audit/post_processing/failure_diagnostics_20260514/REPORT.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  architecture/plans/universal-infobox-avoidance-pareto-ri-04-fix.md:
+    hours: 2.0
+    category: "Architecture & Design"
+
+  audit/plans/universal-infobox-avoidance-pareto-ri-04-fix.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-14_universal-infobox-avoidance-pareto.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  src/atoms_vs_ashes/gui/_results_render_diag_filters.py:
+    hours: 0.6
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_render_exclusion_diag.py:
+    hours: 1.7
+    category: "Implementation"
+
+  tests/gui/test_results_exclusion_diag.py:
+    hours: 0.95
+    category: "Testing"
+
+  architecture/plans/results-controls-audit-fix.md:
+    hours: 2.0
+    category: "Architecture & Design"
+
+  audit/plans/results-controls-audit-fix.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-14_results-controls-audit-fix.md:
+    hours: 0.6
+    category: "Project Management & QA"

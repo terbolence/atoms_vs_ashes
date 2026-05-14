@@ -274,3 +274,84 @@ Verification:
   → 9 passed.
 - `pytest tests/ -q --ignore=tests/integration --ignore=tests/integrationSnapshots`
   → 2139 passed, 187 skipped, 7 warnings.
+
+## Follow-up: scoring engine crash on first end-to-end run (`score-785705a6`)
+
+On 2026-05-14 the user triggered a scoring run from the GUI and it
+exited with status 1 after 2 s. The traceback in
+`.cursor/.atoms_runs/score-785705a6.log` (line 13) is
+`psycopg2.errors.UndefinedColumn: column site_human_hazards.nearest_airport_class does not exist`.
+The 362-UUID parameter list in the truncated panel was just the ORM's
+joinedload IN-list — the real cause is at the very top of the SQL.
+
+Diagnosis (read-only local queries against both databases):
+
+- `atoms_vs_ashes_merged` was at alembic head `041`; the ORM expects
+  columns added in `042_hi01_hi06_classification_columns`.
+- 6 columns missing on `site_human_hazards`:
+  `nearest_airport_class`, `nearest_airport_runway_length_m`,
+  `nearest_airport_scheduled_service`, `nearest_military_class`,
+  `nearest_high_consequence_military_km`,
+  `nearest_high_consequence_military_class`.
+- `atoms_vs_ashes` (source) was at alembic head `043` with all 6
+  columns populated (361/361 sites for `nearest_airport_class`,
+  108/361 for `nearest_airport_runway_length_m`, 361/361 for
+  `nearest_airport_scheduled_service`, 326/361 for
+  `nearest_military_class`, 215/361 for the high-consequence pair).
+- `merged.site_human_hazards` last write 2026-04-18; source last write
+  2026-05-12 (~26 days of post-merge SP-F enrichment never landed in
+  merged).
+- Row delta: merged had 1 site (`323cdbf0-...`, Braila power station,
+  RO, cancelled) that no longer exists in source.
+
+Resolution (plan
+`merged-db-resync-from-source_c8cc1c36.plan.md`):
+
+1. `POSTGRES_DB=atoms_vs_ashes_merged alembic upgrade head` brought
+   merged from `041` to `043` (purely additive DDL).
+2. New script `src/scripts/sync_merged_from_source.py` performed an
+   intersection-only `UPDATE` of the 5 hazard tables and `sites` from
+   source by `site_id` (361 sites), preserving merged-only scoring
+   history (`composite_rankings` 272,806 rows, `screening_verdicts`
+   427,344 rows, `ranking_scores` 722,976 rows — all unchanged).
+   - Run id: `resync_20260514T182316Z`
+   - 6 tables × 361 sites = 2,166 `merge_audit` rows tagged with
+     `source_chosen='api'`, `rule_id='resync_full_row'`.
+   - Per-table column counts:
+     `sites` 43 synced / 2 skipped,
+     `site_natural_hazards` 84/2,
+     `site_human_hazards` 43/2,
+     `site_radiological` 33/2,
+     `site_emergency_planning` 31/2,
+     `site_infrastructure_v2` 83/2 (skipped =
+     `merge_run_id`, `source_db`).
+   - Report:
+     `audit/post_processing/02_data_verification/20260514_merged_resync.md`.
+3. The Braila row stays in merged with the 6 new SP-F columns NULL
+   per user decision; rubrics handle NULLs gracefully. Flagged as a
+   follow-up to enrich the Braila site through OurAirports + OSM
+   military if needed.
+
+Verification (post-resync):
+
+- `score run` end-to-end now completes in ~25 s — run id
+  `score-verify-20260514T182416Z`, status `completed`, 362 sites
+  processed, 9,286 verdict rows, 17,376 ranking rows, 362 composite
+  rows, 266 excluded pairs.
+- SP-F column fill in merged matches source: airport class 361
+  (small 180, heliport 126, medium 36, large 19), military class
+  326 (other 194, depot 111, training 14, airfield 7).
+- All hazard tables in merged now show `max(fetched_at)` matching
+  source (2026-05-11 / 2026-05-12).
+
+Follow-ups deferred:
+
+- Migration `042` docstring incorrectly claims "delayed Alembic
+  upgrade does not break existing scoring runs" — the `hasattr`
+  guards only protect connectors, not the ORM-driven scoring engine.
+- `src/scripts/build_merged_db.py` module docstring (lines 14-17) says
+  it applies "migration 031" but the code at line 295 runs
+  `alembic upgrade head`.
+- `site_units` / `site_ownership` were not in the resync scope; they
+  may also be stale but are not consumed by the current scoring
+  pipeline.

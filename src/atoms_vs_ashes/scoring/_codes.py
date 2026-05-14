@@ -74,13 +74,6 @@ EXCLUSIONARY_CODES: tuple[ScreeningCode, ...] = (
         synopsis="< 50 km Holocene volcano or in mapped hazard zone.",
     ),
     ScreeningCode(
-        code="E_RI04",
-        action="exclude",
-        anchor_criterion_id="RI-04",
-        anchor_aliases=("RI-04",),
-        synopsis="Dual-mode exclusion: extreme EPZ population-density screening proxy.",
-    ),
-    ScreeningCode(
         code="E7",
         action="exclude",
         anchor_criterion_id="NS-08",
@@ -185,9 +178,9 @@ AVOIDANCE_CODES: tuple[ScreeningCode, ...] = (
     ScreeningCode(
         code="A12",
         action="avoidance_penalty",
-        anchor_criterion_id="RI-04",
-        anchor_aliases=("RI-04", "RI-05"),
-        synopsis="Population thresholds per RI-04 / RI-05 tables.",
+        anchor_criterion_id="RI-05",
+        anchor_aliases=("RI-05",),
+        synopsis="Population-centre distance thresholds per RI-05 table.",
     ),
     ScreeningCode(
         code="A13",

@@ -64,7 +64,7 @@ RELEVANT_ENRICHMENT_FIELDS: dict[str, dict[str, set[str]]] = {
     "A9": {"natural_hazards": {"distance_to_coast_km", "nh08_quality", "nh08_comment"}},
     "A10": {"natural_hazards": {"pga_475yr_g", "pga_2475yr_g", "nh01_quality", "nh01_comment"}},
     "A11": {"natural_hazards": {"flood_zone_class", "nearest_river_km", "nh09_quality", "nh09_comment"}},
-    "A12": {"radiological": {"pop_density_5km", "pop_total_5km", "ri04_quality", "ri04_comment"}},
+    "A12": {"radiological": {"nearest_city_50k_km", "nearest_city_name", "nearest_city_pop", "ri05_quality", "ri05_comment"}},
     "A13": {"infrastructure": {"nearest_substation_km", "nearest_hv_line_km", "grid_export_capacity_mw", "ns02_quality", "ns02_comment"}},
     "A14": {"infrastructure": {"nearest_rail_km", "nearest_highway_km", "nearest_waterway_km", "ns03_quality", "ns03_comment"}},
     "A15": {"infrastructure": {"buildable_area_ha", "largest_contiguous_ha", "patch_count", "ns05_quality", "ns05_comment"}},

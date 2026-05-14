@@ -520,21 +520,23 @@ class A11FloodRisk(_AvoidanceBase):
         return _tool("record_a11_assessment", "Record flood risk avoidance assessment (A11)", p, cls._base_required())
 
 
-class A12PopulationDensity(_AvoidanceBase):
-    criterion_id: str = "RI-04"
-    estimated_pop_5km: int | None = None
-    estimated_pop_density_5km: float | None = None
-    exceeds_threshold: bool | None = None
+class A12PopulationCentreDistance(_AvoidanceBase):
+    criterion_id: str = "RI-05"
+    nearest_city_50k_km: float | None = None
+    nearest_city_name: str | None = None
+    nearest_city_pop: int | None = None
+    threshold_violated: bool | None = None
 
     @classmethod
     def anthropic_tool(cls) -> dict[str, Any]:
         p = cls._base_props()
         p.update({
-            "estimated_pop_5km": {"type": ["integer", "null"]},
-            "estimated_pop_density_5km": {"type": ["number", "null"]},
-            "exceeds_threshold": {"type": ["boolean", "null"]},
+            "nearest_city_50k_km": {"type": ["number", "null"]},
+            "nearest_city_name": {"type": ["string", "null"]},
+            "nearest_city_pop": {"type": ["integer", "null"]},
+            "threshold_violated": {"type": ["boolean", "null"]},
         })
-        return _tool("record_a12_assessment", "Record population density avoidance assessment (A12)", p, cls._base_required())
+        return _tool("record_a12_assessment", "Record population-centre distance avoidance assessment (A12)", p, cls._base_required())
 
 
 class A13GridAdequacy(_AvoidanceBase):
@@ -1178,7 +1180,7 @@ PROMPT_REGISTRY: dict[str, type] = {
     "A9": A9Tsunami,
     "A10": A10SeismicPGA,
     "A11": A11FloodRisk,
-    "A12": A12PopulationDensity,
+    "A12": A12PopulationCentreDistance,
     "A13": A13GridAdequacy,
     "A14": A14TransportAccess,
     "A15": A15SiteArea,

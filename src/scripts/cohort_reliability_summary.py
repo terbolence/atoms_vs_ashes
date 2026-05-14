@@ -7,7 +7,8 @@ the latest run on:
 
 - ranking_scores distribution by criterion family and unscored count;
 - specific reviewer-targeted criteria (5.0 unscored count vs total);
-- screening_verdicts fail count per fail code (top contributors);
+- screening_verdicts exclusionary fail count per criterion, plus raw fail
+  phase breakdown so legacy screening rows cannot be mistaken for exclusions;
 - composite_rankings: per-country full-pass count and composite-score distribution.
 
 Writes Markdown to ``audit/post_processing/scoring_conformity/cohort_reliability.md``
@@ -185,6 +186,7 @@ def per_country_full_pass(engine, run_id: str) -> list[dict[str, Any]]:
 
 
 def fail_code_breakdown(engine, run_id: str) -> list[dict[str, Any]]:
+    """Exclusionary fail counts only; other fail phases are reported separately."""
     rows = _safe_run(
         engine,
         """
@@ -195,6 +197,7 @@ def fail_code_breakdown(engine, run_id: str) -> list[dict[str, Any]]:
         WHERE run_id = :rid
           AND smr_key = :smr
           AND verdict = 'fail'
+          AND phase = 'exclusionary'
         GROUP BY criterion_id
         ORDER BY COUNT(*) DESC
         LIMIT 25
@@ -330,7 +333,7 @@ def main() -> int:
 
         # Fail breakdown
         fc = run["fail_by_criterion"]
-        lines.append("### Top fail-contributing criteria (screening_verdicts where verdict = 'fail')")
+        lines.append("### Top exclusionary fail-contributing criteria")
         lines.append("")
         if fc and "error" in fc[0]:
             lines.append(f"_Not available: {fc[0]['error']}_")
@@ -342,7 +345,7 @@ def main() -> int:
         lines.append("")
 
         fp = run["fail_by_phase"]
-        lines.append("### Top fail prompts (phase + prompt_key)")
+        lines.append("### Raw fail prompts by phase (legacy screening rows separated)")
         lines.append("")
         if fp and "error" in fp[0]:
             lines.append(f"_Not available: {fp[0]['error']}_")

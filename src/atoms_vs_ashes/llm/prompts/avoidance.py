@@ -602,55 +602,44 @@ HydroSHEDS river network and catchment areas."""
 
 _A12 = SYSTEM_BASE + _AVOIDANCE_PREAMBLE + """
 
-CRITERION: A12 — Population Density (Avoidance)
+CRITERION: A12 — Population Centre Distance (Avoidance)
 NORMATIVE: NS-G-3.2; SSG-35 §A.39
-THRESHOLD: Population density within the 5 km PAZ (Precautionary Action \
-Zone) must be < 1,000 persons/km². This is approximately < 78,500 \
-persons total within the 5 km radius circle (area ≈ 78.5 km²).
+THRESHOLD: RI-05 population-centre thresholds. A site is flagged if the \
+nearest qualifying population centre is too close: >=25k population within \
+8 km, >=100k within 16 km, >=500k within 32 km, or >=1M within 48 km.
+
+RI-04 POPULATION DENSITY IS NOT AN A12 GATE:
+Do not use EPZ ring density (pop_density_5km / pop_density_16km / \
+pop_density_25km / pop_density_80km) to produce an A12 caution. RI-04 is \
+ranking-only. Use density only as background context if it helps explain \
+the settlement pattern.
 
 ANALYSIS STEPS:
-1. IDENTIFY settlements within 5 km of the site:
-   - Name each town/village you can identify
-   - Estimate population of each (use [ESTIMATE] labels)
-2. CHECK enrichment data: pop_density_5km and pop_total_5km are \
-   the most directly relevant fields.
-3. ESTIMATE aggregate density:
-   - Sum estimated populations within 5 km
-   - Divide by ~78.5 km² (area of 5 km radius circle)
-   - Compare to 1,000 persons/km²
-4. NOTE any large population centres within 25 km (context for \
-   emergency planning, not part of this threshold).
+1. IDENTIFY the nearest settlement(s) with population >=25,000, >=100,000, \
+   >=500,000, and >=1,000,000 where possible.
+2. CHECK enrichment data: nearest_city_50k_km, nearest_city_name, and \
+   nearest_city_pop are the direct RI-05 fields available in the DB.
+3. COMPARE the nearest known or estimated population-centre distance to \
+   the project thresholds above.
+4. EXPLAIN uncertainty if only a 50k+ nearest-city proxy is available and \
+   the larger population tiers cannot be confidently assessed.
 
 DECISION FRAMEWORK:
-• Estimated density < 500/km² → verdict="pass", confidence per data quality
-• Estimated density 500-1,000/km² → verdict="pass" but note borderline
-• Estimated density > 1,000/km² → verdict="caution"
-• Cannot estimate density with any reliability → verdict="inconclusive"
-
-COAL PLANT POPULATION PATTERNS:
-Eastern European coal regions have characteristic population patterns:
-- Mining/industrial towns of 5,000-50,000 directly adjacent to plants
-- Surrounding rural area with low density (50-200/km²)
-- The town itself may push the 5 km average to 200-600/km², which is \
-  typically below the 1,000/km² threshold
-- EXCEPTION: Plants near major cities (>200k) may exceed threshold if \
-  the urban fringe extends to within 2-3 km of the site.
-
-POPULATION ESTIMATION ANCHORS:
-If you know the nearest town name and approximate population:
-- Town of 10,000 in the 5 km zone ≈ +127/km² average contribution
-- Town of 50,000 in the 5 km zone ≈ +637/km² average contribution
-- Town of 100,000 overlapping the 5 km zone → likely "caution"
+- No project threshold appears violated -> verdict=\"pass\".
+- Any qualifying population centre is inside its threshold distance -> \
+  verdict=\"caution\".
+- Available data cannot establish distance/population class reliably -> \
+  verdict=\"inconclusive\".
 
 COMMON PITFALLS:
-- Do NOT confuse population of the nearest city with population within \
-  5 km. A city of 300,000 may be 15 km away with only fringe suburbs \
-  in the 5 km zone.
-- Enrichment data pop_density_5km is from WorldPop/GHS-POP and is \
-  authoritative — prefer it over your own estimates.
+- Do NOT treat high RI-04 EPZ-ring density as an A12 failure.
+- Do NOT use the population of a distant metropolitan area unless its \
+  distance to the site is known or can be estimated with confidence.
+- If nearest_city_50k_km is the only reliable field, report the 50k+ \
+  proxy and avoid inventing missing 100k/500k/1M tier distances.
 
-REFERENCE DATA: WorldPop/GHS-POP, Eurostat GEOSTAT, national census, \
-OSM populated places, GeoNames settlement populations."""
+REFERENCE DATA: Eurostat GISCO Urban Audit, national census, OSM populated \
+places, GeoNames settlement populations."""
 
 _A13 = SYSTEM_BASE + _AVOIDANCE_PREAMBLE + """
 

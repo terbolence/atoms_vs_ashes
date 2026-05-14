@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.2
 """Orchestration for the Results Streamlit page (single active tool)."""
 
 from __future__ import annotations
@@ -18,6 +18,9 @@ from atoms_vs_ashes.gui._results_country_focus import (
     render_include_eliminated_toggle,
 )
 from atoms_vs_ashes.gui._results_data import RunSummary
+from atoms_vs_ashes.gui._results_render_avoidance_diag import (
+    render_avoidance_diagnostics_tab,
+)
 from atoms_vs_ashes.gui._results_render_exclusion_diag import (
     render_exclusion_diagnostics_tab,
 )
@@ -40,6 +43,7 @@ _TOOL_LABELS = [
     "Coverage",
     "Sites",
     "Failure Diagnostics",
+    "Avoidance Diagnostics",
     "Regional",
     "Stability",
     "Sensitivity",
@@ -183,6 +187,17 @@ def render_results_page() -> None:
         )
     elif active_tool == "Failure Diagnostics":
         render_exclusion_diagnostics_tab(
+            run_id=baseline_run_id,
+            weight_profile=baseline_weight_profile,
+            scope=scope,
+            country_code=country_focus,
+            fail_thresholds=profile.fail_thresholds if profile else {},
+            near_miss_gap_pct=(
+                float(profile.scoring.near_miss_gap_pct) if profile else 10.0
+            ),
+        )
+    elif active_tool == "Avoidance Diagnostics":
+        render_avoidance_diagnostics_tab(
             run_id=baseline_run_id,
             weight_profile=baseline_weight_profile,
             scope=scope,

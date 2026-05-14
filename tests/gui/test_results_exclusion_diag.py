@@ -1,4 +1,4 @@
-# man_hours: 0.75
+# man_hours: 0.95
 """Pure-unit tests for Results exclusionary diagnostics."""
 
 from __future__ import annotations
@@ -12,6 +12,13 @@ from atoms_vs_ashes.gui._results_data_exclusion_diag import (
     aggregate_diagnostics,
     margin_from_payload,
     required_relaxation_pct,
+)
+from atoms_vs_ashes.gui._results_render_diag_filters import (
+    gap_df,
+    near_miss_df,
+    near_miss_rows,
+    pareto_df,
+    unlock_df,
 )
 
 
@@ -72,6 +79,105 @@ def test_unlock_curve_distinguishes_resolved_from_survivor_unlocks() -> None:
     assert nh_5.single_criterion_survivor_unlocks == 1
     assert nh_10.criterion_failures_resolved == 2
     assert nh_10.single_criterion_survivor_unlocks == 1
+
+
+def test_pareto_df_limits_to_top_n() -> None:
+    rows = [
+        _row("a1", "NH-02", "E1", 4.0),
+        _row("a2", "NH-02", "E1", 4.0),
+        _row("b1", "NH-03", "E2", 3.0),
+        _row("c1", "EP-01", "E9", 5.0),
+    ]
+    diag = aggregate_diagnostics(rows)
+    df = pareto_df(diag, top_n=2)
+    assert list(df["criterion_id"]) == ["NH-02", "EP-01"]
+    assert len(df) == 2
+
+
+def test_pareto_df_with_top_n_zero_is_empty() -> None:
+    rows = [_row("a1", "NH-02", "E1", 4.0)]
+    diag = aggregate_diagnostics(rows)
+    assert pareto_df(diag, top_n=0).empty
+
+
+def test_gap_df_uses_exact_near_miss_threshold() -> None:
+    rows = [
+        _row("s1", "NH-02", "E1", 8.0),
+        _row("s2", "NH-02", "E1", 18.0),
+        _row("s3", "NH-02", "E1", 30.0),
+    ]
+    diag = aggregate_diagnostics(rows)
+    df = gap_df(
+        diag, top_n=5, max_gap=200.0, near_only=True,
+        near_miss_gap_pct=15.0,
+    )
+    assert sorted(df["required_relaxation_pct"]) == [8.0]
+
+
+def test_gap_df_max_gap_caps_rows() -> None:
+    rows = [
+        _row("s1", "NH-02", "E1", 5.0),
+        _row("s2", "NH-02", "E1", 40.0),
+        _row("s3", "NH-02", "E1", 120.0),
+    ]
+    diag = aggregate_diagnostics(rows)
+    df = gap_df(
+        diag, top_n=5, max_gap=50.0, near_only=False,
+        near_miss_gap_pct=25.0,
+    )
+    assert sorted(df["required_relaxation_pct"]) == [5.0, 40.0]
+
+
+def test_gap_df_top_n_restricts_criteria() -> None:
+    rows = [
+        _row("s1", "NH-02", "E1", 4.0),
+        _row("s2", "NH-02", "E1", 6.0),
+        _row("s3", "NH-03", "E2", 3.0),
+    ]
+    diag = aggregate_diagnostics(rows)
+    df = gap_df(
+        diag, top_n=1, max_gap=200.0, near_only=False,
+        near_miss_gap_pct=25.0,
+    )
+    assert set(df["criterion"]).issubset({"NH-02 — Criterion NH-02"})
+
+
+def test_unlock_df_selects_metric_column() -> None:
+    rows = [
+        _row("s1", "NH-02", "E1", 4.0),
+        _row("s2", "NH-02", "E1", 6.0),
+        _row("s2", "EP-01", "E9", 2.0),
+    ]
+    diag = aggregate_diagnostics(rows, unlock_steps=(5.0, 10.0))
+    failures_df = unlock_df(
+        diag, top_n=5, metric="criterion_failures_resolved",
+    )
+    survivor_df = unlock_df(
+        diag, top_n=5, metric="single_criterion_survivor_unlocks",
+    )
+    nh_5_failures = failures_df[
+        failures_df["criterion"].str.startswith("NH-02")
+        & (failures_df["step"] == "5%")
+    ]["n"].iat[0]
+    nh_5_survivors = survivor_df[
+        survivor_df["criterion"].str.startswith("NH-02")
+        & (survivor_df["step"] == "5%")
+    ]["n"].iat[0]
+    assert nh_5_failures == 1
+    assert nh_5_survivors == 1
+
+
+def test_near_miss_uses_exact_threshold_no_silent_widening() -> None:
+    rows = [
+        _row("s1", "NH-02", "E1", 4.0),
+        _row("s2", "NH-02", "E1", 12.0),
+        _row("s3", "NH-02", "E1", 20.0),
+    ]
+    diag = aggregate_diagnostics(rows)
+    rows_within = near_miss_rows(diag, near_miss_gap_pct=10.0)
+    assert {r.site_name for r in rows_within} == {"site-s1"}
+    df = near_miss_df(diag, near_miss_gap_pct=10.0)
+    assert sorted(df["relaxation_pct"]) == [4.0]
 
 
 def _row(

@@ -82,6 +82,13 @@ def run_kpis(
             )
         )
         rows = session.execute(_apply_scope(stmt, scope)).all()
+        # #region agent log (debug session 1b151b — sites-in-scope)
+        try:
+            from atoms_vs_ashes.gui._debug_sites_in_scope import diagnose_sites_in_scope as _dx_sites_diag  # noqa: E501
+            _dx_sites_diag(session=session, run_id=run_id, weight_profile=weight_profile, scope=scope, sites_all={r[0] for r in rows})  # noqa: E501
+        except Exception:
+            pass
+        # #endregion
     sites_all, sites_surv, sites_hard, sites_avoid = set(), set(), set(), set()
     cc_all, cc_surv = set(), set()
     surv_scores: list[float] = []
@@ -232,8 +239,7 @@ def country_site_ledger(
 
 
 def _load_failed_verdicts(
-    session: Session,
-    run_id: str,
+    session: Session, run_id: str,
     pair_keys: Iterable[tuple[uuid.UUID, str]],
 ) -> dict[tuple[uuid.UUID, str], list[ScreeningVerdict]]:
     pair_list = list(pair_keys)
@@ -254,8 +260,7 @@ def _load_failed_verdicts(
 
 
 def _build_ledger_row(
-    cr: CompositeRanking,
-    site: Site,
+    cr: CompositeRanking, site: Site,
     verdicts_by_pair: dict[tuple[uuid.UUID, str], list[ScreeningVerdict]],
 ) -> SiteLedgerRow:
     failed = verdicts_by_pair.get((cr.site_id, cr.smr_key), [])
@@ -289,8 +294,7 @@ def _build_ledger_row(
 
 
 __all__ = [
-    "CountryCoverage", "CriterionBarRow", "FailedCriterion",
-    "FamilyContribution", "RunKpis", "SiteDetail", "SiteLedgerRow",
-    "StrengthCriterion", "country_coverage_matrix", "country_site_ledger",
-    "run_kpis", "site_detail",
+    "CountryCoverage", "CriterionBarRow", "FailedCriterion", "FamilyContribution",
+    "RunKpis", "SiteDetail", "SiteLedgerRow", "StrengthCriterion",
+    "country_coverage_matrix", "country_site_ledger", "run_kpis", "site_detail",
 ]

@@ -59,7 +59,7 @@ NORMATIVE_BASIS: dict[str, str] = {
     "A9": "IAEA SSG-18 §4; SSG-35 §3.24 (tsunami/coastal flooding)",
     "A10": "IAEA SSG-9; SSR-1 §5.3 (seismic PGA vs SMR envelope)",
     "A11": "IAEA SSG-18 §5; SSG-35 §3.25 (flood risk)",
-    "A12": "IAEA SSG-35 §3.29; GS-G-2.1 §4 (population density)",
+    "A12": "IAEA SSG-35 §3.29; GS-G-2.1 §4 (population-centre distance)",
     "A13": "IAEA SSG-35 §3.30; NS-G-3.2 (grid adequacy)",
     "A14": "IAEA SSG-35 §3.32; EPRI §4.4.1 (transport access)",
     "A15": "EPRI §4.3.2; NuScale DCD Rev.5 (site area)",

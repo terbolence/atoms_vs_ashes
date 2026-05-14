@@ -77,7 +77,8 @@ def test_audit_catalogue_includes_all_live_ea_rules() -> None:
     assert ("EP-01", "E8", "exclude") in codes
     assert ("NH-05", "E5", "exclude") not in codes
     assert ("NH-05", "E6", "exclude") not in codes
-    assert ("RI-04", "A12", "avoidance_penalty") in codes
+    assert ("RI-04", "A12", "avoidance_penalty") not in codes
+    assert ("RI-05", "A12", "avoidance_penalty") in codes
     assert ("NS-05", "A15", "avoidance_penalty") in codes
     assert any("dry_cooling_viable" in r.missing_context_names for r in rules)
 

@@ -12,7 +12,6 @@ interface.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 
 from sqlalchemy import case, func, select
 
@@ -33,30 +32,8 @@ def _scope_filter(stmt, scope: RunScope | None):
     return stmt if scope is None else scope.apply_to_composite_query(stmt)
 
 
-@dataclass
-class RunSummary:
-    """One row of the run-picker dropdown."""
-
-    run_id: str
-    run_kind: str
-    status: str
-    started_at: datetime | None
-    completed_at: datetime | None
-
-    @property
-    def duration_s(self) -> float | None:
-        if self.started_at and self.completed_at:
-            return (self.completed_at - self.started_at).total_seconds()
-        return None
-
-    @property
-    def label(self) -> str:
-        ts = self.completed_at or self.started_at
-        when = ts.strftime("%Y-%m-%d %H:%M") if ts else "—"
-        return f"{self.run_kind} • {self.run_id} • {self.status} • {when}"
-
-
-from atoms_vs_ashes.gui._results_runs_list import (  # noqa: E402 — after RunSummary
+from atoms_vs_ashes.gui._results_runs_list import (
+    RunSummary,
     list_recent_runs,
     list_recent_runs_for_kind,
 )

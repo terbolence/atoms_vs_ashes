@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-05-13T20:12:53Z
+**Generated:** 2026-05-14T19:51:29Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,17 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 2,202,777 |
-| `tests/` (Tests) | 28,736 |
+| `src/` (Core application) | 2,204,088 |
+| `tests/` (Tests) | 29,107 |
 | `scripts/` (Scripts) | 639 |
-| `src/scripts/` (Operational scripts) | 33,313 |
+| `src/scripts/` (Operational scripts) | 34,007 |
 | `alembic/` (Migrations) | 0 |
 | `export/` (Export tooling) | 935 |
-| **Total Python** | **2,266,400** |
+| **Total Python** | **2,268,776** |
 | | |
-| Markdown (docs, specs, reports, audits) | 122,299 |
-| YAML (config, registry) | 9,493 |
-| **Grand total (all authored content)** | **~2,398,192** |
+| Markdown (docs, specs, reports, audits) | 123,336 |
+| YAML (config, registry) | 9,234 |
+| **Grand total (all authored content)** | **~2,401,346** |
 
 ---
 
@@ -29,20 +29,20 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 14 | 62.0 |
-| Implementation | 133 | 779.0 |
-| Testing | 24 | 68.3 |
+| Architecture & Design | 16 | 66.0 |
+| Implementation | 145 | 797.2 |
+| Testing | 28 | 71.0 |
 | Database & Migrations | 31 | 41.8 |
-| Configuration & DevOps | 23 | 33.5 |
+| Configuration & DevOps | 25 | 41.5 |
 | Research & Data Sources | 26 | 235.5 |
 | AI Prompts & Tooling | 6 | 30.5 |
-| Project Management & QA | 79 | 87.8 |
+| Project Management & QA | 85 | 94.8 |
 | Other | 1 | 1.6 |
 | Connectors & Data Acquisition | 12 | 11.1 |
 | Report Authoring & Documentation | 26 | 20.9 |
 | Reporting & Visualization | 1 | 2.0 |
 | Testing & Quality Assurance | 7 | 4.0 |
-| **Project Total** | **403** | **1517.5** |
+| **Project Total** | **429** | **1557.5** |
 
 ---
 
@@ -77,7 +77,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 14 files, 62.0 hours
+**Subtotal:** 16 files, 66.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -89,6 +89,8 @@
 | `architecture/specs/06_execution_observability.md` | 6.0 |
 | `architecture/specs/07_test_validation_strategy.md` | 5.0 |
 | `architecture/plans/scoring_engine_fixes_a34981cd.plan.md` | 4.0 |
+| `architecture/plans/results-controls-audit-fix.md` | 2.0 |
+| `architecture/plans/universal-infobox-avoidance-pareto-ri-04-fix.md` | 2.0 |
 | `architecture/specs/00_index.md` | 1.5 |
 | `architecture/plans/feedback-context-enrichment.md` | 0.4 |
 | `architecture/plans/feedback-rework-execution.md` | 0.4 |
@@ -98,7 +100,7 @@
 
 ### Implementation
 
-**Subtotal:** 133 files, 779.0 hours
+**Subtotal:** 145 files, 797.2 hours
 
 | File | Hours |
 | --- | ---: |
@@ -185,6 +187,7 @@
 | `src/atoms_vs_ashes/pipeline/quality_report.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/runner.py` | 4.0 |
 | `src/scripts/extract_docx_comments.py` | 4.0 |
+| `src/atoms_vs_ashes/criterion_spec/preview.py` | 3.4 |
 | `scripts/backfill_raw_responses.py` | 3.0 |
 | `scripts/report_effort_metrics.py` | 3.0 |
 | `scripts/rerun_audit_responses.py` | 3.0 |
@@ -209,22 +212,33 @@
 | `src/atoms_vs_ashes/connectors/osm/models.py` | 2.0 |
 | `src/atoms_vs_ashes/connectors/population/models.py` | 2.0 |
 | `src/atoms_vs_ashes/db/engine.py` | 2.0 |
+| `src/atoms_vs_ashes/gui/_threshold_editor_widgets.py` | 2.0 |
 | `src/atoms_vs_ashes/llm/config.py` | 2.0 |
+| `src/atoms_vs_ashes/scoring/_codes.py` | 2.0 |
+| `src/scripts/sync_merged_from_source.py` | 2.0 |
 | `src/scripts/build_scoring_conformity_matrix.py` | 1.8 |
+| `src/atoms_vs_ashes/gui/_results_render_avoidance_diag.py` | 1.7 |
+| `src/atoms_vs_ashes/gui/_results_render_exclusion_diag.py` | 1.7 |
 | `src/atoms_vs_ashes/logging.py` | 1.5 |
 | `src/scripts/_docx_comment_writers.py` | 1.5 |
 | `src/scripts/_sp_b_epri_weight_patch.py` | 1.5 |
 | `src/scripts/replay_scoring_at_anchors.py` | 1.5 |
 | `src/scripts/build_epri_weights_artefact.py` | 1.4 |
+| `src/atoms_vs_ashes/gui/_criterion_info.py` | 1.2 |
+| `src/atoms_vs_ashes/gui/_results_page_main.py` | 1.2 |
+| `src/atoms_vs_ashes/gui/_results_render_drawer.py` | 1.2 |
+| `src/atoms_vs_ashes/gui/_results_data_avoidance_diag.py` | 1.0 |
 | `src/atoms_vs_ashes/ingest/models.py` | 1.0 |
 | `src/atoms_vs_ashes/llm/prompts/__init__.py` | 1.0 |
 | `src/dataAcquisition/integrationSnapshots/FIX-01_integration_snapshot.md` | 1.0 |
 | `src/scripts/cohort_reliability_summary.py` | 0.9 |
 | `src/scripts/debug_context_propagation.py` | 0.8 |
+| `src/atoms_vs_ashes/gui/_results_render_diag_filters.py` | 0.6 |
 | `src/atoms_vs_ashes/connectors/__init__.py` | 0.5 |
 | `src/atoms_vs_ashes/llm/__init__.py` | 0.5 |
 | `src/atoms_vs_ashes/screening/__init__.py` | 0.5 |
 | `src/scripts/inventory_scoring_runs.py` | 0.5 |
+| `src/atoms_vs_ashes/gui/_criterion_preview_lookup.py` | 0.3 |
 | `src/atoms_vs_ashes/connectors/corine/__init__.py` | 0.2 |
 | `src/atoms_vs_ashes/connectors/osm/__init__.py` | 0.2 |
 | `src/atoms_vs_ashes/connectors/population/__init__.py` | 0.2 |
@@ -238,7 +252,7 @@
 
 ### Testing
 
-**Subtotal:** 24 files, 68.3 hours
+**Subtotal:** 28 files, 71.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -261,7 +275,11 @@
 | `scripts/probe_natura2000_rate_limits.py` | 1.0 |
 | `scripts/probe_wdpa_rate_limits.py` | 1.0 |
 | `tests/test_ingest_ownership.py` | 1.0 |
+| `tests/gui/test_results_exclusion_diag.py` | 0.9 |
+| `tests/criterion_spec/test_preview_descriptor.py` | 0.7 |
 | `tests/scoring/test_search_sentinel_bands.py` | 0.7 |
+| `tests/gui/test_results_avoidance_diag.py` | 0.6 |
+| `tests/scoring/test_ri04_no_exclusion.py` | 0.5 |
 | `tests/scoring/test_context_derivations.py` | 0.4 |
 | `tests/scoring/test_safe_eval_disjuncts.py` | 0.4 |
 | `tests/test_coverage_report_phantom_handling.py` | 0.3 |
@@ -307,11 +325,13 @@
 
 ### Configuration & DevOps
 
-**Subtotal:** 23 files, 33.5 hours
+**Subtotal:** 25 files, 41.5 hours
 
 | File | Hours |
 | --- | ---: |
 | `config/default.yml` | 8.0 |
+| `config/scoring_rubrics/ri_radiological.yaml` | 4.0 |
+| `config/scoring_specs/ri_radiological.yaml` | 4.0 |
 | `src/scripts/man_hours_report.py` | 3.6 |
 | `.cursor/rules/man-hours.mdc` | 3.2 |
 | `config/epri/weights.yaml` | 3.0 |
@@ -383,7 +403,7 @@
 
 ### Project Management & QA
 
-**Subtotal:** 79 files, 87.8 hours
+**Subtotal:** 85 files, 94.8 hours
 
 | File | Hours |
 | --- | ---: |
@@ -397,6 +417,8 @@
 | `audit/post_processing/02_data_verification/20260418_engineer_audit.md` | 3.0 |
 | `audit/conversations/2026-05-09_feedback-rework-execution.md` | 2.7 |
 | `audit/README.md` | 2.0 |
+| `audit/plans/results-controls-audit-fix.md` | 2.0 |
+| `audit/plans/universal-infobox-avoidance-pareto-ri-04-fix.md` | 2.0 |
 | `audit/post_processing/02_data_verification/20260418_data_inventory.md` | 2.0 |
 | `audit/post_processing/02_data_verification/bulk_source_verification.md` | 2.0 |
 | `audit/conversations/2026-05-10_hi01-hi06-preview-apply.md` | 1.8 |
@@ -404,6 +426,7 @@
 | `audit/plans/data_source_pricing_update_3872d49e.plan.md` | 1.5 |
 | `audit/plans/split_requirements_by_phase_ace3875d.plan.md` | 1.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_7_scoring_method.md` | 1.5 |
+| `audit/post_processing/failure_diagnostics_20260514/REPORT.md` | 1.5 |
 | `audit/post_processing/monday_rerun_list.md` | 1.5 |
 | `audit/post_processing/scoring_conformity/band_reliability_conclusion_post_fix.md` | 1.4 |
 | `audit/post_processing/scoring_conformity/implementation_audit.md` | 1.4 |
@@ -417,6 +440,8 @@
 | `audit/post_processing/scoring_conformity/cohort_reliability_summary.md` | 0.7 |
 | `audit/post_processing/scoring_conformity/full_pass_drift_decision.md` | 0.7 |
 | `audit/post_processing/scoring_conformity/nh11_framing_decision.md` | 0.7 |
+| `audit/conversations/2026-05-14_results-controls-audit-fix.md` | 0.6 |
+| `audit/conversations/2026-05-14_universal-infobox-avoidance-pareto.md` | 0.6 |
 | `audit/post_processing/scoring_conformity/band_reliability_conclusion.md` | 0.6 |
 | `audit/post_processing/scoring_conformity/ep01_direction_decision.md` | 0.6 |
 | `audit/post_processing/sp_f_log_replay/hi01_ourairports_audit.md` | 0.6 |
@@ -442,6 +467,7 @@
 | `audit/post_processing/scoring_conformity/ovidiu_comment_conformity.md` | 0.4 |
 | `audit/post_processing/v2_close_out/README.md` | 0.4 |
 | `audit/plans/log-replay-feedback-rework.md` | 0.3 |
+| `audit/post_processing/02_data_verification/20260514_merged_resync.md` | 0.3 |
 | `audit/post_processing/hi01_preview/README.md` | 0.3 |
 | `audit/post_processing/hi06_fix04_preview/README.md` | 0.3 |
 | `audit/post_processing/scoring_conformity/README.md` | 0.3 |
@@ -551,4 +577,4 @@
 
 ---
 
-*Report generated by `src/scripts/man_hours_report.py` at 2026-05-13T20:12:53Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-14T19:51:29Z*

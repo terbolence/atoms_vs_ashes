@@ -2,9 +2,8 @@
 """Emergency Planning Zone population analysis (RI-04, RI-05).
 
 RI-04 — Population density screening at EPZ radii (5 / 16 / 25 / 80 km).
-         "Extremely high population density within the EPZ" is flagged as
-         avoidance per EPRI guidance.  Configurable threshold (default:
-         > 1 000 persons / km² within 5 km).
+         Population density is recorded for ranking/review only. High EPZ
+         ring density must not emit a failing screening verdict.
 
 RI-05 — Distance to nearest city > 50 000.  Rank-only metric (no pass/fail).
 """
@@ -55,9 +54,10 @@ def evaluate_ri04(
     density_threshold: float,
     inner_radius_km: float = 5.0,
 ) -> tuple[str, dict[str, Any], str]:
-    """Evaluate RI-04: population density screening.
+    """Evaluate RI-04: population density evidence capture.
 
-    Returns *(verdict, value_dict, justification)*.
+    Returns *(verdict, value_dict, justification)*. Dense EPZ rings are
+    retained in the payload for ranking/review, but the verdict is non-failing.
     """
     if not rings:
         return (
@@ -103,11 +103,12 @@ def evaluate_ri04(
     }
 
     if inner_ring.density_per_km2 > density_threshold:
-        verdict = "fail"
+        verdict = "pass"
         justification = (
             f"Population density within {inner_radius_km} km is "
             f"{inner_ring.density_per_km2:,.0f} persons/km², exceeding "
-            f"avoidance threshold of {density_threshold:,.0f} persons/km²"
+            f"the legacy review threshold of {density_threshold:,.0f} "
+            "persons/km²; recorded for RI-04 ranking/review only"
         )
     else:
         verdict = "pass"
@@ -167,7 +168,7 @@ def evaluate_ri05(
 
 @register_check
 class PopulationDensityCheck(ScreeningCheck):
-    """RI-04: Population Density Screening at EPZ radii."""
+    """RI-04: Populate EPZ-ring density evidence without failing sites."""
 
     criterion_id = RI04_CRITERION_ID
     phase = PHASE
@@ -242,7 +243,7 @@ class PopulationDensityCheck(ScreeningCheck):
 
             threshold_text = (
                 f">{density_threshold:,.0f} persons/km² within "
-                f"{radii_km[0]} km (EPRI avoidance)"
+                f"{radii_km[0]} km (legacy review marker only; not a gate)"
             )
 
             ri_row = session.get(SiteRadiological, site.site_id)

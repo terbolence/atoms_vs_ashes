@@ -625,7 +625,7 @@ class SiteRadiological(Base):
     site_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("sites.site_id"), primary_key=True
     )
-    # RI-04: Population density at EPZ radii (screening)
+    # RI-04: Population density at EPZ radii (ranking/review only)
     pop_density_5km: Mapped[float | None] = mapped_column(Numeric(10, 2))
     pop_density_16km: Mapped[float | None] = mapped_column(Numeric(10, 2))
     pop_density_25km: Mapped[float | None] = mapped_column(Numeric(10, 2))

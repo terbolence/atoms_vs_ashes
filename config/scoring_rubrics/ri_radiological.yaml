@@ -1,3 +1,4 @@
+# man_hours: 4.0
 # Radiological impact (RI) scoring rubric. Source: report/sites_evaluation/05_criteria_radiological.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: ri
@@ -8,8 +9,6 @@ criteria:
     phases: [ranking]
     weight_factor: 6
     normalised_weight_pct: 2.1
-    weight_factors: {baseline: 6, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-01 (IAEA NS-G-3.2; SSG-35 §4.5)"}
     weight_factors: {baseline: 6, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-01 (IAEA NS-G-3.2; SSG-35 §4.5)"}
     db_fields: {api: [site_radiological.wind_rose_json, site_radiological.pg_class_f_fraction, site_radiological.pg_class_e_fraction, site_radiological.mean_mixing_height_m], llm: ri01_dispersion_text}
@@ -51,8 +50,6 @@ criteria:
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-02 (IAEA NS-G-3.2)"}
-    weight_factors: {baseline: 5, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-02 (IAEA NS-G-3.2)"}
     primary_metric: cooling_flow_m3s
     db_fields: {api: [site_infrastructure_v2.cooling_flow_m3s], llm: ri02_surface_water_text}
     bands:
@@ -70,8 +67,6 @@ criteria:
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-03 (IAEA NS-G-3.2)"}
-    weight_factors: {baseline: 5, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-03 (IAEA NS-G-3.2)"}
     primary_metric: groundwater_vulnerability_class
     db_fields: {api: [site_radiological.aquifer_type, site_radiological.groundwater_vulnerability_class], llm: ri03_groundwater_text}
     bands:
@@ -84,13 +79,11 @@ criteria:
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: RI-04
     name: Population density (EPZ rings)
-    phases: [avoidance, ranking]
+    phases: [ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
     weight_factors: {baseline: 8, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-04 (IAEA NS-G-3.2; SSG-35 §A.39; A12)"}
-    weight_factors: {baseline: 8, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-04 (IAEA NS-G-3.2; SSG-35 §A.39; A12)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-04 (IAEA NS-G-3.2; SSG-35 §A.39)"}
     db_fields: {api: [site_radiological.pop_density_5km, site_radiological.pop_density_16km, site_radiological.pop_density_25km, site_radiological.pop_density_80km], llm: ri04_population_text}
     aggregation: {method: min_of_sub_scores}
     sub_scores:
@@ -126,33 +119,21 @@ criteria:
           - {score_range: [5, 6], condition_expr: "pop_density_80km < 150", descriptor: "75-150."}
           - {score_range: [3, 4], condition_expr: "pop_density_80km < 300", descriptor: "150-300."}
           - {score_range: [1, 2], condition_expr: "pop_density_80km >= 300", descriptor: "> 300."}
-    fail_conditions:
-      - {code: A12, action: avoidance_penalty, condition_expr: "pop_density_5km > 500 or pop_density_16km > 600 or pop_density_25km > 600 or pop_density_80km > 300", descriptor: "Project A12: population thresholds per RI-04/RI-05."}
-      - {code: E_RI04, action: exclude, condition_expr: "pop_density_5km > 1500 or (pop_density_5km > 800 and pop_density_16km > 1200)", pass_mark: 5.0, descriptor: "Dual-mode exclusion: extreme EPZ population-density screening proxy."}
+    fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
     notes: |
-      Dual-mode criterion (FB-LL-05, reviewer comments #33, #564, methodology in
-      Chapter 3 §3.5).
-      - Avoidance / ranking mode (default): EPZ orientative distances are screening
-        surrogates; population density at the EPZ-relevant rings contributes to
-        ranking, with the A12 avoidance penalty firing when project density
-        thresholds are exceeded. The site stays in the ranked pool.
-      - Exclusion mode (E_RI04): when the dose calculation for the SMR design x EPZ
-        x population-distribution combination shows that legal off-site dose limits
-        cannot be met or that an emergency plan cannot be implemented within the
-        regulatory envelope (per CNCAN / IAEA GSG-2), the criterion fires as an
-        exclusionary failure and the site exits the ranked pool. The screening
-        proxy here uses extreme density bands as a stand-in until the dose-feasibility
-        calculation is wired in Stage 3.
-      Engine semantics: the firing mode is per-site evidence-driven, not per-criterion
-      structural. The renderer flags which mode fired in the residual-risk register.
+      Population density at EPZ-relevant screening rings is retained as a
+      ranking signal only. EPZ-ring population density is not used as an
+      exclusionary or avoidance gate in this analysis scope: low scores
+      reduce the composite via the four ring sub-scores, but no site is
+      removed from the candidate pool or flagged as a near-miss based on
+      RI-04 alone. Population-centre distance avoidance (A12) is anchored
+      on RI-05 instead.
   - criterion_id: RI-05
     name: Distance to large population centres (>50 k)
     phases: [avoidance, ranking]
     weight_factor: 10
     normalised_weight_pct: 3.5
-    weight_factors: {baseline: 10, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
     weight_factors: {baseline: 10, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
     primary_metric: composite
@@ -172,8 +153,6 @@ criteria:
     phases: [ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
-    weight_factors: {baseline: 5, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-06 (SSG-35 §A.39)"}
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-06 (SSG-35 §A.39)"}
     primary_metric: pop_growth_rate_pct

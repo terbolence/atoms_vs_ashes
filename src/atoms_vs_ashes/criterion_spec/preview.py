@@ -1,4 +1,4 @@
-# man_hours: 3.0
+# man_hours: 3.4
 """DB-free preview of how a :class:`RunProfile` lands on the rubric.
 
 Implements §7's ``score preview`` and ``GET /preview`` endpoint:
@@ -73,6 +73,8 @@ class FailConditionPreview:
     modified_from_recommended: bool
     deviation_pct: float | None
     out_of_bounds: bool
+    descriptor: str = ""
+    pass_mark: float | None = None
 
 
 @dataclass
@@ -91,6 +93,9 @@ class CriterionPreview:
     exclusion_pass_mark: float | None
     bands: list[BandPreview]
     fail_codes: list[FailConditionPreview]
+    weight_factors: dict[str, int] | None = None
+    weight_basis_source: dict[str, str] | None = None
+    notes: str | None = None
 
 
 @dataclass
@@ -156,6 +161,8 @@ def _fail_condition_preview(
         modified_from_recommended=bool(ov and ov.user_value != ov.recommended_value),
         deviation_pct=(ov.deviation_pct if ov else None),
         out_of_bounds=bool(ov and ov.out_of_bounds),
+        descriptor=fc.descriptor or "",
+        pass_mark=(float(fc.pass_mark) if fc.pass_mark is not None else None),
     )
 
 
@@ -186,6 +193,19 @@ def _criterion_preview(
     if is_exclusionary:
         pms = [float(fc.pass_mark) for fc in exclude_fcs if fc.pass_mark is not None]
         exclusion_pass_mark = pms[0] if pms else None
+    extras = template.model_extra or {}
+    raw_wf = extras.get("weight_factors")
+    weight_factors: dict[str, int] | None = (
+        {str(k): int(v) for k, v in raw_wf.items()}
+        if isinstance(raw_wf, dict)
+        else None
+    )
+    raw_wbs = extras.get("weight_basis_source")
+    weight_basis_source: dict[str, str] | None = (
+        {str(k): str(v) for k, v in raw_wbs.items()}
+        if isinstance(raw_wbs, dict)
+        else None
+    )
     return CriterionPreview(
         criterion_id=template.criterion_id,
         name=template.name,
@@ -201,6 +221,9 @@ def _criterion_preview(
         exclusion_pass_mark=exclusion_pass_mark,
         bands=bands,
         fail_codes=fail_codes,
+        weight_factors=weight_factors,
+        weight_basis_source=weight_basis_source,
+        notes=template.notes,
     )
 
 
