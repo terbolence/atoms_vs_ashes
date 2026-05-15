@@ -1777,3 +1777,11 @@ files:
   audit/conversations/2026-05-14_results-controls-audit-fix.md:
     hours: 0.6
     category: "Project Management & QA"
+
+  src/atoms_vs_ashes/gui/_results_run_picker.py:
+    hours: 0.5
+    category: "Implementation"
+
+  tests/gui/test_results_run_picker.py:
+    hours: 0.5
+    category: "Testing"
