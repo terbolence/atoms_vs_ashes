@@ -195,6 +195,18 @@ class FailConditionSpec(BaseModel):
     threshold: ThresholdSpec | None = None
     threshold_affects_expr: bool = True
     """If False, user threshold edits never rewrite ``condition_expr`` (band pivots)."""
+    derive_expr_from_recipe: bool = False
+    """Opt in to single-pivot exclusion.
+
+    When ``True`` AND this fail_condition is wired to the parent
+    criterion's ``band_recipe`` (``code == band_recipe.fail_code``) AND
+    ``action == 'exclude'``, the compiler regenerates
+    ``condition_expr`` from the same pivot that drives the 0-10 bands.
+    The YAML-stored ``condition_expr`` must then match the derived form
+    or the compiler raises ``ValueError`` (drift guard). Defaults to
+    ``False`` so existing compound exclusions (e.g. EP-01 ``E8`` with
+    its trauma-centre disjunct) keep their hand-written expression
+    untouched. See ``report/methodology/exclusionary_floors.md``."""
 
 
 class QualityFloorSpec(BaseModel):

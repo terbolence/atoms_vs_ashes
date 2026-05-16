@@ -60,9 +60,18 @@ def _eval_floor_for(criterion, context: dict) -> tuple[list, "BandResult"]:
 
 class TestSafetyFloorTransparency:
     def test_low_score_below_floor_emits_floor_verdict(self, bundle):
-        """NH-04 with slope 12 deg lands in band 3-4 (~3.5); floor fires."""
+        """NH-04 at exactly the band-5 boundary lands in band 3-4 (~3.5)
+        but the hard expression ``slope_angle_deg > 8`` (strict) is False;
+        the safety floor catches the gap and fires :floor.
+
+        After the single-pivot exclusion change (band-5 boundary now
+        drives the hard rule), this is the only slope value that
+        exercises the floor for NH-04 — every value > 8 trips the hard
+        E3 directly. The mechanism stays as a backstop in case future
+        rubric edits re-introduce a band / exclusion gap.
+        """
         nh04 = bundle["NH-04"]
-        ctx = {"slope_angle_deg": 12, "slope_stability_class": "stable"}
+        ctx = {"slope_angle_deg": 8.0, "slope_stability_class": "stable"}
 
         verdicts, band_result = _eval_floor_for(nh04, ctx)
 

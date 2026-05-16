@@ -26,11 +26,10 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 | E-code | Criterion | Source YAML | Hard fail expression | pass_mark | Min metric to clear floor |
 | --- | --- | --- | --- | --- | --- |
-| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)` | 5.0 | `nearest_fault_km >= 5.0` |
-| `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true)` |
-| `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'` | 5.0 | `slope_angle_deg < 8` |
-| `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50 or in_pyroclastic_zone == true` | 5.0 | `nearest_volcano_km >= 300` |
-| `E_RI04` | RI-04 — Population density (EPZ rings) | scoring_rubrics/*.yaml | `pop_density_5km > 1500 or (pop_density_5km > 800 and pop_density_16km > 1200)` | 5.0 | `ring_5km: pop_density_5km < 250` |
+| `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 5` | 5.0 | `nearest_fault_km >= 5.0` |
+| `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept in ['high', 'very_high'] and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and (has_remedy == true or has_remedy is null)) or (liquefaction_suscept == 'very_high' and has_remedy == true)` |
+| `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg > 8` | 5.0 | `slope_angle_deg < 8` |
+| `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 300` | 5.0 | `nearest_volcano_km >= 300` |
 
 ## Details
 
@@ -38,8 +37,8 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `nearest_fault_km < 8 or (fault_slip_rate_mm_yr >= 2 and nearest_fault_km < 8)`
-- **Hard fail descriptor**: Capable fault within 8 km.
+- **Hard fail expression**: `nearest_fault_km < 5`
+- **Hard fail descriptor**: Capable fault within score-5 pivot distance.
 - **Floor (pass_mark)**: 5.0
 - **Min metric to clear floor (band 5-6)**: `nearest_fault_km >= 5.0`
 
@@ -56,26 +55,25 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)`
-- **Hard fail descriptor**: Unacceptable liquefaction with no engineering remedy.
+- **Hard fail expression**: `liquefaction_suscept in ['high', 'very_high'] and has_remedy == false`
+- **Hard fail descriptor**: High or very-high liquefaction susceptibility with no engineering remedy.
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true)`
+- **Min metric to clear floor (band 5-6)**: `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and (has_remedy == true or has_remedy is null)) or (liquefaction_suscept == 'very_high' and has_remedy == true)`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
 | **9-10** | `liquefaction_suscept in ['very_low', 'none']` | Negligible susceptibility (Stage-1 favourable default). |
 | **7-8** | `liquefaction_suscept == 'low'` | Low susceptibility; favourable at screening grade. |
-| **5-6** | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and has_remedy == true)` | Moderate susceptibility, or high with documented mitigation. |
-| **3-4** | `liquefaction_suscept == 'high' and (has_remedy == false or has_remedy is null)` | High susceptibility without documented mitigation. |
-| **1-2** | `liquefaction_suscept == 'very_high' and has_remedy == true` | Very high susceptibility with documented mitigation path (ranking penalty). |
-| **0** | `liquefaction_suscept == 'very_high' and (has_remedy == false or has_remedy is null)` | E2 — very high susceptibility with no documented remedy. |
+| **5-6** | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and (has_remedy == true or has_remedy is null)) or (liquefaction_suscept == 'very_high' and has_remedy == true)` | Moderate susceptibility, or high/very-high with documented (or pending for `high`) mitigation. |
+| **3-4** | `liquefaction_suscept == 'very_high' and has_remedy is null` | Very-high susceptibility with unknown remedy status (caught by safety floor). |
+| **1-2** | `liquefaction_suscept in ['high', 'very_high'] and has_remedy == false` | High or very-high susceptibility with explicitly no documented mitigation (E2 hard fail). |
 
 ### E3 — NH-04 Geotechnical - slope stability
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `slope_angle_deg >= 25 or slope_stability_class == 'catastrophic'`
-- **Hard fail descriptor**: Catastrophic landslide / slope > 25 deg.
+- **Hard fail expression**: `slope_angle_deg > 8`
+- **Hard fail descriptor**: Slope above score-5 pivot.
 - **Floor (pass_mark)**: 5.0
 - **Min metric to clear floor (band 5-6)**: `slope_angle_deg < 8`
 
@@ -92,8 +90,8 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `nearest_volcano_km < 50 or in_pyroclastic_zone == true`
-- **Hard fail descriptor**: < 50 km Holocene volcano or in mapped hazard zone.
+- **Hard fail expression**: `nearest_volcano_km < 300`
+- **Hard fail descriptor**: Holocene volcano within score-5 pivot distance.
 - **Floor (pass_mark)**: 5.0
 - **Min metric to clear floor (band 5-6)**: `nearest_volcano_km >= 300`
 
@@ -105,39 +103,3 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | **3-4** | `nearest_volcano_km >= 200` | Sub-threshold; specialist study required. |
 | **1-2** | `nearest_volcano_km >= 50` | Elevated risk; mitigation uncertain. |
 | **0** | `nearest_volcano_km < 50` | E4 triggered. |
-
-### E_RI04 — RI-04 Population density (EPZ rings)
-
-- **Source**: `config/scoring_rubrics/scoring_rubrics/*.yaml`
-- **Phases**: avoidance, ranking
-- **Hard fail expression**: `pop_density_5km > 1500 or (pop_density_5km > 800 and pop_density_16km > 1200)`
-- **Hard fail descriptor**: Dual-mode exclusion: extreme EPZ population-density screening proxy.
-- **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `ring_5km: pop_density_5km < 250`
-
-| Band | Condition | Descriptor |
-| --- | --- | --- |
-| _sub-score: ring_5km_ |  |  |
-| **9-10** | `pop_density_5km < 25` | < 25 /km2. |
-| **7-8** | `pop_density_5km < 100` | 25-100. |
-| **5-6** | `pop_density_5km < 250` | 100-250. |
-| **3-4** | `pop_density_5km < 500` | 250-500. |
-| **1-2** | `pop_density_5km >= 500` | > 500. |
-| _sub-score: ring_16km_ |  |  |
-| **9-10** | `pop_density_16km < 50` | < 50 /km2. |
-| **7-8** | `pop_density_16km < 150` | 50-150. |
-| **5-6** | `pop_density_16km < 300` | 150-300. |
-| **3-4** | `pop_density_16km < 600` | 300-600. |
-| **1-2** | `pop_density_16km >= 600` | > 600. |
-| _sub-score: ring_25km_ |  |  |
-| **9-10** | `pop_density_25km < 50` | < 50 /km2. |
-| **7-8** | `pop_density_25km < 150` | 50-150. |
-| **5-6** | `pop_density_25km < 300` | 150-300. |
-| **3-4** | `pop_density_25km < 600` | 300-600. |
-| **1-2** | `pop_density_25km >= 600` | > 600. |
-| _sub-score: ring_80km_ |  |  |
-| **9-10** | `pop_density_80km < 25` | < 25 /km2. |
-| **7-8** | `pop_density_80km < 75` | 25-75. |
-| **5-6** | `pop_density_80km < 150` | 75-150. |
-| **3-4** | `pop_density_80km < 300` | 150-300. |
-| **1-2** | `pop_density_80km >= 300` | > 300. |

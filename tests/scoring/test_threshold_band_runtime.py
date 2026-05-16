@@ -80,3 +80,51 @@ def test_smr_scoring_bundles_use_adjusted_ns02_capacity_bands():
 
     assert score5.condition_expr == "grid_export_capacity_mw >= 360.0"
     assert evaluate_criterion_value(ns02, {"grid_export_capacity_mw": 359.0}).score < 5.0
+
+
+# Single-pivot exclusion: a user override on a recipe-linked exclusionary
+# code must move the band-5 boundary AND the hard-exclusion expression
+# together. Regression guard against the prior drift where NH-02 banded
+# at 5 km but excluded at 8 km.
+
+def test_nh02_override_moves_bands_and_exclusion_together():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh02 = smr_aware_criteria_bundles(
+        bundle, _profile_with_thresholds({"NH-02": {"E1": 8.0}}),
+        [SimpleNamespace(smr_key="demo_smr", capacity_mwe=300.0)],
+    )["demo_smr"]["NH-02"]
+    score5 = next(b for b in nh02.bands if b.score_range == (5.0, 6.0))
+    e1 = next(fc for fc in nh02.fail_conditions if fc.code == "E1")
+
+    assert score5.condition_expr == "nearest_fault_km >= 8.0"
+    assert e1.condition_expr == "nearest_fault_km < 8"
+    # Sites exactly at the pivot pass; one step inside fails the band-5
+    # floor (and hits E1 in production through the exclusionary path).
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 8.0}).score >= 5.0
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 7.9}).score < 5.0
+
+
+def test_nh04_override_moves_bands_and_exclusion_together():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh04 = smr_aware_criteria_bundles(
+        bundle, _profile_with_thresholds({"NH-04": {"E3": 15.0}}),
+        [SimpleNamespace(smr_key="demo_smr", capacity_mwe=300.0)],
+    )["demo_smr"]["NH-04"]
+    score5 = next(b for b in nh04.bands if b.score_range == (5.0, 6.0))
+    e3 = next(fc for fc in nh04.fail_conditions if fc.code == "E3")
+
+    assert score5.condition_expr == "slope_angle_deg <= 15.0"
+    assert e3.condition_expr == "slope_angle_deg > 15"
+
+
+def test_nh07_override_moves_bands_and_exclusion_together():
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh07 = smr_aware_criteria_bundles(
+        bundle, _profile_with_thresholds({"NH-07": {"E4": 100.0}}),
+        [SimpleNamespace(smr_key="demo_smr", capacity_mwe=300.0)],
+    )["demo_smr"]["NH-07"]
+    score5 = next(b for b in nh07.bands if b.score_range == (5.0, 6.0))
+    e4 = next(fc for fc in nh07.fail_conditions if fc.code == "E4")
+
+    assert score5.condition_expr == "nearest_volcano_km >= 100.0"
+    assert e4.condition_expr == "nearest_volcano_km < 100"

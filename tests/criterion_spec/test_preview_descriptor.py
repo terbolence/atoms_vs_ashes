@@ -34,17 +34,34 @@ def _fail_code(criterion, code: str):
 
 
 def test_descriptor_and_pass_mark_exposed_for_noneditable_nh03(preview_bundle):
+    """NH-03 ships active with the [1-2] band aligned to the E2 hard fail.
+
+    Both ``(high, has_remedy=false)`` and ``(very_high, has_remedy=false)``
+    are hard E2 fails — the expression is symmetric across the two
+    high-susceptibility classes when remedy is explicitly absent.
+    ``(very_high, has_remedy=null)`` still falls through to the safety
+    floor at [3-4] via pass_mark=5.0.
+    """
     nh03 = _criterion(preview_bundle, "NH-03")
+    assert nh03.is_exclusionary is True
+    assert nh03.exclusion_pass_mark == 5.0
+    assert nh03.bands, "NH-03 must expose the scoring bands"
+
     e2 = _fail_code(nh03, "E2")
     assert e2.user_editable is False
-    assert e2.descriptor == "Unacceptable liquefaction with no engineering remedy."
+    assert e2.descriptor == (
+        "High or very-high liquefaction susceptibility with no engineering remedy."
+    )
     assert e2.pass_mark == 5.0
+    assert e2.condition_expr == (
+        "liquefaction_suscept in ['high', 'very_high'] and has_remedy == false"
+    )
 
 
 def test_descriptor_and_pass_mark_exposed_for_nh07(preview_bundle):
     nh07 = _criterion(preview_bundle, "NH-07")
     e4 = _fail_code(nh07, "E4")
-    assert e4.descriptor == "< 50 km Holocene volcano or in mapped hazard zone."
+    assert e4.descriptor == "Holocene volcano within score-5 pivot distance."
     assert e4.pass_mark == 5.0
 
 

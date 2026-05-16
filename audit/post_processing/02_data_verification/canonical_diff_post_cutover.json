@@ -1,0 +1,532 @@
+{
+  "generated_at": "2026-05-15T10:55:01.598421+00:00",
+  "baseline_file": "audit/post_processing/02_data_verification/canonical_baseline_pre_cutover.json",
+  "baseline_generated_at": "2026-05-15T09:57:48.137495+00:00",
+  "label": "post-cutover",
+  "dbs": {
+    "atoms_vs_ashes": {
+      "alembic_baseline": "043",
+      "alembic_current": "044",
+      "size_baseline": 2936059571,
+      "size_current": 2936059571,
+      "size_delta": 0,
+      "runs_added": [],
+      "runs_removed": [],
+      "sites_added": [],
+      "sites_removed": [],
+      "row_count_diff": [
+        {
+          "table": "alembic_version",
+          "before": 1,
+          "after": 1,
+          "delta": 0
+        },
+        {
+          "table": "audit_log",
+          "before": 3619,
+          "after": 3619,
+          "delta": 0
+        },
+        {
+          "table": "compiled_scoring_snapshots",
+          "before": 8,
+          "after": 8,
+          "delta": 0
+        },
+        {
+          "table": "composite_rankings",
+          "before": 147504,
+          "after": 147504,
+          "delta": 0
+        },
+        {
+          "table": "composite_score_components",
+          "before": 78667,
+          "after": 78667,
+          "delta": 0
+        },
+        {
+          "table": "country_balance_check",
+          "before": 194,
+          "after": 194,
+          "delta": 0
+        },
+        {
+          "table": "country_rankings_summary",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "country_site_rankings",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "criteria",
+          "before": 49,
+          "after": 49,
+          "delta": 0
+        },
+        {
+          "table": "criterion_correlations",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "data_sources",
+          "before": 52,
+          "after": 52,
+          "delta": 0
+        },
+        {
+          "table": "dataset_snapshot",
+          "before": 22,
+          "after": 22,
+          "delta": 0
+        },
+        {
+          "table": "enrichment_runs",
+          "before": 48,
+          "after": 48,
+          "delta": 0
+        },
+        {
+          "table": "failure_aggregates",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "failure_outcomes",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "merge_audit",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "oat_importance",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "ranking_scores",
+          "before": 1100976,
+          "after": 1100976,
+          "delta": 0
+        },
+        {
+          "table": "runs",
+          "before": 39,
+          "after": 39,
+          "delta": 0
+        },
+        {
+          "table": "scoring_run_snapshots",
+          "before": 29,
+          "after": 29,
+          "delta": 0
+        },
+        {
+          "table": "screening_verdicts",
+          "before": 628219,
+          "after": 628219,
+          "delta": 0
+        },
+        {
+          "table": "site_bands",
+          "before": 3080,
+          "after": 3080,
+          "delta": 0
+        },
+        {
+          "table": "site_emergency_planning",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "site_human_hazards",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "site_infrastructure_v2",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "site_llm_observations",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "site_llm_verdicts",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "site_natural_hazards",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "site_observations",
+          "before": 17778,
+          "after": 17778,
+          "delta": 0
+        },
+        {
+          "table": "site_radiological",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "site_raw_responses",
+          "before": 7901,
+          "after": 7901,
+          "delta": 0
+        },
+        {
+          "table": "site_units",
+          "before": 957,
+          "after": 957,
+          "delta": 0
+        },
+        {
+          "table": "sites",
+          "before": 361,
+          "after": 361,
+          "delta": 0
+        },
+        {
+          "table": "smr_designs",
+          "before": 8,
+          "after": 8,
+          "delta": 0
+        },
+        {
+          "table": "swing_weights",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        },
+        {
+          "table": "threshold_overrides",
+          "before": 2,
+          "after": 2,
+          "delta": 0
+        },
+        {
+          "table": "threshold_sensitivity",
+          "before": 1440,
+          "after": 1440,
+          "delta": 0
+        },
+        {
+          "table": "weight_profile_stability",
+          "before": 0,
+          "after": 0,
+          "delta": 0
+        }
+      ]
+    },
+    "atoms_vs_ashes_merged": {
+      "alembic_baseline": "043",
+      "alembic_current": "044",
+      "size_baseline": 2806675123,
+      "size_current": 4121515699,
+      "size_delta": 1314840576,
+      "runs_added": [
+        "20260513T030738_70d5bc2c",
+        "feedback_rerun_20260509",
+        "score-214bab4e",
+        "score-23cd6c7a",
+        "score-3483a9ad",
+        "score-3d18f5c5",
+        "score-4464ea34",
+        "score-53102a9e",
+        "score-64299b36",
+        "score-88160b85",
+        "score-bd69e170",
+        "score-d76f7a82",
+        "score-dfaa4937",
+        "score-e535b6e2",
+        "score-e58d84f6",
+        "score-e803c23c",
+        "score-ef5ccab4",
+        "score-f9a079f0",
+        "score-fae96308",
+        "score-ri04fix-001853",
+        "sens-2a9112ac",
+        "sens-2e121597",
+        "sens-2f22886b",
+        "sens-30ad58e2",
+        "sens-42c1a9aa",
+        "sens-55dcf9f6",
+        "sens-76d54365",
+        "sens-7b609bd0",
+        "sens-80514f8e",
+        "sens-a00e8e3a",
+        "sens-a9f3e400",
+        "sens-aec56513",
+        "sens-b999a02c",
+        "sens-e01d74b7",
+        "sens-e8d5ff91",
+        "val-ep24-8d2ddd31",
+        "val-ep30-febd842d",
+        "val-sens-ep24-8d2ddd31",
+        "val-sens-ep30-febd842d"
+      ],
+      "runs_removed": [],
+      "sites_added": [],
+      "sites_removed": [
+        "323cdbf0-c4a8-467a-af76-e2e3df0b537f"
+      ],
+      "row_count_diff": [
+        {
+          "table": "alembic_version",
+          "before": 1,
+          "after": 1,
+          "delta": 0
+        },
+        {
+          "table": "audit_log",
+          "before": 3614,
+          "after": 3674,
+          "delta": -60
+        },
+        {
+          "table": "compiled_scoring_snapshots",
+          "before": 5,
+          "after": 13,
+          "delta": -8
+        },
+        {
+          "table": "composite_rankings",
+          "before": 302852,
+          "after": 449521,
+          "delta": -146669
+        },
+        {
+          "table": "composite_score_components",
+          "before": 36527,
+          "after": 115018,
+          "delta": -78491
+        },
+        {
+          "table": "country_balance_check",
+          "before": 103,
+          "after": 297,
+          "delta": -194
+        },
+        {
+          "table": "country_rankings_summary",
+          "before": 68,
+          "after": 68,
+          "delta": 0
+        },
+        {
+          "table": "country_site_rankings",
+          "before": 416,
+          "after": 400,
+          "delta": 16
+        },
+        {
+          "table": "criteria",
+          "before": 49,
+          "after": 49,
+          "delta": 0
+        },
+        {
+          "table": "criterion_correlations",
+          "before": 2256,
+          "after": 2256,
+          "delta": 0
+        },
+        {
+          "table": "data_sources",
+          "before": 51,
+          "after": 52,
+          "delta": -1
+        },
+        {
+          "table": "dataset_snapshot",
+          "before": 19,
+          "after": 41,
+          "delta": -22
+        },
+        {
+          "table": "enrichment_runs",
+          "before": 51,
+          "after": 51,
+          "delta": 0
+        },
+        {
+          "table": "failure_aggregates",
+          "before": 1651,
+          "after": 1651,
+          "delta": 0
+        },
+        {
+          "table": "failure_outcomes",
+          "before": 2896,
+          "after": 2888,
+          "delta": 8
+        },
+        {
+          "table": "merge_audit",
+          "before": 3685,
+          "after": 3681,
+          "delta": 4
+        },
+        {
+          "table": "oat_importance",
+          "before": 192,
+          "after": 192,
+          "delta": 0
+        },
+        {
+          "table": "ranking_scores",
+          "before": 861984,
+          "after": 1960656,
+          "delta": -1098672
+        },
+        {
+          "table": "runs",
+          "before": 24,
+          "after": 63,
+          "delta": -39
+        },
+        {
+          "table": "scoring_run_snapshots",
+          "before": 16,
+          "after": 45,
+          "delta": -29
+        },
+        {
+          "table": "screening_verdicts",
+          "before": 496968,
+          "after": 1109421,
+          "delta": -612453
+        },
+        {
+          "table": "site_bands",
+          "before": 8224,
+          "after": 11272,
+          "delta": -3048
+        },
+        {
+          "table": "site_emergency_planning",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "site_human_hazards",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "site_infrastructure_v2",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "site_llm_observations",
+          "before": 9808,
+          "after": 9766,
+          "delta": 42
+        },
+        {
+          "table": "site_llm_verdicts",
+          "before": 8463,
+          "after": 8439,
+          "delta": 24
+        },
+        {
+          "table": "site_natural_hazards",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "site_observations",
+          "before": 16479,
+          "after": 17784,
+          "delta": -1305
+        },
+        {
+          "table": "site_radiological",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "site_raw_responses",
+          "before": 6840,
+          "after": 7901,
+          "delta": -1061
+        },
+        {
+          "table": "site_units",
+          "before": 958,
+          "after": 957,
+          "delta": 1
+        },
+        {
+          "table": "sites",
+          "before": 362,
+          "after": 361,
+          "delta": 1
+        },
+        {
+          "table": "smr_designs",
+          "before": 8,
+          "after": 8,
+          "delta": 0
+        },
+        {
+          "table": "swing_weights",
+          "before": 48,
+          "after": 48,
+          "delta": 0
+        },
+        {
+          "table": "threshold_overrides",
+          "before": 0,
+          "after": 2,
+          "delta": -2
+        },
+        {
+          "table": "threshold_sensitivity",
+          "before": 864,
+          "after": 2304,
+          "delta": -1440
+        },
+        {
+          "table": "weight_profile_stability",
+          "before": 15,
+          "after": 15,
+          "delta": 0
+        }
+      ]
+    }
+  }
+}
