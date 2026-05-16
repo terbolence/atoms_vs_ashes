@@ -1829,3 +1829,19 @@ files:
   src/scripts/generate_scoring_examples.py:
     hours: 1.5
     category: "Implementation"
+
+  audit/plans/exclusionary_sweep_13877396.plan.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  architecture/plans/exclusionary_sweep_13877396.plan.md:
+    hours: 1.0
+    category: "Architecture & Design"
+
+  audit/conversations/2026-05-16_ns08-strict-overlap-and-null-policy.md:
+    hours: 1.8
+    category: "Project Management & QA"
+
+  tests/scoring/test_ns08_strict_overlap.py:
+    hours: 1.0
+    category: "Testing"

@@ -96,6 +96,7 @@ def column_aliases(table: str, column: str) -> tuple[str, ...]:
 def apply_derived_context_values(values: dict[str, Any]) -> None:
     """Populate rubric-era aliases and simple derived values in ``values``."""
     _copy_aliases(values)
+    _derive_ns08_strictness(values)
     _derive_boolean_defaults(values)
     _derive_military_airfield_distance(values)
     _derive_population_and_weather(values)
@@ -166,6 +167,83 @@ def _derive_hi_search_sentinels(values: dict[str, Any]) -> None:
         values[sentinel] = quality_str in _SEARCH_COMPLETED_QUALITY_OK
 
 
+# NS-08: IUCN categories treated as exclusionary under SSG-35 Table II-1.
+# Ia (Strict Nature Reserve) and Ib (Wilderness) prohibit development by
+# definition; II (National Park) treats human-built development as
+# incompatible with the protection objective. III (Natural Monument), IV
+# (Habitat/Species Management), V (Protected Landscape), and VI (Managed
+# Resource) all permit some level of human use and are NOT uniformly
+# exclusionary for SMR siting screening. They surface as review_flag (R1)
+# via the connector's wdpa_sensitivity_class='high' signal.
+_NS08_WDPA_STRICT_IUCN: frozenset[str] = frozenset({"Ia", "Ib", "II"})
+
+
+def _derive_ns08_strictness(values: dict[str, Any]) -> None:
+    """Derive NS-08 ``site_within_strict_protected`` from connector evidence.
+
+    Strict overlap (E7) fires when one of the following SSG-35 Table II-1
+    conditions is met:
+
+    1. Natura 2000 polygon overlap (``n2k_overlap == True``). All Natura
+       2000 sites are EU-designated SPA (Birds Directive) or SAC (Habitats
+       Directive), both uniformly exclusionary.
+
+    2. WDPA polygon overlap with IUCN Ia, Ib, or II strictest category
+       (``wdpa_overlap == True`` AND ``wdpa_strictest_iucn_category`` is
+       in ``Ia / Ib / II``). IUCN III-VI overlaps are *not* strict — they
+       permit varying levels of human use and surface as R1 review flags
+       instead.
+
+    3. WDPA polygon overlap with an international designation
+       (``wdpa_overlap == True`` AND
+       ``wdpa_international_designation_count > 0``). Captures Ramsar,
+       World Heritage, Biosphere Reserve, and Emerald Network overlaps
+       even when the WDPA IUCN slot is "Not Reported".
+
+    The strictness fields needed for (2) and (3) live inside
+    ``wdpa_result_json`` (JSONB blob persisted by the WDPA connector);
+    they are not promoted to dedicated columns. This derivation reads
+    them when the JSONB anchor is in the scoring context.
+
+    Sets ``site_within_strict_protected`` (E7 trigger) and
+    ``wdpa_strict_overlap`` (auxiliary band-condition flag). Both default
+    to ``False`` only when at least one of the connector signals is
+    present; otherwise they remain unset so the legacy distance-based
+    fallback in ``_derive_boolean_defaults`` can run.
+    """
+    n2k_overlap = values.get("n2k_overlap")
+    wdpa_overlap = values.get("wdpa_overlap")
+    wdpa_json = values.get("wdpa_result_json") or {}
+
+    have_any_signal = (
+        n2k_overlap is not None
+        or wdpa_overlap is not None
+        or bool(wdpa_json)
+    )
+    if not have_any_signal:
+        return
+
+    wdpa_strictest = wdpa_json.get("wdpa_strictest_iucn_category") if isinstance(wdpa_json, dict) else None
+    try:
+        wdpa_intl_count = int(wdpa_json.get("wdpa_international_designation_count") or 0) if isinstance(wdpa_json, dict) else 0
+    except (TypeError, ValueError):
+        wdpa_intl_count = 0
+
+    is_strict_wdpa_overlap = bool(
+        wdpa_overlap is True
+        and (
+            (wdpa_strictest in _NS08_WDPA_STRICT_IUCN)
+            or wdpa_intl_count > 0
+        )
+    )
+    is_n2k_polygon_overlap = bool(n2k_overlap is True)
+
+    values["site_within_strict_protected"] = bool(
+        is_n2k_polygon_overlap or is_strict_wdpa_overlap
+    )
+    values["wdpa_strict_overlap"] = is_strict_wdpa_overlap
+
+
 def _copy_aliases(values: dict[str, Any]) -> None:
     for source, target in (
         ("nearest_holocene_volcano_km", "nearest_volcano_km"),
@@ -184,6 +262,14 @@ def _copy_aliases(values: dict[str, Any]) -> None:
 def _derive_boolean_defaults(values: dict[str, Any]) -> None:
     if "under_flight_path" not in values and values.get("flight_path_distance_km") is not None:
         values["under_flight_path"] = False
+    # NS-08 strict-overlap derivation runs in _derive_ns08_strictness above
+    # and is authoritative when the wdpa/n2k JSONB columns are present in
+    # the context. The legacy fallback below preserves behaviour for
+    # callers that omit the JSONB anchors (e.g. unit tests that build a
+    # minimal context dict): centroid-in-polygon on either network is
+    # treated as strict-protected. The fallback is intentionally permissive
+    # so legacy callers do not see a regression; production scoring always
+    # has the JSONB anchors available via NS-08's db_fields.api.
     if "site_within_strict_protected" not in values:
         distances = (
             values.get("n2k_nearest_distance_km"),
