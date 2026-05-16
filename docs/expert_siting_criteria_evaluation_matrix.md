@@ -1,3 +1,4 @@
+<!-- man_hours: 8.0 -->
 # Expert siting criteria evaluation matrix (0–10 scale, weights, pass marks)
 
 > **Generated per** `prompts/expert_iaea_epri_criterion_matrix_author.md` **(2026-04-21 refresh).** **Primary sources** are repository paths under `sources/regulations/` and `requirements/` (see § Repository documentation below). **Web** links in the bibliography are secondary pointers only.
@@ -155,7 +156,7 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 | EP-03 | 2.0      | 5.0                    | Rank           |
 | EP-04 | 2.0      | 5.0                    | Rank           |
 | EP-05 | 2.0      | 5.0                    | Rank           |
-| NS-01 | 4.7      | 5.0 (0 if E9 met)      | Screen + rank  |
+| NS-01 | 4.7      | 5.0 (A16 avoidance)    | Rank + avoid   |
 | NS-02 | 4.7      | 5.0                    | Screen + rank  |
 | NS-03 | 4.6      | 5.0                    | Screen + rank  |
 | NS-04 | 2.0      | 5.0                    | Rank           |
@@ -185,7 +186,7 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 
 ---
 
-## E1–E9 / A1–A15 → criterion map (abbreviated)
+## E1–E8 / A1–A16 → criterion map (abbreviated)
 
 | Code  | Typical NH/HI/RI/EP/NS anchor |
 | ----- | ----------------------------- |
@@ -197,17 +198,19 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 | E6    | NH-05 (subsidence/mining)     |
 | E7    | NS-08                         |
 | E8    | EP-01                         |
-| E9    | NS-01                         |
 | A1–A4 | HI-01                         |
 | A5–A6 | HI-06                         |
 | A7–A8 | HI-02, HI-03                  |
 | A9    | NH-08, NH-09                  |
 | A10   | NH-01                         |
 | A11   | NH-08, NH-09                  |
-| A12   | RI-04                         |
+| A12   | RI-05                         |
 | A13   | NS-02, BF-01                  |
 | A14   | NS-03                         |
 | A15   | NS-05, BF-02                  |
+| A16   | NS-01                         |
+
+Note: the prior **E9 (NS-01 cooling water)** hard fail was retired on 2026-05-16 (LL-036) because its `cooling_source_type in ['none', null] and dry_cooling_viable == false` condition was structurally unreachable in the current connector stack. The intent is now captured by **A16** as an avoidance flag on `cooling_distance_km > 10 and water_stress_label in ('High', 'Extremely High')`.
 
 ---
 
@@ -1336,8 +1339,8 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 | Field               | Content  |
 | ------------------- | -------- |
 | **Normative basis** | NS-G-3.2 |
-| **Phase**           | Rank     |
-| **Weight (%)**      | 2.5%     |
+| **Phase**           | Avoid + Rank |
+| **Weight (%)**      | 3.5%     |
 
 **Why this criterion matters (5–10 concise bullets)**
 
@@ -1352,16 +1355,17 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 
 **Proposed 0–10 scoring band**
 
-- **0–2:** Immediately adjacent to very large city along dominant exposure directions.
-- **3–4:** Close large city; significant planning and communication burden.
-- **5–6:** Moderate separation; typical for regional plants.
-- **7–8:** Distant from major centres relative to region.
-- **9–10:** Remote from large agglomerations.
+- **0:** Within 5 km of a >1M population centre.
+- **1–2:** Nearest >=50k population-centre proxy misses its required distance by >25%.
+- **3–4:** Nearest >=50k population-centre proxy misses its required distance by <=25%.
+- **5–6:** Nearest >=50k population-centre proxy meets the required distance.
+- **7–8:** Proxy distance exceeds the required distance by 25-50%.
+- **9–10:** Proxy distance exceeds the required distance by >=50%.
 
 **Pass / fail cut:** **≥ 5.0**.
 
-- **Phase 2 (screening):** apply pass/fail mark from summary table; **0** excludes when E-condition confirmed without remedy; **< 5.0** fails discretionary gate unless project waives.
-- **Phase 3 (ranking):** same \(c_i\in[0,10]\) feeds composite \(S\); rank-only criteria have **no hard exclusion** except via explicit E-map.
+- **Phase 2 (screening):** A12 avoidance caution triggers when the nearest >=50k population-centre proxy is inside its required distance: >=50k/8 km, >=100k/16 km, >=500k/32 km, >=1M/48 km.
+- **Phase 3 (ranking):** same \(c_i\in[0,10]\) feeds composite \(S\); RI-05 also hosts A12 as an avoidance caution under the explicit A-map.
 
 **Notes**
 
@@ -1613,35 +1617,35 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 
 ## NS-01 — Cooling water / ultimate heat sink
 
-| Field               | Content                   |
-| ------------------- | ------------------------- |
-| **Normative basis** | SSG-35 §4.9; **E9**; EPRI |
-| **Phase**           | Screen + rank             |
-| **Weight (%)**      | 4.7%                      |
+| Field               | Content                    |
+| ------------------- | -------------------------- |
+| **Normative basis** | SSG-35 §4.9; **A16**; EPRI |
+| **Phase**           | Rank + avoid               |
+| **Weight (%)**      | 4.7%                       |
 
 **Why this criterion matters (5–10 concise bullets)**
 
 - Adequate **heat rejection** is necessary for economic operation and licensing narratives.
 - Climate change and drought stress **once-through** designs.
 - Competing water users (agriculture, ecology) affect **permitability**.
-- Dry / hybrid cooling **changes** cost, performance, and land take (NS-05).
+- Dry / hybrid cooling **changes** cost, performance, and land take (NS-05) but remains the engineering fallback at screening, so cooling is treated as **avoidance**, not exclusion.
 - Coal sites often have **existing** CW infrastructure — major synergy.
 - River **thermal** limits may bind before hydrologic minimum flow.
-- **E9** triggers if no viable source and dry cooling not viable.
+- **A16** flags a cooling-water concern (source > 10 km and water-stress label `High` / `Extremely High`) for cooling-tower / dry / hybrid design review; the site remains in the candidate set.
 - Quality of national hydrological data is **heterogeneous**.
 
-**Proposed 0–10 scoring band**
+**Proposed 0–10 scoring band (weighted composite of A 44 % / B 25 % / C 31 %)**
 
-- **0–2:** **E9** — no adequate source for reference thermal load; dry cooling not viable.
-- **3–4:** Severe water stress; costly engineered solution required.
+- **0–2:** Degenerate — no HydroRIVERS source within 50 km and dry cooling judged not viable (arid country with `Extremely High` water stress).
+- **3–4:** Stream-only source (Strahler 1–2) or severe water stress requiring costly engineered solution.
 - **5–6:** Adequate with reasonable infrastructure and permits expected.
 - **7–8:** Strong resource with margin vs screening assumptions.
-- **9–10:** Excellent cooling water position; reuses existing assets.
+- **9–10:** Major river source on a low-water-stress basin; reuses existing assets.
 
-**Pass / fail cut:** **0** if **E9**; else **≥ 5.0**.
+**Pass / fail cut:** **≥ 5.0** (no hard exclusion; A16 is a `caution`).
 
-- **Phase 2 (screening):** apply pass/fail mark from summary table; **0** excludes when E-condition confirmed without remedy; **< 5.0** fails discretionary gate unless project waives.
-- **Phase 3 (ranking):** same \(c_i\in[0,10]\) feeds composite \(S\); rank-only criteria have **no hard exclusion** except via explicit E-map.
+- **Phase 2 (screening):** A16 surfaces a `caution` verdict for cooling design review; the site is not excluded.
+- **Phase 3 (ranking):** same \(c_i\in[0,10]\) feeds composite \(S\); NS-01 now participates in the composite weight (`participates_in_composite = True`).
 
 **Notes**
 

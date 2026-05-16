@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 1.1
 """Search-sentinel favourable bands fire when the connector confirms "no
 facility in radius" (the SP-F sentinel pattern documented in
 ``merge_context_derivations._derive_hi_search_sentinels`` and
@@ -18,6 +18,7 @@ from pathlib import Path
 import pytest
 
 from atoms_vs_ashes.scoring.bands import evaluate_criterion_value
+from atoms_vs_ashes.scoring.exclusionary import evaluate_fail_conditions
 from atoms_vs_ashes.scoring.rubric import load_rubric_bundle
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -164,6 +165,9 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 12.0,
             "nearest_airport_class": "small_airport",
+            "nearest_light_airport_km": 12.0,
+            "nearest_major_airport_km": None,
+            "flight_path_distance_km": 6.0,
             "nearest_military_airfield_km": None,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -174,6 +178,9 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 45.0,
             "nearest_airport_class": "large_airport",
+            "nearest_large_airport_km": 45.0,
+            "nearest_major_airport_km": 45.0,
+            "flight_path_distance_km": 20.0,
             "nearest_military_airfield_km": None,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -184,6 +191,9 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 22.0,
             "nearest_airport_class": "medium_airport",
+            "nearest_medium_airport_km": 22.0,
+            "nearest_major_airport_km": 22.0,
+            "flight_path_distance_km": 11.0,
             "nearest_military_airfield_km": 80.0,
             "under_flight_path": False,
         }
@@ -195,6 +205,9 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 10.0,
             "nearest_airport_class": "small_airport",
+            "nearest_light_airport_km": 10.0,
+            "nearest_major_airport_km": None,
+            "flight_path_distance_km": 5.0,
             "nearest_military_airfield_km": 40.0,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -205,6 +218,8 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 12.0,
             "nearest_airport_class": "large_airport",
+            "nearest_large_airport_km": 12.0,
+            "nearest_major_airport_km": 12.0,
             "nearest_military_airfield_km": 50.0,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -215,6 +230,8 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 5.0,
             "nearest_airport_class": "large_airport",
+            "nearest_large_airport_km": 5.0,
+            "nearest_major_airport_km": 5.0,
             "nearest_military_airfield_km": 30.0,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -225,6 +242,7 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 20.0,
             "nearest_airport_class": "small_airport",
+            "nearest_light_airport_km": 20.0,
             "nearest_military_airfield_km": 12.0,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -235,9 +253,82 @@ class TestHi01V2BandsFire:
         ctx = {
             "nearest_airport_km": 4.0,
             "nearest_airport_class": "large_airport",
+            "nearest_large_airport_km": 4.0,
+            "nearest_major_airport_km": 4.0,
             "nearest_military_airfield_km": 30.0,
             "under_flight_path": True,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
         assert result.matched_band is not None
         assert result.matched_band.score_range == (0.0, 0.0)
+
+
+class TestHi01AvoidanceDecisionsABC:
+    def _verdicts_by_code(self, hi01, ctx):
+        return {
+            evaluation.code: evaluation
+            for evaluation in evaluate_fail_conditions(
+                hi01,
+                ctx,
+                action="avoidance_penalty",
+            )
+        }
+
+    def test_a3_completed_search_null_airfield_passes(self, hi01) -> None:
+        ctx = {
+            "nearest_military_airfield_km": None,
+            "nearest_airport_km": 45.0,
+            "nearest_airport_type": "small_airport",
+            "nearest_major_airport_km": 45.0,
+            "nearest_light_airport_km": 45.0,
+            "flight_path_distance_km": 20.0,
+            "under_flight_path": False,
+            "hi06_quality": "high",
+        }
+        assert self._verdicts_by_code(hi01, ctx)["A3"].verdict == "pass"
+
+    def test_a3_missing_military_search_stays_inconclusive(self, hi01) -> None:
+        ctx = {
+            "nearest_airport_km": 45.0,
+            "nearest_airport_type": "small_airport",
+            "nearest_major_airport_km": 45.0,
+            "nearest_light_airport_km": 45.0,
+            "flight_path_distance_km": 20.0,
+            "under_flight_path": False,
+        }
+        assert self._verdicts_by_code(hi01, ctx)["A3"].verdict == "inconclusive"
+
+    def test_a2_sees_major_airport_shadowed_by_heliport(self, hi01) -> None:
+        ctx = {
+            "nearest_airport_km": 1.39,
+            "nearest_airport_type": "heliport",
+            "nearest_light_airport_km": 1.39,
+            "nearest_medium_airport_km": 4.3,
+            "nearest_major_airport_km": 4.3,
+            "nearest_military_airfield_km": None,
+            "flight_path_distance_km": 0.7,
+            "under_flight_path": False,
+        }
+        verdicts = self._verdicts_by_code(hi01, ctx)
+        assert verdicts["A2"].verdict == "fail"
+        result = evaluate_criterion_value(hi01, ctx, quality="medium")
+        assert result.matched_band is not None
+        assert result.matched_band.score_range == (3.0, 4.0)
+
+    def test_a1_a4_no_longer_share_favourable_small_airport_band(self, hi01) -> None:
+        ctx = {
+            "nearest_airport_km": 7.3,
+            "nearest_airport_type": "small_airport",
+            "nearest_airport_class": "small_airport",
+            "nearest_light_airport_km": 7.3,
+            "nearest_major_airport_km": 34.2,
+            "nearest_military_airfield_km": None,
+            "flight_path_distance_km": 3.65,
+            "under_flight_path": False,
+        }
+        verdicts = self._verdicts_by_code(hi01, ctx)
+        assert verdicts["A1"].verdict == "fail"
+        assert verdicts["A4"].verdict == "fail"
+        result = evaluate_criterion_value(hi01, ctx, quality="medium")
+        assert result.matched_band is not None
+        assert result.matched_band.score_range == (3.0, 4.0)

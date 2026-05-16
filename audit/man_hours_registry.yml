@@ -1,4 +1,4 @@
-# man_hours: 2.5
+# man_hours: 2.7
 # Man-hours registry — auto-maintained per .cursor/rules/man-hours.mdc
 # Each entry: file path -> { hours (cumulative total), category }
 
@@ -20,6 +20,30 @@ files:
 
   config/default.yml:
     hours: 8.0
+    category: "Configuration & DevOps"
+
+  config/scoring_specs/hi_human_induced.yaml:
+    hours: 5.0
+    category: "Configuration & DevOps"
+
+  config/scoring_rubrics/hi_human_induced.yaml:
+    hours: 5.1
+    category: "Configuration & DevOps"
+
+  config/scoring_rubrics/ns_non_safety.yaml:
+    hours: 6.2
+    category: "Configuration & DevOps"
+
+  config/scoring_specs/ns_non_safety.yaml:
+    hours: 6.2
+    category: "Configuration & DevOps"
+
+  config/scoring_specs/nh_natural_hazards.yaml:
+    hours: 10.3
+    category: "Configuration & DevOps"
+
+  config/scoring_specs/threshold_metadata.yaml:
+    hours: 4.2
     category: "Configuration & DevOps"
 
   docker-compose.yml:
@@ -54,6 +78,10 @@ files:
 
   alembic/versions/004_seed_epz_emergency_criteria.py:
     hours: 2.5
+    category: "Database & Migrations"
+
+  src/alembic/versions/045_add_ns07_env_impact_tier.py:
+    hours: 0.3
     category: "Database & Migrations"
 
   # ── Architecture & Design ───────────────────────────────────────
@@ -283,7 +311,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/db/models.py:
-    hours: 32.0
+    hours: 32.1
     category: "Implementation"
 
   src/atoms_vs_ashes/geo.py:
@@ -364,6 +392,10 @@ files:
     hours: 6.0
     category: "Testing"
 
+  tests/test_ns03_transport_access_scenario_b.py:
+    hours: 1.2
+    category: "Testing"
+
   tests/test_ingest_ownership.py:
     hours: 1.0
     category: "Testing"
@@ -402,6 +434,10 @@ files:
 
   tests/test_coverage_report_phantom_handling.py:
     hours: 0.3
+    category: "Testing"
+
+  tests/scoring/test_ns07_env_impact_tier.py:
+    hours: 0.5
     category: "Testing"
 
   tests/test_screening_land_area.py:
@@ -731,11 +767,15 @@ files:
   # ── OSM/Corine/Population connector updates (Apr 2026) ─────────
 
   src/atoms_vs_ashes/connectors/osm/batch.py:
-    hours: 6.0
+    hours: 6.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/connectors/osm/heavy_haul.py:
+    hours: 1.3
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/osm/parsers.py:
-    hours: 4.0
+    hours: 4.4
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/corine/batch.py:
@@ -753,7 +793,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/schemas.py:
-    hours: 16.0
+    hours: 16.2
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/context.py:
@@ -765,7 +805,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/persist.py:
-    hours: 4.0
+    hours: 4.2
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/audit_log.py:
@@ -1167,7 +1207,7 @@ files:
     category: "AI Prompts & Tooling"
 
   prompts/lessons_learned.md:
-    hours: 5.5
+    hours: 6.8
     category: "AI Prompts & Tooling"
 
   report/output/feedback/plans/feedback_lessons_learnt.md:
@@ -1615,7 +1655,7 @@ files:
     category: "Project Management & QA"
 
   audit/post_processing/scoring_conformity/ep01_direction_decision.md:
-    hours: 0.6
+    hours: 0.85
     category: "Project Management & QA"
 
   audit/post_processing/scoring_conformity/full_pass_drift_decision.md:
@@ -1675,11 +1715,11 @@ files:
     category: "Testing"
 
   tests/scoring/test_search_sentinel_bands.py:
-    hours: 0.7
+    hours: 1.1
     category: "Testing"
 
   tests/scoring/test_context_derivations.py:
-    hours: 0.4
+    hours: 0.8
     category: "Testing"
 
   src/scripts/sync_merged_from_source.py:
@@ -1691,11 +1731,11 @@ files:
     category: "Project Management & QA"
 
   config/scoring_rubrics/ri_radiological.yaml:
-    hours: 4.0
+    hours: 4.4
     category: "Configuration & DevOps"
 
   config/scoring_specs/ri_radiological.yaml:
-    hours: 4.0
+    hours: 4.4
     category: "Configuration & DevOps"
 
   src/atoms_vs_ashes/criterion_spec/preview.py:
@@ -1735,7 +1775,11 @@ files:
     category: "Implementation"
 
   tests/criterion_spec/test_preview_descriptor.py:
-    hours: 0.7
+    hours: 0.8
+    category: "Testing"
+
+  tests/criterion_spec/test_excl_expr_derived_from_pivot.py:
+    hours: 0.85
     category: "Testing"
 
   tests/gui/test_results_avoidance_diag.py:
@@ -1798,6 +1842,14 @@ files:
     hours: 0.5
     category: "Testing"
 
+  tests/scoring/test_compiler_parity.py:
+    hours: 1.8
+    category: "Testing"
+
+  tests/scoring/test_threshold_band_runtime.py:
+    hours: 2.2
+    category: "Testing"
+
   audit/plans/nh04_single_pivot_iaea_25deg.md:
     hours: 1.0
     category: "Project Management & QA"
@@ -1842,6 +1894,355 @@ files:
     hours: 1.8
     category: "Project Management & QA"
 
+  audit/conversations/2026-05-16_ep01-exclusionary-sweep-band-recipe.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-16_hi01-aircraft-abc-implementation.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  IMPROVEMENTS.md:
+    hours: 2.2
+    category: "Project Management & QA"
+
   tests/scoring/test_ns08_strict_overlap.py:
     hours: 1.0
     category: "Testing"
+
+  tests/scoring/test_ns01_refactor.py:
+    hours: 1.5
+    category: "Testing"
+
+  tests/scoring/test_suitable_sites_audit.py:
+    hours: 1.2
+    category: "Testing"
+
+  src/atoms_vs_ashes/scoring/merge_context_derivations.py:
+    hours: 2.1
+    category: "Implementation"
+
+  audit/plans/ns01_e9_to_a16_avoidance.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  architecture/plans/ns01_e9_to_a16_avoidance.md:
+    hours: 1.0
+    category: "Architecture & Design"
+
+  audit/conversations/2026-05-16_ns01-e9-to-a16-cooling-stress.md:
+    hours: 1.4
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-16_nh09-river-flooding-decision.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  criteria/non_safety/NS-01 — Cooling water (ultimate heat sink).md:
+    hours: 1.2
+    category: "Other"
+
+  criteria/avoidance/NS-03_A14_transport_access.md:
+    hours: 1.8
+    category: "Other"
+
+  audit/conversations/2026-05-16_ns03-a14-transport-access-scenario-b.md:
+    hours: 0.8
+    category: "Project Management & QA"
+
+  criteria/avoidance/NH-09_A11_river_flooding.md:
+    hours: 1.8
+    category: "Other"
+
+  criteria/avoidance/HI-01_A1-A4_aircraft_crash_hazard.md:
+    hours: 1.8
+    category: "Other"
+
+  audit/conversations/2026-05-16_nh10-action-norms-alignment.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  criteria/ranking/BF-02 — Land and nuclear-island footprint.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-01 — Seismic ground motion PGA.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-02 — Seismic surface rupture capable faults.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-03 — Geotechnical settlement and liquefaction.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-04 — Geotechnical slope stability.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-05 — Subsidence karst mining oil and gas.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-06 — Foundation conditions.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-07 — Volcanism.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-08 — Coastal flooding storm surge and tsunami.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-09 — River flooding.md:
+    hours: 1.4
+    category: "Other"
+
+  criteria/ranking/NH-10 — Extreme winds.md:
+    hours: 1.2
+    category: "Other"
+
+  criteria/ranking/NH-11 — Extreme precipitation rain snow and drought.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-12 — Extreme temperatures.md:
+    hours: 0.8
+    category: "Other"
+
+  criteria/ranking/NH-13 — Forest and wildfire.md:
+    hours: 1.0
+    category: "Other"
+
+  criteria/ranking/NH-14 — Combined hazards.md:
+    hours: 1.0
+    category: "Other"
+
+  audit/conversations/2026-05-16_ranking-bf-nh-criteria-docs.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  config/scoring_rubrics/nh_natural_hazards.yaml:
+    hours: 4.7
+    category: "Configuration & DevOps"
+
+  report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md:
+    hours: 1.2
+    category: "Other"
+
+  criteria/avoidance/NH-08_A9_coastal_flooding.md:
+    hours: 1.8
+    category: "Other"
+
+  audit/conversations/2026-05-16_nh08-a9-coastal-caution.md:
+    hours: 0.8
+    category: "Project Management & QA"
+
+  criteria/avoidance/NS-07_environmental_impact_avoidance_phase.md:
+    hours: 1.0
+    category: "Other"
+
+  report/version 1.01/sites_evaluation/07_criteria_non_safety.md:
+    hours: 6.0
+    category: "Other"
+
+  src/atoms_vs_ashes/criterion_spec/_band_recipes.py:
+    hours: 2.6
+    category: "Implementation"
+
+  tests/criterion_spec/test_band_recipes.py:
+    hours: 1.2
+    category: "Testing"
+
+  tests/scoring/test_hi02_a7_option_a.py:
+    hours: 1.0
+    category: "Testing"
+
+  criteria/avoidance/NS-02_A13_grid_connection.md:
+    hours: 1.2
+    category: "Other"
+
+  audit/conversations/2026-05-16_ns02-a13-grid-option-a.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  src/atoms_vs_ashes/criterion_spec/schema.py:
+    hours: 4.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/criterion_spec/compiler.py:
+    hours: 4.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/rubric.py:
+    hours: 4.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/exclusionary.py:
+    hours: 3.3
+    category: "Implementation"
+
+  criteria/avoidance/HI-02_A7_industrial_explosions.md:
+    hours: 3.0
+    category: "Other"
+
+  docs/expert_siting_criteria_evaluation_matrix.md:
+    hours: 8.0
+    category: "Other"
+
+  criteria/avoidance/RI-05_A12_population_centres.md:
+    hours: 1.9
+    category: "Other"
+
+  criteria/ranking/RI-05 — Distance to large population centres.md:
+    hours: 1.0
+    category: "Other"
+
+  tests/scoring/test_ri05_population_centres.py:
+    hours: 1.0
+    category: "Testing"
+
+  audit/conversations/2026-05-16_ri05-a12-option-b.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  criteria/ranking/EP-01 — Emergency-plan feasibility (composite).md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/EP-02 — Evacuation routes (road network).md:
+    hours: 0.25
+    category: "Other"
+
+  criteria/ranking/EP-03 — Physical-geography constraints.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/EP-04 — Special populations (hospitals, prisons, care homes).md:
+    hours: 0.25
+    category: "Other"
+
+  criteria/ranking/EP-05 — Concurrent-hazard impact on EP.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/HI-01 — Aircraft crash hazard.md:
+    hours: 0.35
+    category: "Other"
+
+  criteria/ranking/HI-02 — Industrial explosions (Seveso, IED).md:
+    hours: 0.35
+    category: "Other"
+
+  criteria/ranking/HI-03 — Toxic and gas releases.md:
+    hours: 0.35
+    category: "Other"
+
+  criteria/ranking/HI-04 — External fires.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/HI-05 — Transport hazards (hazmat road, rail, pipe).md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/HI-06 — Military installations.md:
+    hours: 0.35
+    category: "Other"
+
+  criteria/ranking/HI-07 — Electromagnetic interference.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/HI-08 — Other nuclear installations.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/RI-01 — Atmospheric dispersion.md:
+    hours: 0.7
+    category: "Other"
+
+  criteria/ranking/RI-02 — Surface water dispersion.md:
+    hours: 0.5
+    category: "Other"
+
+  criteria/ranking/RI-03 — Groundwater dispersion.md:
+    hours: 0.7
+    category: "Other"
+
+  criteria/ranking/RI-04 — Population density (EPZ rings).md:
+    hours: 0.6
+    category: "Other"
+
+  criteria/ranking/RI-06 — Population projections.md:
+    hours: 0.5
+    category: "Other"
+
+  criteria/ranking/NS-01 — Cooling water ultimate heat sink.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-02 — Grid connection detailed.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-03 — Transport access heavy haul.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-04 — Site topography grading.md:
+    hours: 0.3
+    category: "Other"
+
+  criteria/ranking/NS-05 — Land availability ownership zoning.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-06 — Existing infrastructure reuse.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-07 — Environmental impact non-radiological.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-08 — Ecological sensitivity Natura 2000 WDPA.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-09 — Socioeconomic impact.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-10 — Workforce availability.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-11 — Coal-to-nuclear synergies.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-12 — Regulatory political environment.md:
+    hours: 0.4
+    category: "Other"
+
+  criteria/ranking/NS-13 — Construction logistics.md:
+    hours: 0.4
+    category: "Other"
+
+  architecture/plans/ranking_criteria_sweep_af7be868.plan.md:
+    hours: 1.0
+    category: "Architecture & Design"
+
+  audit/plans/ranking_criteria_sweep_af7be868.plan.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-16_ranking-criteria-sweep.md:
+    hours: 1.0
+    category: "Project Management & QA"
+

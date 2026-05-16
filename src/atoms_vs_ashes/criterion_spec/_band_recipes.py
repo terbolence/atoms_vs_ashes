@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.6
 """Recompute :class:`BandSpec` rows from a pivot / fail value (for editor live)."""
 
 from __future__ import annotations
@@ -42,10 +42,16 @@ def bands_from_recipe(
     k = recipe.kind
     if k == "higher_is_better":
         m = _metric_for_recipe(template, recipe)
-        return _higher_is_better(m, float(pivot), null_policy=recipe.null_policy)
-    if recipe.null_policy == "best":
+        return _higher_is_better(
+            m,
+            float(pivot),
+            null_policy=recipe.null_policy,
+            null_best_condition_expr=recipe.null_best_condition_expr,
+        )
+    if recipe.null_policy == "best" or recipe.null_best_condition_expr:
         raise ValueError(
-            f"band_recipe.null_policy='best' is only valid for kind="
+            f"band_recipe.null_policy='best' or null_best_condition_expr "
+            f"is only valid for kind="
             f"'higher_is_better'; got kind={k!r} on "
             f"{template.criterion_id}. NULL-as-best semantics require a "
             "monotonic distance/headroom metric."
@@ -67,10 +73,7 @@ def bands_from_recipe(
         return nh05_mine_composite(float(pivot))
     if k == "capacity_margin":
         req = max(float(pivot), 1.0)
-        m = 0.20
-        t5 = max(req * (1.0 - m), 0.0)
-        t3 = max(req * (1.0 - 2.0 * m), 0.0)
-        return _capacity_bands(t5, t3, req)
+        return _capacity_bands(req)
     m = _metric_for_recipe(template, recipe)
     return _higher_is_better(m, float(pivot))
 
@@ -87,12 +90,22 @@ def _metric_for_recipe(template: CriterionTemplate, recipe: BandRecipeSpec) -> s
 
 
 def _higher_is_better(
-    metric: str, f: float, *, null_policy: str | None = None
+    metric: str,
+    f: float,
+    *,
+    null_policy: str | None = None,
+    null_best_condition_expr: str | None = None,
 ) -> list[BandSpec]:
     f = max(float(f), 1e-6)
     top_expr = f"{metric} >= {_num(5.0 * f)}"
     top_descriptor = "Very strong margin above the score-5 boundary."
-    if null_policy == "best":
+    if null_best_condition_expr:
+        top_expr = f"({metric} is null and {null_best_condition_expr}) or {top_expr}"
+        top_descriptor = (
+            "Very strong margin above the score-5 boundary "
+            "(or completed search confirmed no in-radius signal)."
+        )
+    elif null_policy == "best":
         top_expr = f"{metric} is null or {top_expr}"
         top_descriptor = (
             "Very strong margin above the score-5 boundary "
@@ -247,30 +260,28 @@ def _flood(fail_km: float, el: float) -> list[BandSpec]:
     ]
 
 
-def _capacity_bands(
-    t_score5: float, t_score3: float, required_mw: float
-) -> list[BandSpec]:
+def _capacity_bands(required_mw: float) -> list[BandSpec]:
     g = "grid_export_capacity_mw"
     return [
         BandSpec(
             score_range=(9, 10),
-            condition_expr=f"{g} >= {_num(1.2 * required_mw)}",
-            descriptor="Grid headroom at least 20% above export need.",
+            condition_expr=f"{g} >= {_num(1.4 * required_mw)}",
+            descriptor="Grid headroom at least 40% above export need.",
         ),
         BandSpec(
             score_range=(7, 8),
-            condition_expr=f"{g} >= {_num(t_score5)}",
-            descriptor="Meets the preferred export-capacity margin.",
+            condition_expr=f"{g} >= {_num(1.2 * required_mw)}",
+            descriptor="Meets the preferred 20% export-capacity margin.",
         ),
         BandSpec(
             score_range=(5, 6),
-            condition_expr=f"{g} >= {_num(t_score3)}",
-            descriptor="Below preferred margin but above the hard floor.",
+            condition_expr=f"{g} >= {_num(required_mw)}",
+            descriptor="Meets the A13 hard floor with limited export-capacity margin.",
         ),
         BandSpec(
             score_range=(3, 4),
-            condition_expr=f"{g} >= {_num(0.5 * t_score3)}",
-            descriptor="Very tight export-capacity margin.",
+            condition_expr=f"{g} >= {_num(0.8 * required_mw)}",
+            descriptor="Below the A13 hard floor but within 20% of the export need.",
         ),
         BandSpec(
             score_range=(1, 2),

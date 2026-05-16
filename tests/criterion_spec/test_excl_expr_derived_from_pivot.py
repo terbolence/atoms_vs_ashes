@@ -1,4 +1,4 @@
-# man_hours: 0.75
+# man_hours: 0.85
 """End-to-end checks for single-pivot exclusion derivation.
 
 For criteria that opted in via ``derive_expr_from_recipe=true``, the
@@ -89,11 +89,13 @@ def test_defaults_drive_single_pivot_exclusion(default_bundle):
     assert _fail_expr(out, "NH-02", "E1") == "nearest_fault_km < 5"
     assert _fail_expr(out, "NH-04", "E3") == "slope_angle_deg > 25"
     assert _fail_expr(out, "NH-07", "E4") == "nearest_volcano_km < 50"
+    assert _fail_expr(out, "EP-01", "E8") == "ep01_composite_score < 30"
 
     assert out.derived_exclusion_exprs == {
         "NH-02": "nearest_fault_km < 5",
         "NH-04": "slope_angle_deg > 25",
         "NH-07": "nearest_volcano_km < 50",
+        "EP-01": "ep01_composite_score < 30",
     }
 
 
@@ -127,11 +129,21 @@ def test_user_override_shifts_bands_and_exclusion_together(
 def test_optout_criteria_keep_hand_written_condition_expr(default_bundle):
     out = compile_bundle(default_bundle)
 
-    # EP-01 E8 retains its trauma-centre disjunct because the fail_condition
-    # did not opt in to derive_expr_from_recipe.
-    ep01_e8 = _fail_expr(out, "EP-01", "E8")
-    assert "nearest_trauma_center_km" in ep01_e8
-    assert "EP-01" not in out.derived_exclusion_exprs
+    # NH-03 E2 is a hand-written compound exclusion (liquefaction
+    # susceptibility AND remedy) that the recipe-derivation machinery
+    # cannot represent. It must keep its YAML condition_expr verbatim
+    # and stay out of derived_exclusion_exprs.
+    nh03_e2 = _fail_expr(out, "NH-03", "E2")
+    assert "liquefaction_suscept" in nh03_e2
+    assert "has_remedy" in nh03_e2
+    assert "NH-03" not in out.derived_exclusion_exprs
+
+    # NS-08 E7 uses a derived signal (site_within_strict_protected)
+    # computed by merge_context_derivations, not a numeric pivot. It is
+    # the second canonical opt-out shape.
+    ns08_e7 = _fail_expr(out, "NS-08", "E7")
+    assert "site_within_strict_protected" in ns08_e7
+    assert "NS-08" not in out.derived_exclusion_exprs
 
 
 # ---------------------------------------------------------------------------

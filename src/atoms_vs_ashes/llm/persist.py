@@ -1,3 +1,4 @@
+# man_hours: 4.2
 """Persistence layer — writes LLM assessment results to the LLM database.
 
 Maps each criterion's structured output to the appropriate domain table,
@@ -149,7 +150,7 @@ _FIELD_MAP: dict[str, dict[str, str]] = {
     "NS-04": {"dominant_land_class": "dominant_land_class", "favourable_land_pct": "favourable_land_pct"},
     "NS-05": {"buildable_area_ha": "buildable_area_ha", "largest_contiguous_ha": "largest_contiguous_ha"},
     "NS-06": {"reusable_infra_score": "reusable_infra_score"},
-    "NS-07": {"env_impact_notes": "env_impact_notes"},
+    "NS-07": {"env_impact_tier": "env_impact_tier", "env_impact_notes": "env_impact_notes"},
     "NS-13": {"laydown_suitable_ha": "laydown_suitable_ha", "laydown_largest_patch_ha": "laydown_largest_patch_ha"},
     "NH-14": {"combined_hazard_notes": "combined_hazard_notes"},
     "EP-05": {"concurrent_hazard_notes": "concurrent_hazard_notes"},

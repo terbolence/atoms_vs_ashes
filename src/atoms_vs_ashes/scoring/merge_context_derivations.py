@@ -1,8 +1,9 @@
-# man_hours: 1.0
+# man_hours: 2.1
 """Alias and derived-value helpers for scoring context assembly."""
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 _COLUMN_ALIASES: dict[tuple[str, str], tuple[str, ...]] = {
@@ -14,8 +15,10 @@ _COLUMN_ALIASES: dict[tuple[str, str], tuple[str, ...]] = {
     ("site_natural_hazards", "flood_zone_class_500yr"): ("flood_zone_class",),
     ("site_human_induced", "nearest_hazmat_corridor_km"): ("hazmat_route_distance_km",),
     ("site_human_induced", "transmitter_count_10km"): ("transmitter_count",),
+    ("site_human_induced", "nearest_medium_airport_km"): ("nearest_type2_airport_km",),
     ("site_human_hazards", "nearest_hazmat_corridor_km"): ("hazmat_route_distance_km",),
     ("site_human_hazards", "transmitter_count_10km"): ("transmitter_count",),
+    ("site_human_hazards", "nearest_medium_airport_km"): ("nearest_type2_airport_km",),
 }
 
 DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
@@ -23,6 +26,13 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "special_pop_count",
     "under_flight_path",
     "nearest_military_airfield_km",
+    "nearest_large_airport_km",
+    "nearest_medium_airport_km",
+    "nearest_type2_airport_km",
+    "nearest_small_airport_km",
+    "nearest_heliport_km",
+    "nearest_major_airport_km",
+    "nearest_light_airport_km",
     "site_within_strict_protected",
     "nearest_volcano_km",
     "coast_distance_km",
@@ -45,6 +55,9 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "nh_min_resolved_score",
     "nh_count_below_5",
     "nh_count_below_7",
+    "dry_cooling_viable",
+    "ri05_required_distance_km",
+    "ri05_distance_margin_pct",
 })
 
 # SP-F (Ovidiu): per-module land thresholds. Multi-unit sites scale linearly.
@@ -87,6 +100,54 @@ _LANDLOCKED_ISO2: frozenset[str] = frozenset({
     "XK",
 })
 
+# NS-01 ``dry_cooling_viable`` derivation (LL-036, 2026-05-16). Mediterranean
+# and southern-European countries where summer dry-bulb temperatures combined
+# with ``water_stress_label == 'Extremely High'`` make dry / hybrid cooling
+# towers materially harder to design. Anywhere outside this set defaults to
+# ``dry_cooling_viable = True`` (dry cooling remains the engineering fallback).
+# Initial scope chosen from project geography + the empirical observation
+# that all 22 currently-flagged "Extremely High" water-stress sites are TR.
+_ARID_OR_HOT_SUMMER_ISO2: frozenset[str] = frozenset({
+    "TR",
+    "CY",
+    "MT",
+    "ES",
+    "PT",
+    "GR",
+})
+
+# RI-05 Option B (2026-05-16): keep A12 scoreable from the existing nearest
+# >=50k city fields while the exact four-tier population envelope is backlogged.
+_RI05_POP_PROXY_LADDER: tuple[tuple[float, float], ...] = (
+    (1_000_000.0, 48.0),
+    (500_000.0, 32.0),
+    (100_000.0, 16.0),
+    (50_000.0, 8.0),
+)
+
+_HI01_COMMENT_DISTANCE_RE = re.compile(
+    r"\bNearest\s+(large|medium|small|heliport):\s*([0-9]+(?:\.[0-9]+)?)\s*km\b",
+    re.IGNORECASE,
+)
+
+_HI01_LARGE_CLASSES: frozenset[str] = frozenset({
+    "large_airport",
+    "large_intl",
+    "commercial",
+    "large",
+})
+_HI01_MEDIUM_CLASSES: frozenset[str] = frozenset({"medium_airport", "medium"})
+_HI01_SMALL_CLASSES: frozenset[str] = frozenset({
+    "small_airport",
+    "small",
+    "small_ga",
+    "general_aviation",
+    "light",
+    "seaplane_base",
+    "balloonport",
+})
+_HI01_HELIPORT_CLASSES: frozenset[str] = frozenset({"heliport"})
+
 
 def column_aliases(table: str, column: str) -> tuple[str, ...]:
     """Return schema aliases for rubric-era ``table.column`` anchors."""
@@ -98,12 +159,54 @@ def apply_derived_context_values(values: dict[str, Any]) -> None:
     _copy_aliases(values)
     _derive_ns08_strictness(values)
     _derive_boolean_defaults(values)
+    _derive_hi01_airport_class_distances(values)
     _derive_military_airfield_distance(values)
     _derive_population_and_weather(values)
     _derive_site_screening_flags(values)
     _derive_unit_scaled_thresholds(values)
     _derive_slope_aliases(values)
     _derive_hi_search_sentinels(values)
+    _derive_dry_cooling_viable(values)
+    _derive_ri05_population_centre_proxy(values)
+
+
+def _derive_ri05_population_centre_proxy(values: dict[str, Any]) -> None:
+    """Derive RI-05 proxy thresholds from nearest >=50k city evidence."""
+    if values.get("ri05_required_distance_km") is not None:
+        required = values["ri05_required_distance_km"]
+    else:
+        pop_raw = values.get("nearest_city_pop")
+        if pop_raw is None:
+            return
+        try:
+            population = float(pop_raw)
+        except (TypeError, ValueError):
+            return
+        required = None
+        for min_population, distance_km in _RI05_POP_PROXY_LADDER:
+            if population >= min_population:
+                required = distance_km
+                break
+        if required is None:
+            return
+        values["ri05_required_distance_km"] = required
+
+    if values.get("ri05_distance_margin_pct") is not None:
+        return
+    distance_raw = values.get("nearest_city_50k_km")
+    if distance_raw is None:
+        return
+    try:
+        distance = float(distance_raw)
+        required_distance = float(required)
+    except (TypeError, ValueError):
+        return
+    if required_distance <= 0:
+        return
+    values["ri05_distance_margin_pct"] = round(
+        ((distance - required_distance) / required_distance) * 100.0,
+        3,
+    )
 
 
 def _derive_unit_scaled_thresholds(values: dict[str, Any]) -> None:
@@ -165,6 +268,96 @@ def _derive_hi_search_sentinels(values: dict[str, Any]) -> None:
             values[sentinel] = False
             continue
         values[sentinel] = quality_str in _SEARCH_COMPLETED_QUALITY_OK
+
+
+def _derive_hi01_airport_class_distances(values: dict[str, Any]) -> None:
+    """Expose HI-01 class-specific airport distances for scoring.
+
+    The OurAirports connector computes class distances, but the current DB
+    schema persists only the nearest-airport scalar fields plus a comment that
+    includes nearest large/medium distances. This derivation preserves caller
+    supplied structured values and fills the missing scoring aliases from the
+    nearest-airport fields and that connector comment.
+    """
+    _derive_hi01_distances_from_nearest(values)
+    _derive_hi01_distances_from_comment(values)
+    if values.get("nearest_medium_airport_km") is None and values.get("nearest_type2_airport_km") is not None:
+        values["nearest_medium_airport_km"] = values["nearest_type2_airport_km"]
+    if values.get("nearest_type2_airport_km") is None and values.get("nearest_medium_airport_km") is not None:
+        values["nearest_type2_airport_km"] = values["nearest_medium_airport_km"]
+    _set_min_distance(values, "nearest_major_airport_km", (
+        values.get("nearest_large_airport_km"),
+        values.get("nearest_medium_airport_km"),
+    ))
+    _set_min_distance(values, "nearest_light_airport_km", (
+        values.get("nearest_small_airport_km"),
+        values.get("nearest_heliport_km"),
+    ))
+
+
+def _derive_hi01_distances_from_nearest(values: dict[str, Any]) -> None:
+    airport_class = values.get("nearest_airport_class") or values.get("nearest_airport_type")
+    if not isinstance(airport_class, str):
+        return
+    distance = values.get("nearest_airport_km")
+    if distance is None:
+        return
+    cls = airport_class.strip().lower()
+    if cls in _HI01_LARGE_CLASSES:
+        if values.get("nearest_large_airport_km") is None:
+            values["nearest_large_airport_km"] = distance
+    elif cls in _HI01_MEDIUM_CLASSES:
+        if values.get("nearest_medium_airport_km") is None:
+            values["nearest_medium_airport_km"] = distance
+        if values.get("nearest_type2_airport_km") is None:
+            values["nearest_type2_airport_km"] = distance
+    elif cls in _HI01_SMALL_CLASSES:
+        if values.get("nearest_small_airport_km") is None:
+            values["nearest_small_airport_km"] = distance
+    elif cls in _HI01_HELIPORT_CLASSES:
+        if values.get("nearest_heliport_km") is None:
+            values["nearest_heliport_km"] = distance
+
+
+def _derive_hi01_distances_from_comment(values: dict[str, Any]) -> None:
+    comment = values.get("hi01_comment")
+    if not isinstance(comment, str):
+        return
+    for match in _HI01_COMMENT_DISTANCE_RE.finditer(comment):
+        kind = match.group(1).lower()
+        try:
+            distance = float(match.group(2))
+        except ValueError:
+            continue
+        if kind == "large":
+            _set_min_distance(values, "nearest_large_airport_km", (distance,))
+        elif kind == "medium":
+            _set_min_distance(values, "nearest_medium_airport_km", (distance,))
+            _set_min_distance(values, "nearest_type2_airport_km", (distance,))
+        elif kind == "small":
+            _set_min_distance(values, "nearest_small_airport_km", (distance,))
+        elif kind == "heliport":
+            _set_min_distance(values, "nearest_heliport_km", (distance,))
+
+
+def _set_min_distance(
+    values: dict[str, Any],
+    target: str,
+    candidates: tuple[Any, ...],
+) -> None:
+    distances: list[float] = []
+    current = values.get(target)
+    if current is not None:
+        candidates = (current, *candidates)
+    for candidate in candidates:
+        if candidate is None:
+            continue
+        try:
+            distances.append(float(candidate))
+        except (TypeError, ValueError):
+            continue
+    if distances:
+        values[target] = min(distances)
 
 
 # NS-08: IUCN categories treated as exclusionary under SSG-35 Table II-1.
@@ -242,6 +435,37 @@ def _derive_ns08_strictness(values: dict[str, Any]) -> None:
         is_n2k_polygon_overlap or is_strict_wdpa_overlap
     )
     values["wdpa_strict_overlap"] = is_strict_wdpa_overlap
+
+
+def _derive_dry_cooling_viable(values: dict[str, Any]) -> None:
+    """Derive NS-01 ``dry_cooling_viable`` from country + water-stress signals.
+
+    Used by the NS-01 source-type sub-score's 0-band (degenerate "no
+    water source AND no dry-cooling fallback" case). Conservative default
+    is ``True`` — dry / hybrid cooling is the engineering fallback for
+    SMR siting and is always available unless evidence shows otherwise.
+
+    A site flips to ``False`` only when **both** of the following hold:
+
+    1. ``country_code`` is in :data:`_ARID_OR_HOT_SUMMER_ISO2`
+       (Mediterranean / southern-European countries where high summer
+       dry-bulb temperatures materially degrade dry-cooling efficiency).
+    2. ``water_stress_label == 'Extremely High'`` (WRI Aqueduct
+       baseline), confirming the site cannot fall back to a hybrid
+       wet/dry tower in dry season either.
+
+    Caller-supplied values take precedence so unit tests and any future
+    LLM-promoted field can override the derivation.
+    """
+    if "dry_cooling_viable" in values:
+        return
+    cc_raw = values.get("country_code")
+    label = values.get("water_stress_label")
+    cc = cc_raw.strip().upper()[:2] if isinstance(cc_raw, str) and len(cc_raw.strip()) >= 2 else None
+    if cc in _ARID_OR_HOT_SUMMER_ISO2 and label == "Extremely High":
+        values["dry_cooling_viable"] = False
+    else:
+        values["dry_cooling_viable"] = True
 
 
 def _copy_aliases(values: dict[str, Any]) -> None:

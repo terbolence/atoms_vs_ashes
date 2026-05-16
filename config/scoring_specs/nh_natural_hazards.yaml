@@ -1,3 +1,4 @@
+# man_hours: 10.3
 # Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: nh
@@ -8,8 +9,6 @@ criteria:
     phases: [basic_filter]
     weight_factor: 8
     normalised_weight_pct: 2.8
-    weight_factors: {baseline: 8, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-01 (EPRI grid screening; project A13)"}
     weight_factors: {baseline: 8, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-01 (EPRI grid screening; project A13)"}
     db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: bf01_grid_text}
@@ -33,8 +32,6 @@ criteria:
     phases: [basic_filter, ranking]
     weight_factor: 5
     normalised_weight_pct: 1.8
-    weight_factors: {baseline: 5, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-02 (EPRI footprint; project A15)"}
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-02 (EPRI footprint; project A15)"}
     db_fields: {api: [site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, sites.site_area_ha], llm: bf02_land_text}
@@ -121,6 +118,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "liquefaction_suscept in ['high', 'very_high'] and has_remedy == false", descriptor: "High or very-high susceptibility with explicitly no documented mitigation (E2 hard fail)."}
     fail_conditions:
       - {code: E2, action: exclude, condition_expr: "liquefaction_suscept in ['high', 'very_high'] and has_remedy == false", pass_mark: 5.0, descriptor: "High or very-high liquefaction susceptibility with no engineering remedy."}
+      - {code: R2, action: review_flag, condition_expr: "liquefaction_suscept in ['high', 'very_high'] and has_remedy is null", descriptor: "High or very-high liquefaction susceptibility with unmeasured remedy evidence; confirm ground-improvement feasibility in Stage 3 characterization."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-04
     name: Geotechnical - slope stability
@@ -262,16 +260,21 @@ criteria:
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-08 (IAEA SSG-18; SSG-35 §A.19-A.27; A9/A11)"}
     primary_metric: coast_distance_km
     db_fields: {api: [site_natural_hazards.coast_distance_km, site_natural_hazards.storm_surge_class, site_natural_hazards.tsunami_zone_flag, sites.elevation_m], llm: nh08_coastal_text}
+    notes: |
+      A9 is an avoidance caution, not a pass/fail site approval. Missing
+      ``coast_distance_km`` remains a coastal-flood data gap unless the site
+      is elevation-safe or landlocked. Low-elevation, non-landlocked sites
+      with unresolved coast distance are therefore cautioned for Stage 3
+      coastal-flood confirmation.
     bands:
-      - {score_range: [9, 10], condition_expr: "coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL."}
+      - {score_range: [9, 10], condition_expr: "country_is_landlocked == true or coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country."}
       - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in ['none', 'low']", descriptor: ">= 10 km from coast, low surge class."}
       - {score_range: [5, 6], condition_expr: "coast_distance_km >= 5", descriptor: "5-10 km from coast; mitigation feasible."}
       - {score_range: [3, 4], condition_expr: "coast_distance_km >= 2", descriptor: "2-5 km from coast; high surge/tsunami trace."}
       - {score_range: [1, 2], condition_expr: "coast_distance_km < 2", descriptor: "In 100-yr inundation extent without defensible mitigation."}
-      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and has_remedy == false", descriptor: "Indefensible coastal hazard."}
+      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard."}
     fail_conditions:
-      - {code: A9, action: avoidance_penalty, condition_expr: "coast_distance_km < 10 and elevation_m < 50", descriptor: ">= 10 km from sea / >= 1 km from lake, or elevation >= 50 m AMSL."}
-    band_recipe: {kind: higher_is_better, fail_code: A9}
+      - {code: A9, action: avoidance_penalty, condition_expr: "(coast_distance_km < 10 or (coast_distance_km is null and country_is_landlocked != true)) and elevation_m < 50", descriptor: "A9 caution: coast distance is < 10 km at < 50 m AMSL, or coast distance is unresolved for a low-elevation non-landlocked site. Screening flag only; confirm coastal flooding and tsunami exposure in Stage 3."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-09
     name: River flooding
@@ -283,8 +286,10 @@ criteria:
     primary_metric: river_distance_km
     db_fields: {api: [site_natural_hazards.river_distance_km, site_natural_hazards.elevation_above_design_flood_m, site_natural_hazards.flood_zone_class_500yr], llm: nh09_river_flood_text}
     # SP-F (Ovidiu): flood-zone class is stronger than missing river-distance data.
-    # Legacy engine reads bands below; compiler still rebuilds from band_recipe so
-    # downstream callers using the recipe path retain the existing distance/elevation ladder.
+    # NH-09 intentionally does not declare a band_recipe: the local Stage 1-2
+    # evidence has near-complete flood-zone class coverage, while river distance
+    # and design-flood freeboard are sparse or unavailable. A11 remains static
+    # until a compound threshold editor can preserve the fixed freeboard clause.
     bands:
       - {score_range: [9, 10], condition_expr: "flood_zone_class_500yr in ['none', 'negligible'] or river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5", descriptor: "Favourable flood-zone class OR outside 1000-yr extent (>= 10 km / >= 30.5 m separation)."}
       - {score_range: [7, 8], condition_expr: "flood_zone_class_500yr == 'low' or river_distance_km >= 4 or elevation_above_design_flood_m >= 30.5", descriptor: "Low flood-zone class OR outside 500-yr extent; meets project A11."}
@@ -294,27 +299,50 @@ criteria:
       - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and (has_remedy == false or has_remedy is null)", descriptor: "No viable flood-defence pathway."}
     fail_conditions:
       - {code: A11, action: avoidance_penalty, condition_expr: "river_distance_km < 4 and elevation_above_design_flood_m < 30.5", descriptor: "Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."}
-    band_recipe: {kind: flood_distance_or_elevation, fail_code: A11, elevation_pass_m: 30.5}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-10
     name: Extreme winds
+    # NH-10 is a pure ranking criterion. Per IAEA SSG-18 and SSG-35
+    # Table I-1, extreme winds are a design-basis input rather than a
+    # site exclusion; the project's own evaluation matrix
+    # (`docs/expert_siting_criteria_evaluation_matrix.md` § NH-10)
+    # classifies it as Phase = Rank with no E-code. The previous
+    # `action: exclude` on `project_wind_envelope` therefore exceeded
+    # both norms and the project's documented stance, and silently
+    # forced `participates_in_composite=False` (because the rubric's
+    # `is_exclusionary` is True whenever any fail_condition has
+    # `action: exclude`), removing NH-10 from the weighted composite.
+    # The 49 m/s envelope is preserved as a `review_flag` so the
+    # threshold widget keeps working and analysts get a surfaceable
+    # signal, but the criterion now contributes its 1.1 % weight.
+    #
+    # Metric caveat: `max_wind_speed_ms` is currently sourced by the
+    # ERA5 batch as `wind.wind_gust_50yr_ms or wind.max_wind_gust_ms`,
+    # computed from the ERA5 *monthly-means* dataset of the i10fg gust
+    # variable. Annual-max-of-monthly-means smooths peak instantaneous
+    # gusts aggressively, so the live merged DB tops out at 14.4 m/s
+    # across all 361 sites — well below physically plausible 50-yr
+    # return-period gusts in CEE / SEE. The bands and the review
+    # threshold therefore screen for *relative* exposure across the
+    # candidate set, not against an absolute design-basis gust. See
+    # `IMPROVEMENTS.md::IMP-0008` for the planned re-source from
+    # hourly i10fg.
     phases: [ranking]
     weight_factor: 3
     normalised_weight_pct: 1.1
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-10 (IAEA SSG-18; SSG-35 Table I-1)"}
     primary_metric: max_wind_speed_ms
-    db_fields: {api: [site_natural_hazards.max_wind_speed_ms, site_natural_hazards.extreme_wind_ms], llm: nh10_winds_text}
+    db_fields: {api: [site_natural_hazards.max_wind_speed_ms], llm: nh10_winds_text}
     bands:
       - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 25", descriptor: "Low wind region; standard EN 1991-1-4."}
       - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 30", descriptor: "Moderate (CEE typical)."}
       - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 36", descriptor: "Elevated; coastal or storm-track exposure."}
       - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 42", descriptor: "High; enhanced wind-load design."}
-      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads within design envelope, ranking penalty only."}
-      - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h)."}
+      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads within design envelope."}
+      - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h); design premium expected, not a site exclusion."}
     fail_conditions:
-      - {code: project_wind_envelope, action: exclude, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h)."}
-    band_recipe: {kind: lower_is_better, fail_code: project_wind_envelope}
+      - {code: project_wind_envelope, action: review_flag, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h); review for design-margin and vendor envelope. Per SSG-18 and SSG-35 Table I-1 this is a design-basis matter, not a site exclusion."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-11
     name: Extreme precipitation (rain, snow, drought)
@@ -405,8 +433,6 @@ criteria:
     phases: [ranking]
     weight_factor: 3
     normalised_weight_pct: 1.1
-    weight_factors: {baseline: 3, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-14 (SSG-35 §4.3(m))"}
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-14 (SSG-35 §4.3(m))"}
     primary_metric: nh_min_resolved_score

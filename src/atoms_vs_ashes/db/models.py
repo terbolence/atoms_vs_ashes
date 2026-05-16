@@ -1,4 +1,4 @@
-# man_hours: 16.0
+# man_hours: 32.1
 """SQLAlchemy ORM models — mirrors architecture/specs/02_data_model_postgres.md."""
 
 from __future__ import annotations
@@ -801,7 +801,8 @@ class SiteInfrastructureV2(Base):
     ns06_gee_built_fraction: Mapped[float | None] = mapped_column(Numeric(5, 4))
     ns06_gee_demolition_class: Mapped[str | None] = mapped_column(String(20))
     ns06_cross_source_summary: Mapped[str | None] = mapped_column(Text)
-    # NS-07: Environmental impact non-rad (screening)
+    # NS-07: Environmental impact non-rad (screening + ranking)
+    env_impact_tier: Mapped[str | None] = mapped_column(String(30))
     env_impact_notes: Mapped[str | None] = mapped_column(Text)
     ns07_quality: Mapped[str | None] = mapped_column(String(20))
     ns07_comment: Mapped[str | None] = mapped_column(Text)

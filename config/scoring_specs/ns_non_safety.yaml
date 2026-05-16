@@ -1,3 +1,4 @@
+# man_hours: 6.2
 # Non-safety (NS) scoring rubric. Source: report/sites_evaluation/07_criteria_non_safety.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: ns
@@ -5,26 +6,53 @@ pass_mark_default: 5.0
 criteria:
   - criterion_id: NS-01
     name: Cooling water / ultimate heat sink
-    phases: [exclusionary, ranking]
+    phases: [avoidance, ranking]
     weight_factor: 8
     normalised_weight_pct: 2.8
     weight_factors: {baseline: 8, epri: 10}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-01 (SSG-35 §4.9; EPRI Steps 2-3 cooling water; E9)"}
-    db_fields: {api: [site_infrastructure_v2.cooling_source_type, site_infrastructure_v2.cooling_source_name, site_infrastructure_v2.cooling_source_hyriv_id, site_infrastructure_v2.cooling_distance_km, site_infrastructure_v2.cooling_flow_m3s, site_infrastructure_v2.water_stress_score, site_natural_hazards.spi12_min], llm: ns01_cooling_text}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-01 (SSG-35 §4.9; EPRI Steps 2-3 cooling water; A16)"}
+    db_fields: {api: [site_infrastructure_v2.cooling_source_type, site_infrastructure_v2.cooling_source_name, site_infrastructure_v2.cooling_source_hyriv_id, site_infrastructure_v2.cooling_distance_km, site_infrastructure_v2.cooling_flow_m3s, site_infrastructure_v2.water_stress_score, site_infrastructure_v2.water_stress_label], llm: ns01_cooling_text}
     aggregation: {method: weighted_mean_of_sub_scores, round_to: 1}
+    notes: |
+      LL-036: the prior E9 hard fail (``cooling_source_type in ['none', null]
+      and dry_cooling_viable == false``) was structurally unreachable.
+      ``cooling_source_type`` is populated only by the HydroRIVERS connector
+      and is always one of ``{major_river, river, small_river}`` (361/361
+      sites in the merged DB); ``dry_cooling_viable`` was not in the scoring
+      context. Replaced with the A16 avoidance penalty so the cooling-water
+      risk is still surfaced as ``caution`` without an impossible exclusion.
+
+      Sub-score taxonomy aligns with the connector vocabulary:
+      ``{major_river, river, small_river, stream}`` plus
+      ``cooling_source_type is null`` interpreted as "no source within the
+      50 km HydroRIVERS search radius". ``strahler_order`` was dropped
+      because it is not persisted as a DB column (HydroRIVERS only records
+      it in the observation comment).
+
+      Seasonal-drought sub-score (D, ``spi12_min``, 20 % weight) was
+      removed because the ERA5/SPEI connector that would populate
+      ``site_natural_hazards.spi12_min`` does not exist yet. Tracked as
+      IMP-0007 in IMPROVEMENTS.md. Remaining A / B / C weights re-normalised
+      from 0.35 / 0.20 / 0.25 to 0.44 / 0.25 / 0.31.
+
+      ``dry_cooling_viable`` is now derived in
+      ``merge_context_derivations._derive_dry_cooling_viable``:
+      ``country_code in ARID_OR_HOT_SUMMER_ISO2 and
+      water_stress_label == 'Extremely High'`` ⇒ False; otherwise True.
+      Used only by the source-type sub-score 0-band (degenerate case).
     sub_scores:
       - key: source_type
-        weight: 0.35
+        weight: 0.44
         primary_metric: cooling_source_type
         bands:
-          - {score_range: [9, 10], condition_expr: "cooling_source_type in ['sea', 'large_lake'] or strahler_order >= 5", descriptor: "Large river (Strahler >= 5) or sea/large lake."}
-          - {score_range: [7, 8], condition_expr: "strahler_order == 4 or cooling_source_type in ['medium_lake', 'reservoir']", descriptor: "Medium river / medium lake / reservoir."}
-          - {score_range: [5, 6], condition_expr: "strahler_order == 3 or cooling_source_type == 'canal'", descriptor: "Small river (Strahler 3) or canal."}
-          - {score_range: [3, 4], condition_expr: "strahler_order <= 2 or cooling_source_type == 'groundwater'", descriptor: "Very small stream or groundwater only."}
-          - {score_range: [1, 2], condition_expr: "cooling_source_type in ['none', null] and cooling_distance_km > 10", descriptor: "No identified water source within 10 km; ranking penalty unless dry cooling is also not viable."}
-          - {score_range: [0, 0], condition_expr: "cooling_source_type == 'none' and dry_cooling_viable == false", descriptor: "E9: no viable source AND dry cooling not viable."}
+          - {score_range: [9, 10], condition_expr: "cooling_source_type == 'major_river'", descriptor: "Major river (HydroRIVERS major_river class: discharge >= 100 m³/s or Strahler >= 6)."}
+          - {score_range: [7, 8], condition_expr: "cooling_source_type == 'river'", descriptor: "River (HydroRIVERS river class: Strahler 4-5)."}
+          - {score_range: [5, 6], condition_expr: "cooling_source_type == 'small_river'", descriptor: "Small river (HydroRIVERS small_river class: Strahler 3)."}
+          - {score_range: [3, 4], condition_expr: "cooling_source_type == 'stream'", descriptor: "Stream (HydroRIVERS stream class: Strahler 1-2); cooling tower or dry/hybrid cooling likely required."}
+          - {score_range: [1, 2], condition_expr: "cooling_source_type is null and (cooling_distance_km is null or cooling_distance_km > 10)", descriptor: "No HydroRIVERS source within 10 km; dry/hybrid cooling required."}
+          - {score_range: [0, 0], condition_expr: "cooling_source_type is null and dry_cooling_viable == false", descriptor: "No HydroRIVERS source AND dry cooling not viable (arid country with extremely-high water stress)."}
       - key: distance_to_source
-        weight: 0.20
+        weight: 0.25
         primary_metric: cooling_distance_km
         bands:
           - {score_range: [9, 10], condition_expr: "cooling_distance_km < 0.5", descriptor: "< 0.5 km."}
@@ -33,25 +61,16 @@ criteria:
           - {score_range: [3, 4], condition_expr: "cooling_distance_km <= 10", descriptor: "5-10 km; routing/pumping penalty, not exclusionary by itself."}
           - {score_range: [1, 2], condition_expr: "cooling_distance_km > 10", descriptor: "> 10 km; severe distance penalty, not exclusionary by itself."}
       - key: water_stress
-        weight: 0.25
-        primary_metric: water_stress_score
+        weight: 0.31
+        primary_metric: water_stress_label
         bands:
-          - {score_range: [9, 10], condition_expr: "water_stress_score < 1.0", descriptor: "Low (< 1.0)."}
-          - {score_range: [7, 8], condition_expr: "water_stress_score < 2.0", descriptor: "Low-Med (1.0-2.0)."}
-          - {score_range: [5, 6], condition_expr: "water_stress_score < 3.0", descriptor: "Med-High (2.0-3.0)."}
-          - {score_range: [3, 4], condition_expr: "water_stress_score < 4.0", descriptor: "High (3.0-4.0); ranking penalty, not exclusionary by itself."}
-          - {score_range: [1, 2], condition_expr: "water_stress_score >= 4.0", descriptor: "Extremely High (>= 4.0); severe ranking penalty, not exclusionary by itself."}
-      - key: seasonal_drought
-        weight: 0.20
-        primary_metric: spi12_min
-        bands:
-          - {score_range: [9, 10], condition_expr: "spi12_min > -1.0", descriptor: "> -1.0."}
-          - {score_range: [7, 8], condition_expr: "spi12_min > -1.5", descriptor: "-1.5 to -1.0."}
-          - {score_range: [5, 6], condition_expr: "spi12_min > -2.0", descriptor: "-2.0 to -1.5."}
-          - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
-          - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5; severe drought penalty, not exclusionary by itself."}
+          - {score_range: [9, 10], condition_expr: "water_stress_label == 'Low'", descriptor: "WRI Aqueduct baseline label: Low."}
+          - {score_range: [7, 8], condition_expr: "water_stress_label == 'Low-Medium'", descriptor: "WRI Aqueduct baseline label: Low-Medium."}
+          - {score_range: [5, 6], condition_expr: "water_stress_label == 'Medium-High'", descriptor: "WRI Aqueduct baseline label: Medium-High."}
+          - {score_range: [3, 4], condition_expr: "water_stress_label == 'High'", descriptor: "WRI Aqueduct baseline label: High; ranking penalty, not exclusionary by itself."}
+          - {score_range: [1, 2], condition_expr: "water_stress_label == 'Extremely High'", descriptor: "WRI Aqueduct baseline label: Extremely High; severe ranking penalty, not exclusionary by itself."}
     fail_conditions:
-      - {code: E9, action: exclude, condition_expr: "cooling_source_type in ['none', null] and dry_cooling_viable == false", descriptor: "No viable cooling source AND dry cooling not viable."}
+      - {code: A16, action: avoidance_penalty, condition_expr: "cooling_distance_km > 10 and water_stress_label in ['High', 'Extremely High']", descriptor: "Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-02
     name: Grid connection (detailed)
@@ -62,6 +81,18 @@ criteria:
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-02 (EPRI Steps 2-3 grid interconnection; project A13)"}
     db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.nearest_hv_line_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: ns02_grid_text}
     aggregation: {method: min_of_sub_scores}
+    notes: |
+      A13 Option A aligns the capacity-margin score ladder with the
+      avoidance floor: score 5-6 begins at the 462 MW reference VOYGR-6
+      net export threshold, while values below 462 MW remain below the
+      pass mark and still trigger the A13 caution verdict.
+    bands:
+      - {score_range: [9, 10], condition_expr: "grid_export_capacity_mw >= 646.8", descriptor: "Grid headroom at least 40% above export need."}
+      - {score_range: [7, 8], condition_expr: "grid_export_capacity_mw >= 554.4", descriptor: "Meets the preferred 20% export-capacity margin."}
+      - {score_range: [5, 6], condition_expr: "grid_export_capacity_mw >= 462.0", descriptor: "Meets the A13 hard floor with limited export-capacity margin."}
+      - {score_range: [3, 4], condition_expr: "grid_export_capacity_mw >= 369.6", descriptor: "Below the A13 hard floor but within 20% of the export need."}
+      - {score_range: [1, 2], condition_expr: "grid_export_capacity_mw > 0", descriptor: "Some export path exists but is materially undersized."}
+      - {score_range: [0, 0], condition_expr: "grid_export_capacity_mw <= 0 or grid_export_capacity_mw is null", descriptor: "No usable export capacity."}
     sub_scores:
       - key: distance_to_grid
         primary_metric: nearest_hv_line_km
@@ -186,7 +217,13 @@ criteria:
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-07 (SSG-35 §4.9; EPRI Step 3 environmental)"}
     primary_metric: env_impact_tier
-    db_fields: {api: [], llm: ns07_env_impact_text}
+    db_fields: {api: [site_infrastructure_v2.env_impact_tier], llm: ns07_env_impact_text}
+    notes: |
+      NS-07 intentionally remains a Screen + Rank criterion with no A-code.
+      The ranking pivot is the persisted categorical ``env_impact_tier`` field,
+      populated by the NS-07 LLM schema / persistence path. Free-text
+      ``env_impact_notes`` is retained as supporting evidence only and is not
+      interpreted as a band by the scoring engine.
     bands:
       - {score_range: [9, 10], condition_expr: "env_impact_tier == 'industrial'", descriptor: "Industrial / agricultural setting; favourable thermal-discharge headroom."}
       - {score_range: [7, 8], condition_expr: "env_impact_tier == 'few_sensitivities'", descriptor: "Few sensitivities; standard EIA path."}

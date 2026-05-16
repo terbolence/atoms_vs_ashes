@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.2
 """Regression tests for suitable-site audit diagnostics and fixes."""
 
 from __future__ import annotations
@@ -80,7 +80,15 @@ def test_audit_catalogue_includes_all_live_ea_rules() -> None:
     assert ("RI-04", "A12", "avoidance_penalty") not in codes
     assert ("RI-05", "A12", "avoidance_penalty") in codes
     assert ("NS-05", "A15", "avoidance_penalty") in codes
-    assert any("dry_cooling_viable" in r.missing_context_names for r in rules)
+    # NS-01 was retired from exclusionary on 2026-05-16 (E9 → A16; LL-036).
+    # The new fail condition is an avoidance penalty whose expression
+    # only references DB-resolvable names. ``dry_cooling_viable`` is now
+    # a derived context value, so no rule should surface it as missing.
+    assert ("NS-01", "E9", "exclude") not in codes
+    assert ("NS-01", "A16", "avoidance_penalty") in codes
+    assert all(
+        "dry_cooling_viable" not in r.missing_context_names for r in rules
+    ), "dry_cooling_viable should be derived after the 2026-05-16 NS-01 refactor"
 
 
 def test_audit_status_expands_exclusionary_floors_and_avoidance_roles() -> None:

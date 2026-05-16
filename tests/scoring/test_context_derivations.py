@@ -1,4 +1,4 @@
-# man_hours: 0.4
+# man_hours: 0.8
 """Unit tests for derived context values used by the scoring engine.
 
 Locks in the SP-F sentinel-aware behaviour of
@@ -84,6 +84,46 @@ class TestMilitaryAirfieldDistanceDerivation:
         assert "nearest_military_airfield_km" not in values
 
 
+class TestHi01AirportClassDistanceDerivation:
+    def test_nearest_airport_class_sets_light_distance(self) -> None:
+        values = {
+            "nearest_airport_km": 7.3,
+            "nearest_airport_type": "small_airport",
+            "nearest_airport_class": "small_airport",
+            "hi01_comment": "Nearest large: 34.2 km; Nearest medium: 18.1 km",
+        }
+        apply_derived_context_values(values)
+        assert values["nearest_small_airport_km"] == 7.3
+        assert values["nearest_light_airport_km"] == 7.3
+        assert values["nearest_large_airport_km"] == 34.2
+        assert values["nearest_medium_airport_km"] == 18.1
+        assert values["nearest_major_airport_km"] == 18.1
+
+    def test_nearer_shadowed_major_airport_is_exposed_from_comment(self) -> None:
+        values = {
+            "nearest_airport_km": 1.39,
+            "nearest_airport_type": "heliport",
+            "nearest_airport_class": "heliport",
+            "hi01_comment": "Nearest: EMS pad (heliport) at 1.4 km; Nearest medium: 4.3 km",
+        }
+        apply_derived_context_values(values)
+        assert values["nearest_heliport_km"] == 1.39
+        assert values["nearest_light_airport_km"] == 1.39
+        assert values["nearest_medium_airport_km"] == 4.3
+        assert values["nearest_major_airport_km"] == 4.3
+
+    def test_nearest_medium_aliases_type2_distance(self) -> None:
+        values = {
+            "nearest_airport_km": 12.0,
+            "nearest_airport_type": "medium_airport",
+            "nearest_airport_class": "medium_airport",
+        }
+        apply_derived_context_values(values)
+        assert values["nearest_medium_airport_km"] == 12.0
+        assert values["nearest_type2_airport_km"] == 12.0
+        assert values["nearest_major_airport_km"] == 12.0
+
+
 class TestHiSearchCompletedSentinels:
     def test_search_completed_when_quality_is_ok(self) -> None:
         values = {
@@ -133,3 +173,35 @@ class TestLandlockedDerivation:
         values: dict[str, object] = {}
         apply_derived_context_values(values)
         assert values["country_is_landlocked"] is False
+
+
+class TestRi05PopulationCentreProxy:
+    def test_nearest_city_population_derives_required_distance_and_margin(self) -> None:
+        values = {
+            "nearest_city_pop": 146_631,
+            "nearest_city_50k_km": 30.1,
+        }
+
+        apply_derived_context_values(values)
+
+        assert values["ri05_required_distance_km"] == 16.0
+        assert values["ri05_distance_margin_pct"] == 88.125
+
+    def test_larger_nearest_city_uses_larger_proxy_distance(self) -> None:
+        values = {
+            "nearest_city_pop": 1_200_000,
+            "nearest_city_50k_km": 36.0,
+        }
+
+        apply_derived_context_values(values)
+
+        assert values["ri05_required_distance_km"] == 48.0
+        assert values["ri05_distance_margin_pct"] == -25.0
+
+    def test_missing_population_leaves_ri05_proxy_absent(self) -> None:
+        values = {"nearest_city_50k_km": 6.7}
+
+        apply_derived_context_values(values)
+
+        assert "ri05_required_distance_km" not in values
+        assert "ri05_distance_margin_pct" not in values

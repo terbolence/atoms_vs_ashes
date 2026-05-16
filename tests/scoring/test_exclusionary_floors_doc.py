@@ -22,10 +22,11 @@ from scripts.generate_exclusionary_floors import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+# NH-10/project_wind_envelope was previously waived as an exclude-without-floor;
+# post-2026-05-16 it is a `review_flag` (not an `exclude`), so the waiver no
+# longer applies — the test below only inspects `action == "exclude"` rows.
 NO_FLOOR_WAIVERS = {
     "EP-01/E8",
-    "NH-10/project_wind_envelope",
-    "NS-01/E9",
     "NS-08/E7",
 }
 

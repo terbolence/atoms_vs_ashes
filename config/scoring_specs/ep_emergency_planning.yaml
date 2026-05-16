@@ -11,23 +11,44 @@ criteria:
     weight_factors: {baseline: 8, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-01 (NS-R-3 §2.27-2.29; SSG-35 §4.6; E8)"}
     primary_metric: ep01_composite_score
-    db_fields: {api: [site_emergency.ep01_composite_score, site_emergency.nearest_hospital_km, site_emergency.nearest_trauma_center_km], llm: ep01_feasibility_text}
-    # EP-01 v2 (May-2026 P3-2 option B): pass-mark softened so reviewer #112
-    # ladder lands the canonical Timelkam composite (44/100) at [5, 6] instead
-    # of [3, 4]. The [9, 10] / [7, 8] boundaries stay at 85 / 70 and the E8
-    # exclusion stays at composite < 30 (no change to exclusionary semantics);
-    # only the [5, 6] / [3, 4] / [1, 2] breakpoints shift to 42 / 35 / 30.
+    db_fields: {api: [site_emergency.ep01_composite_score], llm: ep01_feasibility_text}
+    # EP-01 v4 (May-2026 exclusionary sweep, Option A in chat sign-off):
+    # single-pivot rubric. One number — the DRV-02 / IAEA hard floor
+    # (E8 default_value = 30) — drives both the 0-10 score bands AND
+    # the E8 exclusion expression. The hand-written 85 / 70 / 42 / 35 / 30
+    # ladder that lived here through v2/v3 was dead code: the compiler
+    # had been silently rebuilding the bands from the recipe pivot since
+    # band_recipe was wired. The bands below now match what the compiler
+    # derives (so the legacy rubric loader and the spec compiler agree)
+    # and derive_expr_from_recipe locks the E8 expression to the same
+    # pivot via the drift guard in
+    # atoms_vs_ashes.criterion_spec.compiler._validate_template_exclusion_drift.
+    #
+    # The FB-LL-12 decision (2026-05-13) to "soften the pass mark from 55
+    # to 42" was a no-op at the engine layer for the same reason —
+    # documented in audit/post_processing/scoring_conformity/ep01_direction_decision.md
+    # and superseded here.
+    #
+    # The trauma-centre / hospital-overlay clauses were removed in v3
+    # because the underlying columns do not exist on
+    # site_emergency_planning and no connector populates them. See
+    # IMPROVEMENTS.md IMP-0001 for the OSM connector follow-up that
+    # would re-enable that gating.
     bands:
-      - {score_range: [9, 10], condition_expr: "ep01_composite_score >= 85", descriptor: ">= 85."}
-      - {score_range: [7, 8], condition_expr: "ep01_composite_score >= 70", descriptor: "70-84."}
-      - {score_range: [5, 6], condition_expr: "ep01_composite_score >= 42", descriptor: "42-69; project pass-mark (softened from 55 on 2026-05-13 per FB-LL-12)."}
-      - {score_range: [3, 4], condition_expr: "ep01_composite_score >= 35", descriptor: "35-41; ranking penalty, not exclusionary by itself."}
-      - {score_range: [1, 2], condition_expr: "ep01_composite_score >= 30", descriptor: "30-34; borderline EP feasibility, ranking penalty unless E8 hard expression triggers."}
-      - {score_range: [0, 0], condition_expr: "ep01_composite_score < 30 or nearest_trauma_center_km > 60", descriptor: "E8 confirmed."}
+      - {score_range: [9, 10], condition_expr: "ep01_composite_score >= 82.5", descriptor: "High composite margin above the DRV-02 hard floor (>= 82.5/100)."}
+      - {score_range: [7, 8], condition_expr: "ep01_composite_score >= 65", descriptor: "Clear composite margin above the DRV-02 hard floor (65-82.5)."}
+      - {score_range: [5, 6], condition_expr: "ep01_composite_score >= 30", descriptor: "At or above the DRV-02 / IAEA hard-floor pass mark (30-65)."}
+      - {score_range: [3, 4], condition_expr: "ep01_composite_score >= 22.5", descriptor: "Below the hard-floor pass mark but recoverable (22.5-30); ranking penalty AND E8 fires."}
+      - {score_range: [1, 2], condition_expr: "ep01_composite_score >= 15", descriptor: "Severe shortfall below the hard floor (15-22.5); ranking penalty AND E8 fires."}
+      - {score_range: [0, 0], condition_expr: "ep01_composite_score < 15", descriptor: "Outside the acceptance envelope (< 15)."}
     fail_conditions:
-      - {code: E8, action: exclude, condition_expr: "ep01_composite_score < 30 or nearest_trauma_center_km > 60", descriptor: "DRV-02 composite < 30 OR nearest Level-2+ trauma centre > 60 km."}
-      - {code: hospital_overlay, action: screen_flag, condition_expr: "nearest_hospital_km > 25", descriptor: "Project healthcare overlay: nearest hospital > 25 km triggers EP-01 sub-band penalty."}
-    band_recipe: {kind: score_percent_higher_is_better, fail_code: E8}
+      # Single-pivot exclusion (derive_expr_from_recipe=true). The
+      # compiler regenerates condition_expr from
+      # band_recipe.score5_pivot (DRV-02 / IAEA hard floor at composite
+      # 30/100). The stored value must agree with the derived form or
+      # the drift guard refuses to load.
+      - {code: E8, action: exclude, condition_expr: "ep01_composite_score < 30", pass_mark: 5.0, descriptor: "DRV-02 composite < 30: emergency-plan feasibility below the project hard floor.", derive_expr_from_recipe: true}
+    band_recipe: {kind: score_percent_higher_is_better, fail_code: E8, score5_pivot: 30}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: EP-02
     name: Evacuation routes (road network)

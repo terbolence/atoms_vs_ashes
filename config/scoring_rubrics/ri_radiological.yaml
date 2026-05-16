@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.4
 # Radiological impact (RI) scoring rubric. Source: report/sites_evaluation/05_criteria_radiological.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: ri
@@ -136,18 +136,27 @@ criteria:
     normalised_weight_pct: 3.5
     weight_factors: {baseline: 10, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
-    primary_metric: composite
-    db_fields: {api: [site_radiological.nearest_city_pop_25k_km, site_radiological.nearest_city_pop_100k_km, site_radiological.nearest_city_pop_500k_km, site_radiological.nearest_city_pop_1M_km], llm: ri05_population_centres_text}
+    primary_metric: ri05_distance_margin_pct
+    db_fields: {api: [site_radiological.nearest_city_50k_km, site_radiological.nearest_city_pop], llm: ri05_population_centres_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_city_pop_25k_km >= 12 and nearest_city_pop_100k_km >= 24 and nearest_city_pop_500k_km >= 48 and nearest_city_pop_1M_km >= 72", descriptor: "All thresholds exceeded by >= 50 % margin."}
-      - {score_range: [7, 8], condition_expr: "nearest_city_pop_25k_km >= 10 and nearest_city_pop_100k_km >= 20 and nearest_city_pop_500k_km >= 40 and nearest_city_pop_1M_km >= 60", descriptor: "All thresholds met with 25-50 % margin."}
-      - {score_range: [5, 6], condition_expr: "nearest_city_pop_25k_km >= 8 and nearest_city_pop_100k_km >= 16 and nearest_city_pop_500k_km >= 32 and nearest_city_pop_1M_km >= 48", descriptor: "All project thresholds met (pass mark)."}
-      - {score_range: [3, 4], condition_expr: "project_threshold_violations == 1 and max_violation_pct <= 25", descriptor: "One threshold violated by <= 25 %."}
-      - {score_range: [1, 2], condition_expr: "project_threshold_violations >= 2", descriptor: "Multiple thresholds violated."}
-      - {score_range: [0, 0], condition_expr: "nearest_city_pop_1M_km < 5", descriptor: "Site embedded in a > 1 M city (no remedy)."}
+      - {score_range: [9, 10], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= 50", descriptor: "Nearest >=50k population-centre proxy exceeds required distance by >= 50 %."}
+      - {score_range: [7, 8], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= 25", descriptor: "Nearest >=50k population-centre proxy exceeds required distance by 25-50 %."}
+      - {score_range: [5, 6], condition_expr: "nearest_city_pop >= 50000 and nearest_city_50k_km >= ri05_required_distance_km", descriptor: "Nearest >=50k population-centre proxy meets required distance (pass mark)."}
+      - {score_range: [3, 4], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= -25", descriptor: "Nearest >=50k population-centre proxy misses required distance by <= 25 %."}
+      - {score_range: [0, 0], condition_expr: "nearest_city_pop >= 1000000 and nearest_city_50k_km < 5", descriptor: "Site embedded within 5 km of a >1M population centre."}
+      - {score_range: [1, 2], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct < -25", descriptor: "Nearest >=50k population-centre proxy misses required distance by > 25 %."}
     fail_conditions:
-      - {code: A12, action: avoidance_penalty, condition_expr: "nearest_city_pop_25k_km < 8 or nearest_city_pop_100k_km < 16 or nearest_city_pop_500k_km < 32 or nearest_city_pop_1M_km < 48", descriptor: "Project thresholds: 25k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."}
+      - {code: A12, action: avoidance_penalty, condition_expr: "nearest_city_50k_km < ri05_required_distance_km", descriptor: "Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."}
     quality_floor: {low_quality_uncertainty_bands: 1}
+    notes: |
+      RI-05/A12 implements the 2026-05-16 Option B decision: use the
+      existing nearest-city evidence currently persisted by the GISCO /
+      GeoNames paths (`nearest_city_50k_km`, `nearest_city_pop`). The scoring
+      context derives `ri05_required_distance_km` from the nearest city's
+      population tier: >=50k requires 8 km, >=100k requires 16 km, >=500k
+      requires 32 km, and >=1M requires 48 km. This is a scoreable proxy, not
+      the full four-tier envelope; exact 25k/100k/500k/1M distance fields are
+      tracked as a future improvement in `IMPROVEMENTS.md`.
   - criterion_id: RI-06
     name: Population projections (60-yr design life)
     phases: [ranking]

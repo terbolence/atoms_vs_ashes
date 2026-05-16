@@ -1,4 +1,4 @@
-# man_hours: 4.3
+# man_hours: 4.5
 """Compile spec templates plus user controls into runtime criteria.
 
 Structured fail-threshold edits regenerate the matching fail-condition
@@ -344,6 +344,7 @@ def _compile_fail_condition(
         condition_expr=expr,
         descriptor=fc.descriptor,
         pass_mark=fc.pass_mark,
+        null_pass_condition_expr=fc.null_pass_condition_expr,
     )
 
 

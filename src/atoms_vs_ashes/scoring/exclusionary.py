@@ -1,4 +1,4 @@
-# man_hours: 3.0
+# man_hours: 3.3
 """E-code exclusionary evaluator.
 
 For every criterion × site × SMR, walks the ``fail_conditions`` with
@@ -47,7 +47,11 @@ class FailEvaluation:
 def _serialise_measured(context: dict[str, Any], fc: FailCondition) -> dict[str, Any]:
     """Extract the subset of ``context`` keys referenced in the expr."""
     subset: dict[str, Any] = {}
-    expr = fc.condition_expr
+    expr = " ".join(
+        part
+        for part in (fc.condition_expr, fc.null_pass_condition_expr)
+        if part
+    )
     for key, val in context.items():
         if key in expr:
             subset[key] = _jsonable(val)
@@ -87,6 +91,9 @@ def evaluate_fail_conditions(
         if fc.action != action:
             continue
         matched = safe_eval(fc.condition_expr, context)
+        if matched is None and fc.null_pass_condition_expr:
+            if safe_eval(fc.null_pass_condition_expr, context) is True:
+                matched = False
         verdict = _verdict_for_fail(fc, matched)
         out.append(
             FailEvaluation(

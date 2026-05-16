@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Man-Hours Summary
 
-**Generated:** 2026-05-16T16:23:56Z
+**Generated:** 2026-05-16T18:38:18Z
 **Source:** `audit/man_hours_registry.yml`
 
 ---
@@ -10,17 +10,17 @@
 
 | Area | Lines |
 | --- | ---: |
-| `src/` (Core application) | 2,206,216 |
-| `tests/` (Tests) | 30,494 |
+| `src/` (Core application) | 2,206,280 |
+| `tests/` (Tests) | 31,396 |
 | `scripts/` (Scripts) | 639 |
-| `src/scripts/` (Operational scripts) | 35,347 |
+| `src/scripts/` (Operational scripts) | 35,036 |
 | `alembic/` (Migrations) | 0 |
 | `export/` (Export tooling) | 935 |
-| **Total Python** | **2,273,631** |
+| **Total Python** | **2,274,286** |
 | | |
-| Markdown (docs, specs, reports, audits) | 125,057 |
-| YAML (config, registry) | 9,682 |
-| **Grand total (all authored content)** | **~2,408,370** |
+| Markdown (docs, specs, reports, audits) | 131,893 |
+| YAML (config, registry) | 9,831 |
+| **Grand total (all authored content)** | **~2,416,010** |
 
 ---
 
@@ -29,20 +29,20 @@
 | Category | Files | Hours |
 | --- | ---: | ---: |
 | Requirements & Analysis | 20 | 139.5 |
-| Architecture & Design | 19 | 69.0 |
-| Implementation | 147 | 799.2 |
-| Testing | 32 | 73.8 |
-| Database & Migrations | 31 | 41.8 |
-| Configuration & DevOps | 25 | 41.5 |
+| Architecture & Design | 21 | 71.0 |
+| Implementation | 154 | 822.8 |
+| Testing | 42 | 87.1 |
+| Database & Migrations | 32 | 42.0 |
+| Configuration & DevOps | 32 | 84.0 |
 | Research & Data Sources | 26 | 235.5 |
-| AI Prompts & Tooling | 7 | 38.5 |
-| Project Management & QA | 92 | 103.0 |
-| Other | 1 | 1.6 |
+| AI Prompts & Tooling | 7 | 39.8 |
+| Project Management & QA | 106 | 116.2 |
+| Other | 60 | 59.8 |
 | Connectors & Data Acquisition | 12 | 11.1 |
 | Report Authoring & Documentation | 26 | 20.9 |
 | Reporting & Visualization | 1 | 2.0 |
 | Testing & Quality Assurance | 7 | 4.0 |
-| **Project Total** | **446** | **1581.3** |
+| **Project Total** | **546** | **1735.7** |
 
 ---
 
@@ -77,7 +77,7 @@
 
 ### Architecture & Design
 
-**Subtotal:** 19 files, 69.0 hours
+**Subtotal:** 21 files, 71.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -95,6 +95,8 @@
 | `architecture/plans/exclusionary_sweep_13877396.plan.md` | 1.0 |
 | `architecture/plans/nh04_single_pivot_iaea_25deg.md` | 1.0 |
 | `architecture/plans/nh07_single_pivot_iaea_50km.md` | 1.0 |
+| `architecture/plans/ns01_e9_to_a16_avoidance.md` | 1.0 |
+| `architecture/plans/ranking_criteria_sweep_af7be868.plan.md` | 1.0 |
 | `architecture/plans/feedback-context-enrichment.md` | 0.4 |
 | `architecture/plans/feedback-rework-execution.md` | 0.4 |
 | `architecture/plans/log-replay-feedback-rework.md` | 0.3 |
@@ -103,20 +105,20 @@
 
 ### Implementation
 
-**Subtotal:** 147 files, 799.2 hours
+**Subtotal:** 154 files, 822.8 hours
 
 | File | Hours |
 | --- | ---: |
-| `src/atoms_vs_ashes/db/models.py` | 32.0 |
+| `src/atoms_vs_ashes/db/models.py` | 32.1 |
 | `src/atoms_vs_ashes/llm/orchestrator.py` | 24.0 |
 | `src/atoms_vs_ashes/connectors/osm/client.py` | 20.0 |
 | `src/atoms_vs_ashes/analysis/emergency_plan.py` | 18.0 |
+| `src/atoms_vs_ashes/llm/schemas.py` | 16.2 |
 | `src/atoms_vs_ashes/analysis/proximity_land.py` | 16.0 |
 | `src/atoms_vs_ashes/connectors/copernicus_dem/` | 16.0 |
 | `src/atoms_vs_ashes/connectors/copernicus_era5/` | 16.0 |
 | `src/atoms_vs_ashes/connectors/corine/client.py` | 16.0 |
 | `src/atoms_vs_ashes/connectors/seismic_hazard/` | 16.0 |
-| `src/atoms_vs_ashes/llm/schemas.py` | 16.0 |
 | `src/atoms_vs_ashes/analysis/epz_population.py` | 14.0 |
 | `src/atoms_vs_ashes/connectors/earth_engine/` | 14.0 |
 | `src/atoms_vs_ashes/connectors/egdi_geology/` | 14.0 |
@@ -148,6 +150,7 @@
 | `src/atoms_vs_ashes/llm/prompts/avoidance.py` | 8.0 |
 | `src/atoms_vs_ashes/llm/prompts/exclusionary.py` | 8.0 |
 | `src/atoms_vs_ashes/screening/grid_capacity.py` | 8.0 |
+| `src/atoms_vs_ashes/connectors/osm/batch.py` | 6.2 |
 | `src/atoms_vs_ashes/connectors/egdi_geology/client.py` | 6.1 |
 | `scripts/enrich_sa_progressive.py` | 6.0 |
 | `scripts/report_enrichment_coverage.py` | 6.0 |
@@ -157,7 +160,6 @@
 | `src/atoms_vs_ashes/connectors/copernicus_ems/` | 6.0 |
 | `src/atoms_vs_ashes/connectors/geonames_dump/` | 6.0 |
 | `src/atoms_vs_ashes/connectors/onegeology/` | 6.0 |
-| `src/atoms_vs_ashes/connectors/osm/batch.py` | 6.0 |
 | `src/atoms_vs_ashes/connectors/ourairports/` | 6.0 |
 | `src/atoms_vs_ashes/connectors/seveso/` | 6.0 |
 | `src/atoms_vs_ashes/connectors/smithsonian_gvp/` | 6.0 |
@@ -171,6 +173,11 @@
 | `src/atoms_vs_ashes/analysis/site_topography.py` | 5.0 |
 | `src/atoms_vs_ashes/analysis/transmitter_proximity.py` | 5.0 |
 | `src/atoms_vs_ashes/screening/base.py` | 5.0 |
+| `src/atoms_vs_ashes/criterion_spec/compiler.py` | 4.5 |
+| `src/atoms_vs_ashes/connectors/osm/parsers.py` | 4.4 |
+| `src/atoms_vs_ashes/criterion_spec/schema.py` | 4.4 |
+| `src/atoms_vs_ashes/llm/persist.py` | 4.2 |
+| `src/atoms_vs_ashes/scoring/rubric.py` | 4.2 |
 | `scripts/enrich_site_area_web.py` | 4.0 |
 | `scripts/run_fix04_osm_avoidance_batch.py` | 4.0 |
 | `scripts/run_fix06_ns01_cooling.py` | 4.0 |
@@ -181,16 +188,15 @@
 | `src/atoms_vs_ashes/analysis/population_projection.py` | 4.0 |
 | `src/atoms_vs_ashes/cli.py` | 4.0 |
 | `src/atoms_vs_ashes/connectors/corine/batch.py` | 4.0 |
-| `src/atoms_vs_ashes/connectors/osm/parsers.py` | 4.0 |
 | `src/atoms_vs_ashes/geo.py` | 4.0 |
 | `src/atoms_vs_ashes/llm/audit_log.py` | 4.0 |
-| `src/atoms_vs_ashes/llm/persist.py` | 4.0 |
 | `src/atoms_vs_ashes/llm/prompts/_base.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/export.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/quality_report.py` | 4.0 |
 | `src/atoms_vs_ashes/pipeline/runner.py` | 4.0 |
 | `src/scripts/extract_docx_comments.py` | 4.0 |
 | `src/atoms_vs_ashes/criterion_spec/preview.py` | 3.4 |
+| `src/atoms_vs_ashes/scoring/exclusionary.py` | 3.3 |
 | `scripts/backfill_raw_responses.py` | 3.0 |
 | `scripts/report_effort_metrics.py` | 3.0 |
 | `scripts/rerun_audit_responses.py` | 3.0 |
@@ -203,7 +209,9 @@
 | `src/atoms_vs_ashes/connectors/corine/models.py` | 3.0 |
 | `src/atoms_vs_ashes/connectors/corine/parsers.py` | 3.0 |
 | `src/scripts/_docx_comment_anchors.py` | 3.0 |
+| `src/atoms_vs_ashes/criterion_spec/_band_recipes.py` | 2.6 |
 | `src/scripts/_docx_comment_triage.py` | 2.5 |
+| `src/atoms_vs_ashes/scoring/merge_context_derivations.py` | 2.1 |
 | `scripts/export_country_power_plants_md.py` | 2.0 |
 | `scripts/run_efsm20_faults.py` | 2.0 |
 | `scripts/run_fix03_patch_count.py` | 2.0 |
@@ -228,6 +236,7 @@
 | `src/scripts/generate_scoring_examples.py` | 1.5 |
 | `src/scripts/replay_scoring_at_anchors.py` | 1.5 |
 | `src/scripts/build_epri_weights_artefact.py` | 1.4 |
+| `src/atoms_vs_ashes/connectors/osm/heavy_haul.py` | 1.3 |
 | `src/atoms_vs_ashes/gui/_criterion_info.py` | 1.2 |
 | `src/atoms_vs_ashes/gui/_results_page_main.py` | 1.2 |
 | `src/atoms_vs_ashes/gui/_results_render_drawer.py` | 1.2 |
@@ -257,7 +266,7 @@
 
 ### Testing
 
-**Subtotal:** 32 files, 73.8 hours
+**Subtotal:** 42 files, 87.1 hours
 
 | File | Hours |
 | --- | ---: |
@@ -271,32 +280,42 @@
 | `tests/test_connector_db_compatibility.py` | 4.1 |
 | `tests/test_connector_onegeology.py` | 4.1 |
 | `tests/test_ingest_sites.py` | 3.0 |
+| `tests/scoring/test_threshold_band_runtime.py` | 2.2 |
 | `tests/test_models.py` | 2.0 |
+| `tests/scoring/test_compiler_parity.py` | 1.8 |
 | `tests/runprofile/test_persist.py` | 1.6 |
+| `tests/scoring/test_ns01_refactor.py` | 1.5 |
+| `tests/criterion_spec/test_band_recipes.py` | 1.2 |
+| `tests/scoring/test_suitable_sites_audit.py` | 1.2 |
+| `tests/test_ns03_transport_access_scenario_b.py` | 1.2 |
+| `tests/scoring/test_search_sentinel_bands.py` | 1.1 |
 | `tests/test_config.py` | 1.1 |
 | `scripts/probe_copernicus_dem_rate_limits.py` | 1.0 |
 | `scripts/probe_efehr_rate_limits.py` | 1.0 |
 | `scripts/probe_efsm20_rate_limits.py` | 1.0 |
 | `scripts/probe_natura2000_rate_limits.py` | 1.0 |
 | `scripts/probe_wdpa_rate_limits.py` | 1.0 |
+| `tests/scoring/test_hi02_a7_option_a.py` | 1.0 |
 | `tests/scoring/test_ns08_strict_overlap.py` | 1.0 |
+| `tests/scoring/test_ri05_population_centres.py` | 1.0 |
 | `tests/test_ingest_ownership.py` | 1.0 |
 | `tests/gui/test_results_exclusion_diag.py` | 0.9 |
-| `tests/criterion_spec/test_preview_descriptor.py` | 0.7 |
+| `tests/criterion_spec/test_excl_expr_derived_from_pivot.py` | 0.8 |
+| `tests/criterion_spec/test_preview_descriptor.py` | 0.8 |
+| `tests/scoring/test_context_derivations.py` | 0.8 |
 | `tests/scoring/test_nh07_review_flag.py` | 0.7 |
-| `tests/scoring/test_search_sentinel_bands.py` | 0.7 |
 | `tests/gui/test_results_avoidance_diag.py` | 0.6 |
 | `tests/gui/test_results_run_picker.py` | 0.5 |
+| `tests/scoring/test_ns07_env_impact_tier.py` | 0.5 |
 | `tests/scoring/test_ri04_no_exclusion.py` | 0.5 |
 | `tests/scoring/test_threshold_propagation.py` | 0.5 |
-| `tests/scoring/test_context_derivations.py` | 0.4 |
 | `tests/scoring/test_safe_eval_disjuncts.py` | 0.4 |
 | `tests/test_coverage_report_phantom_handling.py` | 0.3 |
 | `tests/__init__.py` | 0.1 |
 
 ### Database & Migrations
 
-**Subtotal:** 31 files, 41.8 hours
+**Subtotal:** 32 files, 42.0 hours
 
 | File | Hours |
 | --- | ---: |
@@ -328,19 +347,27 @@
 | `alembic/versions/025_fix_hi_nonapplicable_quality.py` | 0.5 |
 | `alembic/versions/026_add_cross_source_evidence_json.py` | 0.5 |
 | `alembic/versions/028_add_nh07_hazard_class.py` | 0.5 |
+| `src/alembic/versions/045_add_ns07_env_impact_tier.py` | 0.3 |
 | `alembic/script.py.mako` | 0.2 |
 | `alembic/versions/012_widen_collapse_mechanism_column.py` | 0.2 |
 | `alembic/versions/013_widen_karst_formation_type.py` | 0.2 |
 
 ### Configuration & DevOps
 
-**Subtotal:** 25 files, 41.5 hours
+**Subtotal:** 32 files, 84.0 hours
 
 | File | Hours |
 | --- | ---: |
+| `config/scoring_specs/nh_natural_hazards.yaml` | 10.3 |
 | `config/default.yml` | 8.0 |
-| `config/scoring_rubrics/ri_radiological.yaml` | 4.0 |
-| `config/scoring_specs/ri_radiological.yaml` | 4.0 |
+| `config/scoring_rubrics/ns_non_safety.yaml` | 6.2 |
+| `config/scoring_specs/ns_non_safety.yaml` | 6.2 |
+| `config/scoring_rubrics/hi_human_induced.yaml` | 5.1 |
+| `config/scoring_specs/hi_human_induced.yaml` | 5.0 |
+| `config/scoring_rubrics/nh_natural_hazards.yaml` | 4.7 |
+| `config/scoring_rubrics/ri_radiological.yaml` | 4.4 |
+| `config/scoring_specs/ri_radiological.yaml` | 4.4 |
+| `config/scoring_specs/threshold_metadata.yaml` | 4.2 |
 | `src/scripts/man_hours_report.py` | 3.6 |
 | `.cursor/rules/man-hours.mdc` | 3.2 |
 | `config/epri/weights.yaml` | 3.0 |
@@ -399,21 +426,21 @@
 
 ### AI Prompts & Tooling
 
-**Subtotal:** 7 files, 38.5 hours
+**Subtotal:** 7 files, 39.8 hours
 
 | File | Hours |
 | --- | ---: |
 | `gpt/expert_system_data_sources_and_integrations.md` | 8.0 |
 | `prompts/ScoringCriteriaSystemPrompt.md` | 8.0 |
 | `prompts/runAPIs.md` | 8.0 |
+| `prompts/lessons_learned.md` | 6.8 |
 | `prompts/sitingExpert.md` | 6.0 |
-| `prompts/lessons_learned.md` | 5.5 |
 | `prompts/databaseAudit.md` | 2.0 |
 | `prompts/site_area_web_search.md` | 1.0 |
 
 ### Project Management & QA
 
-**Subtotal:** 92 files, 103.0 hours
+**Subtotal:** 106 files, 116.2 hours
 
 | File | Hours |
 | --- | ---: |
@@ -426,6 +453,7 @@
 | `audit/post_processing/02_data_verification/20260418_column_readability.md` | 3.0 |
 | `audit/post_processing/02_data_verification/20260418_engineer_audit.md` | 3.0 |
 | `audit/conversations/2026-05-09_feedback-rework-execution.md` | 2.7 |
+| `IMPROVEMENTS.md` | 2.2 |
 | `audit/README.md` | 2.0 |
 | `audit/plans/results-controls-audit-fix.md` | 2.0 |
 | `audit/plans/universal-infobox-avoidance-pareto-ri-04-fix.md` | 2.0 |
@@ -441,25 +469,38 @@
 | `audit/post_processing/failure_diagnostics_20260514/REPORT.md` | 1.5 |
 | `audit/post_processing/monday_rerun_list.md` | 1.5 |
 | `audit/conversations/2026-05-16_nh07-single-pivot-iaea-50km.md` | 1.4 |
+| `audit/conversations/2026-05-16_ns01-e9-to-a16-cooling-stress.md` | 1.4 |
 | `audit/post_processing/scoring_conformity/band_reliability_conclusion_post_fix.md` | 1.4 |
 | `audit/post_processing/scoring_conformity/implementation_audit.md` | 1.4 |
 | `audit/post_processing/scoring_conformity/anchor_score_conformity.md` | 1.3 |
+| `audit/conversations/2026-05-16_nh10-action-norms-alignment.md` | 1.0 |
+| `audit/conversations/2026-05-16_ranking-criteria-sweep.md` | 1.0 |
 | `audit/plans/exclusionary_sweep_13877396.plan.md` | 1.0 |
 | `audit/plans/nh04_single_pivot_iaea_25deg.md` | 1.0 |
 | `audit/plans/nh07_single_pivot_iaea_50km.md` | 1.0 |
+| `audit/plans/ns01_e9_to_a16_avoidance.md` | 1.0 |
 | `audit/plans/project_audit_trail_setup_3b3c0d91.plan.md` | 1.0 |
+| `audit/plans/ranking_criteria_sweep_af7be868.plan.md` | 1.0 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_3_cooling_sources.md` | 1.0 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_6_population_emergency.md` | 1.0 |
 | `audit/post_processing/epri_weights/baseline_vs_epri.md` | 1.0 |
+| `audit/post_processing/scoring_conformity/ep01_direction_decision.md` | 0.8 |
+| `audit/conversations/2026-05-16_nh08-a9-coastal-caution.md` | 0.8 |
+| `audit/conversations/2026-05-16_ns03-a14-transport-access-scenario-b.md` | 0.8 |
 | `audit/post_processing/scoring_conformity/data_gaps_followup.md` | 0.8 |
 | `audit/conversations/2026-03-11_database-backend-foundation.md` | 0.8 |
+| `audit/conversations/2026-05-16_nh09-river-flooding-decision.md` | 0.7 |
+| `audit/conversations/2026-05-16_ri05-a12-option-b.md` | 0.7 |
 | `audit/post_processing/scoring_conformity/cohort_reliability_summary.md` | 0.7 |
 | `audit/post_processing/scoring_conformity/full_pass_drift_decision.md` | 0.7 |
 | `audit/post_processing/scoring_conformity/nh11_framing_decision.md` | 0.7 |
 | `audit/conversations/2026-05-14_results-controls-audit-fix.md` | 0.6 |
 | `audit/conversations/2026-05-14_universal-infobox-avoidance-pareto.md` | 0.6 |
+| `audit/conversations/2026-05-16_ep01-exclusionary-sweep-band-recipe.md` | 0.6 |
+| `audit/conversations/2026-05-16_hi01-aircraft-abc-implementation.md` | 0.6 |
+| `audit/conversations/2026-05-16_ns02-a13-grid-option-a.md` | 0.6 |
+| `audit/conversations/2026-05-16_ranking-bf-nh-criteria-docs.md` | 0.6 |
 | `audit/post_processing/scoring_conformity/band_reliability_conclusion.md` | 0.6 |
-| `audit/post_processing/scoring_conformity/ep01_direction_decision.md` | 0.6 |
 | `audit/post_processing/sp_f_log_replay/hi01_ourairports_audit.md` | 0.6 |
 | `audit/conversations/2026-03-10_methodology-and-data-pricing.md` | 0.5 |
 | `audit/conversations/2026-03-10_requirements-expansion.md` | 0.5 |
@@ -512,11 +553,70 @@
 
 ### Other
 
-**Subtotal:** 1 files, 1.6 hours
+**Subtotal:** 60 files, 59.8 hours
 
 | File | Hours |
 | --- | ---: |
+| `docs/expert_siting_criteria_evaluation_matrix.md` | 8.0 |
+| `report/version 1.01/sites_evaluation/07_criteria_non_safety.md` | 6.0 |
+| `criteria/avoidance/HI-02_A7_industrial_explosions.md` | 3.0 |
+| `criteria/avoidance/RI-05_A12_population_centres.md` | 1.9 |
+| `criteria/avoidance/HI-01_A1-A4_aircraft_crash_hazard.md` | 1.8 |
+| `criteria/avoidance/NH-08_A9_coastal_flooding.md` | 1.8 |
+| `criteria/avoidance/NH-09_A11_river_flooding.md` | 1.8 |
+| `criteria/avoidance/NS-03_A14_transport_access.md` | 1.8 |
 | `AGENTS.md` | 1.6 |
+| `criteria/ranking/NH-09 — River flooding.md` | 1.4 |
+| `criteria/avoidance/NS-02_A13_grid_connection.md` | 1.2 |
+| `criteria/non_safety/NS-01 — Cooling water (ultimate heat sink).md` | 1.2 |
+| `criteria/ranking/NH-10 — Extreme winds.md` | 1.2 |
+| `report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md` | 1.2 |
+| `criteria/avoidance/NS-07_environmental_impact_avoidance_phase.md` | 1.0 |
+| `criteria/ranking/NH-02 — Seismic surface rupture capable faults.md` | 1.0 |
+| `criteria/ranking/NH-03 — Geotechnical settlement and liquefaction.md` | 1.0 |
+| `criteria/ranking/NH-04 — Geotechnical slope stability.md` | 1.0 |
+| `criteria/ranking/NH-08 — Coastal flooding storm surge and tsunami.md` | 1.0 |
+| `criteria/ranking/NH-11 — Extreme precipitation rain snow and drought.md` | 1.0 |
+| `criteria/ranking/NH-13 — Forest and wildfire.md` | 1.0 |
+| `criteria/ranking/NH-14 — Combined hazards.md` | 1.0 |
+| `criteria/ranking/RI-05 — Distance to large population centres.md` | 1.0 |
+| `criteria/ranking/BF-02 — Land and nuclear-island footprint.md` | 0.8 |
+| `criteria/ranking/NH-01 — Seismic ground motion PGA.md` | 0.8 |
+| `criteria/ranking/NH-05 — Subsidence karst mining oil and gas.md` | 0.8 |
+| `criteria/ranking/NH-06 — Foundation conditions.md` | 0.8 |
+| `criteria/ranking/NH-07 — Volcanism.md` | 0.8 |
+| `criteria/ranking/NH-12 — Extreme temperatures.md` | 0.8 |
+| `criteria/ranking/RI-01 — Atmospheric dispersion.md` | 0.7 |
+| `criteria/ranking/RI-03 — Groundwater dispersion.md` | 0.7 |
+| `criteria/ranking/RI-04 — Population density (EPZ rings).md` | 0.6 |
+| `criteria/ranking/RI-02 — Surface water dispersion.md` | 0.5 |
+| `criteria/ranking/RI-06 — Population projections.md` | 0.5 |
+| `criteria/ranking/NS-01 — Cooling water ultimate heat sink.md` | 0.4 |
+| `criteria/ranking/NS-02 — Grid connection detailed.md` | 0.4 |
+| `criteria/ranking/NS-03 — Transport access heavy haul.md` | 0.4 |
+| `criteria/ranking/NS-05 — Land availability ownership zoning.md` | 0.4 |
+| `criteria/ranking/NS-06 — Existing infrastructure reuse.md` | 0.4 |
+| `criteria/ranking/NS-07 — Environmental impact non-radiological.md` | 0.4 |
+| `criteria/ranking/NS-08 — Ecological sensitivity Natura 2000 WDPA.md` | 0.4 |
+| `criteria/ranking/NS-09 — Socioeconomic impact.md` | 0.4 |
+| `criteria/ranking/NS-10 — Workforce availability.md` | 0.4 |
+| `criteria/ranking/NS-11 — Coal-to-nuclear synergies.md` | 0.4 |
+| `criteria/ranking/NS-12 — Regulatory political environment.md` | 0.4 |
+| `criteria/ranking/NS-13 — Construction logistics.md` | 0.4 |
+| `criteria/ranking/HI-01 — Aircraft crash hazard.md` | 0.3 |
+| `criteria/ranking/HI-02 — Industrial explosions (Seveso, IED).md` | 0.3 |
+| `criteria/ranking/HI-03 — Toxic and gas releases.md` | 0.3 |
+| `criteria/ranking/HI-06 — Military installations.md` | 0.3 |
+| `criteria/ranking/EP-01 — Emergency-plan feasibility (composite).md` | 0.3 |
+| `criteria/ranking/EP-03 — Physical-geography constraints.md` | 0.3 |
+| `criteria/ranking/EP-05 — Concurrent-hazard impact on EP.md` | 0.3 |
+| `criteria/ranking/HI-04 — External fires.md` | 0.3 |
+| `criteria/ranking/HI-05 — Transport hazards (hazmat road, rail, pipe).md` | 0.3 |
+| `criteria/ranking/HI-07 — Electromagnetic interference.md` | 0.3 |
+| `criteria/ranking/HI-08 — Other nuclear installations.md` | 0.3 |
+| `criteria/ranking/NS-04 — Site topography grading.md` | 0.3 |
+| `criteria/ranking/EP-02 — Evacuation routes (road network).md` | 0.2 |
+| `criteria/ranking/EP-04 — Special populations (hospitals, prisons, care homes).md` | 0.2 |
 
 ### Connectors & Data Acquisition
 
@@ -594,4 +694,4 @@
 
 ---
 
-*Report generated by `src/scripts/man_hours_report.py` at 2026-05-16T16:23:56Z*
+*Report generated by `src/scripts/man_hours_report.py` at 2026-05-16T18:38:18Z*

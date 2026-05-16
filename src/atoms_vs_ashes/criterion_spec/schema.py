@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.4
 """Pydantic schema for ``config/scoring_specs/*.yaml`` templates.
 
 A *spec template* is a frozen, repo-committed best-practice description
@@ -75,6 +75,15 @@ class BandRecipeSpec(BaseModel):
             "(e.g. NH-04 slope_angle_deg before DEM has been fetched).\n\n"
             "The exclusion expression is unaffected either way; NULL never "
             "triggers a ``<`` / ``>`` comparison."
+        ),
+    )
+    null_best_condition_expr: str | None = Field(
+        default=None,
+        description=(
+            "Optional condition that must be true before a NULL primary metric "
+            "can score in the top band. Use for completed-search sentinels such "
+            "as ``hi02_search_completed == true`` where plain NULL-as-best "
+            "would incorrectly favour missing data."
         ),
     )
 
@@ -213,6 +222,14 @@ class FailConditionSpec(BaseModel):
     condition_expr: str
     descriptor: str = ""
     pass_mark: float | None = Field(default=None, ge=0.0, le=10.0)
+    null_pass_condition_expr: str | None = Field(
+        default=None,
+        description=(
+            "Optional condition that converts an otherwise inconclusive fail "
+            "condition into a pass, used when a NULL metric plus a completed "
+            "search sentinel proves the avoidance trigger did not fire."
+        ),
+    )
     threshold: ThresholdSpec | None = None
     threshold_affects_expr: bool = True
     """If False, user threshold edits never rewrite ``condition_expr`` (band pivots)."""

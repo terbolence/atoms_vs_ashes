@@ -230,28 +230,21 @@ class TestSafetyFloorTransparency:
     @pytest.mark.parametrize(
         ("criterion_id", "ctx"),
         [
-            (
-                "EP-01",
-                {
-                    "ep01_composite_score": 35,
-                    "nearest_trauma_center_km": 40,
-                },
-            ),
-            (
-                "NH-10",
-                {"max_wind_speed_ms": 45},
-            ),
-            (
-                "NS-01",
-                {
-                    "cooling_source_type": "groundwater",
-                    "cooling_distance_km": 8,
-                    "dry_cooling_viable": False,
-                    "spi12_min": -3.0,
-                    "strahler_order": None,
-                    "water_stress_score": 4.5,
-                },
-            ),
+            # EP-01 deliberately omitted: post-2026-05-16 it opts in to the
+            # single-pivot rubric (pass_mark: 5.0 on E8) and DOES fire the
+            # floor when band-score < 5.0. It is now a positive example
+            # for the floor, not the "no floor" case.
+            #
+            # NS-01 deliberately omitted post-2026-05-16: the E9 hard fail
+            # (and its safety floor) were retired (LL-035) and the criterion
+            # is now [avoidance, ranking] with A16 only. There is no
+            # exclusionary verdict left to assert against.
+            #
+            # NH-10 deliberately omitted post-2026-05-16: per IAEA SSG-18 /
+            # SSG-35 Table I-1 and the project matrix doc § NH-10, it is
+            # now [ranking] only with `action: review_flag`. There is no
+            # exclude action and therefore no floor or hard-fail verdict
+            # to assert against (LL-037).
             (
                 "NS-08",
                 {

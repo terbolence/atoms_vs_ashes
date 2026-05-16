@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.2
 """Pydantic schema + YAML loader for ``config/scoring_rubrics/*.yaml``.
 
 One YAML file per criterion family (nh/hi/ri/ep/ns). The loader reads
@@ -96,6 +96,7 @@ class FailCondition(BaseModel):
     condition_expr: str
     descriptor: str = ""
     pass_mark: float | None = Field(default=None, ge=0.0, le=10.0)
+    null_pass_condition_expr: str | None = None
 
 
 class QualityFloor(BaseModel):

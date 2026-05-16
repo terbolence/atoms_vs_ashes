@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.2
 """Golden checks for :mod:`atoms_vs_ashes.criterion_spec._band_recipes`."""
 
 from __future__ import annotations
@@ -48,7 +48,10 @@ def test_capacity_margin_uses_active_threshold_pivot():
     r = BandRecipeSpec(kind="capacity_margin", fail_code="A13")
     b = bands_from_recipe(t, r, 999.0, smr_grid_export_mw=462.0)
     assert "grid_export_capacity_mw" in b[0].condition_expr
-    assert "1198.8" in b[0].condition_expr
+    assert b[0].condition_expr == "grid_export_capacity_mw >= 1398.6"
+    assert b[1].condition_expr == "grid_export_capacity_mw >= 1198.8"
+    assert b[2].condition_expr == "grid_export_capacity_mw >= 999.0"
+    assert b[3].condition_expr == "grid_export_capacity_mw >= 799.2"
 
 
 # ---------------------------------------------------------------------------
@@ -73,6 +76,25 @@ def test_null_policy_best_prepends_is_null_clause_to_top_band():
     # Other bands unchanged (no `is null` clause leaking).
     for band in bands[1:]:
         assert "is null" not in band.condition_expr
+
+
+def test_null_best_condition_gates_null_favourable_top_band():
+    """Completed-search sentinels favour NULL without favouring missing data."""
+    t = _minimal_criterion(primary_metric="nearest_seveso_km")
+    r = BandRecipeSpec(
+        kind="higher_is_better",
+        fail_code="A7",
+        score5_pivot=5.0,
+        null_best_condition_expr="hi02_search_completed == true",
+    )
+    bands = bands_from_recipe(t, r, 5.0)
+
+    assert bands[0].condition_expr == (
+        "(nearest_seveso_km is null and hi02_search_completed == true) "
+        "or nearest_seveso_km >= 25.0"
+    )
+    for band in bands[1:]:
+        assert "hi02_search_completed" not in band.condition_expr
 
 
 def test_null_policy_default_keeps_top_band_strict():

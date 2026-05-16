@@ -1,3 +1,4 @@
+# man_hours: 5.1
 # Human-induced hazards (HI) scoring rubric. Source: report/sites_evaluation/04_criteria_human_induced.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: hi
@@ -10,40 +11,36 @@ criteria:
     normalised_weight_pct: 2.5
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-01 (IAEA NS-G-3.1; SSG-35 Table II-1; A1-A4)"}
-    weight_factors: {baseline: 7, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-01 (IAEA NS-G-3.1; SSG-35 Table II-1; A1-A4)"}
     primary_metric: composite
-    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_airport_class, site_human_induced.nearest_military_airfield_km, site_human_induced.nearest_military_class, site_human_induced.nearest_military_km, site_human_induced.nearest_high_consequence_military_class, site_human_induced.nearest_high_consequence_military_km, site_human_induced.hi06_quality, site_human_induced.flight_path_distance_km], llm: hi01_aircraft_text}
-    # SP-D HI-01 v2 (FB-LL-08): consume ``nearest_airport_class`` so the favourable
-    # branch fires when no MAJOR airport is within 30 km, even if a small / GA /
-    # heliport is close. Military distance treated as favourable when null
-    # (SP-F sentinel) so missing military-airfield data no longer drags every
-    # site to pass-mark. Legacy class aliases retained in the membership lists
-    # for backwards compatibility with the original rubric vocabulary.
-    # Band order is INTENTIONAL: the engine takes the first matching band,
-    # so the favourable [9, 10] block is checked first (no airport / small
-    # only / major > 30 km), then the severe bands ([0, 0] / [1, 2] / [3, 4])
-    # which would otherwise be shadowed by the permissive [5, 6] catch-all,
-    # then the high [7, 8] band, and finally the pass-mark [5, 6] for the
-    # "moderate proximity, no clear severe signal" case.
+    db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_airport_class, site_human_induced.nearest_military_airfield_km, site_human_induced.nearest_military_class, site_human_induced.nearest_military_km, site_human_induced.nearest_high_consequence_military_class, site_human_induced.nearest_high_consequence_military_km, site_human_induced.hi06_quality, site_human_induced.flight_path_distance_km, site_human_induced.hi01_comment], llm: hi01_aircraft_text}
+    # HI-01 v3 (A+B+C decision, 2026-05-16): derive class-specific airport
+    # distances in the merge context so a nearby large/medium airport is not
+    # hidden by a closer small airport or heliport. A completed HI-06 search
+    # with no military airfield now passes A3 instead of producing universal
+    # inconclusive verdicts. A1/A4 avoidance signals are aligned with bands:
+    # nearby small/GA/heliport or flight-path-proxy hits can no longer also
+    # land in the favourable [9,10] small-airport band.
+    # Band order is INTENTIONAL: the engine takes the first matching band.
+    # Hard under-flight and avoidance-proximity bands are checked before the
+    # favourable small/major-airport bands, then the 7-8 and pass-mark bands.
     bands:
       - {score_range: [9, 10], condition_expr: "nearest_airport_class is null", descriptor: "No airport in OurAirports search radius (search completed, nothing in range)."}
-      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['small_airport', 'small', 'small_ga', 'general_aviation', 'light', 'heliport', 'seaplane_base', 'balloonport'] and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Only small / GA / heliport airport nearby; no military airbase within 60 km."}
-      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km > 30 and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Major airport > 30 km AND no military airbase within 60 km."}
-      - {score_range: [0, 0], condition_expr: "under_flight_path == true and nearest_airport_class in ['large_airport', 'large_intl', 'military_major']", descriptor: "Direct under-flight of major corridor with no remedy."}
-      - {score_range: [1, 2], condition_expr: "(nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large'] and nearest_airport_km < 8) or nearest_military_airfield_km < 16", descriptor: "Large airport < 8 km or military airbase < 16 km."}
-      - {score_range: [3, 4], condition_expr: "(nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km < 15) or nearest_military_airfield_km < 30", descriptor: "Major airport < 15 km OR military airbase < 30 km (avoidance penalty)."}
-      - {score_range: [7, 8], condition_expr: "nearest_airport_class in ['large_airport', 'large_intl', 'commercial', 'large', 'medium_airport', 'medium'] and nearest_airport_km >= 15 and nearest_airport_km <= 30 and (under_flight_path == false or under_flight_path is null)", descriptor: "Major airport 15-30 km, no overhead flight path."}
-      - {score_range: [5, 6], condition_expr: "nearest_airport_km >= 8 or nearest_military_airfield_km >= 30", descriptor: "Airport >= 8 km OR military airbase >= 30 km (project pass-mark)."}
+      - {score_range: [0, 0], condition_expr: "under_flight_path == true", descriptor: "Direct under-flight of aircraft corridor with no remedy."}
+      - {score_range: [1, 2], condition_expr: "nearest_large_airport_km < 8 or nearest_military_airfield_km < 16", descriptor: "Large airport < 8 km or military airbase < 16 km."}
+      - {score_range: [3, 4], condition_expr: "nearest_major_airport_km < 15 or nearest_military_airfield_km < 30 or nearest_light_airport_km < 10 or flight_path_distance_km < 4", descriptor: "Major airport < 15 km, small/GA/heliport < 10 km, flight-path proxy < 4 km, or military airbase < 30 km (avoidance penalty)."}
+      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['small_airport', 'small', 'small_ga', 'general_aviation', 'light', 'heliport', 'seaplane_base', 'balloonport'] and (nearest_major_airport_km is null or nearest_major_airport_km > 30) and (nearest_light_airport_km is null or nearest_light_airport_km >= 10) and (flight_path_distance_km is null or flight_path_distance_km >= 4) and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Only small / GA / heliport airport >= 10 km nearby, no flight-path proxy < 4 km, no major airport within 30 km, and no military airbase within 60 km."}
+      - {score_range: [9, 10], condition_expr: "nearest_major_airport_km > 30 and (flight_path_distance_km is null or flight_path_distance_km >= 4) and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Nearest large/medium airport > 30 km, no flight-path proxy < 4 km, and no military airbase within 60 km."}
+      - {score_range: [7, 8], condition_expr: "nearest_major_airport_km >= 15 and nearest_major_airport_km <= 30 and (under_flight_path == false or under_flight_path is null) and (flight_path_distance_km is null or flight_path_distance_km >= 4)", descriptor: "Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy."}
+      - {score_range: [5, 6], condition_expr: "nearest_major_airport_km >= 15 or nearest_military_airfield_km >= 30 or nearest_light_airport_km >= 10 or flight_path_distance_km >= 4", descriptor: "Outside avoidance-proximity thresholds, but not enough margin for a high band."}
     # A1-A4 split per report/sites_evaluation/10_appendices.md Table A.2 and
     # report/sites_evaluation/04_criteria_human_induced.md §4.3 HI-01. Each
     # aircraft-crash sub-threshold becomes its own verdict so appendix
     # coverage is 1-to-1 (see audit/plans/.../siting_report_end_to_end plan
     # Phase 1.4 "E1-E9 + A1-A15 evaluators").
     fail_conditions:
-      - {code: A1, action: avoidance_penalty, condition_expr: "nearest_airport_km < 10 and nearest_airport_type in ['small', 'small_ga', 'general_aviation', 'light', 'small_airport']", descriptor: "A1 — SSG-35: general-aviation / small airport < 10 km."}
-      - {code: A2, action: avoidance_penalty, condition_expr: "nearest_airport_km < 15 and nearest_airport_type in ['commercial', 'large_intl', 'large_airport', 'large', 'medium']", descriptor: "A2 — Project: commercial / large-international airport < 15 km (SSG-35 ≥ 16 km)."}
-      - {code: A3, action: avoidance_penalty, condition_expr: "nearest_military_airfield_km < 30 or (nearest_airport_km < 30 and nearest_airport_type in ['military', 'military_major', 'military_minor', 'military_base'])", descriptor: "A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."}
+      - {code: A1, action: avoidance_penalty, condition_expr: "nearest_light_airport_km < 10", descriptor: "A1 — SSG-35: general-aviation / small / heliport airport < 10 km."}
+      - {code: A2, action: avoidance_penalty, condition_expr: "nearest_major_airport_km < 15", descriptor: "A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."}
+      - {code: A3, action: avoidance_penalty, condition_expr: "nearest_military_airfield_km < 30 or (nearest_airport_km < 30 and nearest_airport_type in ['military', 'military_major', 'military_minor', 'military_base'])", null_pass_condition_expr: "nearest_military_airfield_km is null and hi06_quality in ['ok', 'verified', 'high', 'medium', 'low', 'screening', 'screening_default', 'approximate']", descriptor: "A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."}
       - {code: A4, action: avoidance_penalty, condition_expr: "under_flight_path == true or flight_path_distance_km < 4", descriptor: "A4 — SSG-35: flight-path overhead / < 4 km from airway."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-02
@@ -51,8 +48,6 @@ criteria:
     phases: [avoidance, ranking]
     weight_factor: 7
     normalised_weight_pct: 2.5
-    weight_factors: {baseline: 7, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-02 (NS-R-3 §3.49-3.50; NS-G-3.1; A7)"}
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-02 (NS-R-3 §3.49-3.50; NS-G-3.1; A7)"}
     primary_metric: nearest_seveso_km
@@ -69,7 +64,7 @@ criteria:
       - {score_range: [1, 2], condition_expr: "nearest_seveso_km < 2", descriptor: "< 2 km."}
       - {score_range: [0, 0], condition_expr: "nearest_seveso_km < 0.5 and has_mitigation == false", descriptor: "Direct adjacency with credible ignition and no mitigation."}
     fail_conditions:
-      - {code: A7, action: avoidance_penalty, condition_expr: "nearest_seveso_km < 5", descriptor: "Project avoidance: >= 5 km from flammable/toxic/explosive storage."}
+      - {code: A7, action: avoidance_penalty, condition_expr: "nearest_seveso_km < 5", null_pass_condition_expr: "nearest_seveso_km is null and hi02_search_completed == true", descriptor: "Project avoidance: >= 5 km from flammable/toxic/explosive storage."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-03
     name: Toxic / gas releases

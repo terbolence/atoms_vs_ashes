@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.8
 """Compiler regression tests for spec templates.
 
 Non-recipe criteria must keep legacy parity. Recipe criteria deliberately
@@ -122,16 +122,19 @@ def test_nh02_threshold_override_updates_bands_and_scoring_logic():
 
 
 def test_exclusionary_numeric_recipes_emit_concrete_band_values():
+    # NH-10 is intentionally excluded post-2026-05-16: it is no longer
+    # exclusionary (action: review_flag, phases: [ranking] only). Its
+    # threshold widget still works (the override below is harmless), but
+    # the test focuses on the recipe-driven exclusion criteria.
     bundle = load_template_bundle(str(SPEC_DIR))
     overrides = {
         "EP-01": {"E8": 40.0},
         "NH-02": {"E1": 8.0},
         "NH-04": {"E3": 20.0},
         "NH-07": {"E4": 80.0},
-        "NH-10": {"project_wind_envelope": 60.0},
     }
     compiled = compile_bundle(bundle, fail_thresholds=overrides).criteria
-    audited = ["EP-01", "NH-02", "NH-04", "NH-07", "NH-10"]
+    audited = ["EP-01", "NH-02", "NH-04", "NH-07"]
 
     for cid in audited:
         for band in compiled[cid].bands:
@@ -169,18 +172,52 @@ def test_recipe_defaults_also_anchor_score5_boundary():
     assert score5.condition_expr == "nearest_volcano_km >= 50.0"
 
 
-def test_simple_numeric_thresholded_criteria_declare_band_recipe(template_bundle):
+def test_simple_numeric_thresholded_scoring_conditions_declare_band_recipe(
+    template_bundle,
+):
     missing: list[str] = []
     for cid, template in template_bundle.by_id.items():
         if "ranking" not in template.phases or template.sub_scores:
             continue
-        has_numeric_threshold = any(
-            fc.threshold is not None and fc.threshold.kind == "numeric"
+        has_numeric_scoring_threshold = any(
+            (
+                fc.threshold is not None
+                and fc.threshold.kind == "numeric"
+                and fc.action != "review_flag"
+            )
             for fc in template.fail_conditions
         )
-        if has_numeric_threshold and template.band_recipe is None:
+        if has_numeric_scoring_threshold and template.band_recipe is None:
             missing.append(cid)
     assert missing == []
+
+
+def test_nh10_wind_envelope_is_review_only_with_fixed_bands(template_bundle):
+    nh10 = template_bundle.by_id["NH-10"]
+
+    assert nh10.phases == ["ranking"]
+    assert nh10.band_recipe is None
+
+    wind_flag = next(
+        fc for fc in nh10.fail_conditions if fc.code == "project_wind_envelope"
+    )
+    assert wind_flag.action == "review_flag"
+    assert wind_flag.threshold is not None
+    assert wind_flag.threshold.kind == "numeric"
+
+    compiled = compile_bundle(
+        template_bundle,
+        fail_thresholds={"NH-10": {"project_wind_envelope": 60.0}},
+    ).criteria["NH-10"]
+
+    assert [b.condition_expr for b in compiled.bands] == [
+        b.condition_expr for b in nh10.bands
+    ]
+    compiled_flag = next(
+        fc for fc in compiled.fail_conditions if fc.code == "project_wind_envelope"
+    )
+    assert compiled_flag.action == "review_flag"
+    assert compiled_flag.condition_expr == "max_wind_speed_ms > 60"
 
 
 def test_simple_numeric_thresholds_score_at_least_five_at_boundary(template_bundle):

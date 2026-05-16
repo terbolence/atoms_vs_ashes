@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.4
 """Pure parsing and classification logic for OSM transport access (P11).
 
 No I/O, no HTTP, no database imports. Fully unit-testable.
@@ -7,13 +7,19 @@ Serves criteria NS-03 / A14 (transport access for heavy modules).
 
 from __future__ import annotations
 
+from atoms_vs_ashes.connectors.osm.heavy_haul import (
+    _HEAVY_HAUL_HIGHWAY_TYPES,
+    _is_barge_capable,
+    _parse_gauge,
+    assess_heavy_haul,
+    infer_gauge_by_country,
+)
 from atoms_vs_ashes.connectors.osm.models import (
-    BROAD_GAUGE_COUNTRIES,
     BROAD_GAUGE_MM,
-    STANDARD_GAUGE_MM,
     HighwayResult,
     OsmElement,
     RailwayResult,
+    STANDARD_GAUGE_MM,
     TransportResult,
     WaterwayResult,
 )
@@ -21,16 +27,6 @@ from atoms_vs_ashes.geo import haversine_km
 
 # Appended by ``build_ns03_comment``; batch cache uses this to detect P11-persisted rows.
 TRANSPORT_NS03_COMMENT_MARKER = "Source: OSM Overpass API"
-
-# CEMT classes that indicate barge-capable waterways (>= 1000 tonnes, >= 2.5 m draft)
-_BARGE_CAPABLE_CEMT = frozenset({
-    "IV", "V", "Va", "Vb", "VI", "VIa", "VIb", "VIc", "VII",
-})
-_MARGINAL_CEMT = frozenset({"III"})
-
-# Highway types that support heavy-haul transport without restrictions
-_HEAVY_HAUL_HIGHWAY_TYPES = frozenset({"motorway", "trunk"})
-
 
 def classify_highways(
     site_lat: float,
@@ -209,38 +205,6 @@ def classify_waterways(
     )
 
 
-def assess_heavy_haul(
-    highway: HighwayResult,
-    railway: RailwayResult,
-    waterway: WaterwayResult,
-) -> tuple[bool | None, str]:
-    """Determine if site has at least one transport mode for 700t SMR modules.
-
-    Returns (capable, confidence).
-    Transport mode hierarchy: barge > rail > road (segmented).
-    """
-    if waterway.waterway_barge_capable:
-        return True, "high"
-    if railway.rail_heavy_haul:
-        return True, "high"
-    if railway.rail_siding_present:
-        return True, "high"
-    if highway.highway_heavy_haul:
-        return True, "medium"
-    if (
-        highway.nearest_highway_km is not None
-        and highway.nearest_highway_km < 10.0
-    ):
-        return True, "low"
-    if (
-        highway.nearest_highway_km is not None
-        and highway.nearest_highway_km > 10.0
-        and (railway.nearest_rail_km is None or railway.nearest_rail_km > 15.0)
-    ):
-        return None, "low"
-    return None, "low"
-
-
 def build_ns03_comment(result: TransportResult) -> str:
     """Build a human-readable summary for the ns03_comment DB column."""
     parts: list[str] = []
@@ -306,42 +270,3 @@ def determine_quality(
     return "medium"
 
 
-# ---------------------------------------------------------------------------
-# Private helpers
-# ---------------------------------------------------------------------------
-
-def _parse_gauge(gauge_str: str) -> int | None:
-    """Parse OSM gauge tag value to integer millimetres."""
-    if not gauge_str:
-        return None
-    cleaned = gauge_str.strip().replace(",", "").replace(" ", "")
-    if ";" in cleaned:
-        cleaned = cleaned.split(";")[0]
-    try:
-        return int(float(cleaned))
-    except (ValueError, OverflowError):
-        return None
-
-
-def infer_gauge_by_country(country_code: str) -> int | None:
-    """Infer rail gauge from country code when OSM tag is absent."""
-    cc = country_code.upper()
-    if cc in BROAD_GAUGE_COUNTRIES:
-        return BROAD_GAUGE_MM
-    if cc in {"PL", "CZ", "SK", "HU", "AT", "SI", "HR", "BA", "RS",
-              "ME", "XK", "AL", "MK", "RO", "BG", "TR", "MD"}:
-        return STANDARD_GAUGE_MM
-    return None
-
-
-def _is_barge_capable(cemt: str, tags: dict[str, str]) -> bool | None:
-    """Determine barge capability from CEMT class and tags."""
-    if cemt in _BARGE_CAPABLE_CEMT:
-        return True
-    if cemt in _MARGINAL_CEMT:
-        return None  # marginally capable (650 tonnes)
-    if cemt and cemt not in _BARGE_CAPABLE_CEMT and cemt not in _MARGINAL_CEMT:
-        return False
-    if tags.get("boat") == "yes" or tags.get("motorboat") == "yes":
-        return None  # potentially navigable but unknown capacity
-    return None

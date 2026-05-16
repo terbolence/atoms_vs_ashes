@@ -1,3 +1,4 @@
+# man_hours: 16.2
 """Pydantic output schemas and Anthropic tool definitions for all 46 criteria.
 
 Each criterion has:
@@ -1072,12 +1073,33 @@ class NS06ExistingInfra(_RankingBase):
 
 class NS07EnvImpact(_RankingBase):
     criterion_id: str = "NS-07"
+    env_impact_tier: str | None = Field(
+        None,
+        pattern="^(industrial|few_sensitivities|typical|significant|showstopper_risk)$",
+    )
     env_impact_notes: str | None = None
 
     @classmethod
     def anthropic_tool(cls) -> dict[str, Any]:
         p = cls._base_props()
-        p.update({"env_impact_notes": {"type": ["string", "null"]}})
+        p.update({
+            "env_impact_tier": {
+                "type": ["string", "null"],
+                "enum": [
+                    "industrial",
+                    "few_sensitivities",
+                    "typical",
+                    "significant",
+                    "showstopper_risk",
+                    None,
+                ],
+                "description": (
+                    "Categorical NS-07 band pivot: industrial, few_sensitivities, "
+                    "typical, significant, or showstopper_risk."
+                ),
+            },
+            "env_impact_notes": {"type": ["string", "null"]},
+        })
         return _tool("record_ns07_ranking", "Score non-radiological environmental impact (NS-07)", p, cls._base_required())
 
 

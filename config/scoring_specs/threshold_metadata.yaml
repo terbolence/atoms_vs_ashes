@@ -1,3 +1,4 @@
+# man_hours: 4.2
 # User-controllable failure thresholds — IAEA / SSG / NUREG anchors.
 #
 # This sidecar is merged into config/scoring_specs/*.yaml at load time
@@ -103,42 +104,6 @@ NH-07:
       sources: ["IAEA SSG-9 §6.36", "IAEA SSG-21 §3.5"]
     bounds: {min: 25, max: 200}
 
-NH-08:
-  A9:
-    metric: coast_distance_km
-    op: "<"
-    default_value: 10
-    units: km
-    label: "Coastal avoidance distance"
-    kind: numeric
-    recommended:
-      value: 10
-      rationale: >
-        Project A9 avoidance: 10 km from sea OR 50 m AMSL elevation balances
-        storm-surge and tsunami modelling envelopes. Aligns with IAEA SSG-18
-        §3.20 historical-tsunami trace and NUREG-0800 §2.4.6. The elevation
-        clause is a fixed best-practice envelope.
-      sources: ["IAEA SSG-18 §3.20", "NUREG-0800 §2.4.6"]
-    bounds: {min: 2, max: 30}
-
-NH-09:
-  A11:
-    metric: river_distance_km
-    op: "<"
-    default_value: 4
-    units: km
-    label: "River avoidance distance"
-    kind: numeric
-    recommended:
-      value: 4
-      rationale: >
-        Project A11 avoidance: 4 km river separation OR 30.5 m (100 ft)
-        vertical separation. Mirrors IAEA SSG-18 §3.16 design-basis flood
-        envelopes for inland riverine sites; the vertical-separation
-        clause is fixed best practice.
-      sources: ["IAEA SSG-18 §3.16", "NUREG-0800 §2.4.3"]
-    bounds: {min: 1, max: 15}
-
 NH-10:
   project_wind_envelope:
     metric: max_wind_speed_ms
@@ -201,9 +166,9 @@ EP-01:
     recommended:
       value: 30
       rationale: >
-        Phase-2 hard floor for emergency-planning composite (DRV-02). The
-        secondary trauma-centre clause is a fixed best-practice envelope
-        and is not user-tunable here.
+        Phase-2 hard floor for emergency-planning composite (DRV-02).
+        Norm-anchored value; the user can override via the threshold
+        editor but the default mirrors the IAEA / project requirement.
       sources: ["IAEA GSR Part 7", "Project DRV-02 schema"]
     bounds: {min: 10, max: 60}
 

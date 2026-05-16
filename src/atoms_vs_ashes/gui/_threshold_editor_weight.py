@@ -22,6 +22,7 @@ from __future__ import annotations
 import streamlit as st
 
 from atoms_vs_ashes.criterion_spec.preview import CriterionPreview
+from atoms_vs_ashes.gui._criterion_info import criterion_info_popover
 from atoms_vs_ashes.gui._state import (
     commit_weight_overrides_draft,
     discard_weight_overrides_draft,
@@ -50,13 +51,23 @@ def _input_key(criterion_id: str) -> str:
     return f"weight_input_{criterion_id}_{rev}"
 
 
-def criterion_weight_input(crit: CriterionPreview) -> None:
+def criterion_weight_input(
+    crit: CriterionPreview,
+    *,
+    show_info: bool = False,
+) -> None:
     """Render the weight ``number_input`` + per-criterion ``Reset`` button."""
     cid = crit.criterion_id
     overrides = get_weight_overrides_draft()
     has_override = cid in overrides
     if crit.is_exclusionary:
-        st.caption("Exclusionary gate only — not included in scoring weights.")
+        if show_info:
+            cols = st.columns([3, 1])
+            cols[0].caption("Exclusionary gate only — not included in scoring weights.")
+            with cols[1]:
+                criterion_info_popover(crit)
+        else:
+            st.caption("Exclusionary gate only — not included in scoring weights.")
         if has_override and st.button(
             "Remove unused weight override",
             key=f"weight_reset_{cid}",
@@ -66,7 +77,7 @@ def criterion_weight_input(crit: CriterionPreview) -> None:
             st.rerun()
         return
     current = int(overrides.get(cid, crit.weight_factor))
-    cols = st.columns([3, 1])
+    cols = st.columns([3, 0.35, 1] if show_info else [3, 1])
     new_val = cols[0].number_input(
         "Weight (1–10)",
         min_value=1,
@@ -79,7 +90,11 @@ def criterion_weight_input(crit: CriterionPreview) -> None:
     if int(new_val) != int(current):
         set_weight_override(cid, int(new_val))
         st.rerun()
-    if cols[1].button(
+    reset_col_idx = 2 if show_info else 1
+    if show_info:
+        with cols[1]:
+            criterion_info_popover(crit)
+    if cols[reset_col_idx].button(
         "Reset to spec",
         key=f"weight_reset_{cid}",
         disabled=not has_override,

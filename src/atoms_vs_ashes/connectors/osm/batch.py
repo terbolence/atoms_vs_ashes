@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 6.2
 """Batch enrichment and DB persistence for P11 OSM transport access.
 
 Handles per-site commit isolation, cache-based resumability, progress
@@ -458,9 +458,22 @@ def _write_observations(
             source_type="api",
             observation=(
                 "Heavy-haul transport capability could not be determined. "
-                "Manual assessment of road weight limits and rail gauge required."
+                "Former coal plant logistics access is not penalized without "
+                "explicit negative route evidence; manual route confirmation "
+                "is recommended."
             ),
-            impact="negative", confidence="low", run_id=run_id,
+            impact="neutral", confidence="low", run_id=run_id,
+        ))
+
+    if result.heavy_haul_capable is False:
+        session.add(SiteObservation(
+            site_id=site_id, criterion_id=TRANSPORT_CRITERION_ID,
+            source_type="api",
+            observation=(
+                "Heavy-haul transport capability is explicitly negative across "
+                "the available OSM road, rail, and waterway indicators."
+            ),
+            impact="negative", confidence="medium", run_id=run_id,
         ))
 
     if rw.rail_siding_present:

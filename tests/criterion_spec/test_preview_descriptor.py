@@ -1,4 +1,4 @@
-# man_hours: 0.7
+# man_hours: 0.8
 """Preview metadata needed by universal criterion info popovers."""
 
 from __future__ import annotations
@@ -8,7 +8,11 @@ from pathlib import Path
 import pytest
 
 from atoms_vs_ashes.criterion_spec import build_preview, load_template_bundle
-from atoms_vs_ashes.gui._criterion_info import criterion_infobox, criterion_info_markdown
+from atoms_vs_ashes.gui._criterion_info import (
+    criterion_infobox,
+    criterion_info_markdown,
+    criterion_input_info_markdown,
+)
 from atoms_vs_ashes.runprofile import RunProfile
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -87,7 +91,7 @@ def test_noneditable_avoidance_code_has_infobox(preview_bundle):
     assert a12.user_editable is False
     text = criterion_infobox(ri05, a12)
     assert "**Action:** `avoidance_penalty`" in text
-    assert "Project thresholds: 25k/>=8 km" in text
+    assert "Nearest >=50k population-centre proxy: 50k/>=8 km" in text
     assert "User-tunable: `no`" in text
 
 
@@ -97,3 +101,44 @@ def test_complete_criterion_info_includes_epri_weight(preview_bundle):
     assert "**EPRI weight:** `4`" in text
     assert "NS-G-3.6" in text
     assert "User-tunable: `no`" in text
+
+
+def test_reconciled_ep01_modal_includes_weight_and_rule(preview_bundle):
+    ep01 = _criterion(preview_bundle, "EP-01")
+    e8 = _fail_code(ep01, "E8")
+    text = criterion_input_info_markdown(ep01, e8)
+
+    assert "**Criterion:** `EP-01` - Emergency-plan feasibility" in text
+    assert "**EPRI weight:** `4`" in text
+    assert "**Code:** `E8` | **Action:** `exclude`" in text
+    assert "**Fail value:** `30` points" in text
+    assert "**Expression:** `ep01_composite_score < 30" in text
+    assert text.count("Rubric source:") == 1
+
+
+def test_ns_rubric_source_uses_non_safety_file(preview_bundle):
+    ns05 = _criterion(preview_bundle, "NS-05")
+    text = criterion_info_markdown(ns05)
+
+    assert "config/scoring_rubrics/ns_non_safety.yaml" in text
+    assert "config/scoring_rubrics/ns_nuclear_safety.yaml" not in text
+
+
+def test_static_only_modal_keeps_noneditable_rule_details(preview_bundle):
+    nh03 = _criterion(preview_bundle, "NH-03")
+    text = criterion_input_info_markdown(nh03)
+
+    assert "**Code:** `E2` | **Action:** `exclude`" in text
+    assert "High or very-high liquefaction susceptibility" in text
+    assert "User-tunable: `no`" in text
+
+
+def test_focused_modal_keeps_other_static_rules(preview_bundle):
+    nh01 = _criterion(preview_bundle, "NH-01")
+    a10 = _fail_code(nh01, "A10")
+    text = criterion_input_info_markdown(nh01, a10)
+
+    assert "### Selected Rule" in text
+    assert "**Code:** `A10` | **Action:** `avoidance_penalty`" in text
+    assert "### Other Failure / Flag Rules" in text
+    assert "**Code:** `data_review_pga` | **Action:** `review_flag`" in text
