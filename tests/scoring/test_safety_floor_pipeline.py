@@ -59,21 +59,25 @@ def _eval_floor_for(criterion, context: dict) -> tuple[list, "BandResult"]:
 
 
 class TestSafetyFloorTransparency:
+    # The single-pivot fix (band_recipe.score5_pivot drives both bands
+    # and hard expression) makes the floor STRUCTURALLY unreachable for
+    # NH-04 / NH-02 / NH-07 — at any value below the score-5 boundary
+    # the hard expression already triggers. The floor is preserved as a
+    # backstop for HAND-WRITTEN rubrics where the bands and the hard
+    # expression are declared independently; NH-03 is the canonical
+    # such criterion. These tests exercise the floor against NH-03,
+    # which has a real band/exclusion gap at (very_high, null) by
+    # design (see config/scoring_rubrics/nh_natural_hazards.yaml NH-03
+    # bands 3-4 descriptor).
+
     def test_low_score_below_floor_emits_floor_verdict(self, bundle):
-        """NH-04 at exactly the band-5 boundary lands in band 3-4 (~3.5)
-        but the hard expression ``slope_angle_deg > 8`` (strict) is False;
-        the safety floor catches the gap and fires :floor.
+        """NH-03 at (very_high, null) lands in band 3-4 (score 3.5) but
+        the hard expression requires ``has_remedy == false``; null does
+        not satisfy that, so the floor fires."""
+        nh03 = bundle["NH-03"]
+        ctx = {"liquefaction_suscept": "very_high", "has_remedy": None}
 
-        After the single-pivot exclusion change (band-5 boundary now
-        drives the hard rule), this is the only slope value that
-        exercises the floor for NH-04 — every value > 8 trips the hard
-        E3 directly. The mechanism stays as a backstop in case future
-        rubric edits re-introduce a band / exclusion gap.
-        """
-        nh04 = bundle["NH-04"]
-        ctx = {"slope_angle_deg": 8.0, "slope_stability_class": "stable"}
-
-        verdicts, band_result = _eval_floor_for(nh04, ctx)
+        verdicts, band_result = _eval_floor_for(nh03, ctx)
 
         assert band_result.score < 5.0, "fixture must score below floor"
         assert band_result.score == pytest.approx(3.5, abs=0.5)
@@ -81,23 +85,33 @@ class TestSafetyFloorTransparency:
         floor_verdicts = [
             v
             for v in verdicts
-            if v.phase == "exclusionary" and v.prompt_key == "E3:floor"
+            if v.phase == "exclusionary" and v.prompt_key == "E2:floor"
         ]
         assert len(floor_verdicts) == 1
         assert floor_verdicts[0].verdict == "fail"
-        assert floor_verdicts[0].criterion_id == "NH-04"
+        assert floor_verdicts[0].criterion_id == "NH-03"
 
     def test_hard_expression_takes_precedence_over_floor(self, bundle):
-        """slope >= 25 triggers hard E3; no separate :floor verdict."""
-        nh04 = bundle["NH-04"]
-        ctx = {"slope_angle_deg": 30, "slope_stability_class": "stable"}
+        """NH-03 at (very_high, false): hard E2 fires; no :floor verdict.
 
-        verdicts, _ = _eval_floor_for(nh04, ctx)
-
-        hard = [v for v in verdicts if v.prompt_key == "E3"]
-        floor = [v for v in verdicts if v.prompt_key == "E3:floor"]
+        Also covers the NH-04 single-pivot path: slope > 25 trips E3
+        directly without a separate :floor.
+        """
+        nh03 = bundle["NH-03"]
+        ctx_hard = {"liquefaction_suscept": "very_high", "has_remedy": False}
+        verdicts, _ = _eval_floor_for(nh03, ctx_hard)
+        hard = [v for v in verdicts if v.prompt_key == "E2"]
+        floor = [v for v in verdicts if v.prompt_key == "E2:floor"]
         assert len(hard) == 1 and hard[0].verdict == "fail"
         assert len(floor) == 0, "floor must not double-fire when hard E-code triggers"
+
+        nh04 = bundle["NH-04"]
+        ctx_nh04 = {"slope_angle_deg": 30, "slope_stability_class": "stable"}
+        verdicts_nh04, _ = _eval_floor_for(nh04, ctx_nh04)
+        hard_nh04 = [v for v in verdicts_nh04 if v.prompt_key == "E3"]
+        floor_nh04 = [v for v in verdicts_nh04 if v.prompt_key == "E3:floor"]
+        assert len(hard_nh04) == 1 and hard_nh04[0].verdict == "fail"
+        assert len(floor_nh04) == 0
 
     def test_passing_score_emits_no_exclusion(self, bundle):
         nh04 = bundle["NH-04"]
@@ -267,19 +281,24 @@ class TestSafetyFloorTransparency:
 
 class TestSafetyFloorGating:
     def test_floor_fail_yields_null_composite(self, bundle):
-        """The full gate: floor verdict -> composite_score is None."""
-        nh04 = bundle["NH-04"]
-        ctx = {"slope_angle_deg": 12, "slope_stability_class": "stable"}
+        """The full gate: floor verdict -> composite_score is None.
 
-        verdicts, _ = _eval_floor_for(nh04, ctx)
+        Uses NH-03 (very_high, null) — the canonical floor-only path,
+        since NH-04's single-pivot rubric closes the band/exclusion gap
+        and so cannot exercise the floor in isolation.
+        """
+        nh03 = bundle["NH-03"]
+        ctx = {"liquefaction_suscept": "very_high", "has_remedy": None}
+
+        verdicts, _ = _eval_floor_for(nh03, ctx)
 
         result = compute_composite_for_site_smr(
             site_id=uuid.uuid4(),
             smr_key="nuscale_voygr6",
             ranking_rows=[],
             verdicts=verdicts,
-            weights={"NH-04": 1.0},
-            criteria={"NH-04": nh04},
+            weights={"NH-03": 1.0},
+            criteria={"NH-03": nh03},
         )
         assert result.passed_exclusionary is False
         assert result.composite_score is None

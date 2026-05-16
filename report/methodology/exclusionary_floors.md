@@ -28,8 +28,8 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 | --- | --- | --- | --- | --- | --- |
 | `E1` | NH-02 — Seismic surface rupture (capable faults) | nh_natural_hazards.yaml | `nearest_fault_km < 5` | 5.0 | `nearest_fault_km >= 5.0` |
 | `E2` | NH-03 — Geotechnical - settlement and liquefaction | nh_natural_hazards.yaml | `liquefaction_suscept in ['high', 'very_high'] and has_remedy == false` | 5.0 | `liquefaction_suscept == 'moderate' or (liquefaction_suscept == 'high' and (has_remedy == true or has_remedy is null)) or (liquefaction_suscept == 'very_high' and has_remedy == true)` |
-| `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg > 8` | 5.0 | `slope_angle_deg < 8` |
-| `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 300` | 5.0 | `nearest_volcano_km >= 300` |
+| `E3` | NH-04 — Geotechnical - slope stability | nh_natural_hazards.yaml | `slope_angle_deg > 25` | 5.0 | `slope_angle_deg <= 25.0` |
+| `E4` | NH-07 — Volcanism | nh_natural_hazards.yaml | `nearest_volcano_km < 50` | 5.0 | `nearest_volcano_km >= 50.0` |
 
 ## Details
 
@@ -72,34 +72,34 @@ Underlying `ranking_scores` rows are written for **both** outcomes
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `slope_angle_deg > 8`
-- **Hard fail descriptor**: Slope above score-5 pivot.
+- **Hard fail expression**: `slope_angle_deg > 25`
+- **Hard fail descriptor**: Slope above the SSG-9 mitigable envelope (score-5 pivot).
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `slope_angle_deg < 8`
+- **Min metric to clear floor (band 5-6)**: `slope_angle_deg <= 25.0`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
-| **9-10** | `slope_angle_deg < 1` | Optimal flat ground. |
-| **7-8** | `slope_angle_deg < 3` | Gentle; minimal earthworks. |
-| **5-6** | `slope_angle_deg < 8` | Moderate; routine grading; 5% cap at 5-6 boundary. |
-| **3-4** | `slope_angle_deg < 15` | Significant slopes; stability study required. |
-| **1-2** | `slope_angle_deg < 25` | Major instability risk; runout inventory must clear. |
-| **0** | `slope_angle_deg >= 25` | E3 triggered. |
+| **9-10** | `slope_angle_deg <= 5.0` | Flat to very gentle terrain; minimal earthworks; well within the SSG-9 mitigable envelope. |
+| **7-8** | `slope_angle_deg <= 10.0` | Gentle to moderate terrain; routine grading; comfortably within the SSG-9 envelope. |
+| **5-6** | `slope_angle_deg <= 25.0` | At or below the IAEA SSG-9 §6.34 mitigable envelope (25° on competent rock). |
+| **3-4** | `slope_angle_deg < 37.5` | Above the SSG-9 envelope; mandatory geotechnical study; E3 hard fail. |
+| **1-2** | `slope_angle_deg < 50.0` | Severe instability risk; E3 hard fail. |
+| **0** | `slope_angle_deg >= 50.0` | Catastrophic; E3 hard fail. |
 
 ### E4 — NH-07 Volcanism
 
 - **Source**: `config/scoring_rubrics/nh_natural_hazards.yaml`
 - **Phases**: exclusionary, ranking
-- **Hard fail expression**: `nearest_volcano_km < 300`
+- **Hard fail expression**: `nearest_volcano_km < 50`
 - **Hard fail descriptor**: Holocene volcano within score-5 pivot distance.
 - **Floor (pass_mark)**: 5.0
-- **Min metric to clear floor (band 5-6)**: `nearest_volcano_km >= 300`
+- **Min metric to clear floor (band 5-6)**: `nearest_volcano_km >= 50.0`
 
 | Band | Condition | Descriptor |
 | --- | --- | --- |
-| **9-10** | `nearest_volcano_km is null or nearest_volcano_km > 1000` | No plausible pathway (including connector-null / beyond search radius). |
-| **7-8** | `nearest_volcano_km >= 500` | Distant; ashfall climatology benign. |
-| **5-6** | `nearest_volcano_km >= 300` | Meets project minimum (>= 300 km). |
-| **3-4** | `nearest_volcano_km >= 200` | Sub-threshold; specialist study required. |
-| **1-2** | `nearest_volcano_km >= 50` | Elevated risk; mitigation uncertain. |
-| **0** | `nearest_volcano_km < 50` | E4 triggered. |
+| **9-10** | `nearest_volcano_km is null or nearest_volcano_km >= 250.0` | No plausible pathway (incl. beyond connector 300 km search radius). |
+| **7-8** | `nearest_volcano_km >= 100.0` | Beyond credible PDC envelope; ashfall climatology only. |
+| **5-6** | `nearest_volcano_km >= 50.0` | At IAEA-anchored PDC envelope (SSG-21 §3.5 / SSG-9 §6.36). |
+| **3-4** | `nearest_volcano_km >= 25.0` | Within credible PDC reach; specialist study required. |
+| **1-2** | `nearest_volcano_km >= 10.0` | Near volcanic edifice; severe direct-hazard exposure. |
+| **0** | `nearest_volcano_km < 10.0` | Within volcanic edifice / lava-reach zone. |

@@ -1282,6 +1282,14 @@ files:
     hours: 1.0
     category: "AI Prompts & Tooling"
 
+  prompts/ScoringCriteriaSystemPrompt.md:
+    hours: 8.0
+    category: "AI Prompts & Tooling"
+
+  audit/conversations/2026-05-16_scoring-criteria-system-prompt.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
   # ── Cursor Rules (added Apr 2026) ──────────────────────────────
 
   .cursor/rules/live-api-safety.mdc:
@@ -1785,3 +1793,39 @@ files:
   tests/gui/test_results_run_picker.py:
     hours: 0.5
     category: "Testing"
+
+  tests/scoring/test_threshold_propagation.py:
+    hours: 0.5
+    category: "Testing"
+
+  audit/plans/nh04_single_pivot_iaea_25deg.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  architecture/plans/nh04_single_pivot_iaea_25deg.md:
+    hours: 1.0
+    category: "Architecture & Design"
+
+  audit/conversations/2026-05-16_nh04-single-pivot-iaea-25deg.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/plans/nh07_single_pivot_iaea_50km.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  architecture/plans/nh07_single_pivot_iaea_50km.md:
+    hours: 1.0
+    category: "Architecture & Design"
+
+  audit/conversations/2026-05-16_nh07-single-pivot-iaea-50km.md:
+    hours: 1.4
+    category: "Project Management & QA"
+
+  tests/scoring/test_nh07_review_flag.py:
+    hours: 0.7
+    category: "Testing"
+
+  src/scripts/generate_scoring_examples.py:
+    hours: 1.5
+    category: "Implementation"

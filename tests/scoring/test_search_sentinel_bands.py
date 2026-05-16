@@ -105,8 +105,9 @@ class TestHiSearchSentinelFavorableFires:
 
 def test_nh07_null_volcano_distance_lands_high(bundle) -> None:
     """NH-07 favourable band reads
-    ``"nearest_volcano_km > 1000 or nearest_volcano_km is null"`` — the
-    second disjunct must fire when the connector returns null."""
+    ``"nearest_volcano_km is null or nearest_volcano_km >= 250.0"``
+    (set by ``band_recipe.null_policy='best'``). A connector-NULL
+    distance must fire the first disjunct."""
     criterion = bundle["NH-07"]
     ctx = {"nearest_volcano_km": None}
     result = evaluate_criterion_value(criterion, ctx, quality="medium")

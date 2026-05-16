@@ -130,21 +130,40 @@ criteria:
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
     primary_metric: slope_angle_deg
-    db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class], llm: nh04_slope_text}
+    db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class, site_natural_hazards.nh04_dem_cog_slope_max_deg], llm: nh04_slope_text}
+    # NB: ``slope_angle_deg`` here is the MEAN slope over a 1 km buffer
+    # around the site centroid (copernicus_dem/parsers.py::
+    # compute_slope_stats → mean_deg). That is a screening proxy, not
+    # an on-site footprint measurement, and it does NOT distinguish
+    # "30° on the plant pad" from "30° at the foot of a hill 1 km
+    # away". The connector also persists the max slope in the same
+    # buffer (``nh04_dem_cog_slope_max_deg``) but the scoring rubric
+    # does not currently consume it. See LL-022 in
+    # prompts/lessons_learned.md for the open design defect and the
+    # planned resolution (split on-site footprint slope vs runout /
+    # lateral-hazard buffer signal). Until that lands, treat NH-04 as
+    # a coarse screening lens only.
     bands:
-      - {score_range: [9, 10], condition_expr: "slope_angle_deg < 1", descriptor: "Optimal flat ground."}
-      - {score_range: [7, 8], condition_expr: "slope_angle_deg < 3", descriptor: "Gentle; minimal earthworks."}
-      - {score_range: [5, 6], condition_expr: "slope_angle_deg < 8", descriptor: "Moderate; routine grading; 5% cap at 5-6 boundary."}
-      - {score_range: [3, 4], condition_expr: "slope_angle_deg < 15", descriptor: "Significant slopes; stability study required."}
-      - {score_range: [1, 2], condition_expr: "slope_angle_deg < 25", descriptor: "Major instability risk; runout inventory must clear."}
-      - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 25", descriptor: "E3 triggered."}
+      # Bands are auto-derived by the compiler from band_recipe with
+      # kind=lower_is_better and score5_pivot=25 (IAEA SSG-9 §6.34 /
+      # NUREG-0800 §2.5.5 envelope). The condition_expr values below
+      # are kept identical to what compile_bundle emits so the spec
+      # YAML stays self-describing; do not hand-edit these without
+      # also updating score5_pivot.
+      - {score_range: [9, 10], condition_expr: "slope_angle_deg <= 5.0", descriptor: "Flat to very gentle terrain; minimal earthworks; well within the SSG-9 mitigable envelope."}
+      - {score_range: [7, 8], condition_expr: "slope_angle_deg <= 10.0", descriptor: "Gentle to moderate terrain; routine grading; comfortably within the SSG-9 envelope."}
+      - {score_range: [5, 6], condition_expr: "slope_angle_deg <= 25.0", descriptor: "At or below the IAEA SSG-9 §6.34 mitigable envelope (25° on competent rock)."}
+      - {score_range: [3, 4], condition_expr: "slope_angle_deg < 37.5", descriptor: "Above the SSG-9 envelope; mandatory geotechnical study; E3 hard fail."}
+      - {score_range: [1, 2], condition_expr: "slope_angle_deg < 50.0", descriptor: "Severe instability risk; E3 hard fail."}
+      - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 50.0", descriptor: "Catastrophic; E3 hard fail."}
     fail_conditions:
-      # Single-pivot exclusion (derive_expr_from_recipe=true):
-      # condition_expr is auto-derived from band_recipe.score5_pivot
-      # ("slope_angle_deg > 8"). The legacy 25 deg / catastrophic
-      # disjuncts were dropped to keep the rule single-pivot.
-      - {code: E3, action: exclude, condition_expr: "slope_angle_deg > 8", pass_mark: 5.0, descriptor: "Slope above score-5 pivot.", derive_expr_from_recipe: true}
-    band_recipe: {kind: lower_is_better, fail_code: E3, score5_pivot: 8}
+      # Single-pivot exclusion (derive_expr_from_recipe=true). The
+      # compiler regenerates condition_expr from
+      # band_recipe.score5_pivot (IAEA SSG-9 §6.34 / NUREG-0800 §2.5.5
+      # 25° envelope). Stored value must match what the compiler
+      # derives or the drift guard refuses to load.
+      - {code: E3, action: exclude, condition_expr: "slope_angle_deg > 25", pass_mark: 5.0, descriptor: "Slope above the SSG-9 mitigable envelope (score-5 pivot).", derive_expr_from_recipe: true}
+    band_recipe: {kind: lower_is_better, fail_code: E3, score5_pivot: 25}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-05
     name: Subsidence / karst / mining / oil & gas
@@ -195,21 +214,44 @@ criteria:
     weight_factors: {baseline: 10, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
     primary_metric: nearest_volcano_km
-    db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name], llm: nh07_volcanism_text}
+    db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name, site_natural_hazards.nh07_hazard_class], llm: nh07_volcanism_text}
+    notes: |
+      Pivot anchored to IAEA SSG-21 §3.5-3.7 / SSG-9 §6.36 / SSG-35 Table I-1
+      credible pyroclastic-density-current envelope at 50 km. The previous
+      single-pivot sweep had picked up the legacy score-5 ranking-grade
+      boundary (300 km) — that was the Smithsonian-GVP connector's *search
+      radius* (every Holocene volcano within 300 km is loaded for the per-
+      site hazard report), not an exclusion distance.
+
+      band_recipe.null_policy=best: connector-NULL means
+      "search ran, no Holocene volcano within 300 km" — positive evidence
+      of safety, scores 9-10. Without this flag, the 240 NULL sites
+      (66% of the merged DB) would silently land in the band evaluator's
+      no-data default of 5.0.
+
+      Soft review-flag R1 (nh07_hazard_class == 'avoidance') surfaces the
+      connector's coarse avoidance verdict (VEI >= 4 within 40 km or
+      recent eruption within 100 km, per the GVP connector). The three
+      underlying sub-signals are not persisted as separate columns; a
+      finer-grained split would require connector + schema changes
+      (deferred to a separate plan).
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_volcano_km > 1000", descriptor: "No plausible pathway."}
-      - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 500", descriptor: "Distant; ashfall climatology benign."}
-      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 300", descriptor: "Meets project minimum (>= 300 km)."}
-      - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 200", descriptor: "Sub-threshold; specialist study required."}
-      - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 50", descriptor: "Elevated risk; mitigation uncertain."}
-      - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 50", descriptor: "E4 triggered."}
+      - {score_range: [9, 10], condition_expr: "nearest_volcano_km is null or nearest_volcano_km >= 250.0", descriptor: "No plausible pathway (incl. beyond connector 300 km search radius)."}
+      - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 100.0", descriptor: "Beyond credible PDC envelope; ashfall climatology only."}
+      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 50.0", descriptor: "At IAEA-anchored PDC envelope (SSG-21 §3.5 / SSG-9 §6.36)."}
+      - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 25.0", descriptor: "Within credible PDC reach; specialist study required."}
+      - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 10.0", descriptor: "Near volcanic edifice; severe direct-hazard exposure."}
+      - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 10.0", descriptor: "Within volcanic edifice / lava-reach zone."}
     fail_conditions:
       # Single-pivot exclusion (derive_expr_from_recipe=true):
       # condition_expr is auto-derived from band_recipe.score5_pivot
-      # ("nearest_volcano_km < 300"). The legacy pyroclastic-zone
-      # disjunct was dropped to keep the rule single-pivot.
-      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 300", pass_mark: 5.0, descriptor: "Holocene volcano within score-5 pivot distance.", derive_expr_from_recipe: true}
-    band_recipe: {kind: higher_is_better, fail_code: E4, score5_pivot: 300}
+      # ("nearest_volcano_km < 50"), the IAEA-anchored PDC envelope.
+      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50", pass_mark: 5.0, descriptor: "Holocene volcano within score-5 pivot distance.", derive_expr_from_recipe: true}
+      # Soft review-flag for connector-side avoidance signal (VEI >= 4
+      # within 40 km or recent eruption within 100 km — see Smithsonian
+      # GVP batch). Coarse single-column proxy; granular split deferred.
+      - {code: R1, action: review_flag, condition_expr: "nh07_hazard_class == 'avoidance'", descriptor: "Connector flagged volcanic avoidance signal (VEI >= 4 within 40 km or recent eruption within 100 km)."}
+    band_recipe: {kind: higher_is_better, fail_code: E4, score5_pivot: 50, null_policy: best}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-08
     name: Coastal flooding (storm surge, tsunami)

@@ -87,13 +87,13 @@ def test_defaults_drive_single_pivot_exclusion(default_bundle):
     out = compile_bundle(default_bundle)
 
     assert _fail_expr(out, "NH-02", "E1") == "nearest_fault_km < 5"
-    assert _fail_expr(out, "NH-04", "E3") == "slope_angle_deg > 8"
-    assert _fail_expr(out, "NH-07", "E4") == "nearest_volcano_km < 300"
+    assert _fail_expr(out, "NH-04", "E3") == "slope_angle_deg > 25"
+    assert _fail_expr(out, "NH-07", "E4") == "nearest_volcano_km < 50"
 
     assert out.derived_exclusion_exprs == {
         "NH-02": "nearest_fault_km < 5",
-        "NH-04": "slope_angle_deg > 8",
-        "NH-07": "nearest_volcano_km < 300",
+        "NH-04": "slope_angle_deg > 25",
+        "NH-07": "nearest_volcano_km < 50",
     }
 
 

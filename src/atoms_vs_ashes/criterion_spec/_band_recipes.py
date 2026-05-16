@@ -33,11 +33,23 @@ def bands_from_recipe(
     * ``flood_distance_or_elevation`` — same metric names as NH-09 in rubric YAML.
     * ``capacity_margin`` — compares ``grid_export_capacity_mw`` to SMR export in MW.
     * ``nh05_mine_composite`` — dynamic mine-distance pivot plus karst/subsidence context.
+
+    ``recipe.null_policy='best'`` is only honoured for kinds where a NULL
+    metric value can semantically mean "search confirmed safe" — currently
+    ``higher_is_better`` only. Other kinds raise ``ValueError`` to make
+    misuse loud rather than silent.
     """
     k = recipe.kind
     if k == "higher_is_better":
         m = _metric_for_recipe(template, recipe)
-        return _higher_is_better(m, float(pivot))
+        return _higher_is_better(m, float(pivot), null_policy=recipe.null_policy)
+    if recipe.null_policy == "best":
+        raise ValueError(
+            f"band_recipe.null_policy='best' is only valid for kind="
+            f"'higher_is_better'; got kind={k!r} on "
+            f"{template.criterion_id}. NULL-as-best semantics require a "
+            "monotonic distance/headroom metric."
+        )
     if k == "fault_distance_higher_is_better":
         m = _metric_for_recipe(template, recipe)
         return fault_distance_higher_is_better(m, float(pivot))
@@ -74,13 +86,23 @@ def _metric_for_recipe(template: CriterionTemplate, recipe: BandRecipeSpec) -> s
     return "x"
 
 
-def _higher_is_better(metric: str, f: float) -> list[BandSpec]:
+def _higher_is_better(
+    metric: str, f: float, *, null_policy: str | None = None
+) -> list[BandSpec]:
     f = max(float(f), 1e-6)
+    top_expr = f"{metric} >= {_num(5.0 * f)}"
+    top_descriptor = "Very strong margin above the score-5 boundary."
+    if null_policy == "best":
+        top_expr = f"{metric} is null or {top_expr}"
+        top_descriptor = (
+            "Very strong margin above the score-5 boundary "
+            "(or connector confirmed no in-radius signal)."
+        )
     return [
         BandSpec(
             score_range=(9, 10),
-            condition_expr=f"{metric} >= {_num(5.0 * f)}",
-            descriptor="Very strong margin above the score-5 boundary.",
+            condition_expr=top_expr,
+            descriptor=top_descriptor,
         ),
         BandSpec(
             score_range=(7, 8),

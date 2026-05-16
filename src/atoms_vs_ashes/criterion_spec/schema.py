@@ -38,6 +38,9 @@ BandRecipeKind = Literal[
 ]
 
 
+BandRecipeNullPolicy = Literal["unscored", "best"]
+
+
 class BandRecipeSpec(BaseModel):
     """When set, :func:`compile_bundle` can rebuild ``bands`` from a fail value."""
 
@@ -56,6 +59,24 @@ class BandRecipeSpec(BaseModel):
     )
     score5_pivot: float | None = None
     elevation_pass_m: float | None = None
+    null_policy: BandRecipeNullPolicy | None = Field(
+        default=None,
+        description=(
+            "How to interpret a NULL value for the recipe's primary metric.\n\n"
+            "``'best'`` — NULL is positive evidence of safety (connector ran, "
+            "found nothing in radius). The top band condition is prefixed with "
+            "``<metric> is null or`` so NULL scores 9-10. Use this for "
+            "``higher_is_better`` distance metrics where the connector itself "
+            "implies a maximum search radius (e.g. NH-07 nearest Holocene "
+            "volcano: NULL means no volcano in 300 km).\n\n"
+            "``'unscored'`` or unset — NULL means data missing. The criterion "
+            "falls through to the band evaluator's no-data default. This is "
+            "the safe default for metrics where NULL is genuinely unknown "
+            "(e.g. NH-04 slope_angle_deg before DEM has been fetched).\n\n"
+            "The exclusion expression is unaffected either way; NULL never "
+            "triggers a ``<`` / ``>`` comparison."
+        ),
+    )
 
 
 class RecommendedValue(BaseModel):

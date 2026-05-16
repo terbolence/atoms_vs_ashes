@@ -163,11 +163,10 @@ def test_recipe_defaults_also_anchor_score5_boundary():
     out = compile_bundle(bundle)
     nh07 = out.criteria["NH-07"]
     score5 = next(b for b in nh07.bands if b.score_range == (5.0, 6.0))
-    # Single-pivot exclusion (FB-NH-02): score5_pivot was promoted from
-    # the threshold default (50 km IAEA reference) to the project band-5
-    # boundary (300 km) so the band-5 condition and the E4 exclusion
-    # share the same number.
-    assert score5.condition_expr == "nearest_volcano_km >= 300.0"
+    # Single-pivot exclusion: score5_pivot=50 km anchors both the band-5
+    # boundary and the E4 hard expression on the IAEA SSG-21 §3.5 /
+    # SSG-9 §6.36 pyroclastic-density-current envelope.
+    assert score5.condition_expr == "nearest_volcano_km >= 50.0"
 
 
 def test_simple_numeric_thresholded_criteria_declare_band_recipe(template_bundle):

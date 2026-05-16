@@ -3,27 +3,7 @@ db_profile: merged
 spec_dir: config/scoring_specs
 weight_profile: baseline
 scope:
-  countries:
-  - AL
-  - AT
-  - BA
-  - BG
-  - BY
-  - CZ
-  - HR
-  - HU
-  - LV
-  - MD
-  - ME
-  - MK
-  - PL
-  - RO
-  - RS
-  - SI
-  - SK
-  - TR
-  - UA
-  - XK
+  countries: []
   smr_keys:
   - nuscale_voygr6
   site_status_in:
@@ -43,7 +23,7 @@ scoring:
   weight_overrides: {}
   qualification_mode: normal
   top_n_per_country: 10
-  near_miss_gap_pct: 15.0
+  near_miss_gap_pct: 10.0
 sensitivity:
   enabled:
   - weights

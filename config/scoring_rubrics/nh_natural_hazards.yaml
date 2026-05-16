@@ -131,23 +131,33 @@ criteria:
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
-    weight_factors: {baseline: 5, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
     primary_metric: slope_angle_deg
-    db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class], llm: nh04_slope_text}
+    db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class, site_natural_hazards.nh04_dem_cog_slope_max_deg], llm: nh04_slope_text}
+    # NB: ``slope_angle_deg`` is the MEAN slope over a 1 km buffer
+    # around the site centroid (Copernicus DEM 30 m). It is a
+    # screening proxy and does NOT distinguish on-site footprint
+    # slope from slope at distance. See LL-022 in
+    # prompts/lessons_learned.md. Bands and the E3 exclusion are
+    # anchored to the IAEA SSG-9 §6.34 / NUREG-0800 §2.5.5 25°
+    # mitigable envelope; the user-tunable threshold widget moves the
+    # whole ladder together via band_recipe.score5_pivot.
     bands:
-      - {score_range: [9, 10], condition_expr: "slope_angle_deg < 1", descriptor: "Optimal flat ground."}
-      - {score_range: [7, 8], condition_expr: "slope_angle_deg < 3", descriptor: "Gentle; minimal earthworks."}
-      - {score_range: [5, 6], condition_expr: "slope_angle_deg < 8", descriptor: "Moderate; routine grading; 5% cap at 5-6 boundary."}
-      - {score_range: [3, 4], condition_expr: "slope_angle_deg < 15", descriptor: "Significant slopes; stability study required."}
-      - {score_range: [1, 2], condition_expr: "slope_angle_deg < 25", descriptor: "Major instability risk; runout inventory must clear."}
-      - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 25", descriptor: "E3 triggered."}
+      # Bands track the recipe-rebuilt lower_is_better ladder with
+      # pivot = 25° so this YAML stays in sync with what the spec
+      # compiler emits. Do not hand-edit without rebuilding the spec
+      # YAML's score5_pivot accordingly.
+      - {score_range: [9, 10], condition_expr: "slope_angle_deg <= 5.0", descriptor: "Flat to very gentle terrain; minimal earthworks; well within the SSG-9 mitigable envelope."}
+      - {score_range: [7, 8], condition_expr: "slope_angle_deg <= 10.0", descriptor: "Gentle to moderate terrain; routine grading; comfortably within the SSG-9 envelope."}
+      - {score_range: [5, 6], condition_expr: "slope_angle_deg <= 25.0", descriptor: "At or below the IAEA SSG-9 §6.34 mitigable envelope (25° on competent rock)."}
+      - {score_range: [3, 4], condition_expr: "slope_angle_deg < 37.5", descriptor: "Above the SSG-9 envelope; mandatory geotechnical study; E3 hard fail."}
+      - {score_range: [1, 2], condition_expr: "slope_angle_deg < 50.0", descriptor: "Severe instability risk; E3 hard fail."}
+      - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 50.0", descriptor: "Catastrophic; E3 hard fail."}
     fail_conditions:
-      # Aligned with band-5 boundary (slope_angle_deg < 8 above): the
-      # score-5 pivot drives both bands and exclusion. The previous
-      # `slope_stability_class == 'catastrophic'` disjunct is dropped to
-      # keep the rule single-pivot; treat it as a manual review signal.
-      - {code: E3, action: exclude, condition_expr: "slope_angle_deg > 8", pass_mark: 5.0, descriptor: "Slope above score-5 pivot."}
+      # Aligned with the band-5 boundary (slope_angle_deg <= 25 above)
+      # and the IAEA SSG-9 §6.34 / NUREG-0800 §2.5.5 envelope. The
+      # spec-side compiler enforces this via the drift guard; this
+      # legacy direct-loaded path mirrors the same value by hand.
+      - {code: E3, action: exclude, condition_expr: "slope_angle_deg > 25", pass_mark: 5.0, descriptor: "Slope above the SSG-9 mitigable envelope (score-5 pivot)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-05
     name: Subsidence / karst / mining / oil & gas
@@ -200,23 +210,25 @@ criteria:
     normalised_weight_pct: 3.5
     weight_factors: {baseline: 10, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
-    weight_factors: {baseline: 10, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
     primary_metric: nearest_volcano_km
-    db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name], llm: nh07_volcanism_text}
+    db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name, site_natural_hazards.nh07_hazard_class], llm: nh07_volcanism_text}
+    notes: |
+      Pivot anchored to IAEA SSG-21 §3.5-3.7 / SSG-9 §6.36 / SSG-35 Table I-1
+      credible pyroclastic-density-current envelope at 50 km. Mirrors the
+      spec YAML; see config/scoring_specs/nh_natural_hazards.yaml for the
+      full design rationale.
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_volcano_km is null or nearest_volcano_km > 1000", descriptor: "No plausible pathway (including connector-null / beyond search radius)."}
-      - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 500", descriptor: "Distant; ashfall climatology benign."}
-      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 300", descriptor: "Meets project minimum (>= 300 km)."}
-      - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 200", descriptor: "Sub-threshold; specialist study required."}
-      - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 50", descriptor: "Elevated risk; mitigation uncertain."}
-      - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 50", descriptor: "E4 triggered."}
+      - {score_range: [9, 10], condition_expr: "nearest_volcano_km is null or nearest_volcano_km >= 250.0", descriptor: "No plausible pathway (incl. beyond connector 300 km search radius)."}
+      - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 100.0", descriptor: "Beyond credible PDC envelope; ashfall climatology only."}
+      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 50.0", descriptor: "At IAEA-anchored PDC envelope (SSG-21 §3.5 / SSG-9 §6.36)."}
+      - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 25.0", descriptor: "Within credible PDC reach; specialist study required."}
+      - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 10.0", descriptor: "Near volcanic edifice; severe direct-hazard exposure."}
+      - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 10.0", descriptor: "Within volcanic edifice / lava-reach zone."}
     fail_conditions:
-      # Aligned with band-5 boundary (nearest_volcano_km >= 300 above):
-      # the score-5 pivot drives both bands and exclusion. The previous
-      # `in_pyroclastic_zone == true` disjunct is dropped; treat it as a
-      # manual review signal at site review stage.
-      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 300", pass_mark: 5.0, descriptor: "Holocene volcano within score-5 pivot distance."}
+      # Aligned with band-5 boundary (nearest_volcano_km >= 50 above);
+      # the score-5 pivot drives both bands and exclusion.
+      - {code: E4, action: exclude, condition_expr: "nearest_volcano_km < 50", pass_mark: 5.0, descriptor: "Holocene volcano within score-5 pivot distance."}
+      - {code: R1, action: review_flag, condition_expr: "nh07_hazard_class == 'avoidance'", descriptor: "Connector flagged volcanic avoidance signal (VEI >= 4 within 40 km or recent eruption within 100 km)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-08
     name: Coastal flooding (storm surge, tsunami)
