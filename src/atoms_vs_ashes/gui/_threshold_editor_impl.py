@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.65
 """Site Selection Criteria page: wires preview + palette legend to widget helpers."""
 
 from __future__ import annotations
@@ -14,18 +14,15 @@ from atoms_vs_ashes.gui._state import (
 from atoms_vs_ashes.gui._threshold_editor_palette import (
     AVOID_BAR,
     EXCL_BAR,
-    criterion_importance,
 )
-from atoms_vs_ashes.gui._threshold_editor_criteria_header import criteria_table_header
+from atoms_vs_ashes.gui._threshold_editor_sections import (
+    partition_criteria_by_category,
+    render_category_criteria_sections,
+    render_category_summary_metrics,
+)
 from atoms_vs_ashes.gui._threshold_editor_weight import weight_section_controls
-from atoms_vs_ashes.gui._threshold_editor_widgets import (
-    criterion_card,
-    norms_differences_table,
-)
+from atoms_vs_ashes.gui._threshold_editor_widgets import norms_differences_table
 from atoms_vs_ashes.runprofile.schema import RunProfile
-
-
-_IMPORTANCE_ORDER = {"exclusionary": 0, "avoidance": 1, "ranking": 2}
 
 
 def render() -> None:
@@ -73,25 +70,29 @@ def render() -> None:
         for w in preview.warnings:
             st.warning(w)
 
-    st.subheader("Criteria")
+    buckets = partition_criteria_by_category(preview.criteria)
+    total_pending = sum(len(b.inactive) for b in buckets.values())
+    total_criteria = sum(b.total for b in buckets.values())
+
+    st.subheader("Criteria overview")
+    render_category_summary_metrics(buckets)
+    st.caption(
+        f"{total_criteria} criteria in rubric · {total_pending} pending implementation "
+        f"(excluded from scoring until connectors land — see "
+        f"`config/scoring_specs/criterion_activation.yaml`)."
+    )
     st.markdown(
-        f"<p style='margin:0 0 0.75rem 0;font-size:0.9rem;color:#444;'>"
+        f"<p style='margin:0.5rem 0 0.75rem 0;font-size:0.9rem;color:#444;'>"
         f"<span style='color:{EXCL_BAR};font-weight:600'>■</span> exclusionary"
         f"&nbsp;&nbsp;&nbsp;"
         f"<span style='color:{AVOID_BAR};font-weight:600'>■</span> avoidance"
         f"&nbsp;&nbsp;&nbsp;"
-        f"<span style='color:#9aa0a6;font-weight:600'>■</span> ranking / screening"
+        f"<span style='color:#9aa0a6;font-weight:600'>■</span> ranking"
         f"</p>",
         unsafe_allow_html=True,
     )
     weight_section_controls()
-    criteria_table_header()
-    ordered_criteria = sorted(
-        preview.criteria,
-        key=lambda c: _IMPORTANCE_ORDER.get(criterion_importance(c), 99),
-    )
-    for crit in ordered_criteria:
-        criterion_card(crit, expert)
+    render_category_criteria_sections(buckets, expert_override=expert)
 
 
 __all__ = ["render"]

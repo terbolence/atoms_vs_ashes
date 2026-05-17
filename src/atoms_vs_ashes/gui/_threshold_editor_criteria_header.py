@@ -79,4 +79,36 @@ def criterion_summary_row(crit: CriterionPreview) -> None:
         cols[3].markdown(f"`{crit.weight_normalised:.1%}`")
 
 
-__all__ = ["criteria_table_header", "criterion_summary_row"]
+def inactive_criterion_pending_row(crit: CriterionPreview) -> None:
+    """Grey row for criteria pending connector/data (end of category list)."""
+    pending = crit.pending_implementation or "connector / data pipeline"
+    imp = crit.required_improvement or ""
+    imp_suffix = f" · {imp}" if imp else ""
+    reason = (crit.inactive_reason or "").strip()
+    with st.container(border=True):
+        cols = st.columns([0.9, 4.4, 1.1, 1.4])
+        cols[0].markdown(
+            f"<span style='color:{INACTIVE_GREY};font-weight:600'>"
+            f"{escape(crit.criterion_id)}</span>",
+            unsafe_allow_html=True,
+        )
+        body = (
+            f"<span style='color:{INACTIVE_GREY}'>{escape(crit.name)}</span>  \n"
+            f"<span style='font-size:0.78rem;color:{INACTIVE_MUTED}'>"
+            f"Pending: {escape(pending)}{escape(imp_suffix)}</span>"
+        )
+        if reason:
+            body += (
+                f"  \n<span style='font-size:0.76rem;color:{INACTIVE_MUTED}'>"
+                f"Missing data: {escape(reason)}</span>"
+            )
+        cols[1].markdown(body, unsafe_allow_html=True)
+        cols[2].markdown("`—`")
+        cols[3].markdown("`inactive`")
+
+
+__all__ = [
+    "criteria_table_header",
+    "criterion_summary_row",
+    "inactive_criterion_pending_row",
+]
