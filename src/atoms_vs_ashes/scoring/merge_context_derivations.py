@@ -1,4 +1,4 @@
-# man_hours: 2.1
+# man_hours: 3.3
 """Alias and derived-value helpers for scoring context assembly."""
 
 from __future__ import annotations
@@ -50,6 +50,7 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "hi02_search_completed",
     "hi04_search_completed",
     "hi05_search_completed",
+    "hi07_search_completed",
     "hi08_search_completed",
     "nh_resolved_count",
     "nh_min_resolved_score",
@@ -58,6 +59,11 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "dry_cooling_viable",
     "ri05_required_distance_km",
     "ri05_distance_margin_pct",
+    "hi03_search_completed",
+    "relief_m_per_10km",
+    "ri03_aquifer_screening_class",
+    "mean_annual_precip_corrected_mm",
+    "extreme_precip_corrected_mm",
 })
 
 # SP-F (Ovidiu): per-module land thresholds. Multi-unit sites scale linearly.
@@ -77,6 +83,9 @@ _SEARCH_COMPLETED_QUALITY_OK: frozenset[str] = frozenset({
     "screening",
     "screening_default",
     "approximate",
+    # Connector marks out-of-coverage / non-applicable sources explicitly; treat as
+    # completed search with no in-radius facility rather than a data gap.
+    "not_applicable",
 })
 
 # ISO 3166-1 alpha-2 codes for countries with no coastline on seas/oceans used in
@@ -125,6 +134,8 @@ _RI05_POP_PROXY_LADDER: tuple[tuple[float, float], ...] = (
     (50_000.0, 8.0),
 )
 
+_ERA5_MONTHLY_MEAN_DAYS: float = 30.4
+
 _HI01_COMMENT_DISTANCE_RE = re.compile(
     r"\bNearest\s+(large|medium|small|heliport):\s*([0-9]+(?:\.[0-9]+)?)\s*km\b",
     re.IGNORECASE,
@@ -165,13 +176,134 @@ def apply_derived_context_values(values: dict[str, Any]) -> None:
     _derive_site_screening_flags(values)
     _derive_unit_scaled_thresholds(values)
     _derive_slope_aliases(values)
+    _derive_ep03_relief_proxy(values)
+    _derive_nh11_precipitation_proxies(values)
     _derive_hi_search_sentinels(values)
     _derive_dry_cooling_viable(values)
+    _derive_ri03_aquifer_screening(values)
     _derive_ri05_population_centre_proxy(values)
+
+
+def _derive_ep03_relief_proxy(values: dict[str, Any]) -> None:
+    """Map GEE relief into the rubric-era ``relief_m_per_10km`` anchor.
+
+    ``ep03_gee_relief_16km_m`` is the elevation range within a 16 km GEE
+    window (not a Copernicus DEM 10 km path). It is a screening proxy for
+    the rubric name ``relief_m_per_10km`` until DEM relief is backfilled.
+    """
+    if values.get("relief_m_per_10km") is not None:
+        return
+    gee_relief = values.get("ep03_gee_relief_16km_m")
+    if gee_relief is not None:
+        values["relief_m_per_10km"] = gee_relief
+    elif any(
+        values.get(key) is not None
+        for key in ("major_river_barrier", "waterway_count_epz", "ep03_gee_relief_16km_m")
+    ):
+        # Explicit NULL so rubric ``relief_m_per_10km is null`` interim bands match.
+        values["relief_m_per_10km"] = None
+
+
+def _derive_ri03_aquifer_screening(values: dict[str, Any]) -> None:
+    """Map free-text ``aquifer_type`` into a coarse RI-03 screening ladder."""
+    if values.get("ri03_aquifer_screening_class") is not None:
+        return
+    raw = values.get("aquifer_type")
+    if raw is None:
+        return
+    label = str(raw).strip().lower()
+    if label in {"none", "no aquifer", "absent"} or "confined" in label:
+        values["ri03_aquifer_screening_class"] = "favourable"
+    elif "karst" in label:
+        values["ri03_aquifer_screening_class"] = "karst"
+    elif any(token in label for token in ("low permeability", "low-permeability", "impermeable", "clay")):
+        values["ri03_aquifer_screening_class"] = "low"
+    elif any(token in label for token in ("fissured", "fractured", "karstic")):
+        values["ri03_aquifer_screening_class"] = "high"
+    elif any(token in label for token in ("sand", "gravel", "porous", "alluvial", "unconfined")):
+        values["ri03_aquifer_screening_class"] = "moderate"
+    else:
+        values["ri03_aquifer_screening_class"] = "moderate"
+
+
+def _coerce_float(value: Any) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _derive_nh11_precipitation_proxies(values: dict[str, Any]) -> None:
+    """Expose corrected NH-11 precipitation proxies for scoring.
+
+    Existing ERA5 monthly-means precipitation rows are known to be roughly
+    30x too low when stored as annual/daily millimetres. Keep the raw DB
+    fields unchanged, but score against derived proxies when the values are
+    implausibly low for their declared units.
+    """
+    annual_raw = _coerce_float(values.get("mean_annual_precip_mm"))
+    if values.get("mean_annual_precip_corrected_mm") is None and annual_raw is not None:
+        values["mean_annual_precip_corrected_mm"] = (
+            annual_raw * _ERA5_MONTHLY_MEAN_DAYS
+            if 0 < annual_raw < 100
+            else annual_raw
+        )
+
+    extreme_raw = _coerce_float(values.get("extreme_precip_mm"))
+    if values.get("extreme_precip_corrected_mm") is None and extreme_raw is not None:
+        annual_was_scaled = annual_raw is not None and 0 < annual_raw < 100
+        values["extreme_precip_corrected_mm"] = (
+            extreme_raw * _ERA5_MONTHLY_MEAN_DAYS
+            if annual_was_scaled or 0 < extreme_raw < 2
+            else extreme_raw
+        )
+
+
+def _ri05_population_from_ghsl(values: dict[str, Any]) -> int | None:
+    """Infer a >=50k population proxy when GISCO city fields are absent."""
+    total_raw = values.get("pop_total_16km")
+    if total_raw is not None:
+        try:
+            total = int(total_raw)
+        except (TypeError, ValueError):
+            total = None
+        else:
+            if total >= 50_000:
+                return total
+    density_raw = values.get("pop_density_16km")
+    if density_raw is None:
+        return None
+    try:
+        density = float(density_raw)
+    except (TypeError, ValueError):
+        return None
+    if density >= 500:
+        return 1_000_000
+    if density >= 300:
+        return 500_000
+    if density >= 150:
+        return 100_000
+    if density >= 75:
+        return 50_000
+    return None
 
 
 def _derive_ri05_population_centre_proxy(values: dict[str, Any]) -> None:
     """Derive RI-05 proxy thresholds from nearest >=50k city evidence."""
+    if values.get("nearest_city_pop") is None:
+        ghsl_pop = _ri05_population_from_ghsl(values)
+        if ghsl_pop is not None:
+            values["nearest_city_pop"] = ghsl_pop
+        else:
+            density_raw = values.get("pop_density_16km")
+            if density_raw is not None:
+                try:
+                    if float(density_raw) < 75:
+                        values["nearest_city_pop"] = 0
+                except (TypeError, ValueError):
+                    pass
     if values.get("ri05_required_distance_km") is not None:
         required = values["ri05_required_distance_km"]
     else:
@@ -242,18 +374,20 @@ def _derive_slope_aliases(values: dict[str, Any]) -> None:
 
 
 def _derive_hi_search_sentinels(values: dict[str, Any]) -> None:
-    """Populate ``hi{02,04,05,08}_search_completed`` sentinels for SP-F.
+    """Populate ``hi{02,03,04,05,07,08}_search_completed`` sentinels.
 
     The HI quality columns (``hi02_quality``, ``hi04_quality`` etc.) are set
     by the connectors only when the search actually ran. A non-null quality
-    that is not an explicit failure means the search completed and a
-    null ``nearest_*_km`` should be interpreted as "no facility found in
-    radius" (favourable) rather than "data missing" (unscored).
+    that is not an explicit failure or out-of-coverage marker means the search
+    completed and a null ``nearest_*_km`` should be interpreted as "no facility
+    found in radius" (favourable) rather than "data missing" (unscored).
     """
     for sentinel, quality_field in (
         ("hi02_search_completed", "hi02_quality"),
+        ("hi03_search_completed", "hi03_quality"),
         ("hi04_search_completed", "hi04_quality"),
         ("hi05_search_completed", "hi05_quality"),
+        ("hi07_search_completed", "hi07_quality"),
         ("hi08_search_completed", "hi08_quality"),
     ):
         if sentinel in values:

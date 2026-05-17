@@ -7,26 +7,26 @@
 - **User request (verbatim noun phrases):** "tier1 data ok", "repository", "experts", "software design", "implementation", "verifications", "business logic", "scoring bands", "criteria", "Phase 1 / Bucket B", "connector work", "system prompt", "read-only distribution/context audit", "baseline run", "GUI/results/report/export consumers", "criterion docs", "tests", "audit conversation/man-hours"
 - **Owning chat / plan:** `/Users/terbolence/.cursor/plans/tier1_data_ok_5b567a39.plan.md`
 - **Date opened:** 2026-05-17
-- **Date closed:** Pending
+- **Date closed:** 2026-05-17
 
 ## 2. Literal Request Check
 
 | Noun in request | Surface it implies | Where it is satisfied (file or test) | Status |
 | --- | --- | --- | --- |
-| `tier1 data ok` / `Phase 1 / Bucket B` | HI-07, NH-10, NH-12 scoring/context repair only | `config/scoring_rubrics/hi_human_induced.yaml`, `config/scoring_specs/hi_human_induced.yaml`, `config/scoring_rubrics/nh_natural_hazards.yaml`, `config/scoring_specs/nh_natural_hazards.yaml`, focused scoring tests | In progress |
-| `repository` | Scoped repo implementation under `/Users/terbolence/projects/atoms_vs_ashes` | This matrix and changed project files | In progress |
+| `tier1 data ok` / `Phase 1 / Bucket B` | HI-07, NH-10, NH-12 scoring/context repair only | `config/scoring_rubrics/hi_human_induced.yaml`, `config/scoring_specs/hi_human_induced.yaml`, `config/scoring_rubrics/nh_natural_hazards.yaml`, `config/scoring_specs/nh_natural_hazards.yaml`, focused scoring tests | Implemented |
+| `repository` | Scoped repo implementation under `/Users/terbolence/projects/atoms_vs_ashes` | This matrix and changed project files | Implemented |
 | `experts` | Local expert prompts used as implementation gates, no external model calls | `experts/connectors/software_architect.md`, `experts/connectors/senior_software_engineer.md`, `experts/quality/auditor.md`, `experts/quality/siting_expert.md`, `experts/quality/lessons_learned.md` | Implemented |
-| `software design` / `implementation` | Existing scoring engine/config patterns preserved; no connector work | Scoring config, context derivation, read-only audit script, tests | In progress |
-| `verifications` | Focused local tests, lints, and read-only audit artifacts | `tests/scoring/`, `tests/scripts/`, `tests/gui/`, generated audit Markdown/CSV | In progress |
-| `business logic` / `scoring bands` | Distribution-aware HI-07/NH-10/NH-12 band updates with metric caveats | Criterion docs and YAML descriptors | In progress |
-| `criteria` | Criterion docs updated for accepted columns and caveats | `criteria/ranking/HI-07 — Electromagnetic interference.md`, `criteria/ranking/NH-10 — Extreme winds.md`, `criteria/ranking/NH-12 — Extreme temperatures.md` | In progress |
+| `software design` / `implementation` | Existing scoring engine/config patterns preserved; no connector work | Scoring config, context derivation, read-only audit script, tests | Implemented |
+| `verifications` | Focused local tests, lints, and read-only audit artifacts | `tests/scoring/`, `tests/scripts/`, `tests/gui/`, generated audit Markdown/CSV | Implemented |
+| `business logic` / `scoring bands` | Distribution-aware HI-07/NH-10/NH-12 band updates with metric caveats | Criterion docs and YAML descriptors | Implemented |
+| `criteria` | Criterion docs updated for accepted columns and caveats | `criteria/ranking/HI-07 — Electromagnetic interference.md`, `criteria/ranking/NH-10 — Extreme winds.md`, `criteria/ranking/NH-12 — Extreme temperatures.md` | Implemented |
 | `connector work` | Explicitly excluded from this implementation | Matrix §7 notes no new connector/schema/backfill work | Not applicable |
-| `system prompt` | New data-science siting curator prompt | `experts/quality/data_science_siting_curator.md` | In progress |
-| `read-only distribution/context audit` | Repeatable local read-only audit script and artifacts | `src/scripts/audit_tier1_data_ok.py`, `audit/post_processing/06_scoring/20260517_tier1_data_ok_*` | In progress |
-| `baseline run` | Audit defaults to `20260517T104618_459ae424`, `nuscale_voygr6`, 361 sites | `src/scripts/audit_tier1_data_ok.py` | In progress |
-| `GUI/results/report/export consumers` | Unscored rows render/export as unscored, not real `5.0` evidence | `src/atoms_vs_ashes/gui/_results_site_detail_bars.py`, `src/atoms_vs_ashes/gui/_results_data_detail.py`, `src/atoms_vs_ashes/gui/_results_render_drawer.py`, `src/atoms_vs_ashes/reporting/site_bundle.py`, `src/scripts/_site_profile_intelligence.py`, `src/scripts/_site_profile_markdown.py`, consumer tests | In progress |
-| `tests` | Context, band, compiler parity, script, and consumer tests | `tests/scoring/`, `tests/scripts/`, `tests/gui/` | In progress |
-| `audit conversation/man-hours` | Conversation log and man-hours registry/summary updated | `audit/conversations/2026-05-17_tier1_data_ok_scoring.md`, `audit/man_hours_registry.yml`, `audit/man_hours_summary.md` | In progress |
+| `system prompt` | New data-science siting curator prompt | `experts/quality/data_science_siting_curator.md` | Implemented |
+| `read-only distribution/context audit` | Repeatable local read-only audit script and artifacts | `src/scripts/audit_tier1_data_ok.py`, `audit/post_processing/06_scoring/20260517_tier1_data_ok_*` | Implemented |
+| `baseline run` | Audit defaults to `20260517T104618_459ae424`, `nuscale_voygr6`; local DB returned 362 site rows and 0 baseline `ranking_scores` rows | `src/scripts/audit_tier1_data_ok.py`, audit memo | Implemented with caveat |
+| `GUI/results/report/export consumers` | Unscored rows render/export as unscored, not real `5.0` evidence | `src/atoms_vs_ashes/gui/_results_site_detail_bars.py`, `src/atoms_vs_ashes/gui/_results_data_detail.py`, `src/atoms_vs_ashes/gui/_results_render_drawer.py`, `src/atoms_vs_ashes/reporting/site_bundle.py`, `src/scripts/_site_profile_intelligence.py`, `src/scripts/_site_profile_markdown.py`, consumer tests | Implemented |
+| `tests` | Context, band, compiler parity, script, and consumer tests | `tests/scoring/`, `tests/scripts/`, `tests/gui/` | Implemented |
+| `audit conversation/man-hours` | Conversation log and man-hours registry/summary updated | `audit/conversations/2026-05-17_tier1_data_ok_scoring.md`, `audit/man_hours_registry.yml`, `audit/man_hours_summary.md` | Implemented |
 
 ## 3. End-to-End User Path Diagram
 
@@ -50,22 +50,22 @@ flowchart LR
 
 | Surface | Required artifact | File / symbol / test | Status | Notes |
 | --- | --- | --- | --- | --- |
-| GUI page / Streamlit screen | Existing scoring/results surfaces preserve unscored semantics | `src/atoms_vs_ashes/gui/screen_pages/04_run_dashboard.py`, Results drawer files, GUI/consumer tests | In progress | No new control planned; existing score-run/result view path must consume repaired scores correctly. |
+| GUI page / Streamlit screen | Existing scoring/results surfaces preserve unscored semantics | `src/atoms_vs_ashes/gui/screen_pages/04_run_dashboard.py`, Results drawer files, GUI/consumer tests | Implemented | No new control added; existing score-run/result view consumes repaired scores correctly. |
 | CLI subcommand / flag | Existing scoring CLI remains entry point | `src/atoms_vs_ashes/scoring/_cli.py`, `src/atoms_vs_ashes/scoring/_cli_run.py` | Implemented | No new DB-writing CLI command added. |
-| Script driver | Read-only distribution/context audit | `src/scripts/audit_tier1_data_ok.py`, script tests | In progress | Defaults to read-only DB query and file artifacts only. |
+| Script driver | Read-only distribution/context audit | `src/scripts/audit_tier1_data_ok.py`, script tests | Implemented | Defaults to read-only DB query and file artifacts only. |
 | Runner / subprocess wiring | Existing score run and GUI runner dispatch unchanged | `src/atoms_vs_ashes/scoring/_cli_run.py`, `src/atoms_vs_ashes/gui/_runner.py` | Implemented | DB write remains consent-gated. |
-| Engine code | Context derivations and band evaluation cover selected criteria | `src/atoms_vs_ashes/scoring/merge_context_derivations.py`, `src/atoms_vs_ashes/scoring/bands.py`, tests | In progress | No schema change expected. |
+| Engine code | Context derivations and band evaluation cover selected criteria | `src/atoms_vs_ashes/scoring/merge_context_derivations.py`, `src/atoms_vs_ashes/scoring/bands.py`, tests | Implemented | No schema change required. |
 | DB schema | No new schema | N/A | Not applicable | Plan forbids connector/schema work unless separately approved. |
 | DB writers | No DB-writing run in this implementation | N/A | Not applicable | Scoring persistence exists; final rescore requires explicit consent. |
-| CSV / file artifacts | Read-only audit Markdown/CSV under audit folder | `audit/post_processing/06_scoring/20260517_tier1_data_ok_*` | In progress | Generated only from local read-only data if DB is available. |
-| Report / export reader | Site bundle/profile paths preserve unscored rows | `src/atoms_vs_ashes/reporting/site_bundle.py`, `src/scripts/_site_profile_intelligence.py`, `src/scripts/_site_profile_markdown.py`, tests | In progress | Required by LL-027/LL-030/LL-038. |
-| Tests: unit | Context/band/compiler parity tests | `tests/scoring/` | In progress | Covers representative rows and aliases. |
+| CSV / file artifacts | Read-only audit Markdown/CSV under audit folder | `audit/post_processing/06_scoring/20260517_tier1_data_ok_*` | Implemented | Generated from local read-only data; no DB writes. |
+| Report / export reader | Site bundle/profile paths preserve unscored rows | `src/atoms_vs_ashes/reporting/site_bundle.py`, `src/scripts/_site_profile_intelligence.py`, `src/scripts/_site_profile_markdown.py`, tests | Implemented | Required by LL-027/LL-030/LL-038. |
+| Tests: unit | Context/band/compiler parity tests | `tests/scoring/` | Implemented | Covers representative rows and aliases. |
 | Tests: persistence | No new writer/persistence layer | N/A | Not applicable | DB writes are gated. |
-| Tests: entry-point smoke | Script/consumer outermost-surface tests | `tests/scripts/`, `tests/gui/` | In progress | Must fail if backend-only. |
-| Methodology / report docs | Criterion docs updated | `criteria/ranking/HI-07 — Electromagnetic interference.md`, `criteria/ranking/NH-10 — Extreme winds.md`, `criteria/ranking/NH-12 — Extreme temperatures.md` | In progress | Include accepted/deferred fields and caveats. |
-| Expert prompts | Data-science curation prompt | `experts/quality/data_science_siting_curator.md` | In progress | Local artifact only; no model call. |
-| Audit log | Conversation log and plan mirrors | `audit/conversations/2026-05-17_tier1_data_ok_scoring.md`; plan mirror status if present | In progress | Final action before close-out. |
-| Man-hours metadata | First-line metadata and registry updates | Edited files, `audit/man_hours_registry.yml` | In progress | Summary regenerated if feasible. |
+| Tests: entry-point smoke | Script/consumer outermost-surface tests | `tests/scripts/`, `tests/gui/` | Implemented | Fails if backend-only audit/consumer changes are missing. |
+| Methodology / report docs | Criterion docs updated | `criteria/ranking/HI-07 — Electromagnetic interference.md`, `criteria/ranking/NH-10 — Extreme winds.md`, `criteria/ranking/NH-12 — Extreme temperatures.md` | Implemented | Include accepted/deferred fields and caveats. |
+| Expert prompts | Data-science curation prompt | `experts/quality/data_science_siting_curator.md` | Implemented | Local artifact only; no model call. |
+| Audit log | Conversation log and plan mirrors | `audit/conversations/2026-05-17_tier1_data_ok_scoring.md`; plan mirror status if present | Implemented | Final conversation summary recorded. |
+| Man-hours metadata | First-line metadata and registry updates | Edited files, `audit/man_hours_registry.yml` | Implemented | Summary updated/generated where available. |
 
 ## 5. Negative Acceptance Tests
 

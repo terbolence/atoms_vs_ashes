@@ -1,4 +1,4 @@
-# man_hours: 0.8
+# man_hours: 1.2
 """Unit tests for derived context values used by the scoring engine.
 
 Locks in the SP-F sentinel-aware behaviour of
@@ -75,6 +75,26 @@ class TestMilitaryAirfieldDistanceDerivation:
         apply_derived_context_values(values)
         assert "nearest_military_airfield_km" not in values
 
+
+class TestNh11PrecipitationProxyDerivation:
+    def test_under_scaled_monthly_means_are_corrected(self) -> None:
+        values = {
+            "mean_annual_precip_mm": 25.0,
+            "extreme_precip_mm": 0.3,
+        }
+        apply_derived_context_values(values)
+        assert values["mean_annual_precip_corrected_mm"] == 760.0
+        assert round(values["extreme_precip_corrected_mm"], 2) == 9.12
+
+    def test_plausible_precipitation_values_are_preserved(self) -> None:
+        values = {
+            "mean_annual_precip_mm": 650.0,
+            "extreme_precip_mm": 42.0,
+        }
+        apply_derived_context_values(values)
+        assert values["mean_annual_precip_corrected_mm"] == 650.0
+        assert values["extreme_precip_corrected_mm"] == 42.0
+
     def test_no_data_quality_leaves_key_absent(self) -> None:
         values: dict[str, object] = {
             "nearest_military_class": None,
@@ -130,12 +150,14 @@ class TestHiSearchCompletedSentinels:
             "hi02_quality": "ok",
             "hi04_quality": "verified",
             "hi05_quality": "medium",
+            "hi07_quality": "screening",
             "hi08_quality": "approximate",
         }
         apply_derived_context_values(values)
         assert values["hi02_search_completed"] is True
         assert values["hi04_search_completed"] is True
         assert values["hi05_search_completed"] is True
+        assert values["hi07_search_completed"] is True
         assert values["hi08_search_completed"] is True
 
     def test_search_not_completed_when_quality_missing(self) -> None:
@@ -144,13 +166,32 @@ class TestHiSearchCompletedSentinels:
         assert values["hi02_search_completed"] is False
         assert values["hi04_search_completed"] is False
         assert values["hi05_search_completed"] is False
+        assert values["hi07_search_completed"] is False
         assert values["hi08_search_completed"] is False
 
     def test_search_not_completed_when_quality_is_failure(self) -> None:
-        values = {"hi02_quality": "no_data", "hi04_quality": "failed"}
+        values = {"hi02_quality": "no_data", "hi04_quality": "failed", "hi07_quality": "no_data"}
         apply_derived_context_values(values)
         assert values["hi02_search_completed"] is False
         assert values["hi04_search_completed"] is False
+        assert values["hi07_search_completed"] is False
+
+    def test_not_applicable_quality_counts_as_completed_search(self) -> None:
+        values = {"hi02_quality": "not_applicable", "hi03_quality": "not_applicable"}
+        apply_derived_context_values(values)
+        assert values["hi02_search_completed"] is True
+        assert values["hi03_search_completed"] is True
+
+
+class TestHi07TransmitterDerivation:
+    def test_transmitter_count_alias_and_quality_sentinel(self) -> None:
+        values = {"transmitter_count": 3, "nearest_transmitter_km": 8.5, "hi07_quality": "ok"}
+
+        apply_derived_context_values(values)
+
+        assert values["transmitter_count_10km"] == 3
+        assert values["nearest_transmitter_km"] == 8.5
+        assert values["hi07_search_completed"] is True
 
 
 class TestLandlockedDerivation:
@@ -205,3 +246,39 @@ class TestRi05PopulationCentreProxy:
 
         assert "ri05_required_distance_km" not in values
         assert "ri05_distance_margin_pct" not in values
+
+    def test_ghsl_density_infers_city_population_tier(self) -> None:
+        values = {
+            "nearest_city_pop": None,
+            "pop_density_16km": 320.0,
+            "nearest_city_50k_km": 20.0,
+        }
+        apply_derived_context_values(values)
+        assert values["nearest_city_pop"] == 500_000
+        assert values["ri05_required_distance_km"] == 32.0
+
+
+class TestEp03ReliefDerivation:
+    def test_gee_relief_maps_to_rubric_anchor(self) -> None:
+        values = {"ep03_gee_relief_16km_m": 88.0}
+        apply_derived_context_values(values)
+        assert values["relief_m_per_10km"] == 88.0
+
+
+class TestRi03AquiferScreeningDerivation:
+    def test_low_permeability_label(self) -> None:
+        values = {"aquifer_type": "low permeability"}
+        apply_derived_context_values(values)
+        assert values["ri03_aquifer_screening_class"] == "low"
+
+    def test_karst_label(self) -> None:
+        values = {"aquifer_type": "karstic carbonate"}
+        apply_derived_context_values(values)
+        assert values["ri03_aquifer_screening_class"] == "karst"
+
+
+class TestHi03SearchCompleted:
+    def test_hi03_quality_ok_sets_sentinel(self) -> None:
+        values = {"hi03_quality": "medium"}
+        apply_derived_context_values(values)
+        assert values["hi03_search_completed"] is True

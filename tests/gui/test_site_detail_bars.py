@@ -1,4 +1,4 @@
-# man_hours: 0.25
+# man_hours: 0.5
 """Unit tests for per-criterion bar merging (ranking + screening)."""
 
 from __future__ import annotations
@@ -10,17 +10,19 @@ from atoms_vs_ashes.gui._results_site_detail_bars import (
     SEMANTIC_AVOIDANCE,
     SEMANTIC_EXCLUSION,
     SEMANTIC_NO_RANK,
+    SEMANTIC_UNSCORED,
     chart_semantic_legend_label,
     merge_criterion_bar_semantics,
 )
 
 
-def _rs(cid: str, score: float) -> RankingScore:
+def _rs(cid: str, score: float, *, quality_flag: str | None = None) -> RankingScore:
     return RankingScore(
         site_id=uuid.uuid4(),
         smr_key="x",
         criterion_id=cid,
         score_0_10=score,
+        quality_flag=quality_flag,
         confidence="high",
         justification="",
         run_id="r1",
@@ -95,3 +97,17 @@ def test_merge_no_rank_when_no_score_no_screen() -> None:
         all_verdicts=verdicts,
     )
     assert rows[0][3] == SEMANTIC_NO_RANK
+
+
+def test_unscored_ranking_row_is_not_rendered_as_real_score() -> None:
+    ordered = ["HI-07"]
+    ranking = [_rs("HI-07", 5.0, quality_flag="unscored")]
+    rows = merge_criterion_bar_semantics(
+        ordered_ids=ordered,
+        ranking=ranking,
+        all_verdicts=[],
+    )
+
+    assert rows[0][2] is None
+    assert rows[0][3] == SEMANTIC_UNSCORED
+    assert chart_semantic_legend_label(SEMANTIC_UNSCORED) == "Unscored"

@@ -39,6 +39,7 @@ def bundle():
     "criterion_id,distance_key,sentinel_key",
     [
         ("HI-02", "nearest_seveso_km", "hi02_search_completed"),
+        ("HI-03", "nearest_toxic_source_km", "hi03_search_completed"),
         ("HI-04", "nearest_flammable_storage_km", "hi04_search_completed"),
         ("HI-05", "nearest_hazmat_corridor_km", "hi05_search_completed"),
         ("HI-08", "nearest_nuclear_km", "hi08_search_completed"),
@@ -85,6 +86,7 @@ class TestHiSearchSentinelFavorableFires:
         criterion = bundle[criterion_id]
         far_distance = {
             "HI-02": 50.0,
+            "HI-03": 30.0,
             "HI-04": 50.0,
             "HI-05": 50.0,
             "HI-08": 250.0,

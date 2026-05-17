@@ -23,11 +23,15 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_specs/hi_human_induced.yaml:
-    hours: 5.0
+    hours: 5.8
     category: "Configuration & DevOps"
 
   config/scoring_rubrics/hi_human_induced.yaml:
-    hours: 5.1
+    hours: 6.0
+    category: "Configuration & DevOps"
+
+  config/scoring_rubrics/ep_emergency_planning.yaml:
+    hours: 0.1
     category: "Configuration & DevOps"
 
   config/scoring_rubrics/ns_non_safety.yaml:
@@ -39,7 +43,7 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_specs/nh_natural_hazards.yaml:
-    hours: 10.8
+    hours: 12.0
     category: "Configuration & DevOps"
 
   config/scoring_specs/threshold_metadata.yaml:
@@ -484,6 +488,22 @@ files:
     hours: 2.5
     category: "Testing"
 
+  tests/scripts/test_audit_tier1_data_ok.py:
+    hours: 1.5
+    category: "Testing"
+
+  tests/scripts/test_generate_scoring_examples.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/scoring/test_tier1_data_ok_bands.py:
+    hours: 2.5
+    category: "Testing"
+
+  tests/gui/test_site_detail_bars.py:
+    hours: 0.5
+    category: "Testing"
+
   # ── Research & Data Sources ─────────────────────────────────────
 
   sources/atoms_vs_ashes_data_source_inventory.md:
@@ -552,6 +572,62 @@ files:
     hours: 1.5
     category: "Implementation"
 
+  src/scripts/audit_tier1_data_ok.py:
+    hours: 6.0
+    category: "Implementation"
+
+  src/scripts/audit_partial_data_ok.py:
+    hours: 6.5
+    category: "Implementation"
+
+  tests/scripts/test_audit_partial_data_ok.py:
+    hours: 1.5
+    category: "Testing"
+
+  tests/scoring/test_partial_data_bands.py:
+    hours: 3.4
+    category: "Testing"
+
+  tests/scoring/test_partial_data_compiler_parity.py:
+    hours: 1.5
+    category: "Testing"
+
+  criteria/partial_data_parallel_band_workflows.md:
+    hours: 2.0
+    category: "Documentation"
+
+  audit/feature_completion_matrices/2026-05-17_partial_data_scoring.md:
+    hours: 3.0
+    category: "Documentation"
+
+  audit/conversations/2026-05-17_partial_data_scoring.md:
+    hours: 0.5
+    category: "Documentation"
+
+  audit/conversations/2026-05-17_partial_data_auditor_review.md:
+    hours: 0.6
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_partial_data_architect_memo.md:
+    hours: 0.5
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_partial_data_combined_approval.md:
+    hours: 1.2
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_partial_data_EP03_curation_memo.md:
+    hours: 1.2
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_partial_data_auditor_review.md:
+    hours: 1.5
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_partial_data_scored_examples.md:
+    hours: 1.0
+    category: "Documentation"
+
   # ── AI Prompts & Tooling ────────────────────────────────────────
 
   experts/connectors/data_sources_integrations.md:
@@ -560,6 +636,10 @@ files:
 
   experts/connectors/api_enrichment_operations.md:
     hours: 8.0
+    category: "AI Prompts & Tooling"
+
+  experts/quality/data_science_siting_curator.md:
+    hours: 4.0
     category: "AI Prompts & Tooling"
 
   # ── Configuration & DevOps (Cursor rules) ──────────────────────
@@ -1795,7 +1875,7 @@ files:
     category: "Testing"
 
   tests/scoring/test_context_derivations.py:
-    hours: 0.8
+    hours: 1.2
     category: "Testing"
 
   src/scripts/sync_merged_from_source.py:
@@ -1807,11 +1887,11 @@ files:
     category: "Project Management & QA"
 
   config/scoring_rubrics/ri_radiological.yaml:
-    hours: 4.4
+    hours: 4.7
     category: "Configuration & DevOps"
 
   config/scoring_specs/ri_radiological.yaml:
-    hours: 4.4
+    hours: 4.7
     category: "Configuration & DevOps"
 
   src/atoms_vs_ashes/criterion_spec/preview.py:
@@ -1832,6 +1912,10 @@ files:
 
   src/atoms_vs_ashes/gui/_results_render_drawer.py:
     hours: 1.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_site_detail_bars.py:
+    hours: 0.75
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_results_data_avoidance_diag.py:
@@ -1906,10 +1990,6 @@ files:
     hours: 0.6
     category: "Project Management & QA"
 
-  src/atoms_vs_ashes/gui/_results_run_picker.py:
-    hours: 0.5
-    category: "Implementation"
-
   tests/gui/test_results_run_picker.py:
     hours: 0.5
     category: "Testing"
@@ -1955,7 +2035,7 @@ files:
     category: "Testing"
 
   src/scripts/generate_scoring_examples.py:
-    hours: 1.5
+    hours: 2.3
     category: "Implementation"
 
   audit/plans/exclusionary_sweep_13877396.plan.md:
@@ -1979,7 +2059,7 @@ files:
     category: "Project Management & QA"
 
   IMPROVEMENTS.md:
-    hours: 2.4
+    hours: 2.8
     category: "Project Management & QA"
 
   tests/scoring/test_ns08_strict_overlap.py:
@@ -1995,7 +2075,11 @@ files:
     category: "Testing"
 
   src/atoms_vs_ashes/scoring/merge_context_derivations.py:
-    hours: 2.1
+    hours: 3.3
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/bands.py:
+    hours: 5.0
     category: "Implementation"
 
   audit/plans/ns01_e9_to_a16_avoidance.md:
@@ -2079,15 +2163,15 @@ files:
     category: "Other"
 
   criteria/ranking/NH-10 — Extreme winds.md:
-    hours: 1.2
+    hours: 1.4
     category: "Other"
 
   criteria/ranking/NH-11 — Extreme precipitation rain snow and drought.md:
-    hours: 1.0
+    hours: 1.2
     category: "Other"
 
   criteria/ranking/NH-12 — Extreme temperatures.md:
-    hours: 0.8
+    hours: 1.3
     category: "Other"
 
   criteria/ranking/NH-13 — Forest and wildfire.md:
@@ -2103,7 +2187,7 @@ files:
     category: "Project Management & QA"
 
   config/scoring_rubrics/nh_natural_hazards.yaml:
-    hours: 5.2
+    hours: 6.5
     category: "Configuration & DevOps"
 
   report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md:
@@ -2175,7 +2259,7 @@ files:
     category: "Other"
 
   criteria/ranking/RI-05 — Distance to large population centres.md:
-    hours: 1.0
+    hours: 1.2
     category: "Other"
 
   tests/scoring/test_ri05_population_centres.py:
@@ -2195,7 +2279,7 @@ files:
     category: "Other"
 
   criteria/ranking/EP-03 — Physical-geography constraints.md:
-    hours: 0.3
+    hours: 0.5
     category: "Other"
 
   criteria/ranking/EP-04 — Special populations (hospitals, prisons, care homes).md:
@@ -2211,7 +2295,7 @@ files:
     category: "Other"
 
   criteria/ranking/HI-02 — Industrial explosions (Seveso, IED).md:
-    hours: 0.35
+    hours: 0.55
     category: "Other"
 
   criteria/ranking/HI-03 — Toxic and gas releases.md:
@@ -2231,7 +2315,7 @@ files:
     category: "Other"
 
   criteria/ranking/HI-07 — Electromagnetic interference.md:
-    hours: 0.3
+    hours: 1.3
     category: "Other"
 
   criteria/ranking/HI-08 — Other nuclear installations.md:
@@ -2444,6 +2528,38 @@ files:
     hours: 0.9
     category: "Project Management & QA"
 
+  audit/conversations/2026-05-17_tier1_data_ok_scoring.md:
+    hours: 1.8
+    category: "Project Management & QA"
+
+  audit/feature_completion_matrices/2026-05-17_tier1_data_ok_scoring.md:
+    hours: 2.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_tier1_data_ok_curation_memo.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_tier1_data_ok_auditor_review.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_tier1_data_ok_hi07_scored_examples.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_tier1_data_ok_nh10_scored_examples.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_tier1_data_ok_nh12_scored_examples.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_gui_visible_tier1_data_ok_curation_memo.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
   experts/quality/auditor.md:
     hours: 22.0
     category: "AI Prompts & Tooling"
@@ -2648,5 +2764,105 @@ files:
 
   audit/conversations/2026-05-17_s38-natural-earth-coast-distance.md:
     hours: 0.8
+    category: "Project Management & QA"
+
+  src/scripts/audit_phase2_partial_data.py:
+    hours: 7.2
+    category: "Scripts & Tooling"
+
+  tests/scripts/test_audit_phase2_partial_data.py:
+    hours: 1.8
+    category: "Testing"
+
+  tests/scoring/test_phase2_partial_data_bands.py:
+    hours: 3.8
+    category: "Testing"
+
+  audit/feature_completion_matrices/2026-05-17_tier2_partial_data_scoring.md:
+    hours: 3.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_tier2_partial_data_scoring.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_phase2_auditor_review.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  criteria/tier2_partial_data_parallel_workflows.md:
+    hours: 1.0
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/phase2_auto_mode_quality_gate.md:
+    hours: 0.5
+    category: "Documentation"
+
+  audit/post_processing/06_scoring/20260517_phase2_data_coverage_report.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_phase2_partial_data_curation_memo.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_phase2_scored_site_examples.md:
+    hours: 1.2
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_phase2_auditor_review.md:
+    hours: 1.8
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_EP-03_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_HI-02_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_HI-03_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_HI-04_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_NH-09_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_NH-11_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_RI-03_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/phase2_track_RI-05_curation_memo.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  architecture/plans/nuclearelectrica-business-case.md:
+    hours: 0.8
+    category: "Architecture & Design"
+
+  audit/plans/nuclearelectrica-business-case.md:
+    hours: 0.8
+    category: "Project Management & QA"
+
+  business_case/nuclearelectrica_business_case.md:
+    hours: 4.0
+    category: "Other"
+
+  business_case/product_valuation_and_sell_price.md:
+    hours: 3.5
+    category: "Other"
+
+  audit/conversations/2026-05-17_nuclearelectrica_business_case.md:
+    hours: 0.6
     category: "Project Management & QA"
 

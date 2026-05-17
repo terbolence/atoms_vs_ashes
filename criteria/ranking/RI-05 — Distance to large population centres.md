@@ -5,6 +5,17 @@ Phase: **[avoidance, ranking]**. Primary metric: `ri05_distance_margin_pct` over
 
 Status: **implemented.** The user-approved RI-05/A12 decision was Option B: re-scope RI-05 to the existing nearest-50k metric. The exact four-tier envelope remains a future improvement, logged as `IMP-0009` in `IMPROVEMENTS.md`.
 
+## 2026-05-17 Auditor Update
+
+Bucket C adds a conservative GHSL population proxy only for cases where
+structured population evidence exists. It does not invent `nearest_city_50k_km`;
+rows with population proxy but no distance remain unscored. Read-only audit
+result after the auditor pass: 237/362 scored, 125/362 unscored, candidate stdev
+3.11.
+
+Representative examples are recorded in
+`audit/post_processing/06_scoring/20260517_partial_data_scored_examples.md`.
+
 1. Implemented scoring model
 
 RI-05 now reads the two current structured fields:

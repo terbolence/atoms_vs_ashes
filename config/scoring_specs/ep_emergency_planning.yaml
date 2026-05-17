@@ -76,8 +76,15 @@ criteria:
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-03 (SSG-35 §4.6(a))"}
     primary_metric: relief_m_per_10km
-    db_fields: {api: [site_emergency.major_river_barrier, site_emergency.waterway_count_epz, site_emergency.relief_m_per_10km], llm: ep03_geography_text}
+    db_fields: {api: [site_emergency.major_river_barrier, site_emergency.waterway_count_epz, site_emergency.relief_m_per_10km, site_emergency.ep03_gee_relief_16km_m], llm: ep03_geography_text}
+    # Interim barrier/waterway bands score when measured relief is absent; GEE relief
+    # maps to ``relief_m_per_10km`` via merge_context_derivations (16 km window proxy).
     bands:
+      - {score_range: [9, 10], condition_expr: "relief_m_per_10km is null and major_river_barrier == false and (waterway_count_epz is null or waterway_count_epz <= 1)", descriptor: "No measured relief; open river/waterway context (interim screening)."}
+      - {score_range: [7, 8], condition_expr: "relief_m_per_10km is null and major_river_barrier == false and waterway_count_epz <= 3", descriptor: "No measured relief; mild waterway crossings only (interim)."}
+      - {score_range: [5, 6], condition_expr: "relief_m_per_10km is null and major_river_barrier == false", descriptor: "No measured relief; manageable barrier/waterway context (interim)."}
+      - {score_range: [3, 4], condition_expr: "relief_m_per_10km is null and major_river_barrier == true and (waterway_count_epz is null or waterway_count_epz <= 2)", descriptor: "No measured relief; major river barrier with limited crossings (interim)."}
+      - {score_range: [1, 2], condition_expr: "relief_m_per_10km is null and major_river_barrier == true", descriptor: "No measured relief; major river barrier (interim)."}
       - {score_range: [9, 10], condition_expr: "relief_m_per_10km < 50 and major_river_barrier == false", descriptor: "Open well-connected terrain; < 50 m relief; no waterway barrier."}
       - {score_range: [7, 8], condition_expr: "relief_m_per_10km < 150 or waterway_count_epz == 1", descriptor: "Mild relief or single river crossing."}
       - {score_range: [5, 6], condition_expr: "relief_m_per_10km < 300", descriptor: "Typical CEE constraints; manageable with planning."}

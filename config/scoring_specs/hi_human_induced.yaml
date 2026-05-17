@@ -1,4 +1,4 @@
-# man_hours: 5.0
+# man_hours: 5.8
 # Human-induced hazards (HI) scoring rubric. Source: report/sites_evaluation/04_criteria_human_induced.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: hi
@@ -74,17 +74,17 @@ criteria:
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-03 (IAEA NS-G-3.1; SSG-35 Table II-1; A8)"}
     primary_metric: nearest_toxic_source_km
-    db_fields: {api: [site_human_induced.nearest_toxic_source_km, site_human_induced.toxic_source_type], llm: hi03_toxic_text}
+    db_fields: {api: [site_human_induced.nearest_toxic_source_km, site_human_induced.toxic_source_type, site_human_induced.hi03_quality], llm: hi03_toxic_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_toxic_source_km > 25", descriptor: "> 25 km."}
+      - {score_range: [9, 10], condition_expr: "(nearest_toxic_source_km is null and hi03_search_completed == true) or nearest_toxic_source_km > 25", descriptor: "> 25 km, or completed toxic-source search found nothing in radius."}
       - {score_range: [7, 8], condition_expr: "nearest_toxic_source_km >= 15", descriptor: "15-25 km."}
       - {score_range: [5, 6], condition_expr: "nearest_toxic_source_km >= 8", descriptor: "8-15 km (project A8 pass-mark)."}
       - {score_range: [3, 4], condition_expr: "nearest_toxic_source_km >= 3", descriptor: "3-8 km."}
       - {score_range: [1, 2], condition_expr: "nearest_toxic_source_km < 3", descriptor: "< 3 km."}
       - {score_range: [0, 0], condition_expr: "nearest_toxic_source_km < 1 and has_mitigation == false", descriptor: "Hazardous-cloud envelope intersect with no mitigation."}
     fail_conditions:
-      - {code: A8, action: avoidance_penalty, condition_expr: "nearest_toxic_source_km < 8", descriptor: "Project avoidance: >= 8 km from hazardous-cloud sources."}
-    band_recipe: {kind: higher_is_better, fail_code: A8}
+      - {code: A8, action: avoidance_penalty, condition_expr: "nearest_toxic_source_km < 8", null_pass_condition_expr: "nearest_toxic_source_km is null and hi03_search_completed == true", descriptor: "Project avoidance: >= 8 km from hazardous-cloud sources."}
+    band_recipe: {kind: higher_is_better, fail_code: A8, null_best_condition_expr: "hi03_search_completed == true"}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-04
     name: External fires
@@ -159,13 +159,24 @@ criteria:
     weight_factors: {baseline: 2, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-07 (SSG-35 §4.4(c))"}
     primary_metric: transmitter_count_10km
-    db_fields: {api: [site_human_induced.transmitter_count_10km], llm: hi07_emi_text}
+    db_fields: {api: [site_human_induced.transmitter_count_10km, site_human_induced.nearest_transmitter_km, site_human_induced.transmitter_type, site_human_induced.hi07_quality, site_human_induced.hi07_comment, site_human_induced.run_id, site_human_induced.fetched_at], llm: hi07_emi_text}
+    notes: |
+      Tier 1 Data OK repair (2026-05-17): uses existing OSM transmitter
+      count/proximity evidence only. ``transmitter_count_10km`` is a legacy
+      scoring alias for ORM column ``site_human_hazards.transmitter_count``;
+      the source comments identify the persisted count as the connector's
+      available transmitter search-count proxy, not a verified 10 km-only
+      count. ``nearest_transmitter_km`` and ``transmitter_type`` are measured
+      context fields. ``hi07_quality`` supplies the completed-search sentinel
+      so sparse/no-count evidence is favorable only when the search actually
+      completed. ``transmitter_power_class`` is unsupported in the current
+      schema and deferred to a future connector/schema task.
     bands:
-      - {score_range: [9, 10], condition_expr: "transmitter_count_10km == 0", descriptor: "No high-power transmitters in 10 km radius."}
-      - {score_range: [7, 8], condition_expr: "transmitter_count_10km <= 2 and nearest_transmitter_km > 5", descriptor: "Few transmitters; distance > 5 km."}
-      - {score_range: [5, 6], condition_expr: "transmitter_count_10km <= 5", descriptor: "Ordinary European RF environment."}
-      - {score_range: [3, 4], condition_expr: "nearest_transmitter_km < 2", descriptor: "Notable transmitters within 2 km."}
-      - {score_range: [1, 2], condition_expr: "nearest_transmitter_km < 0.5 and transmitter_power_class == 'very_high'", descriptor: "Very high power transmitter immediately adjacent."}
+      - {score_range: [9, 10], condition_expr: "hi07_search_completed == true and transmitter_count_10km <= 5 and (nearest_transmitter_km is null or nearest_transmitter_km > 10)", descriptor: "Sparse and distant transmitter proxy: at most five transmitter-like features and none measured within 10 km."}
+      - {score_range: [7, 8], condition_expr: "hi07_search_completed == true and transmitter_count_10km <= 10 and (nearest_transmitter_km is null or nearest_transmitter_km > 5)", descriptor: "Low RF-density proxy: at most ten transmitter-like features and none measured within 5 km."}
+      - {score_range: [1, 2], condition_expr: "hi07_search_completed == true and (transmitter_count_10km > 100 or nearest_transmitter_km < 2)", descriptor: "Very dense or nearby transmitter proxy: >100 transmitter-like features in radius or nearest feature < 2 km. Power class not measured."}
+      - {score_range: [3, 4], condition_expr: "hi07_search_completed == true and (transmitter_count_10km > 25 or nearest_transmitter_km < 5)", descriptor: "Dense or near transmitter proxy: >25 features in radius or nearest feature < 5 km. Review RF/EMI controls."}
+      - {score_range: [5, 6], condition_expr: "hi07_search_completed == true and (transmitter_count_10km is not null or nearest_transmitter_km is not null)", descriptor: "Scoreable ordinary RF environment from count/proximity evidence; power-class-specific severity deferred."}
     fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-08

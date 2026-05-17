@@ -79,13 +79,13 @@ After updating estimates, run:
 python src/scripts/man_hours_report.py
 ```
 
-This reads `audit/man_hours_registry.yml` and writes `audit/man_hours_summary.md` with:
+This writes **`audit/man_hours_summary.md`** — a plain-language **Project Scale Report** for the full git archive:
 
-- Git-tracked LOC (excludes `venv_test`, `.venv`, caches; non-overlapping Python buckets)
-- Markdown/YAML breakdowns and deduped repo totals
-- Product counts (criteria, connectors, expert prompts)
-- Indicative LLM token model (output / input / thinking) from character counts
-- Optional measured tokens when `logs/llm/` response JSON exists locally
-- **`cloc`** physical source analysis (`--vcs=git`): code / comment / blank by language and product area (requires `cloc` on PATH, e.g. `brew install cloc`)
+- At-a-glance effort, documentation volume (~pages), software size, criteria & connectors
+- Written documentation by folder (`report/`, `audit/`, `criteria/`, …)
+- Software, data exports (JSON/CSV), person-hours in plain English
+- Full inventory table; technical `cloc` appendix collapsed; detailed registry in `<details>`
+
+Requires **`cloc`** on PATH for the technical appendix (`brew install cloc`).
 
 Implementation: `src/scripts/man_hours_report.py`, `src/scripts/_man_hours_metrics.py`.

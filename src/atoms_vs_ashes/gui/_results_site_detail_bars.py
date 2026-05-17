@@ -68,6 +68,7 @@ def _screening_highlight(
 
 SEMANTIC_EXCLUSION = "Exclusion"
 SEMANTIC_AVOIDANCE = "Avoidance"
+SEMANTIC_UNSCORED = "Unscored"
 SEMANTIC_NO_RANK = "No 0–10 score"
 
 # Two-letter prefixes from criterion IDs (e.g. NH-02 → nh) → legend text for charts.
@@ -83,7 +84,7 @@ _FAMILY_LEGEND_LABELS: dict[str, str] = {
 
 def chart_semantic_legend_label(semantic: str) -> str:
     """Map rubric family code or screening token to a human-readable legend label."""
-    if semantic in (SEMANTIC_EXCLUSION, SEMANTIC_AVOIDANCE, SEMANTIC_NO_RANK):
+    if semantic in (SEMANTIC_EXCLUSION, SEMANTIC_AVOIDANCE, SEMANTIC_UNSCORED, SEMANTIC_NO_RANK):
         return semantic
     key = semantic.strip().lower()
     return _FAMILY_LEGEND_LABELS.get(key, semantic)
@@ -105,6 +106,9 @@ def merge_criterion_bar_semantics(
         fam = _family(cid)
         rv = rank_map.get(cid)
         vs = by_cid.get(cid, [])
+        if rv is not None and rv.quality_flag == "unscored":
+            out.append((cid, fam, None, SEMANTIC_UNSCORED))
+            continue
         if rv is not None and rv.score_0_10 is not None:
             out.append(
                 (
@@ -129,6 +133,7 @@ __all__ = [
     "SEMANTIC_AVOIDANCE",
     "SEMANTIC_EXCLUSION",
     "SEMANTIC_NO_RANK",
+    "SEMANTIC_UNSCORED",
     "chart_semantic_legend_label",
     "fallback_criterion_ids",
     "load_bundle_criterion_ids_ordered",

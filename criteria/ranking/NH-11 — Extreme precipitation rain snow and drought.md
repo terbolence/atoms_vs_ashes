@@ -11,6 +11,22 @@ Source spec/rubric: `config/scoring_specs/nh_natural_hazards.yaml` / `config/sco
 
 Composite participation: **yes** (weight factor 3, normalised weight 1.1%).
 
+## 2026-05-17 Auditor Update
+
+The earlier recommendation below is superseded by the Bucket C auditor pass.
+The implementation now keeps NH-11 scoreable from the two populated ERA5
+precipitation fields, but only after deriving corrected proxy context keys:
+`mean_annual_precip_corrected_mm` and `extreme_precip_corrected_mm`. The raw DB
+columns remain unchanged. SPI, snow, and freezing sub-scores remain
+`partial_unscored`.
+
+Read-only audit result after the auditor fix: 362/362 scored, candidate stdev
+1.46, score range 2.0-10.0. Representative examples are recorded in
+`audit/post_processing/06_scoring/20260517_partial_data_scored_examples.md`.
+
+This is ranking-grade proxy evidence only. It is not a substitute for
+site-specific IDF curves or design-basis rainfall.
+
 ## Specialist Recommendation
 Do not change NH-11 YAML in this worker. The local drought, snow, and freezing inputs are unmeasured for all 361 sites, and the populated precipitation field appears unit-incompatible with annual-total band labels. A scoring rewrite would require connector/schema/unit correction, not a desk-study reinterpretation.
 

@@ -22,6 +22,7 @@ from atoms_vs_ashes.gui._results_site_detail_bars import (
     SEMANTIC_AVOIDANCE,
     SEMANTIC_EXCLUSION,
     SEMANTIC_NO_RANK,
+    SEMANTIC_UNSCORED,
     chart_semantic_legend_label,
 )
 from atoms_vs_ashes.gui._results_site_status_palette import (
@@ -73,8 +74,8 @@ def render_site_detail(
         st.caption(
             "Rubric family colours apply to criteria with a 0–10 ranking band. "
             f"“{SEMANTIC_EXCLUSION}”, “{SEMANTIC_AVOIDANCE}”, and "
-            f"“{SEMANTIC_NO_RANK}” mark screening-only rows without a stored "
-            "rank score (or highlight exclusion / avoidance outcomes)."
+            f"“{SEMANTIC_UNSCORED}” / “{SEMANTIC_NO_RANK}” mark rows without "
+            "a real stored rank score (or highlight exclusion / avoidance outcomes)."
         )
         _render_criterion_bar(detail)
     if detail.family_contributions:
@@ -189,6 +190,7 @@ def _bar_fill_color(semantic: str) -> str:
     specials = {
         SEMANTIC_EXCLUSION: HARD_FAIL_HEX,
         SEMANTIC_AVOIDANCE: EXCLUSION_PASS_AVOIDANCE_FAIL_HEX,
+        SEMANTIC_UNSCORED: "#7f8c8d",
         SEMANTIC_NO_RANK: "#aeb6bf",
     }
     if semantic in specials:
@@ -239,7 +241,7 @@ def _render_criterion_bar(detail: SiteDetail) -> None:
             x=alt.X(
                 "score_plot:Q",
                 scale=alt.Scale(domain=[0, 10]),
-                title="Score (screening-only rows shown at 0)",
+                title="Score (unscored / screening-only rows shown at 0)",
             ),
             y=alt.Y("criterion_id:N", sort=sort_order, title=None),
             color=alt.Color(

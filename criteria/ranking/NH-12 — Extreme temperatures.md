@@ -1,79 +1,54 @@
-<!-- man_hours: 0.8 -->
+<!-- man_hours: 1.3 -->
 # NH-12 - Extreme temperatures
 
-Status: accepted-current-state
+Status: **Tier 1 Data OK implemented**.
 
-Phase: `ranking`
-
-Primary metric: `extreme_temp_max_c, extreme_temp_min_c`
-
-Source spec/rubric: `config/scoring_specs/nh_natural_hazards.yaml` / `config/scoring_rubrics/nh_natural_hazards.yaml`
-
+Phase: `ranking`  
+Primary metrics: `extreme_temp_max_c`, `extreme_temp_min_c`  
+Source spec/rubric: `config/scoring_specs/nh_natural_hazards.yaml` / `config/scoring_rubrics/nh_natural_hazards.yaml`  
 Composite participation: **yes** (weight factor 4, normalised weight 1.4%).
 
-## Decision Matrix
-| Audit point | Current evidence | Documentation decision |
+## Accepted Columns
+
+| Field | Status | Notes |
 | --- | --- | --- |
-| Phase/composite | Phases are `ranking`; `participates_in_composite` is `true`. | Accept current behavior for documentation. |
-| Score logic | Local compiled evidence gives matched-band counts `{'7-8': 2, '9-10': 359}`. | Document current compiled behavior, not a proposed change. |
-| Data quality | No raw misses were recorded for declared API fields in the local evidence query. | Treat missing data as a metric-truth caveat; do not infer hard safety facts from neutral defaults. |
-| Filter relationship | Ranking-only aggregated temperature criterion. It has no fail conditions and currently resolves from both max/min temperature fields. | Preserve the existing phase/action relationship. |
+| `site_natural_hazards.extreme_temp_max_c` | measured / derived from ERA5 proxy | Active heat-tail sub-score field. |
+| `site_natural_hazards.extreme_temp_min_c` | measured / derived from ERA5 proxy | Active cold-tail sub-score field. |
+| `site_natural_hazards.nh12_quality` | measured metadata | Included in context and audit. |
+| `site_natural_hazards.nh12_comment` | measured metadata | Included in context and audit. |
+| `site_natural_hazards.run_id`, `fetched_at` | provenance | Included in audit context. |
 
-## Current Compiled Score Curve
-| Score band | Current compiled condition / logic | Descriptor | Local DB count |
-| --- | --- | --- | ---: |
-| 9-10 | Final aggregate score in this range | Aggregated sub-score result | 359 |
-| 7-8 | Final aggregate score in this range | Aggregated sub-score result | 2 |
-| 5-6 | Final aggregate score in this range | Aggregated sub-score result | 0 |
-| 3-4 | Final aggregate score in this range | Aggregated sub-score result | 0 |
-| 1-2 | Final aggregate score in this range | Aggregated sub-score result | 0 |
-| 0 | Final aggregate score in this range | Aggregated sub-score result | 0 |
-| unscored | No matched final band / neutral default | Unscored or unresolved aggregate | 0 |
+## Before / After State
 
-## Sub-Score Logic
-Aggregation: `{'cap_if_any_sub_score_below': None, 'method': 'min_of_sub_scores', 'round_to': None}`.
-
-`tmax` primary metric `extreme_temp_max_c` weight `None`:
-| Score band | Condition | Descriptor |
+| Item | Before | After |
 | --- | --- | --- |
-| 9-10 | `extreme_temp_max_c < 33` | Tmax < 33 C. |
-| 7-8 | `extreme_temp_max_c < 36` | 33-36 C. |
-| 5-6 | `extreme_temp_max_c < 39` | 36-39 C. |
-| 3-4 | `extreme_temp_max_c <= 42` | 39-42 C. |
-| 1-2 | `extreme_temp_max_c > 42` | > 42 C. |
+| Aggregation | `min_of_sub_scores` made the harsher tail dominate all rows. | `mean_of_sub_scores` balances heat and cold tails and caps at 5 when either tail is severe. |
+| Null semantics | Missing sub-score behavior could leave an apparent neutral 5.0. | If both temperature tails are missing, the aggregate is `quality_flag=unscored`. |
+| Band spread | Existing curve gave only 7-8 and 9-10 for local data. | Revised tmax/tmin bands spread the local cohort across 3.5-8.5 candidate scores. |
 
-`tmin` primary metric `extreme_temp_min_c` weight `None`:
-| Score band | Condition | Descriptor |
-| --- | --- | --- |
-| 9-10 | `extreme_temp_min_c > -15` | Tmin > -15 C. |
-| 7-8 | `extreme_temp_min_c > -20` | -15 to -20 C. |
-| 5-6 | `extreme_temp_min_c > -25` | -20 to -25 C. |
-| 3-4 | `extreme_temp_min_c >= -30` | -25 to -30 C. |
-| 1-2 | `extreme_temp_min_c < -30` | < -30 C. |
-## Metric Truth And Data Quality
-Local evidence basis: 361-site active merged DB, read-only local PostgreSQL query through `ScoringEngine._precompute_site()` using the compiled scoring specs. No API, enrichment, web, or remote calls were made.
-- `extreme_temp_max_c`: present 361/361, NULL 0, min 19.54, max 33.32, mean 25.3094.
-- `extreme_temp_min_c`: present 361/361, NULL 0, min -12.29, max 7.93, mean -3.3942.
-- No raw misses were recorded for declared API fields in the local evidence query.
+## Current Tier 1 Logic
+
+Aggregation: `mean_of_sub_scores`, rounded to 0.1, with `cap_if_any_sub_score_below: {threshold: 3, cap_score: 5}`.
+
+| Sub-score | Field | High score | Middle score | Severe score |
+| --- | --- | --- | --- | --- |
+| `tmax` | `extreme_temp_max_c` | `< 23 C` | `26-29 C` | `>= 32 C` |
+| `tmin` | `extreme_temp_min_c` | `> 2 C` | `-8 to -4 C` | `<= -12 C` |
+
+## Read-Only Audit Result
+
+Local audit artifact: `audit/post_processing/06_scoring/20260517_tier1_data_ok_curation_memo.md`.
+
+- Local DB rows reviewed: 362 site rows for `nuscale_voygr6`; requested baseline `ranking_scores` rows were not present in this local DB (`0/362` found), so this is a candidate-logic audit, not a persisted before/after rescore.
+- `extreme_temp_max_c`: present 362/362, min 19.54 C, max 33.32 C, stdev 2.78.
+- `extreme_temp_min_c`: present 362/362, min -12.29 C, max 7.93 C, stdev 5.18.
+- Candidate score spread: 3.5-8.5, stdev 0.80, unscored 0/362.
+- Scored site examples by aggregate score bucket: `audit/post_processing/06_scoring/20260517_tier1_data_ok_nh12_scored_examples.md`.
 
 ## Fail, Avoidance, And Review Conditions
-No fail, avoidance, screen, or review conditions are defined.
 
-## Local Scored Examples
-| Band | Site | Country | Score | Key values | Notes |
-| --- | --- | --- | ---: | --- | --- |
-| 9-10 | `e6ecead0` Porto Romano Power Station | AL | 9.5 | `extreme_temp_max_c`=25.87<br>`extreme_temp_min_c`=6.38<br>sub_scores=tmax:9.5, tmin:9.5 | matched current logic |
-| 9-10 | `2b03f2e2` Morava power station | RS | 9.5 | `extreme_temp_max_c`=26.13<br>`extreme_temp_min_c`=-4.05<br>sub_scores=tmax:9.5, tmin:9.5 | matched current logic |
-| 7-8 | `e05ff795` Silopi (Şırnak) power station | TR | 7.5 | `extreme_temp_max_c`=33.32<br>`extreme_temp_min_c`=-1.2<br>sub_scores=tmax:7.5, tmin:9.5 | matched current logic |
-| 7-8 | `98019711` Şırnak Silopi (CİNER) power station | TR | 7.5 | `extreme_temp_max_c`=33.32<br>`extreme_temp_min_c`=-1.2<br>sub_scores=tmax:7.5, tmin:9.5 | matched current logic |
+No fail, avoidance, screen, or review condition is defined for NH-12. It is a ranking-only temperature-stress criterion.
 
-## Source Citations
-- `config/scoring_specs/nh_natural_hazards.yaml` and `config/scoring_rubrics/nh_natural_hazards.yaml`: criterion phases, bands, fail conditions, weights, and data fields.
-- `docs/expert_siting_criteria_evaluation_matrix.md`: normative basis, phase classification, and scoring-weight context.
-- `src/atoms_vs_ashes/scoring/rubric.py`: `participates_in_composite` is false for ranking criteria that are also exclusionary or have an `exclude` fail condition.
-- `src/atoms_vs_ashes/scoring/bands.py`: no matched band returns the neutral 5.0 `unscored` result.
+## Metric Caveat
 
-## Artifact Footer
-- Landed file: `criteria/ranking/NH-12 — Extreme temperatures.md`.
-- Validation: local compiled-spec evidence query against the 361-site DB; no behavior-changing tests were required because this run changed documentation only.
-- Audit: conversation log and man-hours registry updated for this documentation sweep.
+The current fields are screening-grade temperature-tail proxies. The score supports relative site ranking and design-attention triage; it is not a site-specific ultimate heat sink, HVAC, or extreme-temperature design-basis assessment.

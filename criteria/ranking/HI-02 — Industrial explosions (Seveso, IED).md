@@ -9,6 +9,17 @@ Source spec/rubric: `config/scoring_specs/hi_human_induced.yaml`; `config/scorin
 Composite participation: **true**  
 Avoidance relationship: `A7` emits `avoidance_penalty` when `nearest_seveso_km < 5`.
 
+## 2026-05-17 Auditor Update
+
+The current Bucket C implementation does consume `hi02_search_completed` in the
+active scoring YAML. Completed searches with no `nearest_seveso_km` score
+favourably; `not_applicable` does **not** count as completed-search evidence and
+remains unscored. Read-only audit result after the auditor fix: 315/362 scored,
+47/362 unscored, candidate stdev 1.56.
+
+Representative examples are recorded in
+`audit/post_processing/06_scoring/20260517_partial_data_scored_examples.md`.
+
 ## Decision Matrix
 
 | Element | Current state |

@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 6.0
 """Filesystem and git-backed metrics for ``man_hours_report.py``."""
 
 from __future__ import annotations
@@ -84,6 +84,42 @@ CLOC_AUDIT_AREAS: list[tuple[str, str]] = [
     ("audit", "Audit trail & post-processing"),
 ]
 
+# Full repository scan paths (git-tracked via ``cloc --vcs=git``).
+CLOC_FULL_PATHS: list[str] = [
+    "src",
+    "tests",
+    "criteria",
+    "config",
+    "experts",
+    "docs",
+    "architecture",
+    "export",
+    "report",
+    "audit",
+    "sources",
+    "data",
+]
+
+# Plain-English labels for top-level folders (project inventory).
+PROJECT_FOLDER_LABELS: dict[str, str] = {
+    "_root": "Project guides (README, AGENTS, etc.)",
+    "report": "Client report & deliverables",
+    "audit": "Quality audits & verification records",
+    "src": "Software source (programs & specifications)",
+    "tests": "Automated quality checks",
+    "criteria": "Siting criteria (official rubric text)",
+    "docs": "Technical reference documentation",
+    "experts": "Expert review prompts (AI-assisted QA)",
+    "architecture": "System design documents",
+    "config": "Scoring rules & configuration",
+    "export": "Data export tools",
+    "sources": "External data source notes",
+    "data": "Bundled reference data descriptors",
+    ".cursor": "Editor automation (internal)",
+}
+
+LINES_PER_PAGE_ESTIMATE = 45
+
 # Primary languages shown first in customer tables.
 CLOC_PRIMARY_LANGS = frozenset({"Python", "Markdown", "YAML", "JSON", "Bourne Shell"})
 
@@ -131,6 +167,10 @@ class ClocLanguageRow:
         return self.blank + self.comment + self.code
 
     @property
+    def prose_lines(self) -> int:
+        return self.total_lines
+
+    @property
     def comment_ratio_pct(self) -> float:
         denom = self.code + self.comment
         return (100.0 * self.comment / denom) if denom else 0.0
@@ -149,6 +189,11 @@ class ClocAreaRow:
     @property
     def total_lines(self) -> int:
         return self.blank + self.comment + self.code
+
+    @property
+    def prose_lines(self) -> int:
+        """All physical lines in this area (code + comment + blank)."""
+        return self.total_lines
 
 
 @dataclass
@@ -627,14 +672,184 @@ def _build_cloc_report(
 
 
 @dataclass
+class ExtensionStats:
+    files: int = 0
+    lines: int = 0
+
+
+@dataclass
+class ProjectAreaRow:
+    """One top-level folder (or project root files)."""
+
+    folder: str
+    label: str
+    prose: ExtensionStats
+    programs: ExtensionStats
+    settings: ExtensionStats
+    data_tables: ExtensionStats
+    other_files: int = 0
+
+    @property
+    def prose_pages_est(self) -> int:
+        return max(0, round(self.prose.lines / LINES_PER_PAGE_ESTIMATE))
+
+    @property
+    def total_files(self) -> int:
+        return (
+            self.prose.files
+            + self.programs.files
+            + self.settings.files
+            + self.data_tables.files
+            + self.other_files
+        )
+
+
+@dataclass
+class ProjectInventory:
+    areas: list[ProjectAreaRow]
+    prose: FileStats
+    programs: FileStats
+    settings: FileStats
+    data_tables: FileStats
+    large_prose: list[tuple[int, str]]
+
+    @property
+    def prose_pages_est(self) -> int:
+        return max(0, round(self.prose.lines / LINES_PER_PAGE_ESTIMATE))
+
+
+def _top_level_folder(rel: str) -> str:
+    parts = Path(rel).parts
+    return "_root" if len(parts) == 1 else parts[0]
+
+
+def _line_count_file(path: Path) -> int:
+    text = _read_text(path)
+    if text is None:
+        return 0
+    return len(text.splitlines())
+
+
+def collect_project_inventory(root: Path) -> ProjectInventory:
+    """Git-tracked files grouped by top-level folder with line counts."""
+    buckets: dict[str, ProjectAreaRow] = {}
+    large: list[tuple[int, str]] = []
+
+    for path in git_ls_files(root):
+        if not path.is_file() or _path_skipped(path):
+            continue
+        try:
+            rel = path.relative_to(root).as_posix()
+        except ValueError:
+            continue
+        folder = _top_level_folder(rel)
+        if folder not in buckets:
+            label = PROJECT_FOLDER_LABELS.get(folder, folder.replace("_", " ").title())
+            buckets[folder] = ProjectAreaRow(folder=folder, label=label, prose=ExtensionStats(), programs=ExtensionStats(), settings=ExtensionStats(), data_tables=ExtensionStats())
+        row = buckets[folder]
+        lines = _line_count_file(path)
+        suffix = path.suffix.lower()
+        if suffix == ".md":
+            row.prose.files += 1
+            row.prose.lines += lines
+            if lines >= 400:
+                large.append((lines, str(rel)))
+        elif suffix == ".py":
+            row.programs.files += 1
+            row.programs.lines += lines
+        elif suffix in (".yaml", ".yml"):
+            row.settings.files += 1
+            row.settings.lines += lines
+        elif suffix in (".json", ".csv"):
+            row.data_tables.files += 1
+            row.data_tables.lines += lines
+        else:
+            row.other_files += 1
+
+    areas = sorted(buckets.values(), key=lambda r: -(r.prose.lines + r.programs.lines + r.data_tables.lines))
+    large.sort(reverse=True)
+
+    prose = FileStats()
+    programs = FileStats()
+    settings = FileStats()
+    data_tables = FileStats()
+    for row in areas:
+        prose.files += row.prose.files
+        prose.lines += row.prose.lines
+        programs.files += row.programs.files
+        programs.lines += row.programs.lines
+        settings.files += row.settings.files
+        settings.lines += row.settings.lines
+        data_tables.files += row.data_tables.files
+        data_tables.lines += row.data_tables.lines
+
+    return ProjectInventory(
+        areas=areas,
+        prose=prose,
+        programs=programs,
+        settings=settings,
+        data_tables=data_tables,
+        large_prose=large[:15],
+    )
+
+
+@dataclass
 class ClocBundle:
     product: ClocReport | None
     audit: ClocReport | None
+    full: ClocReport | None
 
 
 def collect_cloc_reports(root: Path) -> ClocBundle:
-    """Product engineering scope + optional audit/data artefact scope."""
+    """Product, audit, and full-repository ``cloc`` scans."""
+    full_paths = [p for p in CLOC_FULL_PATHS if (root / p).is_dir()]
+    full_report: ClocReport | None = None
+    if full_paths:
+        aggregate = run_cloc_json(root, full_paths, timeout=120)
+        if aggregate:
+            header = aggregate.get("header") or {}
+            n_files, code, comment, blank = parse_cloc_sum(aggregate)
+            areas: list[ClocAreaRow] = []
+            for path in full_paths:
+                label = PROJECT_FOLDER_LABELS.get(path, path)
+                area_data = run_cloc_json(root, [path], timeout=60)
+                if not area_data:
+                    continue
+                af, ac, acm, ab = parse_cloc_sum(area_data)
+                md = area_data.get("Markdown")
+                py = area_data.get("Python")
+                dom = "—"
+                if isinstance(py, dict) and isinstance(md, dict):
+                    dom = "Python" if int(py.get("code", 0)) >= int(md.get("code", 0)) else "Markdown"
+                elif isinstance(py, dict):
+                    dom = "Python"
+                elif isinstance(md, dict):
+                    dom = "Markdown"
+                areas.append(
+                    ClocAreaRow(
+                        label=label,
+                        path=path,
+                        n_files=af,
+                        blank=ab,
+                        comment=acm,
+                        code=ac,
+                        top_language=dom,
+                    )
+                )
+            areas.sort(key=lambda a: -a.total_lines)
+            full_report = ClocReport(
+                version=str(header.get("cloc_version", "?")),
+                elapsed_seconds=float(header.get("elapsed_seconds", 0)),
+                languages=parse_cloc_languages(aggregate),
+                areas=areas,
+                n_files=n_files,
+                code=code,
+                comment=comment,
+                blank=blank,
+                scope="full",
+            )
     return ClocBundle(
         product=_build_cloc_report(root, CLOC_PRODUCT_AREAS, scope="product"),
         audit=_build_cloc_report(root, CLOC_AUDIT_AREAS, scope="audit"),
+        full=full_report,
     )

@@ -1,0 +1,39 @@
+count,criterion_id,max,mean,median,metric,min,nulls,p05,p25,p75,p95,rows,stdev,value,zeros
+361,HI-07,968.0,114.5595567867036,46.0,transmitter_count,3.0,0,11.0,26.0,155.0,446.0,361,137.62704201259413,,0
+361,HI-07,17.92,2.414903047091413,1.27,nearest_transmitter_km,0.0,0,0.17,0.39,3.57,8.25,361,2.9217313272967718,,1
+0,HI-07,,,,transmitter_type,,0,,,,,361,,,0
+0,HI-07,,,,hi07_quality,,0,,,,,361,,,0
+0,HI-07,,,,hi07_comment,,0,,,,,361,,,0
+0,HI-07,,,,human_run_id,,0,,,,,361,,,0
+0,HI-07,,,,human_fetched_at,,0,,,,,361,,,0
+361,HI-07,,,,baseline_quality_flag,,,,,,,,,medium,
+361,HI-07,,,,candidate_quality_flag,,,,,,,,,scored,
+85,HI-07,,,,candidate_band,,,,,,,,,Dense or near transmitter proxy: >25 features in radius or nearest feature < 5 km. Review RF/EMI controls.,
+7,HI-07,,,,candidate_band,,,,,,,,,Low RF-density proxy: at most ten transmitter-like features and none measured within 5 km.,
+31,HI-07,,,,candidate_band,,,,,,,,,Scoreable ordinary RF environment from count/proximity evidence; power-class-specific severity deferred.,
+2,HI-07,,,,candidate_band,,,,,,,,,Sparse and distant transmitter proxy: at most five transmitter-like features and none measured within 10 km.,
+236,HI-07,,,,candidate_band,,,,,,,,,Very dense or nearby transmitter proxy: >100 transmitter-like features in radius or nearest feature < 2 km. Power class not measured.,
+361,HI-07,9.5,2.4750692520775623,1.5,candidate_score,1.5,,1.5,1.5,3.5,5.5,,1.5570410178611027,,
+361,NH-10,14.44,9.070581717451523,9.15,max_wind_speed_ms,5.41,0,6.14,7.49,10.43,11.87,361,1.8087285112286715,,0
+0,NH-10,,,,nh10_quality,,0,,,,,361,,,0
+0,NH-10,,,,nh10_comment,,0,,,,,361,,,0
+0,NH-10,,,,natural_run_id,,0,,,,,361,,,0
+0,NH-10,,,,natural_fetched_at,,0,,,,,361,,,0
+361,NH-10,,,,baseline_quality_flag,,,,,,,,,medium,
+361,NH-10,,,,candidate_quality_flag,,,,,,,,,scored,
+75,NH-10,,,,candidate_band,,,,,,,,,Higher relative wind exposure in the current smoothed ERA5 cohort (10.5-12.5 m/s).,
+8,NH-10,,,,candidate_band,,,,,,,,,"Highest relative or out-of-cohort exposure for the current proxy; 49 m/s remains design-envelope review, not validated by this metric.",
+87,NH-10,,,,candidate_band,,,,,,,,,Lower-middle relative wind exposure in the current smoothed ERA5 cohort (7.5-9.0 m/s).,
+91,NH-10,,,,candidate_band,,,,,,,,,Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s).,
+100,NH-10,,,,candidate_band,,,,,,,,,Middle relative wind exposure around the observed cohort mean (9.0-10.5 m/s).,
+361,NH-10,9.5,6.486149584487535,5.5,candidate_score,1.5,,3.5,5.5,9.5,9.5,,2.285783811544277,,
+361,NH-12,33.32,25.309418282548478,25.43,extreme_temp_max_c,19.54,0,21.15,23.03,27.44,29.86,361,2.783040592309533,,0
+361,NH-12,7.93,-3.3941828254847644,-5.22,extreme_temp_min_c,-12.29,0,-9.94,-7.53,1.49,6.02,361,5.182274592818378,,0
+0,NH-12,,,,nh12_quality,,0,,,,,361,,,0
+0,NH-12,,,,nh12_comment,,0,,,,,361,,,0
+0,NH-12,,,,natural_run_id,,0,,,,,361,,,0
+0,NH-12,,,,natural_fetched_at,,0,,,,,361,,,0
+361,NH-12,,,,baseline_quality_flag,,,,,,,,,medium,
+361,NH-12,,,,candidate_quality_flag,,,,,,,,,scored,
+361,NH-12,,,,candidate_band,,,,,,,,,aggregated(mean_of_sub_scores),
+361,NH-12,8.5,6.627423822714682,6.5,candidate_score,3.5,,5.5,6.5,7.5,7.5,,0.7951912840371678,,

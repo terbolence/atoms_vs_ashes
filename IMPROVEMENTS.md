@@ -1,4 +1,4 @@
-<!-- man_hours: 2.5 -->
+<!-- man_hours: 2.8 -->
 # Improvements log
 
 Running list of project-wide improvements surfaced during normal work
@@ -390,3 +390,29 @@ Format:
   `src/atoms_vs_ashes/scoring/_suite_persist.py::load_baseline_composites`,
   `src/atoms_vs_ashes/db/runs.py`, production log
   `logs/score_run_20260425b.log` (363 sites × 8 SMRs → 139392 ranking rows).
+
+---
+
+## IMP-0012 — Replace GEE-only EP-03 relief dependency (status: open)
+
+- Discovered: 2026-05-17 by `partial_data_remaining_work` chat.
+- Severity: medium.
+- Scope: `config/scoring_specs/ep_emergency_planning.yaml` EP-03,
+  `config/scoring_rubrics/ep_emergency_planning.yaml` EP-03,
+  `src/atoms_vs_ashes/scoring/merge_context_derivations.py`,
+  `src/atoms_vs_ashes/connectors/earth_engine/`, and the future EP-03
+  terrain-relief connector/resolver.
+- Problem: EP-03's measured terrain-relief evidence currently depends on
+  `ep03_gee_relief_16km_m`, which is populated only by the Google Earth
+  Engine connector. The project does not have GEE access in the current
+  operating environment, so the relief sub-signal cannot be completed as a
+  cohort data product. A partial Copernicus DEM workaround was stopped and
+  its partial numeric relief rows were cleared.
+- Proposed fix: choose a non-GEE source for EP-03 relief, preferably a
+  local/downloaded Copernicus DEM GLO-30 pipeline with audited tile coverage,
+  request/response logging for any downloads, and a dedicated persisted field
+  such as `ep03_dem_relief_16km_m`. Then update the EP-03 resolver so
+  `relief_m_per_10km` maps only from a complete, documented relief source.
+- References: `audit/post_processing/06_scoring/20260517_partial_data_EP03_curation_memo.md`,
+  `criteria/ranking/EP-03 — Physical-geography constraints.md`,
+  `config/default.yml` (`connectors.earth_engine.enabled: false`).

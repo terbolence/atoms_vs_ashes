@@ -1,4 +1,4 @@
-# man_hours: 5.2
+# man_hours: 6.5
 # Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: nh
@@ -257,9 +257,10 @@ criteria:
     # SP-F (Ovidiu): flood-zone class is stronger than missing river-distance data.
     # ``none``/``negligible`` should score high even when ``river_distance_km`` is null.
     bands:
-      - {score_range: [9, 10], condition_expr: "flood_zone_class_500yr in ['none', 'negligible'] or river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5", descriptor: "Favourable flood-zone class OR outside 1000-yr extent (>= 10 km / >= 30.5 m separation)."}
-      - {score_range: [7, 8], condition_expr: "flood_zone_class_500yr == 'low' or river_distance_km >= 4 or elevation_above_design_flood_m >= 30.5", descriptor: "Low flood-zone class OR outside 500-yr extent; meets project A11."}
-      - {score_range: [5, 6], condition_expr: "flood_zone_class_500yr == 'moderate' or river_distance_km >= 2", descriptor: "Moderate flood-zone class OR 2-4 km from river; mitigation routine."}
+      - {score_range: [9, 10], condition_expr: "(flood_zone_class_500yr in ['none', 'negligible'] and river_distance_km >= 8) or river_distance_km >= 10 or elevation_above_design_flood_m >= 30.5", descriptor: "Favourable flood-zone class with >= 8 km river separation, OR >= 10 km / >= 30.5 m freeboard."}
+      - {score_range: [7, 8], condition_expr: "(flood_zone_class_500yr in ['none', 'negligible'] and (river_distance_km >= 4 or river_distance_km is null)) or flood_zone_class_500yr == 'low' or river_distance_km >= 6 or elevation_above_design_flood_m >= 30.5", descriptor: "Low flood-zone class OR >= 4-6 km river separation; meets project A11."}
+      - {score_range: [5, 6], condition_expr: "flood_zone_class_500yr == 'moderate' or (flood_zone_class_500yr in ['none', 'negligible'] and river_distance_km >= 2 and river_distance_km < 4) or (flood_zone_class_500yr == 'low' and river_distance_km >= 2)", descriptor: "Moderate flood-zone class OR 2-4 km from river with benign class."}
+      - {score_range: [5, 6], condition_expr: "flood_zone_class_500yr in ['none', 'negligible'] and river_distance_km >= 0 and river_distance_km < 2", descriptor: "Benign flood-zone class but river/waterway proxy is within 2 km; routine flood-interface review."}
       - {score_range: [3, 4], condition_expr: "flood_zone_class_500yr == 'high'", descriptor: "High flood-zone class; within 100-yr extent; defenses required."}
       - {score_range: [1, 2], condition_expr: "flood_zone_class_500yr in ['very_high', 'catastrophic']", descriptor: "Within 10-yr extent or unmitigated dam-break path."}
       - {score_range: [0, 0], condition_expr: "flood_zone_class_500yr == 'catastrophic' and (has_remedy == false or has_remedy is null)", descriptor: "No viable flood-defence pathway."}
@@ -270,7 +271,7 @@ criteria:
     name: Extreme winds
     # Pure ranking criterion. Per IAEA SSG-18 and SSG-35 Table I-1,
     # extreme winds are a design-basis input rather than a site
-    # exclusion; the project matrix doc ? NH-10 classifies the phase
+    # exclusion; the project matrix doc section NH-10 classifies the phase
     # as Rank. The 49 m/s envelope is preserved as a `review_flag`
     # only because the previous `action: exclude` exceeded both norms and
     # silently de-weighted the criterion. Mirrors the spec YAML; see
@@ -283,14 +284,14 @@ criteria:
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-10 (IAEA SSG-18; SSG-35 Table I-1)"}
     primary_metric: max_wind_speed_ms
-    db_fields: {api: [site_natural_hazards.max_wind_speed_ms], llm: nh10_winds_text}
+    db_fields: {api: [site_natural_hazards.max_wind_speed_ms, site_natural_hazards.nh10_quality, site_natural_hazards.nh10_comment, site_natural_hazards.run_id, site_natural_hazards.fetched_at], llm: nh10_winds_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 25", descriptor: "Low wind region; standard EN 1991-1-4."}
-      - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 30", descriptor: "Moderate (CEE typical)."}
-      - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 36", descriptor: "Elevated; coastal or storm-track exposure."}
-      - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 42", descriptor: "High; enhanced wind-load design."}
-      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Borderline acceptable; cyclone-class loads within design envelope."}
-      - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Outside project envelope (> 177 km/h); design premium expected, not a site exclusion."}
+      - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 7.5", descriptor: "Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s)."}
+      - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 9.0", descriptor: "Lower-middle relative wind exposure in the current smoothed ERA5 cohort (7.5-9.0 m/s)."}
+      - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 10.5", descriptor: "Middle relative wind exposure around the observed cohort mean (9.0-10.5 m/s)."}
+      - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 12.5", descriptor: "Higher relative wind exposure in the current smoothed ERA5 cohort (10.5-12.5 m/s)."}
+      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Highest relative or out-of-cohort exposure for the current proxy; 49 m/s remains design-envelope review, not validated by this metric."}
+      - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Above the project design-envelope review threshold; flag for design-margin review, not automatic site exclusion."}
     fail_conditions:
       - {code: project_wind_envelope, action: review_flag, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h); review for design-margin and vendor envelope. Per SSG-18 and SSG-35 Table I-1 this is a design-basis matter, not a site exclusion."}
     quality_floor: {low_quality_uncertainty_bands: 1}
@@ -302,10 +303,20 @@ criteria:
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-11 (IAEA SSG-18)"}
     db_fields: {api: [site_natural_hazards.spi12_min, site_natural_hazards.snow_months_per_year, site_natural_hazards.mean_annual_precip_mm, site_natural_hazards.extreme_precip_mm, site_natural_hazards.freezing_days_per_year], llm: nh11_precip_text}
+    notes: |
+      Bucket C partial-data repair (2026-05-17 auditor pass): current ERA5
+      precipitation rows are ranking-grade proxy evidence only. The persisted
+      `mean_annual_precip_mm` and `extreme_precip_mm` values are known to be
+      implausibly low for their declared units in the local cohort, so scoring
+      uses derived context keys `mean_annual_precip_corrected_mm` and
+      `extreme_precip_corrected_mm`. These keys preserve already-plausible
+      values and scale only monthly-means proxy values that are clearly too low.
+      SPI, snow, and freezing sub-scores remain partial-unscored until typed
+      fields are populated.
     aggregation: {method: mean_of_sub_scores, round_to: 1, cap_if_any_sub_score_below: {threshold: 3, cap_score: 5}}
     sub_scores:
       - key: drought_spi12
-        weight: 0.333
+        weight: 0.25
         primary_metric: spi12_min
         bands:
           - {score_range: [9, 10], condition_expr: "spi12_min > -1.0", descriptor: "SPI-12 > -1.0."}
@@ -314,7 +325,7 @@ criteria:
           - {score_range: [3, 4], condition_expr: "spi12_min > -2.5", descriptor: "-2.5 to -2.0."}
           - {score_range: [1, 2], condition_expr: "spi12_min <= -2.5", descriptor: "< -2.5."}
       - key: snow_burden
-        weight: 0.333
+        weight: 0.25
         primary_metric: snow_months_per_year
         bands:
           - {score_range: [9, 10], condition_expr: "snow_months_per_year <= 1", descriptor: "Negligible."}
@@ -323,14 +334,23 @@ criteria:
           - {score_range: [3, 4], condition_expr: "snow_months_per_year <= 7", descriptor: "Significant winter constraint."}
           - {score_range: [1, 2], condition_expr: "snow_months_per_year >= 8", descriptor: "Arctic-grade design."}
       - key: annual_precip
-        weight: 0.334
-        primary_metric: mean_annual_precip_mm
+        weight: 0.25
+        primary_metric: mean_annual_precip_corrected_mm
         bands:
-          - {score_range: [9, 10], condition_expr: "mean_annual_precip_mm >= 400 and mean_annual_precip_mm <= 800", descriptor: "Optimal."}
-          - {score_range: [7, 8], condition_expr: "(mean_annual_precip_mm >= 300 and mean_annual_precip_mm < 400) or (mean_annual_precip_mm > 800 and mean_annual_precip_mm <= 1000)", descriptor: "Manageable."}
-          - {score_range: [5, 6], condition_expr: "(mean_annual_precip_mm >= 200 and mean_annual_precip_mm < 300) or (mean_annual_precip_mm > 1000 and mean_annual_precip_mm <= 1500)", descriptor: "Tail risks emerging."}
-          - {score_range: [3, 4], condition_expr: "(mean_annual_precip_mm >= 100 and mean_annual_precip_mm < 200) or (mean_annual_precip_mm > 1500 and mean_annual_precip_mm <= 2500)", descriptor: "Significant adaptation."}
-          - {score_range: [1, 2], condition_expr: "mean_annual_precip_mm < 100 or mean_annual_precip_mm > 2500", descriptor: "Severe."}
+          - {score_range: [9, 10], condition_expr: "mean_annual_precip_corrected_mm >= 400 and mean_annual_precip_corrected_mm <= 800", descriptor: "Corrected annual precipitation proxy in the favourable 400-800 mm/yr range."}
+          - {score_range: [7, 8], condition_expr: "(mean_annual_precip_corrected_mm >= 300 and mean_annual_precip_corrected_mm < 400) or (mean_annual_precip_corrected_mm > 800 and mean_annual_precip_corrected_mm <= 1000)", descriptor: "Corrected annual precipitation proxy in a manageable dry/wet shoulder range."}
+          - {score_range: [5, 6], condition_expr: "(mean_annual_precip_corrected_mm >= 200 and mean_annual_precip_corrected_mm < 300) or (mean_annual_precip_corrected_mm > 1000 and mean_annual_precip_corrected_mm <= 1500)", descriptor: "Corrected annual precipitation proxy shows emerging dry/wet tail risks."}
+          - {score_range: [3, 4], condition_expr: "(mean_annual_precip_corrected_mm >= 100 and mean_annual_precip_corrected_mm < 200) or (mean_annual_precip_corrected_mm > 1500 and mean_annual_precip_corrected_mm <= 2500)", descriptor: "Corrected annual precipitation proxy indicates significant adaptation."}
+          - {score_range: [1, 2], condition_expr: "mean_annual_precip_corrected_mm < 100 or mean_annual_precip_corrected_mm > 2500", descriptor: "Corrected annual precipitation proxy is severe."}
+      - key: extreme_event
+        weight: 0.25
+        primary_metric: extreme_precip_corrected_mm
+        bands:
+          - {score_range: [9, 10], condition_expr: "extreme_precip_corrected_mm < 6", descriptor: "Lowest observed corrected extreme-precipitation proxy in this cohort."}
+          - {score_range: [7, 8], condition_expr: "extreme_precip_corrected_mm < 9", descriptor: "Lower-middle corrected extreme-precipitation proxy."}
+          - {score_range: [5, 6], condition_expr: "extreme_precip_corrected_mm < 12", descriptor: "Middle corrected extreme-precipitation proxy."}
+          - {score_range: [3, 4], condition_expr: "extreme_precip_corrected_mm < 18", descriptor: "Higher corrected extreme-precipitation proxy; drainage review."}
+          - {score_range: [1, 2], condition_expr: "extreme_precip_corrected_mm >= 18", descriptor: "Highest corrected extreme-precipitation proxy in this cohort."}
     fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-12
@@ -340,25 +360,33 @@ criteria:
     normalised_weight_pct: 1.4
     weight_factors: {baseline: 4, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-12 (IAEA SSG-18)"}
-    db_fields: {api: [site_natural_hazards.extreme_temp_max_c, site_natural_hazards.extreme_temp_min_c], llm: nh12_temperature_text}
-    aggregation: {method: min_of_sub_scores}
+    db_fields: {api: [site_natural_hazards.extreme_temp_max_c, site_natural_hazards.extreme_temp_min_c, site_natural_hazards.nh12_quality, site_natural_hazards.nh12_comment, site_natural_hazards.run_id, site_natural_hazards.fetched_at], llm: nh12_temperature_text}
+    notes: |
+      Tier 1 Data OK repair (2026-05-17): tmax and tmin are scored
+      separately from typed ERA5-derived temperature columns, then averaged
+      for a ranking-grade relative thermal-stress score. If either tail
+      enters the severe [1,2] band, the aggregate is capped at 5 so a single
+      severe heat or cold tail remains visible. If both typed temperature
+      fields are missing, the criterion remains unscored rather than emitting
+      the pass-mark midpoint as evidence.
+    aggregation: {method: mean_of_sub_scores, round_to: 0.1, cap_if_any_sub_score_below: {threshold: 3, cap_score: 5}}
     sub_scores:
       - key: tmax
         primary_metric: extreme_temp_max_c
         bands:
-          - {score_range: [9, 10], condition_expr: "extreme_temp_max_c < 33", descriptor: "Tmax < 33 C."}
-          - {score_range: [7, 8], condition_expr: "extreme_temp_max_c < 36", descriptor: "33-36 C."}
-          - {score_range: [5, 6], condition_expr: "extreme_temp_max_c < 39", descriptor: "36-39 C."}
-          - {score_range: [3, 4], condition_expr: "extreme_temp_max_c <= 42", descriptor: "39-42 C."}
-          - {score_range: [1, 2], condition_expr: "extreme_temp_max_c > 42", descriptor: "> 42 C."}
+          - {score_range: [9, 10], condition_expr: "extreme_temp_max_c < 23", descriptor: "Coolest high-temperature exposure in the current cohort (Tmax < 23 C)."}
+          - {score_range: [7, 8], condition_expr: "extreme_temp_max_c < 26", descriptor: "Lower-middle heat exposure (23-26 C)."}
+          - {score_range: [5, 6], condition_expr: "extreme_temp_max_c < 29", descriptor: "Middle heat exposure (26-29 C)."}
+          - {score_range: [3, 4], condition_expr: "extreme_temp_max_c < 32", descriptor: "Higher heat exposure (29-32 C)."}
+          - {score_range: [1, 2], condition_expr: "extreme_temp_max_c >= 32", descriptor: "Highest observed heat-exposure tail (>= 32 C)."}
       - key: tmin
         primary_metric: extreme_temp_min_c
         bands:
-          - {score_range: [9, 10], condition_expr: "extreme_temp_min_c > -15", descriptor: "Tmin > -15 C."}
-          - {score_range: [7, 8], condition_expr: "extreme_temp_min_c > -20", descriptor: "-15 to -20 C."}
-          - {score_range: [5, 6], condition_expr: "extreme_temp_min_c > -25", descriptor: "-20 to -25 C."}
-          - {score_range: [3, 4], condition_expr: "extreme_temp_min_c >= -30", descriptor: "-25 to -30 C."}
-          - {score_range: [1, 2], condition_expr: "extreme_temp_min_c < -30", descriptor: "< -30 C."}
+          - {score_range: [9, 10], condition_expr: "extreme_temp_min_c > 2", descriptor: "Mildest cold-tail exposure in the current cohort (Tmin > 2 C)."}
+          - {score_range: [7, 8], condition_expr: "extreme_temp_min_c > -4", descriptor: "Lower cold-stress exposure (-4 to 2 C)."}
+          - {score_range: [5, 6], condition_expr: "extreme_temp_min_c > -8", descriptor: "Middle cold-stress exposure (-8 to -4 C)."}
+          - {score_range: [3, 4], condition_expr: "extreme_temp_min_c > -12", descriptor: "Higher cold-stress exposure (-12 to -8 C)."}
+          - {score_range: [1, 2], condition_expr: "extreme_temp_min_c <= -12", descriptor: "Coldest observed tail (<= -12 C)."}
     fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-13

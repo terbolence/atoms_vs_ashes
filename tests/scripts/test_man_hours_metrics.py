@@ -62,6 +62,17 @@ def test_parse_cloc_json() -> None:
     assert (n, code, comment, blank) == (2, 100, 5, 10)
 
 
+def test_collect_project_inventory_totals() -> None:
+    if not (_ROOT / ".git").is_dir():
+        pytest.skip("not a git checkout")
+    from _man_hours_metrics import collect_project_inventory  # noqa: E402
+
+    inv = collect_project_inventory(_ROOT)
+    assert inv.prose.files > 100
+    assert inv.prose.lines > 50_000
+    assert inv.programs.lines > 50_000
+
+
 def test_project_python_excludes_venv_test() -> None:
     """Regression: src/venv_test must not inflate application LOC."""
     if not (_ROOT / ".git").is_dir():

@@ -223,10 +223,28 @@ def evaluate_sub_scores(
             uncertainty_bands=uncertainty_bands,
         )
 
+    if per_sub and all(r.notes and "unscored" in r.notes for r in per_sub.values()):
+        return BandResult(
+            score=5.0,
+            score_low=5.0,
+            score_high=5.0,
+            matched_band=None,
+            descriptor="no_sub_score_matched — pass-mark default (unscored)",
+            sub_results=per_sub,
+            notes=["unscored"],
+        )
+
+    scored_subs = {
+        key: result
+        for key, result in per_sub.items()
+        if not (result.notes and "unscored" in result.notes)
+    }
+    partial_unscored = bool(scored_subs) and len(scored_subs) < len(per_sub)
+
     method = aggregation.method if aggregation else "mean_of_sub_scores"
-    values = [r.score for r in per_sub.values()]
-    lows = [r.score_low for r in per_sub.values()]
-    highs = [r.score_high for r in per_sub.values()]
+    values = [r.score for r in scored_subs.values()]
+    lows = [r.score_low for r in scored_subs.values()]
+    highs = [r.score_high for r in scored_subs.values()]
 
     if not values:
         agg_score, agg_low, agg_high = 5.0, 5.0, 5.0
@@ -235,9 +253,11 @@ def evaluate_sub_scores(
     elif method == "max_of_sub_scores":
         agg_score, agg_low, agg_high = max(values), max(lows), max(highs)
     elif method == "weighted_mean_of_sub_scores":
-        weights = [s.weight or 0.0 for s in sub_scores]
+        scored_keys = set(scored_subs)
+        active_subs = [s for s in sub_scores if s.key in scored_keys]
+        weights = [s.weight or 0.0 for s in active_subs]
         if sum(weights) == 0:
-            weights = [1.0] * len(sub_scores)
+            weights = [1.0] * len(active_subs)
         total = sum(weights)
         agg_score = sum(v * w for v, w in zip(values, weights)) / total
         agg_low = sum(v * w for v, w in zip(lows, weights)) / total
@@ -248,11 +268,18 @@ def evaluate_sub_scores(
         agg_low = sum(lows) / n
         agg_high = sum(highs) / n
 
-    if aggregation and aggregation.cap_if_any_sub_score_below:
+    if (
+        aggregation
+        and aggregation.cap_if_any_sub_score_below
+        and not partial_unscored
+    ):
         cap = aggregation.cap_if_any_sub_score_below
         threshold = float(cap.get("threshold", 0))
         cap_score = float(cap.get("cap_score", 5))
-        if any(v < threshold for v in values):
+        if any(
+            result.score < threshold and result.matched_band is not None
+            for result in scored_subs.values()
+        ):
             agg_score = min(agg_score, cap_score)
             agg_high = min(agg_high, cap_score)
 
@@ -262,7 +289,7 @@ def evaluate_sub_scores(
     agg_high = _round_to(agg_high, round_to)
 
     notes: list[str] = []
-    if any(r.notes and "unscored" in r.notes for r in per_sub.values()):
+    if partial_unscored:
         notes.append("partial_unscored")
 
     return BandResult(

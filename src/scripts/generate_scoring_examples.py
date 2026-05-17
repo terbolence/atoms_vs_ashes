@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 2.3
 """Print two real scored sites per band for one criterion.
 
 Reads the active merged DB (no live API), evaluates each picked site
@@ -32,7 +32,10 @@ from atoms_vs_ashes.criterion_spec import compile_bundle, load_template_bundle
 from atoms_vs_ashes.db import models
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.scoring.bands import evaluate_criterion_value, safe_eval
-from atoms_vs_ashes.scoring.merge_context_derivations import column_aliases
+from atoms_vs_ashes.scoring.merge_context_derivations import (
+    apply_derived_context_values,
+    column_aliases,
+)
 from atoms_vs_ashes.scoring.rubric import Criterion
 
 
@@ -82,12 +85,26 @@ def _resolve_metric_columns(
 
 _TABLE_MODELS = {
     "site_natural_hazards": models.SiteNaturalHazards,
+    "site_human_induced": models.SiteHumanHazards,
     "site_human_hazards": models.SiteHumanHazards,
     "site_radiological": getattr(models, "SiteRadiological", None),
     "site_emergency": getattr(models, "SiteEmergencyPlanning", None),
+    "site_emergency_planning": getattr(models, "SiteEmergencyPlanning", None),
+    "site_infrastructure_v2": getattr(models, "SiteInfrastructureV2", None),
     "site_non_safety": getattr(models, "SiteNonSafety", None),
     "sites": models.Site,
 }
+
+
+def _display_metric(criterion: Criterion) -> str:
+    """Return a populated metric for ordering examples, including composites."""
+    if criterion.primary_metric:
+        return criterion.primary_metric
+    for sub in criterion.sub_scores:
+        if sub.primary_metric:
+            return sub.primary_metric
+    refs = _resolve_metric_columns(criterion)
+    return refs[0][2] if refs else ""
 
 
 def _fetch_contexts(
@@ -132,7 +149,13 @@ def _fetch_contexts(
 
     site_t = models.Site
     primary_col = getattr(domain, primary_db_column)
-    base = select(domain, site_t.country_code).join(
+    base = select(
+        domain,
+        site_t.name,
+        site_t.country_code,
+        site_t.latitude,
+        site_t.longitude,
+    ).join(
         site_t, domain.site_id == site_t.site_id
     )
     if include_nulls:
@@ -143,8 +166,14 @@ def _fetch_contexts(
         ).all()
 
     out: list[dict[str, Any]] = []
-    for domain_row, country in rows:
-        ctx: dict[str, Any] = {"_site_id": str(domain_row.site_id), "_country": country}
+    for domain_row, name, country, lat, lon in rows:
+        ctx: dict[str, Any] = {
+            "_site_id": str(domain_row.site_id),
+            "_site_name": name,
+            "_country": country,
+            "_latitude": lat,
+            "_longitude": lon,
+        }
         for table, db_column, context_key in refs:
             if table == primary_table:
                 ctx[context_key] = getattr(domain_row, db_column, None)
@@ -172,15 +201,17 @@ def _pick_band_samples(
     buckets: dict[tuple[float, float], list[dict[str, Any]]] = {}
     for ctx in contexts:
         scoring_ctx = {k: v for k, v in ctx.items() if not k.startswith("_")}
+        apply_derived_context_values(scoring_ctx)
         result = evaluate_criterion_value(criterion, scoring_ctx, quality="medium")
-        if result.matched_band is None:
+        if result.matched_band is not None:
+            key = tuple(result.matched_band.score_range)
+        elif criterion.sub_scores and not (result.notes and "unscored" in result.notes):
+            key = _score_bucket(result.score)
+        else:
             continue
-        key = tuple(result.matched_band.score_range)
         buckets.setdefault(key, []).append({**ctx, "_score": result.score})
 
-    ordered_bands = sorted(
-        {tuple(b.score_range) for b in criterion.bands}, reverse=True
-    )
+    ordered_bands = _ordered_output_bands(criterion, buckets)
     null_best = _top_band_treats_null_as_best(criterion, primary_metric)
     top_band = ordered_bands[0] if ordered_bands else None
 
@@ -214,6 +245,7 @@ def _verdict_label(
 ) -> str:
     """Compose ``pass`` / ``E<N>`` / ``E<N>:floor`` for one row."""
     scoring_ctx = {k: v for k, v in ctx.items() if not k.startswith("_")}
+    apply_derived_context_values(scoring_ctx)
     for fc in criterion.fail_conditions:
         if fc.action != "exclude":
             continue
@@ -228,13 +260,40 @@ def _verdict_label(
     return "pass"
 
 
+def _score_bucket(score: float) -> tuple[float, float]:
+    """Map an aggregate score to the nearest standard display band."""
+    if score >= 9:
+        return (9, 10)
+    if score >= 7:
+        return (7, 8)
+    if score >= 5:
+        return (5, 6)
+    if score >= 3:
+        return (3, 4)
+    if score > 0:
+        return (1, 2)
+    return (0, 0)
+
+
+def _ordered_output_bands(
+    criterion: Criterion, buckets: dict[tuple[float, float], list[dict[str, Any]]]
+) -> list[tuple[float, float]]:
+    """Return configured bands, or aggregate buckets for sub-score criteria."""
+    if criterion.bands:
+        return sorted({tuple(b.score_range) for b in criterion.bands}, reverse=True)
+    if criterion.sub_scores:
+        standard = [(9, 10), (7, 8), (5, 6), (3, 4), (1, 2), (0, 0)]
+        return [band for band in standard if band in buckets]
+    return []
+
+
 def _format_table(
     criterion: Criterion,
     grouped: Sequence[tuple[tuple[float, float], list[dict[str, Any]]]],
     primary_metric: str,
     extra_columns: Sequence[str],
 ) -> str:
-    headers = ["band", "site_id", "country", primary_metric]
+    headers = ["band", "site", "site_id", "country", "lat", "lon", primary_metric]
     headers.extend(extra_columns)
     headers.extend(["score", "verdict"])
     lines = ["| " + " | ".join(headers) + " |"]
@@ -247,15 +306,21 @@ def _format_table(
                 "(no sites in this band)",
                 "—",
                 "—",
+                "—",
+                "—",
+                "—",
             ] + ["—"] * len(extra_columns) + ["—", "—"]
-            lines.append("| " + " | ".join(empty_row) + " |")
+            lines.append("| " + " | ".join(_markdown_cell(c) for c in empty_row) + " |")
             continue
         for ctx in rows:
             primary_val = ctx.get(primary_metric)
             cells: list[str] = [
                 f"{band[0]:.0f}-{band[1]:.0f}",
+                str(ctx.get("_site_name", "—")),
                 ctx["_site_id"][:8],
                 str(ctx.get("_country", "—")),
+                f"{ctx['_latitude']:.4f}" if ctx.get("_latitude") is not None else "—",
+                f"{ctx['_longitude']:.4f}" if ctx.get("_longitude") is not None else "—",
                 f"{primary_val:.2f}"
                 if isinstance(primary_val, (int, float))
                 else "NULL"
@@ -270,8 +335,13 @@ def _format_table(
                     cells.append(str(v) if v is not None else "—")
             cells.append(f"{ctx['_score']:.1f}")
             cells.append(_verdict_label(criterion, ctx, ctx["_score"]))
-            lines.append("| " + " | ".join(cells) + " |")
+            lines.append("| " + " | ".join(_markdown_cell(c) for c in cells) + " |")
     return "\n".join(lines)
+
+
+def _markdown_cell(value: object) -> str:
+    """Escape dynamic values so DB comments cannot break Markdown tables."""
+    return str(value).replace("\n", " ").replace("|", "\\|")
 
 
 def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -305,7 +375,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     criterion = compiled.criteria[args.criterion]
-    primary = criterion.primary_metric or ""
+    primary = _display_metric(criterion)
     if not primary:
         print(
             f"{args.criterion}: criterion has no primary_metric — cannot "

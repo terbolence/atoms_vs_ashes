@@ -1,67 +1,56 @@
-<!-- man_hours: 1.2 -->
+<!-- man_hours: 1.4 -->
 # NH-10 - Extreme winds
 
-Status: final
+Status: **Tier 1 Data OK implemented**.
 
-Phase: `ranking`
-
-Primary metric: `max_wind_speed_ms`
-
-Source spec/rubric: `config/scoring_specs/nh_natural_hazards.yaml` / `config/scoring_rubrics/nh_natural_hazards.yaml`
-
+Phase: `ranking`  
+Primary metric: `max_wind_speed_ms`  
+Source spec/rubric: `config/scoring_specs/nh_natural_hazards.yaml` / `config/scoring_rubrics/nh_natural_hazards.yaml`  
 Composite participation: **yes** (weight factor 3, normalised weight 1.1%).
 
-## Specialist Recommendation
-Use the fixed 25 / 30 / 36 / 42 / 49 m/s wind score curve already written in the spec/rubric comments, and keep `project_wind_envelope` as a review flag only. The threshold-metadata recipe was overfitting ranking bands to the 49 m/s review threshold and split the current 5.41-14.44 m/s local range without a screening-stage basis.
+## Accepted Columns
 
-## Final State
-The NH-10 spec no longer declares a band recipe, so compiled scoring uses the explicit fixed wind bands. Local NH-only validation after the YAML change gives `{'9-10': 361}`; the 49 m/s threshold remains a review signal for Stage 3 wind-load confirmation, not an exclusionary or avoidance outcome.
-
-## Decision Matrix
-| Audit point | Current evidence | Final documentation decision |
+| Field | Status | Notes |
 | --- | --- | --- |
-| Phase/composite | Phases are `ranking`; `participates_in_composite` is `true`. | Finalized with explicit fixed wind bands. |
-| Score logic | Post-change local NH-only validation gives matched-band counts `{'9-10': 361}`. | Remove the threshold-metadata-driven band recipe and use the fixed 25 / 30 / 36 / 42 / 49 m/s bands. |
-| Data quality | No raw misses were recorded for declared API fields in the local evidence query. | Keep the metric caveat: current wind values are relative screening evidence, not design-basis gust confirmation. |
-| Threshold metadata | `threshold_metadata.yaml` exposes `project_wind_envelope` at 49 m/s. | Keep the threshold as a review flag only; it no longer rebuilds the ranking bands. |
-| Filter relationship | Ranking-only design-basis criterion. `project_wind_envelope` is a review flag, not an exclusion or avoidance penalty. | Preserve the existing phase/action relationship. |
+| `site_natural_hazards.max_wind_speed_ms` | measured / derived from ERA5 proxy | Active score field. |
+| `site_natural_hazards.nh10_quality` | measured metadata | Included in context and audit. |
+| `site_natural_hazards.nh10_comment` | measured metadata | Included in context and audit. |
+| `site_natural_hazards.run_id`, `fetched_at` | provenance | Included in audit context. |
 
-## Accepted Score Curve
-| Score band | Current compiled condition / logic | Descriptor | Local DB count |
-| --- | --- | --- | ---: |
-| 9-10 | `max_wind_speed_ms < 25` | Low wind region in the current screening dataset. | 361 |
-| 7-8 | `max_wind_speed_ms < 30` | Moderate wind exposure if measured. | 0 |
-| 5-6 | `max_wind_speed_ms < 36` | Elevated exposure; Stage 3 wind-load confirmation. | 0 |
-| 3-4 | `max_wind_speed_ms < 42` | High exposure; enhanced design-basis review. | 0 |
-| 1-2 | `max_wind_speed_ms <= 49` | Borderline review-flag envelope. | 0 |
-| 0 | `max_wind_speed_ms > 49` | Outside project review envelope; not an exclusionary screen. | 0 |
+## Before / After State
 
+| Item | Before | After |
+| --- | --- | --- |
+| Score curve | Fixed 25 / 30 / 36 / 42 / 49 m/s curve collapsed all local rows into 9-10. | Relative bands spread the observed smoothed ERA5 monthly-means gust cohort. |
+| 49 m/s envelope | Review flag only. | Preserved as `project_wind_envelope` review flag only, not exclusion or avoidance. |
+| Metric caveat | Present in comments/docs. | Explicit in specs, rubrics, docs, and audit memo. |
 
-## Metric Truth And Data Quality
-Local evidence basis: 361-site active merged DB, read-only NH-only compiled-spec evaluation using local scoring helpers. No API, enrichment, web, or remote calls were made.
-- `max_wind_speed_ms`: present 361/361, NULL 0, min 5.41, max 14.44, mean 9.0706.
-- No raw misses were recorded for declared API fields in the local evidence query.
+## Current Tier 1 Bands
+
+| Score | Condition | Interpretation |
+| ---: | --- | --- |
+| 9-10 | `max_wind_speed_ms < 7.5` | Lowest relative wind exposure in the current ERA5 monthly-means gust cohort. |
+| 7-8 | `max_wind_speed_ms < 9.0` | Lower-middle relative exposure. |
+| 5-6 | `max_wind_speed_ms < 10.5` | Middle relative exposure around the observed cohort mean. |
+| 3-4 | `max_wind_speed_ms < 12.5` | Higher relative exposure. |
+| 1-2 | `max_wind_speed_ms <= 49` | Highest relative or out-of-cohort exposure for this proxy; design envelope remains unvalidated by the metric. |
+| 0 | `max_wind_speed_ms > 49` | Above project design-envelope review threshold; review flag, not automatic exclusion. |
+
+## Read-Only Audit Result
+
+Local audit artifact: `audit/post_processing/06_scoring/20260517_tier1_data_ok_curation_memo.md`.
+
+- Local DB rows reviewed: 362 site rows for `nuscale_voygr6`; requested baseline `ranking_scores` rows were not present in this local DB (`0/362` found), so this is a candidate-logic audit, not a persisted before/after rescore.
+- `max_wind_speed_ms`: present 362/362, min 5.41 m/s, max 14.44 m/s, stdev 1.81.
+- Candidate score spread: 1.5-9.5, stdev 2.29, unscored 0/362.
+- Scored site examples by band: `audit/post_processing/06_scoring/20260517_tier1_data_ok_nh10_scored_examples.md`.
 
 ## Fail, Avoidance, And Review Conditions
-| Code | Action | Expression | Trigger count | Floor count |
-| --- | --- | --- | ---: | ---: |
-| `project_wind_envelope` | `review_flag` | `max_wind_speed_ms > 49` | 0 | 0 |
 
-## Local Scored Examples
-| Band | Site | Country | Score | Key values | Notes |
-| --- | --- | --- | ---: | --- | --- |
-| 9-10 | `958e4d82` Rovinari power station | RO | 9.5 | `max_wind_speed_ms`=5.41 | matched accepted logic |
-| 9-10 | `66bdc30c` Stalowa Wola power station | PL | 9.5 | `max_wind_speed_ms`=9.81 | matched accepted logic |
-| 9-10 | `67e5a20f` Bugojno Thermal Power Project | BA | 9.5 | `max_wind_speed_ms`=10.66 | matched accepted logic |
+| Code | Action | Expression | Notes |
+| --- | --- | --- | --- |
+| `project_wind_envelope` | `review_flag` | `max_wind_speed_ms > 49` | Stage 3 wind-load and vendor-envelope review; not a site exclusion. |
 
-## Source Citations
-- `config/scoring_specs/nh_natural_hazards.yaml` and `config/scoring_rubrics/nh_natural_hazards.yaml`: criterion phases, bands, fail conditions, weights, and data fields.
-- `config/scoring_specs/threshold_metadata.yaml`: threshold metadata for the criterion code noted above.
-- `docs/expert_siting_criteria_evaluation_matrix.md`: normative basis, phase classification, and scoring-weight context.
-- `src/atoms_vs_ashes/scoring/rubric.py`: `participates_in_composite` is false for ranking criteria that are also exclusionary or have an `exclude` fail condition.
-- `src/atoms_vs_ashes/scoring/bands.py`: no matched band returns the neutral 5.0 `unscored` result.
+## Metric Caveat
 
-## Artifact Footer
-- Landed file: `criteria/ranking/NH-10 — Extreme winds.md`.
-- Validation: local NH-only scoring validation after YAML synchronization: `{"9-10": 361}`.
-- Audit: audit/man-hours reconciliation deferred to parent worker per assignment scope.
+The active evidence is a relative screening proxy from smoothed ERA5 monthly-means gust data. It should spread sites for ranking within the current dataset, but it is not a design-basis extreme-wind study and should not be read as validating tornado, typhoon, or site-specific wind-load envelopes.

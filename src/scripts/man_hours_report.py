@@ -1,9 +1,8 @@
-# man_hours: 5.5
-"""Generate audit/man_hours_summary.md from audit/man_hours_registry.yml.
+# man_hours: 7.0
+"""Generate audit/man_hours_summary.md — plain-language project scale report.
 
 Usage:
     python src/scripts/man_hours_report.py
-    python src/scripts/man_hours_report.py --registry path/to/registry.yml
 """
 
 from __future__ import annotations
@@ -16,25 +15,23 @@ from pathlib import Path
 
 import yaml
 
-# Allow running as script without package install.
 _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 from _man_hours_metrics import (  # noqa: E402
-    CHARS_PER_TOKEN,
-    CLOC_PRIMARY_LANGS,
     INPUT_TO_OUTPUT_RATIO,
+    LINES_PER_PAGE_ESTIMATE,
     THINKING_FRACTION,
-    ClocLanguageRow,
     ClocBundle,
     ClocReport,
     FileStats,
+    ExtensionStats,
+    ProjectAreaRow,
+    ProjectInventory,
     build_chars_by_kind,
     collect_cloc_reports,
-    collect_markdown_metrics,
-    collect_python_metrics,
-    collect_yaml_metrics,
+    collect_project_inventory,
     count_connector_packages,
     count_criteria_specs,
     count_expert_prompts,
@@ -47,18 +44,27 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = PROJECT_ROOT / "audit" / "man_hours_registry.yml"
 DEFAULT_OUTPUT = PROJECT_ROOT / "audit" / "man_hours_summary.md"
 
-CATEGORY_ORDER = [
-    "Requirements & Analysis",
-    "Architecture & Design",
-    "Implementation",
-    "Testing",
-    "Database & Migrations",
-    "Configuration & DevOps",
-    "Research & Data Sources",
-    "AI Prompts & Tooling",
-    "Project Management & QA",
-    "Other",
-]
+# Registry categories → plain English (for non-software readers).
+CATEGORY_PLAIN: dict[str, str] = {
+    "Requirements & Analysis": "Requirements & regulatory research",
+    "Architecture & Design": "System design",
+    "Implementation": "Building the screening software",
+    "Testing": "Testing & verification",
+    "Database & Migrations": "Database structure",
+    "Configuration & DevOps": "Configuration & tooling",
+    "Research & Data Sources": "External data source research",
+    "AI Prompts & Tooling": "AI expert prompts & automation",
+    "Project Management & QA": "Project management & quality records",
+    "Connectors & Data Acquisition": "Map & API data integrations",
+    "Report Authoring & Documentation": "Report writing",
+    "Documentation": "Documentation",
+    "Expert Systems": "Expert review systems",
+    "Reporting & Visualization": "Charts & visual outputs",
+    "Testing & Quality Assurance": "Extra QA",
+    "Other": "Other",
+}
+
+CATEGORY_ORDER = list(CATEGORY_PLAIN.keys()) + ["Other"]
 
 
 def load_registry(path: Path) -> dict[str, dict]:
@@ -67,434 +73,382 @@ def load_registry(path: Path) -> dict[str, dict]:
     return data.get("files", {})
 
 
-def _fmt_int(n: int) -> str:
+def _fmt(n: int) -> str:
     return f"{n:,}"
 
 
-def _stats_table(rows: list[tuple[str, FileStats]], total_label: str) -> str:
-    lines = ["| Area | Files | Lines | Characters |\n", "| --- | ---: | ---: | ---: |\n"]
-    tot = FileStats()
-    for label, st in rows:
-        if st.files == 0 and st.lines == 0:
-            continue
-        lines.append(
-            f"| {label} | {_fmt_int(st.files)} | {_fmt_int(st.lines)} | {_fmt_int(st.chars)} |\n"
-        )
-        tot.files += st.files
-        tot.lines += st.lines
-        tot.chars += st.chars
-    lines.append(
-        f"| **{total_label}** | **{_fmt_int(tot.files)}** | "
-        f"**{_fmt_int(tot.lines)}** | **{_fmt_int(tot.chars)}** |\n"
+def _pages(lines: int) -> str:
+    p = max(1, round(lines / LINES_PER_PAGE_ESTIMATE)) if lines else 0
+    return f"~{p:,} pages" if p else "—"
+
+
+def build_how_to_read() -> str:
+    return (
+        "## How to read this report\n\n"
+        "This document describes the **size and composition** of the Atoms vs Ashes "
+        "siting screening project — the software, written specifications, client report "
+        "material, and quality records kept under version control.\n\n"
+        "- **Lines of text** — every line in a file (like counting lines in Word).\n"
+        "- **Estimated pages** — rough print equivalent (~"
+        f"{LINES_PER_PAGE_ESTIMATE} lines per page of dense text).\n"
+        "- **Person-hours** — estimated senior professional time to produce each part "
+        "(from our internal registry, not a timesheet).\n"
+        "- Counts include **only files tracked in git** (the official project archive). "
+        "Large downloaded map files on disk are excluded.\n\n"
+        "---\n\n"
     )
-    return "".join(lines)
 
 
-def build_executive_section(
-    *,
-    registry_hours: float,
-    registry_files: int,
-    py_total: FileStats,
-    md_total: FileStats,
-    yaml_total: FileStats,
-    criteria_count: int,
-    connector_count: int,
-    expert_prompts: int,
-    token_est,
-    llm_logs,
-    cloc_product: ClocReport | None,
+def build_at_a_glance(
+    inv: ProjectInventory,
+    hours: float,
+    criteria: int,
+    connectors: int,
+    cloc: ClocReport | None,
 ) -> str:
-    authored_chars = py_total.chars + md_total.chars + yaml_total.chars
+    sw = inv.programs
     lines = [
-        "## Executive summary (customer metrics)\n\n",
-        "Indicative scale of the Atoms vs Ashes siting platform. "
-        "Physical **source lines** (below) come from [`cloc`](https://github.com/AlDanial/cloc) "
-        "with `--vcs=git` (tracked files only). Character totals use the same git scope.\n\n",
-        "| Metric | Value | Notes |\n",
-        "| --- | ---: | --- |\n",
-        f"| Registry engineering effort | **{registry_hours:,.1f} h** | "
-        f"{registry_files:,} files in `audit/man_hours_registry.yml` |\n",
+        "## At a glance\n\n",
+        "| | |\n",
+        "| --- | --- |\n",
+        f"| **Estimated professional effort** | **{hours:,.0f} person-hours** "
+        f"(~{hours / 8:,.0f} person-days at 8 h/day) |\n",
+        f"| **Written documentation** | **{_fmt(inv.prose.lines)}** lines "
+        f"({_pages(inv.prose.lines)}) in **{_fmt(inv.prose.files)}** files |\n",
+        f"| **Computer programs (Python)** | **{_fmt(sw.lines)}** lines in "
+        f"**{_fmt(sw.files)}** files |\n",
+        f"| **Siting criteria defined** | **{criteria}** specification documents |\n",
+        f"| **External map & data connectors** | **{connectors}** integrated sources |\n",
     ]
-    if cloc_product is not None:
-        py = cloc_product.language("Python")
-        md = cloc_product.language("Markdown")
-        yml = cloc_product.language("YAML")
-        lines.extend([
-            f"| **Product source lines (`cloc` code)** | **{_fmt_int(cloc_product.code)}** | "
-            f"{_fmt_int(cloc_product.n_files)} files; software + specs (excludes audit JSON/CSV) |\n",
-            f"| Documentation & comments (`cloc`) | **{_fmt_int(cloc_product.comment)}** | "
-            f"{cloc_product.comment_ratio_pct:.1f}% of code+comment |\n",
-            f"| Python source lines (`cloc` code) | **{_fmt_int(py.code if py else 0)}** | "
-            f"{_fmt_int(py.n_files if py else 0)} files |\n",
-            f"| Markdown prose (`cloc` code) | **{_fmt_int(md.code if md else 0)}** | "
-            "Criteria, specs, expert prompts |\n",
-            f"| YAML configuration (`cloc` code) | **{_fmt_int(yml.code if yml else 0)}** | "
-            "Rubrics and config |\n",
-        ])
-    lines.extend([
-        f"| Python (git physical lines) | **{_fmt_int(py_total.lines)}** lines | "
-        f"{_fmt_int(py_total.files)} files; {_fmt_int(py_total.chars)} characters |\n",
-        f"| Markdown (git physical lines) | **{_fmt_int(md_total.lines)}** lines | "
-        f"{_fmt_int(md_total.files)} files |\n",
-        f"| YAML (git physical lines) | **{_fmt_int(yaml_total.lines)}** lines | "
-        f"{_fmt_int(yaml_total.files)} files |\n",
-        f"| **Total authored text** | **{_fmt_int(authored_chars)}** chars | "
-        "Python + Markdown + YAML |\n",
-        f"| Siting criteria specifications | **{criteria_count}** | Under `criteria/` |\n",
-        f"| Geodata connector packages | **{connector_count}** | Under `src/atoms_vs_ashes/connectors/` |\n",
-        f"| Expert / LLM prompt files | **{expert_prompts}** | Under `experts/` |\n",
-        f"| Estimated LLM tokens (modelled) | **{_fmt_int(token_est.total_tokens)}** | "
-        "See [Estimated LLM usage](#estimated-llm-usage-indicative); not invoiced usage |\n",
-        f"| — output (artifact corpus) | {_fmt_int(token_est.output_tokens)} | "
-        "Tokens to store current repo text |\n",
-        f"| — input (context reads) | {_fmt_int(token_est.input_tokens)} | "
-        f"×{INPUT_TO_OUTPUT_RATIO:.0f} vs output (agentic iteration heuristic) |\n",
-        f"| — thinking / reasoning | {_fmt_int(token_est.thinking_tokens)} | "
-        f"{THINKING_FRACTION:.0%} of (input + output); extended-thinking models |\n",
-    ])
-    if cloc_product is not None:
+    if cloc is not None:
         lines.append(
-            f"| `cloc` version / scan time | {cloc_product.version} / "
-            f"{cloc_product.elapsed_seconds:.1f}s | "
-            "See [Physical source analysis](#physical-source-analysis-cloc) |\n"
-        )
-    if llm_logs is not None:
-        lines.append(
-            f"| Measured LLM usage (local logs) | **{_fmt_int(llm_logs.total_tokens)}** | "
-            f"`logs/llm/` — {llm_logs.response_files} response files parsed |\n"
-        )
-        lines.append(
-            f"| — logged input / output | {_fmt_int(llm_logs.input_tokens)} / "
-            f"{_fmt_int(llm_logs.output_tokens)} | When API logging is enabled |\n"
+            f"| **All tracked project files** | **{_fmt(cloc.n_files)}** files, "
+            f"**{_fmt(cloc.total_lines)}** total lines (programs + prose + tables) |\n"
         )
     lines.append("\n---\n\n")
     return "".join(lines)
 
 
-def build_python_section(py: dict[str, FileStats]) -> str:
-    ordered = [(label, st) for label, st in py.items()]
+def build_platform_section(criteria: int, connectors: int, experts: int) -> str:
     return (
-        "## Python (tracked)\n\n"
-        + _stats_table(ordered, "Total Python")
-        + "\n---\n\n"
+        "## What the platform includes\n\n"
+        "Atoms vs Ashes is a **screening and ranking system** for coal-to-nuclear "
+        "and brownfield SMR sites against international siting criteria.\n\n"
+        "| Component | Count | What it is |\n"
+        "| --- | ---: | --- |\n"
+        f"| Siting criteria | **{criteria}** | Formal rubric documents (natural hazards, "
+        "grid, land, emergency planning, etc.) |\n"
+        f"| Data connectors | **{connectors}** | Automated links to public geospatial "
+        "and infrastructure datasets (seismic, flood, population, grid, …) |\n"
+        f"| Expert prompts | **{experts}** | Structured instructions for AI-assisted "
+        "quality review |\n"
+        "| Screening engine | 1 | Scores and ranks hundreds of candidate sites |\n"
+        "| Operator interface | 1 | Dashboard to run analyses and inspect results |\n\n"
+        "---\n\n"
     )
 
 
-def _sum_file_stats(stats: dict[str, FileStats]) -> FileStats:
-    total = FileStats()
-    for st in stats.values():
-        total.files += st.files
-        total.lines += st.lines
-        total.chars += st.chars
-    return total
-
-
-def build_prose_section(
-    title: str,
-    metrics: dict[str, FileStats],
-    *,
-    footnote: str = "",
-) -> str:
-    ordered = list(metrics.items())
-    note = (
-        f"\n*{footnote}*\n\n" if footnote else "\n"
-    )
-    return f"## {title}\n\n{_stats_table(ordered, 'Subtotal (areas)')}{note}---\n\n"
-
-
-def build_token_section(token_est, llm_logs) -> str:
+def _area_table_rows(areas: list[ProjectAreaRow]) -> str:
     lines = [
-        "## Estimated LLM usage (indicative)\n\n",
-        "Rough order-of-magnitude for **AI-assisted delivery** of the current repository. "
-        "This is **not** billing data; it models how many tokens would be required to "
-        "**reproduce the authored corpus** plus typical agentic read/reason cycles.\n\n",
-        "### Method\n\n",
-        "1. Sum UTF-8 characters in tracked `.py`, `.md`, `.yaml`/`.yml` (see tables above).\n",
-        "2. Convert to **output tokens** using chars/token heuristics: "
-        f"Python ≈{CHARS_PER_TOKEN['python']}, Markdown ≈{CHARS_PER_TOKEN['markdown']}, "
-        f"YAML ≈{CHARS_PER_TOKEN['yaml']} "
-        "(aligned with public GPT/Claude guidance of ~4 characters per token for English; "
-        "code is denser).\n",
-        f"3. **Input tokens** ≈ output × {INPUT_TO_OUTPUT_RATIO:.0f} "
-        "(files read, retries, diffs, tool results per iteration).\n",
-        f"4. **Thinking tokens** ≈ {THINKING_FRACTION:.0%} × (input + output) "
-        "(extended reasoning on frontier models).\n\n",
-        "| Component | Characters | Chars/token | Est. tokens |\n",
+        "| Part of the project | Files | Lines of text | Est. pages |\n",
         "| --- | ---: | ---: | ---: |\n",
     ]
-    for kind, chars in sorted(token_est.chars_by_kind.items()):
-        if chars <= 0:
+    for row in areas:
+        if row.prose.files == 0:
             continue
-        cpt = CHARS_PER_TOKEN.get(kind, CHARS_PER_TOKEN["default"])
-        tok = int(round(chars / cpt))
-        lines.append(f"| {kind.capitalize()} | {_fmt_int(chars)} | {cpt} | {_fmt_int(tok)} |\n")
-    lines.append(
-        f"| **Output (artifacts)** | | | **{_fmt_int(token_est.output_tokens)}** |\n"
+        lines.append(
+            f"| {row.label} | {_fmt(row.prose.files)} | {_fmt(row.prose.lines)} | "
+            f"{_pages(row.prose.lines)} |\n"
+        )
+    return "".join(lines)
+
+
+def build_written_docs(inv: ProjectInventory) -> str:
+    large = ""
+    if inv.large_prose:
+        large = "\n### Largest individual documents\n\n| Lines | Document |\n| ---: | --- |\n"
+        for n, rel in inv.large_prose[:12]:
+            name = Path(rel).name
+            large += f"| {_fmt(n)} | {name} (`{rel}`) |\n"
+        large += "\n"
+
+    return (
+        "## Written documentation\n\n"
+        f"The project contains **{_fmt(inv.prose.lines)} lines** of Markdown documentation "
+        f"(**{_pages(inv.prose.lines)}**, **{_fmt(inv.prose.files)}** files). "
+        "This is the main body of prose: criteria, the client report, audits, "
+        "architecture notes, and technical references.\n\n"
+        "### Where the writing lives\n\n"
+        + _area_table_rows(inv.areas)
+        + f"\n| **Total** | **{_fmt(inv.prose.files)}** | **{_fmt(inv.prose.lines)}** | "
+        f"**{_pages(inv.prose.lines)}** |\n"
+        + large
+        + "---\n\n"
     )
-    lines.append(
-        f"| **Input (context)** | | | **{_fmt_int(token_est.input_tokens)}** |\n"
+
+
+def build_software_section(inv: ProjectInventory, cloc: ClocReport | None) -> str:
+    py_lines = inv.programs.lines
+    test_row = next((a for a in inv.areas if a.folder == "tests"), None)
+    src_row = next((a for a in inv.areas if a.folder == "src"), None)
+    src_only = src_row.programs.lines if src_row else py_lines
+
+    body = (
+        "## Computer programs\n\n"
+        f"The screening **software** is **{_fmt(py_lines)} lines** of Python "
+        f"(**{_fmt(inv.programs.files)}** files), plus configuration in YAML.\n\n"
+        "| Component | Lines | Role |\n"
+        "| --- | ---: | --- |\n"
+        f"| Main application (`src/`) | **{_fmt(src_only)}** | Scoring, maps, database, "
+        "connectors, user interface |\n"
     )
-    lines.append(
-        f"| **Thinking / reasoning** | | | **{_fmt_int(token_est.thinking_tokens)}** |\n"
+    if test_row and test_row.programs.lines:
+        body += (
+            f"| Automated tests (`tests/`) | **{_fmt(test_row.programs.lines)}** | "
+            "Checks that scoring behaves correctly |\n"
+        )
+    body += (
+        f"| Configuration (YAML) | **{_fmt(inv.settings.lines)}** | "
+        "Scoring weights, thresholds, rubrics |\n\n"
     )
-    lines.append(
-        f"| **Total (modelled)** | | | **{_fmt_int(token_est.total_tokens)}** |\n\n"
+    if cloc is not None:
+        py = cloc.language("Python")
+        if py:
+            body += (
+                f"*Analyst note: automated counters classify **{_fmt(py.code)}** lines as "
+                f"\"active program text\", **{_fmt(py.comment)}** as inline documentation "
+                f"in code, and **{_fmt(py.blank)}** as blank lines — total "
+                f"**{_fmt(py.total_lines)}** for Python across the whole repository.*\n\n"
+            )
+    body += "---\n\n"
+    return body
+
+
+def build_data_outputs_section(inv: ProjectInventory) -> str:
+    dt = inv.data_tables
+    if dt.files == 0:
+        return ""
+    audit_row = next((a for a in inv.areas if a.folder == "audit"), None)
+    audit_dt = audit_row.data_tables if audit_row else ExtensionStats()
+    return (
+        "## Spreadsheet & data exports (audit trail)\n\n"
+        f"Separate from prose and programs, the repository holds **{_fmt(dt.files)}** "
+        f"machine-readable **JSON/CSV** files (**{_fmt(dt.lines)}** lines). "
+        "These are scoring outputs, verification tables, and sensitivity analyses — "
+        "not meant to be read cover-to-cover.\n\n"
+        f"- **In `audit/` alone:** {_fmt(audit_dt.files)} files, "
+        f"**{_fmt(audit_dt.lines)}** lines (bulk of the data exports).\n"
+        "- Typical use: evidence for a criterion, national ranking charts, "
+        "before/after comparisons.\n\n"
+        "---\n\n"
     )
+
+
+def _registry_plain_name(cat: str) -> str:
+    return CATEGORY_PLAIN.get(cat, cat)
+
+
+def build_effort_section(by_category: dict[str, list[tuple[str, float]]]) -> str:
+    rows: list[tuple[str, float, int]] = []
+    for cat, entries in by_category.items():
+        rows.append((_registry_plain_name(cat), sum(h for _, h in entries), len(entries)))
+    rows.sort(key=lambda r: -r[1])
+
+    lines = [
+        "## Professional effort (person-hours)\n\n",
+        "Estimated **senior professional time** to reach the current state of the project "
+        "(research, design, implementation, review). "
+        "Rounded totals from `audit/man_hours_registry.yml`.\n\n",
+        "| Work area | Hours | ~Days (8 h) | Files counted |\n",
+        "| --- | ---: | ---: | ---: |\n",
+    ]
+    total_h = 0.0
+    total_f = 0
+    for label, hrs, nfiles in rows:
+        if hrs <= 0:
+            continue
+        lines.append(
+            f"| {label} | {hrs:,.1f} | {hrs / 8:,.0f} | {nfiles} |\n"
+        )
+        total_h += hrs
+        total_f += nfiles
+    lines.append(
+        f"| **Total** | **{total_h:,.1f}** | **{total_h / 8:,.0f}** | **{total_f}** |\n\n"
+        "---\n\n"
+    )
+    return "".join(lines)
+
+
+def build_ai_section(token_est, llm_logs) -> str:
+    lines = [
+        "## AI assistance (indicative)\n\n",
+        "Much of the repository was produced with AI coding tools. "
+        "The figures below are **rough models**, not invoices.\n\n",
+        "| | Estimated tokens |\n",
+        "| --- | ---: |\n",
+        f"| Text stored in the repository (output) | **{_fmt(token_est.output_tokens)}** |\n",
+        f"| Reading & revising during development (input) | **{_fmt(token_est.input_tokens)}** |\n",
+        f"| Extended reasoning steps (thinking) | **{_fmt(token_est.thinking_tokens)}** |\n",
+        f"| **Combined model** | **{_fmt(token_est.total_tokens)}** |\n\n",
+        f"*Method: character counts in tracked Python, Markdown, and YAML; "
+        f"≈×{INPUT_TO_OUTPUT_RATIO:.0f} input multiplier; "
+        f"{THINKING_FRACTION:.0%} thinking allowance.*\n\n",
+    ]
     if llm_logs is not None:
         lines.append(
-            "### Measured usage (local `logs/llm/`)\n\n"
-            f"Parsed **{llm_logs.response_files}** response JSON files: "
-            f"input **{_fmt_int(llm_logs.input_tokens)}**, "
-            f"output **{_fmt_int(llm_logs.output_tokens)}**, "
-            f"total **{_fmt_int(llm_logs.total_tokens)}**. "
-            "This is a subset of all development-time calls (caps apply; logs may be gitignored).\n\n"
-        )
-    else:
-        lines.append(
-            "*No parseable `logs/llm/*/responses/*.json` found on this machine "
-            "(logs are often gitignored).*\n\n"
+            f"Where API logging is enabled, **{_fmt(llm_logs.total_tokens)}** tokens were "
+            f"recorded locally across **{llm_logs.response_files}** saved responses "
+            f"(input {_fmt(llm_logs.input_tokens)}, output "
+            f"{_fmt(llm_logs.output_tokens)}).\n\n"
         )
     lines.append("---\n\n")
     return "".join(lines)
 
 
-def _cloc_lang_table(rows: list[ClocLanguageRow], *, primary_only: bool) -> str:
+def build_full_inventory_table(inv: ProjectInventory) -> str:
     lines = [
-        "| Language | Files | Code | Comment | Blank | Code share |\n",
-        "| --- | ---: | ---: | ---: | ---: | ---: |\n",
+        "## Complete project inventory (all file types)\n\n",
+        "Every **top-level folder** in the git archive:\n\n",
+        "| Folder | Plain name | Prose (.md) | Programs (.py) | "
+        "Settings (.yml) | Data (.json/.csv) | Other files |\n",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: |\n",
     ]
-    total_code = sum(r.code for r in rows) or 1
-    for row in rows:
-        if primary_only and row.language not in CLOC_PRIMARY_LANGS:
-            continue
-        share = 100.0 * row.code / total_code
+    for row in inv.areas:
         lines.append(
-            f"| {row.language} | {_fmt_int(row.n_files)} | {_fmt_int(row.code)} | "
-            f"{_fmt_int(row.comment)} | {_fmt_int(row.blank)} | {share:.1f}% |\n"
+            f"| `{row.folder}` | {row.label} | "
+            f"{_fmt(row.prose.lines)} / {row.prose.files}f | "
+            f"{_fmt(row.programs.lines)} / {row.programs.files}f | "
+            f"{_fmt(row.settings.lines)} / {row.settings.files}f | "
+            f"{_fmt(row.data_tables.lines)} / {row.data_tables.files}f | "
+            f"{row.other_files} |\n"
         )
-    if primary_only:
-        other_code = sum(r.code for r in rows if r.language not in CLOC_PRIMARY_LANGS)
-        if other_code:
-            other_files = sum(r.n_files for r in rows if r.language not in CLOC_PRIMARY_LANGS)
-            share = 100.0 * other_code / total_code
-            lines.append(
-                f"| *Other languages* | {_fmt_int(other_files)} | {_fmt_int(other_code)} | "
-                f"— | — | {share:.1f}% |\n"
-            )
+    lines.append(
+        f"| **Total** | | **{_fmt(inv.prose.lines)}** | **{_fmt(inv.programs.lines)}** | "
+        f"**{_fmt(inv.settings.lines)}** | **{_fmt(inv.data_tables.lines)}** | |\n\n"
+        "---\n\n"
+    )
     return "".join(lines)
 
 
-def _cloc_report_subsection(cloc: ClocReport, *, heading: str) -> str:
-    code_pct = 100.0 * cloc.code / cloc.total_lines if cloc.total_lines else 0
+def build_technical_appendix(bundle: ClocBundle) -> str:
+    cloc = bundle.full
+    if cloc is None:
+        return (
+            "<details><summary>Technical appendix (line-type analysis)</summary>\n\n"
+            "*Install `cloc` and re-run the report generator to include this section.*\n\n"
+            "</details>\n\n"
+        )
     lines = [
-        f"### {heading}\n\n",
-        f"**{_fmt_int(cloc.n_files)}** files, **{_fmt_int(cloc.code)}** code lines "
-        f"({code_pct:.1f}% of physical lines in this scope), "
-        f"**{_fmt_int(cloc.comment)}** comment, **{_fmt_int(cloc.blank)}** blank. "
-        f"Comment-to-code: **{cloc.comment_ratio_pct:.1f}%**.\n\n",
-        "#### By language\n\n",
-        _cloc_lang_table(cloc.languages, primary_only=True),
-        "\n",
-        "#### By area\n\n",
-        "| Area | Path | Files | Code | Comment | Blank | Dominant language |\n",
-        "| --- | --- | ---: | ---: | ---: | ---: | --- |\n",
+        "<details><summary>Technical appendix (line-type analysis for specialists)</summary>\n\n",
+        f"Produced with **cloc {cloc.version}** on git-tracked files. "
+        f"**Code** = logical source lines; **comment** = documentation embedded in code; "
+        f"**blank** = empty lines.\n\n",
+        "### Whole repository\n\n",
+        "| | Lines |\n",
+        "| --- | ---: |\n",
+        f"| Code | {_fmt(cloc.code)} |\n",
+        f"| Comment | {_fmt(cloc.comment)} |\n",
+        f"| Blank | {_fmt(cloc.blank)} |\n",
+        f"| **Physical total** | **{_fmt(cloc.total_lines)}** |\n\n",
+        "### By folder (physical lines)\n\n",
+        "| Area | Folder | Files | Code | Comment | Blank | Total |\n",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: |\n",
     ]
     for area in cloc.areas:
         lines.append(
-            f"| {area.label} | `{area.path}` | {_fmt_int(area.n_files)} | "
-            f"{_fmt_int(area.code)} | {_fmt_int(area.comment)} | {_fmt_int(area.blank)} | "
-            f"{area.top_language} |\n"
+            f"| {area.label} | `{area.path}` | {_fmt(area.n_files)} | "
+            f"{_fmt(area.code)} | {_fmt(area.comment)} | {_fmt(area.blank)} | "
+            f"{_fmt(area.total_lines)} |\n"
         )
-    lines.append("\n")
+    lines.append("\n</details>\n\n")
     return "".join(lines)
 
 
-def build_cloc_section(bundle: ClocBundle) -> str:
-    product = bundle.product
-    if product is None:
-        return (
-            "## Physical source analysis (`cloc`)\n\n"
-            "*`cloc` is not installed or the scan failed. Install with "
-            "`brew install cloc` (macOS) and re-run "
-            "`python src/scripts/man_hours_report.py`.*\n\n---\n\n"
-        )
-
+def build_registry_appendix(by_category: dict[str, list[tuple[str, float]]]) -> str:
     lines = [
-        "## Physical source analysis (`cloc`)\n\n",
-        f"Generated with **cloc {product.version}** using `--vcs=git` (git-tracked files only) "
-        f"and excluding virtualenvs / caches. Product scope covers application code, tests, "
-        "criteria, config, and documentation — **not** bulk audit JSON/CSV exports.\n\n",
-        _cloc_report_subsection(product, heading="Product engineering scope"),
+        "<details><summary>Detailed person-hour registry (all files)</summary>\n\n",
     ]
-    if bundle.audit is not None and bundle.audit.code > 0:
-        lines.append(
-            _cloc_report_subsection(
-                bundle.audit,
-                heading="Audit trail & post-processing artefacts",
-            )
-        )
-        lines.extend([
-            "<details><summary>All languages in audit scope</summary>\n\n",
-            _cloc_lang_table(bundle.audit.languages, primary_only=False),
-            "\n</details>\n\n",
-        ])
-    lines.extend([
-        "<details><summary>All languages in product scope</summary>\n\n",
-        _cloc_lang_table(product.languages, primary_only=False),
-        "\n</details>\n\n",
-        "### How to read this\n\n",
-        "- **Code**: logical source lines (standard SLOC).\n",
-        "- **Comment**: comments and docstrings.\n",
-        "- **Blank**: empty lines.\n",
-        "- Executive **product** totals exclude `audit/` JSON/CSV machine outputs "
-        "(often 10× larger than Python). Use product figures for engineering scale.\n\n"
-        "---\n\n",
-    ])
-    return "".join(lines)
-
-
-def build_report(files: dict[str, dict], project_root: Path) -> str:
-    by_category: dict[str, list[tuple[str, float]]] = defaultdict(list)
-    for fpath, info in sorted(files.items()):
-        hours = float(info.get("hours", 0))
-        category = info.get("category", "Other")
-        by_category[category].append((fpath, hours))
-
-    py_metrics = collect_python_metrics(project_root)
-    md_metrics = collect_markdown_metrics(project_root)
-    yaml_metrics = collect_yaml_metrics(project_root)
-
-    py_total = _sum_file_stats(py_metrics)
-    md_total = total_tracked_by_suffix(project_root, (".md",))
-    yaml_total = total_tracked_by_suffix(project_root, (".yaml", ".yml"))
-
-    chars_by_kind = build_chars_by_kind(py_total, md_total, yaml_total)
-    token_est = estimate_tokens_from_chars(chars_by_kind)
-    llm_logs = scan_llm_logs(project_root)
-    cloc_bundle = collect_cloc_reports(project_root)
-
-    registry_hours = sum(float(info.get("hours", 0)) for info in files.values())
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-    lines: list[str] = [
-        "<!-- man_hours: 3.0 -->\n",
-        "# Man-Hours & Project Metrics Summary\n\n",
-        f"**Generated:** {now}\n",
-        f"**Sources:** `audit/man_hours_registry.yml`, git-tracked file metrics, "
-        "`src/scripts/man_hours_report.py`\n\n",
-        "---\n\n",
-        build_executive_section(
-            registry_hours=registry_hours,
-            registry_files=len(files),
-            py_total=py_total,
-            md_total=md_total,
-            yaml_total=yaml_total,
-            criteria_count=count_criteria_specs(project_root),
-            connector_count=count_connector_packages(project_root),
-            expert_prompts=count_expert_prompts(project_root),
-            token_est=token_est,
-            llm_logs=llm_logs,
-            cloc_product=cloc_bundle.product,
-        ),
-        build_python_section(py_metrics),
-        build_prose_section(
-            "Markdown (tracked, by area)",
-            md_metrics,
-            footnote=(
-                f"Repo-wide deduped total: **{_fmt_int(md_total.lines)}** lines, "
-                f"**{_fmt_int(md_total.files)}** files (table rows may overlap)."
-            ),
-        ),
-        build_prose_section(
-            "YAML (tracked, by area)",
-            yaml_metrics,
-            footnote=(
-                f"Repo-wide deduped total: **{_fmt_int(yaml_total.lines)}** lines, "
-                f"**{_fmt_int(yaml_total.files)}** files."
-            ),
-        ),
-        build_cloc_section(cloc_bundle),
-        build_token_section(token_est, llm_logs),
-        "## Totals by category (registry)\n\n",
-        "| Category | Files | Hours |\n",
-        "| --- | ---: | ---: |\n",
-    ]
-
-    grand_files = 0
-    grand_hours = 0.0
-    seen_cats: set[str] = set()
-
-    for cat in CATEGORY_ORDER:
-        entries = by_category.get(cat, [])
-        if not entries:
-            continue
-        seen_cats.add(cat)
-        cat_hours = sum(h for _, h in entries)
-        lines.append(f"| {cat} | {len(entries)} | {cat_hours:.1f} |\n")
-        grand_files += len(entries)
-        grand_hours += cat_hours
-
-    for cat in sorted(by_category.keys()):
-        if cat in seen_cats:
-            continue
-        entries = by_category[cat]
-        cat_hours = sum(h for _, h in entries)
-        lines.append(f"| {cat} | {len(entries)} | {cat_hours:.1f} |\n")
-        grand_files += len(entries)
-        grand_hours += cat_hours
-
-    lines.append(f"| **Project total** | **{grand_files}** | **{grand_hours:.1f}** |\n")
-    lines.append("\n---\n\n## Detailed breakdown (registry)\n\n")
-
-    all_cats = [c for c in CATEGORY_ORDER if c in by_category]
-    all_cats += [c for c in sorted(by_category.keys()) if c not in CATEGORY_ORDER]
-
+    all_cats = sorted(by_category.keys(), key=lambda c: -sum(h for _, h in by_category[c]))
     for cat in all_cats:
         entries = by_category[cat]
+        if not entries:
+            continue
         entries.sort(key=lambda e: (-e[1], e[0]))
-        cat_hours = sum(h for _, h in entries)
-        lines.append(f"### {cat}\n\n")
-        lines.append(f"**Subtotal:** {len(entries)} files, {cat_hours:.1f} hours\n\n")
-        lines.append("| File | Hours |\n")
-        lines.append("| --- | ---: |\n")
-        for fpath, hours in entries:
-            lines.append(f"| `{fpath}` | {hours:.1f} |\n")
+        hrs = sum(h for _, h in entries)
+        lines.append(f"### {_registry_plain_name(cat)}\n\n")
+        lines.append(f"**{len(entries)}** files, **{hrs:.1f}** hours\n\n")
+        lines.append("| File | Hours |\n| --- | ---: |\n")
+        for fpath, h in entries:
+            lines.append(f"| `{fpath}` | {h:.1f} |\n")
         lines.append("\n")
-
-    lines.append("---\n\n")
-    lines.append(
-        f"*Report generated by `src/scripts/man_hours_report.py` at {now}. "
-        "Re-run: `python src/scripts/man_hours_report.py`*\n"
-    )
+    lines.append("</details>\n\n")
     return "".join(lines)
+
+
+def build_report(files: dict[str, dict], root: Path) -> str:
+    by_category: dict[str, list[tuple[str, float]]] = defaultdict(list)
+    for fpath, info in sorted(files.items()):
+        by_category[info.get("category", "Other")].append(
+            (fpath, float(info.get("hours", 0)))
+        )
+
+    inv = collect_project_inventory(root)
+    py_total = total_tracked_by_suffix(root, (".py",))
+    md_total = total_tracked_by_suffix(root, (".md",))
+    yaml_total = total_tracked_by_suffix(root, (".yaml", ".yml"))
+    token_est = estimate_tokens_from_chars(
+        build_chars_by_kind(py_total, md_total, yaml_total)
+    )
+    llm_logs = scan_llm_logs(root)
+    cloc_bundle = collect_cloc_reports(root)
+    registry_hours = sum(float(i.get("hours", 0)) for i in files.values())
+    criteria = count_criteria_specs(root)
+    connectors = count_connector_packages(root)
+    experts = count_expert_prompts(root)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    parts = [
+        "<!-- man_hours: 3.0 -->\n",
+        "# Atoms vs Ashes — Project Scale Report\n\n",
+        f"**Generated:** {now}  \n",
+        "**Purpose:** Summarise how large the siting screening project is — in words, "
+        "software, data, and professional effort.  \n",
+        f"**Scope:** All files tracked in the project git archive "
+        f"({root.name}/).\n\n",
+        "---\n\n",
+        build_how_to_read(),
+        build_at_a_glance(inv, registry_hours, criteria, connectors, cloc_bundle.full),
+        build_platform_section(criteria, connectors, experts),
+        build_written_docs(inv),
+        build_software_section(inv, cloc_bundle.full),
+        build_data_outputs_section(inv),
+        build_effort_section(by_category),
+        build_ai_section(token_est, llm_logs),
+        build_full_inventory_table(inv),
+        build_technical_appendix(cloc_bundle),
+        build_registry_appendix(by_category),
+        "---\n\n",
+        f"*Generated by `python src/scripts/man_hours_report.py` · "
+        f"{len(files)} registry entries · cloc "
+        f"{cloc_bundle.full.version if cloc_bundle.full else 'n/a'}*\n",
+    ]
+    return "".join(parts)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate man-hours summary report")
-    parser.add_argument(
-        "--registry",
-        type=Path,
-        default=DEFAULT_REGISTRY,
-        help="Path to man_hours_registry.yml",
-    )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=DEFAULT_OUTPUT,
-        help="Path to write the summary Markdown",
-    )
+    parser = argparse.ArgumentParser(description="Generate project scale report")
+    parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
     files = load_registry(args.registry)
     if not files:
-        print(f"No files found in {args.registry}")
+        print(f"No files in {args.registry}")
         return
 
-    report = build_report(files, PROJECT_ROOT)
-    args.output.write_text(report, encoding="utf-8")
-
-    total = sum(float(info.get("hours", 0)) for info in files.values())
-    print(f"Wrote {args.output} — {len(files)} files, {total:.1f} total hours")
+    args.output.write_text(build_report(files, PROJECT_ROOT), encoding="utf-8")
+    total = sum(float(i.get("hours", 0)) for i in files.values())
+    print(f"Wrote {args.output} — {len(files)} registry files, {total:.1f} h")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# man_hours: 4.4
+# man_hours: 4.7
 # Radiological impact (RI) scoring rubric. Source: report/sites_evaluation/05_criteria_radiological.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: ri
@@ -67,14 +67,15 @@ criteria:
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-03 (IAEA NS-G-3.2)"}
-    primary_metric: groundwater_vulnerability_class
+    primary_metric: ri03_aquifer_screening_class
     db_fields: {api: [site_radiological.aquifer_type, site_radiological.groundwater_vulnerability_class], llm: ri03_groundwater_text}
+    # Aquifer-only screening ladder until ``groundwater_vulnerability_class`` is backfilled.
     bands:
-      - {score_range: [9, 10], condition_expr: "aquifer_type == 'confined' or no_aquifer_in_5km == true", descriptor: "Confined aquifer with strong retardation OR no major aquifer in 5 km."}
-      - {score_range: [7, 8], condition_expr: "groundwater_vulnerability_class == 'low' and sensitive_wells_10km == 0", descriptor: "Low-vulnerability unconfined; no proximate sensitive wells."}
-      - {score_range: [5, 6], condition_expr: "groundwater_vulnerability_class == 'moderate'", descriptor: "Moderate vulnerability; standard monitoring sufficient."}
-      - {score_range: [3, 4], condition_expr: "groundwater_vulnerability_class == 'high'", descriptor: "High vulnerability; sensitive wells within 10 km; dedicated GW programme."}
-      - {score_range: [1, 2], condition_expr: "aquifer_type == 'karst' or groundwater_vulnerability_class == 'very_high'", descriptor: "Karst / highly conductive with sensitive downstream uses proximate."}
+      - {score_range: [9, 10], condition_expr: "ri03_aquifer_screening_class == 'favourable'", descriptor: "Confined / absent aquifer screening proxy (aquifer_type)."}
+      - {score_range: [7, 8], condition_expr: "ri03_aquifer_screening_class == 'low'", descriptor: "Low-permeability aquifer screening proxy."}
+      - {score_range: [5, 6], condition_expr: "ri03_aquifer_screening_class == 'moderate'", descriptor: "Moderate-permeability aquifer screening proxy."}
+      - {score_range: [3, 4], condition_expr: "ri03_aquifer_screening_class == 'high'", descriptor: "High-permeability / fissured aquifer screening proxy."}
+      - {score_range: [1, 2], condition_expr: "ri03_aquifer_screening_class == 'karst'", descriptor: "Karst aquifer screening proxy."}
     fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: RI-04
@@ -137,13 +138,17 @@ criteria:
     weight_factors: {baseline: 10, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
     primary_metric: ri05_distance_margin_pct
-    db_fields: {api: [site_radiological.nearest_city_50k_km, site_radiological.nearest_city_pop], llm: ri05_population_centres_text}
+    db_fields: {api: [site_radiological.nearest_city_50k_km, site_radiological.nearest_city_pop, site_radiological.pop_density_16km, site_radiological.pop_total_16km], llm: ri05_population_centres_text}
     bands:
+      - {score_range: [9, 10], condition_expr: "nearest_city_pop is not null and nearest_city_pop < 50000", descriptor: "No >=50k population-centre proxy within screening envelope."}
       - {score_range: [9, 10], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= 50", descriptor: "Nearest >=50k population-centre proxy exceeds required distance by >= 50 %."}
       - {score_range: [7, 8], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= 25", descriptor: "Nearest >=50k population-centre proxy exceeds required distance by 25-50 %."}
       - {score_range: [5, 6], condition_expr: "nearest_city_pop >= 50000 and nearest_city_50k_km >= ri05_required_distance_km", descriptor: "Nearest >=50k population-centre proxy meets required distance (pass mark)."}
+      - {score_range: [5, 6], condition_expr: "nearest_city_50k_km is null and pop_total_16km >= 50000 and pop_total_16km < 100000", descriptor: "GHSL 16 km population proxy indicates >=50k people in the wider screening ring, but no city-distance margin is available."}
       - {score_range: [3, 4], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct >= -25", descriptor: "Nearest >=50k population-centre proxy misses required distance by <= 25 %."}
+      - {score_range: [3, 4], condition_expr: "nearest_city_50k_km is null and pop_total_16km >= 100000 and pop_total_16km < 500000", descriptor: "GHSL 16 km population proxy indicates a substantial population cluster; city-distance margin unavailable, so score conservatively."}
       - {score_range: [0, 0], condition_expr: "nearest_city_pop >= 1000000 and nearest_city_50k_km < 5", descriptor: "Site embedded within 5 km of a >1M population centre."}
+      - {score_range: [1, 2], condition_expr: "nearest_city_50k_km is null and pop_total_16km >= 500000", descriptor: "GHSL 16 km population proxy indicates very high population in the screening ring; city-distance margin unavailable."}
       - {score_range: [1, 2], condition_expr: "nearest_city_pop >= 50000 and ri05_distance_margin_pct < -25", descriptor: "Nearest >=50k population-centre proxy misses required distance by > 25 %."}
     fail_conditions:
       - {code: A12, action: avoidance_penalty, condition_expr: "nearest_city_50k_km < ri05_required_distance_km", descriptor: "Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."}

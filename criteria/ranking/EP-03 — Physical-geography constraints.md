@@ -1,7 +1,12 @@
-<!-- man_hours: 0.3 -->
+<!-- man_hours: 0.5 -->
 # EP-03 - Physical-geography constraints - ranking state
 
 Status: **FINAL RECOMMENDATION IMPLEMENTED**. `relief_m_per_10km` remains unmeasured at this stage. The current runtime state is documented as a screening-stage data gap and routed to Stage 3 characterization or a later resolver/schema improvement.
+
+Update 2026-05-17: Google Earth Engine access is not available in the current
+environment, so the measured relief component is closed/deferred for this
+pass. Do not treat `ep03_gee_relief_16km_m` as complete cohort evidence until
+a non-GEE relief source is implemented; tracked as `IMPROVEMENTS.md` IMP-0012.
 
 Phase: `[ranking]`  
 Primary metric: `relief_m_per_10km`  
