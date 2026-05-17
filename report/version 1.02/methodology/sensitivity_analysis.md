@@ -1,7 +1,7 @@
-<!-- man_hours: 2.0 -->
+<!-- man_hours: 2.4 -->
 # Phase 1.6 Sensitivity Analysis — Method
 
-**Purpose:** assess robustness of the Phase 1.5 composite ranking to reasonable variation in weights, score uncertainty, and discretionary thresholds, and to flag artefactual concentration of the top shortlist.
+**Purpose:** assess robustness of the Phase 1.5 composite ranking to reasonable variation in weights, score uncertainty, and discretionary thresholds, and to flag artefactual concentration of the top shortlist. For version 1.2 country and site interpretation, the controlling reader-facing frame is the **national sensitivity analysis**: national rank stability, top-rank probabilities, and shortlist robustness within the same country and NuScale VOYGR-6 reference case.
 **Standards alignment:** IAEA SSG-35 §3.3 / NS-R-3 §2.27; EPRI Siting Guide 3002023910, Step 4; project requirements `report/requirements/06_scoring_matrix.md` §8.4.
 **Reproducibility handle:** every perturbed composite row is tagged `run_id = p16_<stamp>_<hash>` in `composite_rankings`; the orchestration entry point is [`src/scripts/run_phase_1_6_sensitivity.py`](../../src/scripts/run_phase_1_6_sensitivity.py).
 
@@ -87,6 +87,8 @@ For each sensitivity profile, the engine assigns a dense `national_rank` inside 
 National OAT repeats the existing one-at-a-time criterion removal but computes rank changes inside each `(country_code, smr_key)` slice. This prevents a large country or a globally dominant candidate from masking the local criterion drivers that matter for a national shortlist. National Monte Carlo rank simulation is separate from the existing MC composite summary: each draw samples criterion scores for all candidates in the slice, ranks them, and reports `p_rank_1`, `p_rank_le_3`, `p_rank_le_5`, median rank, and rank uncertainty bounds.
 
 The national outputs are written under `audit/post_processing/06_scoring/` as `*_national_rank_sensitivity.csv`, `*_national_sensitivity_summary.csv`, `*_national_oat_importance.csv`, and `*_national_mc_rank_distribution.csv`. Figures are generated under `report/output/sensitivity/<stamp>/national/figures/` and embedded in the per-country sensitivity Markdown files. These outputs support within-jurisdiction shortlisting only; they do not imply licensing readiness or Stage 3 characterization acceptance.
+
+For report version 1.2, every country-profile and selected-site stability discussion must draw first from these national outputs. Regional sensitivity remains useful for cross-country context and portfolio balance, but it must not be used as the primary evidence for a national Stage 3 sequence. A statement such as "stable candidate" should therefore mean stable within the relevant national `(country_code, smr_key)` slice unless the prose explicitly says it is referring to the regional pool.
 
 ## 3. Metrics
 

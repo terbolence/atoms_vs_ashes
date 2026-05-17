@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.6
 """Country-pack PDF renderer."""
 
 from __future__ import annotations
@@ -80,7 +80,7 @@ def _top_sites_table(sites: list[Any]) -> Any:
             latlon(site.latitude, site.longitude),
             fmt(site.capacity_mw),
             fmt(getattr(core.get("grid_export_capacity_mw"), "value", None)),
-            fmt(getattr(core.get("buildable_area_ha"), "value", None)),
+            fmt(getattr(core.get("site_area_ha"), "value", None)),
         ])
     return table(rows, widths=[32, 120, 65, 65, 55, 70, 75, 50, 55, 50])
 

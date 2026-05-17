@@ -1,3 +1,4 @@
+# man_hours: 0.2
 """Ranking criterion prompts (Tier 3 — Claude Haiku 3.5).
 
 Each prompt requests a 1-5 score plus domain-specific measured values.
@@ -1134,8 +1135,8 @@ _NS05 = SYSTEM_BASE + _RANKING_PREAMBLE + """
 CRITERION: NS-05 — Land Availability (Ranking)
 NORMATIVE: NuScale VOYGR-6 footprint (72.8 ha); EPRI
 
-KEY METRIC: Total available land area (ha) — site area plus accessible \
-adjacent land.
+KEY METRIC: Canonical site_area_ha (ha). Adjacent/favourable area is \
+context for expansion potential only.
 
 RUBRIC BANDS:
   5 = Available land ≥ 100 ha; ample expansion room; adjacent land is \
@@ -1153,13 +1154,12 @@ RUBRIC BANDS:
       heavily constrained (urban surroundings, water on multiple \
       sides, steep terrain boundaries)
 
-NOTE: Use the enrichment data buildable_area_ha and \
-largest_contiguous_ha as primary inputs. The site_area_ha from the \
-site header refers to the existing plant boundary. The buildable_area_ha \
-accounts for actual usable space after excluding water bodies, steep \
-slopes, and protected areas within the site boundary.
+NOTE: Use site_area_ha as the primary scoring input. Treat \
+favourable_area_ha as a wider expansion envelope for construction \
+laydown or future site expansion; do not use it to replace the \
+site_area_ha adequacy indicator.
 
-ENRICHMENT FIELDS: buildable_area_ha, largest_contiguous_ha.
+ENRICHMENT FIELDS: site_area_ha, favourable_area_ha.
 
 REFERENCE DATA SOURCES: Site enrichment data, CORINE Land Cover 2018 \
 for adjacent land use analysis."""

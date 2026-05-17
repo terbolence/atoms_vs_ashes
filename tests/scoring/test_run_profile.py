@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.6
 """RunProfile parsing + spec-validation tests (no DB required).
 
 Run profile YAMLs no longer ship in ``config/run_profiles/`` — the
@@ -127,9 +127,22 @@ def ro_focus_profile_path(tmp_path: Path) -> Path:
 def test_baseline_profile_loads(baseline_profile_path: Path):
     out = load_run_profile(baseline_profile_path)
     assert out.profile.run_label == "baseline"
+    assert out.profile.db_profile == "merged"
     assert out.profile.fail_thresholds == {}
     assert len(out.compiled.criteria) == 48
     assert out.warnings == []
+
+
+def test_legacy_non_merged_profile_loads_as_merged(tmp_path: Path):
+    p = _write(
+        tmp_path,
+        """
+        run_label: legacy
+        db_profile: api
+        """,
+    )
+    profile, _sha = parse_run_profile(p)
+    assert profile.db_profile == "merged"
 
 
 def test_ro_focus_profile_loads(ro_focus_profile_path: Path):

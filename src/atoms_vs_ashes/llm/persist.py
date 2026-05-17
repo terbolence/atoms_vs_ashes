@@ -1,4 +1,4 @@
-# man_hours: 4.2
+# man_hours: 4.3
 """Persistence layer — writes LLM assessment results to the LLM database.
 
 Maps each criterion's structured output to the appropriate domain table,
@@ -148,7 +148,7 @@ _FIELD_MAP: dict[str, dict[str, str]] = {
     "NS-02": {"nearest_substation_km": "nearest_substation_km", "nearest_hv_line_km": "nearest_hv_line_km", "grid_export_capacity_mw": "grid_export_capacity_mw"},
     "NS-03": {"nearest_highway_km": "nearest_highway_km", "nearest_rail_km": "nearest_rail_km", "nearest_waterway_km": "nearest_waterway_km", "heavy_haul_capable": "heavy_haul_capable"},
     "NS-04": {"dominant_land_class": "dominant_land_class", "favourable_land_pct": "favourable_land_pct"},
-    "NS-05": {"buildable_area_ha": "buildable_area_ha", "largest_contiguous_ha": "largest_contiguous_ha"},
+    "NS-05": {"favourable_area_ha": "favourable_area_ha"},
     "NS-06": {"reusable_infra_score": "reusable_infra_score"},
     "NS-07": {"env_impact_tier": "env_impact_tier", "env_impact_notes": "env_impact_notes"},
     "NS-13": {"laydown_suitable_ha": "laydown_suitable_ha", "laydown_largest_patch_ha": "laydown_largest_patch_ha"},

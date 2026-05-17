@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.1
 """Pydantic schema for ``config/run_profiles/<slug>.yaml``.
 
 A *run profile* is the single source of truth for one execution of the
@@ -214,6 +214,12 @@ class RunProfile(BaseModel):
                     f"got {type(codes).__name__}"
                 )
         return v
+
+    @field_validator("db_profile", mode="before")
+    @classmethod
+    def _canonical_db_profile(cls, v: Any) -> str:
+        """Legacy profiles load into the canonical merged DB profile."""
+        return "merged"
 
     def has_explicit_scope(self) -> bool:
         """``True`` if the user pinned countries or SMRs."""

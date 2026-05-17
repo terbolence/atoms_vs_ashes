@@ -1,3 +1,4 @@
+# man_hours: 0.2
 """Raw metric extraction for top-site report tables."""
 
 from __future__ import annotations
@@ -55,15 +56,15 @@ def _core_metrics(site: Site) -> list[MetricValue]:
             units="MW",
         ),
         MetricValue(
-            key="buildable_area_ha",
-            label="Available surface area",
-            value=_clean(getattr(infra, "buildable_area_ha", None)),
+            key="site_area_ha",
+            label="Site surface area",
+            value=_clean(getattr(site, "site_area_ha", None)),
             units="ha",
         ),
         MetricValue(
-            key="largest_contiguous_ha",
-            label="Largest contiguous area",
-            value=_clean(getattr(infra, "largest_contiguous_ha", None)),
+            key="favourable_area_ha",
+            label="Expansion envelope",
+            value=_clean(getattr(infra, "favourable_area_ha", None)),
             units="ha",
         ),
     ]

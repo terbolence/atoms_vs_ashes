@@ -1,4 +1,4 @@
-# man_hours: 6.2
+# man_hours: 6.5
 # Non-safety (NS) scoring rubric. Source: report/sites_evaluation/07_criteria_non_safety.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: ns
@@ -186,17 +186,23 @@ criteria:
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-05 (EPRI Steps 2-3 land use; project A15)"}
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NS-05 (EPRI Steps 2-3 land use; project A15)"}
-    primary_metric: composite
-    db_fields: {api: [site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, site_infrastructure_v2.patch_count], llm: ns05_land_text}
+    primary_metric: site_area_ha
+    db_fields: {api: [sites.site_area_ha, site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.favourable_area_method, site_infrastructure_v2.patch_count], llm: ns05_land_text}
+    notes: |
+      NS-05/A15 uses ``sites.site_area_ha`` as the sole scoring and
+      avoidance indicator. ``favourable_area_ha`` is retained as report
+      context only: it describes the larger expansion envelope that may
+      support laydown or future site expansion, but it must not rescue a
+      site whose canonical ``site_area_ha`` is below the A15 minimum.
     bands:
-      - {score_range: [9, 10], condition_expr: "buildable_area_ha >= 50 and largest_contiguous_ha >= 25", descriptor: "Buildable >= 50 ha AND contiguous >= 25 ha; consolidated."}
-      - {score_range: [7, 8], condition_expr: "buildable_area_ha >= 25 and largest_contiguous_ha >= 14", descriptor: "Buildable >= 25 ha AND contiguous >= 14 ha."}
-      - {score_range: [5, 6], condition_expr: "buildable_area_ha >= 14 and largest_contiguous_ha >= 10", descriptor: "Buildable >= 14 ha AND contiguous >= 10 ha (project pass mark)."}
-      - {score_range: [3, 4], condition_expr: "buildable_area_ha >= 8 or largest_contiguous_ha >= 5", descriptor: "Buildable >= 8 ha OR contiguous >= 5 ha; complex ownership."}
-      - {score_range: [1, 2], condition_expr: "buildable_area_ha < 8 and largest_contiguous_ha < 5", descriptor: "Buildable < 8 ha AND contiguous < 5 ha."}
-      - {score_range: [0, 0], condition_expr: "zoning_hard_block == true", descriptor: "Legal / zoning hard-block at screening."}
+      - {score_range: [9, 10], condition_expr: "site_area_ha >= 72.8", descriptor: "Canonical site area meets the full VOYGR-6 reference footprint."}
+      - {score_range: [7, 8], condition_expr: "site_area_ha >= 40", descriptor: "Canonical site area exceeds the nuclear-island minimum with meaningful balance-of-plant margin."}
+      - {score_range: [5, 6], condition_expr: "site_area_ha >= 14", descriptor: "Canonical site area meets the A15 nuclear-island minimum."}
+      - {score_range: [3, 4], condition_expr: "site_area_ha >= 8", descriptor: "Canonical site area is below A15 but not extremely constrained."}
+      - {score_range: [1, 2], condition_expr: "site_area_ha > 0", descriptor: "Canonical site area is materially below A15."}
+      - {score_range: [0, 0], condition_expr: "site_area_ha <= 0 or site_area_ha is null", descriptor: "No verified canonical site area."}
     fail_conditions:
-      - {code: A15, action: avoidance_penalty, condition_expr: "largest_contiguous_ha < 14", descriptor: "Project A15: >= 14 ha contiguous industrial land."}
+      - {code: A15, action: avoidance_penalty, condition_expr: "site_area_ha < 14", descriptor: "Project A15: >= 14 ha canonical site area."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NS-06
     name: Existing infrastructure reuse

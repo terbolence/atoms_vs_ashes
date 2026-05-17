@@ -1,3 +1,4 @@
+# man_hours: 0.2
 """A1-A15 avoidance/discretionary screening prompts (Tier 2 — Claude Sonnet 4)."""
 
 from atoms_vs_ashes.llm.prompts._base import SYSTEM_BASE
@@ -767,7 +768,9 @@ AREA BREAKDOWN:
 ANALYSIS STEPS:
 1. CHECK site data: site_area_ha is the strongest signal. If provided \
    and >= 14 ha → minimum is met.
-2. CHECK enrichment: buildable_area_ha is the most relevant field.
+2. CHECK expansion context: favourable_area_ha may show a larger \
+   surrounding envelope for laydown or future expansion, but it does \
+   not replace site_area_ha for the A15 minimum.
 3. ESTIMATE from coal plant characteristics:
    - Installed capacity is a proxy for site area: ~0.05-0.15 ha/MWe \
      for coal plants (a 500 MWe plant typically occupies 25-75 ha)
@@ -809,7 +812,7 @@ COMMON PITFALLS:
   Some urban plants are tightly constrained despite high capacity.
 
 REFERENCE DATA: CORINE Land Cover 2018, OSM landuse tags, site's \
-site_area_ha field, enrichment buildable_area_ha."""
+site_area_ha field, enrichment favourable_area_ha for expansion context."""
 
 AVOIDANCE_PROMPTS: dict[str, str] = {
     "A1": _A1, "A2": _A2, "A3": _A3, "A4": _A4,

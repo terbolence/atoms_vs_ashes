@@ -1,8 +1,9 @@
-# man_hours: 2.0
+# man_hours: 2.3
 """Database engine and session management."""
 
 from __future__ import annotations
 
+import os
 from contextlib import contextmanager
 from typing import Generator
 
@@ -10,6 +11,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import Session, sessionmaker
 
 from atoms_vs_ashes.config import Settings
+from atoms_vs_ashes.db.profiles import DEFAULT_PROFILE, resolve_db_name
 
 _engine = None
 _SessionFactory: sessionmaker[Session] | None = None
@@ -21,6 +23,21 @@ def init_engine(settings: Settings | None = None) -> None:
         settings = Settings()
     _engine = create_engine(settings.database.url, echo=False, pool_pre_ping=True)
     _SessionFactory = sessionmaker(bind=_engine)
+
+
+def init_engine_for_active_profile(settings: Settings | None = None) -> str:
+    """Initialise the primary engine against the canonical merged database.
+
+    Older active-profile rows may still carry ``db_profile: api`` or ``llm``.
+    The GUI no longer exposes those choices, so startup pins the process to
+    ``merged`` and rewrites ``POSTGRES_DB`` before the real session factory is
+    initialised.
+    """
+    db_name = resolve_db_name(DEFAULT_PROFILE)
+    os.environ["POSTGRES_DB"] = db_name
+    del settings
+    init_engine()
+    return db_name
 
 
 def get_engine():

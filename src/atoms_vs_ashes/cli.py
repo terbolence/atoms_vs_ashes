@@ -1,4 +1,4 @@
-# man_hours: 6.5
+# man_hours: 6.7
 """CLI entry point — ``python -m atoms_vs_ashes`` or ``atoms-vs-ashes``."""
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ load_dotenv()
 
 from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.db.engine import check_connection, init_engine
+from atoms_vs_ashes.db.profiles import DB_PROFILES, DEFAULT_PROFILE
 from atoms_vs_ashes.logging import configure_logging, get_logger, new_run_id
 
 log = get_logger(__name__)
@@ -29,21 +30,14 @@ def _resolve_root() -> Path:
     return cwd
 
 
-_DB_PROFILES = {
-    "api": "atoms_vs_ashes",
-    "llm": "atoms_vs_ashes_llm",
-    "merged": "atoms_vs_ashes_merged",
-}
-
-
 @click.group()
 @click.option("--config", "config_path", type=click.Path(exists=True), default=None,
               help="Path to YAML config file (defaults to config/default.yml).")
 @click.option("--verbose", is_flag=True, default=False, help="Enable DEBUG logging.")
 @click.option("--run-id", default=None, help="Explicit run ID (auto-generated if omitted).")
-@click.option("--db-profile", type=click.Choice(["api", "llm", "merged"]), default="api",
+@click.option("--db-profile", type=click.Choice(["api", "llm", "merged"]), default=DEFAULT_PROFILE,
               show_default=True,
-              help="Database profile: 'api' (default), 'llm', or 'merged'.")
+              help="Database profile. 'merged' is the canonical read/write target.")
 @click.pass_context
 def main(ctx: click.Context, config_path: str | None, verbose: bool,
          run_id: str | None, db_profile: str) -> None:
@@ -54,7 +48,7 @@ def main(ctx: click.Context, config_path: str | None, verbose: bool,
     rid = run_id or new_run_id()
     configure_logging(verbose=verbose, run_id=rid)
 
-    os.environ["POSTGRES_DB"] = _DB_PROFILES[db_profile]
+    os.environ["POSTGRES_DB"] = DB_PROFILES[db_profile]
 
     settings = Settings(config_path)
     init_engine(settings)

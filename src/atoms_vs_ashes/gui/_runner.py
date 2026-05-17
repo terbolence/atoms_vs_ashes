@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.2
 """Subprocess driver for the GUI's start/stop scoring + sensitivity buttons.
 
 We deliberately spawn the existing ``score`` CLI in a child process
@@ -35,6 +35,7 @@ import yaml
 
 from atoms_vs_ashes.db.active_profile import load_active_profile
 from atoms_vs_ashes.db.engine import session_scope
+from atoms_vs_ashes.db.profiles import DEFAULT_PROFILE
 from atoms_vs_ashes.runprofile.schema import RunProfile
 
 _RUNTIME_DIR = Path("audit/.runtime")
@@ -105,6 +106,13 @@ def _load_active_profile() -> RunProfile:
         return load_active_profile(session)
 
 
+def _merged_runtime_profile(profile: RunProfile) -> RunProfile:
+    """Return the active profile with the canonical merged DB pinned."""
+    if profile.db_profile == DEFAULT_PROFILE:
+        return profile
+    return profile.model_copy(update={"db_profile": DEFAULT_PROFILE})
+
+
 def export_active_profile_to_yaml(
     run_id: str,
     *,
@@ -117,7 +125,9 @@ def export_active_profile_to_yaml(
     pulls the row from the DB itself. Returns the path to the written
     YAML — caller is responsible for treating it as transient.
     """
-    p = profile if profile is not None else _load_active_profile()
+    p = _merged_runtime_profile(
+        profile if profile is not None else _load_active_profile()
+    )
     target_dir = runtime_dir if runtime_dir is not None else _runtime_root()
     target_dir.mkdir(parents=True, exist_ok=True)
     path = target_dir / f"{_RUNTIME_PROFILE_PREFIX}{run_id}{_RUNTIME_PROFILE_SUFFIX}"
@@ -170,13 +180,15 @@ def start_score_run(
 ) -> RunHandle:
     """Launch ``score run`` against the active DB profile."""
     run_id = _new_run_id("score")
-    active = profile if profile is not None else _load_active_profile()
+    active = _merged_runtime_profile(
+        profile if profile is not None else _load_active_profile()
+    )
     yaml_path = export_active_profile_to_yaml(run_id, profile=active)
     cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
     weight = weight_profile or active.weight_profile
     cmd = [
         sys.executable, "-m", "atoms_vs_ashes",
-        "--db-profile", active.db_profile,
+        "--db-profile", DEFAULT_PROFILE,
         "--run-id", run_id, "score", "run",
         "--weight-profile", weight,
         "--profile", str(yaml_path.resolve()),
@@ -197,7 +209,9 @@ def start_sensitivity_run(
 ) -> RunHandle:
     """Launch ``score sensitivity`` against the active DB profile."""
     run_id = _new_run_id("sens")
-    active = profile if profile is not None else _load_active_profile()
+    active = _merged_runtime_profile(
+        profile if profile is not None else _load_active_profile()
+    )
     yaml_path = export_active_profile_to_yaml(run_id, profile=active)
     cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
     weight = weight_profile or active.weight_profile
@@ -205,7 +219,7 @@ def start_sensitivity_run(
     audit = audit_dir or active.output.audit_dir
     cmd = [
         sys.executable, "-m", "atoms_vs_ashes",
-        "--db-profile", active.db_profile,
+        "--db-profile", DEFAULT_PROFILE,
         "--run-id", run_id, "score", "sensitivity",
         "--weight-profile-base", weight,
         "--rubric-dir", str(Path(active.spec_dir)),

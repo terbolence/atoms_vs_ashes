@@ -1,4 +1,4 @@
-# man_hours: 2.5
+# man_hours: 2.7
 """Page 2 — inline Run Profile editor (DB-backed, no YAML).
 
 Every section of :class:`RunProfile` is exposed as a Streamlit widget
@@ -28,6 +28,7 @@ from atoms_vs_ashes.gui._data import (
     list_smrs,
 )
 from atoms_vs_ashes.gui._state import commit_active_profile, get_profile
+from atoms_vs_ashes.db.profiles import DEFAULT_PROFILE
 from atoms_vs_ashes.runprofile.schema import (
     OutputBlock,
     RunProfile,
@@ -39,7 +40,6 @@ from atoms_vs_ashes.runprofile.schema import (
 
 _SENSITIVITY_STAGES = ["weights", "mc", "threshold", "country"]
 _SITE_STATUSES_ALL = ["operating", "retired", "mothballed", "construction", "cancelled"]
-_DB_PROFILES = ["api", "llm", "merged"]
 _WEIGHT_PROFILES = ["baseline", "w_plus_20", "w_minus_20"]
 _QUALIFICATION_MODES = ["normal", "strict"]
 
@@ -71,15 +71,14 @@ def _identity_section(profile: RunProfile) -> dict[str, Any]:
 def _pipeline_section(profile: RunProfile) -> dict[str, Any]:
     with st.expander("Pipeline", expanded=False):
         cols = st.columns(2)
-        db_profile = cols[0].selectbox(
+        db_profile = cols[0].text_input(
             "DB profile",
-            options=_DB_PROFILES,
-            index=_DB_PROFILES.index(profile.db_profile),
+            value=DEFAULT_PROFILE,
+            disabled=True,
             help=(
-                "Which staging dataset the engine reads.\n"
-                "- `merged` *(recommended)* — the merged API + LLM facts.\n"
-                "- `api` — only structured/source-of-truth API rows.\n"
-                "- `llm` — LLM-derived enrichment in isolation (debug only)."
+                "`merged` is the canonical database for scoring and report "
+                "outputs. API-only and LLM-only profiles are no longer exposed "
+                "through the GUI."
             ),
         )
         weight_profile = cols[1].selectbox(
@@ -113,7 +112,7 @@ def _pipeline_section(profile: RunProfile) -> dict[str, Any]:
             ),
         )
     return {
-        "db_profile": db_profile,
+        "db_profile": DEFAULT_PROFILE,
         "weight_profile": weight_profile,
         "spec_dir": spec_dir.strip(),
         "expert_override": bool(expert_override),

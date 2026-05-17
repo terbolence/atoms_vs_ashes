@@ -1,4 +1,4 @@
-# man_hours: 4.2
+# man_hours: 4.3
 # User-controllable failure thresholds — IAEA / SSG / NUREG anchors.
 #
 # This sidecar is merged into config/scoring_specs/*.yaml at load time
@@ -140,18 +140,18 @@ NS-02:
 
 NS-05:
   A15:
-    metric: largest_contiguous_ha
+    metric: site_area_ha
     op: "<"
     default_value: 14
     units: ha
-    label: "Minimum contiguous land"
+    label: "Minimum canonical site area"
     kind: numeric
     recommended:
       value: 14
       rationale: >
-        Project A15: 14 ha contiguous industrial land matches the standard
-        NuScale 4-pack footprint with associated balance-of-plant + ISFSI
-        envelope.
+        Project A15: 14 ha canonical site area is the nuclear-island
+        adequacy floor. Favourable surrounding area remains report context
+        for expansion potential, not the pass/fail indicator.
       sources: ["IAEA SSG-35 §3.30", "NuScale SDA Tier 2 §1.2"]
     bounds: {min: 5, max: 50}
 

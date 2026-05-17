@@ -1,4 +1,4 @@
-<!-- man_hours: 1.2 -->
+<!-- man_hours: 1.4 -->
 # Siting Expert Specialist Prompt
 
 The single specialist voice that fills every interpretation
@@ -157,10 +157,15 @@ shows an exclusionary fail still standing.
 
 One paragraph (140-220 words) that translates the composite score,
 the Monte Carlo bracket, the national stability band, and the
-top-10% hit rate into plain language for an executive reader.
+national sensitivity evidence into plain language for an executive
+reader. Treat the national sensitivity analysis as the controlling
+frame for country/site choices: interpret top-rank probabilities,
+rank deltas, and shortlist robustness within the same country and
+NuScale VOYGR-6 reference case.
 Required content:
 
-- Open with the baseline composite score, the MC bracket, and what
+- Open with the baseline composite score, the MC bracket, the national
+  rank or national top-rank probability when present, and what
   the bracket width means in plain terms (tight / moderate /
   wide stability).
 - Name the band letter and what it represents on a Stage 3 review

@@ -1,4 +1,4 @@
-# man_hours: 1.8
+# man_hours: 2.0
 """Unit tests for the GUI subprocess runner contract.
 
 Covers the heartbeat/log helpers (unchanged) and the DB→YAML profile
@@ -54,6 +54,42 @@ def _profile_for_test(smr_keys: list[str] | None = None) -> RunProfile:
         ),
         notes="from test_runner",
     )
+
+
+def test_export_active_profile_pins_merged_db_profile(tmp_path: Path) -> None:
+    profile = _profile_for_test().model_copy(update={"db_profile": "api"})
+    path = export_active_profile_to_yaml(
+        "score-deadbeef", profile=profile, runtime_dir=tmp_path
+    )
+
+    payload = yaml.safe_load(path.read_text())
+    assert payload["db_profile"] == "merged"
+
+
+def test_score_runner_always_passes_merged_db_profile(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    captured: dict[str, list[str]] = {}
+
+    def fake_start(run_id, cmd, profile_path=None):
+        captured["cmd"] = cmd
+        return RunHandle(
+            run_id=run_id,
+            cmd=cmd,
+            pid=None,
+            heartbeat_path=tmp_path / "hb.jsonl",
+            cancel_flag_path=tmp_path / "cancel",
+            log_path=tmp_path / "log",
+            profile_path=profile_path,
+        )
+
+    monkeypatch.setattr(_runner, "_start_command", fake_start)
+    profile = _profile_for_test().model_copy(update={"db_profile": "api"})
+    _runner.start_score_run(profile=profile)
+
+    cmd = captured["cmd"]
+    assert cmd[cmd.index("--db-profile") + 1] == "merged"
 
 
 def test_read_heartbeat_handles_missing_file(tmp_path: Path) -> None:

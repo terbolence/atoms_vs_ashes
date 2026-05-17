@@ -1,4 +1,4 @@
-# man_hours: 1.25
+# man_hours: 1.35
 """Streamlit entry-point: ``streamlit run src/atoms_vs_ashes/gui/app.py``.
 
 The GUI no longer asks the user to pick a YAML — the active
@@ -17,6 +17,7 @@ native HTML :attr:`title` tooltip (no second help chip, no click).
 from __future__ import annotations
 
 import html
+import os
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,12 @@ from dotenv import load_dotenv
 
 # Same as CLI: load repo `.env` before Settings/engine (Streamlit does not import cli.py).
 load_dotenv(Path(__file__).resolve().parents[3] / ".env", override=False)
+
+from atoms_vs_ashes.db.profiles import DB_PROFILES, DEFAULT_PROFILE
+
+# The GUI is production-facing for report/scoring work; it always targets the
+# curated merged database even if a local `.env` still names the API DB.
+os.environ["POSTGRES_DB"] = DB_PROFILES[DEFAULT_PROFILE]
 
 import streamlit as st
 

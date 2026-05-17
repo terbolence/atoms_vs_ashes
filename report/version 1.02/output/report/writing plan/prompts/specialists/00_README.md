@@ -1,12 +1,18 @@
+<!-- man_hours: 0.9 -->
 # Specialist Interpretation Prompts
 
 This folder contains the system prompt that fills the
 `<!-- specialist key=... status=pending -->` placeholders that the
 country and site profile renderers emit.
 
-There is **one prompt** for the entire report: `siting_expert.md`.
-The Cursor agent adopts that role for every interpretation block;
-the placeholder key selects the output shape.
+The version 1.02 default has **one prompt** for the entire report:
+`siting_expert.md`. The Cursor agent adopts that role for every
+interpretation block; the placeholder key selects the output shape.
+
+For version 1.2, this is a default, not a quality ceiling. Use one
+family-level prompt or a per-criterion override prompt when that gives
+better technical depth, clearer Ovidiu-comment closure, or stronger
+report quality. Do not create one prompt per site.
 
 ## Workflow
 
@@ -23,6 +29,9 @@ API call.
 
 The placeholder open tag's `status`, `by`, and `filled_at` attributes
 are the audit trail; the git diff is the second audit trail.
+These comments are internal traceability only. Publication-ready report
+outputs must not contain pending placeholders, drafting notes, agent
+notes, TODOs, or other internal process language.
 
 ## Placeholder keys
 
@@ -35,7 +44,7 @@ Site-scope keys (one paragraph each per site):
 | `family_radiological_emergency` | One paragraph (180-320 words) for RI-* and EP-* |
 | `family_infrastructure` | One paragraph (180-320 words) for NS-* (and BF-01) |
 | `residual_risk` | Markdown table (3-6 rows) + 60-120 word closing paragraph |
-| `stability` | One paragraph (140-220 words) on composite + MC bracket + band |
+| `stability` | One paragraph (140-220 words) on composite + MC bracket + national sensitivity / stability evidence |
 
 Country-scope keys (one paragraph per country):
 

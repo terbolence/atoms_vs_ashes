@@ -1,4 +1,4 @@
-<!-- man_hours: 1.3 -->
+<!-- man_hours: 1.5 -->
 # Country Profile Author Prompt
 
 Use this prompt to draft one country profile for Chapter 5 of the
@@ -44,8 +44,10 @@ analyst, or political commentator.
    - `totals.n_sites`, `totals.n_full_pass`,
      `totals.n_avoidance_flag`, `totals.n_hard_fail`,
      `totals.national_band_counts`.
-   - `sites[*]` - per-site rows with rank, status, composite, MC band,
-     national band, top-10 hit rate, coverage.
+  - `sites[*]` - per-site rows with rank, status, composite, MC band,
+    national band, national top-rank probabilities or hit rates,
+    canonical `site_area_ha`, `favourable_area_ha` where available,
+    and coverage.
    - `avoidance_pareto[*]` - which avoidance criteria affect how many
      sites that have already passed exclusionary screening.
    - `exclusionary_failure_pareto[*]` - which exclusionary criteria
@@ -116,6 +118,9 @@ Interactive map link
   Use national rank-delta, OAT, and MC rank-probability artefacts only
   if they are supplied. If `small_n_flag` is true, describe the signal
   as indicative and avoid strong stability claims.
+- For site-selection and Stage 3 sequencing, national sensitivity is
+  the controlling frame. Regional sensitivity is supporting context for
+  cross-country comparison, not the primary basis for national choices.
 - If the country has zero hard-fails, drop the Exclusionary Failure
   Pareto section.
 - Do not invent national policy, ownership, or regulatory positions

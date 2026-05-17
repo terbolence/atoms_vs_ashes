@@ -1,3 +1,4 @@
+<!-- man_hours: 2.2 -->
 # Atoms vs Ashes — Project Methodology
 
 **Project:** SMR siting assessment for coal-to-nuclear transitions, Central/Eastern/Southern Europe  
@@ -228,6 +229,12 @@ All writers are idempotent on `(run_id, scope_*)` — re-running a `run_id` wipe
 Existing tables `composite_rankings`, `ranking_scores`, and `screening_verdicts` were extended in revision 034 with a `NOT VALID` foreign key onto `runs.run_id`. Pre-034 rows pre-date `runs` and remain valid (they are never `VALIDATE`d); post-034 rows must `INSERT` into `runs` first. Forward-only by design: the `20260423` / `20260425` CSV trees stay authoritative for those snapshots, and only subsequent pipeline runs populate the new tables.
 
 Querying is done via `src/atoms_vs_ashes/db/queries.py` (`top_n_per_country`, `site_criterion_scores`, `site_sensitivity_profile`, `failure_explanation`, `threshold_summary`) or the `python -m scripts.inspect_run` CLI documented in the project README.
+
+### 2.100 National sensitivity as the country/site stability frame
+
+Regional sensitivity analysis answers whether a site is stable in the full study-region pool. Version 1.2 country and site discussions use a narrower decision question: whether a candidate remains robust inside its own country for the NuScale VOYGR-6 reference case. The national sensitivity analysis is therefore the controlling method for country profiles, site stability paragraphs, and Stage 3 sequencing.
+
+Country and site profiles should interpret stability through national rank deltas, top-1 / top-3 / top-5 probabilities, national stability bands, and within-country shortlist overlap. Regional sensitivity remains part of the methodology and results narrative, but it is supporting context for cross-country comparison rather than the primary basis for national site-selection decisions.
 
 ---
 

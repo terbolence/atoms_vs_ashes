@@ -1,11 +1,11 @@
-# man_hours: 1.4
+# man_hours: 1.6
 """Unit coverage for the canonical DB profile resolver and the
 GUI-side bootstrap that binds the engine to the active profile."""
 
 from __future__ import annotations
 
 import os
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -45,12 +45,9 @@ def _patch_engine(*, returned_row, monkeypatch):
     fake_result = MagicMock()
     fake_result.first.return_value = returned_row
     fake_conn.execute.return_value = fake_result
-    fake_engine = MagicMock()
-    fake_engine.connect.return_value.__enter__.return_value = fake_conn
 
     from atoms_vs_ashes.db import engine as engine_mod
 
-    monkeypatch.setattr(engine_mod, "create_engine", lambda *_a, **_k: fake_engine)
     init_calls: list[tuple] = []
 
     def fake_init_engine(settings=None):
@@ -62,9 +59,8 @@ def _patch_engine(*, returned_row, monkeypatch):
 def test_init_engine_for_active_profile_falls_back_to_env_when_row_missing(
     monkeypatch,
 ):
-    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes_merged")
-
-    fake_conn, init_calls = _patch_engine(returned_row=None, monkeypatch=monkeypatch)
+    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes")
+    _fake_conn, init_calls = _patch_engine(returned_row=None, monkeypatch=monkeypatch)
 
     from atoms_vs_ashes.db.engine import init_engine_for_active_profile
 
@@ -74,49 +70,43 @@ def test_init_engine_for_active_profile_falls_back_to_env_when_row_missing(
     assert os.environ["POSTGRES_DB"] == "atoms_vs_ashes_merged"
 
 
-def test_init_engine_for_active_profile_overrides_env_with_active_profile(
+def test_init_engine_for_active_profile_ignores_non_merged_active_profile(
     monkeypatch,
 ):
-    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes_merged")
-
-    fake_conn, init_calls = _patch_engine(
+    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes")
+    _fake_conn, init_calls = _patch_engine(
         returned_row=({"db_profile": "api"},), monkeypatch=monkeypatch,
     )
 
     from atoms_vs_ashes.db.engine import init_engine_for_active_profile
 
     resolved = init_engine_for_active_profile()
-    assert resolved == "atoms_vs_ashes"
-    assert os.environ["POSTGRES_DB"] == "atoms_vs_ashes"
+    assert resolved == "atoms_vs_ashes_merged"
+    assert os.environ["POSTGRES_DB"] == "atoms_vs_ashes_merged"
     assert len(init_calls) == 1
 
 
-def test_init_engine_for_active_profile_unknown_db_profile_raises(
+def test_init_engine_for_active_profile_ignores_unknown_active_profile(
     monkeypatch,
 ):
-    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes_merged")
-
-    fake_conn, init_calls = _patch_engine(
+    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes")
+    _fake_conn, init_calls = _patch_engine(
         returned_row=({"db_profile": "ghost"},), monkeypatch=monkeypatch,
     )
 
     from atoms_vs_ashes.db.engine import init_engine_for_active_profile
 
-    with pytest.raises(ValueError) as exc:
-        init_engine_for_active_profile()
-    assert "ghost" in str(exc.value)
-    assert init_calls == []
+    resolved = init_engine_for_active_profile()
+    assert resolved == "atoms_vs_ashes_merged"
+    assert init_calls == [(None,)]
 
 
 def test_init_engine_for_active_profile_treats_db_error_as_fallback(
     monkeypatch,
 ):
-    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes_merged")
-    fake_engine = MagicMock()
-    fake_engine.connect.side_effect = RuntimeError("connection refused")
+    monkeypatch.setenv("POSTGRES_DB", "atoms_vs_ashes")
     from atoms_vs_ashes.db import engine as engine_mod
 
-    monkeypatch.setattr(engine_mod, "create_engine", lambda *_a, **_k: fake_engine)
     init_calls: list[tuple] = []
     monkeypatch.setattr(
         engine_mod, "init_engine",
@@ -128,3 +118,10 @@ def test_init_engine_for_active_profile_treats_db_error_as_fallback(
     resolved = init_engine_for_active_profile()
     assert resolved == "atoms_vs_ashes_merged"
     assert init_calls == [(None,)]
+
+
+def test_cli_default_db_profile_is_merged():
+    from atoms_vs_ashes.cli import main
+
+    db_param = next(p for p in main.params if p.name == "db_profile")
+    assert db_param.default == "merged"

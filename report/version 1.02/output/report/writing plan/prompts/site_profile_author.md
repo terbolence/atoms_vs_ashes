@@ -1,3 +1,4 @@
+<!-- man_hours: 1.2 -->
 # Site Profile Author Prompt
 
 Use this prompt to draft one selected-site profile for Chapter 5 of
@@ -40,7 +41,12 @@ construction authorization, or legal opinion.
    python -m scripts.export_site_bundle --site-id <UUID>
    ```
    Schema: `site_bundle.v1`. The keys you must consult are:
-   - `site` - geometry, capacity, country.
+   - `site` - geometry, capacity, country, and canonical
+     `site_area_ha`.
+   - `land_area` - report-ready area summary. Use `site_area_ha` as
+     the site surface-area number and `favourable_area_ha`, when
+     available, as the larger expansion envelope for laydown or future
+     site expansion.
    - `ownership` - parent companies, share, status, ownership path.
      Multiple rows are normal; deduplicate by `parent_name +
      ownership_path` and keep `share_pct` and `status`.
@@ -61,7 +67,8 @@ construction authorization, or legal opinion.
    - `criterion_families.infrastructure` - NS-01 to NS-13 raw values
      (cooling source, flow, distance, water stress, substation
      distance, voltage, grid export, transport, land class,
-     buildable hectares, Natura 2000, WDPA).
+     canonical site area, favourable expansion hectares, Natura 2000,
+     WDPA).
    - `screening.verdicts` - per-criterion measured value, threshold,
      verdict (pass/caution/fail), confidence, justification.
    - `scoring.ranking_scores` - per-criterion 0-10 score, MC bracket,
@@ -69,8 +76,10 @@ construction authorization, or legal opinion.
    - `scoring.criterion_components` - weighted contribution per
      criterion to the composite.
    - `scoring.composite_rankings` - composite score and MC band.
-   - `sensitivity.bands` - national and regional stability bands and
-     top-10 hit rates.
+  - `sensitivity.bands` - national and regional stability bands,
+    national rank probabilities, national rank deltas, and top-10 hit
+    rates where supplied. For country/site interpretation, national
+    sensitivity is the primary frame.
    - `metadata.smr_key` - the reference SMR. Use its label
      ("NuScale VOYGR-6") in prose.
 
@@ -120,6 +129,10 @@ Lead paragraph
   mine the secondary fields you need (number of nearby protected
   sites, fraction of protected area within 5 km, hazard model id) and
   surface them as inferred intelligence.
+- Land availability: for Site Footprint Adequacy (NS-05) and A15,
+  use `site_area_ha` as the criterion indicator and surface-area
+  number. Mention `favourable_area_ha` only as a larger surrounding
+  expansion envelope, not as the pass/fail site footprint.
 - Ownership block: deduplicate to one bullet per ultimate parent;
   show share %, project status (operating / retired / cancelled), and
   collapse multi-unit ownership into one summary statement. State
@@ -130,8 +143,9 @@ Lead paragraph
   any planned retirement. Use this to argue presence of grid, water,
   workforce, and brownfield reuse, not vendor selection.
 - Composite Score and Stability: pull composite_score with MC band,
-  national band, national top-10 hit rate. State explicitly what the
-  band letter implies in plain terms.
+  national band, national top-rank probabilities / hit rates, and
+  national rank-delta evidence where available. State explicitly what
+  the band letter implies for the site's position inside its country.
 - Residual Risk Register: at most five entries, table or compact
   bullet list, each carrying *concern*, *evidence (with measured
   value)*, *consequence*, *Stage 3 action*.

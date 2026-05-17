@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.7
 """Build read-only site bundles for report narrative drafting."""
 
 from __future__ import annotations
@@ -151,6 +151,26 @@ def _criterion_families(session: Session, site_id: uuid.UUID) -> dict[str, Any]:
     }
 
 
+def _land_area_summary(site: Site) -> dict[str, Any]:
+    infra = site.infrastructure
+    return {
+        "site_area_ha": _jsonable(site.site_area_ha),
+        "site_area_source": _jsonable(site.site_area_source),
+        "site_area_confidence": _jsonable(site.site_area_confidence),
+        "favourable_area_ha": _jsonable(
+            getattr(infra, "favourable_area_ha", None)
+        ),
+        "favourable_area_method": _jsonable(
+            getattr(infra, "favourable_area_method", None)
+        ),
+        "reporting_note": (
+            "Use site_area_ha as the NS-05/A15 surface-area indicator. "
+            "Use favourable_area_ha, when populated, as the wider expansion "
+            "envelope for laydown or future site expansion."
+        ),
+    }
+
+
 def _scoring(
     session: Session, *, site_id: uuid.UUID, smr_key: str, run_id: str
 ) -> dict[str, Any]:
@@ -281,6 +301,7 @@ def build_site_bundle(
             "claim_boundary": "Screening-grade Stage 1-2 support only.",
         },
         "site": _model_dict(site),
+        "land_area": _land_area_summary(site),
         "ownership": _rows(session, SiteOwnership, site_id),
         "units": _rows(session, SiteUnit, site_id),
         "criterion_families": _criterion_families(session, site_id),

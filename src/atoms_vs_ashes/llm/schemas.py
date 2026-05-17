@@ -1,4 +1,4 @@
-# man_hours: 16.2
+# man_hours: 16.3
 """Pydantic output schemas and Anthropic tool definitions for all 46 criteria.
 
 Each criterion has:
@@ -1043,15 +1043,15 @@ class NS04SiteTopography(_RankingBase):
 
 class NS05LandAvailability(_RankingBase):
     criterion_id: str = "NS-05"
-    buildable_area_ha: float | None = None
-    largest_contiguous_ha: float | None = None
+    site_area_ha: float | None = None
+    favourable_area_ha: float | None = None
 
     @classmethod
     def anthropic_tool(cls) -> dict[str, Any]:
         p = cls._base_props()
         p.update({
-            "buildable_area_ha": {"type": ["number", "null"]},
-            "largest_contiguous_ha": {"type": ["number", "null"]},
+            "site_area_ha": {"type": ["number", "null"]},
+            "favourable_area_ha": {"type": ["number", "null"]},
         })
         return _tool("record_ns05_ranking", "Score land availability (NS-05)", p, cls._base_required())
 

@@ -1,6 +1,7 @@
+<!-- man_hours: 4.5 -->
 # Report Writing Decisions and Drafting Guide
 
-This file is the controlling editorial guide for drafting the final report. It consolidates scope, structure, evidence anchors, country/site profile rules, prompt usage, and output organisation. Use it together with the canonical table of contents in [`tableOfContents.md`](tableOfContents.md) and the prose standard in [`writingStyle.md`](writingStyle.md).
+This file is the controlling editorial guide for drafting the final report. It consolidates scope, structure, evidence anchors, country/site profile rules, prompt usage, and output organisation. Use it together with the canonical table of contents in [`tableOfContents.md`](tableOfContents.md), the prose standard in [`writingStyle.md`](writingStyle.md), and the version 1.2 operational controls in [`v1_2_iteration_controls.md`](v1_2_iteration_controls.md).
 
 ## 1. Audience and Report Purpose
 
@@ -10,16 +11,16 @@ The report is not a licence application, site characterization report, vendor se
 
 ## 2. Analytical Anchor
 
-Treat the report as having a single analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Treat the report as having a single analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric. Country and site stability discussions must use the **national sensitivity analysis** as their primary frame: rank stability, top-rank probabilities, and shortlist robustness are interpreted within the same country and NuScale VOYGR-6 reference case, not merely in the regional pool.
 
 | Item | Value |
 | --- | --- |
-| Sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis |
+| Sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis, interpreted nationally for country and site stability |
 | Iterations | 10,000 |
 | Seed | 42 (deterministic per site–SMR pair) |
 | Reference SMR case | NuScale VOYGR-6 only |
 
-Reader-facing prose (manuscript, annexes, captions, tables, ToC, executive brief) must refer to "the project's 10,000-iteration Monte Carlo sensitivity analysis" without naming internal run identifiers, session IDs, audit-file paths, or date-stamped folders. Internal identifiers remain in the generated sensitivity export pack under `report/output/sensitivity/` for reproducibility but never appear in the manuscript.
+Reader-facing prose (manuscript, annexes, captions, tables, ToC, executive brief) must refer to "the project's 10,000-iteration Monte Carlo sensitivity analysis" without naming internal run identifiers, session IDs, audit-file paths, or date-stamped folders. Where the prose discusses country choices, site stability, rank robustness, or Stage 3 sequencing, it must explicitly frame the result as **national sensitivity analysis**. Internal identifiers remain in the generated sensitivity export pack under `report/output/sensitivity/` for reproducibility but never appear in the manuscript.
 
 ## 3. Reference Technology Framing
 
@@ -46,14 +47,15 @@ Do not finish the Introduction first. Keep it as a working draft and revise it a
 
 Recommended order:
 
-1. Freeze analytical anchors: scoring rubric, sensitivity basis, NuScale VOYGR-6 reference case, and citation conventions.
+1. Freeze analytical anchors: scoring rubric, sensitivity basis, NuScale VOYGR-6 reference case, citation conventions, and the version 1.2 baseline decision.
 2. Ensure the current sensitivity export pack under `report/output/sensitivity/` is aligned with the current frozen scoring rubric.
-3. Draft Chapter 4, because it fixes the report's numerical story and conclusions.
-4. Draft Chapter 2 and Chapter 3 from the frozen methodology and scoring outputs.
-5. Draft Chapter 5 country and selected site profiles through the country-packet workflow.
-6. Draft Chapter 6 recommendations from the selected sites, failure modes, and data gaps.
-7. Revise Chapter 1 so it introduces the final report accurately.
-8. Complete final remarks, references, annex cross-links, and the separate executive technical brief.
+3. Regenerate all country/site bundles, charts, maps, graphs, and rendered profile scaffolds from the accepted baseline.
+4. Draft Chapter 4, because it fixes the report's numerical story and conclusions.
+5. Draft Chapter 2 and Chapter 3 from the frozen methodology and scoring outputs.
+6. Draft Chapter 5 country and selected site profiles through the country-packet workflow.
+7. Draft Chapter 6 recommendations from the selected sites, failure modes, and data gaps.
+8. Revise Chapter 1 so it introduces the final report accurately.
+9. Complete final remarks, references, annex cross-links, and the separate executive technical brief.
 
 ## 6. Country and Site Profile Rules
 
@@ -103,7 +105,7 @@ The renderer emits one specialist placeholder per criterion bullet, plus one for
 
 ## 8. Tables, Figures, and Maps
 
-Every selected site should receive a consistent visual pack where data permit. If a visual cannot be generated honestly, include a short data-unavailable note rather than inventing a substitute.
+Every selected site should receive a consistent visual pack where data permit. For version 1.2, all report charts, graphs, maps, country bundles, site bundles, and rendered profile scaffolds must be regenerated from the accepted baseline. If a visual cannot be generated honestly, include a short data-unavailable note rather than inventing a substitute.
 
 Recommended visual pack:
 
@@ -112,7 +114,7 @@ Recommended visual pack:
 | Site locator map | OpenStreetMap, Carto, Natural Earth, or existing project GIS output | Avoid making Google Maps a dependency because of cost, licensing, and reproducibility. |
 | Site context map | Existing DB/GIS layers: settlements, water, grid, transport, protected areas where available | Use consistent scale and symbology across sites. |
 | Criterion family chart | Generated from scoring outputs | Group NH, HI, RI, EP, and NS results. |
-| Sensitivity stability chart | Generated from sensitivity CSVs | Show top-5%, top-10%, top-30%, rank stability, or band stability. |
+| National sensitivity and stability chart | Generated from national sensitivity CSVs | Show national rank stability, top-1 / top-3 / top-5 probabilities, national rank deltas, and band stability within the country. |
 | Failure/risk chart | Generated from failure-mode outputs | Include threshold distance where measurable. |
 | Country comparison table | Generated from country ranking outputs | Mark selected sites clearly. |
 
@@ -149,11 +151,11 @@ Prompt files live in two places:
 
 Older general-purpose role prompts (`experts/report/site_describer.md`, `experts/quality/siting_expert.md`, etc.) remain in use for free-form drafting; the report-section prompts above supersede them whenever the goal is to produce one of the Chapter 5 markdown files from a bundle.
 
-Use section-specific prompts only when a section has materially different behaviour. Do not create a separate prompt for every numbered subsection unless the section requires a distinct role, input contract, or output structure.
+Use section-specific prompts only when a section has materially different behaviour. Do not create a separate prompt for every numbered subsection unless the section requires a distinct role, input contract, or output structure. For version 1.2, choose the prompt structure that produces the best report quality: the consolidated specialist prompt may be used where it is sufficient, while family-level or per-criterion specialist prompts should be used for technically delicate or reviewer-sensitive material.
 
 ### Specialist Interpretation Pass
 
-The country and site profile renderers leave one machine-parseable placeholder per interpretation block. The specialist pass that fills those placeholders runs **inside Cursor**: the agent reads the matching specialist prompt and bundle slice and writes the paragraph directly. There is no external LLM API call. See §13 below for the helper CLI (`run_specialist_pass.py`) and the placeholder grammar.
+The country and site profile renderers leave one machine-parseable placeholder per interpretation block. The specialist pass that fills those placeholders runs **inside Cursor**: the agent reads the matching specialist prompt and bundle slice and writes the paragraph directly. There is no external LLM API call. See §13 below for the helper CLI (`run_specialist_pass.py`) and the placeholder grammar. Placeholder tags and drafting notes are internal workflow artefacts only; they must not survive into publication-ready report outputs.
 
 ## 10. Output Organisation
 
@@ -221,14 +223,15 @@ This brief is a governance, audit, and lessons-learned deliverable. It should no
 
 ## 13. Specialist Interpretation Workflow
 
-The country and site profile renderers do not write the expert interpretation paragraphs themselves. They emit the data scaffold (tables, charts, criterion bullets, ownership block, residual-risk skeleton, stability summary) and insert one machine-parseable placeholder per interpretation block. The placeholders are filled **inside Cursor** by the agent reading the single specialist prompt and the relevant bundle slice. **There is no external LLM API call.**
+The country and site profile renderers do not write the expert interpretation paragraphs themselves. They emit the data scaffold (tables, charts, criterion bullets, ownership block, residual-risk skeleton, stability summary) and insert one machine-parseable placeholder per interpretation block. The placeholders are filled **inside Cursor** by the agent reading the accepted specialist prompt and the relevant bundle slice. **There is no external LLM API call.**
 
-There is one specialist prompt for the entire report. Per-criterion specialist prompts are not used; one paragraph per family is sufficient.
+The default version 1.02 workflow uses one specialist prompt for the entire report. Version 1.2 may retain that prompt, use one specialist prompt per criterion family, or use per-criterion override prompts where the extra technical focus improves report quality. Do not create one prompt per site.
 
 ### Prompt location
 
-- `report/output/writing plan/prompts/specialists/siting_expert.md` - the single voice. Defines the role, the universal style rules, and the four output shapes (per-family paragraph, residual-risk register, stability paragraph, country executive paragraph). The shape is selected by the placeholder key.
+- `report/output/writing plan/prompts/specialists/siting_expert.md` - the consolidated specialist voice. Defines the role, the universal style rules, and the four output shapes (per-family paragraph, residual-risk register, stability paragraph, country executive paragraph). The shape is selected by the placeholder key.
 - `report/output/writing plan/prompts/specialists/00_README.md` - the registry of placeholder keys and the workflow.
+- Optional family-level and per-criterion specialist prompts may be added under `report/output/writing plan/prompts/specialists/` when they improve technical quality or reviewer traceability.
 
 ### Placeholder set
 
@@ -241,7 +244,7 @@ Per site (six placeholders):
 | `family_radiological_emergency` | One paragraph for RI-* and EP-*. |
 | `family_infrastructure` | One paragraph for NS-* (and BF-01). |
 | `residual_risk` | Markdown table + closing paragraph. |
-| `stability` | Plain-English read of composite + MC bracket + band. |
+| `stability` | Plain-English read of composite + MC bracket + national sensitivity / stability evidence. |
 
 Per country (one placeholder):
 
@@ -259,7 +262,7 @@ Per country (one placeholder):
 
 Country placeholders use `scope=country country_code=<CC>` instead of `scope=site site_id=<UUID>`.
 
-The patch step rewrites the open tag to `status=filled by=cursor-agent filled_at=<UTC>`. Re-runs skip already-filled blocks unless `--force` is supplied.
+The patch step rewrites the open tag to `status=filled by=cursor-agent filled_at=<UTC>`. Re-runs skip already-filled blocks unless `--force` is supplied. These tags are internal traceability artefacts only; publication-ready report files must not contain unresolved placeholders or drafting notes.
 
 ### Helper CLI
 
@@ -277,13 +280,17 @@ The audit trail is the open-tag attributes plus the git diff; no separate `data/
 
 1. `show --key family_natural_hazards`, draft, `patch`.
 2. Repeat for `family_human_hazards`, `family_radiological_emergency`, `family_infrastructure`.
-3. `show --key residual_risk` and `show --key stability`, draft, `patch`.
+3. `show --key residual_risk` and `show --key stability`, draft the national sensitivity and stability interpretation, then `patch`.
 4. Once every site in the country is filled, `show --key country_exec`, draft, `patch`.
+
+### Clean-output rule
+
+Reader-facing report outputs must contain natural report language only. Remove or resolve all writing notes, agent notes, TODOs, placeholder text, and internal process language before final assembly. See `v1_2_iteration_controls.md` for the full publication gate.
 
 ### Removed from the workflow
 
 - `src/scripts/interpret_site_with_anthropic.py` (Anthropic API request builder).
 - The earlier `--call --ack-consent` flags and `data/llm_responses/specialist_pass/<run_id>/` log path.
-- The earlier per-criterion family prompts (`01_natural_hazards.md` ... `08_country_coal_to_nuclear_executive.md`) and `criteria/<CID>.md` override cards. The single `siting_expert.md` replaces them.
+- The earlier per-criterion family prompts (`01_natural_hazards.md` ... `08_country_coal_to_nuclear_executive.md`) and `criteria/<CID>.md` override cards were removed from the version 1.02 default workflow. Version 1.2 may reintroduce family-level or per-criterion prompts if the accepted template decision concludes they improve quality.
 - The earlier `run_specialist_pass show-pack` subcommand. With one placeholder per family, the agent reads one prompt + one slice per family directly through `show`.
 

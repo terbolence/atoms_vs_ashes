@@ -35,11 +35,11 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_rubrics/ns_non_safety.yaml:
-    hours: 6.2
+    hours: 6.5
     category: "Configuration & DevOps"
 
   config/scoring_specs/ns_non_safety.yaml:
-    hours: 6.2
+    hours: 6.5
     category: "Configuration & DevOps"
 
   config/scoring_specs/nh_natural_hazards.yaml:
@@ -47,7 +47,7 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_specs/threshold_metadata.yaml:
-    hours: 4.2
+    hours: 4.3
     category: "Configuration & DevOps"
 
   docker-compose.yml:
@@ -263,11 +263,11 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/cli.py:
-    hours: 6.5
+    hours: 6.7
     category: "Implementation"
 
   src/atoms_vs_ashes/config.py:
-    hours: 3.0
+    hours: 4.1
     category: "Implementation"
 
   src/atoms_vs_ashes/connectors/__init__.py:
@@ -319,7 +319,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/db/engine.py:
-    hours: 2.0
+    hours: 2.3
     category: "Implementation"
 
   src/atoms_vs_ashes/db/models.py:
@@ -949,11 +949,11 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/schemas.py:
-    hours: 16.2
+    hours: 16.3
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/context.py:
-    hours: 8.0
+    hours: 8.2
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/client.py:
@@ -961,7 +961,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/persist.py:
-    hours: 4.2
+    hours: 4.3
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/audit_log.py:
@@ -981,11 +981,11 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/prompts/avoidance.py:
-    hours: 8.0
+    hours: 8.2
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/prompts/ranking.py:
-    hours: 12.0
+    hours: 12.2
     category: "Implementation"
 
   src/atoms_vs_ashes/llm/prompts/_base.py:
@@ -2655,11 +2655,11 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_runner.py:
-    hours: 2.0
+    hours: 2.2
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_runner_national.py:
-    hours: 0.9
+    hours: 1.0
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_run_status_panel.py:
@@ -2683,7 +2683,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/reports/pdf_country.py:
-    hours: 1.5
+    hours: 1.6
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/reports/pdf_criteria.py:
@@ -2743,7 +2743,7 @@ files:
     category: "Testing"
 
   tests/gui/test_runner.py:
-    hours: 1.8
+    hours: 2.0
     category: "Testing"
 
   tests/scoring/test_national_suite_single_smr.py:
@@ -2931,10 +2931,126 @@ files:
     category: "Testing"
 
   report/version 1.02/v1_2_report_preparation/report_writing_tools_and_templates_evaluation.md:
-    hours: 6.0
+    hours: 7.5
     category: "Other"
 
   audit/conversations/2026-05-17_report-v1-2-preparation.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  architecture/plans/report-v12-writing-controls-update.md:
     hours: 0.5
+    category: "Architecture & Design"
+
+  audit/plans/report-v12-writing-controls-update.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  report/version 1.02/output/report/writing plan/writingDecisions.md:
+    hours: 4.5
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/v1_2_iteration_controls.md:
+    hours: 3.0
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/specialists/00_README.md:
+    hours: 0.9
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/tableOfContents.md:
+    hours: 1.4
+    category: "Other"
+
+  report/version 1.02/output/writing plan/tableOfContents.md:
+    hours: 1.4
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/country_profile_author.md:
+    hours: 1.5
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/site_profile_author.md:
+    hours: 1.2
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/specialists/siting_expert.md:
+    hours: 1.4
+    category: "Other"
+
+  report/version 1.02/methodology/sensitivity_analysis.md:
+    hours: 2.4
+    category: "Other"
+
+  report/version 1.02/methodology/methodology.md:
+    hours: 2.2
+    category: "Other"
+
+  audit/feature_completion_matrices/2026-05-17_report_v12_toc_methodology_controls.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  architecture/plans/report-v12-toc-methodology-sensitivity.md:
+    hours: 0.3
+    category: "Architecture & Design"
+
+  audit/plans/report-v12-toc-methodology-sensitivity.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  src/atoms_vs_ashes/gui/app.py:
+    hours: 1.35
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/screen_pages/02_run_profile.py:
+    hours: 2.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/site_metrics.py:
+    hours: 0.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/reporting/site_bundle.py:
+    hours: 1.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/reporting/country_bundle.py:
+    hours: 1.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/runprofile/schema.py:
+    hours: 4.1
+    category: "Implementation"
+
+  tests/scoring/test_ns05_site_area.py:
+    hours: 0.5
+    category: "Testing"
+
+  tests/reporting/test_site_bundle_land_area.py:
+    hours: 0.3
+    category: "Testing"
+
+  tests/scoring/test_run_profile.py:
+    hours: 1.6
+    category: "Testing"
+
+  tests/db/test_profile_resolution.py:
+    hours: 1.6
+    category: "Testing"
+
+  audit/feature_completion_matrices/2026-05-17_merged_db_ns05_site_area_source.md:
+    hours: 1.2
+    category: "Project Management & QA"
+
+  architecture/plans/merged_db_ns05_site_area_source_of_truth.md:
+    hours: 0.7
+    category: "Architecture & Design"
+
+  audit/plans/merged_db_ns05_site_area_source_of_truth.md:
+    hours: 0.7
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_merged_db_ns05_site_area_source.md:
+    hours: 0.7
     category: "Project Management & QA"
 

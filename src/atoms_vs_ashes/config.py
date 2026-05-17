@@ -1,4 +1,4 @@
-# man_hours: 4.0
+# man_hours: 4.1
 """Configuration loading: YAML + environment variables + validation."""
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ _DEFAULT_CONFIG = _PROJECT_ROOT / "config" / "default.yml"
 class DatabaseSettings(BaseSettings):
     host: str = "localhost"
     port: int = 5432
-    db: str = "atoms_vs_ashes"
+    db: str = "atoms_vs_ashes_merged"
     user: str = "atoms"
     password: str = "changeme"
 

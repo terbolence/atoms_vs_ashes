@@ -1,7 +1,7 @@
 <!-- man_hours: 3.0 -->
 # Atoms vs Ashes — Project Scale Report
 
-**Generated:** 2026-05-17T14:08:33Z  
+**Generated:** 2026-05-17T14:38:53Z  
 **Purpose:** Summarise how large the siting screening project is — in words, software, data, and professional effort.  
 **Scope:** All files tracked in the project git archive (atoms_vs_ashes/).
 
@@ -22,12 +22,12 @@ This document describes the **size and composition** of the Atoms vs Ashes sitin
 
 | | |
 | --- | --- |
-| **Estimated professional effort** | **2,112 person-hours** (~264 person-days at 8 h/day) |
-| **Written documentation** | **117,025** lines (~2,601 pages) in **735** files |
-| **Computer programs (Python)** | **182,608** lines in **804** files |
+| **Estimated professional effort** | **2,135 person-hours** (~267 person-days at 8 h/day) |
+| **Written documentation** | **134,287** lines (~2,984 pages) in **833** files |
+| **Computer programs (Python)** | **183,501** lines in **805** files |
 | **Siting criteria defined** | **67** specification documents |
 | **External map & data connectors** | **34** integrated sources |
-| **All tracked project files** | **1,775** files, **1,366,602** total lines (programs + prose + tables) |
+| **All tracked project files** | **1,828** files, **1,373,824** total lines (programs + prose + tables) |
 
 ---
 
@@ -47,20 +47,20 @@ Atoms vs Ashes is a **screening and ranking system** for coal-to-nuclear and bro
 
 ## Written documentation
 
-The project contains **117,025 lines** of Markdown documentation (**~2,601 pages**, **735** files). This is the main body of prose: criteria, the client report, audits, architecture notes, and technical references.
+The project contains **134,287 lines** of Markdown documentation (**~2,984 pages**, **833** files). This is the main body of prose: criteria, the client report, audits, architecture notes, and technical references.
 
 ### Where the writing lives
 
 | Part of the project | Files | Lines of text | Est. pages |
 | --- | ---: | ---: | ---: |
-| Client report & deliverables | 256 | 30,941 | ~688 pages |
-| Quality audits & verification records | 258 | 27,897 | ~620 pages |
+| Client report & deliverables | 349 | 47,945 | ~1,065 pages |
+| Quality audits & verification records | 262 | 28,119 | ~625 pages |
 | Software source (programs & specifications) | 62 | 27,520 | ~612 pages |
 | Automated quality checks | 27 | 6,226 | ~138 pages |
 | Expert review prompts (AI-assisted QA) | 18 | 7,170 | ~159 pages |
 | Technical reference documentation | 17 | 6,625 | ~147 pages |
 | Siting criteria (official rubric text) | 67 | 5,630 | ~125 pages |
-| System design documents | 17 | 2,525 | ~56 pages |
+| System design documents | 18 | 2,561 | ~57 pages |
 | Project guides (README, AGENTS, etc.) | 5 | 1,836 | ~41 pages |
 | Data export tools | 2 | 270 | ~6 pages |
 | Business Case | 2 | 191 | ~4 pages |
@@ -69,13 +69,15 @@ The project contains **117,025 lines** of Markdown documentation (**~2,601 pages
 | External data source notes | 1 | 8 | ~1 pages |
 | Bundled reference data descriptors | 1 | 17 | ~1 pages |
 
-| **Total** | **735** | **117,025** | **~2,601 pages** |
+| **Total** | **833** | **134,287** | **~2,984 pages** |
 
 ### Largest individual documents
 
 | Lines | Document |
 | ---: | --- |
+| 2,520 | power_plants_data.md (`report/version 1.02/requirements/coverage_reports/country_snapshots/RO/power_plants_data.md`) |
 | 2,520 | power_plants_data.md (`report/version 1.01/requirements/coverage_reports/country_snapshots/RO/power_plants_data.md`) |
+| 2,352 | business_logic.md (`report/version 1.02/methodology/business_logic.md`) |
 | 2,352 | business_logic.md (`report/version 1.01/methodology/business_logic.md`) |
 | 2,143 | expert_siting_criteria_evaluation_matrix.md (`docs/expert_siting_criteria_evaluation_matrix.md`) |
 | 1,404 | S-17_eurostat_demographic_projections.md (`src/dataAcquisition/specifications/S-17_eurostat_demographic_projections.md`) |
@@ -85,22 +87,20 @@ The project contains **117,025 lines** of Markdown documentation (**~2,601 pages
 | 1,266 | S-15_wdpa.md (`src/dataAcquisition/specifications/S-15_wdpa.md`) |
 | 1,265 | osm_populated_places.md (`tests/integrationSnapshots/osm_populated_places.md`) |
 | 1,205 | S-05_sentinel_hub.md (`src/dataAcquisition/specifications/S-05_sentinel_hub.md`) |
-| 1,197 | S-13_entso_e.md (`src/dataAcquisition/specifications/S-13_entso_e.md`) |
-| 1,176 | seismic_hazard_s01_sample_report.md (`docs/connector_reports/seismic_hazard_s01_sample_report.md`) |
 
 ---
 
 ## Computer programs
 
-The screening **software** is **182,608 lines** of Python (**804** files), plus configuration in YAML.
+The screening **software** is **183,501 lines** of Python (**805** files), plus configuration in YAML.
 
 | Component | Lines | Role |
 | --- | ---: | --- |
 | Main application (`src/`) | **146,853** | Scoring, maps, database, connectors, user interface |
 | Automated tests (`tests/`) | **34,181** | Checks that scoring behaves correctly |
-| Configuration (YAML) | **9,240** | Scoring weights, thresholds, rubrics |
+| Configuration (YAML) | **10,178** | Scoring weights, thresholds, rubrics |
 
-*Analyst note: automated counters classify **136,086** lines as "active program text", **19,692** as inline documentation in code, and **26,189** as blank lines — total **181,967** for Python across the whole repository.*
+*Analyst note: automated counters classify **136,769** lines as "active program text", **19,781** as inline documentation in code, and **26,310** as blank lines — total **182,860** for Python across the whole repository.*
 
 ---
 
@@ -121,13 +121,13 @@ Estimated **senior professional time** to reach the current state of the project
 | --- | ---: | ---: | ---: |
 | Building the screening software | 961.0 | 120 | 209 |
 | External data source research | 235.9 | 29 | 28 |
-| Project management & quality records | 169.6 | 21 | 154 |
+| Project management & quality records | 171.4 | 21 | 157 |
 | Requirements & regulatory research | 139.5 | 17 | 20 |
 | Testing & verification | 137.1 | 17 | 74 |
 | AI expert prompts & automation | 111.0 | 14 | 11 |
+| Other | 102.6 | 13 | 74 |
 | Configuration & tooling | 92.5 | 12 | 35 |
-| Other | 81.5 | 10 | 64 |
-| System design | 72.7 | 9 | 24 |
+| System design | 73.5 | 9 | 26 |
 | Database structure | 46.2 | 6 | 36 |
 | Report writing | 20.9 | 3 | 26 |
 | Documentation | 16.3 | 2 | 13 |
@@ -136,7 +136,7 @@ Estimated **senior professional time** to reach the current state of the project
 | Extra QA | 4.0 | 1 | 7 |
 | Charts & visual outputs | 2.0 | 0 | 1 |
 | Expert review systems | 1.0 | 0 | 1 |
-| **Total** | **2,111.5** | **264** | **718** |
+| **Total** | **2,135.2** | **267** | **733** |
 
 ---
 
@@ -146,10 +146,10 @@ Much of the repository was produced with AI coding tools. The figures below are 
 
 | | Estimated tokens |
 | --- | ---: |
-| Text stored in the repository (output) | **4,257,879** |
-| Reading & revising during development (input) | **25,547,274** |
-| Extended reasoning steps (thinking) | **8,345,443** |
-| **Combined model** | **38,150,596** |
+| Text stored in the repository (output) | **4,863,925** |
+| Reading & revising during development (input) | **29,183,550** |
+| Extended reasoning steps (thinking) | **9,533,293** |
+| **Combined model** | **43,580,768** |
 
 *Method: character counts in tracked Python, Markdown, and YAML; ≈×6 input multiplier; 28% thinking allowance.*
 
@@ -161,14 +161,14 @@ Every **top-level folder** in the git archive:
 
 | Folder | Plain name | Prose (.md) | Programs (.py) | Settings (.yml) | Data (.json/.csv) | Other files |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| `report` | Client report & deliverables | 30,941 / 256f | 0 / 0f | 1,052 / 1f | 587,788 / 90f | 291 |
-| `audit` | Quality audits & verification records | 27,897 / 258f | 0 / 0f | 3,651 / 16f | 500,884 / 300f | 72 |
+| `report` | Client report & deliverables | 47,945 / 349f | 893 / 1f | 1,836 / 11f | 587,788 / 90f | 293 |
+| `audit` | Quality audits & verification records | 28,119 / 262f | 0 / 0f | 3,805 / 18f | 500,884 / 300f | 72 |
 | `src` | Software source (programs & specifications) | 27,520 / 62f | 146,853 / 622f | 0 / 0f | 0 / 0f | 70 |
 | `tests` | Automated quality checks | 6,226 / 27f | 34,181 / 174f | 0 / 0f | 3,236 / 4f | 18 |
 | `experts` | Expert review prompts (AI-assisted QA) | 7,170 / 18f | 0 / 0f | 0 / 0f | 40 / 1f | 0 |
 | `docs` | Technical reference documentation | 6,625 / 17f | 0 / 0f | 0 / 0f | 0 / 0f | 4 |
 | `criteria` | Siting criteria (official rubric text) | 5,630 / 67f | 0 / 0f | 0 / 0f | 0 / 0f | 0 |
-| `architecture` | System design documents | 2,525 / 17f | 0 / 0f | 0 / 0f | 0 / 0f | 0 |
+| `architecture` | System design documents | 2,561 / 18f | 0 / 0f | 0 / 0f | 0 / 0f | 0 |
 | `_root` | Project guides (README, AGENTS, etc.) | 1,836 / 5f | 0 / 0f | 21 / 1f | 0 / 0f | 5 |
 | `export` | Data export tools | 270 / 2f | 935 / 6f | 0 / 0f | 252 / 1f | 27 |
 | `scripts` | Scripts | 0 / 0f | 639 / 2f | 0 / 0f | 0 / 0f | 0 |
@@ -178,7 +178,7 @@ Every **top-level folder** in the git archive:
 | `sources` | External data source notes | 8 / 1f | 0 / 0f | 0 / 0f | 22 / 5f | 11 |
 | `data` | Bundled reference data descriptors | 17 / 1f | 0 / 0f | 0 / 0f | 0 / 0f | 2 |
 | `logs` | Logs | 0 / 0f | 0 / 0f | 0 / 0f | 0 / 0f | 27 |
-| **Total** | | **117,025** | **182,608** | **9,240** | **1,092,222** | |
+| **Total** | | **134,287** | **183,501** | **10,178** | **1,092,222** | |
 
 ---
 
@@ -190,23 +190,23 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 
 | | Lines |
 | --- | ---: |
-| Code | 1,295,639 |
-| Comment | 21,019 |
-| Blank | 49,944 |
-| **Physical total** | **1,366,602** |
+| Code | 1,301,244 |
+| Comment | 21,204 |
+| Blank | 51,376 |
+| **Physical total** | **1,373,824** |
 
 ### By folder (physical lines)
 
 | Area | Folder | Files | Code | Comment | Blank | Total |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Client report & deliverables | `report` | 362 | 612,648 | 607 | 7,512 | 620,767 |
-| Quality audits & verification records | `audit` | 436 | 499,888 | 215 | 6,168 | 506,271 |
+| Client report & deliverables | `report` | 411 | 618,035 | 788 | 8,884 | 627,707 |
+| Quality audits & verification records | `audit` | 440 | 500,106 | 219 | 6,228 | 506,553 |
 | Software source (programs & specifications) | `src` | 685 | 132,446 | 16,477 | 25,612 | 174,535 |
 | Automated quality checks | `tests` | 204 | 33,943 | 3,066 | 6,675 | 43,684 |
 | Expert review prompts (AI-assisted QA) | `experts` | 19 | 5,051 | 28 | 2,131 | 7,210 |
 | Technical reference documentation | `docs` | 18 | 5,412 | 2 | 1,217 | 6,631 |
 | Scoring rules & configuration | `config` | 16 | 4,066 | 403 | 96 | 4,565 |
-| System design documents | `architecture` | 17 | 1,942 | 9 | 574 | 2,525 |
+| System design documents | `architecture` | 18 | 1,967 | 10 | 584 | 2,561 |
 | Siting criteria (official rubric text) | `criteria` | 17 | 1,484 | 17 | 505 | 2,006 |
 | Data export tools | `export` | 16 | 1,112 | 206 | 209 | 1,527 |
 | External data source notes | `sources` | 7 | 28 | 0 | 3 | 31 |
@@ -469,7 +469,7 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 
 ### Project management & quality records
 
-**154** files, **169.6** hours
+**157** files, **171.4** hours
 
 | File | Hours |
 | --- | ---: |
@@ -521,6 +521,7 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `audit/conversations/2026-05-16_nh10-action-norms-alignment.md` | 1.0 |
 | `audit/conversations/2026-05-16_ranking-criteria-sweep.md` | 1.0 |
 | `audit/conversations/2026-05-17_phase2_auditor_review.md` | 1.0 |
+| `audit/conversations/2026-05-17_report-v1-2-preparation.md` | 1.0 |
 | `audit/conversations/2026-05-17_tier2_partial_data_scoring.md` | 1.0 |
 | `audit/feature_completion_matrices/2026-05-17_s38_natural_earth_coast_distance.md` | 1.0 |
 | `audit/plans/exclusionary_sweep_13877396.plan.md` | 1.0 |
@@ -573,8 +574,9 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `audit/conversations/2026-05-09_cursor-rules-optimization.md` | 0.5 |
 | `audit/conversations/2026-05-13_scoring-conformity-assessment.md` | 0.5 |
 | `audit/conversations/2026-05-17_criterion-deactivation-flux.md` | 0.5 |
-| `audit/conversations/2026-05-17_report-v1-2-preparation.md` | 0.5 |
 | `audit/feature_completion_matrices/2026-05-17_criterion_deactivation_flux.md` | 0.5 |
+| `audit/feature_completion_matrices/2026-05-17_report_v12_toc_methodology_controls.md` | 0.5 |
+| `audit/plans/report-v12-writing-controls-update.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_4_pga.md` | 0.5 |
 | `audit/post_processing/02_data_verification/2_5_targeted_checks/20260418_2_5_5_soil_liquefaction.md` | 0.5 |
 | `audit/post_processing/06_scoring/20260517_tier1_data_ok_hi07_scored_examples.md` | 0.5 |
@@ -602,6 +604,7 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `audit/post_processing/v2_close_out/README.md` | 0.4 |
 | `audit/plans/criterion_deactivation_flux.md` | 0.3 |
 | `audit/plans/log-replay-feedback-rework.md` | 0.3 |
+| `audit/plans/report-v12-toc-methodology-sensitivity.md` | 0.3 |
 | `audit/post_processing/02_data_verification/20260514_merged_resync.md` | 0.3 |
 | `audit/post_processing/hi01_preview/README.md` | 0.3 |
 | `audit/post_processing/hi06_fix04_preview/README.md` | 0.3 |
@@ -754,6 +757,87 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `experts/connectors/database_audit.md` | 2.0 |
 | `experts/connectors/site_area_web_search.md` | 1.0 |
 
+### Other
+
+**74** files, **102.6** hours
+
+| File | Hours |
+| --- | ---: |
+| `docs/expert_siting_criteria_evaluation_matrix.md` | 8.0 |
+| `report/version 1.02/v1_2_report_preparation/report_writing_tools_and_templates_evaluation.md` | 7.5 |
+| `report/version 1.01/sites_evaluation/07_criteria_non_safety.md` | 6.0 |
+| `Efficiency.md` | 4.5 |
+| `report/version 1.02/output/report/writing plan/writingDecisions.md` | 4.5 |
+| `business_case/nuclearelectrica_business_case.md` | 4.0 |
+| `business_case/product_valuation_and_sell_price.md` | 3.5 |
+| `criteria/avoidance/HI-02_A7_industrial_explosions.md` | 3.0 |
+| `report/version 1.02/output/report/writing plan/v1_2_iteration_controls.md` | 3.0 |
+| `report/version 1.02/methodology/sensitivity_analysis.md` | 2.4 |
+| `criteria/avoidance/NH-08_A9_coastal_flooding.md` | 2.2 |
+| `report/version 1.02/methodology/methodology.md` | 2.2 |
+| `AGENTS.md` | 2.0 |
+| `criteria/avoidance/RI-05_A12_population_centres.md` | 1.9 |
+| `criteria/avoidance/HI-01_A1-A4_aircraft_crash_hazard.md` | 1.8 |
+| `criteria/avoidance/NH-09_A11_river_flooding.md` | 1.8 |
+| `criteria/avoidance/NS-03_A14_transport_access.md` | 1.8 |
+| `criteria/ranking/NH-08 — Coastal flooding storm surge and tsunami.md` | 1.4 |
+| `criteria/ranking/NH-09 — River flooding.md` | 1.4 |
+| `criteria/ranking/NH-10 — Extreme winds.md` | 1.4 |
+| `report/version 1.02/output/report/writing plan/prompts/country_profile_author.md` | 1.4 |
+| `report/version 1.02/output/report/writing plan/prompts/specialists/siting_expert.md` | 1.4 |
+| `report/version 1.02/output/report/writing plan/tableOfContents.md` | 1.4 |
+| `report/version 1.02/output/writing plan/tableOfContents.md` | 1.4 |
+| `criteria/ranking/HI-07 — Electromagnetic interference.md` | 1.3 |
+| `criteria/ranking/NH-12 — Extreme temperatures.md` | 1.3 |
+| `criteria/avoidance/NS-02_A13_grid_connection.md` | 1.2 |
+| `criteria/non_safety/NS-01 — Cooling water (ultimate heat sink).md` | 1.2 |
+| `criteria/ranking/NH-11 — Extreme precipitation rain snow and drought.md` | 1.2 |
+| `criteria/ranking/RI-05 — Distance to large population centres.md` | 1.2 |
+| `report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md` | 1.2 |
+| `criteria/avoidance/NS-07_environmental_impact_avoidance_phase.md` | 1.0 |
+| `criteria/ranking/NH-02 — Seismic surface rupture capable faults.md` | 1.0 |
+| `criteria/ranking/NH-03 — Geotechnical settlement and liquefaction.md` | 1.0 |
+| `criteria/ranking/NH-04 — Geotechnical slope stability.md` | 1.0 |
+| `criteria/ranking/NH-13 — Forest and wildfire.md` | 1.0 |
+| `criteria/ranking/NH-14 — Combined hazards.md` | 1.0 |
+| `report/version 1.02/output/report/writing plan/prompts/site_profile_author.md` | 1.0 |
+| `report/version 1.02/output/report/writing plan/prompts/specialists/00_README.md` | 0.9 |
+| `criteria/ranking/BF-02 — Land and nuclear-island footprint.md` | 0.8 |
+| `criteria/ranking/NH-01 — Seismic ground motion PGA.md` | 0.8 |
+| `criteria/ranking/NH-05 — Subsidence karst mining oil and gas.md` | 0.8 |
+| `criteria/ranking/NH-06 — Foundation conditions.md` | 0.8 |
+| `criteria/ranking/NH-07 — Volcanism.md` | 0.8 |
+| `criteria/ranking/RI-01 — Atmospheric dispersion.md` | 0.7 |
+| `criteria/ranking/RI-03 — Groundwater dispersion.md` | 0.7 |
+| `criteria/ranking/RI-04 — Population density (EPZ rings).md` | 0.6 |
+| `criteria/ranking/HI-02 — Industrial explosions (Seveso, IED).md` | 0.6 |
+| `criteria/ranking/EP-03 — Physical-geography constraints.md` | 0.5 |
+| `criteria/ranking/RI-02 — Surface water dispersion.md` | 0.5 |
+| `criteria/ranking/RI-06 — Population projections.md` | 0.5 |
+| `criteria/ranking/NS-01 — Cooling water ultimate heat sink.md` | 0.4 |
+| `criteria/ranking/NS-02 — Grid connection detailed.md` | 0.4 |
+| `criteria/ranking/NS-03 — Transport access heavy haul.md` | 0.4 |
+| `criteria/ranking/NS-05 — Land availability ownership zoning.md` | 0.4 |
+| `criteria/ranking/NS-06 — Existing infrastructure reuse.md` | 0.4 |
+| `criteria/ranking/NS-07 — Environmental impact non-radiological.md` | 0.4 |
+| `criteria/ranking/NS-08 — Ecological sensitivity Natura 2000 WDPA.md` | 0.4 |
+| `criteria/ranking/NS-09 — Socioeconomic impact.md` | 0.4 |
+| `criteria/ranking/NS-10 — Workforce availability.md` | 0.4 |
+| `criteria/ranking/NS-11 — Coal-to-nuclear synergies.md` | 0.4 |
+| `criteria/ranking/NS-12 — Regulatory political environment.md` | 0.4 |
+| `criteria/ranking/NS-13 — Construction logistics.md` | 0.4 |
+| `criteria/ranking/HI-01 — Aircraft crash hazard.md` | 0.3 |
+| `criteria/ranking/HI-03 — Toxic and gas releases.md` | 0.3 |
+| `criteria/ranking/HI-06 — Military installations.md` | 0.3 |
+| `criteria/ranking/EP-01 — Emergency-plan feasibility (composite).md` | 0.3 |
+| `criteria/ranking/EP-05 — Concurrent-hazard impact on EP.md` | 0.3 |
+| `criteria/ranking/HI-04 — External fires.md` | 0.3 |
+| `criteria/ranking/HI-05 — Transport hazards (hazmat road, rail, pipe).md` | 0.3 |
+| `criteria/ranking/HI-08 — Other nuclear installations.md` | 0.3 |
+| `criteria/ranking/NS-04 — Site topography grading.md` | 0.3 |
+| `criteria/ranking/EP-02 — Evacuation routes (road network).md` | 0.2 |
+| `criteria/ranking/EP-04 — Special populations (hospitals, prisons, care homes).md` | 0.2 |
+
 ### Configuration & tooling
 
 **35** files, **92.5** hours
@@ -796,80 +880,9 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `.cursor/rules/file-size-python.mdc` | 0.1 |
 | `config/scoring_rubrics/ep_emergency_planning.yaml` | 0.1 |
 
-### Other
-
-**64** files, **81.5** hours
-
-| File | Hours |
-| --- | ---: |
-| `docs/expert_siting_criteria_evaluation_matrix.md` | 8.0 |
-| `report/version 1.01/sites_evaluation/07_criteria_non_safety.md` | 6.0 |
-| `report/version 1.02/v1_2_report_preparation/report_writing_tools_and_templates_evaluation.md` | 6.0 |
-| `Efficiency.md` | 4.5 |
-| `business_case/nuclearelectrica_business_case.md` | 4.0 |
-| `business_case/product_valuation_and_sell_price.md` | 3.5 |
-| `criteria/avoidance/HI-02_A7_industrial_explosions.md` | 3.0 |
-| `criteria/avoidance/NH-08_A9_coastal_flooding.md` | 2.2 |
-| `AGENTS.md` | 2.0 |
-| `criteria/avoidance/RI-05_A12_population_centres.md` | 1.9 |
-| `criteria/avoidance/HI-01_A1-A4_aircraft_crash_hazard.md` | 1.8 |
-| `criteria/avoidance/NH-09_A11_river_flooding.md` | 1.8 |
-| `criteria/avoidance/NS-03_A14_transport_access.md` | 1.8 |
-| `criteria/ranking/NH-08 — Coastal flooding storm surge and tsunami.md` | 1.4 |
-| `criteria/ranking/NH-09 — River flooding.md` | 1.4 |
-| `criteria/ranking/NH-10 — Extreme winds.md` | 1.4 |
-| `criteria/ranking/HI-07 — Electromagnetic interference.md` | 1.3 |
-| `criteria/ranking/NH-12 — Extreme temperatures.md` | 1.3 |
-| `criteria/avoidance/NS-02_A13_grid_connection.md` | 1.2 |
-| `criteria/non_safety/NS-01 — Cooling water (ultimate heat sink).md` | 1.2 |
-| `criteria/ranking/NH-11 — Extreme precipitation rain snow and drought.md` | 1.2 |
-| `criteria/ranking/RI-05 — Distance to large population centres.md` | 1.2 |
-| `report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md` | 1.2 |
-| `criteria/avoidance/NS-07_environmental_impact_avoidance_phase.md` | 1.0 |
-| `criteria/ranking/NH-02 — Seismic surface rupture capable faults.md` | 1.0 |
-| `criteria/ranking/NH-03 — Geotechnical settlement and liquefaction.md` | 1.0 |
-| `criteria/ranking/NH-04 — Geotechnical slope stability.md` | 1.0 |
-| `criteria/ranking/NH-13 — Forest and wildfire.md` | 1.0 |
-| `criteria/ranking/NH-14 — Combined hazards.md` | 1.0 |
-| `criteria/ranking/BF-02 — Land and nuclear-island footprint.md` | 0.8 |
-| `criteria/ranking/NH-01 — Seismic ground motion PGA.md` | 0.8 |
-| `criteria/ranking/NH-05 — Subsidence karst mining oil and gas.md` | 0.8 |
-| `criteria/ranking/NH-06 — Foundation conditions.md` | 0.8 |
-| `criteria/ranking/NH-07 — Volcanism.md` | 0.8 |
-| `criteria/ranking/RI-01 — Atmospheric dispersion.md` | 0.7 |
-| `criteria/ranking/RI-03 — Groundwater dispersion.md` | 0.7 |
-| `criteria/ranking/RI-04 — Population density (EPZ rings).md` | 0.6 |
-| `criteria/ranking/HI-02 — Industrial explosions (Seveso, IED).md` | 0.6 |
-| `criteria/ranking/EP-03 — Physical-geography constraints.md` | 0.5 |
-| `criteria/ranking/RI-02 — Surface water dispersion.md` | 0.5 |
-| `criteria/ranking/RI-06 — Population projections.md` | 0.5 |
-| `criteria/ranking/NS-01 — Cooling water ultimate heat sink.md` | 0.4 |
-| `criteria/ranking/NS-02 — Grid connection detailed.md` | 0.4 |
-| `criteria/ranking/NS-03 — Transport access heavy haul.md` | 0.4 |
-| `criteria/ranking/NS-05 — Land availability ownership zoning.md` | 0.4 |
-| `criteria/ranking/NS-06 — Existing infrastructure reuse.md` | 0.4 |
-| `criteria/ranking/NS-07 — Environmental impact non-radiological.md` | 0.4 |
-| `criteria/ranking/NS-08 — Ecological sensitivity Natura 2000 WDPA.md` | 0.4 |
-| `criteria/ranking/NS-09 — Socioeconomic impact.md` | 0.4 |
-| `criteria/ranking/NS-10 — Workforce availability.md` | 0.4 |
-| `criteria/ranking/NS-11 — Coal-to-nuclear synergies.md` | 0.4 |
-| `criteria/ranking/NS-12 — Regulatory political environment.md` | 0.4 |
-| `criteria/ranking/NS-13 — Construction logistics.md` | 0.4 |
-| `criteria/ranking/HI-01 — Aircraft crash hazard.md` | 0.3 |
-| `criteria/ranking/HI-03 — Toxic and gas releases.md` | 0.3 |
-| `criteria/ranking/HI-06 — Military installations.md` | 0.3 |
-| `criteria/ranking/EP-01 — Emergency-plan feasibility (composite).md` | 0.3 |
-| `criteria/ranking/EP-05 — Concurrent-hazard impact on EP.md` | 0.3 |
-| `criteria/ranking/HI-04 — External fires.md` | 0.3 |
-| `criteria/ranking/HI-05 — Transport hazards (hazmat road, rail, pipe).md` | 0.3 |
-| `criteria/ranking/HI-08 — Other nuclear installations.md` | 0.3 |
-| `criteria/ranking/NS-04 — Site topography grading.md` | 0.3 |
-| `criteria/ranking/EP-02 — Evacuation routes (road network).md` | 0.2 |
-| `criteria/ranking/EP-04 — Special populations (hospitals, prisons, care homes).md` | 0.2 |
-
 ### System design
 
-**24** files, **72.7** hours
+**26** files, **73.5** hours
 
 | File | Hours |
 | --- | ---: |
@@ -891,10 +904,12 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 | `architecture/plans/ranking_criteria_sweep_af7be868.plan.md` | 1.0 |
 | `architecture/plans/nuclearelectrica-business-case.md` | 0.8 |
 | `architecture/plans/nh02_threshold_menu_source_of_truth.md` | 0.6 |
+| `architecture/plans/report-v12-writing-controls-update.md` | 0.5 |
 | `architecture/plans/feedback-context-enrichment.md` | 0.4 |
 | `architecture/plans/feedback-rework-execution.md` | 0.4 |
 | `architecture/plans/criterion_deactivation_flux.md` | 0.3 |
 | `architecture/plans/log-replay-feedback-rework.md` | 0.3 |
+| `architecture/plans/report-v12-toc-methodology-sensitivity.md` | 0.3 |
 | `architecture/plans/README.md` | 0.2 |
 | `architecture/plans/docx-comment-extraction.md` | 0.2 |
 
@@ -1057,4 +1072,4 @@ Produced with **cloc 2.08** on git-tracked files. **Code** = logical source line
 
 ---
 
-*Generated by `python src/scripts/man_hours_report.py` · 718 registry entries · cloc 2.08*
+*Generated by `python src/scripts/man_hours_report.py` · 733 registry entries · cloc 2.08*

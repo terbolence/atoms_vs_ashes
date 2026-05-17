@@ -1,3 +1,4 @@
+# man_hours: 0.2
 """SiteContextBuilder — reads main DB and assembles per-site prompt context.
 
 All column names in ``RELEVANT_ENRICHMENT_FIELDS`` must exist on the ORM model
@@ -67,7 +68,7 @@ RELEVANT_ENRICHMENT_FIELDS: dict[str, dict[str, set[str]]] = {
     "A12": {"radiological": {"nearest_city_50k_km", "nearest_city_name", "nearest_city_pop", "ri05_quality", "ri05_comment"}},
     "A13": {"infrastructure": {"nearest_substation_km", "nearest_hv_line_km", "grid_export_capacity_mw", "ns02_quality", "ns02_comment"}},
     "A14": {"infrastructure": {"nearest_rail_km", "nearest_highway_km", "nearest_waterway_km", "ns03_quality", "ns03_comment"}},
-    "A15": {"infrastructure": {"buildable_area_ha", "largest_contiguous_ha", "patch_count", "ns05_quality", "ns05_comment"}},
+    "A15": {"infrastructure": {"favourable_area_ha", "favourable_area_method", "patch_count", "ns05_quality", "ns05_comment"}},
     "NH-01": {"natural_hazards": {"pga_475yr_g", "pga_2475yr_g", "nh01_quality", "nh01_comment"}},
     "NH-06": {"natural_hazards": {"bearing_capacity_kpa", "depth_to_bedrock_m", "nh06_quality", "nh06_comment"}},
     "NH-08": {"natural_hazards": {"distance_to_coast_km", "storm_surge_risk", "tsunami_risk", "nh08_quality", "nh08_comment"}},
@@ -98,7 +99,7 @@ RELEVANT_ENRICHMENT_FIELDS: dict[str, dict[str, set[str]]] = {
     "NS-02": {"infrastructure": {"nearest_substation_km", "substation_name", "nearest_hv_line_km", "hv_line_voltage_kv", "hv_line_count", "substation_count", "grid_export_capacity_mw", "ns02_quality", "ns02_comment"}},
     "NS-03": {"infrastructure": {"nearest_rail_km", "nearest_highway_km", "nearest_waterway_km", "heavy_haul_capable", "ns03_quality", "ns03_comment"}},
     "NS-04": {"infrastructure": {"dominant_land_class", "dominant_class_pct", "favourable_land_pct", "moderate_land_pct", "unfavourable_land_pct", "ns04_quality", "ns04_comment"}},
-    "NS-05": {"infrastructure": {"buildable_area_ha", "largest_contiguous_ha", "patch_count", "ns05_quality", "ns05_comment"}},
+    "NS-05": {"infrastructure": {"favourable_area_ha", "favourable_area_method", "patch_count", "ns05_quality", "ns05_comment"}},
     "NS-06": {"infrastructure": {"reusable_infra_score", "ns06_quality", "ns06_comment"}},
     "NS-07": {"infrastructure": {"env_impact_notes", "ns07_quality", "ns07_comment"}},
     "NS-08": {"infrastructure": {"ecological_natural_pct", "ecological_patch_count", "ecological_largest_patch_ha", "n2k_overlap", "n2k_nearest_distance_km", "n2k_sensitivity_class", "wdpa_overlap", "wdpa_nearest_distance_km", "wdpa_sensitivity_class", "ns08_quality", "ns08_comment", "wdpa_quality", "wdpa_comment"}},

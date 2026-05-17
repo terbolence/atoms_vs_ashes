@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.7
 """Build read-only country bundles for report narrative drafting.
 
 The country bundle answers the question "give me all data for one
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy import func, select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from atoms_vs_ashes.db.models import (
     CompositeRanking,
@@ -66,6 +66,7 @@ def _country_sites(
         select(
             Site, CompositeRanking,
         )
+        .options(selectinload(Site.infrastructure))
         .join(CompositeRanking, CompositeRanking.site_id == Site.site_id)
         .where(
             Site.country_code == country_code,
@@ -82,6 +83,7 @@ def _country_sites(
     rank = 0
     for site, cr in session.execute(stmt).all():
         rank += 1 if cr.composite_score is not None else 0
+        infra = site.infrastructure
         rows.append(
             {
                 "national_rank": rank if cr.composite_score is not None else None,
@@ -93,6 +95,10 @@ def _country_sites(
                 "latitude": _jsonable(site.latitude),
                 "longitude": _jsonable(site.longitude),
                 "installed_capacity_mw": _jsonable(site.installed_capacity_mw),
+                "site_area_ha": _jsonable(site.site_area_ha),
+                "favourable_area_ha": _jsonable(
+                    getattr(infra, "favourable_area_ha", None)
+                ),
                 "site_status": _jsonable(site.status),
                 "passed_exclusionary": cr.passed_exclusionary,
                 "passed_avoidance": cr.passed_avoidance,
