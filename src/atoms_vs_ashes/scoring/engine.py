@@ -182,6 +182,8 @@ class ScoringEngine:
         ctxs: dict[str, MergedContext] = {}
         values: dict[str, BandResult] = {}
         for criterion in b.values():
+            if not criterion.participates_in_process:
+                continue
             ctx = build_context_for_site(self.session, site, criterion)
             ctxs[criterion.criterion_id] = ctx
             if criterion.is_ranking or criterion.bands or criterion.sub_scores:

@@ -96,6 +96,10 @@ class CriterionPreview:
     weight_factors: dict[str, int] | None = None
     weight_basis_source: dict[str, str] | None = None
     notes: str | None = None
+    active: bool = True
+    inactive_reason: str | None = None
+    pending_implementation: str | None = None
+    required_improvement: str | None = None
 
 
 @dataclass
@@ -224,6 +228,10 @@ def _criterion_preview(
         weight_factors=weight_factors,
         weight_basis_source=weight_basis_source,
         notes=template.notes,
+        active=runtime.active,
+        inactive_reason=runtime.inactive_reason,
+        pending_implementation=runtime.pending_implementation,
+        required_improvement=runtime.required_improvement,
     )
 
 

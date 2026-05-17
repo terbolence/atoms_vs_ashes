@@ -2059,7 +2059,7 @@ files:
     category: "Project Management & QA"
 
   IMPROVEMENTS.md:
-    hours: 2.8
+    hours: 5.2
     category: "Project Management & QA"
 
   tests/scoring/test_ns08_strict_overlap.py:
@@ -2235,11 +2235,11 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/criterion_spec/compiler.py:
-    hours: 4.5
+    hours: 4.8
     category: "Implementation"
 
   src/atoms_vs_ashes/scoring/rubric.py:
-    hours: 4.2
+    hours: 4.5
     category: "Implementation"
 
   src/atoms_vs_ashes/scoring/exclusionary.py:
@@ -2865,4 +2865,44 @@ files:
   audit/conversations/2026-05-17_nuclearelectrica_business_case.md:
     hours: 0.6
     category: "Project Management & QA"
+
+  config/scoring_specs/criterion_activation.yaml:
+    hours: 0.4
+    category: "Configuration & DevOps"
+
+  src/atoms_vs_ashes/criterion_spec/activation.py:
+    hours: 1.2
+    category: "Implementation"
+
+  audit/feature_completion_matrices/2026-05-17_criterion_deactivation_flux.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  architecture/plans/criterion_deactivation_flux.md:
+    hours: 0.3
+    category: "Architecture & Design"
+
+  audit/plans/criterion_deactivation_flux.md:
+    hours: 0.3
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_criterion-deactivation-flux.md:
+    hours: 0.5
+    category: "Project Management & QA"
+
+  tests/scoring/test_criterion_activation.py:
+    hours: 0.8
+    category: "Testing"
+
+  tests/criterion_spec/test_criterion_activation_loader.py:
+    hours: 0.6
+    category: "Testing"
+
+  tests/criterion_spec/test_criterion_activation_preview.py:
+    hours: 0.4
+    category: "Testing"
+
+  tests/gui/test_results_inactive_criteria_bars.py:
+    hours: 0.4
+    category: "Testing"
 

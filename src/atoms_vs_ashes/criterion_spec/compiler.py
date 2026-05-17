@@ -1,4 +1,4 @@
-# man_hours: 4.5
+# man_hours: 4.8
 """Compile spec templates plus user controls into runtime criteria.
 
 Structured fail-threshold edits regenerate the matching fail-condition
@@ -25,6 +25,9 @@ from atoms_vs_ashes.criterion_spec._compiler_helpers import (
     sub_score_to_runtime,
 )
 from atoms_vs_ashes.criterion_spec._excl_from_pivot import excl_expr_from_recipe
+from atoms_vs_ashes.criterion_spec.activation import (
+    apply_activation_to_criterion,
+)
 from atoms_vs_ashes.criterion_spec.loader import TemplateBundle
 from atoms_vs_ashes.criterion_spec.schema import (
     CriterionTemplate,
@@ -106,7 +109,8 @@ def compile_bundle(
             smr_key=smr_key,
             smr_grid_export_mw=smr_grid_export_mw,
         )
-        compiled[cid] = criterion
+        entry = template_bundle.activation_registry.entry_for(cid)
+        compiled[cid] = apply_activation_to_criterion(criterion, entry)
         if derived_expr is not None:
             derived_exprs[cid] = derived_expr
 

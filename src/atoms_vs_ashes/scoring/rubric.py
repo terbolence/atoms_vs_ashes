@@ -1,4 +1,4 @@
-# man_hours: 4.2
+# man_hours: 4.5
 """Pydantic schema + YAML loader for ``config/scoring_rubrics/*.yaml``.
 
 One YAML file per criterion family (nh/hi/ri/ep/ns). The loader reads
@@ -136,6 +136,10 @@ class Criterion(BaseModel):
     fail_conditions: list[FailCondition] = Field(default_factory=list)
     quality_floor: QualityFloor = Field(default_factory=QualityFloor)
     notes: str | None = None
+    active: bool = True
+    inactive_reason: str | None = None
+    pending_implementation: str | None = None
+    required_improvement: str | None = None
 
     @field_validator("weight_factors")
     @classmethod
@@ -176,7 +180,12 @@ class Criterion(BaseModel):
     @property
     def participates_in_composite(self) -> bool:
         """True for criteria whose scores enter the weighted composite."""
-        return self.is_ranking and not self.is_exclusionary
+        return self.is_ranking and not self.is_exclusionary and self.active
+
+    @property
+    def participates_in_process(self) -> bool:
+        """True when scoring, screening, and sensitivity should run."""
+        return self.active
 
     @property
     def exclusion_pass_marks(self) -> dict[str, float]:
@@ -221,7 +230,9 @@ class Rubric(BaseModel):
 # ``config/scoring_specs/`` but are NOT criterion families. Mirrors
 # ``criterion_spec.loader.THRESHOLD_METADATA_FILENAME``; keep in sync if
 # new sidecar shapes are introduced.
-_SIDECAR_FILENAMES = frozenset({"threshold_metadata.yaml"})
+_SIDECAR_FILENAMES = frozenset(
+    {"threshold_metadata.yaml", "criterion_activation.yaml"}
+)
 
 
 def load_rubric_file(path: Path) -> Rubric:

@@ -15,6 +15,8 @@ from atoms_vs_ashes.gui._threshold_editor_palette import (
 )
 
 NEUTRAL_BAR = "hsl(210, 10%, 58%)"
+INACTIVE_GREY = "hsl(210, 8%, 52%)"
+INACTIVE_MUTED = "hsl(210, 6%, 58%)"
 
 
 def criteria_table_header() -> None:
@@ -28,6 +30,26 @@ def criteria_table_header() -> None:
 
 
 def criterion_summary_row(crit: CriterionPreview) -> None:
+    if not crit.active:
+        cols = st.columns([0.9, 4.4, 1.1, 1.4])
+        pending = crit.pending_implementation or "connector / data pipeline"
+        imp = crit.required_improvement or ""
+        imp_suffix = f" ({imp})" if imp else ""
+        cols[0].markdown(
+            f"<span style='color:{INACTIVE_GREY};font-weight:600'>"
+            f"{escape(crit.criterion_id)}</span>",
+            unsafe_allow_html=True,
+        )
+        cols[1].markdown(
+            f"<span style='color:{INACTIVE_GREY}'>{escape(crit.name)}</span>  \n"
+            f"<span style='font-size:0.78rem;color:{INACTIVE_MUTED}'>"
+            f"pending implementation of {escape(pending)}{escape(imp_suffix)}"
+            f"</span>",
+            unsafe_allow_html=True,
+        )
+        cols[2].markdown("`—`")
+        cols[3].markdown("`inactive`")
+        return
     role = criterion_importance(crit)
     color = {
         "exclusionary": EXCL_BAR,

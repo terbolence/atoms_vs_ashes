@@ -8,6 +8,10 @@ from collections import defaultdict
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.db.models import RankingScore, ScreeningVerdict
+from atoms_vs_ashes.criterion_spec.activation import (
+    default_inactive_criterion_ids,
+    filter_active_from_snapshot_data,
+)
 from atoms_vs_ashes.db.models_scoring_definitions import (
     CompiledScoringSnapshot,
     ScoringRunSnapshot,
@@ -31,6 +35,42 @@ def load_bundle_criterion_ids_ordered(
     if not bundle:
         return None
     return list(bundle.keys())
+
+
+def load_snapshot_bundle_criteria_data(
+    session: Session, run_id: str, smr_key: str,
+) -> dict[str, dict] | None:
+    """Serialized criterion dicts from the compiled snapshot for ``smr_key``."""
+    link = session.get(ScoringRunSnapshot, run_id)
+    if link is None:
+        return None
+    snap = session.get(CompiledScoringSnapshot, link.snapshot_id)
+    if snap is None or not snap.bundles_by_smr:
+        return None
+    bundles: dict = snap.bundles_by_smr
+    bundle = bundles.get(smr_key)
+    if bundle is None and len(bundles) == 1:
+        bundle = next(iter(bundles.values()))
+    if not bundle:
+        return None
+    return dict(bundle)
+
+
+def filter_ordered_for_display(
+    ordered_ids: list[str],
+    snapshot_bundle: dict[str, dict] | None,
+) -> list[str]:
+    """Keep only active criteria for charts (snapshot + registry fallback)."""
+    if not ordered_ids:
+        return ordered_ids
+    if snapshot_bundle:
+        return filter_active_from_snapshot_data(
+            ordered_ids,
+            snapshot_bundle,
+            fallback_inactive=default_inactive_criterion_ids(),
+        )
+    inactive = default_inactive_criterion_ids()
+    return [cid for cid in ordered_ids if cid not in inactive]
 
 
 def fallback_criterion_ids(
@@ -136,6 +176,8 @@ __all__ = [
     "SEMANTIC_UNSCORED",
     "chart_semantic_legend_label",
     "fallback_criterion_ids",
+    "filter_ordered_for_display",
     "load_bundle_criterion_ids_ordered",
+    "load_snapshot_bundle_criteria_data",
     "merge_criterion_bar_semantics",
 ]

@@ -57,6 +57,8 @@ def criterion_weight_input(
     show_info: bool = False,
 ) -> None:
     """Render the weight ``number_input`` + per-criterion ``Reset`` button."""
+    if not crit.active:
+        return
     cid = crit.criterion_id
     overrides = get_weight_overrides_draft()
     has_override = cid in overrides

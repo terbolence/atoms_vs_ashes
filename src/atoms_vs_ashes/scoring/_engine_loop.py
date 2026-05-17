@@ -90,6 +90,8 @@ def score_sites(
             site_ctxs, site_values = engine._precompute_site(site, bundle=b)
             pair = (site.site_id, smr.smr_key)
             for cid, criterion in b.items():
+                if not criterion.participates_in_process:
+                    continue
                 verdicts, row = engine._process_criterion(
                     site=site, smr=smr, criterion=criterion,
                     ctx=site_ctxs[cid], result=site_values.get(cid),

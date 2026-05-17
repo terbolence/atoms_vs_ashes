@@ -192,6 +192,10 @@ def threshold_input(
 def criterion_card(crit: CriterionPreview, expert_override: bool) -> None:
     with st.container(border=True):
         criterion_summary_row(crit)
+        if not crit.active:
+            if crit.inactive_reason:
+                st.caption(crit.inactive_reason)
+            return
         with st.expander(f"{crit.criterion_id} details", expanded=False):
             editable = [fc for fc in crit.fail_codes if fc.user_editable]
             criterion_weight_input(crit, show_info=not editable)

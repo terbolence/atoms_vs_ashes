@@ -27,12 +27,21 @@ from typing import Any
 
 import yaml
 
+from atoms_vs_ashes.criterion_spec.activation import (
+    CRITERION_ACTIVATION_FILENAME,
+    CriterionActivationRegistry,
+    load_activation_registry,
+    validate_activation_registry,
+)
 from atoms_vs_ashes.criterion_spec.schema import (
     CriterionTemplate,
     TemplateFile,
 )
 
 THRESHOLD_METADATA_FILENAME = "threshold_metadata.yaml"
+_SIDECAR_YAML_NAMES = frozenset(
+    {THRESHOLD_METADATA_FILENAME, CRITERION_ACTIVATION_FILENAME}
+)
 
 
 @dataclass
@@ -43,6 +52,7 @@ class TemplateBundle:
     families: dict[str, TemplateFile]
     by_id: dict[str, CriterionTemplate]
     sha256: str
+    activation_registry: CriterionActivationRegistry
 
     @property
     def criterion_ids(self) -> list[str]:
@@ -125,9 +135,7 @@ def load_template_bundle(spec_dir: str | Path) -> TemplateBundle:
     families: dict[str, TemplateFile] = {}
     by_id: dict[str, CriterionTemplate] = {}
     family_paths = [
-        p
-        for p in sorted(root.glob("*.yaml"))
-        if p.name != THRESHOLD_METADATA_FILENAME
+        p for p in sorted(root.glob("*.yaml")) if p.name not in _SIDECAR_YAML_NAMES
     ]
     for path in family_paths:
         tf = load_template_file(path, threshold_metadata=metadata)
@@ -145,11 +153,15 @@ def load_template_bundle(spec_dir: str | Path) -> TemplateBundle:
             f"No criteria loaded from {root} — empty spec bundle"
         )
 
+    activation_registry = load_activation_registry(root)
+    validate_activation_registry(activation_registry, set(by_id.keys()))
+
     return TemplateBundle(
         spec_dir=root,
         families=families,
         by_id=by_id,
         sha256=_sha256_of_dir(root),
+        activation_registry=activation_registry,
     )
 
 

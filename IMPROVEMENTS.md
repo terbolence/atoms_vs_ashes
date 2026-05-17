@@ -1,4 +1,4 @@
-<!-- man_hours: 2.8 -->
+<!-- man_hours: 6.8 -->
 # Improvements log
 
 Running list of project-wide improvements surfaced during normal work
@@ -6,6 +6,26 @@ Running list of project-wide improvements surfaced during normal work
 issue is discovered and stay open until a separate plan / sign-off
 closes them. Do **not** treat any entry here as approved work — each
 item still needs its own decision and execution loop.
+
+## Criterion activation backlog (2026-05-17)
+
+Central switch: [`config/scoring_specs/criterion_activation.yaml`](config/scoring_specs/criterion_activation.yaml)
+(`active: false` removes a criterion from scoring, sensitivity, and result charts until
+re-enabled). Site Selection Criteria still lists inactive rows as grey
+**pending implementation of …** with the improvement ID below.
+
+| Criterion | Status | Required improvement |
+| --- | --- | --- |
+| EP-05 | inactive | IMP-0024 |
+| HI-05 | inactive | IMP-0025 |
+| HI-08 | inactive | IMP-0026 |
+| NH-13 | inactive | IMP-0022 |
+| NS-07 | inactive | IMP-0027 |
+| NS-09 | inactive | IMP-0028 |
+| NS-11 | inactive | IMP-0029 |
+| RI-01 | **active** (dispersion API still missing) | IMP-0030 |
+
+---
 
 ## Priority backlog
 
@@ -34,6 +54,67 @@ Format:
 
 ---
 
+## Data requirements connector backlog
+
+Authoritative source matrix:
+[`report/version 1.01/requirements/07_data_requirements.md`](report/version%201.01/requirements/07_data_requirements.md)
+§9.2 (primary databases and access methods). Phase 1 coal-inventory supplements are listed in
+[`report/version 1.01/requirements/04_siting_methodology.md`](report/version%201.01/requirements/04_siting_methodology.md)
+§6.2. Implementation status is reconciled against
+[`src/dataAcquisition/Data Source Access Plan/connector_inventory_and_api_keys.md`](src/dataAcquisition/Data%20Source%20Access%20Plan/connector_inventory_and_api_keys.md)
+(2026-04-17).
+
+### §9.2 — implemented (no new IMP needed)
+
+| Data need (§9.2) | Primary database | Module / ingest |
+| --- | --- | --- |
+| Coal plant inventory | Global Energy Monitor | `ingest/sites.py` (I-4) |
+| Seismicity (hazard grids) | GEM / SHARE (EFEHR) | `connectors/seismic_hazard/` (S-01) |
+| Geology / tectonics | OneGeology, EGDI | `connectors/onegeology/`, `connectors/egdi_geology/` |
+| Flooding | EU Floods Directive, Copernicus EMS, GFMS | `connectors/eu_flood_risk/`, `copernicus_ems/`, `gfms/` |
+| Meteorology (reanalysis) | Copernicus CDS / ERA5, NOAA NCEI | `connectors/copernicus_era5/`, `noaa_ncei/` — see also IMP-0007, IMP-0008 |
+| Population (EU grids) | Eurostat GISCO | `connectors/eurostat_gisco/`, `geonames_dump/` — RI-05 tiers: IMP-0009 |
+| Land use / environment | CORINE, Natura 2000, WDPA | `connectors/corine/`, `natura2000/`, `wdpa/` |
+| Grid infrastructure | ENTSO-E, OSM `power=*` | `connectors/entso_e/`, `connectors/osm/` |
+| Transport | OpenStreetMap | `connectors/osm/` |
+| Volcanism | Smithsonian GVP | `connectors/smithsonian_gvp/` |
+| Industrial hazards | EU SEVESO III, OSM industrial | `connectors/seveso/`, `eea_industrial/`, `osm/` |
+| Satellite (partial) | Google Earth Engine | `connectors/earth_engine/` — **disabled**; EP-03 relief: IMP-0012 |
+
+### §9.2 — remaining (routed below)
+
+| Data need (§9.2) | Primary database | IMP | Severity |
+| --- | --- | --- | --- |
+| Coal inventory (supplement) | Beyond Fossil Fuels — Europe Coal Database | IMP-0013 | low |
+| Seismicity (catalogues) | USGS Earthquake Hazards Program | IMP-0014 | medium |
+| Seismicity (catalogues) | EMSC | IMP-0014 | medium |
+| Population | WorldPop | IMP-0015 | medium |
+| Population | LandScan (ORNL) | IMP-0016 | low |
+| Meteorology | National meteorological services | IMP-0017 | medium |
+| Geology / tectonics | National geological surveys | IMP-0018 | high |
+| Grid infrastructure | National TSO data | IMP-0019 | medium |
+| Transport | Inland waterways databases (national) | IMP-0020 | medium |
+| Satellite imagery | Copernicus Sentinel Hub | IMP-0021 | medium |
+| Satellite imagery | Google Earth Engine (full stack) | IMP-0022 | medium |
+
+### Methodology §6.2 — remaining (not in §9.2 table)
+
+| Source (§6.2) | IMP |
+| --- | --- |
+| JRC Power Plant Database | IMP-0023 |
+
+### Related improvements (not §9.2 rows)
+
+| Gap | IMP |
+| --- | --- |
+| EP-01 OSM hospital / trauma distances | IMP-0001 |
+| ERA5 SPEI / drought (`spi12_min`) | IMP-0007 |
+| ERA5 hourly i10fg for NH-10 wind gusts | IMP-0008 |
+| RI-05 four-tier population-centre distances | IMP-0009 |
+| EP-03 terrain relief without GEE | IMP-0012 |
+
+---
+
 ## IMP-0001 — OSM trauma centre / hospital distance connector for EP-01 (status: open)
 
 - Discovered: 2026-05-16 by `exclusionary_sweep` chat.
@@ -59,7 +140,9 @@ Format:
   rubric. Coordinate with `experts/connectors/api_enrichment_operations.md` for the live-API consent
   ritual and with `LL-017` for the silent-null handling.
 - References: chat plan `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`,
-  audit doc `audit/post_processing/scoring_conformity/ep01_direction_decision.md`.
+  audit doc `audit/post_processing/scoring_conformity/ep01_direction_decision.md`,
+  `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Transport — OSM;
+  Population category for EP-01 emergency infrastructure).
 
 ---
 
@@ -245,7 +328,9 @@ Format:
   consent ritual and with LL-013 for ERA5 CDS API quirks.
 - References: chat plan `~/.cursor/plans/ns01_e9_to_a16_avoidance_b623f206.plan.md`,
   audit log `audit/conversations/2026-05-16_ns01-e9-to-a16-cooling-stress.md`,
-  LL-036 (NS-01 connector vocabulary vs rubric vocabulary mismatch).
+  LL-036 (NS-01 connector vocabulary vs rubric vocabulary mismatch),
+  `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Meteorology — CDS/ERA5;
+  §9.1 category 9 drought / precipitation).
 
 ---
 
@@ -284,7 +369,9 @@ Format:
 - References: chat plan `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`,
   audit log `audit/conversations/2026-05-16_nh10-action-norms-alignment.md`,
   lesson `experts/quality/lessons_learned.md::LL-037`, related connector lessons
-  LL-013 (ERA5 CDS quirks) and LL-015 (NOAA NCEI European station gap).
+  LL-013 (ERA5 CDS quirks) and LL-015 (NOAA NCEI European station gap),
+  `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Meteorology — CDS/ERA5,
+  NOAA NCEI).
 
 ---
 
@@ -311,7 +398,9 @@ Format:
   four-tier envelope after focused validation.
 - References: coordination plan
   `~/.cursor/plans/avoidance_decision_implementation_7b2a91f0.plan.md`,
-  criterion audit `criteria/avoidance/RI-05_A12_population_centres.md`.
+  criterion audit `criteria/avoidance/RI-05_A12_population_centres.md`,
+  `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Population — Eurostat
+  GISCO; §9.1 category 11 population centres).
 
 ---
 
@@ -415,4 +504,296 @@ Format:
   `relief_m_per_10km` maps only from a complete, documented relief source.
 - References: `audit/post_processing/06_scoring/20260517_partial_data_EP03_curation_memo.md`,
   `criteria/ranking/EP-03 — Physical-geography constraints.md`,
+  `config/default.yml` (`connectors.earth_engine.enabled: false`),
+  `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Satellite imagery — Google Earth Engine).
+
+---
+
+## IMP-0013 — Beyond Fossil Fuels coal-database ingest (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: low (GEM is the primary inventory; this source supplements retirement timelines).
+- Scope: new ingest module or extension of `src/atoms_vs_ashes/ingest/sites.py`,
+  `sources/` download layout, `sites` supplementary attributes.
+- Problem: `report/version 1.01/requirements/07_data_requirements.md` §9.2 lists the
+  Beyond Fossil Fuels — Europe Coal Database as a primary coal-inventory source alongside
+  GEM. `report/version 1.01/requirements/04_siting_methodology.md` §6.2 expects retirement
+  timelines from this database. Only GEM XLSX ingest exists today (I-4).
+- Proposed fix: add a file-based ingest for the Beyond Fossil Fuels CSV/web export; merge
+  retirement dates and plant status into `sites` with provenance flags; document coverage
+  vs GEM duplicates in ingest QA.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2 (Coal plant
+  inventory), `report/version 1.01/requirements/04_siting_methodology.md` §6.2,
+  `src/dataAcquisition/Data Source Access Plan/connector_inventory_and_api_keys.md` (I-4).
+
+---
+
+## IMP-0014 — USGS and EMSC supplemental seismic catalogues (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (hazard grids are covered; historical catalogues are not).
+- Scope: new connector module(s) under `src/atoms_vs_ashes/connectors/`, optional
+  `site_natural_hazards` columns for catalogue-derived metrics (event counts, max magnitude
+  within search radius).
+- Problem: §9.2 names USGS and EMSC REST/CSV catalogues for historical and regional
+  seismicity. The shipped `SeismicHazardConnector` (S-01) sources PGA and curves from
+  EFEHR/SHARE/GEM rasters only — not USGS FDSN or EMSC event feeds. Architecture spec
+  04 still describes “historical earthquakes within 300 km” from USGS.
+- Proposed fix: implement thin REST clients for USGS Earthquake Hazards (event search by
+  lat/lon/radius/time) and EMSC (Euro-Med catalogue); persist summary statistics per site
+  with raw-response logging; use as ranking/supporting evidence for NH-01/NH-02, not as a
+  replacement for EFEHR PGA.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Seismicity — USGS, EMSC), `src/architecture/specs/04_connector_framework.md`,
+  `src/dataAcquisition/specifications/S-01_seismic_hazard.md`.
+
+---
+
+## IMP-0015 — WorldPop gridded population connector (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (GHSL is implemented; requirements still name WorldPop).
+- Scope: new `src/atoms_vs_ashes/connectors/worldpop/` (or extend `ghsl_pop`),
+  `site_radiological` / EPZ population fields, `config/default.yml` `connectors.worldpop`.
+- Problem: §9.2 lists WorldPop GeoTIFF as a primary population source for census-scale
+  density. The project implements S-20 GHSL GHS-POP (`connectors/ghsl_pop/`) and labels
+  I-3 `PopulationConnector` as “WorldPop” in planning docs, but I-3 only queries Overpass
+  + optional GeoNames — not WorldPop rasters. EPZ radii in architecture (5/16/25/80 km)
+  were specified against gridded population.
+- Proposed fix: add a WorldPop download + zonal-stats pipeline (reuse raster extraction
+  patterns from `ghsl_pop` / `copernicus_dem`); compare GHSL vs WorldPop on a sample
+  cohort; document which source is canonical per criterion after validation.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Population — WorldPop), `src/dataAcquisition/criterion_data_coverage_matrix.md`
+  (RI-04 I-3 rows), `experts/connectors/data_sources_integrations.md` §3.3.
+
+---
+
+## IMP-0016 — LandScan ambient population connector (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: low (GHSL/WorldPop cover most screening needs; LandScan is a requirements-listed alternative).
+- Scope: new `src/atoms_vs_ashes/connectors/landscan/`, license-aware download path,
+  population radii parallel to IMP-0015.
+- Problem: §9.2 lists LandScan (ORNL) GeoTIFF as a global ambient-population source.
+  No connector or ingest path exists; ORNL access may require registration and use
+  restrictions unlike open GHSL/WorldPop.
+- Proposed fix: confirm license fit for the study; if acceptable, implement bulk GeoTIFF
+  ingest + per-site zonal extraction; otherwise record an explicit waiver in requirements
+  traceability (GHSL retained as the operational source).
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Population — LandScan).
+
+---
+
+## IMP-0017 — National meteorological services integration (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (ERA5 covers most NH/RI meteorology; national data improves rare events).
+- Scope: per-country adapter modules under `src/atoms_vs_ashes/connectors/national_meteo/`
+  (or documented manual CSV ingest), priority countries from `config/default.yml`
+  `ingestion.in_scope_countries`.
+- Problem: §9.2 lists “National meteorological services” as the authoritative source for
+  station-based observations and extreme-event records, with variable access per country.
+  CDS/ERA5 (S-04) and NOAA NCEI (S-11) are implemented but cannot replace national gauge
+  records for NH-11 hail/freezing-rain and other rare-event sub-criteria (see national
+  category N-04 in `criterion_data_coverage_matrix.md`).
+- Proposed fix: define a minimum viable national-meteo schema (station extremes, return
+  periods); implement adapters for Romania, Bulgaria, Poland, Serbia, Greece, Turkey,
+  Ukraine first; fall back to ERA5 where national feeds are unavailable; flag
+  `data_quality` per site.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Meteorology — National meteorological services), §9.4 (non-EU data gaps),
+  `src/dataAcquisition/criterion_data_coverage_matrix.md` §3 (N-04).
+
+---
+
+## IMP-0018 — National geological survey connectors (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: high (NH-06 and parts of NH-02/05 are national-blocked).
+- Scope: country-specific modules or INSPIRE/WMS federation wrappers; `site_natural_hazards`
+  foundation and fault fields; coordination with existing EGDI/OneGeology/EFSM20 outputs.
+- Problem: §9.2 lists “National geological surveys (per country)” for high-resolution
+  geology. Pan-European connectors (EGDI, OneGeology, EFSM20, Zhu, WOKAM, Copernicus DEM)
+  are implemented but NH-06 foundation criteria remain national-only per coverage matrix.
+- Proposed fix: prioritize seismically active in-scope countries (RO, GR, TR, HR, BG);
+  standardize ingest of published WMS/WFS/Shapefile services per survey; document proxy
+  vs authoritative provenance; do not pretend EGDI resolution is site-level geotech.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Geology/Tectonics — National geological surveys), §9.4,
+  `src/dataAcquisition/criterion_data_coverage_matrix.md` §3 (N-01, NH-06).
+
+---
+
+## IMP-0019 — National TSO / grid-operator connectors (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (ENTSO-E + OSM exist; non-ENTSO-E countries lack voltage/capacity truth).
+- Scope: `src/atoms_vs_ashes/connectors/national_tso/`, `site_infrastructure_v2` grid
+  fields, coordination with `connectors/entso_e/`.
+- Problem: §9.2 lists “National TSO data” for detailed grid maps. ENTSO-E (S-13) and OSM
+  power features are implemented, but BA, RS, ME, XK, AL, MK, MD, UA, BY, AM, TR and other
+  non-member states need national TSO feeds per N-13 in the coverage matrix.
+- Proposed fix: define per-country TSO endpoints (shapefile/API where public); populate
+  `grid_capacity_mw`, voltage class, and nearest-substation attributes where ENTSO-E is
+  absent or suspect; cross-check with IMP-0002 NS-02 row and ENTSO-E QA fixes.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Grid Infrastructure — National TSO data),
+  `audit/post_processing/01_requirements_coverage/20260418_gaps.md` §3.2 (NS-02).
+
+---
+
+## IMP-0020 — National inland waterway registers (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (OSM + HydroRIVERS cover routing proxies; navigability detail is national).
+- Scope: extend `connectors/hydrorivers/` or add `connectors/national_waterways/`,
+  NS-03 transport sub-fields.
+- Problem: §9.2 lists “Inland waterways databases (national)” for navigability and draft
+  limits. HydroRIVERS/GloFAS (S-29/S-30) are implemented for hydrology; OSM `waterway=*`
+  gives geometry but not authoritative navigability class (N-12).
+- Proposed fix: ingest Danube/Black Sea corridor national waterway authority datasets
+  (RO, BG, RS, HR, UA, etc.); persist navigability class and minimum draft where available;
+  retain OSM as fallback with explicit quality label.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Transport — Inland waterways databases),
+  `src/dataAcquisition/Data Source Access Plan/connector_inventory_and_api_keys.md` (S-29).
+
+---
+
+## IMP-0021 — Copernicus Sentinel Hub connector (S-05) (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (Copernicus DEM and CORINE cover many proxies; Sentinel Hub is still the §9.2 satellite API).
+- Scope: `src/atoms_vs_ashes/connectors/sentinel_hub/` per
+  `src/dataAcquisition/specifications/S-05_sentinel_hub.md`, NH-04/05/13, NS-04/06/07,
+  RI-01 terrain, EP-03 evacuation barriers.
+- Problem: §9.2 lists Copernicus Sentinel Hub as a primary satellite imagery API. S-05 spec
+  is complete but no package exists under `connectors/`; inventory marks S-05 as the sole
+  remaining gap in the original S-01–S-17 set. GEE is disabled; DEM/slope partly covered
+  by S-19 Copernicus DEM but InSAR fire history and optical composites are not.
+- Proposed fix: implement CDSE Process/Statistical API client with OAuth2, raw-response
+  logging, and per-criterion persistence; prefer Sentinel Hub over GEE where both apply
+  (see IMP-0022).
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Satellite Imagery — Copernicus Sentinel Hub),
+  `src/dataAcquisition/specifications/S-05_sentinel_hub.md`,
+  `src/dataAcquisition/Data Source Access Plan/connector_inventory_and_api_keys.md` §3.
+
+---
+
+## IMP-0022 — Re-enable Google Earth Engine connector stack (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: medium (module exists but `connectors.earth_engine.enabled: false`).
+- Scope: `src/atoms_vs_ashes/connectors/earth_engine/`, `config/default.yml`, criteria
+  NH-04, NH-13, NS-04, NS-06, EP-03 beyond relief-only work in IMP-0012.
+- Problem: §9.2 lists Google Earth Engine as a primary satellite analysis API. Code is
+  present (`connectors/earth_engine/`) but disabled pending Google app review / operating
+  environment constraints. NH-13 wildfire, NS-06 demolition burden, and EP-03 terrain
+  fusion still expect GEE or an equivalent (Sentinel Hub + offline pipelines).
+- Proposed fix: either (a) complete Google Cloud / Earth Engine approval and re-enable
+  enrichment with consent-gated batch runs, or (b) formally deprecate GEE in requirements
+  traceability and route each criterion to Sentinel Hub (IMP-0021) + Copernicus DEM
+  (S-19). Until decided, keep disabled with documented criterion-level fallbacks.
+- References: `report/version 1.01/requirements/07_data_requirements.md` §9.2
+  (Satellite Imagery — Google Earth Engine),
+  IMP-0012 (EP-03 relief non-GEE path),
+  `src/dataAcquisition/specifications/S-06_google_earth_engine.md`,
   `config/default.yml` (`connectors.earth_engine.enabled: false`).
+
+---
+
+## IMP-0023 — JRC Power Plant Database ingest (status: open)
+
+- Discovered: 2026-05-17 by data-requirements connector routing.
+- Severity: low (GEM is primary; JRC cross-check improves EU plant attributes).
+- Scope: ingest module, `sites` cross-reference fields, optional grid-attribute validation
+  with ENTSO-E.
+- Problem: `report/version 1.01/requirements/04_siting_methodology.md` §6.2 names the JRC
+  Power Plant Database alongside GEM for Phase 1 inventory compilation. It is not listed
+  in §9.2 but is part of the project’s stated data-requirements set for coal-site discovery.
+  No ingest exists.
+- Proposed fix: download JRC EPSIS / power-plant GIS export; match on coordinates and plant
+  name to GEM units; persist cross-check flags (capacity mismatch, fuel type, status).
+- References: `report/version 1.01/requirements/04_siting_methodology.md` §6.2,
+  `report/version 1.01/requirements/07_data_requirements.md` §9.1 category 11 (grid/plant
+  context), `experts/connectors/data_sources_integrations.md` §4.
+
+---
+
+## IMP-0024 — EP-05 concurrent emergency index (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium (criterion deactivated until data exists).
+- Scope: `site_emergency.ep05_concurrent_index`, `config/scoring_specs/criterion_activation.yaml` EP-05.
+- Problem: EP-05 ranking is 100% unscored; `ep05_concurrent_index` is not in the schema.
+- Proposed fix: define the concurrent-emergency metric, persist per site, set `EP-05.active: true`.
+- References: `audit/post_processing/06_scoring/20260517_criteria_implementation_status.md`.
+
+---
+
+## IMP-0025 — HI-05 hazmat corridor distance connector (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium.
+- Scope: `site_human_hazards.nearest_hazmat_corridor_km` / `hazmat_route_distance_km`, OSM or national registers.
+- Problem: 0% cohort fill; HI-05 deactivated in activation registry.
+- Proposed fix: enrich hazmat route distances; reactivate HI-05.
+- References: `audit/post_processing/scoring_conformity/data_gaps_followup.md`.
+
+---
+
+## IMP-0026 — HI-08 other-nuclear-installation proximity (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium.
+- Scope: `site_human_hazards.nearest_nuclear_km`, `hi08_quality`.
+- Problem: 0% cohort fill; HI-08 deactivated.
+- Proposed fix: OSM / PRIS / national inventory for nuclear sites within search radius.
+- References: `src/dataAcquisition/criterion_data_coverage_matrix.md`.
+
+---
+
+## IMP-0027 — NS-07 environmental-impact tier persistence (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium.
+- Scope: `site_infrastructure_v2.env_impact_tier`, CORINE/Natura/LLM fusion.
+- Problem: `env_impact_tier` 0% fill; NS-07 deactivated.
+- Proposed fix: persist tier enum from structured LLM or overlay scoring; reactivate NS-07.
+- References: `criteria/ranking/NS-07 — Environmental impact.md`.
+
+---
+
+## IMP-0028 — NS-09 socioeconomic connector (Eurostat) (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium.
+- Scope: `site_socioeconomic` (`unemployment_pct`, `gdp_per_capita_eur`, `socio_tier`).
+- Problem: columns missing / empty; NS-09 deactivated.
+- Proposed fix: Eurostat regional stats ingest + `socio_tier` mapping; reactivate NS-09.
+- References: IMP-0002 NS-09 row, `report/version 1.01/requirements/07_data_requirements.md` §9.2.
+
+---
+
+## IMP-0029 — NS-11 industrial synergy index (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: low.
+- Scope: `site_infrastructure_v2.ns11_synergy_index`.
+- Problem: column absent; 100% unscored; NS-11 deactivated.
+- Proposed fix: derive synergy index from grid/industrial proximity connectors; reactivate NS-11.
+- References: `audit/post_processing/06_scoring/20260517_logic_only_criteria_todo.md`.
+
+---
+
+## IMP-0030 — RI-01 dispersion / wind-rose API (status: open)
+
+- Discovered: 2026-05-17 by `criterion_deactivation_flux` chat.
+- Severity: medium (RI-01 stays **active**; sub-score path runs today).
+- Scope: `site_radiological.wind_rose_json`, `pg_class_*`, `mean_mixing_height_m`, Copernicus ERA5 / dispersion API.
+- Problem: primary dispersion API anchors 0% filled; full RI-01 bands not defensible.
+- Proposed fix: populate wind-rose and stability metrics; optional band tightening after validation.
+- References: `audit/post_processing/06_scoring/20260517_criteria_implementation_status.md` (RI-01 hybrid row).

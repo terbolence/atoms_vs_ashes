@@ -1,0 +1,51 @@
+# man_hours: 0.4
+# Central on/off switch for criteria in scoring, sensitivity, and result charts.
+# Set active: true after connector/data curation lands (see IMPROVEMENTS.md).
+criteria:
+  EP-05:
+    active: false
+    inactive_reason: >-
+      ep05_concurrent_index is absent from the schema and 100% unscored on the cohort.
+    pending_implementation: EP-05 concurrent emergency index connector
+    required_improvement: IMP-0024
+  HI-05:
+    active: false
+    inactive_reason: >-
+      nearest_hazmat_corridor_km / hi05_quality have 0% cohort fill.
+    pending_implementation: hazardous-material corridor distance connector (OSM / national registers)
+    required_improvement: IMP-0025
+  HI-08:
+    active: false
+    inactive_reason: >-
+      nearest_nuclear_km / hi08_quality have 0% cohort fill.
+    pending_implementation: other-nuclear-installation proximity connector
+    required_improvement: IMP-0026
+  NH-13:
+    active: false
+    inactive_reason: >-
+      combustible_veg_pct is not in schema; wildfire fuel signal unavailable.
+    pending_implementation: combustible vegetation / wildfire fuel connector (Sentinel Hub or GEE)
+    required_improvement: IMP-0022
+  NS-07:
+    active: false
+    inactive_reason: >-
+      env_impact_tier has 0% cohort fill.
+    pending_implementation: environmental-impact tier persistence from LLM or CORINE/Natura overlay
+    required_improvement: IMP-0027
+  NS-09:
+    active: false
+    inactive_reason: >-
+      unemployment_pct / gdp_per_capita_eur columns missing; socio_tier empty.
+    pending_implementation: Eurostat socioeconomic connector for site_socioeconomic
+    required_improvement: IMP-0028
+  NS-11:
+    active: false
+    inactive_reason: >-
+      ns11_synergy_index is not in schema; 100% unscored.
+    pending_implementation: industrial synergy index connector / derivation
+    required_improvement: IMP-0029
+  RI-01:
+    active: true
+    inactive_reason: null
+    pending_implementation: null
+    required_improvement: IMP-0030

@@ -176,11 +176,21 @@ def load_template_bundle_from_db(
         existing = list(families[row.family].criteria)
         families[row.family] = TemplateFile(family=row.family, criteria=[*existing, template])
 
+    act_root = Path(spec_dir) if spec_dir else Path("config/scoring_specs")
+    from atoms_vs_ashes.criterion_spec.activation import (
+        load_activation_registry,
+        validate_activation_registry,
+    )
+
+    activation_registry = load_activation_registry(act_root)
+    validate_activation_registry(activation_registry, set(by_id.keys()))
+
     return TemplateBundle(
         spec_dir=Path("db://scoring_definitions"),
         families=families,
         by_id=by_id,
         sha256=_db_bundle_sha(templates),
+        activation_registry=activation_registry,
     )
 
 

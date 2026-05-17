@@ -160,6 +160,7 @@ def _replace_in_bundle(
         families=base.families,
         by_id=by_id,
         sha256=base.sha256,
+        activation_registry=base.activation_registry,
     )
 
 

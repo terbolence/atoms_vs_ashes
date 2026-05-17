@@ -26,7 +26,9 @@ from atoms_vs_ashes.db.models import (
 from atoms_vs_ashes.db.models_analytics import CompositeScoreComponent
 from atoms_vs_ashes.gui._results_site_detail_bars import (
     fallback_criterion_ids,
+    filter_ordered_for_display,
     load_bundle_criterion_ids_ordered,
+    load_snapshot_bundle_criteria_data,
     merge_criterion_bar_semantics,
 )
 
@@ -209,6 +211,8 @@ def _assemble(
     ordered = load_bundle_criterion_ids_ordered(session, run_id, smr_key)
     if not ordered:
         ordered = fallback_criterion_ids(ranking, verdicts_all)
+    snapshot_bundle = load_snapshot_bundle_criteria_data(session, run_id, smr_key)
+    ordered = filter_ordered_for_display(ordered, snapshot_bundle)
     merged = merge_criterion_bar_semantics(
         ordered_ids=ordered,
         ranking=ranking,
