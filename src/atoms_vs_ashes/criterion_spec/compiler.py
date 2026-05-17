@@ -1,10 +1,12 @@
-# man_hours: 4.8
+# man_hours: 5.2
 """Compile spec templates plus user controls into runtime criteria.
 
 Structured fail-threshold edits regenerate the matching fail-condition
 expression. Criteria that declare ``band_recipe`` also rebuild their
-0-10 bands from the same threshold pivot, including the recommended
-default when the user has not overridden it.
+0-10 bands from the same threshold pivot. For user-editable recipe-linked
+thresholds, the threshold metadata default is the runtime default; the
+static ``band_recipe.score5_pivot`` is only a fallback when no threshold
+control exists.
 """
 
 from __future__ import annotations
@@ -273,6 +275,17 @@ def _band_recipe_pivot(
     raw = _resolve_code_override(crit_overrides, code, smr_key)
     if raw is not None:
         return raw
+    # The Site Selection Criteria threshold widget is the source of truth
+    # for recipe-linked user-editable thresholds. If metadata exposes a
+    # default value to the GUI, use that same value to rebuild bands and
+    # derived hard-exclusion expressions.
+    for fc in template.fail_conditions:
+        if (
+            fc.code == code
+            and fc.threshold is not None
+            and fc.threshold.default_value is not None
+        ):
+            return fc.threshold.default_value
     if template.band_recipe.score5_pivot is not None:
         return template.band_recipe.score5_pivot
     for fc in template.fail_conditions:
@@ -423,10 +436,19 @@ def _template_pivot(template: CriterionTemplate) -> Any:
 
     Mirrors :func:`_band_recipe_pivot` but only looks at fields stored
     on the template itself — used by the drift guard to validate YAML
-    self-consistency before any user input is applied.
+    self-consistency before any user input is applied. For user-editable
+    recipe-linked thresholds this mirrors the Site Selection Criteria
+    menu default, not the static recipe fallback.
     """
     if template.band_recipe is None:
         return None
+    for fc in template.fail_conditions:
+        if (
+            fc.code == template.band_recipe.fail_code
+            and fc.threshold is not None
+            and fc.threshold.default_value is not None
+        ):
+            return fc.threshold.default_value
     if template.band_recipe.score5_pivot is not None:
         return template.band_recipe.score5_pivot
     for fc in template.fail_conditions:

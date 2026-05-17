@@ -1,0 +1,5 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Bar power station,True,False,4.441,3.59,4.817,D,0.0625,40.0,low,800.0,42.1,19.1
+,Berane power station,False,False,,,,A,0.9375,0.0,low,110.0,42.84,19.86
+,Maoce Power Station,False,True,,,,,,0.0,low,500.0,43.36,19.36
+,Pljevlja power station,False,True,,,,,,0.0,low,479.0,43.334574,19.32714

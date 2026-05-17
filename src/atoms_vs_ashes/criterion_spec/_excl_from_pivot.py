@@ -1,12 +1,12 @@
-# man_hours: 0.6
+# man_hours: 0.7
 """Derive a hard exclusion ``condition_expr`` from a band recipe + pivot.
 
 For criteria that declare a ``band_recipe`` and carry an exclusionary
 ``fail_condition`` keyed by the same ``fail_code``, the compiler uses
 this helper to keep the *hard* fail expression in lock-step with the
-score-5 band boundary. One number — the pivot — therefore drives both
-the bands and the exclusion, eliminating drift between e.g. NH-02's
-band-5 boundary (5 km) and its hand-written 8 km hard fail.
+score-5 band boundary. One number — the resolved user-visible pivot —
+therefore drives both the bands and the exclusion, eliminating drift
+between the Site Selection Criteria menu and the engine.
 
 The recipe kinds in scope are the simple monotonic ones used by today's
 exclusionary criteria (``higher_is_better`` family,
@@ -40,7 +40,7 @@ def excl_expr_from_recipe(
 
     * ``higher_is_better`` / ``fault_distance_higher_is_better`` /
       ``score_percent_higher_is_better`` — exclude when the metric is
-      strictly below the score-5 pivot, e.g. ``nearest_fault_km < 5``.
+      strictly below the score-5 pivot, e.g. ``nearest_fault_km < 8``.
     * ``lower_is_better`` — exclude when the metric is strictly above
       the score-5 pivot, e.g. ``slope_angle_deg > 8``.
 

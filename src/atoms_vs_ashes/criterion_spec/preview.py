@@ -1,4 +1,4 @@
-# man_hours: 3.4
+# man_hours: 3.8
 """DB-free preview of how a :class:`RunProfile` lands on the rubric.
 
 Implements §7's ``score preview`` and ``GET /preview`` endpoint:
@@ -133,7 +133,8 @@ def _fail_condition_preview(
         else None
     )
     rec = spec.recommended.value if user_editable else None
-    value = (ov.user_value if ov else (rec if user_editable else None))
+    default = spec.default_value if user_editable else None
+    value = ov.user_value if ov else default
     sources = list(spec.recommended.sources) if user_editable else []
     bounds_min = (
         float(spec.bounds.min)

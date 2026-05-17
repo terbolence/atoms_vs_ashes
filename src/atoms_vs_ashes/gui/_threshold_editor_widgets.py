@@ -1,4 +1,4 @@
-# man_hours: 2.0
+# man_hours: 2.1
 """Streamlit widgets for the threshold editor (norms table, criterion cards, save)."""
 
 from __future__ import annotations
@@ -81,7 +81,7 @@ def norms_differences_table(preview: PreviewBundle) -> None:
             if not fc.user_editable:
                 continue
             rec = fc.recommended_value
-            cur = fts.get(crit.criterion_id, {}).get(fc.code, rec)
+            cur = fts.get(crit.criterion_id, {}).get(fc.code, fc.value)
             if cur is None and rec is None:
                 continue
             if cur != rec:

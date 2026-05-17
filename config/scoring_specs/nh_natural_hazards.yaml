@@ -1,4 +1,4 @@
-# man_hours: 12.0
+# man_hours: 12.2
 # Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: nh
@@ -80,19 +80,18 @@ criteria:
     db_fields: {api: [site_natural_hazards.nearest_fault_km, site_natural_hazards.fault_name, site_natural_hazards.fault_slip_rate_mm_yr], llm: nh02_fault_text}
     bands:
       - {score_range: [9, 10], condition_expr: "nearest_fault_km >= 25.0", descriptor: "Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level."}
-      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 10.0", descriptor: "Clear separation from mapped capable faults; comfortably above the 5 km score boundary."}
-      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 5.0", descriptor: "Borderline acceptable separation: meets the 5 km score boundary; check against the 8 km conservative screen and local capability evidence."}
-      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 2.5", descriptor: "Below the 5 km score boundary; close enough to require detailed paleoseismic review and likely site rejection if the fault is capable."}
+      - {score_range: [7, 8], condition_expr: "nearest_fault_km >= 16.0", descriptor: "Clear separation from mapped capable faults; comfortably above the user-visible score boundary."}
+      - {score_range: [5, 6], condition_expr: "nearest_fault_km >= 8.0", descriptor: "Borderline acceptable separation: meets the user-visible score boundary."}
+      - {score_range: [3, 4], condition_expr: "nearest_fault_km >= 4.0", descriptor: "Below the user-visible score boundary; close enough to require detailed paleoseismic review and likely site rejection if the fault is capable."}
       - {score_range: [1, 2], condition_expr: "nearest_fault_km >= 1.0", descriptor: "Very close to a mapped fault; severe surface-rupture concern with little practical siting margin."}
       - {score_range: [0, 0], condition_expr: "nearest_fault_km < 1.0", descriptor: "Within or adjacent to a mapped fault trace; surface rupture cannot be screened out."}
     fail_conditions:
-      # Single-pivot exclusion: condition_expr is auto-derived from
-      # band_recipe.score5_pivot by the compiler when
-      # derive_expr_from_recipe is true. The stored value must agree
-      # with the derived form (drift guard in
-      # atoms_vs_ashes.criterion_spec.compiler).
-      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 5", pass_mark: 5.0, descriptor: "Capable fault within score-5 pivot distance.", derive_expr_from_recipe: true}
-    band_recipe: {kind: fault_distance_higher_is_better, fail_code: E1, score5_pivot: 5.0}
+      # Single-pivot exclusion: condition_expr is auto-derived from the
+      # user-visible E1 threshold by the compiler when derive_expr_from_recipe
+      # is true. The metadata default is the Site Selection Criteria menu
+      # default; band_recipe.score5_pivot is only a fallback if metadata is absent.
+      - {code: E1, action: exclude, condition_expr: "nearest_fault_km < 8", pass_mark: 5.0, descriptor: "Capable fault within score-5 pivot distance.", derive_expr_from_recipe: true}
+    band_recipe: {kind: fault_distance_higher_is_better, fail_code: E1, score5_pivot: 8.0}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-03
     name: Geotechnical - settlement and liquefaction

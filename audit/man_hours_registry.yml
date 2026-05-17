@@ -43,7 +43,7 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_specs/nh_natural_hazards.yaml:
-    hours: 12.0
+    hours: 12.2
     category: "Configuration & DevOps"
 
   config/scoring_specs/threshold_metadata.yaml:
@@ -1895,7 +1895,11 @@ files:
     category: "Configuration & DevOps"
 
   src/atoms_vs_ashes/criterion_spec/preview.py:
-    hours: 3.4
+    hours: 3.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/criterion_spec/_excl_from_pivot.py:
+    hours: 0.7
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_criterion_info.py:
@@ -1907,7 +1911,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_threshold_editor_widgets.py:
-    hours: 2.0
+    hours: 2.1
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_results_render_drawer.py:
@@ -1938,8 +1942,12 @@ files:
     hours: 0.8
     category: "Testing"
 
+  tests/criterion_spec/test_preview.py:
+    hours: 1.8
+    category: "Testing"
+
   tests/criterion_spec/test_excl_expr_derived_from_pivot.py:
-    hours: 0.85
+    hours: 1.1
     category: "Testing"
 
   tests/gui/test_results_avoidance_diag.py:
@@ -1995,16 +2003,32 @@ files:
     category: "Testing"
 
   tests/scoring/test_threshold_propagation.py:
-    hours: 0.5
+    hours: 0.8
     category: "Testing"
 
   tests/scoring/test_compiler_parity.py:
-    hours: 1.8
+    hours: 2.0
     category: "Testing"
 
   tests/scoring/test_threshold_band_runtime.py:
-    hours: 2.5
+    hours: 2.8
     category: "Testing"
+
+  architecture/plans/nh02_threshold_menu_source_of_truth.md:
+    hours: 0.6
+    category: "Architecture & Design"
+
+  audit/plans/nh02_threshold_menu_source_of_truth.md:
+    hours: 0.6
+    category: "Project Management & QA"
+
+  audit/feature_completion_matrices/2026-05-17_nh02_threshold_menu_source_of_truth.md:
+    hours: 1.2
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_nh02_threshold_menu_source_of_truth.md:
+    hours: 0.6
+    category: "Project Management & QA"
 
   audit/plans/nh04_single_pivot_iaea_25deg.md:
     hours: 1.0
@@ -2235,7 +2259,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/criterion_spec/compiler.py:
-    hours: 4.8
+    hours: 5.2
     category: "Implementation"
 
   src/atoms_vs_ashes/scoring/rubric.py:
@@ -2905,4 +2929,12 @@ files:
   tests/gui/test_results_inactive_criteria_bars.py:
     hours: 0.4
     category: "Testing"
+
+  report/version 1.02/v1_2_report_preparation/report_writing_tools_and_templates_evaluation.md:
+    hours: 6.0
+    category: "Other"
+
+  audit/conversations/2026-05-17_report-v1-2-preparation.md:
+    hours: 0.5
+    category: "Project Management & QA"
 

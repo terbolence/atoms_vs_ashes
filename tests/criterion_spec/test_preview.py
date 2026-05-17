@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.8
 """Tests for the DB-free :func:`build_preview` service.
 
 Coverage:
@@ -68,6 +68,21 @@ def test_modified_threshold_appears_in_diff(template_bundle):
     assert e1.value == 4.5
     assert e1.recommended_value == 8.0
     assert any(d["code"] == "E1" for d in bundle.diff_vs_recommended)
+
+
+def test_nh02_preview_value_matches_compiled_threshold_default(template_bundle):
+    bundle = build_preview(
+        template_bundle,
+        RunProfile(run_label="nh02-default"),
+        spec_dir=str(SPEC_DIR),
+    )
+    nh02 = next(c for c in bundle.criteria if c.criterion_id == "NH-02")
+    e1 = next(fc for fc in nh02.fail_codes if fc.code == "E1")
+    score5 = next(b for b in nh02.bands if b.score_range == (5.0, 6.0))
+
+    assert e1.value == 8.0
+    assert e1.condition_expr == "nearest_fault_km < 8"
+    assert score5.condition_expr == "nearest_fault_km >= 8.0"
 
 
 def test_unknown_code_is_warning_not_error(template_bundle):

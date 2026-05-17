@@ -1,0 +1,3 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Plomin power station,True,True,5.131,3.93,5.636,A,1.0,40.0,low,842.0,45.136764,14.162702
+,Ploče power station,False,False,,,,,,0.0,low,800.0,43.05,17.433333

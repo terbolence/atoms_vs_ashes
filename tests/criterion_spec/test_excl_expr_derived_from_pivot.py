@@ -1,4 +1,4 @@
-# man_hours: 0.85
+# man_hours: 1.1
 """End-to-end checks for single-pivot exclusion derivation.
 
 For criteria that opted in via ``derive_expr_from_recipe=true``, the
@@ -74,7 +74,7 @@ def test_excl_expr_from_recipe_requires_metric():
 
 
 # ---------------------------------------------------------------------------
-# Default compile: NH-02, NH-04, NH-07 carry derived exclusion expressions
+# Default compile: user-visible threshold defaults drive derived exclusions
 # ---------------------------------------------------------------------------
 
 
@@ -86,13 +86,13 @@ def default_bundle() -> TemplateBundle:
 def test_defaults_drive_single_pivot_exclusion(default_bundle):
     out = compile_bundle(default_bundle)
 
-    assert _fail_expr(out, "NH-02", "E1") == "nearest_fault_km < 5"
+    assert _fail_expr(out, "NH-02", "E1") == "nearest_fault_km < 8"
     assert _fail_expr(out, "NH-04", "E3") == "slope_angle_deg > 25"
     assert _fail_expr(out, "NH-07", "E4") == "nearest_volcano_km < 50"
     assert _fail_expr(out, "EP-01", "E8") == "ep01_composite_score < 30"
 
     assert out.derived_exclusion_exprs == {
-        "NH-02": "nearest_fault_km < 5",
+        "NH-02": "nearest_fault_km < 8",
         "NH-04": "slope_angle_deg > 25",
         "NH-07": "nearest_volcano_km < 50",
         "EP-01": "ep01_composite_score < 30",
@@ -102,8 +102,8 @@ def test_defaults_drive_single_pivot_exclusion(default_bundle):
 @pytest.mark.parametrize(
     "cid, code, value, expected_expr, expected_band5",
     [
-        # Distance bands flip together: pivot 8 -> exclude below 8 -> band-5 at 8.
-        ("NH-02", "E1", 8.0, "nearest_fault_km < 8", "nearest_fault_km >= 8.0"),
+        # Distance bands flip together: pivot 5 -> exclude below 5 -> band-5 at 5.
+        ("NH-02", "E1", 5.0, "nearest_fault_km < 5", "nearest_fault_km >= 5.0"),
         ("NH-04", "E3", 20.0, "slope_angle_deg > 20", "slope_angle_deg <= 20.0"),
         ("NH-07", "E4", 100.0, "nearest_volcano_km < 100", "nearest_volcano_km >= 100.0"),
     ],

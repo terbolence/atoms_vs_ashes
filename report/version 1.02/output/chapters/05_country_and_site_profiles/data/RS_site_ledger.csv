@@ -1,0 +1,9 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Kolubara A power station,True,False,5.646,4.154,6.061,B,0.8125,40.0,low,271.0,44.480312,20.293538
+2,Kolubara B power station,True,False,5.505,4.093,5.919,D,0.375,40.0,low,725.0,44.4675,20.28444
+3,Morava power station,True,False,5.396,4.066,5.782,A,0.8125,42.5,low,120.0,44.223826,21.163148
+4,Kostolac power station,True,False,5.303,4.004,5.879,D,0.1875,40.0,low,1360.0,44.723674,21.171605
+5,Nikola Tesla power station,True,False,5.277,4.013,5.743,C,0.5625,42.5,low,3816.0,44.671341,20.158418
+6,Kovin power station,True,False,5.242,3.978,5.657,D,0.125,40.0,low,700.0,44.75,20.966667
+7,Štavalj Power Station,True,False,5.223,3.989,5.723,H,0.0,42.5,low,300.0,43.27305,19.99944
+,Despotovac power station,False,False,,,,,,0.0,low,320.0,44.05,21.26

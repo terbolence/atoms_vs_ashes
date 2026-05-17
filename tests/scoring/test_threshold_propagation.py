@@ -1,11 +1,11 @@
-# man_hours: 0.5
+# man_hours: 0.8
 """End-to-end regression for the single-pivot threshold propagation.
 
 The GUI / run-profile / engine chain for an exclusionary criterion
 with ``band_recipe`` + ``derive_expr_from_recipe`` must move three
 things together when the user edits the threshold widget:
 
-1. ``band_recipe.score5_pivot`` (resolved via
+1. The Site Selection Criteria threshold value (resolved via
    ``criterion_spec.compiler._band_recipe_pivot``).
 2. The compiled 0-10 band ladder.
 3. The hard exclusion ``condition_expr`` consumed by the scoring
@@ -20,7 +20,7 @@ The chain under test:
     RunProfile.fail_thresholds
         → smr_aware_criteria_bundles
             → compile_bundle (fail_thresholds applied)
-                → _band_recipe_pivot (user override wins)
+                → _band_recipe_pivot (user-visible threshold wins)
                 → bands_from_recipe + _derive_exclusion_expr
                 → Criterion
             → evaluate_criterion_value (engine-equivalent)
@@ -54,7 +54,7 @@ def _profile(fail_thresholds: dict) -> SimpleNamespace:
 @pytest.mark.parametrize(
     "cid, code, default_pivot, override, metric",
     [
-        ("NH-02", "E1", 5.0, 8.0, "nearest_fault_km"),    # higher_is_better
+        ("NH-02", "E1", 8.0, 5.0, "nearest_fault_km"),    # higher_is_better
         ("NH-04", "E3", 25.0, 12.0, "slope_angle_deg"),   # lower_is_better
         ("NH-07", "E4", 50.0, 100.0, "nearest_volcano_km"),  # higher_is_better
     ],
@@ -69,7 +69,7 @@ def test_user_override_propagates_through_full_compile_chain(
     smrs = [SimpleNamespace(smr_key="demo_smr", capacity_mwe=300.0)]
 
     # 1. Default compile (no override) should anchor the band-5
-    # boundary AND the hard expression to score5_pivot.
+    # boundary AND the hard expression to the visible threshold default.
     default_bundles = smr_aware_criteria_bundles(
         bundle, _profile({}), smrs
     )

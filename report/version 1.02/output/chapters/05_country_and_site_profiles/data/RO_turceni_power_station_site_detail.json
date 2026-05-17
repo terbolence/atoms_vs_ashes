@@ -1,0 +1,385 @@
+{
+  "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+  "smr_key": "nuscale_voygr6",
+  "name": "Turceni power station",
+  "country_code": "RO",
+  "status": "pass",
+  "latitude": 44.669722,
+  "longitude": 23.407778,
+  "capacity_mw": 2640.0,
+  "composite": 6.347,
+  "composite_low": 4.489,
+  "composite_high": 6.733,
+  "failed_criteria": [],
+  "avoidance_flags": [],
+  "strengths": [
+    {
+      "criterion_id": "BF-02",
+      "name": "Land Area Basic Filter",
+      "family": "bf",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"Very strong margin above the score-5 boundary.\", \"criterion\": \"BF-02\", \"name\": \"Land / nuclear-island footprint\", \"notes\": [], \"quality\": null, \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+    },
+    {
+      "criterion_id": "HI-07",
+      "name": "Electromagnetic Interference",
+      "family": "hi",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"No high-power transmitters in 10 km radius.\", \"criterion\": \"HI-07\", \"name\": \"Electromagnetic interference\", \"notes\": [], \"quality\": \"not_found\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 2}"
+    },
+    {
+      "criterion_id": "NH-02",
+      "name": "Seismic: Surface Rupture",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level.\", \"criterion\": \"NH-02\", \"name\": \"Seismic surface rupture (capable faults)\", \"notes\": [], \"quality\": \"efsm20_no_fault_50km\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 9}"
+    },
+    {
+      "criterion_id": "NH-10",
+      "name": "Extreme Winds",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"Well below the risk boundary.\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.extreme_wind_ms\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+    },
+    {
+      "criterion_id": "NH-12",
+      "name": "Extreme Temperatures",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 4}"
+    },
+    {
+      "criterion_id": "NS-04",
+      "name": "Site Topography",
+      "family": "ns",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"> 80 %.\", \"criterion\": \"NS-04\", \"name\": \"Site topography / grading\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+    },
+    {
+      "criterion_id": "NS-05",
+      "name": "Site Footprint Adequacy",
+      "family": "ns",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"Very strong margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+    },
+    {
+      "criterion_id": "RI-06",
+      "name": "Population Projections",
+      "family": "ri",
+      "score_0_10": 9.5,
+      "justification": "{\"band\": \"Declining (< -0.5 %/yr).\", \"criterion\": \"RI-06\", \"name\": \"Population projections (60-yr design life)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+    }
+  ],
+  "all_criterion_scores": [
+    {
+      "criterion_id": "BF-01",
+      "family": "bf",
+      "score_0_10": 7.5,
+      "chart_semantic": "bf"
+    },
+    {
+      "criterion_id": "BF-02",
+      "family": "bf",
+      "score_0_10": 9.5,
+      "chart_semantic": "bf"
+    },
+    {
+      "criterion_id": "EP-01",
+      "family": "ep",
+      "score_0_10": 5.5,
+      "chart_semantic": "ep"
+    },
+    {
+      "criterion_id": "EP-02",
+      "family": "ep",
+      "score_0_10": 3.5,
+      "chart_semantic": "ep"
+    },
+    {
+      "criterion_id": "EP-03",
+      "family": "ep",
+      "score_0_10": 5.0,
+      "chart_semantic": "ep"
+    },
+    {
+      "criterion_id": "EP-04",
+      "family": "ep",
+      "score_0_10": 7.5,
+      "chart_semantic": "ep"
+    },
+    {
+      "criterion_id": "EP-05",
+      "family": "ep",
+      "score_0_10": 5.0,
+      "chart_semantic": "ep"
+    },
+    {
+      "criterion_id": "HI-01",
+      "family": "hi",
+      "score_0_10": 5.5,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-02",
+      "family": "hi",
+      "score_0_10": 5.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-03",
+      "family": "hi",
+      "score_0_10": 5.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-04",
+      "family": "hi",
+      "score_0_10": 5.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-05",
+      "family": "hi",
+      "score_0_10": 5.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-06",
+      "family": "hi",
+      "score_0_10": 0.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-07",
+      "family": "hi",
+      "score_0_10": 9.5,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "HI-08",
+      "family": "hi",
+      "score_0_10": 5.0,
+      "chart_semantic": "hi"
+    },
+    {
+      "criterion_id": "NH-01",
+      "family": "nh",
+      "score_0_10": 7.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-02",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-03",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-04",
+      "family": "nh",
+      "score_0_10": 7.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-05",
+      "family": "nh",
+      "score_0_10": 5.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-06",
+      "family": "nh",
+      "score_0_10": 5.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-07",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-08",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-09",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-10",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-11",
+      "family": "nh",
+      "score_0_10": 4.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-12",
+      "family": "nh",
+      "score_0_10": 9.5,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-13",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NH-14",
+      "family": "nh",
+      "score_0_10": 5.0,
+      "chart_semantic": "nh"
+    },
+    {
+      "criterion_id": "NS-01",
+      "family": "ns",
+      "score_0_10": 7.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-02",
+      "family": "ns",
+      "score_0_10": 5.5,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-03",
+      "family": "ns",
+      "score_0_10": 6.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-04",
+      "family": "ns",
+      "score_0_10": 9.5,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-05",
+      "family": "ns",
+      "score_0_10": 9.5,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-06",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-07",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-08",
+      "family": "ns",
+      "score_0_10": 7.5,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-09",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-10",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-11",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-12",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "NS-13",
+      "family": "ns",
+      "score_0_10": 5.0,
+      "chart_semantic": "ns"
+    },
+    {
+      "criterion_id": "RI-01",
+      "family": "ri",
+      "score_0_10": 5.0,
+      "chart_semantic": "ri"
+    },
+    {
+      "criterion_id": "RI-02",
+      "family": "ri",
+      "score_0_10": 3.5,
+      "chart_semantic": "ri"
+    },
+    {
+      "criterion_id": "RI-03",
+      "family": "ri",
+      "score_0_10": 5.0,
+      "chart_semantic": "ri"
+    },
+    {
+      "criterion_id": "RI-04",
+      "family": "ri",
+      "score_0_10": 7.5,
+      "chart_semantic": "ri"
+    },
+    {
+      "criterion_id": "RI-05",
+      "family": "ri",
+      "score_0_10": 5.0,
+      "chart_semantic": "ri"
+    },
+    {
+      "criterion_id": "RI-06",
+      "family": "ri",
+      "score_0_10": 9.5,
+      "chart_semantic": "ri"
+    }
+  ],
+  "family_contributions": [
+    {
+      "family": "ns",
+      "weighted_contribution": 0.8657
+    },
+    {
+      "family": "nh",
+      "weighted_contribution": 0.8084
+    },
+    {
+      "family": "ri",
+      "weighted_contribution": 0.6058
+    },
+    {
+      "family": "ep",
+      "weighted_contribution": 0.29069999999999996
+    },
+    {
+      "family": "hi",
+      "weighted_contribution": 0.25329999999999997
+    }
+  ]
+}

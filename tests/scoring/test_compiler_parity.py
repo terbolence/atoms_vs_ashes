@@ -1,4 +1,4 @@
-# man_hours: 1.8
+# man_hours: 2.0
 """Compiler regression tests for spec templates.
 
 Non-recipe criteria must keep legacy parity. Recipe criteria deliberately
@@ -108,17 +108,17 @@ def test_nh02_threshold_override_updates_bands_and_scoring_logic():
     bundle = load_template_bundle(str(SPEC_DIR))
     nh02 = compile_bundle(
         bundle,
-        fail_thresholds={"NH-02": {"E1": 8.0}},
+        fail_thresholds={"NH-02": {"E1": 5.0}},
     ).criteria["NH-02"]
     score5 = next(b for b in nh02.bands if b.score_range == (5.0, 6.0))
     score3 = next(b for b in nh02.bands if b.score_range == (3.0, 4.0))
     e1 = next(fc for fc in nh02.fail_conditions if fc.code == "E1")
 
-    assert score5.condition_expr == "nearest_fault_km >= 8.0"
-    assert score3.condition_expr == "nearest_fault_km >= 4.0"
-    assert e1.condition_expr == "nearest_fault_km < 8"
-    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 8.0}).score >= 5.0
-    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 7.9}).score < 5.0
+    assert score5.condition_expr == "nearest_fault_km >= 5.0"
+    assert score3.condition_expr == "nearest_fault_km >= 2.5"
+    assert e1.condition_expr == "nearest_fault_km < 5"
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 5.0}).score >= 5.0
+    assert evaluate_criterion_value(nh02, {"nearest_fault_km": 4.9}).score < 5.0
 
 
 def test_exclusionary_numeric_recipes_emit_concrete_band_values():
