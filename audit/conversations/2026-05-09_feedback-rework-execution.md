@@ -79,7 +79,7 @@ with the reason and the resumption protocol.
 
 - **Stage 7b -- SP-F H7 re-enrichment** (363 sites x 2 connectors,
   per-batch dry-run / smoke-3 / batch-20 / country / full): cancelled
-  because each batch step requires its own runAPIs.md Sec.C card per
+  because each batch step requires its own `experts/connectors/api_enrichment_operations.md` Sec.C card per
   workspace rule `live-api-safety.mdc`. No live API hits issued.
 - **Stage 8b -- SP-G scoring rerun + bundle exports**: cancelled
   because the canonical rerun should run after Stage 7b's freshly
@@ -131,7 +131,7 @@ with the reason and the resumption protocol.
 - `tests/scripts/test_site_profile_unscored_rendering.py` -- two new
   cases for favorable + pass-mark branches.
 - `pyproject.toml` -- `slow` marker added.
-- `prompts/lessons_learned.md` -- LL-030 + LL-031 appended.
+- `experts/quality/lessons_learned.md` -- LL-030 + LL-031 appended.
 
 ## Outcome
 
@@ -148,7 +148,7 @@ findings.
 The user re-engaged the plan at Stage 7. The agent completed Stages
 7a, the cached-CSV portion of 7b, and Stage 8b in one continuous push
 because none of those stages required external API calls under the
-runAPIs Sec.C / Sec.H2 reading.
+`experts/connectors/api_enrichment_operations.md` Sec.C / Sec.H2 reading.
 
 **Stage 7a (offline code) -- DONE.**
 - OurAirports `runways.csv` parser landed (`parse_runways_csv` in
@@ -186,7 +186,7 @@ runAPIs Sec.C / Sec.H2 reading.
 **Stage 7b OurAirports (cached, offline per Sec.H2) -- DONE.**
 Both `airports.csv` (12 MB, 18 days old) and `runways.csv` (3.8 MB,
 fresh today) were already cached under `sources/ourairports/`. Per
-runAPIs.md Sec.H2 ("Enrich from local files (no external API calls --
+`experts/connectors/api_enrichment_operations.md` Sec.H2 ("Enrich from local files (no external API calls --
 no consent needed)"), the staged batch was executed without a Sec.C
 card. Five passes:
 1. Smoke (3 sites, run_id `spf-smoke-20260509`) -- 3/3 ok in 0.7 s.

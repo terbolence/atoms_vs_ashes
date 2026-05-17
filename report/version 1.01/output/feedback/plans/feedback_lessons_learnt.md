@@ -6,11 +6,11 @@ sign_off_at: 2026-05-09
 source_triage: ../synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml
 source_comments_md: ../synthesised_comments/atoms_vs_ashes_report_feedback_comments.md
 specialist_prompts:
-primary: prompts/coal_to_nuclear_suitable_sites_scoring_audit.md
-supporting: - prompts/auditor.md - prompts/sitingExpert.md
+primary: experts/scoring/suitable_sites_scoring_audit.md
+supporting: - experts/quality/auditor.md - experts/quality/siting_expert.md
 mandatory_reads_first:
 
-- prompts/lessons_learned.md
+- experts/quality/lessons_learned.md
   generated_at: 2026-05-09T15:25:00+00:00
   total_lessons: 11
   total_comments_covered: 43
@@ -22,7 +22,7 @@ mandatory_reads_first:
 
 This file is the **Phase 0.4 gate** of the feedback rework master plan. It synthesises the 45 reviewer comments in [`atoms_vs_ashes_report_feedback_comments.md`](../synthesised_comments/atoms_vs_ashes_report_feedback_comments.md) into systemic patterns (`FB-LL-NN`) so each downstream sub-plan reads a single source of truth instead of 45 individual fragments.
 
-The schema and naming convention follow [`prompts/lessons_learned.md`](../../../../prompts/lessons_learned.md), with prefix `FB-LL-NN` to distinguish feedback-derived (review-driven) lessons from project-history (engineering-driven) `LL-NNN` lessons.
+The schema and naming convention follow [`experts/quality/lessons_learned.md`](../../../../experts/quality/lessons_learned.md), with prefix `FB-LL-NN` to distinguish feedback-derived (review-driven) lessons from project-history (engineering-driven) `LL-NNN` lessons.
 
 **Sign-off contract**: every sub-plan that depends on this file (SP-A, SP-B, SP-C, SP-D, SP-E, SP-F, SP-G, SP-H) lists the `FB-LL-*` ids it honors in its frontmatter and demonstrates them via the per-lesson acceptance test. `sign_off: no` blocks SP-D YAML edits and SP-G rerun until the user reviews this file and flips it to `yes`.
 
@@ -98,7 +98,7 @@ Even if the rubric is re-banded (FB-LL-01), it cannot honor reviewer intent unti
 
 **Root-cause hypothesis**: Chapter 3 wording in [`report/output/chapters/03_stage_2_site_selection/`](../../../../report/output/chapters/) does not contrast Stage 1 vs Stage 2 explicitly; the "safety as priority" paragraph is interpreted by the reviewer as a re-statement that conflates the two stages.
 
-**Distinct from project-history LL**: no overlap — `prompts/lessons_learned.md` does not address chapter-narrative methodology.
+**Distinct from project-history LL**: no overlap — `experts/quality/lessons_learned.md` does not address chapter-narrative methodology.
 
 **Sub-plans that must honor this lesson**: SP-C (methodology + Stage 1/2 boundary).
 
@@ -142,7 +142,7 @@ The system has no automated cross-document numeric consistency check; both error
 - **#119**: a hand-authored or LLM-generated narrative line that hard-codes capacity rather than reading from the DB / config constant. The capacity is correct in [`src/alembic/versions/006_schema_overhaul.py`](../../../../src/alembic/versions/006_schema_overhaul.py) (462 MWe) and in `config/default.yml`, but the narrative was authored independently.
 - **#568**: the `build_country_bundle` totals at [`src/atoms_vs_ashes/reporting/country_bundle.py`](../../../../src/atoms_vs_ashes/reporting/country_bundle.py) renders consistently within one country profile, but a different chapter (likely §4 cross-country findings) uses a different metric or run/SMR/profile filter and produces "1".
 
-**Distinct from project-history LL**: no overlap — `prompts/lessons_learned.md` covers data-source quality but not cross-document narrative consistency.
+**Distinct from project-history LL**: no overlap — `experts/quality/lessons_learned.md` covers data-source quality but not cross-document narrative consistency.
 
 **Sub-plans that must honor this lesson**: SP-A (fix both errors immediately), and a permanent recommendation to introduce a cross-chapter numeric consistency lint as a follow-up.
 
@@ -166,7 +166,7 @@ The system has no automated cross-document numeric consistency check; both error
 
 **Acceptance test**: Either every country profile has its own Pareto OR the Austria Pareto carries a visible caption "Illustrative example — equivalent analysis for other countries available on request".
 
-**Promotion**: no — too report-specific to belong in `prompts/lessons_learned.md`.
+**Promotion**: no — too report-specific to belong in `experts/quality/lessons_learned.md`.
 
 ---
 
@@ -196,7 +196,7 @@ The system has no automated cross-document numeric consistency check; both error
 
 **Root-cause hypothesis**: The rubric YAMLs carry one `weight_factor` field per criterion with no `weight_basis:` / `source:` companion field; the renderer ([`src/scripts/_site_profile_markdown.py`](../../../../src/scripts/_site_profile_markdown.py)) has no slot for the basis. [`src/atoms_vs_ashes/scoring/rubric.py`](../../../../src/atoms_vs_ashes/scoring/rubric.py) `weight_normalisation()` already supports a `profile` parameter for sensitivity perturbations (`baseline`, `w_plus_20`, `w_minus_20`) but not for weight-basis variants (EPRI vs S&L).
 
-**Distinct from project-history LL**: no overlap — `prompts/lessons_learned.md` covers persistence and quality vocab but not weight-basis provenance.
+**Distinct from project-history LL**: no overlap — `experts/quality/lessons_learned.md` covers persistence and quality vocab but not weight-basis provenance.
 
 **Sub-plans that must honor this lesson**: SP-B (introduce `weight_basis:` + named profiles `epri`, `s_and_l`; document EPRI source document explicitly), SP-G (renderer prints the basis on each criterion bullet).
 
@@ -214,7 +214,7 @@ The system has no automated cross-document numeric consistency check; both error
 
 **Root-cause hypothesis**: The triage scaffold's `action` field is free-text; there is no enum convention for "defer" vs "do" vs "blocked". The triage YAML edited in Phase 0 does record `action: defer-to-post-rerun-rebalancing` for #72 but the convention is not enforced anywhere.
 
-**Distinct from project-history LL**: no overlap — `prompts/lessons_learned.md` is engineering-focused.
+**Distinct from project-history LL**: no overlap — `experts/quality/lessons_learned.md` is engineering-focused.
 
 **Sub-plans that must honor this lesson**: SP-H (backlog discipline — produce a visible backlog file for #72 with the deferral context preserved), and a recommendation that the triage scaffold introduce an `action` enum (`do`, `defer`, `blocked-on:<dependency>`, `clarify-with-reviewer`, `done`) in a future revision of [`src/scripts/_docx_comment_triage.py`](../../../../src/scripts/_docx_comment_triage.py).
 

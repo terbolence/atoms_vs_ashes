@@ -5,7 +5,7 @@
 
 ## Trigger
 
-User report: NH-07 (Volcanism) hard-fails 121 of 361 candidate sites in the merged DB. Asked: "Use `prompts/ScoringCriteriaSystemPrompt.md` and verify and fix this criterion."
+User report: NH-07 (Volcanism) hard-fails 121 of 361 candidate sites in the merged DB. Asked: "Use `experts/scoring/scoring_criterion_review.md` and verify and fix this criterion."
 
 ## Findings (pre-edit)
 
@@ -30,7 +30,7 @@ User report: NH-07 (Volcanism) hard-fails 121 of 361 candidate sites in the merg
 - **`src/scripts/generate_scoring_examples.py`** — detects `null_policy='best'` via the top band's expression (compiled Criterion does not retain the recipe), includes NULL rows in the sample, forces at least one NULL row in the top band so the user can audit the NULL-as-best behaviour directly.
 - **Tests** — `test_band_recipes.py` (3 new tests for null_policy), `test_nh07_review_flag.py` (4 new tests), `test_excl_expr_derived_from_pivot.py`, `test_compiler_parity.py`, `test_threshold_propagation.py`, `test_search_sentinel_bands.py` updated.
 - **`report/methodology/exclusionary_floors.md`** — regenerated.
-- **`prompts/lessons_learned.md`** — appended `LL-033`.
+- **`experts/quality/lessons_learned.md`** — appended `LL-033`.
 
 ## Validation
 

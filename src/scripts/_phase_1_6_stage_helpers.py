@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.2
 """Internal helpers for :mod:`_phase_1_6_extended_stages`.
 
 Split out so the orchestrator stays under the 300-line Python file
@@ -198,12 +198,17 @@ def write_country_reports(
     per_country_bands: dict[str, Path],
     per_country_ns_bands: dict[str, Path],
     per_country_figures: dict[str, Path],
+    national_country_figures: dict[str, Path] | None = None,
 ) -> dict[str, Path]:
     reports: dict[str, Path] = {}
     for code, bands_csv in per_country_bands.items():
         ns_csv = per_country_ns_bands.get(code, bands_csv)
         fig = per_country_figures.get(code)
         fig_rel = f"figures/{fig.name}" if fig else None
+        national_fig = (national_country_figures or {}).get(code)
+        national_rels = (
+            [f"figures/{national_fig.name}"] if national_fig else None
+        )
         reports[code] = write_country_report(
             out_dir=national_dir,
             stamp=stamp,
@@ -211,5 +216,6 @@ def write_country_reports(
             bands_csv_all_smr=bands_csv,
             bands_csv_nuscale=ns_csv,
             figure_rel=fig_rel,
+            national_figure_rels=national_rels,
         )
     return reports

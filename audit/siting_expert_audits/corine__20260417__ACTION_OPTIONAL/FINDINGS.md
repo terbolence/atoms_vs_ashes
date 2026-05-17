@@ -28,7 +28,7 @@ No connector error rows in these samples (still review observation text). **Site
 Treat this as **screening-grade** evidence until a human completes domain plausibility (§D–§H).
 **Documentation:** `docs/connector_reports/corine_sample_report.md` is **missing** — add per workspace connector-report rule before calling implementation complete.
 
-**Suggested disposition:** `ACTION_OPTIONAL` — confirm after human review per `prompts/sitingExpert.md`.
+**Suggested disposition:** `ACTION_OPTIONAL` — confirm after human review per `experts/quality/siting_expert.md`.
 
 ## 4. Per-sample table
 
@@ -63,7 +63,7 @@ Treat this as **screening-grade** evidence until a human completes domain plausi
 | Connector error rows (sum over sites) | 0 |
 | Auto table columns | site_natural_hazards.nh01_quality, site_natural_hazards.nh02_quality, site_natural_hazards.nh03_quality, site_natural_hazards.nh04_quality, site_natural_hazards.nh05_quality, site_natural_hazards.nh06_quality, site_natural_hazards.nh07_quality |
 
-## 6. Human follow-up (prompts/sitingExpert.md §D–§H)
+## 6. Human follow-up (experts/quality/siting_expert.md §D–§H)
 
 - Validate domain plausibility for each criterion touched by this connector.
 - If the stratification SQL used random fallback, tighten filters once provenance columns are stable.

@@ -11,7 +11,7 @@ inputs:
 - 9 suspect data issues from `requirements/13_data_post_processing.md` §2.1.1
 - Coverage gap root causes from §2.1.2
 - LL-017/LL-018 exposure table from §2.1.3
-- `prompts/lessons_learned.md` (LL-001 through LL-018)
+- `experts/quality/lessons_learned.md` (LL-001 through LL-018)
 - API DB fill rates from `scripts/report_enrichment_coverage.py`
 
 ---

@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.7
 """ORM models for analytics + provenance tables (Alembic revision 034).
 
 These materialise the artefacts the Phase 1.6 sensitivity / failure /
@@ -39,7 +39,7 @@ def _utcnow() -> datetime:
 
 
 RunKind = Enum(
-    "scoring", "sensitivity", "failure_analysis", "correlation",
+    "scoring", "sensitivity", "national_sensitivity", "failure_analysis", "correlation",
     "swing_audit", "extended_analysis",
     name="run_kind",
     create_constraint=True,

@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.8
 """Run pool + capped selectbox for the Results page.
 
 The selector always exposes the latest 10 runs of the chosen kind and
@@ -64,21 +64,54 @@ def _preferred_run_id(
     return current_pick, new_last_seen
 
 
-def select_run() -> RunSummary | None:
-    """Render scoring vs sensitivity pool and run select; auto-pick newest."""
-    pool = st.radio(
-        "Run pool",
-        ["Scoring", "Sensitivity"],
-        horizontal=True,
-        key="results_run_pool",
-        help="Analyse a scoring run or a sensitivity run.",
-    )
-    run_kind = "scoring" if pool == "Scoring" else "sensitivity"
+def _kind_label(run_kind: str) -> str:
+    labels = {
+        "scoring": "Scoring run",
+        "sensitivity": "Regional sensitivity run",
+        "national_sensitivity": "National sensitivity run",
+    }
+    return labels.get(run_kind, f"{run_kind.replace('_', ' ').title()} run")
+
+
+def select_run(
+    run_kind: str | None = None,
+    *,
+    label: str | None = None,
+    allow_manual_pool: bool = False,
+) -> RunSummary | None:
+    """Render contextual run select; auto-pick newest for the requested kind."""
+    if run_kind is None:
+        pool = st.radio(
+            "Run pool",
+            ["Scoring", "Sensitivity"],
+            horizontal=True,
+            key="results_run_pool",
+            help="Analyse a scoring run or a sensitivity run.",
+        )
+        run_kind = "scoring" if pool == "Scoring" else "sensitivity"
+    elif allow_manual_pool:
+        with st.expander("Advanced run selection", expanded=False):
+            pool = st.radio(
+                "Run pool override",
+                ["Scoring", "Regional sensitivity", "National sensitivity"],
+                horizontal=True,
+                key="results_run_pool_override",
+                index={
+                    "scoring": 0,
+                    "sensitivity": 1,
+                    "national_sensitivity": 2,
+                }.get(run_kind, 0),
+            )
+            run_kind = {
+                "Scoring": "scoring",
+                "Regional sensitivity": "sensitivity",
+                "National sensitivity": "national_sensitivity",
+            }[pool]
     runs = list_recent_runs_for_kind(run_kind, limit=_RUN_LIMIT)
     if not runs:
         st.warning(
-            "No runs of this kind persisted yet. Start a run from the "
-            "**Scoring Engine** page."
+            f"No {_kind_label(run_kind).lower()}s persisted yet. Start one "
+            "from the **Scoring Engine** page."
         )
         return None
 
@@ -97,7 +130,7 @@ def select_run() -> RunSummary | None:
     by_id = {r.run_id: r for r in runs}
     options = [r.run_id for r in runs]
     selected_id = st.selectbox(
-        "Run",
+        label or _kind_label(run_kind),
         options,
         format_func=lambda rid: by_id[rid].label,
         help=(

@@ -61,7 +61,7 @@ For each stage the entry contains:
 Two operating rules apply throughout:
 
 - **Sign-off authority = user.** The agent flips `sign_off: yes` on FB-LL and on the 18 SP-D band proposals as a mechanical first stage; if you want to revoke, do so before stage 6.
-- **Live-API consent = pre-granted for SP-F + SP-G**, but per `prompts/runAPIs.md` Sec.C every batch step still gets its own card (API, calls, duration, cost, rate limits, batch size) and its own gate.
+- **Live-API consent = pre-granted for SP-F + SP-G**, but per `experts/connectors/api_enrichment_operations.md` Sec.C every batch step still gets its own card (API, calls, duration, cost, rate limits, batch size) and its own gate.
 
 ```mermaid
 flowchart TD
@@ -194,14 +194,14 @@ flowchart TD
 
 ## Stage 7b -- SP-F H7 re-enrichment (live API; per-batch gate)
 
-- **Sub-plan link:** [`SP-F_connector_refinements.plan.md`](report/output/feedback/plans/SP-F_connector_refinements.plan.md), [`prompts/runAPIs.md`](prompts/runAPIs.md) Sec.C + Sec.H7.
+- **Sub-plan link:** [`SP-F_connector_refinements.plan.md`](report/output/feedback/plans/SP-F_connector_refinements.plan.md), [`experts/connectors/api_enrichment_operations.md`](../../experts/connectors/api_enrichment_operations.md) Sec.C + Sec.H7.
 - **Inputs:** Stage 7a done; live-API consent pre-granted but per-batch card still required.
 - **Actions** (per connector touched -- at minimum `ourairports` and `osm`-military):
   1. **Dry run**: `atoms-vs-ashes enrich <slug> --dry-run`. _No gate._
   2. **Smoke (3 sites)**. Verify log + DB rows. _Gate before next batch._
   3. **Small batch (20 sites)**. Watch for rate-limit errors; if any -> halt, lower rate, retry; do not advance. _Gate before next batch._
-  4. **Country batch (~24 sites)**. Present runAPIs Sec.C card. _Gate before next batch._
-  5. **Full batch (363 sites)**. Present runAPIs Sec.C card. _Gate before exit._
+  4. **Country batch (~24 sites)**. Present `api_enrichment_operations.md` Sec.C card. _Gate before next batch._
+  5. **Full batch (363 sites)**. Present `api_enrichment_operations.md` Sec.C card. _Gate before exit._
   6. After every batch: `PYTHONPATH=src python src/scripts/verify_raw_response_coverage.py --run-id <run_id>`.
 - **Definition of done:** `>=95%` population coverage per LL-017 / LL-022 / LL-024 / LL-026; raw-response coverage report green for the chosen `run_id`.
 - **Gate question:** _"Stage 7b complete (re-enrichment landed, coverage `>=95%`). Proceed to Stage 8a (build cross-chapter numeric lint)?"_
@@ -254,7 +254,7 @@ flowchart TD
 ## Stage 9 -- Closeout
 
 - **Actions:**
-  - Append `LL-XXX` entries to [`prompts/lessons_learned.md`](prompts/lessons_learned.md) for any new institutional lesson; flip matching FB-LL rows to `Promotion: yes` in `feedback_lessons_learnt.md`.
+  - Append `LL-XXX` entries to [`experts/quality/lessons_learned.md`](../../experts/quality/lessons_learned.md) for any new institutional lesson; flip matching FB-LL rows to `Promotion: yes` in `feedback_lessons_learnt.md`.
   - Write `audit/conversations/2026-05-09_feedback-rework-execution.md` summarising run id, files changed, and any deferred items (e.g. EPRI source still pending).
   - Mirror this plan to `architecture/plans/feedback-rework-execution.md` and `audit/plans/feedback-rework-execution.md` per `audit-trail.mdc`.
   - Refresh `audit/man_hours_summary.md` via `python src/scripts/man_hours_report.py`.
@@ -268,6 +268,6 @@ flowchart TD
 - **Never advance** past a gate without an explicit user "yes" in chat.
 - **Never invent** EPRI numerical values; SP-G runs on `baseline` until you supply the source doc, at which point Stage 8b can be replayed with `--profile epri`.
 - **Never bulk-copy** `config/scoring_rubrics/` -> `config/scoring_specs/` (lost prior session to this; preserves `band_recipe`).
-- **Every live-API batch** still presents the `prompts/runAPIs.md` Sec.C card (API, calls, duration, cost, rate-limit, batch size) before running -- the pre-grant only authorises the _kind_ of work, not unattended execution.
+- **Every live-API batch** still presents the `experts/connectors/api_enrichment_operations.md` Sec.C card (API, calls, duration, cost, rate-limit, batch size) before running -- the pre-grant only authorises the _kind_ of work, not unattended execution.
 - **Every edited file** carries first-line `man_hours: X.X`, an entry in `audit/man_hours_registry.yml`, and is reflected in `audit/man_hours_summary.md` at closeout.
 - **Reviewer clarifications #15 / #574**: if still unanswered when reached, the agent puts them in `SP-H_backlog.plan.md` and proceeds.

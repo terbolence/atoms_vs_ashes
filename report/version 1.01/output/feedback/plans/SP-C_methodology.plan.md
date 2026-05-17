@@ -3,11 +3,11 @@
 sub_plan: SP-C
 title: Methodology + Stage 1 vs Stage 2 boundary + RI-04 dual mode
 specialist_prompts:
-  primary: prompts/report_stage_methodology_author.md
+  primary: experts/report/stage_methodology_author.md
   supporting:
-    - prompts/sitingExpert.md
+    - experts/quality/siting_expert.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md
+  - experts/quality/lessons_learned.md
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - report/output/chapters/03_stage_2_site_selection/
   - config/ssr1_clause_map.yaml

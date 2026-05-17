@@ -46,7 +46,7 @@ Excluded as already covered by prior work:
 
 ## Workflow Per Criterion
 
-For each active criterion, run the same process used for NH-04/NH-07 under [`/Users/terbolence/projects/atoms_vs_ashes/prompts/ScoringCriteriaSystemPrompt.md`](/Users/terbolence/projects/atoms_vs_ashes/prompts/ScoringCriteriaSystemPrompt.md):
+For each active criterion, run the same process used for NH-04/NH-07 under [`/Users/terbolence/projects/atoms_vs_ashes/experts/scoring/scoring_criterion_review.md`](/Users/terbolence/projects/atoms_vs_ashes/experts/scoring/scoring_criterion_review.md):
 
 1. Establish current behavior from spec YAML, rubric YAML, compiled `Criterion`, threshold metadata, and DB fields.
 2. Establish metric truth from connector/source code and DB schema: what the metric actually measures, what NULL means, and whether helper aliases or derived context alter interpretation.
@@ -101,7 +101,7 @@ For each active criterion, run the same process used for NH-04/NH-07 under [`/Us
 - Add `null_policy: best` only when connector-NULL means confirmed absence within a known search radius; otherwise leave NULL as missing data or add a review flag.
 - Update [`/Users/terbolence/projects/atoms_vs_ashes/src/scripts/generate_scoring_examples.py`](/Users/terbolence/projects/atoms_vs_ashes/src/scripts/generate_scoring_examples.py) only if a criterion needs new aliases, cross-table fields, or non-scalar examples.
 - Regenerate [`/Users/terbolence/projects/atoms_vs_ashes/report/methodology/exclusionary_floors.md`](/Users/terbolence/projects/atoms_vs_ashes/report/methodology/exclusionary_floors.md).
-- Append one concise lesson per real defect to [`/Users/terbolence/projects/atoms_vs_ashes/prompts/lessons_learned.md`](/Users/terbolence/projects/atoms_vs_ashes/prompts/lessons_learned.md).
+- Append one concise lesson per real defect to [`/Users/terbolence/projects/atoms_vs_ashes/experts/quality/lessons_learned.md`](/Users/terbolence/projects/atoms_vs_ashes/experts/quality/lessons_learned.md).
 - Mirror the accepted plan to `audit/plans/` and `architecture/plans/`, write a conversation audit log, and update man-hours.
 
 ## Evidence Required Before Each Edit

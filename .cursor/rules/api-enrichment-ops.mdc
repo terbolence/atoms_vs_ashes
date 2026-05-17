@@ -20,7 +20,7 @@ alwaysApply: false
 
 # API Enrichment Operations Rule
 
-When performing any of the following tasks, the agent MUST read and follow `prompts/runAPIs.md` before planning or running commands:
+When performing any of the following tasks, the agent MUST read and follow `experts/connectors/api_enrichment_operations.md` before planning or running commands:
 
 - Running any `atoms-vs-ashes enrich` CLI command
 - Running any `scripts/run_*.py` batch script
@@ -35,8 +35,8 @@ When performing any of the following tasks, the agent MUST read and follow `prom
 
 ## Quick Reference
 
-- **Prompt location:** `prompts/runAPIs.md`
+- **Prompt location:** `experts/connectors/api_enrichment_operations.md`
 - **Safety rule:** global `~/.cursor/rules/no-live-api-without-consent.mdc` plus project `.cursor/rules/live-api-safety.mdc`
-- **Lessons learned:** `prompts/lessons_learned.md` (read before every run)
+- **Lessons learned:** `experts/quality/lessons_learned.md` (read before every run)
 - **Escalation protocol:** dry-run → 3 sites → 20 sites → country → full (user consent required at step 4+)
 - **Logging:** structlog JSON to stderr + `ConnectorHttpAuditLogger` file pairs under `logs/<subsystem>/<run_id>/`

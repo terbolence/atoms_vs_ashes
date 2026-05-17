@@ -123,7 +123,40 @@ export/**/*.xlsx
 /src/backups/*.dump
 
 # Full API / connector raw JSON payloads (often multi‑MB)
+/data/raw_responses/
 /src/data/raw_responses/
+
+# Natural Earth cartography GeoJSON (≥2 MiB; see data/cartography/README.md)
+/data/cartography/*.geojson
+
+# WRI Aqueduct water-risk bulk (GDB/CSV/zip)
+/sources/wri_aqueduct/
+
+# HydroRIVERS shapefile bundles
+/sources/hydrorivers/
+
+# GLOFAS discharge NetCDF cache
+/sources/glofas_discharge/
+
+# GeoNames bulk dumps
+/sources/geonames/
+
+# EFSM20 fault model GeoJSON / zip
+/sources/efsm20/
+
+# WOKAM / WHYMAP karst bulk
+/sources/karst/
+
+# OurAirports full dumps (airports.csv listed above; runways often multi‑MB)
+/sources/ourairports/runways.csv
+
+# One-off DB extract spreadsheets/CSVs (regenerate from DB)
+/audit/post_processing/db_extract/
+
+# Report v1.01 generated bundles, figures, and feedback artefacts
+/report/version 1.01/output/
+/report/version 1.01/regulations/**/*.pdf
+/report/version 1.01/technology evaluation/references/**/*.pdf
 
 # Mirrored bulk geodata under src (WDPA zips, seismic rasters, …)
 /src/data/sources/

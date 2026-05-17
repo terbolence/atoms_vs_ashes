@@ -1,3 +1,4 @@
+# man_hours: 1.55
 """Unit tests for ``ava score sensitivity`` CLI wiring.
 
 Run without a live DB by patching ``session_scope`` + the orchestrator
@@ -98,7 +99,7 @@ class TestPresetAndOverride:
     def test_default_iterations_when_neither_flag_given(self):
         result, captured = self._invoke("--include", "mc")
         assert result.exit_code == 0, result.output
-        assert captured["cfg"].iterations == MC_DEFAULT_ITERATIONS
+        assert captured["cfg"].iterations == MC_DEFAULT_ITERATIONS == 10000
         assert captured["cfg"].preset_label is None
 
     def test_preset_and_mc_draws_are_mutually_exclusive(self):

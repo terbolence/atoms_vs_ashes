@@ -48,7 +48,7 @@ Continuation of the `exclusionary_sweep` chat. Assigned to-do `nh10`: "Run §O p
 - **`report/methodology/exclusionary_floors.md`**
   - Regenerated via `python -m scripts.generate_exclusionary_floors`. NH-10 was never in the doc (no `pass_mark`); regen is a no-op for NH-10 and incidentally adds a previously-missing E8 / EP-01 row that had drifted out of the on-disk file independently. The on-disk doc now matches the generator output byte-for-byte (test passes).
 
-- **`prompts/lessons_learned.md`**
+- **`experts/quality/lessons_learned.md`**
   - Appended `LL-037: declared phases must agree with fail_conditions[].action; and the metric must support the threshold the rubric asserts`. Two-invariant write-up: phase/action consistency + metric/threshold consistency.
 
 - **`IMPROVEMENTS.md`**

@@ -40,7 +40,7 @@ NH-07 (Volcanism) hard-fails 121 of 361 candidate sites in the merged DB even th
 | 11 | `tests/scoring/test_nh07_review_flag.py` (new) | Smoke: a site with `nh07_hazard_class='avoidance'` emits the R1 review_flag without affecting score; a site with `'low'` or `'negligible'` does not. |
 | 12 | `src/scripts/generate_scoring_examples.py` | When `band_recipe.null_policy=='best'`, also fetch a sample of NULL rows for the top band so the post-edit table proves the 240 NULL sites correctly score 9-10. |
 | 13 | `report/methodology/exclusionary_floors.md` | Regenerate via `python -m scripts.generate_exclusionary_floors_doc`. |
-| 14 | `prompts/lessons_learned.md` | Append `LL-033 — NH-07 conflated screening radius with exclusion distance`. |
+| 14 | `experts/quality/lessons_learned.md` | Append `LL-033 — NH-07 conflated screening radius with exclusion distance`. |
 | 15 | `audit/plans/nh07_single_pivot_iaea_50km.md` + `architecture/plans/nh07_single_pivot_iaea_50km.md` | Mirror plan per audit-trail rule. |
 | 16 | `audit/conversations/2026-05-16_nh07-single-pivot-iaea-50km.md` | Conversation log. |
 | 17 | `audit/man_hours_registry.yml` + `audit/man_hours_summary.md` | Update man-hours. |

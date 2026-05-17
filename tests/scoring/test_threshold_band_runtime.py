@@ -1,4 +1,4 @@
-# man_hours: 2.2
+# man_hours: 2.5
 """Runtime checks for threshold-driven scoring band recipes."""
 
 from __future__ import annotations
@@ -99,7 +99,7 @@ def test_default_ns02_capacity_bands_align_to_a13_floor():
     assert evaluate_criterion_value(ns02, {"grid_export_capacity_mw": 461.9}).score < 5.0
 
 
-def test_nh08_a9_missing_coast_distance_is_low_elevation_caution():
+def test_nh08_a9_requires_measured_or_proxy_coastal_signal():
     bundle = load_template_bundle(str(SPEC_DIR))
     nh08 = compile_bundle(bundle).criteria["NH-08"]
 
@@ -120,7 +120,7 @@ def test_nh08_a9_missing_coast_distance_is_low_elevation_caution():
         "coast_distance_km": None,
         "elevation_m": 12.0,
         "country_is_landlocked": False,
-    }) == "caution"
+    }) == "pass"
     assert verdict({
         "coast_distance_km": None,
         "elevation_m": 12.0,
@@ -136,6 +136,12 @@ def test_nh08_a9_missing_coast_distance_is_low_elevation_caution():
         "elevation_m": 12.0,
         "country_is_landlocked": False,
     }) == "caution"
+    assert verdict({
+        "coast_distance_km": None,
+        "storm_surge_class": "fluvial_proxy",
+        "elevation_m": 12.0,
+        "country_is_landlocked": False,
+    }) == "caution"
 
 
 def test_nh08_compiled_bands_keep_elevation_and_landlocked_safe_branches():
@@ -148,6 +154,8 @@ def test_nh08_compiled_bands_keep_elevation_and_landlocked_safe_branches():
             "coast_distance_km": None,
             "elevation_m": 55.0,
             "country_is_landlocked": False,
+            "storm_surge_class": None,
+            "tsunami_zone_flag": None,
         },
     )
     assert high_elevation.matched_band is not None
@@ -159,6 +167,8 @@ def test_nh08_compiled_bands_keep_elevation_and_landlocked_safe_branches():
             "coast_distance_km": None,
             "elevation_m": None,
             "country_is_landlocked": True,
+            "storm_surge_class": None,
+            "tsunami_zone_flag": None,
         },
     )
     assert landlocked.matched_band is not None
@@ -170,10 +180,39 @@ def test_nh08_compiled_bands_keep_elevation_and_landlocked_safe_branches():
             "coast_distance_km": None,
             "elevation_m": 12.0,
             "country_is_landlocked": False,
+            "storm_surge_class": None,
+            "tsunami_zone_flag": None,
         },
     )
     assert low_unknown.matched_band is None
     assert "unscored" in (low_unknown.notes or [])
+
+    measured_inland = evaluate_criterion_value(
+        nh08,
+        {
+            "coast_distance_km": 121.0,
+            "elevation_m": 12.0,
+            "country_is_landlocked": False,
+            "storm_surge_class": None,
+            "tsunami_zone_flag": None,
+        },
+    )
+    assert measured_inland.matched_band is not None
+    assert measured_inland.matched_band.score_range == (9.0, 10.0)
+
+    severe_unmitigated = evaluate_criterion_value(
+        nh08,
+        {
+            "coast_distance_km": 1.8,
+            "elevation_m": 2.0,
+            "country_is_landlocked": False,
+            "storm_surge_class": "fluvial_proxy",
+            "tsunami_zone_flag": None,
+            "has_remedy": None,
+        },
+    )
+    assert severe_unmitigated.matched_band is not None
+    assert severe_unmitigated.matched_band.score_range == (0.0, 0.0)
 
 
 def test_nh09_uses_flood_zone_class_bands_and_static_a11():

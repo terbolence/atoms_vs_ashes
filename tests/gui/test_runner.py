@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.8
 """Unit tests for the GUI subprocess runner contract.
 
 Covers the heartbeat/log helpers (unchanged) and the DB→YAML profile
@@ -24,7 +24,10 @@ from atoms_vs_ashes.gui._runner import (
     export_active_profile_to_yaml,
     read_heartbeat,
     read_log_tail,
+    start_sensitivity_run,
 )
+from atoms_vs_ashes.gui._runner_national import start_national_sensitivity_run
+from atoms_vs_ashes.gui import _runner_national
 from atoms_vs_ashes.runprofile.schema import RunProfile, ScopeBlock
 
 
@@ -42,10 +45,13 @@ def _make_handle(tmp_path: Path) -> RunHandle:
     )
 
 
-def _profile_for_test() -> RunProfile:
+def _profile_for_test(smr_keys: list[str] | None = None) -> RunProfile:
     return RunProfile(
         run_label="ro_focus_test",
-        scope=ScopeBlock(countries=["RO"], smr_keys=["nuscale_voygr6"]),
+        scope=ScopeBlock(
+            countries=["RO"],
+            smr_keys=["nuscale_voygr6"] if smr_keys is None else smr_keys,
+        ),
         notes="from test_runner",
     )
 
@@ -148,3 +154,82 @@ def test_cleanup_removes_stale_files_but_keeps_active_runs(tmp_path: Path) -> No
 def test_cleanup_skips_when_directory_missing(tmp_path: Path) -> None:
     missing = tmp_path / "nope"
     assert cleanup_stale_runtime_profiles(runtime_dir=missing) == []
+
+
+def test_national_sensitivity_runner_uses_separate_command(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    captured: dict[str, list[str]] = {}
+
+    def fake_start(run_id, cmd, profile_path=None):
+        captured["cmd"] = cmd
+        return RunHandle(
+            run_id=run_id,
+            cmd=cmd,
+            pid=None,
+            heartbeat_path=tmp_path / "hb.jsonl",
+            cancel_flag_path=tmp_path / "cancel",
+            log_path=tmp_path / "log",
+            profile_path=profile_path,
+        )
+
+    monkeypatch.setattr(_runner, "_start_command", fake_start)
+    monkeypatch.setattr(_runner_national, "_start_command", fake_start)
+    start_national_sensitivity_run(
+        profile=_profile_for_test(),
+        mc_rank_draws=1234,
+        min_pairs=4,
+        seed=99,
+        audit_dir="audit/out",
+    )
+
+    cmd = captured["cmd"]
+    assert cmd[cmd.index("score") + 1] == "national-sensitivity"
+    assert "--mc-rank-draws" in cmd
+    assert cmd[cmd.index("--mc-rank-draws") + 1] == "1234"
+    assert "--min-pairs" in cmd
+    assert cmd[cmd.index("--min-pairs") + 1] == "4"
+    assert "--smr-key" in cmd
+    assert cmd[cmd.index("--smr-key") + 1] == "nuscale_voygr6"
+
+
+def test_national_sensitivity_runner_requires_one_profile_smr(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+
+    with pytest.raises(ValueError, match="single-SMR"):
+        start_national_sensitivity_run(profile=_profile_for_test(smr_keys=[]))
+
+    with pytest.raises(ValueError, match="single-SMR"):
+        start_national_sensitivity_run(
+            profile=_profile_for_test(smr_keys=["a", "b"])
+        )
+
+
+def test_regional_sensitivity_runner_does_not_receive_national_flags(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    captured: dict[str, list[str]] = {}
+
+    def fake_start(run_id, cmd, profile_path=None):
+        captured["cmd"] = cmd
+        return RunHandle(
+            run_id=run_id,
+            cmd=cmd,
+            pid=None,
+            heartbeat_path=tmp_path / "hb.jsonl",
+            cancel_flag_path=tmp_path / "cancel",
+            log_path=tmp_path / "log",
+            profile_path=profile_path,
+        )
+
+    monkeypatch.setattr(_runner, "_start_command", fake_start)
+    start_sensitivity_run(profile=_profile_for_test(), iterations=1000)
+
+    cmd = captured["cmd"]
+    assert cmd[cmd.index("score") + 1] == "sensitivity"
+    assert "--mc-rank-draws" not in cmd
+    assert "--min-pairs" not in cmd

@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.8
 """Run-status panel for the Scoring Engine page.
 
 Renders the live-progress bar (during a child run) and the finished
@@ -49,6 +49,7 @@ _STAGE_LABELS: dict[str, str] = {
     "sensitivity:mc": "Monte-Carlo sampling",
     "sensitivity:country": "Country-balance check",
     "sensitivity:threshold": "Threshold sensitivity sweep",
+    "national_sensitivity:mc_summary": "National Monte-Carlo rank sampling",
 }
 
 
@@ -231,8 +232,28 @@ def _render_handle_fragment_score() -> None:
 
 
 @st.fragment(run_every=2.0)
-def _render_handle_fragment_sens() -> None:
+def _render_handle_fragment_regional_sens() -> None:
+    _render_handle_with_promote("regional sensitivity", "regional_sens_handle")
+
+
+@st.fragment(run_every=2.0)
+def _render_handle_fragment_national_sens() -> None:
+    _render_handle_with_promote("national sensitivity", "national_sens_handle")
+
+
+@st.fragment(run_every=2.0)
+def _render_handle_fragment_sens_legacy() -> None:
     _render_handle_with_promote("sensitivity", "sens_handle")
+
+
+def _fragment_kind(handle_key: str) -> str:
+    if handle_key == "score_handle":
+        return "score"
+    if handle_key == "regional_sens_handle":
+        return "regional_sens"
+    if handle_key == "national_sens_handle":
+        return "national_sens"
+    return "sens_legacy"
 
 
 def render_handle(label: str, handle_key: str) -> None:
@@ -241,10 +262,15 @@ def render_handle(label: str, handle_key: str) -> None:
     if st.session_state.get(_settled_flag_key(handle_key)):
         _render_handle_inner(label, handle_key)
         return
-    if handle_key == "score_handle":
+    fragment = _fragment_kind(handle_key)
+    if fragment == "score":
         _render_handle_fragment_score()
+    elif fragment == "regional_sens":
+        _render_handle_fragment_regional_sens()
+    elif fragment == "national_sens":
+        _render_handle_fragment_national_sens()
     else:
-        _render_handle_fragment_sens()
+        _render_handle_fragment_sens_legacy()
 
 
 __all__ = ["clear_settled", "render_handle"]

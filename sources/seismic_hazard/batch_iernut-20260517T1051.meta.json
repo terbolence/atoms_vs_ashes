@@ -1,0 +1,13 @@
+{
+  "run_id": "iernut-20260517T1051",
+  "timestamp": "2026-05-17T10:52:15.120253+00:00",
+  "total_sites": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "cached": 0,
+  "elapsed_s": 2.4,
+  "source_distribution": {
+    "efehr_eshm20": 1
+  },
+  "errors": []
+}

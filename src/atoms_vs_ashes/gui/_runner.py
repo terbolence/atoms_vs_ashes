@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 2.0
 """Subprocess driver for the GUI's start/stop scoring + sensitivity buttons.
 
 We deliberately spawn the existing ``score`` CLI in a child process

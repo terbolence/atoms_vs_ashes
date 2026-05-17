@@ -1,7 +1,7 @@
 <!-- man_hours: 8.0 -->
 # Expert siting criteria evaluation matrix (0–10 scale, weights, pass marks)
 
-> **Generated per** `prompts/expert_iaea_epri_criterion_matrix_author.md` **(2026-04-21 refresh).** **Primary sources** are repository paths under `sources/regulations/` and `requirements/` (see § Repository documentation below). **Web** links in the bibliography are secondary pointers only.
+> **Generated per** `experts/scoring/criterion_matrix_author.md` **(2026-04-21 refresh).** **Primary sources** are repository paths under `sources/regulations/` and `requirements/` (see § Repository documentation below). **Web** links in the bibliography are secondary pointers only.
 
 **Purpose:** Baseline **project** proposal for screening- and ranking-grade evaluation of SMR / coal-to-nuclear sites. Criterion IDs and phases follow `requirements/05_siting_criteria.md` and `requirements/04_siting_methodology.md`; interpretation is anchored to **local** IAEA/EPRI **maps** under `sources/regulations/` (see below). This is **not** a licensing submission; **confirm thresholds** with a qualified engineer and the applicable national regulator.
 
@@ -24,7 +24,7 @@
 
 ## Repository documentation (authoritative for this project)
 
-_Per `prompts/expert_iaea_epri_criterion_matrix_author.md` §0 — read these before interpreting the matrix._
+_Per `experts/scoring/criterion_matrix_author.md` §0 — read these before interpreting the matrix._
 
 ### IAEA document maps (`sources/regulations/iaea/maps/`)
 
@@ -105,7 +105,7 @@ Accessed **2026-04-21** (screening-grade pointers; verify current editions befor
 
 **Composite score (Phase 3 ranking):** Let \(w_i\) be the decimal weight (Σ\(w_i = 1\)) and \(c_i\in[0,10]\) the criterion score. Use \(S = \sum_i w_i \,(c_i/10)\), i.e. a **weighted mean** of scores on a 0–1 scale (equivalently, mean 0–10 score \(\sum_i w_i c_i\) if preferred for reporting).
 
-**Self-check (per `prompts/expert_iaea_epri_criterion_matrix_author.md`):**
+**Self-check (per `experts/scoring/criterion_matrix_author.md`):**
 
 - [x] All **8** IAEA maps under `sources/regulations/iaea/maps/` and **1** EPRI map under `sources/regulations/epri/maps/` are **listed** in § Repository documentation.
 - [x] Core **requirements** files **04**, **05**, **05_1…05_5**, **06**, **00_index** are **listed** and drive E/A/BF, criterion IDs, and weights.

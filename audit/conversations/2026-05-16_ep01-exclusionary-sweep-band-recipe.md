@@ -8,7 +8,7 @@ Run the §O pre-edit analysis for **EP-01 — Emergency-plan feasibility (compos
 ## Inputs
 
 - Plan: `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`
-- System prompt: `prompts/ScoringCriteriaSystemPrompt.md`
+- System prompt: `experts/scoring/scoring_criterion_review.md`
 - Spec + rubric: `config/scoring_specs/ep_emergency_planning.yaml`, `config/scoring_rubrics/ep_emergency_planning.yaml`, `config/scoring_specs/threshold_metadata.yaml`
 - Engine code paths: `criterion_spec/compiler.py`, `criterion_spec/_excl_from_pivot.py`, `scoring/bands.py`, `scoring/_safety_floor.py`, `scoring/exclusionary.py`, `scoring/merge_resolver.py`, `scoring/merge_context_derivations.py`
 - DB schema: `src/atoms_vs_ashes/db/models.py::SiteEmergencyPlanning`
@@ -56,7 +56,7 @@ Bands, exclusion verdict, and ranking are byte-equivalent to the prior runtime b
 - `report/methodology/exclusionary_floors.md` (regenerated)
 - `tests/criterion_spec/test_excl_expr_derived_from_pivot.py` (EP-01 moved from opt-out to opt-in; NH-03 + NS-08 promoted to the new opt-out exemplars)
 - `tests/scoring/test_safety_floor_pipeline.py` (EP-01 removed from the "no floor" parametrize; it now intentionally uses the floor)
-- `prompts/lessons_learned.md` (LL-035)
+- `experts/quality/lessons_learned.md` (LL-035)
 - `IMPROVEMENTS.md` (IMP-0001..IMP-0006; IMP-0003 closed by this chat for EP-01, left open for the rest of the recipe-carrying criteria)
 - Deletions: `src/scripts/run_fix09_ep01_composite_recalc.py`, `tests/scripts/test_run_fix09_ep01_composite_recalc.py`
 

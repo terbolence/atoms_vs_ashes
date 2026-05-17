@@ -170,7 +170,7 @@ The v2 close-out plan's literal instruction was:
 > ... Tee to `logs/hi06_fix04_apply.log`."
 
 Before kicking that off, the operator presented a consent card per
-`prompts/runAPIs.md` Sec. C (361 sites × 3 Overpass queries, ~7-9 h,
+`experts/connectors/api_enrichment_operations.md` Sec. C (361 sites × 3 Overpass queries, ~7-9 h,
 504 retries observed in preview, DB writes). The user pushed back
 with: **"do we not already have data for this?"** That challenge was
 correct: a quick audit of `logs/hi06_fix04_preview.jsonl` showed

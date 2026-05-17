@@ -158,4 +158,4 @@ Values taken from `SAMPLES.json` → each sample’s `domain.site_natural_hazard
 
 ## Appendix A. Machine generation note
 
-The machine skeleton and `SAMPLES.json` are produced by [`scripts/generate_siting_expert_audits.py`](../../../scripts/generate_siting_expert_audits.py). This document completes **`prompts/sitingExpert.md` §H** for **`zhu_liquefaction`**.
+The machine skeleton and `SAMPLES.json` are produced by [`scripts/generate_siting_expert_audits.py`](../../../scripts/generate_siting_expert_audits.py). This document completes **`experts/quality/siting_expert.md` §H** for **`zhu_liquefaction`**.

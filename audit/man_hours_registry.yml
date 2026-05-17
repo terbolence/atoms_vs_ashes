@@ -19,7 +19,7 @@ files:
     category: "Configuration & DevOps"
 
   config/default.yml:
-    hours: 8.0
+    hours: 8.5
     category: "Configuration & DevOps"
 
   config/scoring_specs/hi_human_induced.yaml:
@@ -39,7 +39,7 @@ files:
     category: "Configuration & DevOps"
 
   config/scoring_specs/nh_natural_hazards.yaml:
-    hours: 10.3
+    hours: 10.8
     category: "Configuration & DevOps"
 
   config/scoring_specs/threshold_metadata.yaml:
@@ -82,6 +82,14 @@ files:
 
   src/alembic/versions/045_add_ns07_env_impact_tier.py:
     hours: 0.3
+    category: "Database & Migrations"
+
+  src/alembic/versions/048_site_area_resolution_provenance.py:
+    hours: 1.5
+    category: "Database & Migrations"
+
+  src/alembic/versions/049_insert_iernut_ccgt_site.py:
+    hours: 1.2
     category: "Database & Migrations"
 
   # ── Architecture & Design ───────────────────────────────────────
@@ -195,7 +203,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/analysis/emergency_plan.py:
-    hours: 18.0
+    hours: 37.0
     category: "Implementation"
 
   src/atoms_vs_ashes/analysis/epz_population.py:
@@ -251,7 +259,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/cli.py:
-    hours: 4.0
+    hours: 6.5
     category: "Implementation"
 
   src/atoms_vs_ashes/config.py:
@@ -303,7 +311,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/db/__init__.py:
-    hours: 0.1
+    hours: 0.3
     category: "Implementation"
 
   src/atoms_vs_ashes/db/engine.py:
@@ -311,7 +319,15 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/db/models.py:
-    hours: 32.1
+    hours: 33.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/site_area_db.py:
+    hours: 4.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/analysis/site_area_resolution.py:
+    hours: 7.0
     category: "Implementation"
 
   src/atoms_vs_ashes/geo.py:
@@ -335,7 +351,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/ingest/sites.py:
-    hours: 14.0
+    hours: 19.5
     category: "Implementation"
 
   src/atoms_vs_ashes/logging.py:
@@ -374,6 +390,14 @@ files:
     hours: 6.0
     category: "Implementation"
 
+  src/scripts/audit_site_area_confidence.py:
+    hours: 2.5
+    category: "Implementation"
+
+  src/scripts/apply_site_area_resolution.py:
+    hours: 3.7
+    category: "Implementation"
+
   # ── Testing ─────────────────────────────────────────────────────
 
   tests/__init__.py:
@@ -385,7 +409,7 @@ files:
     category: "Testing"
 
   tests/test_config.py:
-    hours: 1.1
+    hours: 1.4
     category: "Testing"
 
   tests/test_connectors_osm.py:
@@ -405,7 +429,11 @@ files:
     category: "Testing"
 
   tests/test_integration_db.py:
-    hours: 4.2
+    hours: 4.6
+    category: "Testing"
+
+  tests/test_emergency_plan_cli.py:
+    hours: 1.0
     category: "Testing"
 
   tests/test_models.py:
@@ -442,6 +470,18 @@ files:
 
   tests/test_screening_land_area.py:
     hours: 5.0
+    category: "Testing"
+
+  tests/test_site_area_resolution.py:
+    hours: 5.0
+    category: "Testing"
+
+  tests/scripts/test_audit_site_area_confidence.py:
+    hours: 2.5
+    category: "Testing"
+
+  tests/scripts/test_apply_site_area_resolution.py:
+    hours: 2.5
     category: "Testing"
 
   # ── Research & Data Sources ─────────────────────────────────────
@@ -514,11 +554,11 @@ files:
 
   # ── AI Prompts & Tooling ────────────────────────────────────────
 
-  gpt/expert_system_data_sources_and_integrations.md:
+  experts/connectors/data_sources_integrations.md:
     hours: 8.0
     category: "AI Prompts & Tooling"
 
-  prompts/runAPIs.md:
+  experts/connectors/api_enrichment_operations.md:
     hours: 8.0
     category: "AI Prompts & Tooling"
 
@@ -534,8 +574,44 @@ files:
     hours: 2.0
     category: "Project Management & QA"
 
+  audit/feature_completion_matrices/2026-05-17_site_area_resolution.md:
+    hours: 2.2
+    category: "Project Management & QA"
+
+  audit/feature_completion_matrices/2026-05-17_iernut_ccgt_full_enrichment.md:
+    hours: 2.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_iernut_ccgt_full_enrichment.md:
+    hours: 1.2
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_site_area_confidence.csv:
+    hours: 0.4
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_site_area_before_after_selection.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_site_area_coverage_all_sites.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_site_area_prewrite_approval.md:
+    hours: 0.8
+    category: "Project Management & QA"
+
+  audit/post_processing/06_scoring/20260517_site_area_postwrite_verification.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
   audit/conversations/2026-03-10_methodology-and-data-pricing.md:
     hours: 0.5
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_site_area_resolution.md:
+    hours: 1.5
     category: "Project Management & QA"
 
   audit/conversations/2026-03-10_requirements-expansion.md:
@@ -624,7 +700,7 @@ files:
     hours: 8.0
     category: "Research & Data Sources"
 
-  src/dataAcquisition/database_fusion_prompt.md:
+  experts/assessment/database_fusion.md:
     hours: 4.0
     category: "Research & Data Sources"
 
@@ -1202,12 +1278,12 @@ files:
 
   # ── AI Prompts & Tooling (updated) ─────────────────────────────
 
-  prompts/sitingExpert.md:
+  experts/quality/siting_expert.md:
     hours: 6.0
     category: "AI Prompts & Tooling"
 
-  prompts/lessons_learned.md:
-    hours: 6.8
+  experts/quality/lessons_learned.md:
+    hours: 8.0
     category: "AI Prompts & Tooling"
 
   report/output/feedback/plans/feedback_lessons_learnt.md:
@@ -1314,15 +1390,15 @@ files:
     hours: 4.8
     category: "Report Authoring & Documentation"
 
-  prompts/databaseAudit.md:
+  experts/connectors/database_audit.md:
     hours: 2.0
     category: "AI Prompts & Tooling"
 
-  prompts/site_area_web_search.md:
+  experts/connectors/site_area_web_search.md:
     hours: 1.0
     category: "AI Prompts & Tooling"
 
-  prompts/ScoringCriteriaSystemPrompt.md:
+  experts/scoring/scoring_criterion_review.md:
     hours: 8.0
     category: "AI Prompts & Tooling"
 
@@ -1373,7 +1449,7 @@ files:
     category: "Configuration & DevOps"
 
   AGENTS.md:
-    hours: 1.6
+    hours: 2.0
     category: "Other"
 
   architecture/plans/README.md:
@@ -1715,7 +1791,7 @@ files:
     category: "Testing"
 
   tests/scoring/test_search_sentinel_bands.py:
-    hours: 1.1
+    hours: 1.2
     category: "Testing"
 
   tests/scoring/test_context_derivations.py:
@@ -1767,7 +1843,7 @@ files:
     category: "Implementation"
 
   src/atoms_vs_ashes/gui/_results_page_main.py:
-    hours: 1.2
+    hours: 1.8
     category: "Implementation"
 
   src/atoms_vs_ashes/scoring/_codes.py:
@@ -1847,7 +1923,7 @@ files:
     category: "Testing"
 
   tests/scoring/test_threshold_band_runtime.py:
-    hours: 2.2
+    hours: 2.5
     category: "Testing"
 
   audit/plans/nh04_single_pivot_iaea_25deg.md:
@@ -1903,7 +1979,7 @@ files:
     category: "Project Management & QA"
 
   IMPROVEMENTS.md:
-    hours: 2.2
+    hours: 2.4
     category: "Project Management & QA"
 
   tests/scoring/test_ns08_strict_overlap.py:
@@ -1995,7 +2071,7 @@ files:
     category: "Other"
 
   criteria/ranking/NH-08 — Coastal flooding storm surge and tsunami.md:
-    hours: 1.0
+    hours: 1.4
     category: "Other"
 
   criteria/ranking/NH-09 — River flooding.md:
@@ -2027,7 +2103,7 @@ files:
     category: "Project Management & QA"
 
   config/scoring_rubrics/nh_natural_hazards.yaml:
-    hours: 4.7
+    hours: 5.2
     category: "Configuration & DevOps"
 
   report/version 1.01/output/writing plan/prompts/specialists/siting_expert.md:
@@ -2035,7 +2111,7 @@ files:
     category: "Other"
 
   criteria/avoidance/NH-08_A9_coastal_flooding.md:
-    hours: 1.8
+    hours: 2.2
     category: "Other"
 
   audit/conversations/2026-05-16_nh08-a9-coastal-caution.md:
@@ -2244,5 +2320,333 @@ files:
 
   audit/conversations/2026-05-16_ranking-criteria-sweep.md:
     hours: 1.0
+    category: "Project Management & QA"
+
+  src/atoms_vs_ashes/scoring/_national_ranking.py:
+    hours: 2.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_national_ranking_metrics.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_national_oat.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_suite_national_oat.py:
+    hours: 1.35
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_national_sensitivity.py:
+    hours: 2.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_national_mc_rank.py:
+    hours: 2.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/models_analytics_part3.py:
+    hours: 1.6
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/analytics_writers_national.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/db/migrations/_046_national_sensitivity.py:
+    hours: 0.9
+    category: "Implementation"
+
+  src/alembic/versions/046_national_sensitivity_rankings.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_national_sensitivity.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_driver_stages.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_figures_national_sensitivity.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/scripts/run_phase_1_6_sensitivity.py:
+    hours: 3.8
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_country_report.py:
+    hours: 0.95
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_stage_helpers.py:
+    hours: 1.2
+    category: "Implementation"
+
+  src/scripts/_phase_1_6_extended_stages.py:
+    hours: 1.7
+    category: "Implementation"
+
+  tests/scoring/test_national_ranking.py:
+    hours: 1.5
+    category: "Testing"
+
+  tests/scoring/test_national_oat.py:
+    hours: 1.5
+    category: "Testing"
+
+  tests/scoring/test_national_sensitivity_persist.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/scoring/test_national_mc_rank.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/scripts/test_phase_1_6_national_sensitivity.py:
+    hours: 0.8
+    category: "Testing"
+
+  report/version 1.01/methodology/sensitivity_analysis.md:
+    hours: 2.0
+    category: "Documentation"
+
+  report/version 1.01/output/writing plan/prompts/country_profile_author.md:
+    hours: 1.3
+    category: "Documentation"
+
+  experts/scoring/national_sensitivity_report_author.md:
+    hours: 1.0
+    category: "Expert Systems"
+
+  audit/conversations/2026-05-16_national-sensitivity-rankings.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  # ── Implementation QA Systemization ─────────────────────────────
+
+  .cursor/rules/feature-completion-checklist.mdc:
+    hours: 1.5
+    category: "Configuration & DevOps"
+
+  audit/templates/feature_completion_matrix.md:
+    hours: 1.5
+    category: "Project Management & QA"
+
+  audit/feature_completion_matrices/2026-05-17_national_sensitivity_gui.md:
+    hours: 3.7
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_implementation_qa_systemization.md:
+    hours: 0.9
+    category: "Project Management & QA"
+
+  experts/quality/auditor.md:
+    hours: 22.0
+    category: "AI Prompts & Tooling"
+
+  experts/connectors/software_architect.md:
+    hours: 16.0
+    category: "AI Prompts & Tooling"
+
+  experts/connectors/senior_software_engineer.md:
+    hours: 28.0
+    category: "AI Prompts & Tooling"
+
+  Efficiency.md:
+    hours: 4.5
+    category: "Other"
+
+  # ── National Sensitivity Finish ─────────────────────────────────
+
+  audit/conversations/2026-05-17_national_sensitivity_finish.md:
+    hours: 1.6
+    category: "Project Management & QA"
+
+  src/alembic/versions/039_active_run_profile.py:
+    hours: 1.05
+    category: "Database & Migrations"
+
+  src/alembic/versions/047_add_national_sensitivity_run_kind.py:
+    hours: 0.4
+    category: "Database & Migrations"
+
+  src/atoms_vs_ashes/db/models_analytics.py:
+    hours: 1.7
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_baseline.py:
+    hours: 0.6
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_country_focus.py:
+    hours: 0.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_data_national_sens.py:
+    hours: 1.2
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_data_sens.py:
+    hours: 0.6
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_data_stability.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_render_national_sens.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_render_stability.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_run_picker.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_results_tool_routing.py:
+    hours: 0.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_runner.py:
+    hours: 2.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_runner_national.py:
+    hours: 0.9
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/_run_status_panel.py:
+    hours: 1.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/country_sensitivity.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/models.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/pdf.py:
+    hours: 0.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/pdf_common.py:
+    hours: 0.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/pdf_country.py:
+    hours: 1.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/pdf_criteria.py:
+    hours: 0.6
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/reports/pdf_shortlist.py:
+    hours: 1.0
+    category: "Implementation"
+
+  src/atoms_vs_ashes/gui/screen_pages/04_run_dashboard.py:
+    hours: 2.15
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_cli.py:
+    hours: 2.4
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_cli_national_sensitivity.py:
+    hours: 1.55
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_suite_banding.py:
+    hours: 1.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/_suite_sensitivity_site_bands_persist.py:
+    hours: 0.5
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/national_suite.py:
+    hours: 2.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/suite.py:
+    hours: 2.8
+    category: "Implementation"
+
+  src/atoms_vs_ashes/scoring/sensitivity.py:
+    hours: 5.1
+    category: "Implementation"
+
+  tests/gui/test_reports_export.py:
+    hours: 1.8
+    category: "Testing"
+
+  tests/gui/test_results_sensitivity_scopes.py:
+    hours: 0.6
+    category: "Testing"
+
+  tests/gui/test_results_tool_routing.py:
+    hours: 0.6
+    category: "Testing"
+
+  tests/gui/test_run_status_panel.py:
+    hours: 0.4
+    category: "Testing"
+
+  tests/gui/test_runner.py:
+    hours: 1.8
+    category: "Testing"
+
+  tests/scoring/test_national_suite_single_smr.py:
+    hours: 0.4
+    category: "Testing"
+
+  tests/scoring/test_sensitivity_cli.py:
+    hours: 1.55
+    category: "Testing"
+
+  data/cartography/README.md:
+    hours: 0.2
+    category: "Research & Data Sources"
+
+  data/cartography/ne_50m_coastline.geojson:
+    hours: 0.2
+    category: "Research & Data Sources"
+
+  src/atoms_vs_ashes/connectors/natural_earth/__init__.py:
+    hours: 0.2
+    category: "Connectors & Data Acquisition"
+
+  src/atoms_vs_ashes/connectors/natural_earth/coastline.py:
+    hours: 1.8
+    category: "Connectors & Data Acquisition"
+
+  src/scripts/backfill_s38_coast_distance.py:
+    hours: 2.0
+    category: "Implementation"
+
+  tests/connectors/test_natural_earth_coastline.py:
+    hours: 1.0
+    category: "Testing"
+
+  tests/scripts/test_backfill_s38_coast_distance.py:
+    hours: 1.0
+    category: "Testing"
+
+  audit/feature_completion_matrices/2026-05-17_s38_natural_earth_coast_distance.md:
+    hours: 1.0
+    category: "Project Management & QA"
+
+  audit/conversations/2026-05-17_s38-natural-earth-coast-distance.md:
+    hours: 0.8
     category: "Project Management & QA"
 

@@ -85,7 +85,7 @@ After: `phases: [avoidance, ranking]`, `participates_in_composite = True`. NS-01
    - Update Data anchor (drop `spi12_min`; add `water_stress_label`).
 7. **`report/methodology/exclusionary_floors.md`** — regenerate via `python -m scripts.generate_exclusionary_floors`.
 8. **`IMPROVEMENTS.md`** — append `IMP-0007 — ERA5/SPEI drought sub-score connector for NS-01 / NH-11` backlog entry.
-9. **`prompts/lessons_learned.md`** — append `LL-035 — NS-01 connector vocabulary vs rubric vocabulary mismatch (scoring, 2026-05-16)`.
+9. **`experts/quality/lessons_learned.md`** — append `LL-035 — NS-01 connector vocabulary vs rubric vocabulary mismatch (scoring, 2026-05-16)`.
 10. **Tests**:
     - `tests/scoring/test_exclusionary_floors_doc.py` — remove `"NS-01/E9"` from `NO_FLOOR_WAIVERS` (no longer an exclude).
     - `tests/scoring/test_safety_floor_pipeline.py` — remove the NS-01 parametrisation from `test_low_score_hard_expression_only_criteria_do_not_floor_fail` (NS-01 no longer has any `exclude` fail condition).

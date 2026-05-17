@@ -18,7 +18,7 @@ Sibling of `audit/post_processing/hi01_preview/README.md`.
 
 > **Important:** the preview is **not free** — it calls Overpass with
 > the same query mix as the apply (military / power / transmitters per
-> site). Honour [`prompts/runAPIs.md`](../../../prompts/runAPIs.md) and
+> site). Honour [`experts/connectors/api_enrichment_operations.md`](../../../experts/connectors/api_enrichment_operations.md) and
 > the FIX-04 in-script delays before scoping the run to all sites.
 
 Why a separate script? `run_fix04_osm_avoidance_batch.py` is already
@@ -78,7 +78,7 @@ PYTHONPATH=src .venv/bin/python src/scripts/preview_fix04_osm_vs_db.py --country
 ## Start and tail — apply (all sites, **DB writes**)
 
 Run **only after** you have read the report and given explicit approval
-per [`prompts/runAPIs.md`](../../../prompts/runAPIs.md). The legacy
+per [`experts/connectors/api_enrichment_operations.md`](../../../experts/connectors/api_enrichment_operations.md). The legacy
 batch processes every site in `sites` when no filter is passed and
 **skips already-enriched sites** by default; pass `--no-skip-populated`
 if you want to re-run them.

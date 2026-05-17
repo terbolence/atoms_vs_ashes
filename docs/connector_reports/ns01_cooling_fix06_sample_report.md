@@ -170,7 +170,7 @@ python scripts/run_fix06_ns01_cooling.py --country RO,BG
 
 ## 7. Lessons Learned
 
-**LL-026** appended to `prompts/lessons_learned.md`: Gridded discharge must not overwrite vector-segment discharge (GloFAS vs HydroRIVERS). Same pattern as LL-020 (zone-level stored as site-level). When multiple connectors target the same DB column at different spatial grains, the finer-grained connector must own the column. Execution order must be documented (LL-009).
+**LL-026** appended to `experts/quality/lessons_learned.md`: Gridded discharge must not overwrite vector-segment discharge (GloFAS vs HydroRIVERS). Same pattern as LL-020 (zone-level stored as site-level). When multiple connectors target the same DB column at different spatial grains, the finer-grained connector must own the column. Execution order must be documented (LL-009).
 
 ---
 

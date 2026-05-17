@@ -63,7 +63,7 @@ Boundary engine routing (verified by compile + `safe_eval`):
    System-side honesty mechanisms:
    - Drift guard: `derive_expr_from_recipe: true` on E8 — YAML `condition_expr` must agree with recipe-derived `ep01_composite_score < 30` or compiler refuses to load.
    - Tests: `tests/criterion_spec/test_excl_expr_derived_from_pivot.py` (EP-01 in derived-exclusion set), `tests/scoring/test_safety_floor_pipeline.py` (EP-01 removed from "no floor" cases — floor now intentional), `tests/scoring/test_exclusionary_floors_doc.py`, `tests/test_ep_composite.py`.
-   - Lesson: `prompts/lessons_learned.md::LL-035`.
+   - Lesson: `experts/quality/lessons_learned.md::LL-035`.
 
    What is NOT changing at runtime: no site moves bands, no verdict flips, no ranking shifts from v4 YAML alignment alone. The recipe was already authoritative.
 
@@ -106,7 +106,7 @@ Boundary engine routing (verified by compile + `safe_eval`):
 - `report/output/feedback/plans/SP-D_band_proposals/EP-01.md` — stale column claim corrected
 - `audit/post_processing/scoring_conformity/ep01_direction_decision.md` — FB-LL-12 superseded
 - `audit/conversations/2026-05-16_ep01-exclusionary-sweep-band-recipe.md` — full audit trail
-- `prompts/lessons_learned.md::LL-035`
+- `experts/quality/lessons_learned.md::LL-035`
 - Deletions: `src/scripts/run_fix09_ep01_composite_recalc.py`, `tests/scripts/test_run_fix09_ep01_composite_recalc.py`
 
 Status: **CLOSED — all D1–D7 + Option A edits landed 2026-05-16.** Runtime scoring unchanged; YAML/documentation now truthful. Targeted test surface: 81 passed (EP-01 / compiler / floors-doc / safety-floor / composite paths). No pending user sign-off on EP-01 itself; open items are tracked in `IMPROVEMENTS.md`.

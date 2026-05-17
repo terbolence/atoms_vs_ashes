@@ -1,4 +1,4 @@
-# man_hours: 6.0
+# man_hours: 6.5
 """CLI entry point — ``python -m atoms_vs_ashes`` or ``atoms-vs-ashes``."""
 
 from __future__ import annotations
@@ -2919,7 +2919,10 @@ def enrich_ep_composite(
         return
 
     with session_scope() as session:
-        check = EmergencyPlanCheck()
+        check = EmergencyPlanCheck(
+            site_ids=site_ids if site_ids else None,
+            country_codes=country_codes if country_codes else None,
+        )
         summary = check.run(session, settings, rid)
         session.commit()
 

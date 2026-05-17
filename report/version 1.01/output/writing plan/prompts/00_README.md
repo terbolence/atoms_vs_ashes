@@ -12,9 +12,9 @@ next to the controlling editorial guides:
 - `../writingStyle.md` - prose quality standard.
 - `../tableOfContents.md` - canonical composition order.
 
-The general-purpose prompt library at the repo root (`/prompts/`)
+The general-purpose prompt library at the repo root (`/experts/`)
 remains the home for cross-cutting roles such as
-`prompts/site_describer.md`, `prompts/sitingExpert.md`, and the
+`experts/report/site_describer.md`, `experts/quality/siting_expert.md`, and the
 audit/lessons-learned roles. The two prompts in this folder specialise
 those general prompts for the Chapter 5 outputs and pin them to the
 country and site bundle JSON contracts produced by:

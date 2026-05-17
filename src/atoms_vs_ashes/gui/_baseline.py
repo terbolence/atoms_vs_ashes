@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.6
 """Baseline-view resolver for the Results page.
 
 Sensitivity runs persist ``composite_rankings`` under a fresh
@@ -53,7 +53,7 @@ def resolve_baseline_view(run_id: str) -> BaselineView:
         run_kind = str(row[0]) if row else "scoring"
         parent_run_id = str(row[1]) if row and row[1] else None
 
-        if run_kind != "sensitivity":
+        if run_kind not in {"sensitivity", "national_sensitivity"}:
             return BaselineView(
                 run_id=run_id, weight_profile=DEFAULT_WEIGHT_PROFILE,
                 source="self", sensitivity_run_id=None,

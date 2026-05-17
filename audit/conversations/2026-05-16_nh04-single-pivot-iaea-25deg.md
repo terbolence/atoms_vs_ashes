@@ -5,7 +5,7 @@
 
 User flagged that NH-04 ("Geotechnical: Slope Stability") was hard-failing 158 sites, and that the GUI threshold widget displayed "25,00" while the actual band-5 boundary in the rubric was 8°. Goal: realign so the threshold widget value IS the band-5 boundary and the hard E3 expression, all driven by a single pivot. Companion concern: the metric `slope_angle_deg` is a 1 km buffer mean (not on-site footprint slope), which silently misrepresents what "Maximum acceptable slope angle (degrees)" means in the UI.
 
-User invoked `prompts/ScoringCriteriaSystemPrompt.md` for the change.
+User invoked `experts/scoring/scoring_criterion_review.md` for the change.
 
 ## Decisions taken (with explicit user sign-off in chat)
 
@@ -40,7 +40,7 @@ Broad sweep: `tests/scoring tests/criterion_spec` — 184 pass, 1 deselected (`t
 
 ## Lessons learned
 
-`LL-032` appended to `prompts/lessons_learned.md`: NH-04 slope metric conflates on-site footprint with surrounding terrain.
+`LL-032` appended to `experts/quality/lessons_learned.md`: NH-04 slope metric conflates on-site footprint with surrounding terrain.
 
 ## Follow-ups
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# man_hours: 3.0
+# man_hours: 3.8
 """Phase 1.6 sensitivity driver (refined).
 
 End-to-end refined sensitivity analysis per
@@ -46,9 +46,9 @@ from atoms_vs_ashes.scoring.suite import (  # noqa: E402
 )
 from scripts._phase_1_6_analytics import compute_analytics  # noqa: E402
 from scripts._phase_1_6_audit import write_consolidated_audit  # noqa: E402
-from scripts._phase_1_6_extended_stages import (  # noqa: E402
-    ExtendedStagesResult,
-    run_extended_stages,
+from scripts._phase_1_6_driver_stages import (  # noqa: E402
+    run_extended_from_args,
+    run_national_from_args,
 )
 
 DEFAULT_REPORT_DIR = "report/output/sensitivity"
@@ -78,6 +78,12 @@ def _parse_args() -> argparse.Namespace:
     )
     p.add_argument("--skip-threshold", action="store_true")
     p.add_argument("--skip-oat", action="store_true")
+    p.add_argument("--skip-national", action="store_true",
+                   help="Skip national ranking sensitivity artefacts.")
+    p.add_argument("--national-mc-rank-draws", type=int, default=None,
+                   help="MC draws for national rank simulation (default: first MC stage).")
+    p.add_argument("--min-national-pairs", type=int, default=3,
+                   help="Minimum country×SMR pairs before national rank metrics are non-small-n.")
     p.add_argument("--skip-banding", action="store_true",
                    help="Skip the extended banding + national analysis stage.")
     p.add_argument("--report-dir", default=DEFAULT_REPORT_DIR)
@@ -199,36 +205,6 @@ def _open_run(args: argparse.Namespace, run_id: str):
         )
 
 
-def _run_extended(
-    args: argparse.Namespace, audit_dir: Path, stamp: str, run_id: str
-) -> ExtendedStagesResult | None:
-    if args.skip_banding:
-        return None
-    _print(
-        {
-            "stage": "extended",
-            "message": "running extended banding + national analysis (Phase C)",
-        }
-    )
-    report_dir = Path(args.report_dir) / stamp
-    with session_scope() as session:
-        result = run_extended_stages(
-            session, baseline_label=args.weight_profile_base,
-            audit_dir=audit_dir, report_dir=report_dir, stamp=stamp,
-            generate_figures=not args.no_figures, run_id=run_id,
-        )
-    _print(
-        {
-            "stage": "extended",
-            "regional_bands_csv": str(result.regional_bands_csv),
-            "nuscale_bands_csv": str(result.nuscale_bands_csv),
-            "country_report_count": len(result.country_report_mds),
-            "regional_report_md": str(result.regional_report_md),
-        }
-    )
-    return result
-
-
 def main() -> int:
     args = _parse_args()
 
@@ -254,7 +230,8 @@ def main() -> int:
     try:
         oat = _run_oat(args, audit_dir, run_id)
         stages = _run_pipeline(args, run_id, common)
-        extended = _run_extended(args, audit_dir, stamp, run_id)
+        national = run_national_from_args(args, audit_dir, stamp, run_id)
+        extended = run_extended_from_args(args, audit_dir, stamp, run_id, national)
     except Exception as exc:
         with session_scope() as fail_session:
             complete_run(fail_session, handle, status="failed", notes=f"err={exc!r}")

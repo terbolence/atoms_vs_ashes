@@ -54,7 +54,7 @@ Create the documentation destination as [`/Users/terbolence/projects/atoms_vs_as
 
 ## Workflow Per Criterion
 
-Follow the matrix-first ritual in [`/Users/terbolence/projects/atoms_vs_ashes/prompts/ScoringCriteriaSystemPrompt.md`](/Users/terbolence/projects/atoms_vs_ashes/prompts/ScoringCriteriaSystemPrompt.md), especially §C3, §D, §E4, §E7, §J, and §K:
+Follow the matrix-first ritual in [`/Users/terbolence/projects/atoms_vs_ashes/experts/scoring/scoring_criterion_review.md`](/Users/terbolence/projects/atoms_vs_ashes/experts/scoring/scoring_criterion_review.md), especially §C3, §D, §E4, §E7, §J, and §K:
 
 1. Establish current behavior from spec YAML, rubric YAML, compiled `Criterion`, threshold metadata, matrix row, and tests.
 2. Dispatch artifacts from the criterion phases. Every ranking criterion gets a score-curve boundary table; criteria with bands also get scored examples from the merged DB. Dual-phase criteria also include the relevant exclusionary, avoidance, basic-filter, or soft-flag artifact.
@@ -96,7 +96,7 @@ Each `criteria/ranking/<ID> - <Title>.md` file should capture the final accepted
 - Keep `threshold_metadata.yaml` in sync when score pivots or GUI-tunable thresholds change.
 - Update [`/Users/terbolence/projects/atoms_vs_ashes/src/scripts/generate_scoring_examples.py`](/Users/terbolence/projects/atoms_vs_ashes/src/scripts/generate_scoring_examples.py) only when a criterion needs aliases, derived fields, non-scalar examples, or missing auxiliary columns.
 - Do not regenerate [`/Users/terbolence/projects/atoms_vs_ashes/report/methodology/exclusionary_floors.md`](/Users/terbolence/projects/atoms_vs_ashes/report/methodology/exclusionary_floors.md) for ranking-only changes unless an `exclude` action is touched.
-- Append lessons to [`/Users/terbolence/projects/atoms_vs_ashes/prompts/lessons_learned.md`](/Users/terbolence/projects/atoms_vs_ashes/prompts/lessons_learned.md) only for real defects or reusable process learnings.
+- Append lessons to [`/Users/terbolence/projects/atoms_vs_ashes/experts/quality/lessons_learned.md`](/Users/terbolence/projects/atoms_vs_ashes/experts/quality/lessons_learned.md) only for real defects or reusable process learnings.
 - Write conversation audit logs under [`/Users/terbolence/projects/atoms_vs_ashes/audit/conversations/`](/Users/terbolence/projects/atoms_vs_ashes/audit/conversations/) and update man-hours when execution starts.
 
 ## Evidence Required Before Each Edit

@@ -1,4 +1,4 @@
-# man_hours: 36.0
+# man_hours: 37.0
 """EP-01 Emergency Planning Feasibility composite (DRV-02).
 
 Combines five sub-criteria into an overall feasibility assessment:
@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import time
+import uuid
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -401,6 +402,19 @@ class EmergencyPlanCheck(ScreeningCheck):
     criterion_id = EP01_CRITERION_ID
     phase = PHASE
 
+    def __init__(
+        self,
+        *,
+        site_ids: tuple[str, ...] | None = None,
+        country_codes: tuple[str, ...] | None = None,
+    ) -> None:
+        self.site_ids = (
+            tuple(uuid.UUID(str(site_id)) for site_id in site_ids)
+            if site_ids
+            else None
+        )
+        self.country_codes = tuple(country_codes) if country_codes else None
+
     def evaluate(
         self,
         session: Session,
@@ -437,7 +451,12 @@ class EmergencyPlanCheck(ScreeningCheck):
         )
 
         smr_designs = session.execute(select(SmrDesign)).scalars().all()
-        sites = session.execute(select(Site)).scalars().all()
+        site_stmt = select(Site)
+        if self.site_ids is not None:
+            site_stmt = site_stmt.where(Site.site_id.in_(list(self.site_ids)))
+        if self.country_codes is not None:
+            site_stmt = site_stmt.where(Site.country_code.in_(list(self.country_codes)))
+        sites = session.execute(site_stmt).scalars().all()
         verdicts: list[ScreeningVerdictModel] = []
 
         for site in sites:

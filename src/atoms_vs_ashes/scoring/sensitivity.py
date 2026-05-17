@@ -1,4 +1,4 @@
-# man_hours: 5.0
+# man_hours: 5.1
 """Sensitivity suite for the composite scoring stage.
 
 Covers Phase 1.6: weight perturbation (re-exported from
@@ -30,7 +30,7 @@ from atoms_vs_ashes.scoring.rubric import Criterion
 
 log = get_logger(__name__)
 
-MC_DEFAULT_ITERATIONS = 1000
+MC_DEFAULT_ITERATIONS = 10_000
 MC_PRESETS: dict[str, int] = {"test": 1000, "medium": 3000, "production": 10000}
 
 

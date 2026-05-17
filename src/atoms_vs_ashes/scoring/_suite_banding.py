@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.8
 """Site stability banding across non-baseline sensitivity scenarios.
 
 Scope-parameterised: the same banding logic runs at global, per-SMR,
@@ -80,6 +80,7 @@ def _load_nonbaseline_rows(
     session: Session,
     baseline_label: str,
     *,
+    run_id: str | None = None,
     smr_filter: str | None = None,
     country_filter: str | None = None,
 ) -> dict[str, list[_Row]]:
@@ -89,6 +90,8 @@ def _load_nonbaseline_rows(
         CompositeRanking.smr_key,
         CompositeRanking.composite_score,
     ).where(CompositeRanking.weight_profile != baseline_label)
+    if run_id is not None:
+        stmt = stmt.where(CompositeRanking.run_id == run_id)
     if smr_filter is not None:
         stmt = stmt.where(CompositeRanking.smr_key == smr_filter)
     if country_filter is not None:
@@ -125,6 +128,7 @@ def compute_bands(
     session: Session,
     *,
     baseline_label: str = "baseline",
+    run_id: str | None = None,
     smr_filter: str | None = None,
     country_filter: str | None = None,
 ) -> tuple[list[SiteBand], list[str]]:
@@ -138,6 +142,7 @@ def compute_bands(
     rows_by_profile = _load_nonbaseline_rows(
         session,
         baseline_label,
+        run_id=run_id,
         smr_filter=smr_filter,
         country_filter=country_filter,
     )

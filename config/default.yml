@@ -1,4 +1,4 @@
-# man_hours: 5.0
+# man_hours: 8.5
 ingestion:
   # ISO 3166-1 alpha-2 codes for in-scope countries
   in_scope_countries:
@@ -42,6 +42,39 @@ ingestion:
       status: "operating"
       subnational_unit: "Brașov"
       location: "Feldioara, Brașov County"
+    - site_id: "af7f107f-71b5-5a33-8125-9ccb7060f895"
+      name: "Iernut power station"
+      alternative_names:
+        - "Centralei Termoelectrice Iernut"
+        - "CTE Iernut"
+        - "Ludus-Iernut"
+      country_code: "RO"
+      country_name: "Romania"
+      latitude: 46.4677
+      longitude: 24.1833
+      location_accuracy: "exact"
+      local_area: "Iernut"
+      subnational_unit: "Mureș"
+      region: "Europe"
+      plant_type: "gas"
+      installed_capacity_mw: 430
+      status: "construction"
+      start_year: 2026
+      owner_operator: "Romgaz SA [100%]"
+      parent_company: "Romgaz SA [100.0%]"
+      combustion_technology: "combined cycle"
+      location: "Iernut, Mureș County"
+      wiki_url: "https://www.gem.wiki/Iernut_power_station"
+      unit_count: 1
+      extended_data:
+        source: "supplementary_config"
+        fuel: "fossil gas: natural gas"
+        address: "545100, Mures, Iernut, Str. Energeticii nr 1"
+        romgaz_ccgt_url: "https://www.romgaz.ro/en/ccgt-project-overview-0"
+        romgaz_branch_url: "https://www.romgaz.ro/en/iernut-power-plant-branch"
+        gem_wiki_url: "https://www.gem.wiki/Iernut_power_station"
+        ccgt_configuration: "4 gas turbines, 4 heat recovery steam generators, 2 steam turbines"
+        gross_electrical_efficiency_pct: 56
 
 screening:
   smr_types:

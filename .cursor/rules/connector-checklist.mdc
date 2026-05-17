@@ -12,7 +12,7 @@ alwaysApply: false
 
 When adding or changing a connector, treat it as complete only when all applicable items below are satisfied:
 
-- **API operations prompt:** read `prompts/runAPIs.md` and `prompts/lessons_learned.md`; see `.cursor/rules/api-enrichment-ops.mdc`.
+- **API operations prompt:** read `experts/connectors/api_enrichment_operations.md` and `experts/quality/lessons_learned.md`; see `.cursor/rules/api-enrichment-ops.mdc`.
 - **Consent:** before any live external call, follow global `~/.cursor/rules/no-live-api-without-consent.mdc` and project `.cursor/rules/live-api-safety.mdc`.
 - **Hard data first:** store measurements in typed columns and keep quality labels interpretive; see `.cursor/rules/data-quality-discipline.mdc`.
 - **Raw response logging:** per-site HTTP and raster extraction must use `log_raw_response` or `log_raster_extraction`; see `.cursor/rules/raw-response-logging.mdc`.

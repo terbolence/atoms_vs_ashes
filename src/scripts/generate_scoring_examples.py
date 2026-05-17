@@ -5,7 +5,7 @@ Reads the active merged DB (no live API), evaluates each picked site
 with ``scoring.bands.evaluate_criterion_value`` so the table is the
 real engine output, not an approximation.
 
-Required by ``prompts/ScoringCriteriaSystemPrompt.md`` §E7: every
+Required by ``experts/scoring/scoring_criterion_review.md`` §E7: every
 criterion change must include a scored-examples table proving the
 bands and the verdicts match the data the engine sees.
 

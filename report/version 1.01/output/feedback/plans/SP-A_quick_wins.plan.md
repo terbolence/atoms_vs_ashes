@@ -3,11 +3,11 @@
 sub_plan: SP-A
 title: Quick wins
 specialist_prompts:
-  primary: prompts/seniorSoftwareEngineer.md
+  primary: experts/connectors/senior_software_engineer.md
   supporting:
-    - prompts/auditor.md
+    - experts/quality/auditor.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md
+  - experts/quality/lessons_learned.md
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - report/output/feedback/synthesised_comments/atoms_vs_ashes_report_feedback_triage.yaml
 honors_feedback_lessons: [FB-LL-06, FB-LL-07, FB-LL-11]

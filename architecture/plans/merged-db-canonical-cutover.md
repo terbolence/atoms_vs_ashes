@@ -90,7 +90,7 @@ flowchart LR
 - Day 0 (today): `REVOKE INSERT, UPDATE, DELETE, TRUNCATE` from role `atoms` on `atoms_vs_ashes`. SELECT still works (forensics). Confirmed: `INSERT` returns *permission denied for table audit_log*.
 - Flipped CLI's `--db-profile` default from `api` → `merged`.
 - Updated `src/scripts/run_efsm20_faults.py` and `src/scripts/report_enrichment_coverage.py` to add `merged` and default to it.
-- Updated `AGENTS.md` and `prompts/runAPIs.md`.
+- Updated `AGENTS.md` and `experts/connectors/api_enrichment_operations.md`.
 - Day 90: drop `atoms_vs_ashes` (separate explicit consent — not yet executed).
 
 ## Risk register (post-execution)
@@ -126,7 +126,7 @@ flowchart LR
 | 10 | `.env` (edited) | `POSTGRES_DB=atoms_vs_ashes_merged` |
 | 11 | `src/scripts/report_enrichment_coverage.py` (edited) | Adds `merged` profile, defaults to it |
 | 12 | `src/scripts/run_efsm20_faults.py` (edited) | Adds `merged` profile, defaults to it |
-| 13 | `AGENTS.md`, `prompts/runAPIs.md` (edited) | Doc updates |
+| 13 | `AGENTS.md`, `experts/connectors/api_enrichment_operations.md` (edited) | Doc updates |
 | 14 | `tests/db/test_profile_resolution.py` | 7 tests covering resolver + bootstrap |
 | 15 | `audit/post_processing/02_data_verification/canonical_baseline_pre_cutover.{json,md}` | Pre-cutover snapshot |
 | 16 | `audit/post_processing/02_data_verification/canonical_diff_post_cutover.{json,md}` | Post-cutover diff |

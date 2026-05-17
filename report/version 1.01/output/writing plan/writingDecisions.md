@@ -139,7 +139,7 @@ The implementation lives in `src/atoms_vs_ashes/cartography/basemap.py` (basemap
 
 Prompt files live in two places:
 
-- `prompts/` (repo root) - cross-cutting roles: site describer, siting expert, audit roles, lessons-learned, software architect, etc.
+- `experts/` (repo root) - cross-cutting roles: site describer, siting expert, audit roles, lessons-learned, software architect, etc.
 - `report/output/writing plan/prompts/` - report-section prompts that are pinned to the structured bundles under `report/output/`. The two canonical prompts in this folder are:
 
 | Prompt file | Purpose | Bundle |
@@ -147,7 +147,7 @@ Prompt files live in two places:
 | `report/output/writing plan/prompts/country_profile_author.md` | Draft `<CC>_country_prototype.md` for Chapter 5 with Pareto avoidance breakdown, family strength/weakness, and IAEA-style interpretation. | `python -m scripts.export_country_bundle --country-code <CC>` |
 | `report/output/writing plan/prompts/site_profile_author.md` | Draft `sites/<CC>_<slug>.md` with full criterion names, raw measured values, ownership block, residual risk register, and Stage 3 follow-up checklist. | `python -m scripts.export_site_bundle --site-id <UUID>` |
 
-Older general-purpose role prompts (`prompts/site_describer.md`, `prompts/sitingExpert.md`, etc.) remain in use for free-form drafting; the report-section prompts above supersede them whenever the goal is to produce one of the Chapter 5 markdown files from a bundle.
+Older general-purpose role prompts (`experts/report/site_describer.md`, `experts/quality/siting_expert.md`, etc.) remain in use for free-form drafting; the report-section prompts above supersede them whenever the goal is to produce one of the Chapter 5 markdown files from a bundle.
 
 Use section-specific prompts only when a section has materially different behaviour. Do not create a separate prompt for every numbered subsection unless the section requires a distinct role, input contract, or output structure.
 

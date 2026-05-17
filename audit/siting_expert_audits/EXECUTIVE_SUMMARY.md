@@ -2,7 +2,7 @@
 
 **Date of this summary:** 2026-04-17 (refreshed after full generator pass)  
 **Audit batch token:** `20260417` (folder suffix `__20260417__ACTION_OPTIONAL`)  
-**Canonical prompt:** [`prompts/sitingExpert.md`](../../prompts/sitingExpert.md)  
+**Canonical prompt:** [`experts/quality/siting_expert.md`](../../experts/quality/siting_expert.md)  
 **Sample generator:** [`scripts/generate_siting_expert_audits.py`](../../scripts/generate_siting_expert_audits.py)
 
 ---

@@ -3,7 +3,7 @@
 
 **Date:** 2026-05-16
 **Plan:** `audit/plans/ns01_e9_to_a16_avoidance.md`
-**Lesson:** `prompts/lessons_learned.md` LL-036.
+**Lesson:** `experts/quality/lessons_learned.md` LL-036.
 **Backlog:** `IMPROVEMENTS.md` IMP-0007.
 
 ## Outcome
@@ -65,7 +65,7 @@
 - `report/methodology/exclusionary_floors.md` (regenerated)
 - `report/sites_evaluation/07_criteria_non_safety.md` (NS-01 subsection)
 - `docs/expert_siting_criteria_evaluation_matrix.md` (summary table + NS-01 section + A1-A16 map)
-- `prompts/lessons_learned.md` (LL-036)
+- `experts/quality/lessons_learned.md` (LL-036)
 - `IMPROVEMENTS.md` (IMP-0007)
 - `tests/scoring/test_ns01_refactor.py` (new, 45 cases)
 - `tests/scoring/test_exclusionary_floors_doc.py` (waiver removed)

@@ -52,4 +52,4 @@ The connector is a download-based, in-memory spatial-index proximity service:
 - Parser + dataclass + DB-persist code landed (`hasattr` guards in `_persist_result` allow Alembic migration `042_hi01_hi06_classification_columns` to be applied at any time without code changes).
 - Schema columns added in [`042_hi01_hi06_classification_columns`](../../src/alembic/versions/042_hi01_hi06_classification_columns.py): `nearest_airport_class`, `nearest_airport_runway_length_m`, `nearest_airport_scheduled_service`.
 - `--requery-nulls` flag now available on `scripts/run_p10_ourairports_batch.py` for HI-01 selective re-fetch.
-- **Pending:** live download of `airports.csv` + `runways.csv` followed by H7 staged batch (smoke 3 → batch 20 → country → full 363) under `prompts/runAPIs.md` Sec.C card.
+- **Pending:** live download of `airports.csv` + `runways.csv` followed by H7 staged batch (smoke 3 → batch 20 → country → full 363) under `experts/connectors/api_enrichment_operations.md` Sec.C card.

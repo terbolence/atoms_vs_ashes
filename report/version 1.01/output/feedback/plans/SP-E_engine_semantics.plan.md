@@ -3,12 +3,12 @@
 sub_plan: SP-E
 title: Missing-evidence fallback semantics in scoring engine + renderer
 specialist_prompts:
-  primary: prompts/seniorSoftwareEngineer.md
+  primary: experts/connectors/senior_software_engineer.md
   supporting:
-    - prompts/coal_to_nuclear_suitable_sites_scoring_audit.md
-    - prompts/softwareArchitect.md
+    - experts/scoring/suitable_sites_scoring_audit.md
+    - experts/connectors/software_architect.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md
+  - experts/quality/lessons_learned.md
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - src/atoms_vs_ashes/scoring/bands.py
   - src/atoms_vs_ashes/scoring/composite.py

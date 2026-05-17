@@ -29,7 +29,7 @@ Usage:
     # Re-run even if data already exists:
     python scripts/enrich_site_area_web.py --force-rerun
 
-Prompt: prompts/site_area_web_search.md
+Prompt: experts/connectors/site_area_web_search.md
 Consent: Required before each live run — see live-api-safety.mdc rule.
 """
 

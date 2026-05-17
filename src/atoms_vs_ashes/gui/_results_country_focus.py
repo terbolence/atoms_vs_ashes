@@ -1,4 +1,4 @@
-# man_hours: 0.25
+# man_hours: 0.4
 """Shared country-focus controls for the Results page."""
 
 from __future__ import annotations
@@ -16,6 +16,8 @@ def render_country_focus(
     scope: RunScope | None,
     country_session_key: str,
     widget_key: str,
+    allow_all: bool = True,
+    default_country: str | None = None,
 ) -> str | None:
     """Render the shared Results country selector."""
     from atoms_vs_ashes.gui._results_data_failure import (
@@ -25,10 +27,16 @@ def render_country_focus(
     rows = country_coverage_matrix(
         run_id, weight_profile=weight_profile, scope=scope,
     )
-    options = ["(All)"] + [r.country_code for r in rows]
+    country_options = [r.country_code for r in rows]
+    options = (["(All)"] if allow_all else []) + country_options
+    if not options:
+        st.warning("No countries are available for this run/scope.")
+        return None
     persisted = st.session_state.get(country_session_key)
     if persisted not in options:
-        persisted = None
+        persisted = default_country if default_country in options else None
+    if persisted is None and not allow_all and country_options:
+        persisted = country_options[0]
     chosen = st.selectbox(
         "Country focus",
         options,

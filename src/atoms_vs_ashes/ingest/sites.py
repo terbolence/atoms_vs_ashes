@@ -1,4 +1,4 @@
-# man_hours: 18.0
+# man_hours: 19.5
 """Ingest coal plant sites from the GEM Global Coal Plant Tracker XLSX.
 
 Each ``gem_location_id`` maps to one ``Site`` row with **plant-level
@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.config import Settings
@@ -516,24 +517,76 @@ def load_supplementary_sites(
     inserted = 0
     for entry in settings.supplementary_sites:
         _ensure_country_row(session, entry["country_code"], entry["country_name"])
+        site_name = str(entry["name"]).strip()
+        country_code = entry["country_code"]
+
+        existing = (
+            session.query(Site.site_id)
+            .filter(
+                Site.country_code == country_code,
+                func.lower(Site.name) == site_name.lower(),
+            )
+            .first()
+        )
+        if existing:
+            log.info(
+                "supplementary_site_exists",
+                name=site_name,
+                country_code=country_code,
+                site_id=str(existing[0]),
+            )
+            continue
 
         lat = entry["latitude"]
         lon = entry["longitude"]
         geom_wkt = f"SRID=4326;POINT({lon} {lat})"
 
         site = Site(
-            site_id=uuid.uuid4(),
-            name=entry["name"],
-            country_code=entry["country_code"],
+            site_id=(
+                uuid.UUID(str(entry["site_id"]))
+                if entry.get("site_id")
+                else uuid.uuid4()
+            ),
+            name=site_name,
+            alternative_names=entry.get("alternative_names") or None,
+            country_code=country_code,
             country_name=entry["country_name"],
             latitude=lat,
             longitude=lon,
             geom=geom_wkt,
+            location_accuracy=entry.get("location_accuracy"),
+            local_area=entry.get("local_area"),
+            region=entry.get("region"),
             plant_type=entry.get("plant_type", "thermal"),
+            installed_capacity_mw=_safe_float(entry.get("installed_capacity_mw")),
             status=entry.get("status", "operating"),
+            start_year=_safe_int(entry.get("start_year")),
+            retired_year=_safe_int(entry.get("retired_year")),
+            planned_retirement=_parse_date(entry.get("planned_retirement")),
+            coal_phaseout_year=_safe_int(entry.get("coal_phaseout_year")),
+            grid_voltage_kv=_safe_int(entry.get("grid_voltage_kv")),
+            grid_capacity_mw=_safe_float(entry.get("grid_capacity_mw")),
+            cooling_water_source=entry.get("cooling_water_source"),
+            site_area_ha=_safe_float(entry.get("site_area_ha")),
+            elevation_m=_safe_float(entry.get("elevation_m")),
             subnational_unit=entry.get("subnational_unit"),
+            owner_operator=entry.get("owner_operator"),
+            parent_company=entry.get("parent_company"),
+            combustion_technology=entry.get("combustion_technology"),
+            coal_type=entry.get("coal_type"),
+            coal_source=entry.get("coal_source"),
+            net_zero_year=_safe_int(entry.get("net_zero_year")),
             location=entry.get("location"),
-            unit_count=1,
+            permits=entry.get("permits"),
+            permit_date=_parse_date(entry.get("permit_date")),
+            owner_gem_id=entry.get("owner_gem_id"),
+            parent_gem_id=entry.get("parent_gem_id"),
+            gem_unit_phase_id=entry.get("gem_unit_phase_id"),
+            gem_location_id=entry.get("gem_location_id"),
+            wiki_url=entry.get("wiki_url"),
+            extended_data=entry.get("extended_data"),
+            unit_count=_safe_int(entry.get("unit_count")) or 1,
+            operating_capacity_mw=_safe_float(entry.get("operating_capacity_mw")),
             last_verified=datetime.now(timezone.utc),
         )
         session.add(site)
@@ -541,7 +594,17 @@ def load_supplementary_sites(
             operation="insert",
             table_name="sites",
             site_id=site.site_id,
-            after_value={"name": site.name, "source": "supplementary_config"},
+            after_value={
+                "name": site.name,
+                "country_code": site.country_code,
+                "plant_type": site.plant_type,
+                "installed_capacity_mw": (
+                    float(site.installed_capacity_mw)
+                    if site.installed_capacity_mw is not None
+                    else None
+                ),
+                "source": "supplementary_config",
+            },
             run_id=run_id,
             message="Supplementary Romanian site from config",
         ))

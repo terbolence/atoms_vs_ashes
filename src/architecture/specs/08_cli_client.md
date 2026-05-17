@@ -364,7 +364,7 @@ Snapshot files are **overwritten** on each run. The `run_summary_{run_id}.md` fi
 
 ### 8.2 Partial Failure Strategy
 
-The client follows the project's established partial-failure convention (from `gpt/softwareArchitect.md` §K.6):
+The client follows the project's established partial-failure convention (from `experts/connectors/software_architect.md` §K.6):
 
 - If one site fails, log and continue to the next.
 - If one endpoint fails for a site, log and continue to the next endpoint.
@@ -549,4 +549,4 @@ client:
 | Architecture §04 (Connector Framework) | Phase 2 — uses all existing connectors via their public API |
 | Architecture §06 (Execution & Observability) | §6 — structured logging with run_id, event taxonomy, elapsed_ms |
 | Architecture §07 (Test & Validation) | §13 — unit, integration, and E2E testing strategy |
-| `gpt/softwareArchitect.md` §K (Operational rules) | §8 — retry, partial failure, idempotency |
+| `experts/connectors/software_architect.md` §K (Operational rules) | §8 — retry, partial failure, idempotency |

@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.6
 """DB-backed sensitivity snapshot for the consolidated ``Results`` page.
 
 Reads everything the engine persisted directly for a sensitivity run
@@ -23,6 +23,8 @@ from atoms_vs_ashes.db.models_analytics_part2 import (
 )
 from atoms_vs_ashes.gui._results_data_stability import (
     StabilityRow,
+    national_stability_ledger,
+    regional_stability_ledger,
     site_stability_ledger,
 )
 from atoms_vs_ashes.gui._results_data_sens_threshold import (
@@ -166,6 +168,8 @@ def _threshold_sensitivity_rows(
 __all__ = [
     "SensitivitySnapshot",
     "StabilityRow",
+    "national_stability_ledger",
+    "regional_stability_ledger",
     "sensitivity_snapshot",
     "site_stability_ledger",
 ]

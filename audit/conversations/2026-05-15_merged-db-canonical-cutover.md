@@ -31,7 +31,7 @@ Resolve a database mismatch where the Streamlit GUI read from `atoms_vs_ashes` w
 - `src/scripts/run_efsm20_faults.py` — adds `merged` profile and defaults to it.
 - `src/scripts/report_enrichment_coverage.py` — adds `merged` profile and defaults to it.
 - `.env` — `POSTGRES_DB=atoms_vs_ashes_merged`; comment block updated.
-- `AGENTS.md`, `prompts/runAPIs.md` — doc updates for the new canonical DB and `--db-profile merged` defaults.
+- `AGENTS.md`, `experts/connectors/api_enrichment_operations.md` — doc updates for the new canonical DB and `--db-profile merged` defaults.
 - `tests/db/test_profile_resolution.py` — new: 7 tests covering resolver + bootstrap (env fallback, profile override, unknown profile, DB unreachable).
 - `audit/post_processing/02_data_verification/canonical_baseline_pre_cutover.{json,md}` — new: baseline snapshot.
 - `audit/post_processing/02_data_verification/canonical_diff_post_cutover.{json,md}` — new: post-cutover diff.

@@ -66,7 +66,7 @@ PYTHONPATH=src .venv/bin/python src/scripts/preview_ourairports_vs_db.py --count
 ## Start and tail — apply (all sites, **DB writes**)
 
 Run **only after** you have read the report and given explicit approval
-per [`prompts/runAPIs.md`](../../../prompts/runAPIs.md). The legacy P10
+per [`experts/connectors/api_enrichment_operations.md`](../../../experts/connectors/api_enrichment_operations.md). The legacy P10
 batch processes every site in `sites` when no filter is passed.
 
 **Terminal 1 — run:**

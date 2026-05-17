@@ -1,4 +1,4 @@
-<!-- man_hours: 2.2 -->
+<!-- man_hours: 2.5 -->
 # Improvements log
 
 Running list of project-wide improvements surfaced during normal work
@@ -6,6 +6,19 @@ Running list of project-wide improvements surfaced during normal work
 issue is discovered and stay open until a separate plan / sign-off
 closes them. Do **not** treat any entry here as approved work — each
 item still needs its own decision and execution loop.
+
+## Priority backlog
+
+**IMP-0011 — Run-output retention / cleanup (top priority).** The project
+has no automated prune for scoring or sensitivity artefacts. Each full
+scoring run adds on the order of **~250–400 MB** (`ranking_scores` +
+`screening_verdicts` + `baseline` composites); each full regional or
+national sensitivity run adds **~25–50 MB** (mostly `composite_rankings`
+and analytics rows keyed by `runs.run_id`). Old runs also inflate
+sensitivity RAM because `load_baseline_composites()` loads every historical
+`weight_profile = 'baseline'` row before deduplicating per pair. Implement a
+cleanup mechanism that **keeps only the 10 most recent completed runs per
+run kind** and deletes the rest (see IMP-0011 for scope and table list).
 
 Format:
 
@@ -43,7 +56,7 @@ Format:
   fallback), persist nearest-distance columns to
   `site_emergency_planning` via an Alembic migration, then re-introduce
   E8's trauma-centre disjunct and the hospital screen flag in the
-  rubric. Coordinate with `prompts/runAPIs.md` for the live-API consent
+  rubric. Coordinate with `experts/connectors/api_enrichment_operations.md` for the live-API consent
   ritual and with `LL-017` for the silent-null handling.
 - References: chat plan `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`,
   audit doc `audit/post_processing/scoring_conformity/ep01_direction_decision.md`.
@@ -144,7 +157,7 @@ Format:
   also IMP-0006 for the validator-side fix.
 - References: chat finding `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`,
   audit log `audit/conversations/2026-05-16_ep01-exclusionary-sweep-band-recipe.md`,
-  lesson `prompts/lessons_learned.md::LL-035`.
+  lesson `experts/quality/lessons_learned.md::LL-035`.
 
 ---
 
@@ -228,7 +241,7 @@ Format:
   reanalysis is the standard source), persist the resulting values on
   `site_natural_hazards`, then re-introduce the drought sub-score on NS-01
   (re-normalise weights back to 0.35 / 0.20 / 0.25 / 0.20) and fix NH-11's
-  drought sub-bands. Coordinate with `prompts/runAPIs.md` for the live-API
+  drought sub-bands. Coordinate with `experts/connectors/api_enrichment_operations.md` for the live-API
   consent ritual and with LL-013 for ERA5 CDS API quirks.
 - References: chat plan `~/.cursor/plans/ns01_e9_to_a16_avoidance_b623f206.plan.md`,
   audit log `audit/conversations/2026-05-16_ns01-e9-to-a16-cooling-stress.md`,
@@ -245,7 +258,7 @@ Format:
   (`_extract_wind`, ~L796-870; `extract_all` ~L703-794),
   `src/atoms_vs_ashes/connectors/copernicus_era5/batch.py` (`_persist_result`
   ~L313-345), `config/scoring_specs/nh_natural_hazards.yaml` NH-10 `notes:`
-  block, `prompts/lessons_learned.md::LL-037`.
+  block, `experts/quality/lessons_learned.md::LL-037`.
 - Problem: `max_wind_speed_ms` is set by the ERA5 batch as
   `wind.wind_gust_50yr_ms or wind.max_wind_gust_ms`. `wind_gust_50yr_ms` is a
   GEV fit on annual maxima of the **monthly-means** dataset of the i10fg gust
@@ -261,7 +274,7 @@ Format:
   peaks rather than from monthly means, and feed the GEV fit on that series.
   Persist alongside the existing `max_wind_gust_ms` so the smoothed proxy can
   stay as a fallback for data-quality comparisons. Coordinate with
-  `prompts/runAPIs.md` for the live-API consent ritual (the hourly dataset is
+  `experts/connectors/api_enrichment_operations.md` for the live-API consent ritual (the hourly dataset is
   materially heavier than the monthly-means archive currently used) and
   re-evaluate quality flags. Once landed, NH-10's bands and the 49 m/s envelope
   can be defended against the data; if the project wants to reinstate a hard
@@ -270,7 +283,7 @@ Format:
   revisited separately.
 - References: chat plan `~/.cursor/plans/exclusionary_sweep_13877396.plan.md`,
   audit log `audit/conversations/2026-05-16_nh10-action-norms-alignment.md`,
-  lesson `prompts/lessons_learned.md::LL-037`, related connector lessons
+  lesson `experts/quality/lessons_learned.md::LL-037`, related connector lessons
   LL-013 (ERA5 CDS quirks) and LL-015 (NOAA NCEI European station gap).
 
 ---
@@ -299,3 +312,81 @@ Format:
 - References: coordination plan
   `~/.cursor/plans/avoidance_decision_implementation_7b2a91f0.plan.md`,
   criterion audit `criteria/avoidance/RI-05_A12_population_centres.md`.
+
+---
+
+## IMP-0010 — Add secondary all-SMR national ranking view (status: open)
+
+- Discovered: 2026-05-16 by `national_sensitivity_rankings` chat.
+- Severity: low.
+- Scope: `src/atoms_vs_ashes/scoring/_national_ranking.py`,
+  national sensitivity CSVs / DB analytics tables, and country report
+  rendering under `report/output/sensitivity/<stamp>/national/`.
+- Problem: the implemented national sensitivity definition ranks within
+  `(country_code, smr_key)` slices, which is the statistically clean
+  primary view for like-for-like SMR comparison. Some report readers may
+  also want a single national all-SMR view that ranks every `(site, SMR)`
+  pair in the country together.
+- Proposed fix: add an optional secondary all-SMR national rank axis
+  after the primary country×SMR feature is validated. Keep it labelled
+  separately in CSVs, DB rows, figures, and prose so it is never
+  confused with the primary like-for-like national rank.
+- References: plan `~/.cursor/plans/national_sensitivity_rankings_87c543b5.plan.md`.
+
+---
+
+## IMP-0011 — Automated run retention: keep 10 most recent per kind (status: open)
+
+- Discovered: 2026-05-17 by scoring/sensitivity data-volume review chat.
+- Severity: **high** (listed in **Priority backlog** above).
+- Scope:
+  - **Scoring** (`runs.run_kind = 'scoring'`): `ranking_scores`,
+    `screening_verdicts`, `composite_rankings` where
+    `weight_profile = 'baseline'` (and any other profiles written under
+    that scoring `run_id`), `composite_score_components`,
+    `scoring_run_snapshots` / `scoring_definition_snapshots` links,
+    `dataset_snapshot`.
+  - **Regional sensitivity** (`runs.run_kind = 'sensitivity'`): all
+    `composite_rankings` rows for that `run_id` (weight perturbation,
+    `mc_*`, threshold, `country_balanced`, …), `site_bands`,
+    `country_balance_check`, `country_rankings_summary`,
+    `oat_importance`, `weight_stability`, `threshold_rollup`, and other
+    analytics tables with `ON DELETE CASCADE` from `runs.run_id`.
+  - **National sensitivity** (`runs.run_kind = 'national_sensitivity'`):
+    `national_rank_sensitivity`, `national_sensitivity_summary`,
+    `national_mc_rank_distribution`, plus dependent analytics rows.
+  - Entry points: CLI hook after `score run` / `score sensitivity` /
+    `score national-sensitivity` complete; optional `atoms-vs-ashes runs
+    prune` (or GUI control on Run dashboard) with `--dry-run`.
+  - **Out of scope:** enrichment batches, `raw_responses/` on disk,
+    connector logs, `audit/.runtime/` YAML profiles (already has a
+    separate stale-file cleanup in `gui/_runner.py`).
+- Problem: every scoring rerun appends a full copy of ~220k analytic rows
+  (~139k `ranking_scores` + ~80k `screening_verdicts` per full cohort).
+  `ranking_scores` / `screening_verdicts` / `composite_rankings` are **not**
+  FK-cascaded from `runs`, so deleting only `runs` leaves the bulk of the
+  data behind. Ten experimental scoring reruns can exceed **~3 GB** on a
+  laptop DB; sensitivity startup can approach **~1.5–2.5 GB** Python RSS
+  when many historical `baseline` composite rows remain. There is no
+  operator runbook or script today — retention is manual SQL.
+- Proposed fix: implement a **retention policy of 10** — for each of the
+  three kinds above, order completed runs by `completed_at` DESC (tie-break
+  `started_at`, then `run_id`), **keep the newest 10**, delete all older
+  runs and their dependent rows. Rules:
+  - Never delete `status != 'completed'` runs unless explicitly passed
+    `--include-failed`.
+  - Optional `--keep-run-id` / `--keep-run-ids` allowlist for pinned
+    canonical baselines (e.g. report reference `run_id`).
+  - Respect `parent_run_id`: when pruning a scoring run, either skip
+    sensitivity/national runs that still reference it, or prune children
+    first with a clear log line.
+  - Default **dry-run** prints row counts per table; `--execute` performs
+    deletes inside a transaction, then `VACUUM ANALYZE` on the touched
+    tables (operator opt-in).
+  - After deletes, narrow `load_baseline_composites()` to the resolved
+    baseline scoring `run_id` (or latest per pair within that run) so
+    sensitivity no longer loads superseded historical `baseline` rows.
+- References: chat 2026-05-17 (scoring vs sensitivity data-volume Q&A),
+  `src/atoms_vs_ashes/scoring/_suite_persist.py::load_baseline_composites`,
+  `src/atoms_vs_ashes/db/runs.py`, production log
+  `logs/score_run_20260425b.log` (363 sites × 8 SMRs → 139392 ranking rows).

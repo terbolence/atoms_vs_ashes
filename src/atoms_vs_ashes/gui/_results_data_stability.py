@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.8
 """DB-backed Stability ledger for the Results page."""
 
 from __future__ import annotations
@@ -42,6 +42,16 @@ def site_stability_ledger(
     with session_scope() as session:
         mc_profile = _largest_mc_profile(session, run_id)
         return _stability_rows(session, run_id, mc_profile, country_code)
+
+
+def regional_stability_ledger(run_id: str) -> list[StabilityRow]:
+    """Regional stability bands only (all-country sentinel scope)."""
+    return site_stability_ledger(run_id, country_code=None)
+
+
+def national_stability_ledger(run_id: str, *, country_code: str) -> list[StabilityRow]:
+    """Country-scoped stability bands for a national sensitivity run."""
+    return site_stability_ledger(run_id, country_code=country_code)
 
 
 def _largest_mc_profile(session: Session, run_id: str) -> str | None:
@@ -147,4 +157,9 @@ def _mc_lookup(
     }
 
 
-__all__ = ["StabilityRow", "site_stability_ledger"]
+__all__ = [
+    "StabilityRow",
+    "national_stability_ledger",
+    "regional_stability_ledger",
+    "site_stability_ledger",
+]

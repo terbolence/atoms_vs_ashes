@@ -1,3 +1,4 @@
+<!-- man_hours: 2.0 -->
 # Phase 1.6 Sensitivity Analysis — Method
 
 **Purpose:** assess robustness of the Phase 1.5 composite ranking to reasonable variation in weights, score uncertainty, and discretionary thresholds, and to flag artefactual concentration of the top shortlist.
@@ -76,6 +77,16 @@ Across the **15 non-baseline profiles** (10 per-category weight + 1 swing-weight
 | H    | below all of the above                       | Rarely / never in the top-30 % slice           |
 
 Bands **A–G** together cover ≈ 25–35 % of the scored sites, turning the previously opaque "D" into a ranked five-tier long-list usable for sensitivity-aware screening, while A/B/C keep their regulatory meaning. The assignment rule is the same at every **scope**: the same function runs on the global pool, the per-SMR pool (8 SMR keys), the per-country pool (all-SMR), and the per-country × NuScale pool. Within-country percentiles are computed on the local pool, so **national bands reflect local competitiveness**, not global rank. A site enters "top-N %" of a scenario when _any_ of its (site, SMR) pairs lies in the top-N % slice of that scope's scored pairs. Implementation: [`_band_rules.py`](../../src/atoms_vs_ashes/scoring/_band_rules.py), [`_suite_banding.py`](../../src/atoms_vs_ashes/scoring/_suite_banding.py).
+
+### 2.7 National rank sensitivity — Phase D
+
+The regional ranking answers one question: which surviving `(site, SMR)` pairs are strongest in the full 23-country pool. National site-selection decisions answer a different question: which candidates are robust **within the same country and SMR design**. Phase D therefore adds a national rank axis without changing the regional calculation.
+
+For each sensitivity profile, the engine assigns a dense `national_rank` inside each `(country_code, smr_key)` slice, sorted by composite score. It then compares the profile rank against the baseline rank for the same pair and writes both per-pair deltas and country/SMR summaries. The core metrics are `mean_abs_rank_delta`, `max_abs_rank_delta`, Spearman rank correlation, top-1 change, and top-3 / top-5 Jaccard overlap. Slices below the configured minimum pair count are marked `small_n_flag = true`; the report treats these as indicative only.
+
+National OAT repeats the existing one-at-a-time criterion removal but computes rank changes inside each `(country_code, smr_key)` slice. This prevents a large country or a globally dominant candidate from masking the local criterion drivers that matter for a national shortlist. National Monte Carlo rank simulation is separate from the existing MC composite summary: each draw samples criterion scores for all candidates in the slice, ranks them, and reports `p_rank_1`, `p_rank_le_3`, `p_rank_le_5`, median rank, and rank uncertainty bounds.
+
+The national outputs are written under `audit/post_processing/06_scoring/` as `*_national_rank_sensitivity.csv`, `*_national_sensitivity_summary.csv`, `*_national_oat_importance.csv`, and `*_national_mc_rank_distribution.csv`. Figures are generated under `report/output/sensitivity/<stamp>/national/figures/` and embedded in the per-country sensitivity Markdown files. These outputs support within-jurisdiction shortlisting only; they do not imply licensing readiness or Stage 3 characterization acceptance.
 
 ## 3. Metrics
 

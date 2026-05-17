@@ -17,7 +17,7 @@ Create an expert system prompt for GPT PRO to identify all required information 
 
 ## Files Changed
 
-- `gpt/expert_system_data_sources_and_integrations.md` — Expert system prompt for data-source inventory and integration specification.
+- `experts/connectors/data_sources_integrations.md` — Expert system prompt for data-source inventory and integration specification.
 - `audit/conversations/2026-03-24_gpt-pro-expert-prompt-data-sources.md` — This audit log.
 
 ## Outcome

@@ -1,4 +1,4 @@
-# man_hours: 2.2
+# man_hours: 2.4
 """Click ``score`` group — entry point for scoring + sensitivity CLI.
 
 ``--mc-draws`` / ``--preset`` flow into :func:`run_mc_suite`'s
@@ -15,13 +15,13 @@ from pathlib import Path
 
 import click
 
-from sqlalchemy import select
-
 from atoms_vs_ashes.db.engine import session_scope
 from atoms_vs_ashes.runtime.cancellation import CancellationRequested
-from atoms_vs_ashes.logging import get_logger
 from atoms_vs_ashes.runtime import install_sigint_handler
 from atoms_vs_ashes.scoring._cli_preview import preview_command
+from atoms_vs_ashes.scoring._cli_national_sensitivity import (
+    national_sensitivity_command,
+)
 from atoms_vs_ashes.scoring._cli_run import (
     apply_profile_scope_to_sensitivity_cfg,
     emit_cancelled_payload,
@@ -41,9 +41,6 @@ from atoms_vs_ashes.scoring.suite import (
     SensitivitySuiteConfig,
     run_sensitivity_suite,
 )
-
-log = get_logger(__name__)
-
 
 def _resolve_iterations(
     preset: str | None, mc_draws: int | None
@@ -296,3 +293,4 @@ def score_cancel(cancel_flag: str) -> None:
 
 
 score_group.add_command(preview_command)
+score_group.add_command(national_sensitivity_command)

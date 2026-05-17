@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.7
 """DB-side writers for the Phase 1.6 banding / country / OAT / correlation tables.
 
 Producers (CSV writers) call these helpers to fan out their dataclass
@@ -30,6 +30,12 @@ from atoms_vs_ashes.db.analytics_writers_failure import (
     persist_swing_weights,
     persist_threshold_sensitivity,
     persist_weight_profile_stability,
+)
+from atoms_vs_ashes.db.analytics_writers_national import (
+    persist_national_mc_rank_distribution,
+    persist_national_oat_importance,
+    persist_national_rank_sensitivity,
+    persist_national_sensitivity_summary,
 )
 from atoms_vs_ashes.db.models_analytics import SiteBand as SiteBandORM
 from atoms_vs_ashes.db.models_analytics import (
@@ -217,4 +223,8 @@ __all__ = [
     "persist_country_balance_check",
     "persist_failure_outcomes",
     "persist_failure_aggregates",
+    "persist_national_rank_sensitivity",
+    "persist_national_sensitivity_summary",
+    "persist_national_oat_importance",
+    "persist_national_mc_rank_distribution",
 ]

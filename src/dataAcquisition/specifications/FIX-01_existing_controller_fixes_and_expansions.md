@@ -15,7 +15,7 @@
 
 This specification addresses three categories of work on the five already-implemented controllers:
 
-1. **Interface compliance fixes** — bring I-1, I-2, I-3, I-4 into alignment with the project's connector interface pattern (§C2 of `softwareArchitect.md`), including `CRITERION_IDS`, `validate()`, `persist()`, settings integration, and DB-compatibility test coverage.
+1. **Interface compliance fixes** — bring I-1, I-2, I-3, I-4 into alignment with the project's connector interface pattern (§C2 of `experts/connectors/software_architect.md`), including `CRITERION_IDS`, `validate()`, `persist()`, settings integration, and DB-compatibility test coverage.
 2. **Pipeline wiring fixes** — register orphaned analysis modules (`proximity_land.py`), correct criterion-ID labelling, fix persistence-model inconsistencies (RI-04 as `SiteAttribute`), and align `source_refs` provenance.
 3. **Criterion coverage expansions** — add analysis modules and connector methods to serve the sub-criteria that the data source access plan assigns to these controllers but that are not yet implemented.
 

@@ -1,4 +1,4 @@
-# man_hours: 0.25
+# man_hours: 0.5
 """Persist A-H stability bands after ``run_sensitivity_suite`` completes."""
 
 from __future__ import annotations
@@ -33,6 +33,7 @@ def _persist_scope(
     bands, _scenarios = compute_bands(
         session,
         baseline_label=baseline_label,
+        run_id=run_id,
         smr_filter=None,
         country_filter=country_filter,
     )
@@ -79,6 +80,25 @@ def persist_site_bands_for_sensitivity_run(
     return SiteBandPersistSummary(rows_by_scope=rows_by_scope)
 
 
+def persist_national_site_bands_for_sensitivity_run(
+    session: Session,
+    *,
+    run_id: str,
+    baseline_label: str,
+    country_codes: list[str] | tuple[str, ...],
+) -> SiteBandPersistSummary:
+    """Write country-scoped stability bands only for a national sensitivity run."""
+    rows_by_scope: dict[str, int] = {}
+    for country_code in _normalised_country_codes(country_codes):
+        rows_by_scope[country_code] = _persist_scope(
+            session,
+            run_id=run_id,
+            baseline_label=baseline_label,
+            country_filter=country_code,
+        )
+    return SiteBandPersistSummary(rows_by_scope=rows_by_scope)
+
+
 def persist_regional_site_bands_for_sensitivity_run(
     session: Session,
     *,
@@ -96,6 +116,7 @@ def persist_regional_site_bands_for_sensitivity_run(
 
 __all__ = [
     "SiteBandPersistSummary",
+    "persist_national_site_bands_for_sensitivity_run",
     "persist_regional_site_bands_for_sensitivity_run",
     "persist_site_bands_for_sensitivity_run",
 ]

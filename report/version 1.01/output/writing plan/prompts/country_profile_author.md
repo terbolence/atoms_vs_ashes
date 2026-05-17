@@ -1,3 +1,4 @@
+<!-- man_hours: 1.3 -->
 # Country Profile Author Prompt
 
 Use this prompt to draft one country profile for Chapter 5 of the
@@ -54,6 +55,10 @@ analyst, or political commentator.
    - `ranking_score_distribution[*]` - per-criterion mean / min / max
      ranking score for the country.
    - `criteria_lookup` - full names for every criterion code.
+   - National sensitivity artefacts, when present in the bundle or
+     adjacent export pack: national rank deltas, national OAT drivers,
+     MC rank probabilities (`p_rank_1`, `p_rank_le_3`, `p_rank_le_5`),
+     and small-n flags for `(country_code, smr_key)` slices.
 
 2. The two country maps that the build script writes alongside the
    bundle:
@@ -77,6 +82,7 @@ Interactive map link
 ## Avoidance Flag Pareto
 ## Exclusionary Failure Pareto (only if any hard-fails)
 ## Family Strength and Weakness
+## National Sensitivity and Robustness
 ## Interpretation for Site Selection
 ## Status Counts
 ```
@@ -104,6 +110,12 @@ Interactive map link
   characterization candidate.
 - Treat Monte Carlo intervals as evidence against false precision.
   When two sites' MC bands overlap, say so.
+- In the National Sensitivity and Robustness section, distinguish
+  national rank sensitivity from the regional sensitivity analysis.
+  National rank means ranking within the same country and SMR design.
+  Use national rank-delta, OAT, and MC rank-probability artefacts only
+  if they are supplied. If `small_n_flag` is true, describe the signal
+  as indicative and avoid strong stability claims.
 - If the country has zero hard-fails, drop the Exclusionary Failure
   Pareto section.
 - Do not invent national policy, ownership, or regulatory positions

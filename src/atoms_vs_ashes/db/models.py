@@ -1,4 +1,4 @@
-# man_hours: 32.1
+# man_hours: 33.0
 """SQLAlchemy ORM models — mirrors architecture/specs/02_data_model_postgres.md."""
 
 from __future__ import annotations
@@ -271,6 +271,13 @@ class Site(Base):
     grid_capacity_mw: Mapped[float | None] = mapped_column(Numeric(10, 2))
     cooling_water_source: Mapped[str | None] = mapped_column(String(200))
     site_area_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    site_area_source: Mapped[str | None] = mapped_column(String(40))
+    site_area_confidence: Mapped[str | None] = mapped_column(String(20))
+    site_area_review_flags: Mapped[dict | None] = mapped_column(JSONB)
+    site_area_candidates_json: Mapped[dict | None] = mapped_column(JSONB)
+    expansion_potential_ha: Mapped[float | None] = mapped_column(Numeric(10, 2))
+    site_area_resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    site_area_resolve_run_id: Mapped[str | None] = mapped_column(String(60))
     elevation_m: Mapped[float | None] = mapped_column(Numeric(8, 2))
 
     owner_operator: Mapped[str | None] = mapped_column(Text)

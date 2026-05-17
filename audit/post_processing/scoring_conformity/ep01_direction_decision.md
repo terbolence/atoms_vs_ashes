@@ -71,7 +71,7 @@ User signed off on "embrace the recipe":
 
 For the audit trail of this decision see
 `audit/conversations/2026-05-16_ep01-exclusionary-sweep-band-recipe.md`
-and `prompts/lessons_learned.md::LL-035`.
+and `experts/quality/lessons_learned.md::LL-035`.
 
 ---
 *Original 2026-05-13 Option B decision and A/B/C options preserved below

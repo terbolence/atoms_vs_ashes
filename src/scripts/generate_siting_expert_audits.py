@@ -523,7 +523,7 @@ def _render_findings_md(
             )
         lines.append("")
         lines.append(
-            f"**Suggested disposition:** `{disposition}` — confirm after human review per `prompts/sitingExpert.md`."
+            f"**Suggested disposition:** `{disposition}` — confirm after human review per `experts/quality/siting_expert.md`."
         )
     lines.append("")
     lines.append("## 4. Per-sample table")
@@ -556,7 +556,7 @@ def _render_findings_md(
     lines.append(f"| Connector error rows (sum over sites) | {n_err} |")
     lines.append(f"| Auto table columns | {', '.join(cols) or '—'} |")
     lines.append("")
-    lines.append("## 6. Human follow-up (prompts/sitingExpert.md §D–§H)")
+    lines.append("## 6. Human follow-up (experts/quality/siting_expert.md §D–§H)")
     lines.append("")
     lines.append(
         "- Validate domain plausibility for each criterion touched by this connector.\n"
@@ -662,7 +662,7 @@ def main() -> int:
             disposition = "ACTION_REQUIRED"
             extraction_note += " ZERO samples — enrichment missing or filter too strict."
         elif len(samples) < 20:
-            extraction_note += f" SHORTFALL: only {len(samples)} sites returned (see prompts/sitingExpert.md Incomplete)."
+            extraction_note += f" SHORTFALL: only {len(samples)} sites returned (see experts/quality/siting_expert.md Incomplete)."
 
         payload = {
             "connector_slug": slug,

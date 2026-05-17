@@ -1,4 +1,4 @@
-# man_hours: 2.5
+# man_hours: 2.8
 """Sensitivity-suite orchestrator for ``ava score sensitivity``.
 
 CLI ``--mc-draws N`` flows into :func:`run_sensitivity_suite` → MC loop.
@@ -31,7 +31,7 @@ from atoms_vs_ashes.scoring._suite_sensitivity_helpers import (
     build_ranked_country_list,
 )
 from atoms_vs_ashes.scoring._suite_sensitivity_site_bands_persist import (
-    persist_site_bands_for_sensitivity_run,
+    persist_regional_site_bands_for_sensitivity_run,
 )
 from atoms_vs_ashes.scoring._suite_persist import (
     _resolve_baseline_run_id,
@@ -243,12 +243,13 @@ def run_sensitivity_suite(
         raise
 
     session.flush()
-    site_band_summary = persist_site_bands_for_sensitivity_run(
+    regional_site_band_rows = persist_regional_site_bands_for_sensitivity_run(
         session,
         run_id=run_id,
         baseline_label=cfg.weight_profile_base,
-        country_codes=tuple(country_by_pair.values()),
     )
+    if regional_site_band_rows:
+        notes.append(f"regional_site_bands={regional_site_band_rows}")
     # Flip ``runs.status`` so the GUI run-verification panel can read
     # ``completed_at``; cancel/error paths let session_scope roll back.
     complete_run(session, run_handle, status="completed")
@@ -290,6 +291,6 @@ def run_sensitivity_suite(
         mc_rows=result.mc_rows_persisted,
         country_rows=result.country_balanced_rows_persisted,
         threshold_rows=result.threshold_rows_persisted,
-        site_band_scopes=site_band_summary.rows_by_scope,
+        regional_site_band_rows=regional_site_band_rows,
     )
     return result

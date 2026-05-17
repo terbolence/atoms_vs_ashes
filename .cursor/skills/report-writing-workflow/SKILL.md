@@ -12,7 +12,7 @@ Before planning, drafting, revising, or reviewing report content, read and follo
 1. `report/output/writing plan/writingDecisions.md` — controlling workflow, scope, analytical anchors, country/site rules, prompt architecture, visuals, and output organisation.
 2. `report/output/writing plan/writingStyle.md` — prose quality standard.
 3. `report/output/writing plan/tableOfContents.md` — canonical composition order.
-4. The relevant reusable prompt under `prompts/`, if the task is drafting or prompt design.
+4. The relevant reusable prompt under `experts/`, if the task is drafting or prompt design.
 
 ## Core Decisions
 
@@ -35,7 +35,7 @@ Prompts are task-specific and reusable. Do not create one prompt per site. Three
 
 - `report/output/writing plan/prompts/` for the Chapter 5 country and site profile authors (the renderer-scaffold authors). Pinned to the bundles produced by `python -m scripts.export_country_bundle` and `python -m scripts.export_site_bundle`.
 - `report/output/writing plan/prompts/specialists/` for the criterion-family, cross-section, and per-criterion override specialists that fill the `<!-- specialist key=... status=pending -->` placeholders the renderers emit.
-- `prompts/` (repo root) for cross-cutting roles (site describer, siting expert, audit, lessons-learned, software architect, etc.).
+- `experts/` (repo root) for cross-cutting roles: see `experts/scoring/`, `experts/connectors/`, `experts/quality/`, `experts/report/`, `experts/assessment/`, and `experts/reference_data/`.
 
 Recommended prompt roles:
 
@@ -44,11 +44,11 @@ Recommended prompt roles:
 - `report/output/writing plan/prompts/specialists/01_natural_hazards.md` to `05_non_safety_implementation.md` for per-criterion specialist interpretation.
 - `report/output/writing plan/prompts/specialists/06_residual_risk_register.md`, `07_stability_sensitivity.md`, `08_country_coal_to_nuclear_executive.md` for the synthesis blocks.
 - `report/output/writing plan/prompts/specialists/criteria/<CID>.md` for per-criterion override depth (NH-01, NH-02, NH-09, HI-01, HI-06, RI-04, RI-05, EP-01, EP-02, NS-01, NS-02, NS-08).
-- `prompts/report_results_synthesizer.md` for Chapter 4.
-- `prompts/report_stage_methodology_author.md` for Chapters 2 and 3.
-- `prompts/site_describer.md` for free-form site narratives outside Chapter 5.
-- `prompts/report_recommendations_author.md` for Chapter 6.
-- `prompts/executive_technical_brief_author.md` for the separate executive technical brief.
+- `experts/report_results_synthesizer.md` for Chapter 4.
+- `experts/report/stage_methodology_author.md` for Chapters 2 and 3.
+- `experts/report/site_describer.md` for free-form site narratives outside Chapter 5.
+- `experts/report_recommendations_author.md` for Chapter 6.
+- `experts/executive_technical_brief_author.md` for the separate executive technical brief.
 
 Every drafting prompt that uses data should instruct the agent to identify the relevant tables, charts, maps, or figures needed to support the argument. Use first-party project data, DB exports, scoring outputs, sensitivity CSVs, failure outputs, generated methodology artefacts, and open geospatial sources before relying on web summaries.
 
@@ -83,7 +83,7 @@ The static country site-status map renderer is `src/scripts/_country_profile_map
 - Client-facing chapters: `report/output/chapters/`.
 - Canonical writing controls: `report/output/writing plan/`.
 - Report-section prompts (pinned to bundle JSONs): `report/output/writing plan/prompts/`.
-- Cross-cutting / general-purpose prompts: `prompts/`.
+- Cross-cutting / general-purpose prompts: `experts/` (use the subfolder for the task: `scoring/`, `connectors/`, `quality/`, `report/`, `assessment/`, `reference_data/`).
 - Country and site bundle JSONs: `report/output/chapters/05_country_and_site_profiles/data/`.
 - Executive technical brief: `report/output/executive_technical_brief.md`.
 

@@ -3,12 +3,12 @@
 sub_plan: SP-B
 title: EPRI weight basis swap (named profile)
 specialist_prompts:
-  primary: prompts/coal_to_nuclear_suitable_sites_scoring_audit.md
+  primary: experts/scoring/suitable_sites_scoring_audit.md
   supporting:
-    - prompts/sitingExpert.md
-    - prompts/expert_iaea_epri_criterion_matrix_author.md
+    - experts/quality/siting_expert.md
+    - experts/scoring/criterion_matrix_author.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md
+  - experts/quality/lessons_learned.md
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - config/scoring_rubrics/
   - src/atoms_vs_ashes/scoring/rubric.py

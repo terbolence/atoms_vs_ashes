@@ -173,10 +173,10 @@ The shared helper `analysis/_provenance.py` was updated: `write_quality_flag` re
 | `architecture/specs/04_connector_framework.md` | Updated quality/caching references |
 | `architecture/specs/05_screening_scoring_engine.md` | Updated to `screening_verdicts`, per-SMR, `composite_rankings` |
 | `architecture/agregated_architecture.md` | All sections synced with individual specs |
-| `gpt/softwareArchitect.md` | C4 table, persistence patterns, checklists, SMR section |
-| `gpt/seniorSoftwareEngineer.md` | Model references, persistence example, checklist |
+| `experts/connectors/software_architect.md` | C4 table, persistence patterns, checklists, SMR section |
+| `experts/connectors/senior_software_engineer.md` | Model references, persistence example, checklist |
 | `gpt/auditor.md` | Provenance, anti-patterns, seed audit sections |
-| `gpt/expert_system_data_sources_and_integrations.md` | Data model reference, output expectations |
+| `experts/connectors/data_sources_integrations.md` | Data model reference, output expectations |
 
 ## 4. Execution Order (as implemented)
 

@@ -1,4 +1,4 @@
-# man_hours: 1.2
+# man_hours: 1.8
 """Orchestration for the Results Streamlit page (single active tool)."""
 
 from __future__ import annotations
@@ -27,11 +27,21 @@ from atoms_vs_ashes.gui._results_render_exclusion_diag import (
 from atoms_vs_ashes.gui._results_render_coverage import render_coverage_tab
 from atoms_vs_ashes.gui._results_render_kpi import render_kpi_strip
 from atoms_vs_ashes.gui._results_render_regional import render_regional_tab
+from atoms_vs_ashes.gui._results_render_national_sens import (
+    render_national_sensitivity_tab,
+)
 from atoms_vs_ashes.gui._results_render_sens import render_sensitivity_tab
 from atoms_vs_ashes.gui._results_render_sites import render_sites_tab
-from atoms_vs_ashes.gui._results_render_stability import render_stability_tab
+from atoms_vs_ashes.gui._results_render_stability import (
+    render_national_stability_tab,
+    render_regional_stability_tab,
+)
 from atoms_vs_ashes.gui._results_run_picker import select_run
 from atoms_vs_ashes.gui._results_tab_style import inject_results_tool_selector_style
+from atoms_vs_ashes.gui._results_tool_routing import (
+    NATIONAL_SENSITIVITY_TOOLS,
+    run_kind_for_tool,
+)
 from atoms_vs_ashes.gui._state import get_profile
 from atoms_vs_ashes.gui.reports.ui import render_reports_popover
 from atoms_vs_ashes.runtime.scope import RunScope, scope_from_run_profile
@@ -44,9 +54,11 @@ _TOOL_LABELS = [
     "Sites",
     "Failure Diagnostics",
     "Avoidance Diagnostics",
-    "Regional",
-    "Stability",
-    "Sensitivity",
+    "Regional Overview",
+    "Regional Stability",
+    "Regional Sensitivity",
+    "National Stability",
+    "National Sensitivity",
 ]
 
 
@@ -113,7 +125,15 @@ def render_results_page() -> None:
         if profile
         else "audit/post_processing/06_scoring"
     )
-    run = select_run()
+    inject_results_tool_selector_style()
+    active_tool = st.radio(
+        "Tool",
+        _TOOL_LABELS,
+        horizontal=True,
+        key="results_active_tool",
+    )
+    required_run_kind = run_kind_for_tool(active_tool)
+    run = select_run(required_run_kind, allow_manual_pool=True)
     if run is None:
         return
     _render_run_header(run)
@@ -123,8 +143,8 @@ def render_results_page() -> None:
     baseline_weight_profile = view.weight_profile
     if view.sensitivity_run_id is not None:
         st.caption(
-            f"Coverage / Sites / Regional use the parent baseline "
-            f"`{baseline_run_id}`; the Sensitivity & Stability tools use "
+            f"Scoring tools use the parent baseline "
+            f"`{baseline_run_id}`; sensitivity/stability tools use "
             f"this sensitivity run."
         )
 
@@ -147,25 +167,19 @@ def render_results_page() -> None:
         run_id=baseline_run_id, weight_profile=baseline_weight_profile,
         scope=scope, n_smrs_in_scope=n_smrs_in_scope,
     )
+    national_view = active_tool in NATIONAL_SENSITIVITY_TOOLS
     country_focus = render_country_focus(
         baseline_run_id,
         baseline_weight_profile,
         scope=scope,
         country_session_key=_COUNTRY_KEY,
         widget_key="results_country_focus",
-    )
-
-    inject_results_tool_selector_style()
-
-    active_tool = st.radio(
-        "Tool",
-        _TOOL_LABELS,
-        horizontal=True,
-        key="results_active_tool",
+        allow_all=not national_view,
+        default_country="RO" if national_view else None,
     )
 
     metrics: LoadedMetrics | None = None
-    if active_tool == "Sensitivity":
+    if active_tool == "Regional Sensitivity":
         metrics = _resolve_metrics_for_sensitivity(audit_dir, run)
 
     if active_tool == "Coverage":
@@ -207,19 +221,29 @@ def render_results_page() -> None:
                 float(profile.scoring.near_miss_gap_pct) if profile else 10.0
             ),
         )
-    elif active_tool == "Regional":
+    elif active_tool == "Regional Overview":
         render_regional_tab(
             run_id=baseline_run_id,
             weight_profile=baseline_weight_profile, scope=scope,
         )
-    elif active_tool == "Stability":
-        render_stability_tab(run=run, country_code=country_focus)
-    else:
+    elif active_tool == "Regional Stability":
+        render_regional_stability_tab(run=run)
+    elif active_tool == "Regional Sensitivity":
         render_sensitivity_tab(
             run, metrics,
-            country_code=country_focus,
+            country_code=None,
             baseline_weight_profile=baseline_weight_profile,
         )
+    elif active_tool == "National Stability":
+        if country_focus is None:
+            st.info("Pick a country to view national stability.")
+        else:
+            render_national_stability_tab(run=run, country_code=country_focus)
+    else:
+        if country_focus is None:
+            st.info("Pick a country to view national sensitivity.")
+        else:
+            render_national_sensitivity_tab(run, country_code=country_focus)
 
 
 __all__ = ["render_results_page"]

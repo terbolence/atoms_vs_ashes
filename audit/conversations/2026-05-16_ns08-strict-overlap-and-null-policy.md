@@ -3,7 +3,7 @@
 
 **Date:** 2026-05-16
 **Plan:** `audit/plans/exclusionary_sweep_13877396.plan.md` (NS-08 leg).
-**Lesson:** `prompts/lessons_learned.md` LL-034.
+**Lesson:** `experts/quality/lessons_learned.md` LL-034.
 
 ## Outcome
 
@@ -62,7 +62,7 @@
 - `tests/scoring/test_ns08_strict_overlap.py`: 13 new tests covering
   the derivation matrix, NULL band behaviour, and R1 declaration.
 - `report/methodology/exclusionary_floors.md`: regenerated.
-- `prompts/lessons_learned.md`: appended LL-034.
+- `experts/quality/lessons_learned.md`: appended LL-034.
 - Plan mirrors written to `audit/plans/` and `architecture/plans/`.
 
 ## Live-DB verification (read-only)

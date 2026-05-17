@@ -1,4 +1,4 @@
-# man_hours: 0.75
+# man_hours: 0.95
 """Per-country sensitivity MD writer (one file per ISO2 country).
 
 Emits ``national/{CC_name}.md`` with a ranked shortlist (all-SMR and
@@ -29,6 +29,7 @@ def write_country_report(
     bands_csv_all_smr: Path,
     bands_csv_nuscale: Path,
     figure_rel: str | None = None,
+    national_figure_rels: list[str] | None = None,
 ) -> Path:
     """Write ``national/{CC_name}.md`` and return its path."""
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -64,6 +65,19 @@ def write_country_report(
     if figure_rel is not None:
         lines.append(f"![Top sites in {name}]({figure_rel})")
         lines.append("")
+
+    if national_figure_rels:
+        lines.append("## National rank sensitivity")
+        lines.append("")
+        lines.append(
+            "The figures below show sensitivity in the national "
+            "`country × SMR` ranking pool, separate from the regional "
+            "pan-European ranking."
+        )
+        lines.append("")
+        for rel in national_figure_rels:
+            lines.append(f"![National sensitivity in {name}]({rel})")
+            lines.append("")
 
     lines.append("## Ranked shortlist — all SMRs pooled (top 10)")
     lines.append("")

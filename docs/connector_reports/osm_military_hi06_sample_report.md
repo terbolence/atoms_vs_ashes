@@ -42,4 +42,4 @@
 - DB persistence via `hasattr` in `assess_and_persist` (no breakage if Alembic `042` not yet applied).
 - `--requery-nulls` already wired in `scripts/run_fix04_osm_avoidance_batch.py::_needs_requery_military` (existing infrastructure; no further code change needed).
 - Legacy `run_fix04_osm_avoidance_batch.py::_parse_military` still uses the older A5/A6 binary classification with raw SQL UPSERT; the modern `military_proximity.assess_and_persist` path is the canonical one for any new HI-06 enrichment runs and should be preferred for the SP-F re-enrichment batch.
-- **Pending:** Overpass batch run under `prompts/runAPIs.md` Sec.C (~363 calls, ~12-20 min at 1 s inter-request, free academic tier, may hit 429 on dense regions).
+- **Pending:** Overpass batch run under `experts/connectors/api_enrichment_operations.md` Sec.C (~363 calls, ~12-20 min at 1 s inter-request, free academic tier, may hit 429 on dense regions).

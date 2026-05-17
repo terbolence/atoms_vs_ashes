@@ -117,9 +117,9 @@ Once R1 lands, decide: are the 255 sites with empty military payloads acceptable
 
 ## R3 + R4 -- Stage 8c profile regeneration (live LLM, parallel within stage)
 
-This is the **only remaining live-API stage**. Per [`prompts/runAPIs.md`](prompts/runAPIs.md) Sec.C, present a consent card before the first batch.
+This is the **only remaining live-API stage**. Per [`experts/connectors/api_enrichment_operations.md`](../../experts/connectors/api_enrichment_operations.md) Sec.C, present a consent card before the first batch.
 
-- **R3**: regenerate 363 site profiles using [`prompts/`](prompts/) authoring prompts. Sites are independent -- safe to fan out 4-8 wide subject to LLM RPM/TPM limits.
+- **R3**: regenerate 363 site profiles using [`experts/`](../../experts/) authoring prompts. Sites are independent -- safe to fan out 4-8 wide subject to LLM RPM/TPM limits.
 - **R4**: after R3 completes, regenerate 23 country profiles. Country narratives reference per-site outcomes ("X of Y sites passed"), so country regen must wait for site regen, but the 23 countries themselves fan out 4-8 wide.
 
 ## R5 -- Pareto decision (independent)
@@ -129,7 +129,7 @@ This is the **only remaining live-API stage**. Per [`prompts/runAPIs.md`](prompt
 
 ## R6 -- Stage 9 closeout
 
-- LL-XXX entries appended to [`prompts/lessons_learned.md`](prompts/lessons_learned.md): include the new lesson "raw-response logs are first-class enrichment inputs; before scheduling a live API rerun, verify whether `site_raw_responses` already holds the payload".
+- LL-XXX entries appended to [`experts/quality/lessons_learned.md`](../../experts/quality/lessons_learned.md): include the new lesson "raw-response logs are first-class enrichment inputs; before scheduling a live API rerun, verify whether `site_raw_responses` already holds the payload".
 - Audit log: [`audit/conversations/2026-05-09_feedback-rework-execution.md`](audit/conversations/2026-05-09_feedback-rework-execution.md) -- finalised after R4.
 - Plan mirrors to [`architecture/plans/`](architecture/plans/) and [`audit/plans/`](audit/plans/) per `audit-trail.mdc`.
 - Man-hours refresh: `python src/scripts/man_hours_report.py` (last action).
@@ -190,7 +190,7 @@ Compared to the original sequential ladder (estimated ~3-4 hours including the 5
 
 - Stage 0 through Stage 6 are already complete and signed off.
 - Stage 8a cross-chapter numeric lint already landed (0 findings).
-- Live-API safety (per [`prompts/runAPIs.md`](prompts/runAPIs.md) and [`.cursor/rules/live-api-safety.mdc`](.cursor/rules/live-api-safety.mdc)) still applies to R3/R4 -- a single Sec.C card before the first LLM call covers the run.
+- Live-API safety (per [`experts/connectors/api_enrichment_operations.md`](../../experts/connectors/api_enrichment_operations.md) and [`.cursor/rules/live-api-safety.mdc`](../../.cursor/rules/live-api-safety.mdc)) still applies to R3/R4 -- a single Sec.C card before the first LLM call covers the run.
 - Audit-trail and man-hours rules still apply to every edited file.
 
 ## Out of scope (parked, may surface in SP-H backlog)

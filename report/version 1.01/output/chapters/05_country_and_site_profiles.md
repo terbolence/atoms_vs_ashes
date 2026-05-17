@@ -26,5 +26,5 @@ Interpret ownership and infrastructure only to the extent supported by the datab
 
 - Primary inputs: reusable country/site exporter outputs, site bundle JSON, aligned report-output sensitivity packs for the latest frozen run, scoring exports, failure outputs, and country figures.
 - Use the country and site profile workflow in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
-- Use the expert site-describer prompt in `prompts/site_describer.md` for first drafts only after explicit live-API consent if an external LLM is called.
+- Use the expert site-describer prompt in `experts/report/site_describer.md` for first drafts only after explicit live-API consent if an external LLM is called.
 - Human review is mandatory for ownership wording, country-specific policy claims, and sensitive geopolitical statements.

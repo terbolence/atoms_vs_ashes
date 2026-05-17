@@ -3,13 +3,13 @@
 sub_plan: SP-F
 title: Connector refinements (airport class, military classification)
 specialist_prompts:
-  primary: prompts/expert_system_data_sources_and_integrations.md
+  primary: experts/connectors/data_sources_integrations.md
   supporting:
-    - prompts/seniorSoftwareEngineer.md
-    - prompts/runAPIs.md
-    - prompts/databaseAudit.md
+    - experts/connectors/senior_software_engineer.md
+    - experts/connectors/api_enrichment_operations.md
+    - experts/connectors/database_audit.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md  # especially LL-017, LL-022, LL-024
+  - experts/quality/lessons_learned.md  # especially LL-017, LL-022, LL-024
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - src/atoms_vs_ashes/connectors/ourairports/
   - src/atoms_vs_ashes/connectors/osm/  # or wherever military comes from
@@ -17,7 +17,7 @@ mandatory_reads_first:
 honors_feedback_lessons: [FB-LL-03]
 gates:
   - feedback_lessons_learnt.md sign_off
-  - "Live-API consent for re-enrichment per prompts/runAPIs.md"
+  - "Live-API consent for re-enrichment per experts/connectors/api_enrichment_operations.md"
 comment_ids: ["76", "77", "79", "120", "563", "582"]
 blocks_or_feeds: ["SP-D Phase 0.6 for HI-01 / HI-06"]
 ---

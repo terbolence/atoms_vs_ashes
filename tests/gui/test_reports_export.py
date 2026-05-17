@@ -1,3 +1,4 @@
+# man_hours: 1.8
 """Focused tests for GUI PDF report export helpers."""
 
 from __future__ import annotations
@@ -58,8 +59,8 @@ def test_country_sensitivity_is_country_scoped(monkeypatch):
     from atoms_vs_ashes.gui.reports import country_sensitivity as mod
 
     seen = {}
-    def fake_stability(run_id, country_code):
-        seen["stability_country"] = country_code
+    def fake_stability(run_id):
+        seen["regional_stability_run"] = run_id
         return [SimpleNamespace(band="A")]
 
     def fake_snapshot(run_id, country_code, baseline_weight_profile):
@@ -72,7 +73,12 @@ def test_country_sensitivity_is_country_scoped(monkeypatch):
 
     monkeypatch.setattr(
         mod,
-        "site_stability_ledger",
+        "_run_kind",
+        lambda run_id: "sensitivity",
+    )
+    monkeypatch.setattr(
+        mod,
+        "regional_stability_ledger",
         fake_stability,
     )
     monkeypatch.setattr(
@@ -87,8 +93,41 @@ def test_country_sensitivity_is_country_scoped(monkeypatch):
         baseline_weight_profile="baseline",
     )
 
-    assert seen == {"stability_country": "RO", "sensitivity_country": "RO"}
+    assert seen == {
+        "regional_stability_run": "sens-1",
+        "sensitivity_country": "RO",
+    }
     assert out.has_sensitivity is True
+
+
+def test_country_sensitivity_uses_national_payload_for_national_runs(monkeypatch):
+    from atoms_vs_ashes.gui.reports import country_sensitivity as mod
+
+    seen = {}
+
+    def fake_national_stability(run_id, country_code):
+        seen["national_stability"] = (run_id, country_code)
+        return [SimpleNamespace(band="A")]
+
+    def fake_national_snapshot(run_id, country_code):
+        seen["national_snapshot"] = (run_id, country_code)
+        return SimpleNamespace(has_rows=True)
+
+    monkeypatch.setattr(mod, "_run_kind", lambda run_id: "national_sensitivity")
+    monkeypatch.setattr(mod, "national_stability_ledger", fake_national_stability)
+    monkeypatch.setattr(mod, "national_sensitivity_snapshot", fake_national_snapshot)
+
+    out = mod.build_country_sensitivity(
+        sensitivity_run_id="nat-1",
+        country_code="RO",
+        baseline_weight_profile="baseline",
+    )
+
+    assert seen == {
+        "national_stability": ("nat-1", "RO"),
+        "national_snapshot": ("nat-1", "RO"),
+    }
+    assert out.has_national_sensitivity is True
 
 
 def test_country_pack_respects_top_n_and_scope(monkeypatch):
@@ -168,7 +207,7 @@ def test_country_pack_respects_top_n_and_scope(monkeypatch):
 def test_pdf_renderers_return_pdf_bytes(monkeypatch):
     pytest.importorskip("reportlab")
     monkeypatch.setattr(
-        "atoms_vs_ashes.gui.reports.pdf.country_chart_images",
+        "atoms_vs_ashes.gui.reports.pdf_country.country_chart_images",
         lambda country: [],
     )
     criteria = CriteriaReport(

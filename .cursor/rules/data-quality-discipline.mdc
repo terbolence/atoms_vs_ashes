@@ -72,7 +72,7 @@ Every connector that makes an external HTTP call must persist the raw response (
 - **Bulk-download connectors** (WFS, CSV, GeoTIFF): cache the full download with TTL-based invalidation. Reference pattern: `smithsonian_gvp/client.py` (atomic write via `.tmp` rename).
 - **Per-site API connectors** (Overpass, EFEHR, EGDI): at minimum cache (a) the first successful response as a reference sample, and (b) batch-level metadata in `sources/<slug>/batch_<run_id>.meta.json` (total calls, total bytes, error count, timestamp).
 
-See **LL-024** in `prompts/lessons_learned.md` for the full rationale and the list of connectors that currently lack this.
+See **LL-024** in `experts/quality/lessons_learned.md` for the full rationale and the list of connectors that currently lack this.
 
 ## Checklist for every new connector / analysis module
 

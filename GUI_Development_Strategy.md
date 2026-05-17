@@ -117,13 +117,13 @@ Roadmap for evolving the Streamlit application alongside data ingestion, connect
 
 **Product / engineering direction**
 
-- Define a **sweep manifest** (ordered connectors, skip sets, concurrency) derived from **`config/default.yml`** and operational guidance in **`prompts/runAPIs.md`** (`atoms-vs-ashes enrich <slug>`, `--run-id`, `--db-profile api`).
+- Define a **sweep manifest** (ordered connectors, skip sets, concurrency) derived from **`config/default.yml`** and operational guidance in **`experts/connectors/api_enrichment_operations.md`** (`atoms-vs-ashes enrich <slug>`, `--run-id`, `--db-profile api`).
 - Surface orchestration from the GUI or a single CLI wrapper with **one run_id**, structured logging, resume-friendly behaviour, and optional **heartbeat / cancel** patterns consistent with **`src/atoms_vs_ashes/gui/_runner.py`** (Scoring Engine).
 - Wire **post-sweep verification**: e.g. **`python -m scripts.scan_api_db_anomalies`** (Phase 1 sanity bounds), enrichment coverage reports, and **`connector_errors`** review — with outputs linked or summarised for operators.
 
 **Checks and gold-standard practices**
 
-- **`prompts/runAPIs.md`** escalation (dry-run → smoke → small batch → larger scopes): obtain **explicit consent** before live batches per **`.cursor/rules/live-api-safety.mdc`**.
+- **`experts/connectors/api_enrichment_operations.md`** escalation (dry-run → smoke → small batch → larger scopes): obtain **explicit consent** before live batches per **`.cursor/rules/live-api-safety.mdc`**.
 - Respect **raw-response logging** policy where connectors persist payloads (**`.cursor/rules/raw-response-logging.mdc`**).
 - Never bypass rate limits without updating **`config/default.yml`** and documenting the change.
 

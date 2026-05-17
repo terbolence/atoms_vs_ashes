@@ -1,4 +1,4 @@
-# man_hours: 10.3
+# man_hours: 10.8
 # Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: nh
@@ -137,7 +137,7 @@ criteria:
     # away". The connector also persists the max slope in the same
     # buffer (``nh04_dem_cog_slope_max_deg``) but the scoring rubric
     # does not currently consume it. See LL-022 in
-    # prompts/lessons_learned.md for the open design defect and the
+    # experts/quality/lessons_learned.md for the open design defect and the
     # planned resolution (split on-site footprint slope vs runout /
     # lateral-hazard buffer signal). Until that lands, treat NH-04 as
     # a coarse screening lens only.
@@ -261,20 +261,20 @@ criteria:
     primary_metric: coast_distance_km
     db_fields: {api: [site_natural_hazards.coast_distance_km, site_natural_hazards.storm_surge_class, site_natural_hazards.tsunami_zone_flag, sites.elevation_m], llm: nh08_coastal_text}
     notes: |
-      A9 is an avoidance caution, not a pass/fail site approval. Missing
-      ``coast_distance_km`` remains a coastal-flood data gap unless the site
-      is elevation-safe or landlocked. Low-elevation, non-landlocked sites
-      with unresolved coast distance are therefore cautioned for Stage 3
-      coastal-flood confirmation.
+      A9 is an avoidance caution, not a pass/fail site approval. S-38 Natural
+      Earth now supplies measured ``coast_distance_km`` as the site-level sea
+      coastline distance. Missing coast distance remains a data gap, but it is
+      not itself evidence of coastal exposure; low-elevation inland river sites
+      are routed to NH-09 for river flooding rather than cautioned under NH-08.
     bands:
-      - {score_range: [9, 10], condition_expr: "country_is_landlocked == true or coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country."}
-      - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in ['none', 'low']", descriptor: ">= 10 km from coast, low surge class."}
-      - {score_range: [5, 6], condition_expr: "coast_distance_km >= 5", descriptor: "5-10 km from coast; mitigation feasible."}
-      - {score_range: [3, 4], condition_expr: "coast_distance_km >= 2", descriptor: "2-5 km from coast; high surge/tsunami trace."}
-      - {score_range: [1, 2], condition_expr: "coast_distance_km < 2", descriptor: "In 100-yr inundation extent without defensible mitigation."}
-      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard."}
+      - {score_range: [9, 10], condition_expr: "(country_is_landlocked == true or coast_distance_km > 50 or elevation_m >= 50) and storm_surge_class not in ['moderate', 'high'] and tsunami_zone_flag not in ['moderate', 'high']", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal."}
+      - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in [null, 'none', 'low', 'fluvial_proxy'] and tsunami_zone_flag in [null, 'none', 'low']", descriptor: ">= 10 km from coast with no moderate/high storm-surge or tsunami signal."}
+      - {score_range: [5, 6], condition_expr: "(coast_distance_km >= 5 and coast_distance_km < 10) or (coast_distance_km is null and storm_surge_class == 'fluvial_proxy')", descriptor: "5-10 km from coast, or unresolved coast distance with weak GFMS near-coastal fluvial proxy only."}
+      - {score_range: [3, 4], condition_expr: "(coast_distance_km >= 2 and coast_distance_km < 5) or storm_surge_class == 'moderate' or tsunami_zone_flag == 'moderate'", descriptor: "2-5 km from coast or moderate marine-hazard evidence."}
+      - {score_range: [1, 2], condition_expr: "(coast_distance_km < 2 or storm_surge_class == 'high' or tsunami_zone_flag == 'high') and has_remedy == true", descriptor: "Severe close-coast or high marine-hazard evidence with documented mitigation."}
+      - {score_range: [0, 0], condition_expr: "(coast_distance_km < 2 or storm_surge_class == 'high' or tsunami_zone_flag == 'high') and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard without documented mitigation."}
     fail_conditions:
-      - {code: A9, action: avoidance_penalty, condition_expr: "(coast_distance_km < 10 or (coast_distance_km is null and country_is_landlocked != true)) and elevation_m < 50", descriptor: "A9 caution: coast distance is < 10 km at < 50 m AMSL, or coast distance is unresolved for a low-elevation non-landlocked site. Screening flag only; confirm coastal flooding and tsunami exposure in Stage 3."}
+      - {code: A9, action: avoidance_penalty, condition_expr: "(coast_distance_km < 10 or storm_surge_class in ['fluvial_proxy', 'moderate', 'high'] or tsunami_zone_flag in ['moderate', 'high']) and elevation_m < 50", descriptor: "A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-09
     name: River flooding

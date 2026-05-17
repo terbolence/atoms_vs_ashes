@@ -1,4 +1,4 @@
-# man_hours: 1.1
+# man_hours: 1.2
 """Search-sentinel favourable bands fire when the connector confirms "no
 facility in radius" (the SP-F sentinel pattern documented in
 ``merge_context_derivations._derive_hi_search_sentinels`` and
@@ -127,6 +127,8 @@ def test_nh08_landlocked_country_lands_high(bundle) -> None:
         "coast_distance_km": None,
         "elevation_m": None,
         "country_is_landlocked": True,
+        "storm_surge_class": None,
+        "tsunami_zone_flag": None,
     }
     result = evaluate_criterion_value(criterion, ctx, quality="medium")
     assert result.matched_band is not None, "NH-08 landlocked disjunct did not match"

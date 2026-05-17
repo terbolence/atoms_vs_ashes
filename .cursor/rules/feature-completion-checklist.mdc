@@ -1,0 +1,82 @@
+<!-- man_hours: 1.5 -->
+---
+description: Enforce user-visible entry-point wiring and Feature Completion Matrix for every non-trivial change
+alwaysApply: true
+---
+
+# Feature Completion Checklist
+
+A change is **not complete** when only the backend exists. It is complete
+when the user-visible path the user actually relies on reaches the new
+code, end to end, with tests at the outermost surface and a written trace
+in the final response.
+
+This rule generalises `.cursor/rules/connector-checklist.mdc` to all
+features: scoring, sensitivity, GUI, reports, exports, pipeline, and
+similar. Read `experts/quality/auditor.md` (§S) for the full audit form;
+use `audit/templates/feature_completion_matrix.md` as the working artifact.
+
+## When this rule applies
+
+- Any feature that touches more than one module.
+- Any change the user described with a literal noun for a surface they
+  expect to see (e.g. "Scoring Engine page", "Results tab", "country
+  profile", "CLI flag", "report section", "export bundle").
+- Any plan submitted via `CreatePlan` for non-trivial implementation work.
+
+## Mandatory steps
+
+1. **Open a Feature Completion Matrix** at
+   `audit/feature_completion_matrices/<YYYY-MM-DD>_<slug>.md` from the
+   template **before** writing implementation code. Fill the Literal
+   Request Check and the End-to-End User Path Diagram first.
+2. **Trace the user-visible path** `entry point -> runner -> engine ->
+   persistence -> reader/report -> acceptance` and list the concrete file
+   for every hop. If any hop is empty, do not start implementation.
+3. **Implement every surface** the literal request implies. Anything you
+   intend to skip must be marked `Deferred` with explicit user approval
+   recorded in the matrix.
+4. **Add an outermost-surface test** (GUI / CLI / runner smoke test) that
+   would fail if the feature were only implemented in the backend. Pure
+   unit tests are not enough.
+5. **Add a subtle-consumption check**: every new DB table or CSV must be
+   read by an existing or new consumer (Results page, report renderer,
+   export). Name the consumer in the matrix.
+6. **Cite the trace in the final response.** Paste the one-line path from
+   `§8 Final Trace` of the matrix into the response so the user can
+   verify the wiring without opening any file.
+
+## Pre-merge self-audit (Definition of Done)
+
+Before claiming completion, run the audit checklist from
+`experts/quality/auditor.md` §S in addition to §F. A change does not pass
+unless:
+
+- Every row in the Surface Matrix is `Implemented` or `Not applicable`
+  (with justification) or `Deferred` (with user approval evidence).
+- At least one negative acceptance test exists per user-visible surface.
+- The Final Trace covers every hop with a real file path.
+- The audit trail and man-hours updates required by
+  `.cursor/rules/audit-trail.mdc` and `.cursor/rules/man-hours.mdc` are
+  present in the same change.
+
+## Anti-patterns this rule blocks
+
+- "Backend complete, GUI follow-up later" without explicit user approval
+  to defer the GUI surface.
+- New DB table or CSV with no reader.
+- "Tests green" when the tests only exercise pure functions and skip the
+  CLI / GUI dispatcher that the user actually invokes.
+- Final response that does not include the end-to-end trace.
+
+## Example trace (good)
+
+```
+GUI: src/atoms_vs_ashes/gui/screen_pages/04_run_dashboard.py
+  -> src/atoms_vs_ashes/gui/_runner.py (start_sensitivity_run --include national)
+  -> src/atoms_vs_ashes/scoring/_national_sensitivity.py
+  -> national_rank_sensitivity (DB) + audit/.../national_rank_sensitivity.csv
+  -> Results page src/atoms_vs_ashes/gui/_results_render_sens.py (national tab)
+  -> Country reports report/output/sensitivity/<stamp>/national/<CC>.md
+Tests: tests/gui/test_run_dashboard_national.py, tests/scripts/test_phase_1_6_national_sensitivity.py
+```

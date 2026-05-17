@@ -6,7 +6,7 @@
 
 ## Objective
 
-Distil the matrix-first review pattern proven on NH-03 into a reusable system prompt covering all 48 scoring criteria, then encode it as `prompts/ScoringCriteriaSystemPrompt.md` for future criterion review and amendment work.
+Distil the matrix-first review pattern proven on NH-03 into a reusable system prompt covering all 48 scoring criteria, then encode it as `experts/scoring/scoring_criterion_review.md` for future criterion review and amendment work.
 
 The user requested the prompt explicitly handle:
 
@@ -14,7 +14,7 @@ The user requested the prompt explicitly handle:
 - End-to-end app-flow propagation from YAML through compiler / runtime / engine / preview / GUI / report docs.
 - IAEA (SSR-1, SSG-9 / 18 / 21 / 35 / 79, NS-G-3.6, GSG-10) and EPRI 3002023910 four-step methodology validation.
 - Action-driven UI popover labels (the screenshot-evidenced label dispatch between `Pass mark`, `Score boundary (mark 5)`, and `Flag threshold`).
-- Specialist-prompt routing (architect, engineer, auditor, sitingExpert, IAEA/EPRI matrix author, runAPIs, lessons learned).
+- Specialist-prompt routing (architect, engineer, auditor, siting expert, IAEA/EPRI matrix author, API enrichment operations, lessons learned).
 
 ## Key Decisions
 
@@ -27,8 +27,8 @@ The user requested the prompt explicitly handle:
 
 ## Files Changed
 
-- `prompts/ScoringCriteriaSystemPrompt.md` — new, 404 lines (under the 500-line markdown limit).
-- `audit/man_hours_registry.yml` — added `prompts/ScoringCriteriaSystemPrompt.md` at 8.0 h, AI Prompts & Tooling.
+- `experts/scoring/scoring_criterion_review.md` — new, 404 lines (under the 500-line markdown limit).
+- `audit/man_hours_registry.yml` — added `experts/scoring/scoring_criterion_review.md` at 8.0 h, AI Prompts & Tooling.
 - `audit/man_hours_summary.md` — regenerated (432 files, 1566.5 h total).
 - `audit/conversations/2026-05-16_scoring-criteria-system-prompt.md` — this log.
 
@@ -36,4 +36,4 @@ The user requested the prompt explicitly handle:
 
 Completed. The prompt is ready to use; no follow-up actions required.
 
-The recommended next step (when the user is ready) is to exercise the prompt on a non-NH-03 phase combo — e.g., pick an `[avoidance, ranking]` criterion (HI-01, NH-08) or a pure `[ranking]` one (NH-10, RI-02) — to confirm the dispatcher / artifact specs hold up in practice and to harvest any first-use lessons into `prompts/lessons_learned.md`.
+The recommended next step (when the user is ready) is to exercise the prompt on a non-NH-03 phase combo — e.g., pick an `[avoidance, ranking]` criterion (HI-01, NH-08) or a pure `[ranking]` one (NH-10, RI-02) — to confirm the dispatcher / artifact specs hold up in practice and to harvest any first-use lessons into `experts/quality/lessons_learned.md`.

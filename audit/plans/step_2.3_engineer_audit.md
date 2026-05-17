@@ -44,7 +44,7 @@ Per `requirements/13_data_post_processing.md` section 2.3: for every connector, 
 - 9 suspect data issues from section 2.1.1 of `requirements/13_data_post_processing.md`
 - Coverage gap root causes from section 2.1.2
 - LL-017/LL-018 exposure table from section 2.1.3
-- `prompts/lessons_learned.md` (18 lessons, LL-001 through LL-018)
+- `experts/quality/lessons_learned.md` (18 lessons, LL-001 through LL-018)
 - API DB fill rates from `scripts/report_enrichment_coverage.py` output (already run in Step 2.1)
 
 ---

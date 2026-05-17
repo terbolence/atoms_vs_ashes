@@ -33,7 +33,7 @@ Phase: **[avoidance, ranking]** · Aggregation: weighted mean of sub-scores (A/B
 3. Transition note — why this changed
    **Rationale (user):** These plants can use **air / dry / hybrid cooling**, not only once-through or cooling-tower water. A hard exclusion tied to “no water source and dry cooling not viable” was normatively too strong for Stage 1–2 screening when the data layer could not represent that chain honestly.
 
-   **Technical root cause:** E9 never fired because (1) `cooling_source_type` in production was only `{major_river, river, small_river}` on merged sites — never `'none'` / null in the sense the rubric assumed; (2) `dry_cooling_viable` was absent from context, so `dry_cooling_viable == false` in an `and` chain failed closed without surfacing a missing-name error; (3) source-type and drought sub-bands referenced values or columns the connectors do not emit (`strahler_order`, `spi12_min`), so large parts of the ladder silently did not match; (4) water-stress numeric bands did not track the categorical **Extremely High** labels the Aqueduct connector actually writes. Evidence trail: suitable-sites scoring audit (NS-01/E9 missing context); §O pre-edit histograms; `prompts/lessons_learned.md` **LL-036**.
+   **Technical root cause:** E9 never fired because (1) `cooling_source_type` in production was only `{major_river, river, small_river}` on merged sites — never `'none'` / null in the sense the rubric assumed; (2) `dry_cooling_viable` was absent from context, so `dry_cooling_viable == false` in an `and` chain failed closed without surfacing a missing-name error; (3) source-type and drought sub-bands referenced values or columns the connectors do not emit (`strahler_order`, `spi12_min`), so large parts of the ladder silently did not match; (4) water-stress numeric bands did not track the categorical **Extremely High** labels the Aqueduct connector actually writes. Evidence trail: suitable-sites scoring audit (NS-01/E9 missing context); §O pre-edit histograms; `experts/quality/lessons_learned.md` **LL-036**.
 
    **A16 intent:** Keep an SSG-35 §4.9–anchored **caution** when the nearest mapped cooling reach is **far** (`> 10` km) **and** basin water stress is **High** or **Extremely High**, without removing the site from the candidate set.
 
@@ -59,7 +59,7 @@ Phase: **[avoidance, ranking]** · Aggregation: weighted mean of sub-scores (A/B
 - `report/sites_evaluation/07_criteria_non_safety.md` — NS-01 subsection
 - `report/methodology/exclusionary_floors.md` — regenerated (NS-01 no longer has an exclusionary floor row)
 - `IMPROVEMENTS.md` — IMP-0007
-- `prompts/lessons_learned.md` — **LL-036**
+- `experts/quality/lessons_learned.md` — **LL-036**
 - `audit/plans/ns01_e9_to_a16_avoidance.md` / `architecture/plans/ns01_e9_to_a16_avoidance.md` — plan mirrors
 - `audit/conversations/2026-05-16_ns01-e9-to-a16-cooling-stress.md` — conversation log
 - `tests/scoring/test_ns01_refactor.py` — new regression module

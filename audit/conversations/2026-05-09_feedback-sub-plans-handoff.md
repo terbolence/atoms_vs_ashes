@@ -11,7 +11,7 @@ Continue executing feedback-rework sub-plans: confirm scoring regressions are gr
 ## Key Decisions
 
 - Treat offline SP-D wave as landed in repo while formal band-proposal sign-offs may still be updated by reviewers.
-- Document live-API consent steps inline in `SP-G_rerun_regenerate.plan.md` (pointer to `prompts/runAPIs.md`).
+- Document live-API consent steps inline in `SP-G_rerun_regenerate.plan.md` (pointer to `experts/connectors/api_enrichment_operations.md`).
 
 ## Files Changed
 
@@ -21,4 +21,4 @@ Continue executing feedback-rework sub-plans: confirm scoring regressions are gr
 
 ## Outcome
 
-**Completed** — `pytest tests/scoring/` (89 passed), `pytest tests/scripts/test_site_profile_unscored_rendering.py` (3 passed). SP-G documentation updated. **Deferred** — SP-F schema/connectors (`sp_f_schema` todo); live enrichment batches remain consent-gated per `prompts/runAPIs.md`.
+**Completed** — `pytest tests/scoring/` (89 passed), `pytest tests/scripts/test_site_profile_unscored_rendering.py` (3 passed). SP-G documentation updated. **Deferred** — SP-F schema/connectors (`sp_f_schema` todo); live enrichment batches remain consent-gated per `experts/connectors/api_enrichment_operations.md`.

@@ -21,7 +21,7 @@ Align NH-04 (Geotechnical — slope stability) bands and the E3 hard exclusion t
 1. Set `band_recipe.score5_pivot = 25` and `condition_expr = "slope_angle_deg > 25"` in both spec and rubric YAMLs.
 2. Rewrite rubric YAML's hand-written bands to the recipe-aligned ladder `<=5 / <=10 / <=25 / <37.5 / <50 / >=50`.
 3. Add explicit `notes:` blocks in both YAMLs documenting the slope-at-distance metric defect.
-4. Append `LL-032` to `prompts/lessons_learned.md` for institutional memory.
+4. Append `LL-032` to `experts/quality/lessons_learned.md` for institutional memory.
 5. Add a propagation regression test that locks the `RunProfile.fail_thresholds → compile_bundle → Criterion (bands + fail_conditions) → engine` chain.
 6. Update existing tests (`test_excl_expr_derived_from_pivot`, `test_safety_floor_pipeline`, `test_threshold_band_runtime`) to the new defaults; switch `test_safety_floor_pipeline` floor fixtures to NH-03 (the canonical floor-reachable criterion now).
 7. Regenerate `report/methodology/exclusionary_floors.md`.
@@ -46,13 +46,13 @@ Align NH-04 (Geotechnical — slope stability) bands and the E3 hard exclusion t
 8. **Regenerate** — `report/methodology/exclusionary_floors.md` written via `scripts.generate_exclusionary_floors`; doc-sync test passes.
 9. **DB impact dry-run** — 352 sites with slope; pre 158 hard-fail, post 3 hard-fail, 155 rescued, 0 newly failed, 99.1% band shift. Per-SMR breakdown is uniform across the 8 active designs because NH-04 has no per-SMR threshold.
 10. **Tests** — added `tests/scoring/test_threshold_propagation.py` (5 tests, all green); updated existing tests; broad sweep `tests/scoring tests/criterion_spec` 184 pass / 1 deselect (pre-existing unrelated failure: `test_sensitivity_latest_scoring_parent`).
-11. **Audit / plan / lessons** — plan written here, mirrored into repo per audit-trail.mdc; LL-032 appended to `prompts/lessons_learned.md`; conversation log written to `audit/conversations/2026-05-16_nh04-single-pivot-iaea-25deg.md`.
+11. **Audit / plan / lessons** — plan written here, mirrored into repo per audit-trail.mdc; LL-032 appended to `experts/quality/lessons_learned.md`; conversation log written to `audit/conversations/2026-05-16_nh04-single-pivot-iaea-25deg.md`.
 
 ## 6. Files touched
 
 - `config/scoring_specs/nh_natural_hazards.yaml`
 - `config/scoring_rubrics/nh_natural_hazards.yaml`
-- `prompts/lessons_learned.md` (LL-032 appended)
+- `experts/quality/lessons_learned.md` (LL-032 appended)
 - `report/methodology/exclusionary_floors.md` (regenerated)
 - `tests/scoring/test_threshold_propagation.py` (new)
 - `tests/scoring/test_safety_floor_pipeline.py` (floor fixtures moved to NH-03)

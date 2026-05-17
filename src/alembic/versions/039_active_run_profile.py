@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.05
 """Create singleton active_run_profile table; seed from former baseline.yaml.
 
 The GUI now stores the user's RunProfile in this row instead of
@@ -47,7 +47,7 @@ _BASELINE_PROFILE: dict = {
     },
     "sensitivity": {
         "enabled": ["weights", "mc", "threshold", "country"],
-        "mc_iterations": 5000,
+        "mc_iterations": 10000,
         "mc_seed": 42,
         "weight_perturbation_pct": 20.0,
         "threshold_targeted_pct": [10.0, 25.0],

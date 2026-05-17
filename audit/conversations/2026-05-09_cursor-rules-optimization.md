@@ -13,7 +13,7 @@ Optimize Cursor rules at the global system level and the `atoms_vs_ashes` projec
 - Promoted live API consent and fact-certainty controls to global rules under `/Users/terbolence/.cursor/rules/`.
 - Demoted expensive always-on global and project rules to glob-attached rules where enforcement is file-scope specific.
 - Kept tiny deprecated file-size rule pointers so existing source comments still resolve while the active policy lives in `file-size-limits.mdc`.
-- Corrected stale project rule references to actual `src/scripts/`, `prompts/`, and `tests/integrationSnapshots/` paths.
+- Corrected stale project rule references to actual `src/scripts/`, `experts/`, and `tests/integrationSnapshots/` paths.
 
 ## Files Changed
 

@@ -1,3 +1,4 @@
+# man_hours: 0.6
 """Scope-dispatch tests for Results Sensitivity/Stability data helpers."""
 
 from __future__ import annotations
@@ -65,3 +66,17 @@ def test_site_stability_ledger_passes_country_scope(monkeypatch) -> None:
         "mc": ("sens-1",),
         "rows": ("sens-1", "mc_10", "FR"),
     }
+
+
+def test_explicit_stability_helpers_keep_regional_and_national_scopes(monkeypatch) -> None:
+    calls: list[tuple] = []
+
+    def fake_ledger(run_id, *, country_code=None):
+        calls.append((run_id, country_code))
+        return []
+
+    monkeypatch.setattr(stab_mod, "site_stability_ledger", fake_ledger)
+
+    assert stab_mod.regional_stability_ledger("regional-1") == []
+    assert stab_mod.national_stability_ledger("national-1", country_code="RO") == []
+    assert calls == [("regional-1", None), ("national-1", "RO")]

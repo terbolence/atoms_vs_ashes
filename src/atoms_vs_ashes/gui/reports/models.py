@@ -1,3 +1,4 @@
+# man_hours: 0.8
 """Dataclasses shared by GUI PDF report builders."""
 
 from __future__ import annotations
@@ -55,7 +56,10 @@ class TopSiteReport:
 class CountrySensitivityReport:
     stability_rows: list[Any] = field(default_factory=list)
     sensitivity_snapshot: Any | None = None
+    national_stability_rows: list[Any] = field(default_factory=list)
+    national_sensitivity_snapshot: Any | None = None
     has_sensitivity: bool = False
+    has_national_sensitivity: bool = False
 
 
 @dataclass(frozen=True)

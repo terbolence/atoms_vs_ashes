@@ -1,4 +1,4 @@
-# man_hours: 4.7
+# man_hours: 5.2
 # Natural hazards (NH) + basic filters (BF) scoring rubric. Source: report/sites_evaluation/03_criteria_natural_hazards.md.
 # Phase: basic_filter|exclusionary|avoidance|ranking. fail_conditions.action: exclude|avoidance_penalty|screen_flag|review_flag.
 family: nh
@@ -10,7 +10,7 @@ criteria:
     weight_factor: 8
     normalised_weight_pct: 2.8
     weight_factors: {baseline: 8, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-01 (EPRI grid screening; project A13)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? BF-01 (EPRI grid screening; project A13)"}
     db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: bf01_grid_text}
     # Per SP-F decision: BF-01 is no longer scored. NS-02 is the single grid-connection score.
     # BF-01 stays as a basic-filter note. Bands below remain for descriptive context only;
@@ -33,7 +33,7 @@ criteria:
     weight_factor: 5
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-02 (EPRI footprint; project A15)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? BF-02 (EPRI footprint; project A15)"}
     db_fields: {api: [site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, sites.site_area_ha], llm: bf02_land_text}
     # SP-F band rework: minimum 50 ha per NuScale module, ideal 70 ha (project basis).
     # Multi-unit sites scale linearly via the engine-derived ``required_area_ha`` /
@@ -54,7 +54,7 @@ criteria:
     weight_factor: 9
     normalised_weight_pct: 3.2
     weight_factors: {baseline: 9, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-01 (IAEA SSG-9; NS-R-3 §3; SSG-35; project A10)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-01 (IAEA SSG-9; NS-R-3 ?3; SSG-35; project A10)"}
     primary_metric: pga_2475yr_g
     db_fields: {api: [site_natural_hazards.nh01_pga_475yr_g, site_natural_hazards.nh01_pga_2475yr_g, site_natural_hazards.vs30_ms], llm: nh01_seismic_text}
     bands:
@@ -74,7 +74,7 @@ criteria:
     weight_factor: 9
     normalised_weight_pct: 3.2
     weight_factors: {baseline: 9, epri: 5}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-02 (NS-R-3 §3.7; SSG-35 Table II-1; E1)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-02 (NS-R-3 ?3.7; SSG-35 Table II-1; E1)"}
     primary_metric: nearest_fault_km
     db_fields: {api: [site_natural_hazards.nearest_fault_km, site_natural_hazards.fault_name, site_natural_hazards.fault_slip_rate_mm_yr], llm: nh02_fault_text}
     bands:
@@ -105,7 +105,7 @@ criteria:
     weight_factor: 7
     normalised_weight_pct: 2.5
     weight_factors: {baseline: 7, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-03 (NS-R-3 §3.38-3.40; NS-G-3.6; E2)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-03 (NS-R-3 ?3.38-3.40; NS-G-3.6; E2)"}
     primary_metric: liquefaction_suscept
     db_fields: {api: [site_natural_hazards.liquefaction_suscept, site_natural_hazards.nh03_quality, site_natural_hazards.nh03_source, site_natural_hazards.bearing_capacity_kpa, site_natural_hazards.groundwater_depth_m, site_natural_hazards.pga_475yr_g, site_natural_hazards.depth_to_bedrock_m], llm: nh03_liquefaction_text}
     bands:
@@ -124,31 +124,31 @@ criteria:
     weight_factor: 5
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
     primary_metric: slope_angle_deg
     db_fields: {api: [site_natural_hazards.slope_angle_deg, site_natural_hazards.slope_stability_class, site_natural_hazards.nh04_dem_cog_slope_max_deg], llm: nh04_slope_text}
     # NB: ``slope_angle_deg`` is the MEAN slope over a 1 km buffer
     # around the site centroid (Copernicus DEM 30 m). It is a
     # screening proxy and does NOT distinguish on-site footprint
     # slope from slope at distance. See LL-022 in
-    # prompts/lessons_learned.md. Bands and the E3 exclusion are
-    # anchored to the IAEA SSG-9 §6.34 / NUREG-0800 §2.5.5 25°
+    # experts/quality/lessons_learned.md. Bands and the E3 exclusion are
+    # anchored to the IAEA SSG-9 ?6.34 / NUREG-0800 ?2.5.5 25?
     # mitigable envelope; the user-tunable threshold widget moves the
     # whole ladder together via band_recipe.score5_pivot.
     bands:
       # Bands track the recipe-rebuilt lower_is_better ladder with
-      # pivot = 25° so this YAML stays in sync with what the spec
+      # pivot = 25? so this YAML stays in sync with what the spec
       # compiler emits. Do not hand-edit without rebuilding the spec
       # YAML's score5_pivot accordingly.
       - {score_range: [9, 10], condition_expr: "slope_angle_deg <= 5.0", descriptor: "Flat to very gentle terrain; minimal earthworks; well within the SSG-9 mitigable envelope."}
       - {score_range: [7, 8], condition_expr: "slope_angle_deg <= 10.0", descriptor: "Gentle to moderate terrain; routine grading; comfortably within the SSG-9 envelope."}
-      - {score_range: [5, 6], condition_expr: "slope_angle_deg <= 25.0", descriptor: "At or below the IAEA SSG-9 §6.34 mitigable envelope (25° on competent rock)."}
+      - {score_range: [5, 6], condition_expr: "slope_angle_deg <= 25.0", descriptor: "At or below the IAEA SSG-9 ?6.34 mitigable envelope (25? on competent rock)."}
       - {score_range: [3, 4], condition_expr: "slope_angle_deg < 37.5", descriptor: "Above the SSG-9 envelope; mandatory geotechnical study; E3 hard fail."}
       - {score_range: [1, 2], condition_expr: "slope_angle_deg < 50.0", descriptor: "Severe instability risk; E3 hard fail."}
       - {score_range: [0, 0], condition_expr: "slope_angle_deg >= 50.0", descriptor: "Catastrophic; E3 hard fail."}
     fail_conditions:
       # Aligned with the band-5 boundary (slope_angle_deg <= 25 above)
-      # and the IAEA SSG-9 §6.34 / NUREG-0800 §2.5.5 envelope. The
+      # and the IAEA SSG-9 ?6.34 / NUREG-0800 ?2.5.5 envelope. The
       # spec-side compiler enforces this via the drift guard; this
       # legacy direct-loaded path mirrors the same value by hand.
       - {code: E3, action: exclude, condition_expr: "slope_angle_deg > 25", pass_mark: 5.0, descriptor: "Slope above the SSG-9 mitigable envelope (score-5 pivot)."}
@@ -159,7 +159,7 @@ criteria:
     weight_factor: 7
     normalised_weight_pct: 2.5
     weight_factors: {baseline: 7, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-05 (NS-R-3 §3.35-3.36; SSG-35; E5/E6)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-05 (NS-R-3 ?3.35-3.36; SSG-35; E5/E6)"}
     primary_metric: mining_void_distance_km
     # Ranking-only geotechnical review signal: norms require evaluation of
     # subsidence / collapse potential and remedy, not automatic exclusion
@@ -181,7 +181,7 @@ criteria:
     weight_factor: 5
     normalised_weight_pct: 1.8
     weight_factors: {baseline: 5, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-06 (NS-G-3.6)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-06 (NS-G-3.6)"}
     primary_metric: bearing_capacity_kpa
     db_fields: {api: [site_natural_hazards.bearing_capacity_kpa, site_natural_hazards.depth_to_bedrock_m, site_natural_hazards.groundwater_depth_m], llm: nh06_foundation_text}
     bands:
@@ -199,18 +199,18 @@ criteria:
     weight_factor: 10
     normalised_weight_pct: 3.5
     weight_factors: {baseline: 10, epri: 4}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
     primary_metric: nearest_volcano_km
     db_fields: {api: [site_natural_hazards.nearest_volcano_km, site_natural_hazards.volcano_name, site_natural_hazards.nh07_hazard_class], llm: nh07_volcanism_text}
     notes: |
-      Pivot anchored to IAEA SSG-21 §3.5-3.7 / SSG-9 §6.36 / SSG-35 Table I-1
+      Pivot anchored to IAEA SSG-21 ?3.5-3.7 / SSG-9 ?6.36 / SSG-35 Table I-1
       credible pyroclastic-density-current envelope at 50 km. Mirrors the
       spec YAML; see config/scoring_specs/nh_natural_hazards.yaml for the
       full design rationale.
     bands:
       - {score_range: [9, 10], condition_expr: "nearest_volcano_km is null or nearest_volcano_km >= 250.0", descriptor: "No plausible pathway (incl. beyond connector 300 km search radius)."}
       - {score_range: [7, 8], condition_expr: "nearest_volcano_km >= 100.0", descriptor: "Beyond credible PDC envelope; ashfall climatology only."}
-      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 50.0", descriptor: "At IAEA-anchored PDC envelope (SSG-21 §3.5 / SSG-9 §6.36)."}
+      - {score_range: [5, 6], condition_expr: "nearest_volcano_km >= 50.0", descriptor: "At IAEA-anchored PDC envelope (SSG-21 ?3.5 / SSG-9 ?6.36)."}
       - {score_range: [3, 4], condition_expr: "nearest_volcano_km >= 25.0", descriptor: "Within credible PDC reach; specialist study required."}
       - {score_range: [1, 2], condition_expr: "nearest_volcano_km >= 10.0", descriptor: "Near volcanic edifice; severe direct-hazard exposure."}
       - {score_range: [0, 0], condition_expr: "nearest_volcano_km < 10.0", descriptor: "Within volcanic edifice / lava-reach zone."}
@@ -226,24 +226,24 @@ criteria:
     weight_factor: 6
     normalised_weight_pct: 2.1
     weight_factors: {baseline: 6, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-08 (IAEA SSG-18; SSG-35 §A.19-A.27; A9/A11)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-08 (IAEA SSG-18; SSG-35 ?A.19-A.27; A9/A11)"}
     primary_metric: coast_distance_km
     db_fields: {api: [site_natural_hazards.coast_distance_km, site_natural_hazards.storm_surge_class, site_natural_hazards.tsunami_zone_flag, sites.elevation_m], llm: nh08_coastal_text}
     notes: |
-      A9 is an avoidance caution, not a pass/fail site approval. Missing
-      ``coast_distance_km`` remains a coastal-flood data gap unless the site
-      is elevation-safe or landlocked. Low-elevation, non-landlocked sites
-      with unresolved coast distance are therefore cautioned for Stage 3
-      coastal-flood confirmation.
+      A9 is an avoidance caution, not a pass/fail site approval. S-38 Natural
+      Earth now supplies measured ``coast_distance_km`` as the site-level sea
+      coastline distance. Missing coast distance remains a data gap, but it is
+      not itself evidence of coastal exposure; low-elevation inland river sites
+      are routed to NH-09 for river flooding rather than cautioned under NH-08.
     bands:
-      - {score_range: [9, 10], condition_expr: "country_is_landlocked == true or coast_distance_km > 50 or elevation_m >= 50", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country."}
-      - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in ['none', 'low']", descriptor: ">= 10 km from coast, low surge class."}
-      - {score_range: [5, 6], condition_expr: "coast_distance_km >= 5", descriptor: "5-10 km from coast; mitigation feasible."}
-      - {score_range: [3, 4], condition_expr: "coast_distance_km >= 2", descriptor: "2-5 km from coast; high surge/tsunami trace."}
-      - {score_range: [1, 2], condition_expr: "coast_distance_km < 2", descriptor: "In 100-yr inundation extent without defensible mitigation."}
-      - {score_range: [0, 0], condition_expr: "coast_distance_km < 2 and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard."}
+      - {score_range: [9, 10], condition_expr: "(country_is_landlocked == true or coast_distance_km > 50 or elevation_m >= 50) and storm_surge_class not in ['moderate', 'high'] and tsunami_zone_flag not in ['moderate', 'high']", descriptor: "Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal."}
+      - {score_range: [7, 8], condition_expr: "coast_distance_km >= 10 and storm_surge_class in [null, 'none', 'low', 'fluvial_proxy'] and tsunami_zone_flag in [null, 'none', 'low']", descriptor: ">= 10 km from coast with no moderate/high storm-surge or tsunami signal."}
+      - {score_range: [5, 6], condition_expr: "(coast_distance_km >= 5 and coast_distance_km < 10) or (coast_distance_km is null and storm_surge_class == 'fluvial_proxy')", descriptor: "5-10 km from coast, or unresolved coast distance with weak GFMS near-coastal fluvial proxy only."}
+      - {score_range: [3, 4], condition_expr: "(coast_distance_km >= 2 and coast_distance_km < 5) or storm_surge_class == 'moderate' or tsunami_zone_flag == 'moderate'", descriptor: "2-5 km from coast or moderate marine-hazard evidence."}
+      - {score_range: [1, 2], condition_expr: "(coast_distance_km < 2 or storm_surge_class == 'high' or tsunami_zone_flag == 'high') and has_remedy == true", descriptor: "Severe close-coast or high marine-hazard evidence with documented mitigation."}
+      - {score_range: [0, 0], condition_expr: "(coast_distance_km < 2 or storm_surge_class == 'high' or tsunami_zone_flag == 'high') and (has_remedy == false or has_remedy is null)", descriptor: "Indefensible coastal hazard without documented mitigation."}
     fail_conditions:
-      - {code: A9, action: avoidance_penalty, condition_expr: "(coast_distance_km < 10 or (coast_distance_km is null and country_is_landlocked != true)) and elevation_m < 50", descriptor: "A9 caution: coast distance is < 10 km at < 50 m AMSL, or coast distance is unresolved for a low-elevation non-landlocked site. Screening flag only; confirm coastal flooding and tsunami exposure in Stage 3."}
+      - {code: A9, action: avoidance_penalty, condition_expr: "(coast_distance_km < 10 or storm_surge_class in ['fluvial_proxy', 'moderate', 'high'] or tsunami_zone_flag in ['moderate', 'high']) and elevation_m < 50", descriptor: "A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-09
     name: River flooding
@@ -251,7 +251,7 @@ criteria:
     weight_factor: 8
     normalised_weight_pct: 2.8
     weight_factors: {baseline: 8, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-09 (IAEA SSG-18; SSG-35 §A.28-A.30; A11)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-09 (IAEA SSG-18; SSG-35 ?A.28-A.30; A11)"}
     primary_metric: river_distance_km
     db_fields: {api: [site_natural_hazards.river_distance_km, site_natural_hazards.elevation_above_design_flood_m, site_natural_hazards.flood_zone_class_500yr], llm: nh09_river_flood_text}
     # SP-F (Ovidiu): flood-zone class is stronger than missing river-distance data.
@@ -270,9 +270,9 @@ criteria:
     name: Extreme winds
     # Pure ranking criterion. Per IAEA SSG-18 and SSG-35 Table I-1,
     # extreme winds are a design-basis input rather than a site
-    # exclusion; the project matrix doc § NH-10 classifies the phase
+    # exclusion; the project matrix doc ? NH-10 classifies the phase
     # as Rank. The 49 m/s envelope is preserved as a `review_flag`
-    # only — the previous `action: exclude` exceeded both norms and
+    # only because the previous `action: exclude` exceeded both norms and
     # silently de-weighted the criterion. Mirrors the spec YAML; see
     # `config/scoring_specs/nh_natural_hazards.yaml` NH-10 for the
     # full rationale and the metric caveat (ERA5 monthly-means
@@ -281,7 +281,7 @@ criteria:
     weight_factor: 3
     normalised_weight_pct: 1.1
     weight_factors: {baseline: 3, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-10 (IAEA SSG-18; SSG-35 Table I-1)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-10 (IAEA SSG-18; SSG-35 Table I-1)"}
     primary_metric: max_wind_speed_ms
     db_fields: {api: [site_natural_hazards.max_wind_speed_ms], llm: nh10_winds_text}
     bands:
@@ -300,7 +300,7 @@ criteria:
     weight_factor: 3
     normalised_weight_pct: 1.1
     weight_factors: {baseline: 3, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-11 (IAEA SSG-18)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-11 (IAEA SSG-18)"}
     db_fields: {api: [site_natural_hazards.spi12_min, site_natural_hazards.snow_months_per_year, site_natural_hazards.mean_annual_precip_mm, site_natural_hazards.extreme_precip_mm, site_natural_hazards.freezing_days_per_year], llm: nh11_precip_text}
     aggregation: {method: mean_of_sub_scores, round_to: 1, cap_if_any_sub_score_below: {threshold: 3, cap_score: 5}}
     sub_scores:
@@ -339,7 +339,7 @@ criteria:
     weight_factor: 4
     normalised_weight_pct: 1.4
     weight_factors: {baseline: 4, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-12 (IAEA SSG-18)"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-12 (IAEA SSG-18)"}
     db_fields: {api: [site_natural_hazards.extreme_temp_max_c, site_natural_hazards.extreme_temp_min_c], llm: nh12_temperature_text}
     aggregation: {method: min_of_sub_scores}
     sub_scores:
@@ -367,7 +367,7 @@ criteria:
     weight_factor: 3
     normalised_weight_pct: 1.1
     weight_factors: {baseline: 3, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-13 (SSG-35 §4.3(l))"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-13 (SSG-35 ?4.3(l))"}
     primary_metric: combustible_veg_pct
     db_fields: {api: [site_natural_hazards.combustible_veg_pct], llm: nh13_wildfire_text}
     bands:
@@ -384,7 +384,7 @@ criteria:
     weight_factor: 3
     normalised_weight_pct: 1.1
     weight_factors: {baseline: 3, epri: 3}
-    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-14 (SSG-35 §4.3(m))"}
+    weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md ?3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md ? NH-14 (SSG-35 ?4.3(m))"}
     primary_metric: nh_min_resolved_score
     db_fields: {api: [site_natural_hazards.nh14_combined_index], llm: nh14_combined_text}
     # SP-F derived criterion: NH-14 is now computed by the engine from resolved

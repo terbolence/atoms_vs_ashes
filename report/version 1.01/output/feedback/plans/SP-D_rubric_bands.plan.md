@@ -3,13 +3,13 @@
 sub_plan: SP-D
 title: Rubric band YAML edits + regression matrix
 specialist_prompts:
-  primary: prompts/coal_to_nuclear_suitable_sites_scoring_audit.md
+  primary: experts/scoring/suitable_sites_scoring_audit.md
   supporting:
-    - prompts/sitingExpert.md
-    - prompts/expert_iaea_epri_criterion_matrix_author.md
-    - prompts/auditor.md
+    - experts/quality/siting_expert.md
+    - experts/scoring/criterion_matrix_author.md
+    - experts/quality/auditor.md
 mandatory_reads_first:
-  - prompts/lessons_learned.md
+  - experts/quality/lessons_learned.md
   - report/output/feedback/plans/feedback_lessons_learnt.md
   - "<criterion-specific rubric YAML, one per invocation>"
   - "<criterion-specific connector report under docs/connector_reports/>"

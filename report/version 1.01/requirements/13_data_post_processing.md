@@ -10,7 +10,7 @@ This file lists the work to do **after** the API connectors and the LLM screenin
 
 - Per-connector audit packs in `audit/siting_expert_audits/<slug>__<YYYYMMDD>__<DISPOSITION>/` (samples + findings).
 - Coverage reports under `reports/` (produced by `scripts/report_enrichment_coverage.py`).
-- Lessons learned in `prompts/lessons_learned.md` (especially **LL-017 Overpass silent nulls** and **LL-018 Overpass /status polling** must be applied to any controller before re-runs).
+- Lessons learned in `experts/quality/lessons_learned.md` (especially **LL-017 Overpass silent nulls** and **LL-018 Overpass /status polling** must be applied to any controller before re-runs).
 - Scoring matrix in `requirements/06_scoring_matrix.md`.
 
 ---
@@ -121,7 +121,7 @@ Before any re-run, **apply the relevant lessons learned in the connector code**:
 
 - **LL-017** — Overpass disconnect → silent null false-negatives. Required for every Overpass-based connector.
 - **LL-018** — Overpass `/status` polling vs blind back-off.
-- Plus any newer lessons added to `prompts/lessons_learned.md` after this file's date.
+- Plus any newer lessons added to `experts/quality/lessons_learned.md` after this file's date.
 
 Output: `02_data_verification/<YYYYMMDD>_engineer_audit.md` with the issues, the LL fixes applied, and the re-run results.
 
@@ -236,9 +236,9 @@ Output: `audit/post_processing/06_report_writing/<YYYYMMDD>_toc_and_site_templat
 
 - [ ] **Aggregate plant units** — wherever data is recorded per unit (e.g. Rovinari 1 / 2 / 3), produce **one extra aggregated row** ("Rovinari") that sums or summarises the relevant fields per the aggregation rule (TBD per criterion). Document the rule per criterion.
 - [ ] **Show full LLM reasoning on output** — the deliverable must expose the **model's evidence and reasoning**, not just `pass / fail`. This is the per-criterion research the LLM produced.
-- [ ] **Verify ENTSO-E data** — current export-capacity values are not credible (e.g. 16 000 MW). Fix the connector (see §2.5.2) and re-pull all sites; record the fix in `prompts/lessons_learned.md`.
+- [ ] **Verify ENTSO-E data** — current export-capacity values are not credible (e.g. 16 000 MW). Fix the connector (see §2.5.2) and re-pull all sites; record the fix in `experts/quality/lessons_learned.md`.
 - [ ] **Excel column-naming convention** — at export time only (do not change DB columns unless §2.2 explicitly requests it), name each column as `<Category> | <Criterion ID> | <Criterion name> [<unit>]` so that an external auditor can read the export without context. Categories use the official names: **Exclusionary**, **Avoidance**, **Ranking** (or **Other**).
-- [ ] **Cooling source tab** — record the fixes made for the cooling-source connector in `prompts/lessons_learned.md`. Then run a cross-controller audit (using `scripts/generate_siting_expert_audits.py`) to find similar false positives in other connectors and re-fetch the affected sites.
+- [ ] **Cooling source tab** — record the fixes made for the cooling-source connector in `experts/quality/lessons_learned.md`. Then run a cross-controller audit (using `scripts/generate_siting_expert_audits.py`) to find similar false positives in other connectors and re-fetch the affected sites.
 
 ---
 

@@ -1,4 +1,4 @@
-# man_hours: 4.2
+# man_hours: 4.6
 """Integration tests: verify DB state after ingestion (requires live DB)."""
 
 import pytest
@@ -61,6 +61,20 @@ def test_supplementary_sites_present():
                 select(func.count(Site.site_id)).where(Site.name.ilike(f"%{name}%"))
             )
             assert count >= 1, f"Supplementary site {name!r} not found"
+
+
+def test_iernut_ccgt_site_present():
+    with session_scope() as session:
+        site = session.scalar(
+            select(Site).where(Site.name == "Iernut power station")
+        )
+        assert site is not None
+        assert str(site.site_id) == "af7f107f-71b5-5a33-8125-9ccb7060f895"
+        assert site.country_code == "RO"
+        assert site.plant_type == "gas"
+        assert float(site.installed_capacity_mw) == 430.0
+        assert site.status == "construction"
+        assert site.wiki_url == "https://www.gem.wiki/Iernut_power_station"
 
 
 def test_ownership_linkage():

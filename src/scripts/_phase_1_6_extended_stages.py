@@ -1,4 +1,4 @@
-# man_hours: 1.5
+# man_hours: 1.7
 """Extended banding + national analysis orchestrator.
 
 Runs scope-parameterised :mod:`_suite_banding` against every scope
@@ -77,6 +77,7 @@ def run_extended_stages(
     stamp: str,
     generate_figures: bool = True,
     run_id: str | None = None,
+    national_country_figures: dict[str, Path] | None = None,
 ) -> ExtendedStagesResult:
     """Run the full extended banding + country analysis pipeline."""
     regional, nuscale, per_smr = compute_regional_bands(
@@ -164,6 +165,7 @@ def run_extended_stages(
         per_country_bands,
         per_country_ns_bands,
         per_country_figures,
+        national_country_figures=national_country_figures,
     )
 
     log.info(

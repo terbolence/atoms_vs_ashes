@@ -1,4 +1,4 @@
-# man_hours: 0.75
+# man_hours: 1.0
 """Tool 6 — Stability ledger (Phase 2 of the Results-page roadmap).
 
 Sensitivity-only view that surfaces the engine's A–H stability bands
@@ -21,7 +21,8 @@ from atoms_vs_ashes.gui._country_names import country_name
 from atoms_vs_ashes.gui._results_data import RunSummary
 from atoms_vs_ashes.gui._results_data_sens import (
     StabilityRow,
-    site_stability_ledger,
+    national_stability_ledger,
+    regional_stability_ledger,
 )
 
 
@@ -38,27 +39,59 @@ _BAND_HELP = (
 def render_stability_tab(
     *, run: RunSummary, country_code: str | None = None,
 ) -> None:
-    """Render the Stability ledger for a sensitivity run."""
+    """Backward-compatible stability renderer."""
+    if country_code:
+        render_national_stability_tab(run=run, country_code=country_code)
+    else:
+        render_regional_stability_tab(run=run)
+
+
+def render_regional_stability_tab(*, run: RunSummary) -> None:
+    """Render regional stability for a regional sensitivity run."""
     if run.run_kind != "sensitivity":
         st.info(
-            "Stability bands are only produced by **sensitivity** runs "
+            "Regional stability bands are produced by **regional sensitivity** runs "
             "(the engine writes them after the perturbation pass). "
             "Pick a sensitivity run from the run-picker above."
         )
         return
-    rows = site_stability_ledger(run.run_id, country_code=country_code)
+    rows = regional_stability_ledger(run.run_id)
     if not rows:
-        scope_msg = (
-            f" for {country_name(country_code)}" if country_code else ""
-        )
         st.info(
-            f"No `site_bands` rows persisted{scope_msg} for this run. The "
+            "No regional `site_bands` rows persisted for this run. The "
             "sensitivity suite may have been cancelled before the "
             "stability stage, or the selected scope yielded no scored pairs."
         )
         return
 
-    pool_label = _pool_label(country_code)
+    _render_stability_rows(rows, pool_label="Regional / All countries", country_code=None)
+
+
+def render_national_stability_tab(*, run: RunSummary, country_code: str) -> None:
+    """Render country-scoped stability for a national sensitivity run."""
+    if run.run_kind != "national_sensitivity":
+        st.info(
+            "National stability bands are produced by **national sensitivity** "
+            "runs. Pick a national sensitivity run from the run-picker above."
+        )
+        return
+    rows = national_stability_ledger(run.run_id, country_code=country_code)
+    if not rows:
+        st.info(
+            f"No national `site_bands` rows persisted for "
+            f"{country_name(country_code)} in this run."
+        )
+        return
+    _render_stability_rows(
+        rows,
+        pool_label=f"National / {country_name(country_code)}",
+        country_code=country_code,
+    )
+
+
+def _render_stability_rows(
+    rows: list[StabilityRow], *, pool_label: str, country_code: str | None,
+) -> None:
     st.caption(f"Sensitivity pool: **{pool_label}**")
     st.caption(
         "Top 5% / 10% / 30% hit rates are computed within this selected "
@@ -204,4 +237,8 @@ def _column_config(country_code: str | None) -> dict:
     }
 
 
-__all__ = ["render_stability_tab"]
+__all__ = [
+    "render_national_stability_tab",
+    "render_regional_stability_tab",
+    "render_stability_tab",
+]

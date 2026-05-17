@@ -28,7 +28,7 @@ This is the **co-located mirror** of the canonical plan at `~/.cursor/plans/feed
 
 ## Current status (2026-05-09)
 
-Phase 0.4 (FB-LL) and Phase 0.6 (all 18 SP-D band proposals) are **signed off** by the user (proxy authority granted in-session). Live-API consent is **pre-granted** for SP-F + SP-G, with per-batch runAPIs.md Sec.C cards still required. EPRI numerical values remain pending the source document; SP-G runs on the `baseline` profile.
+Phase 0.4 (FB-LL) and Phase 0.6 (all 18 SP-D band proposals) are **signed off** by the user (proxy authority granted in-session). Live-API consent is **pre-granted** for SP-F + SP-G, with per-batch `experts/connectors/api_enrichment_operations.md` Sec.C cards still required. EPRI numerical values remain pending the source document; SP-G runs on the `baseline` profile.
 
 ## Dependency graph
 
@@ -78,7 +78,7 @@ Phase 0.4 (FB-LL synthesis)  -> SIGNED OFF 2026-05-09
 
 1. **Phase 0.4 FB-LL sign-off** — `feedback_lessons_learnt.md` `sign_off: no` blocks SP-D, SP-E, SP-F, SP-G.
 2. **Phase 0.6 band-proposal sign-off** — each `SP-D_band_proposals/<criterion_id>.md` `sign_off: no` blocks the YAML edit for that criterion.
-3. **Live-API consent** — SP-F connector re-enrichment and SP-G full rerun require explicit consent per [`prompts/runAPIs.md`](../../../../prompts/runAPIs.md).
+3. **Live-API consent** — SP-F connector re-enrichment and SP-G full rerun require explicit consent per [`experts/connectors/api_enrichment_operations.md`](../../../../experts/connectors/api_enrichment_operations.md).
 
 ## Verification anchors (regression matrix)
 
