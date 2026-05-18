@@ -28,10 +28,14 @@ EXCLUSION_PASS_AVOIDANCE_FAIL_HEX = "#e4da3a"
 # Hard exclusionary failure — same family as before (red-orange)
 HARD_FAIL_HEX = "#cd5745"
 
+# No enrichment / no scored criteria — neutral grey (not a screening pass)
+DATA_GAP_HEX = "#9aa3ad"
+
 STATUS_HEX = {
     "pass": FULL_PASS_HEX,
     "avoidance-flag": EXCLUSION_PASS_AVOIDANCE_FAIL_HEX,
     "hard-fail": HARD_FAIL_HEX,
+    "data-gap": DATA_GAP_HEX,
 }
 
 COVERAGE_CHART_DOMAIN = ["survivors", "near-miss", "hard-fail"]
@@ -46,6 +50,7 @@ STATUS_LEDGER_LABEL = {
     "pass": "Full pass",
     "avoidance-flag": "Avoidance flag",
     "hard-fail": "Hard-fail",
+    "data-gap": "No scored data",
 }
 
 
@@ -76,7 +81,9 @@ def render_site_status_legend() -> None:
         f"{_swatch_span(EXCLUSION_PASS_AVOIDANCE_FAIL_HEX)}"
         "exclusion pass · avoidance flag &nbsp; "
         f"{_swatch_span(HARD_FAIL_HEX)}"
-        "hard-fail (exclusionary)"
+        "hard-fail (exclusionary) &nbsp; "
+        f"{_swatch_span(DATA_GAP_HEX)}"
+        "no scored data (enrichment missing)"
         "</p>",
         unsafe_allow_html=True,
     )

@@ -7,12 +7,18 @@ Public API: :class:`SensitivitySuiteConfig`, :func:`run_sensitivity_suite`.
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from atoms_vs_ashes.config import Settings
 from atoms_vs_ashes.db.runs import complete_run, start_run
+from atoms_vs_ashes.ingest.catalogue import ensure_scoring_catalogue
 from atoms_vs_ashes.logging import get_logger
+from atoms_vs_ashes.runtime.catalogue_scope import (
+    scope_including_supplementary_catalogue,
+)
 from atoms_vs_ashes.runtime.cancellation import (
     CancellationRequested,
     CancellationToken,
@@ -92,6 +98,14 @@ def run_sensitivity_suite(
     # Coverage / Sites / Regional / Stability tabs back to the run that
     # owns the matching ``screening_verdicts``. Without this link the
     # tabs render ``status=hard-fail`` with ``n_failed_criteria=0``.
+    settings = Settings()
+    ensure_scoring_catalogue(session, settings, run_id=run_id)
+    if cfg.scope is not None:
+        cfg = replace(
+            cfg,
+            scope=scope_including_supplementary_catalogue(cfg.scope, settings),
+        )
+
     baseline_parent_run_id = _resolve_baseline_run_id(
         session, weight_profile_base=cfg.weight_profile_base,
     )

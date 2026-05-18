@@ -1,4 +1,4 @@
-<!-- man_hours: 4.5 -->
+<!-- man_hours: 4.6 -->
 # Report Writing Decisions and Drafting Guide
 
 This file is the controlling editorial guide for drafting the final report. It consolidates scope, structure, evidence anchors, country/site profile rules, prompt usage, and output organisation. Use it together with the canonical table of contents in [`tableOfContents.md`](tableOfContents.md), the prose standard in [`writingStyle.md`](writingStyle.md), and the version 1.2 operational controls in [`v1_2_iteration_controls.md`](v1_2_iteration_controls.md).
@@ -100,6 +100,8 @@ Each selected site profile should include:
 - Evidence limitations.
 
 Ownership and infrastructure discussion must be factual first. Add short strategic interpretation only when the database supports it clearly. If certainty is not high, ask the user rather than implying control, project rights, public acceptance, or procurement feasibility.
+
+Land availability discussion must distinguish canonical site footprint from expansion context. Use `site_area_ha` as the site surface-area number and the NS-05 / A15 area-adequacy indicator. Use `favourable_area_ha`, when populated, only as a wider screening-stage expansion envelope for laydown or future siting flexibility; it does not by itself prove available, contiguous, permitted, controlled, or development-ready land.
 
 The renderer emits one specialist placeholder per criterion bullet, plus one for the residual risk register and one for the composite stability and sensitivity block. The placeholders are filled by family-level specialists with optional per-criterion overrides. See §13 for the dispatcher CLI and the cost gates.
 

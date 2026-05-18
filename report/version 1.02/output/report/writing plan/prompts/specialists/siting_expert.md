@@ -1,4 +1,4 @@
-<!-- man_hours: 1.4 -->
+<!-- man_hours: 2.0 -->
 # Siting Expert Specialist Prompt
 
 The single specialist voice that fills every interpretation
@@ -55,6 +55,12 @@ does not, and what the next stage of work has to do.
   tsunami exposure is unresolved at Stage 1-2, quote elevation if the
   bundle provides it, and route coast-distance and inundation modelling
   to Stage 3.
+- For NS-05 / A15 land area, use `site_area_ha` as the canonical site
+  footprint and screening-stage area-adequacy indicator. Treat
+  `favourable_area_ha` only as a wider expansion envelope for laydown
+  or future siting flexibility; do not call it available development
+  land unless the bundle separately supports contiguity, ownership,
+  permitting and constraints.
 - **Anti-hallucination**: every numeric or named value you quote
   must appear verbatim in the bundle slice the dispatcher printed.
   If a value would strengthen the paragraph but is not in the
@@ -228,27 +234,48 @@ escalate decision. Required content:
 Three short paragraphs (220-380 words total). Country-leadership
 audience.
 
-1. **The leadership pool today.** Name the count of full-pass sites
-   and what they represent in plain English. State whether the
-   country has enough leading sites to support an initial fleet
-   plan or whether it is a one-site-leader case.
-2. **The avoidance unlock pool.** Name the top one or two
-   avoidance criteria from the Pareto and explain in plain English
-   what kind of policy / engineering work resolves them (grid
-   reinforcement programme, EPZ population modelling, military
+**Open on the full country distribution, not on the leader.** The
+first sentence of paragraph 1 must state the total ranked site count,
+the full-pass count, the avoidance-flag count, and the hard-fail count
+for the country, with one sentence of plain-English read on what that
+distribution means (a multi-site programme pool, a single-leader case,
+a remediation-heavy pool, etc.). The leading site can be named only
+**after** the distribution is on the page. Treat the country as a
+**pool with structure**, not as a backdrop to one site. This applies
+even when one site obviously dominates the ranking: the read is the
+shape of the pool, not the rank-1 row.
+
+1. **The leadership pool today.** State the distribution as above.
+   Name the full-pass sites. State whether the country has enough
+   leading sites to support an initial multi-site programme, a single
+   lead with fast followers, or a one-site-leader case. If only one
+   site combines a full pass with the highest national stability
+   band, say so plainly; do not soften.
+2. **The avoidance unlock pool.** Name the top one or two avoidance
+   criteria from the Pareto, give the share of the **exclusionary-pass
+   pool** they affect (not the share of the leader), and explain in
+   plain English what kind of policy / engineering work resolves them
+   (grid reinforcement programme, EPZ population modelling, military
    stakeholder engagement, etc.). State how many sites that work
    would unlock.
 3. **The greenfield lever and a credible cadence.** Note that
-   greenfield sites can complete the ambition if the build-out
-   plan exceeds the brownfield candidate pool. Close on a
-   programme-cadence sentence: "A credible Stage 3 sequence
-   begins with X site(s), with Y as a fast follower, and a third
-   wave dependent on resolving Z."
+   greenfield sites can complete the ambition if the build-out plan
+   exceeds the brownfield candidate pool. Close on a programme-cadence
+   sentence: "A credible Stage 3 sequence begins with X site(s), with
+   Y as a fast follower, and a third wave dependent on resolving Z."
 
-Be brief if the country has only one viable candidate; be longer
-when the unlock pool is large enough to justify a multi-site
-programme. Use the country's plain name ("Romania"), not
-"Romania (RO)".
+Be brief if the country has only one viable candidate; be longer when
+the unlock pool is large enough to justify a multi-site programme.
+Use the country's plain name ("Romania"), not "Romania (RO)".
+
+**Source-attribution discipline.** The country-executive paragraph
+goes to a ministerial audience. Do not name any upstream dataset,
+database, API, model, raster, vendor catalogue, or research paper.
+See the universal "No source attribution" rule above. National
+regulators, transmission operators, and ministries by their public
+name are allowed (ANM, ANANP, IRP-MAI, Transelectrica, CNCAN,
+Ministry of National Defence, etc.); upstream geospatial / scientific
+datasets are not.
 
 `country_exec` limits:
 

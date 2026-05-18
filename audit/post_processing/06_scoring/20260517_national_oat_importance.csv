@@ -1,33 +1,35 @@
 country_code,smr_key,criterion_id,family,criterion_name,mean_abs_rank_change,importance_score,pairs_compared,eligible_pair_count,small_n
-AT,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.6667,0.1111,6,6,False
+AT,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),1.0,0.1667,6,6,False
 AT,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.6667,0.1111,6,6,False
+AT,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.6667,0.1111,6,6,False
 AT,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.6667,0.1111,6,6,False
-AT,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.6667,0.1111,6,6,False
 AT,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.3333,0.0555,6,6,False
 AT,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.3333,0.0555,6,6,False
-AT,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.3333,0.0555,6,6,False
 AT,nuscale_voygr6,HI-06,HI,Military installations,0.3333,0.0555,6,6,False
-AT,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.3333,0.0555,6,6,False
-AT,nuscale_voygr6,NH-09,NH,River flooding,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NH-10,NH,Extreme winds,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.3333,0.0555,6,6,False
 AT,nuscale_voygr6,NS-04,NS,Site topography / grading,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.3333,0.0555,6,6,False
+AT,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.3333,0.0555,6,6,False
 AT,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,6,6,False
+AT,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,6,6,False
 AT,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,6,6,False
 AT,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,6,6,False
 AT,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,6,6,False
 AT,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,6,6,False
 AT,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0,0.0,6,6,False
 AT,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,6,6,False
-AT,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.0,0.0,6,6,False
-AT,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.0,0.0,6,6,False
 AT,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,6,6,False
-AT,nuscale_voygr6,NH-10,NH,Extreme winds,0.0,0.0,6,6,False
+AT,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,6,6,False
-AT,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.0,0.0,6,6,False
-AT,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,6,6,False
-AT,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,6,6,False
 AT,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,6,6,False
 AT,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,6,6,False
@@ -38,25 +40,21 @@ AT,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,6,6,False
 AT,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,6,6,False
 AT,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,6,6,False
 AT,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,6,6,False
-AT,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,6,6,False
-AT,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,6,6,False
-BA,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.8,0.16,5,5,False
+BA,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.8,0.16,5,5,False
 BA,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.8,0.16,5,5,False
-BA,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.4,0.08,5,5,False
-BA,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.4,0.08,5,5,False
+BA,nuscale_voygr6,HI-06,HI,Military installations,0.4,0.08,5,5,False
 BA,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.4,0.08,5,5,False
-BA,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.4,0.08,5,5,False
+BA,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.4,0.08,5,5,False
 BA,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.4,0.08,5,5,False
-BA,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.4,0.08,5,5,False
 BA,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,5,5,False
 BA,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,5,5,False
 BA,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,5,5,False
+BA,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,5,5,False
 BA,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,5,5,False
 BA,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,5,5,False
 BA,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.0,0.0,5,5,False
 BA,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,5,5,False
 BA,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,5,5,False
-BA,nuscale_voygr6,HI-06,HI,Military installations,0.0,0.0,5,5,False
 BA,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.0,0.0,5,5,False
@@ -65,12 +63,13 @@ BA,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,5,5
 BA,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-10,NH,Extreme winds,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,5,5,False
+BA,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.0,0.0,5,5,False
-BA,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-04,NS,Site topography / grading,0.0,0.0,5,5,False
+BA,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,5,5,False
 BA,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,5,5,False
@@ -81,19 +80,17 @@ BA,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,5,5,False
 BA,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,5,5,False
 BA,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,5,5,False
 BA,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,5,5,False
+BA,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,5,5,False
 BG,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.5714,0.0816,7,7,False
-BG,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.5714,0.0816,7,7,False
-BG,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.2857,0.0408,7,7,False
+BG,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.2857,0.0408,7,7,False
+BG,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.2857,0.0408,7,7,False
 BG,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.2857,0.0408,7,7,False
-BG,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.2857,0.0408,7,7,False
-BG,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.2857,0.0408,7,7,False
+BG,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.2857,0.0408,7,7,False
 BG,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,7,7,False
-BG,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,7,7,False
 BG,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,7,7,False
 BG,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,7,7,False
 BG,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,7,7,False
 BG,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,7,7,False
-BG,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.0,0.0,7,7,False
 BG,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,7,7,False
 BG,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,7,7,False
 BG,nuscale_voygr6,HI-06,HI,Military installations,0.0,0.0,7,7,False
@@ -105,11 +102,13 @@ BG,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater
 BG,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,7,7,False
 BG,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NH-10,NH,Extreme winds,0.0,0.0,7,7,False
+BG,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,7,7,False
 BG,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,7,7,False
 BG,nuscale_voygr6,NS-04,NS,Site topography / grading,0.0,0.0,7,7,False
+BG,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,7,7,False
 BG,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,7,7,False
 BG,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,7,7,False
@@ -120,14 +119,15 @@ BG,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,7,7,False
 BG,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,7,7,False
 BG,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,7,7,False
 BG,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,7,7,False
+BG,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,7,7,False
 BG,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,7,7,False
 BG,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,7,7,False
-BY,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),1.0,0.5,2,2,True
-BY,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,1.0,0.5,2,2,True
 BY,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,2,2,True
+BY,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,2,2,True
 BY,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,2,2,True
 BY,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,2,2,True
 BY,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,2,2,True
+BY,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.0,0.0,2,2,True
 BY,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,2,2,True
 BY,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.0,0.0,2,2,True
 BY,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,2,2,True
@@ -163,36 +163,36 @@ BY,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,2,2,True
 BY,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,2,2,True
 BY,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,2,2,True
 BY,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,2,2,True
-CZ,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),2.9655,0.1023,29,29,False
+CZ,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),3.1034,0.107,29,29,False
 CZ,nuscale_voygr6,NS-02,NS,Grid connection (detailed),1.7931,0.0618,29,29,False
-CZ,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,1.1724,0.0404,29,29,False
-CZ,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.8966,0.0309,29,29,False
-CZ,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.8966,0.0309,29,29,False
-CZ,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.7586,0.0262,29,29,False
+CZ,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,1.1034,0.038,29,29,False
+CZ,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.9655,0.0333,29,29,False
+CZ,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.8276,0.0285,29,29,False
+CZ,nuscale_voygr6,NS-04,NS,Site topography / grading,0.7586,0.0262,29,29,False
 CZ,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.7586,0.0262,29,29,False
 CZ,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.6897,0.0238,29,29,False
-CZ,nuscale_voygr6,NS-04,NS,Site topography / grading,0.6897,0.0238,29,29,False
-CZ,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.5517,0.019,29,29,False
-CZ,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.4828,0.0166,29,29,False
-CZ,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.4138,0.0143,29,29,False
+CZ,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.6897,0.0238,29,29,False
+CZ,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.4828,0.0166,29,29,False
+CZ,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.4138,0.0143,29,29,False
+CZ,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.4138,0.0143,29,29,False
 CZ,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.3448,0.0119,29,29,False
-CZ,nuscale_voygr6,NH-10,NH,Extreme winds,0.3448,0.0119,29,29,False
-CZ,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.3448,0.0119,29,29,False
+CZ,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.2759,0.0095,29,29,False
 CZ,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.2759,0.0095,29,29,False
 CZ,nuscale_voygr6,HI-06,HI,Military installations,0.2759,0.0095,29,29,False
-CZ,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.1379,0.0048,29,29,False
-CZ,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.069,0.0024,29,29,False
+CZ,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.2069,0.0071,29,29,False
+CZ,nuscale_voygr6,NH-10,NH,Extreme winds,0.2069,0.0071,29,29,False
+CZ,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.2069,0.0071,29,29,False
+CZ,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.069,0.0024,29,29,False
+CZ,nuscale_voygr6,HI-04,HI,External fires,0.069,0.0024,29,29,False
+CZ,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.069,0.0024,29,29,False
+CZ,nuscale_voygr6,NH-09,NH,River flooding,0.069,0.0024,29,29,False
+CZ,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.069,0.0024,29,29,False
 CZ,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.069,0.0024,29,29,False
 CZ,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,29,29,False
-CZ,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,29,29,False
-CZ,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,29,29,False
 CZ,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,29,29,False
-CZ,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,29,29,False
-CZ,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,29,29,False
-CZ,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,29,29,False
 CZ,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,29,29,False
@@ -245,35 +245,35 @@ HR,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,1,1,True
 HR,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,1,1,True
 HR,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,1,1,True
 HR,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,1,1,True
-HU,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.7273,0.0661,11,11,False
-HU,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.5455,0.0496,11,11,False
-HU,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.3636,0.0331,11,11,False
-HU,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.3636,0.0331,11,11,False
+HU,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.9091,0.0826,11,11,False
+HU,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.3636,0.0331,11,11,False
+HU,nuscale_voygr6,HI-06,HI,Military installations,0.3636,0.0331,11,11,False
+HU,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.3636,0.0331,11,11,False
+HU,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.3636,0.0331,11,11,False
 HU,nuscale_voygr6,NS-04,NS,Site topography / grading,0.3636,0.0331,11,11,False
-HU,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,NH-10,NH,Extreme winds,0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.1818,0.0165,11,11,False
 HU,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.1818,0.0165,11,11,False
-HU,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.1818,0.0165,11,11,False
+HU,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.1818,0.0165,11,11,False
 HU,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,11,11,False
+HU,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,11,11,False
+HU,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,11,11,False
+HU,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,11,11,False
 HU,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,11,11,False
 HU,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,11,11,False
+HU,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.0,0.0,11,11,False
 HU,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,11,11,False
 HU,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,11,11,False
-HU,nuscale_voygr6,HI-06,HI,Military installations,0.0,0.0,11,11,False
 HU,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0,0.0,11,11,False
 HU,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,11,11,False
+HU,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,11,11,False
+HU,nuscale_voygr6,NH-10,NH,Extreme winds,0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,11,11,False
 HU,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,11,11,False
+HU,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.0,0.0,11,11,False
 HU,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,11,11,False
 HU,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,11,11,False
 HU,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,11,11,False
@@ -285,7 +285,7 @@ HU,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,11,11,False
 HU,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,11,11,False
 HU,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,11,11,False
 HU,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,11,11,False
-HU,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,11,11,False
+HU,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,11,11,False
 LV,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,1,1,True
 LV,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,1,1,True
 LV,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,1,1,True
@@ -450,32 +450,32 @@ MK,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,3,3,False
 MK,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,3,3,False
 MK,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,3,3,False
 MK,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,3,3,False
-PL,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),3.4098,0.0559,61,61,False
-PL,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,3.3443,0.0548,61,61,False
-PL,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,3.082,0.0505,61,61,False
+PL,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,3.1475,0.0516,61,61,False
 PL,nuscale_voygr6,HI-03,HI,Toxic / gas releases,2.9508,0.0484,61,61,False
-PL,nuscale_voygr6,NS-02,NS,Grid connection (detailed),2.918,0.0478,61,61,False
-PL,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,2.1967,0.036,61,61,False
-PL,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),1.9344,0.0317,61,61,False
-PL,nuscale_voygr6,NS-04,NS,Site topography / grading,1.9016,0.0312,61,61,False
-PL,nuscale_voygr6,EP-03,EP,Physical-geography constraints,1.6721,0.0274,61,61,False
-PL,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,1.6393,0.0269,61,61,False
-PL,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),1.541,0.0253,61,61,False
-PL,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),1.3115,0.0215,61,61,False
-PL,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),1.1148,0.0183,61,61,False
-PL,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",1.0164,0.0167,61,61,False
-PL,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.918,0.015,61,61,False
-PL,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.8852,0.0145,61,61,False
-PL,nuscale_voygr6,NH-10,NH,Extreme winds,0.6885,0.0113,61,61,False
-PL,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.623,0.0102,61,61,False
-PL,nuscale_voygr6,HI-06,HI,Military installations,0.5574,0.0091,61,61,False
+PL,nuscale_voygr6,NS-02,NS,Grid connection (detailed),2.9508,0.0484,61,61,False
+PL,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,2.7869,0.0457,61,61,False
+PL,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),2.7213,0.0446,61,61,False
+PL,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,2.2295,0.0365,61,61,False
+PL,nuscale_voygr6,NS-04,NS,Site topography / grading,1.9344,0.0317,61,61,False
+PL,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,1.7377,0.0285,61,61,False
+PL,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),1.7377,0.0285,61,61,False
+PL,nuscale_voygr6,EP-03,EP,Physical-geography constraints,1.5738,0.0258,61,61,False
+PL,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",1.377,0.0226,61,61,False
+PL,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),1.2787,0.021,61,61,False
+PL,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),1.2131,0.0199,61,61,False
+PL,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",1.082,0.0177,61,61,False
+PL,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),1.082,0.0177,61,61,False
+PL,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.8525,0.014,61,61,False
+PL,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.7541,0.0124,61,61,False
+PL,nuscale_voygr6,HI-06,HI,Military installations,0.623,0.0102,61,61,False
+PL,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.5574,0.0091,61,61,False
+PL,nuscale_voygr6,NH-10,NH,Extreme winds,0.5246,0.0086,61,61,False
+PL,nuscale_voygr6,HI-04,HI,External fires,0.4262,0.007,61,61,False
 PL,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.4262,0.007,61,61,False
-PL,nuscale_voygr6,NH-09,NH,River flooding,0.3607,0.0059,61,61,False
-PL,nuscale_voygr6,HI-04,HI,External fires,0.2951,0.0048,61,61,False
-PL,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.2951,0.0048,61,61,False
-PL,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.2623,0.0043,61,61,False
-PL,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.1311,0.0021,61,61,False
-PL,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0984,0.0016,61,61,False
+PL,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.4262,0.007,61,61,False
+PL,nuscale_voygr6,NH-09,NH,River flooding,0.2951,0.0048,61,61,False
+PL,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.1967,0.0032,61,61,False
+PL,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0656,0.0011,61,61,False
 PL,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,61,61,False
 PL,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,61,61,False
 PL,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,61,61,False
@@ -491,62 +491,64 @@ PL,nuscale_voygr6,NS-12,NS,Regulatory / political environment,0.0,0.0,61,61,Fals
 PL,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,61,61,False
 PL,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,61,61,False
 PL,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,61,61,False
-RO,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),2.381,0.1134,21,21,False
-RO,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,1.9048,0.0907,21,21,False
-RO,nuscale_voygr6,NS-02,NS,Grid connection (detailed),1.2381,0.059,21,21,False
-RO,nuscale_voygr6,HI-03,HI,Toxic / gas releases,1.1429,0.0544,21,21,False
-RO,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",1.0476,0.0499,21,21,False
-RO,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,1.0476,0.0499,21,21,False
-RO,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.7619,0.0363,21,21,False
-RO,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.5714,0.0272,21,21,False
-RO,nuscale_voygr6,NS-04,NS,Site topography / grading,0.5714,0.0272,21,21,False
-RO,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.4762,0.0227,21,21,False
-RO,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.4762,0.0227,21,21,False
-RO,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.381,0.0181,21,21,False
-RO,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.381,0.0181,21,21,False
-RO,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,HI-04,HI,External fires,0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,NH-10,NH,Extreme winds,0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.2857,0.0136,21,21,False
-RO,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.1905,0.0091,21,21,False
-RO,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.1905,0.0091,21,21,False
-RO,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.1905,0.0091,21,21,False
-RO,nuscale_voygr6,HI-06,HI,Military installations,0.0952,0.0045,21,21,False
-RO,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,21,21,False
-RO,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,21,21,False
-RO,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,21,21,False
-RO,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,21,21,False
-RO,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,21,21,False
-RO,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-10,NS,Workforce availability,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-11,NS,Coal-to-nuclear synergies,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-12,NS,Regulatory / political environment,0.0,0.0,21,21,False
-RO,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,21,21,False
-RO,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,21,21,False
-RO,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,21,21,False
-RS,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,2.0,0.3333,6,6,False
-RS,nuscale_voygr6,NS-02,NS,Grid connection (detailed),1.3333,0.2222,6,6,False
-RS,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,1.3333,0.2222,6,6,False
+RO,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),2.1818,0.0992,22,22,False
+RO,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,1.4545,0.0661,22,22,False
+RO,nuscale_voygr6,HI-03,HI,Toxic / gas releases,1.2727,0.0578,22,22,False
+RO,nuscale_voygr6,NS-02,NS,Grid connection (detailed),1.0909,0.0496,22,22,False
+RO,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.9091,0.0413,22,22,False
+RO,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.8182,0.0372,22,22,False
+RO,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.6364,0.0289,22,22,False
+RO,nuscale_voygr6,NS-04,NS,Site topography / grading,0.6364,0.0289,22,22,False
+RO,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.5455,0.0248,22,22,False
+RO,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.5455,0.0248,22,22,False
+RO,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.5455,0.0248,22,22,False
+RO,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.5455,0.0248,22,22,False
+RO,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.5455,0.0248,22,22,False
+RO,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.3636,0.0165,22,22,False
+RO,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.3636,0.0165,22,22,False
+RO,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.2727,0.0124,22,22,False
+RO,nuscale_voygr6,NH-09,NH,River flooding,0.2727,0.0124,22,22,False
+RO,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.1818,0.0083,22,22,False
+RO,nuscale_voygr6,HI-04,HI,External fires,0.1818,0.0083,22,22,False
+RO,nuscale_voygr6,HI-06,HI,Military installations,0.1818,0.0083,22,22,False
+RO,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.1818,0.0083,22,22,False
+RO,nuscale_voygr6,NH-10,NH,Extreme winds,0.1818,0.0083,22,22,False
+RO,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0909,0.0041,22,22,False
+RO,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0909,0.0041,22,22,False
+RO,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0909,0.0041,22,22,False
+RO,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,22,22,False
+RO,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,22,22,False
+RO,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,22,22,False
+RO,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,22,22,False
+RO,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-10,NS,Workforce availability,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-11,NS,Coal-to-nuclear synergies,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-12,NS,Regulatory / political environment,0.0,0.0,22,22,False
+RO,nuscale_voygr6,NS-13,NS,Construction logistics,0.0,0.0,22,22,False
+RO,nuscale_voygr6,RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.0,0.0,22,22,False
+RO,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,22,22,False
+RS,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,1.6667,0.2778,6,6,False
+RS,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),1.6667,0.2778,6,6,False
 RS,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),1.3333,0.2222,6,6,False
-RS,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),1.3333,0.2222,6,6,False
-RS,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),1.0,0.1667,6,6,False
-RS,nuscale_voygr6,EP-03,EP,Physical-geography constraints,1.0,0.1667,6,6,False
+RS,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",1.0,0.1667,6,6,False
 RS,nuscale_voygr6,HI-06,HI,Military installations,1.0,0.1667,6,6,False
 RS,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,1.0,0.1667,6,6,False
-RS,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.6667,0.1111,6,6,False
+RS,nuscale_voygr6,NS-02,NS,Grid connection (detailed),1.0,0.1667,6,6,False
+RS,nuscale_voygr6,NH-10,NH,Extreme winds,0.6667,0.1111,6,6,False
+RS,nuscale_voygr6,NS-04,NS,Site topography / grading,0.6667,0.1111,6,6,False
+RS,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.6667,0.1111,6,6,False
+RS,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.3333,0.0555,6,6,False
 RS,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.3333,0.0555,6,6,False
-RS,nuscale_voygr6,NH-10,NH,Extreme winds,0.3333,0.0555,6,6,False
-RS,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.3333,0.0555,6,6,False
-RS,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.3333,0.0555,6,6,False
+RS,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.3333,0.0555,6,6,False
+RS,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.3333,0.0555,6,6,False
+RS,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.3333,0.0555,6,6,False
 RS,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,6,6,False
+RS,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.0,0.0,6,6,False
 RS,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,6,6,False
 RS,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0,0.0,6,6,False
 RS,nuscale_voygr6,HI-04,HI,External fires,0.0,0.0,6,6,False
@@ -554,15 +556,13 @@ RS,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0
 RS,nuscale_voygr6,HI-07,HI,Electromagnetic interference,0.0,0.0,6,6,False
 RS,nuscale_voygr6,HI-08,HI,Other nuclear installations,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),0.0,0.0,6,6,False
-RS,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-09,NH,River flooding,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.0,0.0,6,6,False
+RS,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-13,NH,Forest / wildfire,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.0,0.0,6,6,False
-RS,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,6,6,False
-RS,nuscale_voygr6,NS-04,NS,Site topography / grading,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,6,6,False
 RS,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,6,6,False
 RS,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,6,6,False
@@ -575,6 +575,8 @@ RS,nuscale_voygr6,RI-02,RI,Surface water dispersion,0.0,0.0,6,6,False
 RS,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,6,6,False
 SK,nuscale_voygr6,EP-03,EP,Physical-geography constraints,0.4,0.08,5,5,False
 SK,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,0.4,0.08,5,5,False
+SK,nuscale_voygr6,NS-04,NS,Site topography / grading,0.4,0.08,5,5,False
+SK,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.4,0.08,5,5,False
 SK,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,5,5,False
 SK,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),0.0,0.0,5,5,False
 SK,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.0,0.0,5,5,False
@@ -599,8 +601,6 @@ SK,nuscale_voygr6,NH-14,NH,Combined hazards,0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-02,NS,Grid connection (detailed),0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),0.0,0.0,5,5,False
-SK,nuscale_voygr6,NS-04,NS,Site topography / grading,0.0,0.0,5,5,False
-SK,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-06,NS,Existing infrastructure reuse,0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-07,NS,Environmental impact (non-radiological),0.0,0.0,5,5,False
 SK,nuscale_voygr6,NS-09,NS,Socioeconomic impact,0.0,0.0,5,5,False
@@ -614,32 +614,32 @@ SK,nuscale_voygr6,RI-03,RI,Groundwater dispersion,0.0,0.0,5,5,False
 SK,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),0.0,0.0,5,5,False
 SK,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),0.0,0.0,5,5,False
 SK,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),0.0,0.0,5,5,False
-TR,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),9.9455,0.0904,110,110,False
+TR,nuscale_voygr6,RI-05,RI,Distance to large population centres (>50 k),9.6364,0.0876,110,110,False
 TR,nuscale_voygr6,NH-08,NH,"Coastal flooding (storm surge, tsunami)",8.6,0.0782,110,110,False
-TR,nuscale_voygr6,NS-04,NS,Site topography / grading,5.9818,0.0544,110,110,False
 TR,nuscale_voygr6,RI-04,RI,Population density (EPZ rings),5.8545,0.0532,110,110,False
-TR,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),5.4,0.0491,110,110,False
-TR,nuscale_voygr6,NS-02,NS,Grid connection (detailed),5.3273,0.0484,110,110,False
-TR,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,5.0,0.0455,110,110,False
-TR,nuscale_voygr6,HI-06,HI,Military installations,3.9636,0.036,110,110,False
-TR,nuscale_voygr6,EP-03,EP,Physical-geography constraints,3.8727,0.0352,110,110,False
-TR,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),3.8545,0.035,110,110,False
-TR,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,3.8364,0.0349,110,110,False
-TR,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",3.6364,0.0331,110,110,False
-TR,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),3.6182,0.0329,110,110,False
-TR,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,3.2364,0.0294,110,110,False
-TR,nuscale_voygr6,NH-10,NH,Extreme winds,2.5273,0.023,110,110,False
-TR,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),2.4182,0.022,110,110,False
-TR,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",1.8545,0.0169,110,110,False
-TR,nuscale_voygr6,RI-03,RI,Groundwater dispersion,1.8182,0.0165,110,110,False
-TR,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,1.7455,0.0159,110,110,False
-TR,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",1.4182,0.0129,110,110,False
-TR,nuscale_voygr6,HI-07,HI,Electromagnetic interference,1.3636,0.0124,110,110,False
-TR,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.9636,0.0088,110,110,False
+TR,nuscale_voygr6,NS-04,NS,Site topography / grading,5.7455,0.0522,110,110,False
+TR,nuscale_voygr6,RI-06,RI,Population projections (60-yr design life),5.5636,0.0506,110,110,False
+TR,nuscale_voygr6,NS-02,NS,Grid connection (detailed),5.2545,0.0478,110,110,False
+TR,nuscale_voygr6,HI-01,HI,Aircraft crash hazard,4.2182,0.0383,110,110,False
+TR,nuscale_voygr6,NS-05,NS,Land availability / ownership / zoning,4.2182,0.0383,110,110,False
+TR,nuscale_voygr6,NH-01,NH,Seismic ground motion (PGA),4.0727,0.037,110,110,False
+TR,nuscale_voygr6,EP-03,EP,Physical-geography constraints,4.0182,0.0365,110,110,False
+TR,nuscale_voygr6,HI-06,HI,Military installations,3.6364,0.0331,110,110,False
+TR,nuscale_voygr6,EP-04,EP,"Special populations (hospitals, prisons, care homes)",3.3818,0.0307,110,110,False
+TR,nuscale_voygr6,NS-03,NS,Transport access (heavy haul road / rail / port),3.3636,0.0306,110,110,False
+TR,nuscale_voygr6,NS-01,NS,Cooling water / ultimate heat sink,3.0364,0.0276,110,110,False
+TR,nuscale_voygr6,EP-02,EP,Evacuation routes (road network),2.4,0.0218,110,110,False
+TR,nuscale_voygr6,NH-10,NH,Extreme winds,2.3636,0.0215,110,110,False
+TR,nuscale_voygr6,RI-03,RI,Groundwater dispersion,1.7273,0.0157,110,110,False
+TR,nuscale_voygr6,NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",1.6182,0.0147,110,110,False
+TR,nuscale_voygr6,NH-05,NH,Subsidence / karst / mining / oil & gas,1.5091,0.0137,110,110,False
+TR,nuscale_voygr6,NH-11,NH,"Extreme precipitation (rain, snow, drought)",1.1818,0.0107,110,110,False
+TR,nuscale_voygr6,HI-07,HI,Electromagnetic interference,1.1273,0.0102,110,110,False
+TR,nuscale_voygr6,NH-12,NH,Extreme temperatures,0.8909,0.0081,110,110,False
 TR,nuscale_voygr6,NH-09,NH,River flooding,0.2545,0.0023,110,110,False
-TR,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.1636,0.0015,110,110,False
-TR,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.1636,0.0015,110,110,False
-TR,nuscale_voygr6,HI-04,HI,External fires,0.1455,0.0013,110,110,False
+TR,nuscale_voygr6,HI-02,HI,Industrial explosions (Seveso / IED),0.0909,0.0008,110,110,False
+TR,nuscale_voygr6,HI-03,HI,Toxic / gas releases,0.0909,0.0008,110,110,False
+TR,nuscale_voygr6,HI-04,HI,External fires,0.0727,0.0007,110,110,False
 TR,nuscale_voygr6,BF-02,BF,Land / nuclear-island footprint,0.0,0.0,110,110,False
 TR,nuscale_voygr6,EP-05,EP,Concurrent-hazard impact on EP,0.0,0.0,110,110,False
 TR,nuscale_voygr6,HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.0,0.0,110,110,False

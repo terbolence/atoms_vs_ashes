@@ -19,7 +19,7 @@ files:
     category: "Configuration & DevOps"
 
   config/default.yml:
-    hours: 8.5
+    hours: 8.6
     category: "Configuration & DevOps"
 
   config/scoring_specs/hi_human_induced.yaml:
@@ -2935,7 +2935,7 @@ files:
     category: "Other"
 
   audit/conversations/2026-05-17_report-v1-2-preparation.md:
-    hours: 1.0
+    hours: 1.1
     category: "Project Management & QA"
 
   architecture/plans/report-v12-writing-controls-update.md:
@@ -2947,7 +2947,7 @@ files:
     category: "Project Management & QA"
 
   report/version 1.02/output/report/writing plan/writingDecisions.md:
-    hours: 4.5
+    hours: 4.6
     category: "Other"
 
   report/version 1.02/output/report/writing plan/v1_2_iteration_controls.md:
@@ -2967,15 +2967,27 @@ files:
     category: "Other"
 
   report/version 1.02/output/report/writing plan/prompts/country_profile_author.md:
-    hours: 1.5
+    hours: 2.2
     category: "Other"
 
   report/version 1.02/output/report/writing plan/prompts/site_profile_author.md:
-    hours: 1.2
+    hours: 1.4
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/v1_2_writing_kickoff_prompt.md:
+    hours: 7.5
+    category: "Other"
+
+  report/version 1.02/output/report/writing plan/prompts/specialists/writing_quality_auditor.md:
+    hours: 8.0
+    category: "Other"
+
+  report/version 1.02/v1_2_report_preparation/v1_2_baseline_decision.md:
+    hours: 1.0
     category: "Other"
 
   report/version 1.02/output/report/writing plan/prompts/specialists/siting_expert.md:
-    hours: 1.4
+    hours: 2.0
     category: "Other"
 
   report/version 1.02/methodology/sensitivity_analysis.md:
@@ -3029,6 +3041,18 @@ files:
   tests/reporting/test_site_bundle_land_area.py:
     hours: 0.3
     category: "Testing"
+
+  audit/feature_completion_matrices/2026-05-17_site_area_template_wiring.md:
+    hours: 0.4
+    category: "Project Management & QA"
+
+  architecture/plans/site-area-template-wiring.md:
+    hours: 0.3
+    category: "Architecture & Design"
+
+  audit/plans/site-area-template-wiring.md:
+    hours: 0.3
+    category: "Project Management & QA"
 
   tests/scoring/test_run_profile.py:
     hours: 1.6

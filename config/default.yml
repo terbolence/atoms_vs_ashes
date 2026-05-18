@@ -1,4 +1,4 @@
-# man_hours: 8.5
+# man_hours: 8.6
 ingestion:
   # ISO 3166-1 alpha-2 codes for in-scope countries
   in_scope_countries:
@@ -40,8 +40,16 @@ ingestion:
       longitude: 25.5889
       plant_type: "thermal"
       status: "operating"
+      installed_capacity_mw: 160
+      site_area_ha: 345
       subnational_unit: "Brașov"
       location: "Feldioara, Brașov County"
+      extended_data:
+        source: "supplementary_config"
+        manual_characterization:
+          nearest_400kv_km: 7
+          nearest_400kv_asset: "Stația CT Darste 400/110 kV (Transelectrica)"
+          export_headroom_note: "Order-of-magnitude up to ~1000 MW on 400 kV corridor; connection study required."
     - site_id: "af7f107f-71b5-5a33-8125-9ccb7060f895"
       name: "Iernut power station"
       alternative_names:
@@ -57,7 +65,9 @@ ingestion:
       subnational_unit: "Mureș"
       region: "Europe"
       plant_type: "gas"
-      installed_capacity_mw: 430
+      installed_capacity_mw: 800
+      grid_voltage_kv: 400
+      grid_capacity_mw: 800
       status: "construction"
       start_year: 2026
       owner_operator: "Romgaz SA [100%]"
@@ -75,6 +85,10 @@ ingestion:
         gem_wiki_url: "https://www.gem.wiki/Iernut_power_station"
         ccgt_configuration: "4 gas turbines, 4 heat recovery steam generators, 2 steam turbines"
         gross_electrical_efficiency_pct: 56
+        ccgt_installed_capacity_mw: 430
+        manual_characterization:
+          grid_export_capacity_mw: 800
+          export_basis: "Legacy CTE Iernut 800 MW nameplate; existing 110/220/400 kV Transelectrica connection (not CCGT-only 430 MW GEM figure)."
 
 screening:
   smr_types:

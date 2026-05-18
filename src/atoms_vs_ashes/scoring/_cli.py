@@ -258,6 +258,7 @@ def sensitivity(  # noqa: PLR0913 — CLI command surface is user-facing config
                 apply_profile_scope_to_sensitivity_cfg(
                     cfg, profile_path, session=session,
                     default_rubric_dir=DEFAULT_RUBRIC_DIR,
+                    run_id=run_id,
                 )
             result = run_sensitivity_suite(
                 session, cfg, run_id=run_id,

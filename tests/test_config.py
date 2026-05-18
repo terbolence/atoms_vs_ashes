@@ -25,7 +25,9 @@ def test_supplementary_sites_present(settings):
     assert iernut["site_id"] == "af7f107f-71b5-5a33-8125-9ccb7060f895"
     assert iernut["country_code"] == "RO"
     assert iernut["plant_type"] == "gas"
-    assert iernut["installed_capacity_mw"] == 430
+    assert iernut["installed_capacity_mw"] == 800
+    assert iernut["grid_voltage_kv"] == 400
+    assert iernut["grid_capacity_mw"] == 800
 
 
 def test_scoring_weights_sum(settings):

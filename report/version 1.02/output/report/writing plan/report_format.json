@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "report_version": "1.2",
+  "default_font_family": "Times New Roman",
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "landscape_allowed_for": ["oversize_tables"],
+    "margins_mm": {
+      "inside": 25,
+      "outside": 20,
+      "top": 22,
+      "bottom": 22
+    },
+    "running_header_height_mm": 12,
+    "footer_height_mm": 14
+  },
+  "typography": {
+    "title": {
+      "font_family": "Times New Roman",
+      "size_pt": 22,
+      "alignment": "left",
+      "weight": "bold"
+    },
+    "subtitle": {
+      "font_family": "Times New Roman",
+      "size_pt": 14,
+      "alignment": "left",
+      "weight": "regular"
+    },
+    "body": {
+      "font_family": "Times New Roman",
+      "size_pt": 11,
+      "leading_pt": 13.2,
+      "alignment": "justify",
+      "hyphenation": true,
+      "line_spacing": 1.2
+    },
+    "headings": {
+      "h1": {
+        "font_family": "Times New Roman",
+        "size_pt": 16,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h2": {
+        "font_family": "Times New Roman",
+        "size_pt": 13,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h3": {
+        "font_family": "Times New Roman",
+        "size_pt": 12,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h4": {
+        "font_family": "Times New Roman",
+        "size_pt": 11,
+        "alignment": "left",
+        "weight": "bold"
+      }
+    },
+    "table_caption": {
+      "font_family": "Times New Roman",
+      "size_pt": 9.5,
+      "leading_pt": 11,
+      "alignment": "left",
+      "style": "regular",
+      "position": "above"
+    },
+    "figure_caption": {
+      "font_family": "Times New Roman",
+      "size_pt": 9.5,
+      "leading_pt": 11,
+      "alignment": "left",
+      "style": "italic",
+      "position": "below"
+    },
+    "running_head": {
+      "font_family": "Times New Roman",
+      "size_pt": 9,
+      "alignment": "left"
+    },
+    "footer_page_number": {
+      "font_family": "Times New Roman",
+      "size_pt": 9,
+      "alignment": "center",
+      "position": "bottom_center"
+    }
+  },
+  "heading_hierarchy": {
+    "document_title": 0,
+    "chapter": 1,
+    "section": 2,
+    "subsection": 3,
+    "site_block": 3,
+    "no_skip_levels": true
+  },
+  "tables": {
+    "width": "fit_content",
+    "max_width": "text_block",
+    "layout": "autofit_contents",
+    "header_row": {
+      "weight": "bold",
+      "background_hex": "D9D9D9",
+      "repeat_on_page_break": true,
+      "repeat_threshold_rows": 30
+    },
+    "body_row": {
+      "font_family": "Times New Roman",
+      "size_pt": 11
+    },
+    "borders": {
+      "top_rule": true,
+      "header_bottom_rule": true,
+      "bottom_rule": true,
+      "vertical_rules": false
+    },
+    "cell_alignment": {
+      "numeric": "right",
+      "text": "left",
+      "short_label": "center"
+    },
+    "cell_vertical_alignment": "center",
+    "line_spacing": 1.15,
+    "column_width": "fit_content",
+    "markdown_alignment": {
+      "numeric": "---:",
+      "text": ":---",
+      "centered_label": ":---:"
+    },
+    "caption_continued_suffix": "(continued)",
+    "allow_rowspan_colspan_in_source": false
+  },
+  "figures": {
+    "default_width": "text_block",
+    "half_width_pairs_allowed": true,
+    "require_legend": true,
+    "require_scale_or_denominator": true,
+    "require_north_arrow_for_maps": true
+  },
+  "pagination": {
+    "front_matter_style": "lower_roman",
+    "main_matter_start": 1,
+    "main_matter_style": "arabic",
+    "main_matter_begins_at": "introduction",
+    "page_number_on_every_page": true,
+    "page_number_position": "bottom_center"
+  },
+  "running_heads": {
+    "verso": "chapter_number_and_title",
+    "recto": "section_number_and_title",
+    "page_number_position": "bottom_center"
+  },
+  "page_breaks": {
+    "avoid_widows": true,
+    "avoid_orphans": true,
+    "avoid_heading_at_page_bottom": true,
+    "keep_table_with_caption": true,
+    "keep_figure_with_caption": true
+  },
+  "hyperlinks": {
+    "print": {
+      "show_url_in_footnote_when_load_bearing": true,
+      "visible_text_only": true
+    },
+    "pdf": {
+      "live_links": true,
+      "use_publisher_link_colour": true,
+      "underline": false
+    }
+  },
+  "build": {
+    "reference_docx": "build/reference.docx",
+    "output_docx": "build/atoms_vs_ashes_report.docx",
+    "merged_markdown": "build/merged.md"
+  }
+}

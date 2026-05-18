@@ -1,4 +1,4 @@
-<!-- man_hours: 1.2 -->
+<!-- man_hours: 1.4 -->
 # Site Profile Author Prompt
 
 Use this prompt to draft one selected-site profile for Chapter 5 of
@@ -44,9 +44,12 @@ construction authorization, or legal opinion.
    - `site` - geometry, capacity, country, and canonical
      `site_area_ha`.
    - `land_area` - report-ready area summary. Use `site_area_ha` as
-     the site surface-area number and `favourable_area_ha`, when
-     available, as the larger expansion envelope for laydown or future
-     site expansion.
+     the canonical site footprint / surface-area number and as the
+     NS-05 / A15 land-adequacy indicator. Use `favourable_area_ha`,
+     when available, only as a wider land-cover-derived expansion
+     envelope for laydown or future site expansion. It is not the
+     pass/fail site footprint and does not prove development-ready,
+     contiguous, permitted, or owned land.
    - `ownership` - parent companies, share, status, ownership path.
      Multiple rows are normal; deduplicate by `parent_name +
      ownership_path` and keep `share_pct` and `status`.
@@ -76,7 +79,7 @@ construction authorization, or legal opinion.
    - `scoring.criterion_components` - weighted contribution per
      criterion to the composite.
    - `scoring.composite_rankings` - composite score and MC band.
-  - `sensitivity.bands` - national and regional stability bands,
+   - `sensitivity.bands` - national and regional stability bands,
     national rank probabilities, national rank deltas, and top-10 hit
     rates where supplied. For country/site interpretation, national
     sensitivity is the primary frame.
@@ -132,7 +135,14 @@ Lead paragraph
 - Land availability: for Site Footprint Adequacy (NS-05) and A15,
   use `site_area_ha` as the criterion indicator and surface-area
   number. Mention `favourable_area_ha` only as a larger surrounding
-  expansion envelope, not as the pass/fail site footprint.
+  expansion envelope, not as the pass/fail site footprint. If
+  `buildable_area_ha` or `largest_contiguous_ha` appears in older
+  bundle data, treat it as supporting or legacy context only and do
+  not let it override `site_area_ha`.
+- Development-area wording: describe `favourable_area_ha` as a
+  screening-stage expansion envelope, not "available development
+  land" unless ownership, contiguity, permitting and constraints are
+  separately evidenced in the bundle.
 - Ownership block: deduplicate to one bullet per ultimate parent;
   show share %, project status (operating / retired / cancelled), and
   collapse multi-unit ownership into one summary statement. State

@@ -264,8 +264,11 @@ def _build_ledger_row(
     verdicts_by_pair: dict[tuple[uuid.UUID, str], list[ScreeningVerdict]],
 ) -> SiteLedgerRow:
     failed = verdicts_by_pair.get((cr.site_id, cr.smr_key), [])
+    coverage = float(cr.criteria_coverage or 0)
     status = (
-        "hard-fail" if not cr.passed_exclusionary
+        "data-gap"
+        if cr.composite_score is None and coverage == 0.0
+        else "hard-fail" if not cr.passed_exclusionary
         else "avoidance-flag" if not cr.passed_avoidance
         else "pass"
     )

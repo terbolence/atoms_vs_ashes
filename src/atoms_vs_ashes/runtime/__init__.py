@@ -20,6 +20,10 @@ from atoms_vs_ashes.runtime.loaders import (
     load_compiled_rubric,
     load_rubric_with_overrides,
 )
+from atoms_vs_ashes.runtime.catalogue_scope import (
+    scope_including_supplementary_catalogue,
+    supplementary_site_statuses,
+)
 from atoms_vs_ashes.runtime.scope import RunScope, scope_from_run_profile
 
 __all__ = [
@@ -35,4 +39,6 @@ __all__ = [
     "load_compiled_rubric",
     "load_rubric_with_overrides",
     "scope_from_run_profile",
+    "scope_including_supplementary_catalogue",
+    "supplementary_site_statuses",
 ]

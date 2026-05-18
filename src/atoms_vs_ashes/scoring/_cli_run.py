@@ -16,17 +16,53 @@ from typing import Any
 import click
 from sqlalchemy import select
 
-from atoms_vs_ashes.db.models import SmrDesign
+from atoms_vs_ashes.config import Settings
+from atoms_vs_ashes.db.models import Site, SmrDesign
+from atoms_vs_ashes.ingest.catalogue import (
+    ensure_scoring_catalogue,
+    warn_unready_sites_in_scope,
+)
 from atoms_vs_ashes.runprofile.loader import load_run_profile
 from atoms_vs_ashes.runtime.cancellation import CancellationRequested
+from atoms_vs_ashes.runtime.catalogue_scope import (
+    scope_including_supplementary_catalogue,
+)
 from atoms_vs_ashes.runtime.heartbeat import HeartbeatWriter
-from atoms_vs_ashes.runtime.scope import scope_from_run_profile
+from atoms_vs_ashes.runtime.scope import RunScope, scope_from_run_profile
 from atoms_vs_ashes.scoring._smr_bundles import smr_aware_criteria_bundles
 from atoms_vs_ashes.scoring.engine import ScoringSummary, run_scoring
 
 
+def prepare_scoring_run_scope(
+    session: Any,
+    *,
+    runscope: RunScope | None,
+    run_id: str | None,
+    settings: Settings | None = None,
+) -> RunScope | None:
+    """Sync supplementary catalogue rows and widen scope for their statuses."""
+    settings = settings or Settings()
+    sync_run_id = run_id or "catalogue-sync"
+    ensure_scoring_catalogue(session, settings, run_id=sync_run_id)
+    if runscope is None:
+        return None
+    widened = scope_including_supplementary_catalogue(runscope, settings)
+    site_ids = list(
+        session.execute(
+            widened.apply_to_sites(select(Site.site_id))
+        ).scalars()
+    )
+    warn_unready_sites_in_scope(session, site_ids=site_ids)
+    return widened
+
+
 def apply_profile_scope_to_sensitivity_cfg(
-    cfg: Any, profile_path: str, *, session: Any, default_rubric_dir: str
+    cfg: Any,
+    profile_path: str,
+    *,
+    session: Any,
+    default_rubric_dir: str,
+    run_id: str | None = None,
 ) -> None:
     """Hydrate ``cfg.scope`` from ``profile_path`` (in place).
 
@@ -37,7 +73,11 @@ def apply_profile_scope_to_sensitivity_cfg(
     that the GUI exported.
     """
     loaded = load_run_profile(profile_path, session=session)
-    cfg.scope = scope_from_run_profile(loaded.profile)
+    cfg.scope = prepare_scoring_run_scope(
+        session,
+        runscope=scope_from_run_profile(loaded.profile),
+        run_id=run_id,
+    )
     if cfg.rubric_dir == default_rubric_dir:
         cfg.rubric_dir = loaded.profile.spec_dir
 
@@ -85,9 +125,15 @@ def execute_score_run(
     scope is forwarded to ``run_scoring`` so the engine itself loads
     only the in-scope sites and SMRs.
     """
+    settings = Settings()
     if profile_path is not None:
         loaded = load_run_profile(profile_path, session=session)
-        runscope = scope_from_run_profile(loaded.profile)
+        runscope = prepare_scoring_run_scope(
+            session,
+            runscope=scope_from_run_profile(loaded.profile),
+            run_id=run_id,
+            settings=settings,
+        )
         smrs = list(
             session.execute(
                 runscope.apply_to_smrs(
@@ -115,6 +161,7 @@ def execute_score_run(
             threshold_overrides=dict(loaded.profile.fail_thresholds),
             scope=runscope,
         )
+    prepare_scoring_run_scope(session, runscope=None, run_id=run_id, settings=settings)
     if weight_basis not in (None, "baseline"):
         from atoms_vs_ashes.scoring.rubric import (
             load_rubric_bundle, weight_normalisation,
@@ -178,7 +225,9 @@ def emit_summary_payload(summary: ScoringSummary) -> None:
 
 
 __all__ = [
+    "apply_profile_scope_to_sensitivity_cfg",
     "emit_cancelled_payload",
     "emit_summary_payload",
     "execute_score_run",
+    "prepare_scoring_run_scope",
 ]
