@@ -153,6 +153,10 @@ export/**/*.xlsx
 # One-off DB extract spreadsheets/CSVs (regenerate from DB)
 /audit/post_processing/db_extract/
 
+# Report v1.02 generated DOCX build cache (derived from report_format.json)
+/report/version 1.02/output/report/build/reference.docx
+/report/version 1.02/output/report/build/reference.source.sha256
+
 # Report v1.01 generated bundles, figures, and feedback artefacts
 /report/version 1.01/output/
 /report/version 1.01/regulations/**/*.pdf

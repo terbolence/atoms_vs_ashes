@@ -6,7 +6,7 @@
 ## Rule Index
 
 - `.cursor/rules/audit-trail.mdc` — always on; conversation logs and plan mirrors.
-- `.cursor/rules/man-hours.mdc` — always on; first-line effort metadata and `audit/man_hours_registry.yml`.
+- `.cursor/rules/man-hours.mdc` — disabled on 2026-05-20; agent no longer adds first-line effort metadata or maintains `audit/man_hours_registry.yml`.
 - `.cursor/rules/live-api-safety.mdc` — always on; project-specific pointer to the global live-API consent rule.
 - `.cursor/rules/feature-completion-checklist.mdc` — always on; mandatory Feature Completion Matrix and end-to-end trace for non-trivial features.
 - `.cursor/rules/api-enrichment-ops.mdc` — API/enrichment runs and connector operations.

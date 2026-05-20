@@ -1,183 +1,170 @@
-<!-- man_hours: 0.35 -->
+<!-- man_hours: 6.0 -->
 # 4. Results and Findings
 
-This chapter presents the main results from the report's scoring and sensitivity analysis. It should be read together with the methodology in Chapters 2 and 3: the findings support prioritisation for Stage 3 characterization, not licensing, procurement, construction approval, or final site suitability.
+Chapter 4 presents the results of the Stage 1-2 screening and ranking work for the NuScale VOYGR-6 reference deployment envelope. The chapter uses the current v1.2 country ledgers, the Chapter 5 selected-site outputs, and the project's 50,000-iteration national Monte Carlo sensitivity analysis. The findings support prioritisation for Stage 3 characterisation; they do not establish site approval, licensing readiness, procurement suitability, construction readiness, or final site suitability.
 
 ## 4.1 Regional and Cross-Country Findings
 
-The regional result is selective rather than broadly permissive. The current scored dataset contains 252 site records with composite scores for the NuScale VOYGR-6 reference case [1]. These sites are not all recommended for immediate follow-up. They are the population that survived the scoring workflow sufficiently to be ranked, compared, and tested under the report's sensitivity analysis.
+The regional finding is selective but not empty. The current published country ledgers contain 16 country portfolios with 352 thermal and coal-site records. Of these, 289 records have composite scores and national sensitivity bands; 28 clear both the exclusionary and avoidance screens, 261 clear the exclusionary screen but retain at least one avoidance flag, and 63 are removed at the exclusionary screen. Chapter 5's consolidated failure section adds Albania, Kosovo, and Slovenia as portfolios with no exclusionary-pass brownfield site in the screened thermal fleet.
 
-The strongest regional pattern is concentration in a limited number of countries. In the regional top-20 set, Turkey contributes eight sites and Poland contributes six [1]. Hungary, Romania, Slovakia, Czechia, Ukraine, and Austria each contribute one. This does not mean that other countries are unsuitable in a permanent sense. It means that, under the current screening evidence and reference deployment envelope, the highest-ranking candidates are concentrated where the combination of site inventory, hazard context, infrastructure, and implementation factors is more favourable.
+The result should be read as a brownfield prioritisation map. A full-pass site is a credible candidate for detailed Stage 3 characterisation if the host government wishes to continue the process. An avoidance-flagged site remains in the candidate pool, but the controlling issue must be resolved before it can be treated as equivalent to a full-pass candidate. A hard-failed site stays in the evidence base as a comparator and as an explanation of why the existing brownfield footprint is unsuitable under the Stage 1-2 screen.
 
-The regional Coverage view should be read before the country profiles. It separates full-pass sites, exclusionary-pass sites with avoidance flags, and hard-fail sites across the study region. For readability, the figure and table should show approximately 10 countries at a time and allow horizontal or table scrolling for the remainder. Countries that appear in the broader scope but show 0 in-scope sites should not be interpreted as failed nuclear candidates. In the current coverage view, this means either that the merged coal-site database has no source rows for that country, or that all source records are outside the active site-status filter. This distinction should be kept in the regional narrative rather than repeated in every country profile.
+The country distribution is uneven. Türkiye has the largest screened pool and the largest number of full-pass records. Ukraine also has a sizeable full-pass pool, while Romania provides the highest individual composite score in the current v1.2 country-ledger set. Several countries have no full-pass site but retain avoidance-flagged candidates that are worth policy or technical review because the exclusionary gate is passed.
 
-**Table 4.1.1 — Country contributions to the regional top-20 site set.** Each row reports how many sites from the named country appear in the 20 highest-composite scoring sites across the entire study region. The count is a *concentration indicator* across the regional ranking, not the country-level shortlist of candidate sites for further evaluation; the broader country-level candidate lists are in §4.2 below. Countries not listed have zero sites in the regional top-20.
+**Table 4.1.1. Regional Stage 1-2 screening distribution. Cohort: published v1.2 country ledgers plus the consolidated no-pass country section. Metric: site-record status under the NuScale VOYGR-6 reference envelope. Interpretation limit: avoidance flags are not hard exclusions.**
 
-| Country | Sites in regional top 20 | Summary |
-| --- | ---: | --- |
-| Turkey | 8 | Largest regional top-tier contribution. |
-| Poland | 6 | Strongest Central European concentration. |
-| Hungary | 1 | Single regional top-tier site; country narrative needs site-level review. |
-| Romania | 1 | Single regional top-tier site; three **full-pass sites at country level** (Turceni, Rovinari, Brăila) — see interpretation note. |
-| Slovakia | 1 | Single regional top-tier site. |
-| Czechia | 1 | Single regional top-tier site. |
-| Ukraine | 1 | Single regional top-tier site; conflict and data-confidence caveats apply. |
-| Austria | 1 | Single regional top-tier site; policy and implementation caveats apply. |
+| Cohort | Countries | Site records | Scored / ranked records | Full pass | Avoidance flag | Hard fail |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Published country ledgers | 16 | 352 | 289 | 28 | 261 | 63 |
+| Consolidated no-pass country section | 3 | 8 | 0 | 0 | 0 | 8 |
+| Published Chapter 4 evidence base | 19 | 360 | 289 | 28 | 261 | 71 |
 
-*Interpretation notes (Table 4.1.1):*
-
-- **Turkey** — Largest contribution to the top tier, reflecting the size of the screened thermal-site population and several sites with competitive composite results.
-- **Poland** — Strongest Central European concentration, supported by multiple high-ranking coal-transition candidates.
-- **Hungary** — One site appears in the regional top tier; the country-level story still requires later site-specific review.
-- **Romania** — One Romanian site (Turceni) appears in the regional top-20 by composite score; the country still has three full-pass sites at country level (Turceni, Rovinari, Brăila). The "regional top-20 contribution" metric in this table is distinct from the per-country full-pass count reported in Chapter 5 §RO.
-- **Slovakia, Czechia** — One site each in the regional top tier.
-- **Ukraine** — One site in the regional top tier; conflict, security, and data-confidence context require careful later treatment.
-- **Austria** — One site in the regional top tier, subject to the policy and implementation caveats discussed in later sections.
-
-The country-balance diagnostic does not indicate excessive dominance by a single country. The largest country share in the regional top-20 set is 40%, which is at the report's monitoring threshold but not above it [1]. This matters for interpretation. The shortlist is not a purely one-country result, but it is also not evenly distributed across the study region. The practical conclusion is that Chapter 5 should provide full profiles only where viable candidates remain, while countries without viable candidates should be discussed through their failure modes and distance-to-threshold evidence [2].
-
-Composite scores should be shown with their Monte Carlo low/high band wherever they are used for selection. The point estimate identifies the current ordering, while the band shows why adjacent ranks should not be over-read as precise separations. The following examples show the leading regional records by composite score and their uncertainty band; several high-scoring records also carry avoidance flags and therefore require interpretation before being treated as full-pass progression candidates.
-
-**Table 4.1.2 — Top-10 sites in the regional ranking with composite score and Monte Carlo band.** Sorted by composite score (point estimate) descending. The Monte Carlo low–high columns show the central uncertainty band; adjacent ranks within overlapping bands should not be read as cleanly separated. *Status* values: *Full pass* (no exclusionary or avoidance flags), *Avoidance flag* (passes Stage 1 exclusionary criteria but carries one or more avoidance findings to be resolved at Stage 3).
-
-| Site | Country | Status | Composite | MC low–high |
-| --- | --- | --- | ---: | ---: |
-| Polaniec power station | Poland | Avoidance flag | 6.788 | 4.769-7.208 |
-| Opole power station | Poland | Full pass | 6.580 | 4.672-7.075 |
-| Konya Karapınar power station | Turkey | Full pass | 6.518 | 4.317-6.918 |
-| Mohacs power station | Hungary | Full pass | 6.467 | 4.619-6.887 |
-| Çoban Yıldız power station | Turkey | Avoidance flag | 6.376 | 4.264-6.776 |
-| Turceni power station | Romania | Full pass | 6.347 | 4.489-6.733 |
-| Turów power station | Poland | Avoidance flag | 6.333 | 4.454-6.828 |
-| Puchaczow power station | Poland | Avoidance flag | 6.307 | 4.544-6.698 |
-| Akdeniz Enerji power station | Turkey | Full pass | 6.280 | 4.344-6.774 |
-| Kangal Etyemez power station | Turkey | Avoidance flag | 6.264 | 4.251-6.667 |
-
-The regional ranking should also be read as a robustness signal, not a final list of project sites. Several leading sites have strong composite performance but still carry data-confidence, implementation, or Stage 3 investigation requirements. The purpose of the regional view is to show where the study finds the strongest comparative evidence. The decision on which sites receive detailed treatment remains a human selection step informed by the scores, sensitivity results, national context, and stakeholder priorities.
+The Romania count reconciliation requested in review is now resolved through the same distinction. Romania has 23 records in the country profile: 22 scored records and one hard-fail record. Within those 23 records, three sites are full-pass candidates, 19 are exclusionary-pass sites with avoidance flags, and one is a hard fail. That country-level result is separate from any regional top-N view and is the count basis used in Chapter 5.
 
 ## 4.2 Per-Country Top Candidate Sites
 
-This subsection identifies the country-level candidate lists that should guide later profile selection. It is not yet the final set of sites for detailed Chapter 5 treatment. The table reports countries represented in the regional top-20 set and lists up to 10 leading NuScale VOYGR-6 candidate sites in each country, ordered by the current composite score within that country [1]. The user selection step remains necessary before any site receives a full profile.
+The per-country result is more useful than a single regional league table for government decision-making. National portfolios differ in size, data coverage, energy-system context, and policy readiness. The table below therefore reports each country's leading screened candidates inside its own national pool, using the national composite score, national stability band, and current screening class.
 
-**Table 4.2.1 — Per-country leading NuScale VOYGR-6 candidate sites for selection review.** Only countries that contributed at least one site to the regional top-20 (Table 4.1.1) are listed. Per country, up to 10 leading sites are reported, ordered by current composite score within the country (highest first). The list is a *candidate inventory for human selection review* — it is not the final Stage 3 shortlist, and inclusion does not imply Stage 3 readiness; site profiles in Chapter 5 cover only the subset of these candidates explicitly selected for detailed treatment.
+Countries with only avoidance-flagged leaders should not be read as failed nuclear jurisdictions. The correct interpretation is narrower: the existing thermal-site portfolio contains candidates that pass the hard exclusionary screen, but each requires a targeted avoidance-resolution task before it can be placed alongside full-pass sites. Countries with hard-failed portfolios only are handled separately because their existing brownfield thermal sites do not provide a defensible NuScale VOYGR-6 pathway under the current Stage 1-2 evidence.
 
-Each block below is a two-column table so site lists and qualifications stay readable without one ultra-wide row.
+**Table 4.2.1. Per-country leading candidates. Cohort: published v1.2 country ledgers. Metric: top three scored records by national composite score where available. Interpretation limit: table is a candidate inventory for human selection, not a Stage 3 readiness statement.**
 
-#### Austria
+| Country | Full pass / avoidance flag / hard fail | Leading scored candidates |
+| :--- | :---: | :--- |
+| Austria | 0 / 6 / 2 | Riedersbach power station (7.159, band A, avoidance flag); Timelkam power station (7.016, band H, avoidance flag); Enns Power Station (6.616, band H, avoidance flag) |
+| Bosnia and Herzegovina | 0 / 5 / 6 | Stanari Thermal Power Plant (6.747, band A, avoidance flag); Miljevina power station (6.622, band H, avoidance flag); Kamengrad Thermal Power Plant (6.572, band H, avoidance flag) |
+| Bulgaria | 0 / 7 / 8 | Lom Power Station (7.428, band A, avoidance flag); Maritsa 3 power station (7.009, band D, avoidance flag); Bobov Dol power station (6.984, band G, avoidance flag) |
+| Czechia | 0 / 29 / 0 | Tusimice power station (7.095, band A, avoidance flag); Prunerov power station (7.016, band C, avoidance flag); Chvaletice power station (7.009, band D, avoidance flag) |
+| Croatia | 0 / 1 / 1 | Plomin power station (6.214, band A, avoidance flag) |
+| Hungary | 1 / 10 / 0 | Mohacs power station (7.584, band A, full pass); Borsod power station (6.941, band D, avoidance flag); Tiszapalkonya power station (6.778, band D, avoidance flag) |
+| Latvia | 0 / 1 / 0 | Kurzeme power station (6.603, band A, avoidance flag) |
+| Moldova | 0 / 1 / 0 | Kuchurgan power station (6.959, band A, avoidance flag) |
+| Montenegro | 0 / 1 / 3 | Bar power station (6.023, band A, avoidance flag) |
+| North Macedonia | 0 / 3 / 1 | Bitola power station (6.812, band A, avoidance flag); Negotino power station (6.707, band H, avoidance flag); Oslomej power station (5.905, band H, avoidance flag) |
+| Poland | 3 / 58 / 2 | Polaniec power station (7.422, band A, avoidance flag); Pólnoc power station (7.284, band A, full pass); Adamow power station (7.227, band B, full pass) |
+| Romania | 3 / 19 / 1 | Turceni power station (7.816, band A, full pass); Rovinari power station (7.159, band B, full pass); Iernut power station (7.114, band D, full pass) |
+| Serbia | 0 / 6 / 2 | Štavalj Power Station (6.753, band A, avoidance flag); Kostolac power station (6.634, band H, avoidance flag); Kolubara A power station (6.559, band H, avoidance flag) |
+| Slovakia | 1 / 4 / 1 | Vojany I power station (7.022, band A, full pass); Trebisov power station (6.741, band H, avoidance flag); Novaky power station (6.716, band H, avoidance flag) |
+| Türkiye | 8 / 102 / 36 | Konya Karapınar power station (7.784, band A, full pass); Eren-1 power station (7.459, band A, full pass); Tufanbeyli power station (7.380, band A, avoidance flag) |
+| Ukraine | 12 / 8 / 0 | Zmiivska power station (7.455, band A, full pass); Dobrotvir power station (7.372, band B, full pass); Ladyzhyn power station (7.197, band D, full pass) |
 
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Timelkam; Voitsberg; Riedersbach; Enns; Duernrohr; Mellach. | Austria has one site in the regional top-20 and a small set of additional scored candidates. Any profile should treat policy and implementation context cautiously. |
-
-#### Czechia
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Tusimice; Pocerady; Ledvice; Chvaletice; Melnik; Prunerov; Plana Nad Luznici; Opatovice; Komorany; Hodonin. | Czechia has one regional top-20 site and a broader bench of ranked coal and thermal sites. The country-level profile should distinguish the leading site from the wider long-list. |
-
-#### Hungary
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Mohacs; Torony; Borsod; Tiszapalkonya; Matra; Matraterenye; Oroszlany; Mecsek Hills; Banhida-II; Bakony. | Hungary has one regional top-20 site. The remaining sites are useful for comparison, but the current evidence points to a single leading candidate for detailed consideration. |
-
-#### Poland
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Polaniec; Opole; Turów; Puchaczow; Patnow; Konin; Skawina; Dolna Odra; ZW Nowa; Pólnoc. | Poland is the strongest Central European cluster in the regional results, with multiple candidates close enough to justify country-level prioritisation rather than a single-site treatment. |
-
-#### Romania
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Turceni; Rovinari; Braila; Romag Termo; Giurgiu; Mintia-Deva; FPCU Feldioara; Govora; Suceava; Isalnita. | Romania has one regional top-20 site and several additional ranked sites. The country profile should test whether Turceni remains the clear lead once site-specific constraints are reviewed. |
-
-#### Slovakia
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Novaky; Vojany I; Trebisov; Martinska; U.S. Steel Kosice Works. | Slovakia has one regional top-20 site and a short ranked list. The main question is whether the top candidate has enough implementation strength to justify a full site profile. |
-
-#### Turkey
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Konya Karapınar; Çoban Yıldız; Akdeniz Enerji; Kangal Etyemez; Kangal; Yeşilovacık; Sarp Golvasi; Eren-1; Yüksek Gölovası; Yıldırım Elazığ. | Turkey is the largest contributor to the regional top tier. The country profile should not attempt to describe every scored site in equal depth; it should select a manageable subset from the leading group. |
-
-#### Ukraine
-
-| Leading candidate sites (score order) | Ranking qualification |
-| --- | --- |
-| Zmiivska; Dobrotvir; Ladyzhyn; Kalush; Burshtyn; Starobesheve; Kryvorizka; Vuglegirska; Kurakhov; Myronivskyi. | Ukraine has one regional top-20 site, but the country profile requires explicit security, conflict, data-confidence, and implementation caveats before any detailed site treatment. |
-
-The table should be used as a selection instrument. Countries with several credible candidates, especially Poland and Turkey, require a deliberate narrowing step before Chapter 5. Countries with one clear leading candidate can be handled more directly, but the report should still explain why other ranked sites were not selected for full treatment. Countries not represented in this table should not automatically receive full profiles; they should be addressed through the failure-mode and uncertainty discussion unless later review identifies a defensible NuScale VOYGR-6 candidate.
+The table points to three decision patterns. Romania, Türkiye, Ukraine, Poland, Hungary and Slovakia contain full-pass leadership pools that can support a staged Stage 3 work programme. Croatia, Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Latvia, Moldova, Montenegro, North Macedonia and Serbia are avoidance-led portfolios: they are not eliminated, but they require resolution of a specific criterion issue before a brownfield progression case is strong.
 
 ## 4.3 Sites Recommended for Progression Toward Stage 3
 
-The sites below are recommended for Stage 3 consideration, not for construction approval or final site suitability. They are the strongest current candidates because they combine high composite performance, survival of the exclusionary and safety-floor workflow, and a clear reason for further investigation under the NuScale VOYGR-6 reference envelope [1]. The recommendation is deliberately conditional: each site still requires site-specific hazard characterization, land and ownership confirmation, grid and cooling feasibility, environmental review, emergency-planning review, and stakeholder engagement.
+The recommended progression set is conditional. A site enters the first-wave characterisation set when it is already profiled in Chapter 5, passes the exclusionary screen, and either clears the avoidance screen or presents a nationally stable avoidance-led case that merits targeted resolution. Hard-failed sites are not recommended for Stage 3 progression unless later evidence refutes the failing measurement or the governing threshold is explicitly changed.
 
-| Priority | Site (country) | Composite | Rationale (summary) |
-| ---: | --- | ---: | --- |
-| 1 | Polaniec power station (Poland) | 6.79 | Highest composite; strong implementation and natural hazards. |
-| 2 | Opole power station (Poland) | 6.58 | Strong coal-transition candidate; high implementation. |
-| 3 | Konya Karapınar power station (Turkey) | 6.52 | Leading Turkish mix: radiological, EP, implementation. |
-| 4 | Mohacs power station (Hungary) | 6.47 | Clearest single-country leader in the regional results. |
-| 5 | Çoban Yıldız power station (Turkey) | 6.38 | Strong implementation; confirm site-specific constraints. |
-| 6 | Turceni power station (Romania) | 6.35 | Highest Romanian candidate; radiological and implementation strength. |
-| 7 | Turów power station (Poland) | 6.33 | Strong NH and implementation; review human-induced context. |
-| 8 | Puchaczow power station (Poland) | 6.31 | Consistent Polish candidate across NH and implementation. |
-| 9 | Akdeniz Enerji power station (Turkey) | 6.28 | Strong radiological and emergency-planning scores. |
-| 10 | Kangal Etyemez power station (Turkey) | 6.26 | Strong HI and radiological scores within Turkey bench. |
-| 11 | Kangal power station (Turkey) | 6.26 | Pair with Kangal Etyemez; avoid boundary double-counting. |
-| 12 | Novaky power station (Slovakia) | 6.22 | Test case for smaller national shortlist vs full profile. |
+Full-pass leaders should be sequenced first because they combine the cleanest screening class with the strongest basis for field confirmation. Avoidance-led leaders can still justify focused pre-Stage 3 work where the avoidance issue is measurable, bounded, and potentially resolvable. The difference is important: full-pass sites are candidates for detailed characterisation; avoidance-led sites are candidates for an unlock review followed by characterisation only if the controlling issue is resolved.
 
-*Rationale detail (Table 4.3 — Stage 3 progression):* priorities 1–12 above are the analytical recommendation set. Full prose rationales (implementation depth, sensitivity context, and Stage 3 data needs) should be read together with the site rows in Table 4.1.2 and the country blocks in Table 4.2.1; the in-table summaries stay short so the grid remains scannable in print export.
+**Table 4.3.1. First-wave Stage 3 characterisation candidates. Cohort: Chapter 5 profiled sites with full-pass status. Metric: national composite score, national Monte Carlo interval, national stability band, and national top-tier probability. Interpretation limit: recommendation is for detailed characterisation, not approval or construction.**
 
-This list should be treated as the analytical recommendation set for review, not as the final publication list. It is intentionally wider than the eventual detailed site-profile set. Poland and Turkey are over-represented because they contain multiple leading candidates. The next editorial step is to decide whether Chapter 5 should profile all leading sites in those countries or select a smaller, more representative subset.
+| Priority | Site | Country | Composite | MC interval | Band | Top-tier probability | Sequencing rationale |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | :--- |
+| 1 | Turceni power station | Romania | 7.816 | 6.891-8.256 | A | 100% | Highest current full-pass score and strongest Romanian stability result. |
+| 2 | Konya Karapınar power station | Türkiye | 7.784 | 6.528-8.301 | A | 100% | Turkish national leader and highest full-pass site outside Romania. |
+| 3 | Mohacs power station | Hungary | 7.584 | 6.705-8.075 | A | 100% | Clear Hungarian leader with clean screening status. |
+| 4 | Eren-1 power station | Türkiye | 7.459 | 6.604-7.900 | A | 100% | Turkish full-pass fast follower with strong national persistence. |
+| 5 | Zmiivska power station | Ukraine | 7.455 | 6.263-7.945 | A | 92% | Leading Ukrainian full-pass candidate, subject to country-specific security and implementation review. |
+| 6 | Dobrotvir power station | Ukraine | 7.372 | 6.533-8.006 | B | 100% | Stable Ukrainian full-pass candidate in the profiled cohort. |
+| 7 | Çayırhan power station | Türkiye | 7.347 | 6.513-7.806 | B | 100% | Turkish full-pass reserve candidate in the top national tier. |
+| 8 | Pólnoc power station | Poland | 7.284 | 6.462-7.869 | A | 100% | Highest full-pass Polish candidate in the current profiled set. |
+| 9 | Adamow power station | Poland | 7.227 | 6.245-7.822 | B | 92% | Full-pass Polish fast follower with strong national persistence. |
+| 10 | Ladyzhyn power station | Ukraine | 7.197 | 6.391-7.706 | D | 8% | Full-pass but less stable; use after the stronger Ukrainian leaders. |
+| 11 | Kryvorizka power station | Ukraine | 7.166 | 6.051-7.655 | D | 0% | Full-pass comparator whose rank stability needs caution. |
+| 12 | Rovinari power station | Romania | 7.159 | 6.361-7.700 | B | 100% | Fast-follower Romanian full-pass site with high national persistence. |
+| 13 | Vojany I power station | Slovakia | 7.022 | 6.250-7.481 | A | 100% | Slovak full-pass leader in the current country ledger. |
+| 14 | Burshtyn power station | Ukraine | 6.959 | 6.199-7.450 | D | 0% | Full-pass Ukrainian comparator with limited rank persistence. |
+
+This table does not exhaust every full-pass record in the regional evidence base. It records the first-wave profiled set now visible in Chapter 5. Additional full-pass records in Türkiye, Ukraine, Poland and Romania can be sequenced after their country and site profiles are brought to the same evidentiary standard.
+
+**Table 4.3.2. Conditional unlock candidates. Cohort: Chapter 5 profiled sites that pass exclusionary screening but retain an avoidance flag. Metric: national stability evidence and controlling progression condition. Interpretation limit: these sites require issue-specific resolution before they are treated as Stage 3 characterisation candidates.**
+
+| Site | Country | Composite | Band | Top-tier probability | Progression condition |
+| :--- | :--- | ---: | :---: | ---: | :--- |
+| Polaniec power station | Poland | 7.422 | A | 100% | Resolve the HI-01 avoidance finding before treating the site as equivalent to full-pass Polish candidates. |
+| Tufanbeyli power station | Türkiye | 7.380 | A | 100% | Resolve the controlling avoidance finding before treating the site as equivalent to full-pass Turkish candidates. |
+| Karapinar Konya Şeker power station | Türkiye | 7.354 | A | 100% | Resolve the controlling avoidance finding and compare with the Turkish full-pass leaders. |
+| Gubin Power Project | Poland | 7.222 | B | 92% | Resolve the controlling avoidance finding and compare with the Polish full-pass leaders. |
+| Riedersbach power station | Austria | 7.159 | A | 100% | Resolve the NS-02 and NS-05 avoidance findings and policy context before any detailed characterisation claim. |
+| Lom Power Station | Bulgaria | 7.428 | A | 100% | Resolve the controlling avoidance finding before promoting the Bulgarian brownfield case. |
+| Tusimice power station | Czechia | 7.095 | A | 92% | Resolve the HI-01 avoidance finding before promoting the Czech brownfield case. |
+| Kuchurgan power station | Moldova | 6.959 | A | 100% | Resolve HI-01 and country-specific control, security and implementation questions before any Stage 3 sequence. |
+| Bitola power station | North Macedonia | 6.812 | A | 100% | Resolve HI-01 and NH-01 avoidance findings before characterisation sequencing. |
+| Štavalj Power Station | Serbia | 6.753 | A | 92% | Resolve the NS-02 avoidance finding and compare with the wider Serbian avoidance-led pool. |
+| Stanari Thermal Power Plant | Bosnia and Herzegovina | 6.747 | A | 92% | Resolve the NS-02 grid-connection avoidance finding before treating the site as a national lead. |
+| Kurzeme power station | Latvia | 6.603 | A | 100% | Resolve HI-01, NS-02 and NS-05 avoidance findings in a single-site national pool. |
+| Plomin power station | Croatia | 6.214 | A | 100% | Resolve the avoidance finding before treating Croatia's only scored brownfield site as a progression candidate. |
 
 ## 4.4 Main Drivers of Suitability and Exclusion
 
-The main positive driver across leading sites is implementation readiness combined with acceptable safety-family performance. The highest-ranked sites tend to have strong non-safety scores, especially grid, land, infrastructure, and coal-to-nuclear reuse indicators, while avoiding obvious safety-floor failures. This is exactly the pattern expected in a coal-to-nuclear screen: existing thermal sites can rank well when their brownfield advantages are not outweighed by natural-hazard, emergency-planning, or environmental constraints.
+The leading positive driver is the combination of acceptable safety screening with non-safety implementation strength. Full-pass and high-ranked avoidance candidates tend to retain usable grid, thermal-site infrastructure, access, water context, and industrial land indicators. These advantages matter because coal and thermal sites can preserve infrastructure that a greenfield SMR programme would otherwise have to build or permit from scratch.
 
-Natural hazards remain a decisive differentiator. Strong candidates generally show acceptable scores for seismic, geotechnical, flooding, and combined natural-hazard criteria. Sites with strong implementation value but weak natural-hazard scores do not rise into the leading group. This reinforces the methodological point from Chapter 3: grid or reuse advantages cannot compensate for material safety weaknesses.
+Natural hazards remain the strongest mean family in the scored cohort, but individual seismic and geotechnical checks still remove sites where the screening evidence indicates a hard constraint. Non-safety implementation is also strong on average, which explains why several coal and thermal sites remain attractive after the safety screen. Radiological impact and emergency planning sit near the mid-range and remain important progression controls.
 
-The exclusion pattern is concentrated in a small set of criteria. At site–SMR pair level, 2,696 of the 2,904 evaluated pairs are excluded before composite ranking; 208 pairs survive and enter the sensitivity analysis. Emergency-planning feasibility is the largest exclusion driver, carrying 79 per cent of the exclusion volume. Slope stability is the second driver at 49 per cent. Subsidence and karst, and capable-fault screening, follow in the 25–31 per cent range. Ecological sensitivity and settlement-liquefaction together account for less than 2 per cent. These shares overlap where a pair fails more than one check; Annex D carries the full pair-level breakdown and the country-by-criterion matrix [3].
+Avoidance flags define the main unlock agenda. Across the published country ledgers, grid connection appears in 144 avoidance-flag records, aircraft-crash screening in 123, distance to population centres in 71, seismic ground motion in 69, and site-footprint adequacy in 40. These counts overlap because one site can carry more than one flag. The practical interpretation is that unlock work is multi-disciplinary: electrical interface, aviation-screening, population and EPZ micro-modelling, seismic, and land-envelope questions often need to be resolved together.
 
-| Driver | Direction of effect | Interpretation |
-| --- | --- | --- |
-| Grid, land, infrastructure, and reuse value | Raises otherwise acceptable brownfield sites in the ranking. | These factors explain why several coal and thermal sites become credible candidates once safety screens are cleared. |
-| Emergency-planning feasibility | Excludes or penalises sites with weak response context. | A site with limited emergency access, complex terrain, or weak healthcare access requires a much stronger Stage 3 case. |
-| Seismic surface rupture and geotechnical risk | Removes sites where a critical natural-hazard concern cannot be averaged away. | These are not ordinary ranking weaknesses; they are progression-control issues. |
-| Ecological and protected-area constraints | Removes a small number of otherwise screenable sites. | These cases should be presented with clear legal or spatial context rather than treated as generic environmental opposition. |
-| Data coverage and confidence | Limits how strongly any ranking can be interpreted. | Low-confidence or incomplete evidence should move a site into conditional follow-up, not into an unconditional recommendation. |
+**Table 4.4.1. Main suitability and exclusion drivers. Cohort: published v1.2 country ledgers. Metric: count of country-ledger records carrying the driver. Interpretation limit: driver counts overlap across multi-flag sites and are not additive.**
 
-The practical finding is that exclusion is not random. Sites tend to fall out because of emergency-planning feasibility, seismic/geotechnical constraints, or protected-area issues. Sites rise because they combine acceptable safety-screening results with strong brownfield implementation advantages. This gives Chapter 5 a clear structure: selected site profiles should explain both why a site ranked well and what could still prevent progression after field confirmation.
+| Driver | Driver type | Count | Interpretation |
+| :--- | :--- | ---: | :--- |
+| Grid Connection (NS-02) | Avoidance | 144 | Principal unlock issue for many exclusionary-pass brownfield sites. |
+| Aircraft Crash (HI-01) | Avoidance | 123 | Requires airport-class, flight-path and local aviation-context confirmation. |
+| Distance to Population Centres (RI-05) | Avoidance | 71 | Requires settlement-distance and emergency-planning-zone review. |
+| Seismic: Ground Motion (NH-01) | Avoidance | 69 | Requires national seismic evidence and site-specific hazard characterisation. |
+| Site Footprint Adequacy (NS-05) | Avoidance | 40 | Requires parcel, contiguous-area and development-envelope confirmation. |
+| Seismic: Surface Rupture (NH-02) | Exclusionary | 46 | Structural natural-hazard exclusion unless later evidence refutes the measurement. |
+| Emergency Planning Feasibility (EP-01) | Exclusionary | 19 | Hard-fail driver where access, terrain or response-context proxies do not support the screen. |
+| Ecological Sensitivity (NS-08) | Exclusionary | 3 | Localised hard constraint requiring environmental and legal review. |
+| Geotechnical: Slope Stability (NH-04) | Exclusionary | 2 | Site-specific geotechnical issue that cannot be offset by implementation strengths. |
+
+Average family scores reinforce the same message. Natural hazards and non-safety implementation are the strongest mean families in the scored cohort, at 6.50/10 and 6.36/10 respectively. Human-induced hazards and emergency planning sit at 5.59/10 and 5.52/10. Radiological impact is the weakest average family at 5.09/10, which is consistent with the prominence of population-distance and EPZ-density questions in the avoidance agenda.
 
 ## 4.5 Uncertainty, Data Gaps, and Confidence Levels
 
-Uncertainty is material to the interpretation of Chapter 4. The current scored dataset has an average criterion coverage of about 40%, with scored records ranging from roughly one-third to one-half of the full criterion set [1]. All scored NuScale VOYGR-6 records currently carry a low aggregate confidence label. This does not mean that every input is poor. It means that, at composite level, the ranking still depends on screening-grade evidence, proxy datasets, unscored criteria, or low-confidence fields.
+The current results are credible for Stage 1-2 prioritisation, but they remain screening-grade. Across the 285 scored records in the published country ledgers, criterion coverage ranges from 35.0% to 76.47%, with an average of 61.18%. Several high-ranked country portfolios therefore combine strong point-estimate scores with incomplete evidence. That is normal for a regional brownfield screen, but it must be visible in the way the report discusses rankings.
 
-Three types of uncertainty matter most. The first is data coverage: some criteria are unavailable, not applicable, or only partially populated for some sites. The second is evidence quality: open datasets differ in spatial resolution, legal authority, age, and national coverage. The third is interpretation uncertainty: criteria such as ownership, policy environment, workforce, infrastructure reuse, and emergency-planning feasibility require careful human review before they can support strong narrative claims [2].
+Missing evidence must be labelled as a limitation, not converted into an implied low score. If a criterion has no measured basis, the report should state `unscored / no measured basis` and identify the Stage 3 or human-review action that would close the gap. If a site is hard-failed and therefore has no composite score, the correct table entry is hard fail with measured failure evidence where available, not a zero composite.
 
-| Uncertainty area | Effect on findings | Required treatment |
-| --- | --- | --- |
-| Criterion coverage | Composite scores are comparable, but not complete descriptions of each site. | Report coverage and avoid overstating small score differences. |
-| Low aggregate confidence | Rankings should be used for prioritisation, not final suitability. | Treat recommended sites as Stage 3 candidates with explicit data needs. |
-| Open-source hazard evidence | Natural and human-induced hazard indicators may miss local or restricted information. | Confirm through national data, field studies, and regulator-facing technical work. |
-| Emergency-planning evidence | Road, terrain, healthcare, and special-population proxies are not approved emergency plans. | Require emergency-management review before any site is presented as feasible. |
-| Ownership, policy, and social context | Strategic interpretation can easily be overstated. | Keep claims factual unless the supporting evidence is strong; otherwise request human review. |
+**Table 4.5.1. Confidence and data-gap treatment. Cohort: Chapter 4 and Chapter 5 report surfaces. Metric: required reporting treatment for uncertainty classes. Interpretation limit: confidence labels guide Stage 3 work planning and do not replace expert judgement.**
 
-These limitations do not invalidate the ranking. They define its correct use. The analysis is strong enough to distinguish regional patterns, identify leading candidates, and explain the main reasons for exclusion. It is not strong enough to replace site visits, engineering studies, national authority engagement, legal due diligence, environmental assessment, or community consultation. The next stage should therefore focus on reducing uncertainty around the sites selected for full profile development.
+| Uncertainty class | Evidence signal | Required report treatment | Stage 3 or human-review action |
+| :--- | :--- | :--- | :--- |
+| Partial criterion coverage | Scored records average 61.18% criterion coverage | Report coverage beside scores and avoid over-reading small rank gaps. | Complete national-source review and site-specific data collection. |
+| Low aggregate confidence | Many ranked records retain low confidence labels in the country ledgers | Use rankings for prioritisation, not final suitability. | Replace screening proxies with field, regulator and owner evidence. |
+| Missing measured basis | Criterion has no usable measured value | Label as `unscored / no measured basis`, not as a low score. | Pull the missing national dataset, owner record or field measurement. |
+| Exclusionary failure without composite | Hard-failed site removed before ranking | Show failed criterion and threshold evidence where available; leave composite blank. | Revisit only if measurement or threshold basis changes. |
+| Avoidance flag | Site passes hard exclusion but carries one or more caution criteria | Keep site in candidate pool but require issue-specific resolution. | Define the unlock work package before characterisation sequencing. |
+| Country-specific security or policy context | Ukraine, Moldova and other sensitive cases require non-scoring judgement | State the caveat without turning it into a score. | Government, regulator and security review before site-specific progression. |
 
-## Drafting Notes
+These limitations preserve confidence in the analysis because they define the correct use of the evidence. The results are strong enough to identify leading national candidates, distinguish full-pass from avoidance-led portfolios, and explain why some brownfield fleets fall out. They are not a substitute for field investigation, regulatory engagement, land due diligence, environmental assessment, emergency-planning design, or stakeholder review.
 
-- If the analytical basis changes, update this chapter and Introduction §1.5 together.
-- Primary links: Annex D (failure-mode analysis), Annex C (sensitivity methodology), and Annex E (assumption register and data limitations).
-- Human review should validate any claim that one country or site is "best"; prefer "ranked highest under the report methodology" or "most robust under sensitivity testing."
+## 4.6 National Sensitivity and Site-Stability Findings
 
-## Working References for Chapter 4
+National sensitivity is the controlling stability frame for Chapter 4. The relevant question is whether a site remains strong inside its own country for the same NuScale VOYGR-6 reference envelope, not whether it occupies a fixed position in a cross-country regional table. This distinction matters because ministries select projects inside national energy systems, regulatory systems, land regimes, and emergency-planning institutions.
 
-1. Project scoring database and the project's 10,000-iteration Monte Carlo sensitivity analysis.
-2. Project writing decisions and country-profile rules in `report/output/writing plan/writingDecisions.md`.
-3. Annex D: Failure-Mode Analysis (this report).
+Band A sites are robust national shortlist candidates. Band B sites remain defensible top-tier candidates but with more sensitivity to the weighting and score-band assumptions. Band D sites often remain in the broader national top tier but should not be described as stable leaders without qualification. Band H sites are rank-fragile and should normally be treated as comparators or longer-term unlock candidates.
+
+**Table 4.6.1. National sensitivity summary by country. Cohort: published v1.2 country ledgers. Metric: leading scored site, national stability band, and national top-tier probability from the project's 50,000-iteration national Monte Carlo sensitivity analysis. Interpretation limit: small national pools require cautious interpretation.**
+
+| Country | Leading scored site | Status | Composite | MC interval | Band | Top-tier probability | Stability reading |
+| :--- | :--- | :--- | ---: | :---: | :---: | ---: | :--- |
+| Austria | Riedersbach power station | Avoidance flag | 7.159 | 6.361-7.650 | A | 100% | Stable, but unlock-led. |
+| Bosnia and Herzegovina | Stanari Thermal Power Plant | Avoidance flag | 6.747 | 6.028-7.237 | A | 92% | Stable, but unlock-led. |
+| Bulgaria | Lom Power Station | Avoidance flag | 7.428 | 6.193-7.918 | A | 100% | Stable, but unlock-led. |
+| Czechia | Tusimice power station | Avoidance flag | 7.095 | 6.144-7.691 | A | 92% | Stable, but unlock-led. |
+| Croatia | Plomin power station | Avoidance flag | 6.214 | 5.467-6.730 | A | 100% | Stable in a very small pool, but unlock-led. |
+| Hungary | Mohacs power station | Full pass | 7.584 | 6.705-8.075 | A | 100% | Stable national leader. |
+| Latvia | Kurzeme power station | Avoidance flag | 6.603 | 5.912-7.200 | A | 100% | Stable but single-site and unlock-led. |
+| Moldova | Kuchurgan power station | Avoidance flag | 6.959 | 6.199-7.500 | A | 100% | Stable but single-site and policy-sensitive. |
+| Montenegro | Bar power station | Avoidance flag | 6.023 | 5.321-6.467 | A | 100% | Stable but small-pool and unlock-led. |
+| North Macedonia | Bitola power station | Avoidance flag | 6.812 | 5.927-7.329 | A | 100% | Stable, but unlock-led. |
+| Poland | Polaniec power station | Avoidance flag | 7.422 | 6.573-7.956 | A | 100% | Stable but must be compared with full-pass Pólnoc and Adamow. |
+| Romania | Turceni power station | Full pass | 7.816 | 6.891-8.256 | A | 100% | Strongest current national leader. |
+| Serbia | Štavalj Power Station | Avoidance flag | 6.753 | 5.928-7.175 | A | 92% | Stable, but unlock-led. |
+| Slovakia | Vojany I power station | Full pass | 7.022 | 6.250-7.481 | A | 100% | Stable national leader. |
+| Türkiye | Konya Karapınar power station | Full pass | 7.784 | 6.528-8.301 | A | 100% | Stable leader in the largest published pool. |
+| Ukraine | Zmiivska power station | Full pass | 7.455 | 6.263-7.945 | A | 92% | Defensible leader with country-specific caveats. |
+
+The stability conclusion is therefore portfolio-specific. Romania, Türkiye, Hungary, Ukraine and Slovakia contain full-pass sites that can anchor Stage 3 characterisation planning, although country-specific policy and security context still matters. Poland contains high-scoring full-pass sites behind an avoidance-led national point-estimate leader, so the recommendation sequence should separate Polaniec's unlock work from the full-pass Polish candidates. The remaining published country ledgers are nationally meaningful but avoidance-led and should be assigned issue-specific unlock tasks before characterisation funding is committed.
+
+The report should carry this distinction into the recommendations. The first Stage 3 sequence should start with stable full-pass leaders. Avoidance-led leaders should be assigned to unlock work packages before characterisation funding is committed. Hard-failed portfolios should move either to a greenfield site-survey question or to a brownfield recovery question only if the failed measurement can be challenged with stronger evidence.

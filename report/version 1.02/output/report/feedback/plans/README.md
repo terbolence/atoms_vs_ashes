@@ -15,7 +15,7 @@ This folder is the **co-located mirror** of the canonical feedback rework plans.
 | `SP-D_rubric_bands.plan.md` | YAML edits per Phase 0.6 approved proposals. | **Phase 0.6 sign-off per criterion** required. |
 | `SP-D_data_sanity/<criterion_id>.md` | **Phase 0.5** per-criterion data-cleanliness audit. | gate for routing into SP-D vs SP-F. |
 | `SP-D_band_proposals/<criterion_id>.md` | **Phase 0.6** per-criterion proposed bands + regression matrix. | `sign_off: yes` per file. |
-| `SP-E_engine_semantics.plan.md` | `bands.py` + `_site_profile_markdown.py` distinguish unscored vs favorable-by-default vs pass-mark. | depends on FB-LL sign-off. |
+| `SP-E_engine_semantics.plan.md` | `bands.py` + `_site_profile_markdown.py` distinguish unscored vs favourable-by-default vs pass-mark. | depends on FB-LL sign-off. |
 | `SP-F_connector_refinements.plan.md` | Airport class, military classification fields. | depends on FB-LL sign-off + live-API consent for re-enrichment. |
 | `SP-G_rerun_regenerate.plan.md` | Full enrichment + scoring rerun + per-country/per-site bundle export. | live-API consent + all upstream sign-offs. |
 | `SP-H_backlog.plan.md` | Reviewer comments deferred to a future iteration (#72) + engineering follow-ups. | n/a |

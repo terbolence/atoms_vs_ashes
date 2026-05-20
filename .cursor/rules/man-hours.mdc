@@ -1,10 +1,12 @@
 <!-- man_hours: 3.2 -->
 ---
 description: Require man-hours effort estimates on every file created or edited
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Man-Hours Estimation Rule
+
+> **Disabled on 2026-05-20 by user instruction.** The agent should no longer add `man_hours` comments to new or edited files, no longer maintain `audit/man_hours_registry.yml`, and no longer regenerate `audit/man_hours_summary.md`. Existing entries are preserved as a historical record. Re-enable by setting `alwaysApply: true` and removing this notice.
 
 Every file in this project must carry a man-hours estimate representing the equivalent senior-engineer effort to produce the file's **current final state** from scratch.
 

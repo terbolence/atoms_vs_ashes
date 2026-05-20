@@ -1,34 +1,31 @@
 # Slovakia Country Profile
 
-Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
 
-Slovakia has 6 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 1 sites pass both the exclusionary and avoidance screens, 4 pass the exclusionary screen but retain avoidance flags, and 1 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+Slovakia has six thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. One site passes both the exclusionary and avoidance screens, four pass the exclusionary screen but retain avoidance flags, and one fails one or more exclusionary checks. Slovakia is an established nuclear-power jurisdiction, so the Stage 3 question is less about first-time institutional readiness and more about whether brownfield thermal assets can be characterised within the national nuclear governance framework.
 
-The leading site is **Novaky power station**, with a composite score of 6.220 and a Monte Carlo interval of 4.291-6.593. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+The leading site is **Vojany I power station**, with a composite score of 7.022 and a Monte Carlo interval of 6.250-7.481. Its national stability band is `A`, and it records a 100% national top-10% hit rate. The next four ranked sites remain relevant as comparators and possible later candidates, but their band H sensitivity results mean they require constraint-specific unlock work before they can be treated as equivalent to Vojany I.
 
-<!-- specialist key=country_exec scope=country country_code=SK bundle=SK_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:21Z -->
-Of 6 Slovak thermal sites tested against the NuScale VOYGR-6 envelope, 1 clears both the exclusionary and avoidance screens, 4 pass exclusionary but carry avoidance flags, and 1 is removed at the exclusionary stage on Emergency Planning Feasibility (EP-01). Vojany I power station is the single fully clear candidate at composite 5.571 in band D with a 660 MW coal-fleet inheritance footprint. The leadership pool is one stable site supported by an avoidance-clean profile but with a moderate rank-stability risk; this is best read as a one-site lead with a fast-follower watch list.
+Slovakia's six ranked thermal records produce one full-pass site, four exclusionary-pass sites with avoidance flags, and one hard-fail site. Vojany I is the only site that combines a full pass with band A national stability, so the current brownfield sequence is a one-site leadership case rather than an immediate multi-site programme pool. Trebisov and Novaky sit close on point score, but both carry avoidance flags and band H national stability.
 
-The avoidance unlock pool is concentrated. **Aircraft Crash (HI-01)** carries 4 of the 5 exclusionary-pass scored sites (80 %); closing it is a quantitative micro-siting analysis using updated flight-track data and approach-cone modelling against the 10 km screening radius. **Grid Connection (NS-02)** and **Site Footprint Adequacy (NS-05)** each carry 2 sites (40 %): NS-02 is closable through transmission-corridor upgrades coordinated with SEPS; NS-05 is closable through parcel-by-parcel land assessments. The 17 % EP-01 hard-fail rate accounts for the single exclusionary loss and is not amenable to avoidance remediation.
+The avoidance unlock pool is concentrated across the exclusionary-pass cohort. Aircraft Crash (HI-01) affects four of the five exclusionary-pass sites, or 80% of that pool, while Grid Connection (NS-02) affects two sites, or 40%. Site Footprint Adequacy (NS-05) and Distance to Population Centres (RI-05) each affect one site. The practical unlock agenda is therefore an aviation and flight-path review across the Slovak candidate set, followed by targeted grid export, site-footprint and population-centre checks for the weaker second-tier sites.
 
-The greenfield lever is available but unlikely to be needed for an initial programme; the brownfield pool is small but workable. A credible Stage 3 sequence begins with Vojany I power station as the lead site, with the avoidance-flagged candidates as fast followers contingent on resolving HI-01 across the country in a single national programme rather than site by site.
-<!-- /specialist key=country_exec -->
+A greenfield option remains available if a future Slovak build-out target exceeds what the brownfield pool can credibly support, but the current evidence does not require it for the first characterisation sequence. A credible Stage 3 sequence begins with Vojany I, keeps Trebisov and Novaky as avoidance-flagged comparators, and treats Martinska and U.S. Steel Kosice Works as later-wave candidates only if aircraft, grid, emergency-planning and land constraints can be retired.
 
 <a id="country-status-map"></a>
 
 ![Slovakia status map](figures/SK_site_status_map.png)
 
-Interactive review map with marker tooltips: [SK_site_status_map.html](figures/SK_site_status_map.html).
 
 ## Slovakia Site Ledger
 
 | Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
 |---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Novaky power station | Exclusion pass with avoidance flag | 6.220 | 4.291 | 6.593 | A | 100% | 38% |
-| 2 | Vojany I power station | Full pass | 5.571 | 4.031 | 5.978 | D | 0% | 38% |
-| 3 | Trebisov power station | Exclusion pass with avoidance flag | 5.126 | 3.852 | 5.473 | H | 0% | 38% |
-| 4 | Martinska power station | Exclusion pass with avoidance flag | 5.121 | 3.850 | 5.495 | H | 0% | 38% |
-| 5 | U.S. Steel Kosice Works power station | Exclusion pass with avoidance flag | 4.841 | 3.738 | 5.187 | H | 0% | 38% |
+| 1 | Vojany I power station | Full pass | 7.022 | 6.250 | 7.481 | A | 100% | 76% |
+| 2 | Trebisov power station | Exclusion pass with avoidance flag | 6.741 | 6.023 | 7.281 | H | 0% | 76% |
+| 3 | Novaky power station | Exclusion pass with avoidance flag | 6.716 | 6.003 | 7.237 | H | 0% | 76% |
+| 4 | Martinska power station | Exclusion pass with avoidance flag | 6.303 | 5.669 | 6.775 | H | 0% | 76% |
+| 5 | U.S. Steel Kosice Works power station | Exclusion pass with avoidance flag | 5.691 | 5.174 | 6.181 | H | 0% | 76% |
 | - | Kosice power station | Hard fail | - | - | - | - | - | 0% |
 
 ## Avoidance Flag Pareto
@@ -39,8 +36,8 @@ Of the 5 sites that pass the exclusionary screen, the avoidance-phase flags conc
 
 - **Aircraft Crash (HI-01)** - 4 of 5 exclusionary-pass sites (80%).
 - **Grid Connection (NS-02)** - 2 of 5 exclusionary-pass sites (40%).
-- **Site Footprint Adequacy (NS-05)** - 2 of 5 exclusionary-pass sites (40%).
-- **Population Density at EPZ Radii (RI-04)** - 1 of 5 exclusionary-pass sites (20%).
+- **Site Footprint Adequacy (NS-05)** - 1 of 5 exclusionary-pass sites (20%).
+- **Distance to Population Centres (RI-05)** - 1 of 5 exclusionary-pass sites (20%).
 
 ## Exclusionary Failure Pareto
 
@@ -52,21 +49,21 @@ The exclusionary failures across the country trace back to a small number of cri
 
 ## Family Strength and Weakness
 
-Across the country the strongest criterion family is **Non-Safety / Implementation** at a mean normalised score of 8.06/10. The weakest family is **Human-Induced Hazards** at 2.46/10. The bottom three individual criteria across the country are:
+Across the country the strongest criterion family is **Non-Safety / Implementation** at a mean normalised score of 7.04/10. The weakest family is **Emergency Planning** at 5.22/10. The bottom three individual criteria across the country are:
 
 - **Military Installations (HI-06)** - mean 0.25/10 across 6 scored sites (min 0.0, max 1.5).
-- **Geotechnical: Foundation (NH-06)** - mean 2.42/10 across 6 scored sites (min 0.0, max 5.5).
-- **Surface Water Dispersion (RI-02)** - mean 2.83/10 across 6 scored sites (min 1.5, max 5.5).
+- **Electromagnetic Interference (HI-07)** - mean 1.50/10 across 6 scored sites (min 1.5, max 1.5).
+- **Ecological Sensitivity (NS-08)** - mean 2.17/10 across 6 scored sites (min 1.5, max 3.5).
 
 ## Interpretation for Site Selection
 
-The Slovakia result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+The Slovakia result separates a single defensible characterisation candidate from a wider avoidance-flagged comparison pool. The full-pass group contains only Vojany I. Avoidance-flag sites remain useful because they show which national constraints could unlock a broader brownfield programme, but they should not be sequenced ahead of the full-pass leader without resolving the specific aviation, grid, land or population-centre flags shown in the ledger.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/SK_avoidance_pareto.png)
 
-The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
+The chart shows the unlock agenda for the five exclusionary-pass sites. Aviation dominates the avoidance pool, while grid connection is the main implementation constraint that appears across more than one site.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Novaky power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+An IAEA-style reading of the table focuses less on exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Vojany I power station** leads nationally, sits inside the strongest stability band, and retains a full-pass status. That supports a decision to progress the site toward Stage 3 characterisation before lower-ranked or avoidance-flagged locations.
 
 The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
 

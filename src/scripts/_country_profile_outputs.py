@@ -1,4 +1,4 @@
-# man_hours: 1.0
+# man_hours: 1.1
 """Output coordinator for reusable country/site profile artefacts."""
 
 from __future__ import annotations
@@ -220,7 +220,7 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "latitude", "longitude",
     ]
     with path.open("w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=cols)
+        writer = csv.DictWriter(fh, fieldnames=cols, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({col: row.get(col) for col in cols})

@@ -1,60 +1,60 @@
 # Moldova Country Profile
 
-Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Analytical basis: this profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national Monte Carlo sensitivity analysis.
 
-Moldova has 1 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 1 pass the exclusionary screen but retain avoidance flags, and 0 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+Moldova has one thermal-site record in the current national screening pool. Kuchurgan power station passes the exclusionary screen but retains an avoidance flag, so Moldova has no full-pass brownfield candidate at this stage and no hard-failed site in the country ledger. The country should therefore be treated as a single-site, first-programme case for Stage 1-2 planning: the immediate question is whether Kuchurgan can be unlocked for Stage 3 characterisation, not how to sequence a multi-site national fleet.
 
-The leading site is **Kuchurgan power station**, with a composite score of 5.659 and a Monte Carlo interval of 4.066-6.154. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+The leading and only ranked site is **Kuchurgan power station**, with a composite score of 6.959 and a Monte Carlo interval of 6.199-7.500. Its national stability band is `A` with a national top-10% hit rate of 100%. That stability signal is useful, but it is also a function of Moldova's one-site pool. It should be read as national persistence for Kuchurgan, not as proof that the site is comparable to stronger multi-site country leaders.
 
-<!-- specialist key=country_exec scope=country country_code=MD bundle=MD_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:21Z -->
-Of 1 Moldovan thermal site tested against the NuScale VOYGR-6 envelope, none clear both the exclusionary and avoidance screens; the single site passes exclusionary but carries avoidance flags. Kuchurgan power station is the only candidate, sits in band A with a 100 % top-10 % hit rate, a composite score of 5.659, and a 1 400 MW coal-fleet inheritance footprint. This is a one-site case; there is no fleet-pool conversation to have from the brownfield base.
+The avoidance unlock pool is concentrated on one issue. **Aircraft Crash (HI-01)** affects the only exclusionary-pass site because the bundle records a small airfield at 7.03 km and a flight-path proxy at 3.52 km. Resolving this aviation constraint through national and cross-border aeronautical review is the prerequisite before Kuchurgan can be treated as a candidate for Stage 3 field characterisation.
 
-The avoidance unlock pool is concentrated on the single candidate. **Aircraft Crash (HI-01)** carries the one exclusionary-pass site (100 %), so closing it through quantitative micro-siting analysis using updated flight-track and approach-cone data against the 10 km screening radius is the prerequisite for Kuchurgan to advance to Stage 3 characterization. No other criterion in the country bundle blocks the candidate.
-
-The greenfield lever is the only path to expanding the Moldovan programme beyond a single site. A credible Stage 3 sequence begins and ends with Kuchurgan power station, contingent on resolving HI-01 before any characterization budget is committed.
-<!-- /specialist key=country_exec -->
+The Stage 3 cadence is therefore narrow and conditional. Moldova should first resolve the HI-01 aviation screen, then test the site-specific governance, ownership, emergency-planning, grid, cooling-water, land and ecological assumptions that remain material at Kuchurgan. If the aviation issue cannot be resolved, the brownfield option should remain in the evidence base as a comparator and any Moldovan programme expansion would require a separate greenfield or wider industrial-site search.
 
 <a id="country-status-map"></a>
 
 ![Moldova status map](figures/MD_site_status_map.png)
 
-Interactive review map with marker tooltips: [MD_site_status_map.html](figures/MD_site_status_map.html).
 
 ## Moldova Site Ledger
 
 | Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
 |---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Kuchurgan power station | Exclusion pass with avoidance flag | 5.659 | 4.066 | 6.154 | A | 100% | 38% |
+| 1 | Kuchurgan power station | Exclusion pass with avoidance flag | 6.959 | 6.199 | 7.500 | A | 100% | 76% |
+
+## Selected Sites for Detailed Analysis
+
+The selected-site rule returns one Moldovan site because only one Moldovan record exists in the frozen national ranking. The detailed profile is **Kuchurgan power station**.
 
 ## Avoidance Flag Pareto
 
-Of the 1 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
+Of the one site that passes the exclusionary screen, the avoidance-phase flag is concentrated on a single criterion. This makes the Moldova unlock pathway clear and testable.
 
 ![Avoidance flag Pareto](figures/MD_avoidance_pareto.png)
 
 - **Aircraft Crash (HI-01)** - 1 of 1 exclusionary-pass sites (100%).
 
+## Exclusionary Failure Pareto
+
+No Moldovan site fails an exclusionary criterion in the frozen national run.
+
 ## Family Strength and Weakness
 
-Across the country the strongest criterion family is **Non-Safety / Implementation** at a mean normalised score of 7.61/10. The weakest family is **Human-Induced Hazards** at 2.58/10. The bottom three individual criteria across the country are:
+Across the Moldova pool, the strongest criterion family is **Non-Safety / Implementation** at a mean normalised score of 7.67/10. Radiological Impact follows at 7.28/10, Natural Hazards at 7.21/10, Human-Induced Hazards at 6.47/10, and Emergency Planning at 5.26/10. The bottom individual criteria are:
 
-- **Military Installations (HI-06)** - mean 1.50/10 across 1 scored sites (min 1.5, max 1.5).
-- **Evacuation Routes (EP-02)** - mean 1.50/10 across 1 scored sites (min 1.5, max 1.5).
-- **Surface Water Dispersion (RI-02)** - mean 1.50/10 across 1 scored sites (min 1.5, max 1.5).
+- **Military Installations (HI-06)** - mean 1.50/10 across one scored site.
+- **Surface Water Dispersion (RI-02)** - mean 1.50/10 across one scored site.
+- **Evacuation Routes (EP-02)** - mean 1.50/10 across one scored site.
+- **Electromagnetic Interference (HI-07)** - mean 1.50/10 across one scored site.
 
 ## Interpretation for Site Selection
 
-The Moldova result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+Moldova's Chapter 5 result is a single-candidate brownfield screen. Kuchurgan has a strong national rank by definition, a stable national sensitivity band, and useful reuse attributes, including an inherited 1,400 MW thermal complex, a nearby 330 kV grid context, rail access, cooling-water proximity, and a large site-area estimate. Those attributes justify a focused Stage 3 decision gate if the avoidance flag can be retired.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/MD_avoidance_pareto.png)
 
-The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
+The main limitation is that Moldova does not have a diversified screened brownfield pool. Small changes to Kuchurgan's aviation, governance, ownership, emergency-planning, water-dispersion or land-control evidence can therefore change the whole country conclusion. The national sensitivity analysis supports Kuchurgan as Moldova's only ranked candidate, but it does not remove the need for an early go/no-go review on HI-01 and the Transnistria-related governance questions.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Kuchurgan power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
-
-The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
-
-The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
+For IAEA SSG-35 Stage 1-2 purposes, Kuchurgan should be carried forward as an avoidance-flagged candidate requiring targeted resolution, not as an unconditional preferred site. The immediate Stage 3-preparation package should confirm aviation hazard, emergency-planning feasibility, cooling-water and liquid-pathway behaviour, land availability, ownership and programme governance, and ecological screening before committing to a broader site-characterisation campaign.
 
 ## Status Counts
 

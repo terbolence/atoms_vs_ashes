@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Slovakia (SK) site-screening status map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+.legend span { margin-right: 1rem; font-size: 0.9rem; }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem;
+  margin-right: 0.25rem; border: 1px solid #222; vertical-align: -0.1rem; }
+#map { width: 100%; height: 760px; border: 1px solid #ddd; }
+.callout { font-size: 12px; line-height: 1.25; }
+</style>
+<h1>Slovakia (SK) site-screening status for NuScale VOYGR-6</h1>
+<p>Country context and borders are provided by OpenStreetMap tiles. Click a marker for site name, status, composite score, Monte Carlo band, and stability band.</p>
+<div class="legend"><span><i style="background:#1f9d5a"></i>Full pass</span><span><i style="background:#d4a017"></i>Exclusion pass with avoidance flag</span><span><i style="background:#c0392b"></i>Hard fail</span></div>
+<div id="map"></div>
+<script>
+const map = L.map('map').setView([48.710853, 20.464977], 7);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+const bounds = [];
+bounds.push([48.552500, 21.972625]);
+L.circleMarker([48.552500, 21.972625], {radius: 7, color: '#222', weight: 1, fillColor: '#1f9d5a', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Vojany I power station</strong><br>Status: Full pass<br>National rank: 1<br>Composite: 7.022<br>MC band: 6.250-7.481<br>Stability band: N/A</div>").bindTooltip("Vojany I", {permanent: false, direction: 'top'});
+bounds.push([48.627778, 21.717222]);
+L.circleMarker([48.627778, 21.717222], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Trebisov power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 6.741<br>MC band: 6.023-7.281<br>Stability band: N/A</div>").bindTooltip("Trebisov", {permanent: false, direction: 'top'});
+bounds.push([48.698823, 18.533458]);
+L.circleMarker([48.698823, 18.533458], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Novaky power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 6.716<br>MC band: 6.003-7.237<br>Stability band: N/A</div>").bindTooltip("Novaky", {permanent: false, direction: 'top'});
+bounds.push([49.059218, 18.907019]);
+L.circleMarker([49.059218, 18.907019], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Martinska power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.303<br>MC band: 5.669-6.775<br>Stability band: N/A</div>").bindTooltip("Martinska", {permanent: false, direction: 'top'});
+bounds.push([48.615945, 21.194562]);
+L.circleMarker([48.615945, 21.194562], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>U.S. Steel Kosice Works power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 5.691<br>MC band: 5.174-6.181<br>Stability band: N/A</div>").bindTooltip("U.S. Steel Kosice Works", {permanent: false, direction: 'top'});
+if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
+</script>

@@ -1,4 +1,4 @@
-# man_hours: 0.5
+# man_hours: 0.8
 """Renderer regression tests for unscored vs scored criterion bullets.
 
 Covers FB-LL-01 / FB-LL-02 acceptance test: no rendered bullet may emit a
@@ -56,6 +56,60 @@ def _row(
         "quality_flag": quality_flag,
         "band_descriptor": band_descriptor,
     }
+
+
+def test_snapshot_renders_surface_area_rows_after_capacity(_patch_helpers):
+    spm = _patch_helpers
+    out = spm._snapshot(
+        {
+            "name": "Turceni power station",
+            "latitude": 44.669722,
+            "longitude": 23.407778,
+            "subnational_unit": "Gorj",
+            "installed_capacity_mw": 2640.0,
+            "site_area_ha": 173.0,
+        },
+        composite={},
+        band={},
+        composite_summary={},
+        country_profile_link=None,
+        land_area={"site_area_ha": 173.0},
+        families={"infrastructure": {"buildable_area_ha": 169.78}},
+    )
+
+    capacity_row = "| Installed thermal capacity (source data) | 2,640 MW |"
+    capacity_idx = out.index(capacity_row)
+    assert out[capacity_idx + 1] == "| Available surface area | 173.0 ha |"
+    assert (
+        out[capacity_idx + 2]
+        == "| Available surface area for development | 169.8 ha |"
+    )
+
+
+def test_snapshot_renders_missing_surface_area_as_na(_patch_helpers):
+    spm = _patch_helpers
+    out = spm._snapshot(
+        {
+            "name": "Unknown site",
+            "latitude": None,
+            "longitude": None,
+            "subnational_unit": "",
+            "installed_capacity_mw": 0,
+        },
+        composite={},
+        band={},
+        composite_summary={},
+        country_profile_link=None,
+        land_area={},
+        families={},
+    )
+
+    capacity_idx = out.index("| Installed thermal capacity (source data) | 0 MW |")
+    assert out[capacity_idx + 1] == "| Available surface area | N/A |"
+    assert (
+        out[capacity_idx + 2]
+        == "| Available surface area for development | N/A |"
+    )
 
 
 def test_unscored_row_does_not_assert_a_numeric_score(_patch_helpers):

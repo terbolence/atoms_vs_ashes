@@ -17,7 +17,7 @@ This is the **co-located mirror** of the canonical plan at `~/.cursor/plans/feed
 | Theme | Comment IDs | Sub-plan owner |
 | --- | --- | --- |
 | T1 EPRI weight basis swap | 1929454976 (apex), 72, 77, 117 | SP-B |
-| T2 Band thresholds yield pass-mark for favorable sites | 76, 79, 92, 94-97, 99-102, 105-109, 112, 573-580 | SP-D (via Phase 0.5/0.6) |
+| T2 Band thresholds yield pass-mark for favourable sites | 76, 79, 92, 94-97, 99-102, 105-109, 112, 573-580 | SP-D (via Phase 0.5/0.6) |
 | T3 Missing-evidence fallback inverts intent | 102, 105, 107, 108, 109, 117, 575, 580, 581, 583 | SP-E |
 | T4 Stage 1 vs Stage 2 boundary + exclusionary semantics | 32, 33, 35, 564 | SP-C |
 | T5 Connector data refinement (airport class, military depot) | 76, 77, 79, 120, 563, 582 | SP-F |

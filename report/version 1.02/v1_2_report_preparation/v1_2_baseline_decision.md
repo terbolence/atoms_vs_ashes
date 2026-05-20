@@ -1,4 +1,4 @@
-<!-- man_hours: 1.0 -->
+<!-- man_hours: 1.3 -->
 # Version 1.2 Baseline Decision (Freeze)
 
 This file records the **frozen analytical baseline** for the version 1.2
@@ -19,7 +19,7 @@ review passes.
 | Regional sensitivity | `sens-751884cf` | [`audit/.runtime/active_profile.sens-751884cf.yaml`](../../../audit/.runtime/active_profile.sens-751884cf.yaml) |
 | National sensitivity | `nat-sens-139d3947` | [`audit/.runtime/active_profile.nat-sens-139d3947.yaml`](../../../audit/.runtime/active_profile.nat-sens-139d3947.yaml) |
 
-All three snapshots agree on the following operating parameters
+All three snapshots agree on the following shared operating parameters
 (verified against the YAML files on 2026-05-17):
 
 - `run_label: baseline`
@@ -29,10 +29,16 @@ All three snapshots agree on the following operating parameters
 - `smr_keys: [nuscale_voygr6]` (NuScale VOYGR-6 only, 462 MWe envelope)
 - `site_status_in: [cancelled, construction, mothballed, operating, retired, shelved]`
 - `unscored_fallback_score: 5.0`
-- `mc_iterations: 10000`, `mc_seed: 42`
+- `mc_seed: 42`
 - `weight_perturbation_pct: 20.0`
 - `top_n_per_country: 10`, `near_miss_gap_pct: 10.0`
 - `mc_stability_band_width: 1.0`
+
+Sensitivity iteration control for report drafting:
+
+- Regional sensitivity (`sens-751884cf`) is a 10,000-iteration run in the active-profile snapshot, but it is not the drafting basis for the report under the user's 2026-05-18 instruction.
+- National sensitivity (`nat-sens-139d3947`) is the controlling country/site/report-drafting basis and was corrected by the user in this chat on 2026-05-18 as a 50,000-iteration run.
+- The active-profile YAML for `nat-sens-139d3947` currently records `sensitivity.mc_iterations: 10000`; treat that as stale metadata for drafting purposes and do not describe national sensitivity as 10,000 iterations in the manuscript or active plan notes.
 
 ## DB and repository snapshot
 

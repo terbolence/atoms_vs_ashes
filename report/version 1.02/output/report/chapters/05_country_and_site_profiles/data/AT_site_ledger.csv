@@ -1,9 +1,9 @@
 national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
-1,Timelkam power station,True,False,6.069,4.366,6.455,A,1.0,42.5,low,66.0,48.0122,13.5895
-2,Voitsberg power station,True,False,5.894,4.377,6.315,D,0.0625,45.0,low,330.0,47.0475,15.160278
-3,Riedersbach power station,True,False,5.807,4.311,6.226,D,0.1875,42.5,low,220.0,48.031769,12.843122
-4,Enns Power Station,True,False,5.514,4.174,5.981,H,0.0625,42.5,low,800.0,48.21309,14.475222
-5,Duernrohr power station,True,False,5.425,4.132,5.887,G,0.0625,42.5,low,802.0,48.32611,15.923333
-6,Mellach power station,True,False,5.354,4.099,5.774,D,0.125,42.5,low,246.0,46.90819,15.49231
+1,Riedersbach power station,True,False,7.159,6.361,7.65,A,1.0,76.47,low,220.0,48.031769,12.843122
+2,Timelkam power station,True,False,7.016,6.245,7.487,H,0.0,76.47,low,66.0,48.0122,13.5895
+3,Enns Power Station,True,False,6.616,5.922,7.156,H,0.0,76.47,low,800.0,48.21309,14.475222
+4,Voitsberg power station,True,False,6.559,5.876,7.05,H,0.0,76.47,low,330.0,47.0475,15.160278
+5,Duernrohr power station,True,False,6.544,5.864,7.081,H,0.0,76.47,low,802.0,48.32611,15.923333
+6,Mellach power station,True,False,6.347,5.705,6.837,H,0.0,76.47,low,246.0,46.90819,15.49231
 ,St Andrae power station,False,False,,,,,,0.0,low,192.0,46.75,14.816667
 ,Zeltweg power station,False,False,,,,,,0.0,low,137.0,47.25,15.166667

@@ -169,7 +169,7 @@ Lead paragraph
 - Evidence Limitations: list every criterion family or verdict marked
   low confidence, missing, or LLM-derived. Do not fill those gaps with
   speculation.
-- Use "support a decision to progress toward Stage 3 characterization"
+- Use "support a decision to progress toward Stage 3 characterisation"
   rather than "site approval" or "licence-ready".
 
 ## Style Reminders

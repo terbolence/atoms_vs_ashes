@@ -1,167 +1,164 @@
+<!-- man_hours: 4.6 -->
 # Annex E: Assumption Register and Data Limitations
 
-**What this annex adds.** Annex E carries the line-item assumption register and the per-dataset limitation catalogue that the main report summarises but does not reproduce. Chapter 2 §2.3 describes the evidence base at family level; Chapter 4 §4.5 summarises the uncertainty areas in a five-row table; the Chapter 5 site profiles carry site-specific residual-risk entries. Annex E lists every load-bearing assumption by ID and every authoritative dataset by name.
+**What this annex adds.** Annex E carries the report-facing assumption register and evidence limitation catalogue. Chapter 2 Section 2.3 describes the evidence base at family level; Chapter 4 Section 4.5 summarises uncertainty in the results; Chapter 5 site profiles carry site-specific residual-risk entries. Annex E gives the stable assumption IDs that tie those discussions together.
 
 ## Reading the register
 
 Every numerical answer in the study rests on a subset of the assumptions below. Each entry carries:
 
-- **ID** — a stable handle cited from code, audit reports, and reviewer responses.
-- **Domain** — the pipeline stage or criterion family the assumption constrains.
-- **Statement** — the load-bearing claim.
-- **Impact if wrong** — a qualitative statement of how the headline rankings would shift if the assumption fails.
-- **Mitigation** — how the project guards against the risk.
+- **ID:** a stable handle for audit and review.
+- **Domain:** the pipeline stage or criterion family the assumption constrains.
+- **Statement:** the load-bearing claim.
+- **Impact if wrong:** how the headline interpretation would change if the assumption fails.
+- **Mitigation:** how the project guards against the risk.
 
-The register is versioned with the rubric. Any rubric change must update or add an assumption; the audit pack does not pass review with a silent change.
+The register is versioned with the rubric. Any rubric change should update or add an assumption.
 
 ## Scope assumptions
 
-### A-SCOPE-01 — Pre-screening only, not detailed siting
+### A-SCOPE-01: Pre-screening only, not detailed siting
 
-- **Domain:** entire pipeline.
-- **Statement:** every result is fit for pre-screening (long-list or short-list) and not for permit-quality detailed siting. Detailed siting requires site-walk surveys, geophysical campaigns, deterministic probabilistic seismic hazard assessment (PSHA) and probabilistic fault displacement hazard assessment (PFDHA), and a regulator-led environmental impact assessment.
-- **Impact if wrong:** users mistake a Band A site for an approved site.
-- **Mitigation:** screening-only language in every per-country profile; the SSR-1 traceability matrix in Annex A marks every Requirement with an explicit coverage label.
+- **Domain:** entire assessment.
+- **Statement:** every result is fit for Stage 1 and Stage 2 pre-screening, long-listing, short-listing, and comparative ranking. Detailed siting requires site walks, geophysical campaigns, PSHA and PFDHA, and regulator-led environmental assessment.
+- **Impact if wrong:** users could mistake a robust screening candidate for an approved site.
+- **Mitigation:** every relevant report surface states the Stage 1 and Stage 2 scope; Annex A marks each SSR-1 Requirement with an explicit coverage label.
 
-### A-SCOPE-02 — Climate-change horizon out of scope
+### A-SCOPE-02: Climate-change horizon out of scope
 
-- **Domain:** ranking criteria with climatological inputs (NH-09 river flooding, NH-10 extreme winds, NH-11 extreme precipitation, NH-12 extreme temperatures, RI-01 atmospheric dispersion).
-- **Statement:** hazards use historical climatology for the last available reference period. Projected emissions scenarios are not applied at this stage.
-- **Impact if wrong:** sites near flood or heat hazard band boundaries could move plus or minus one band under a late-century horizon.
-- **Mitigation:** flagged as a Stage 3 follow-up; the threshold-perturbation sensitivity component in Annex C acts as a first-order proxy for shifted climatology.
+- **Domain:** climatological criteria, including river flooding, extreme winds, extreme precipitation, extreme temperatures, and atmospheric dispersion.
+- **Statement:** hazards use historical climatology for the latest available reference period. Long-term climate scenarios are not applied at this stage.
+- **Impact if wrong:** sites near flood, heat, precipitation, or dispersion band boundaries could move by one scoring band under a late-century horizon.
+- **Mitigation:** threshold perturbation in Annex C acts as a first-order proxy, and site-specific climate studies remain a Stage 3 follow-up.
 
-### A-SCOPE-03 — Region: 17-country pan-European study area
+### A-SCOPE-03: Current country roster
 
 - **Domain:** site universe.
-- **Statement:** the candidate-site population is restricted to AT, BA, BG, BY, CZ, HR, HU, LV, MD, ME, MK, PL, RO, RS, SK, TR, UA.
-- **Impact if wrong:** none for in-scope ranking; the study does not claim regional completeness for any other country.
-- **Mitigation:** every regional narrative states the country scope explicitly.
+- **Statement:** the candidate-site population is restricted to the countries defined in the version 1.2 report roster and supporting methodology artefacts.
+- **Impact if wrong:** results would not claim completeness for countries outside the roster.
+- **Mitigation:** country scope is stated in the main report and country-profile chapter.
 
-## Data-architecture assumptions
+## Evidence-architecture assumptions
 
-### A-DATA-01 — API-primary and LLM-fallback hierarchy
+### A-DATA-01: Structured public evidence hierarchy
 
-- **Domain:** every column in the merged evidence base.
-- **Statement:** where a first-party API or open-data source provides a field value, the API value is authoritative. LLM-curated values are used only when the API has no value. Raw LLM responses never enter the merged base.
-- **Impact if wrong:** scores depend on model knowledge cut-off; risk is bounded by the curation gate before promotion.
-- **Mitigation:** every scored row carries a `provenance_source` column; the provenance hierarchy is described in Annex C.
+- **Domain:** every field used in scoring.
+- **Statement:** structured public evidence and first-party national or institutional records are preferred when available; curated public-evidence collection is used only to fill gaps where structured evidence is absent or incomplete.
+- **Impact if wrong:** a score could depend too strongly on weak public evidence.
+- **Mitigation:** scored rows carry evidence-quality fields, and low-confidence rows receive wider uncertainty treatment in the national Monte Carlo analysis.
 
-### A-DATA-02 — Merged DB is the single source of truth for scoring
+### A-DATA-02: Single scoring evidence base
 
 - **Domain:** scoring engine.
-- **Statement:** the scoring engine reads only from the merged evidence base. API-only and LLM-only layers are never queried directly for scoring.
-- **Impact if wrong:** silent score divergence between runs.
-- **Mitigation:** every score row stores a run identifier; the rescore CLI refuses to write into the wrong database.
+- **Statement:** scoring reads from one reconciled evidence base rather than mixing unreconciled source layers at scoring time.
+- **Impact if wrong:** silent divergence between evidence layers could change scores.
+- **Mitigation:** scoring outputs retain provenance and quality flags for review.
 
-### A-DATA-03 — Site geometry is a single representative point
+### A-DATA-03: Site geometry is a single representative point
 
 - **Domain:** distance-based criteria.
-- **Statement:** each site is represented by a single (latitude, longitude) point; distance-based criteria measure to that point.
-- **Impact if wrong:** for very-large host sites the emergency-planning buffer might intersect more constraints than the point measurement suggests.
-- **Mitigation:** Stage 3 recomputes against the actual containment and cooling-tower footprint.
+- **Statement:** each site is represented by one latitude-longitude point at Stage 1 and Stage 2 resolution.
+- **Impact if wrong:** very large host sites could have emergency-planning or hazard buffers that differ from the point-based screen.
+- **Mitigation:** Stage 3 recomputes against the actual containment, laydown, cooling, and access geometry.
 
 ## Rubric and scoring assumptions
 
-### A-RUBRIC-01 — 0–10 ranking scale with plus-or-minus-one uncertainty for low-quality rows
+### A-RUBRIC-01: 0-10 ranking scale with uncertainty for low-quality rows
 
-- **Statement:** every criterion produces a continuous 0–10 score; for rows whose source is flagged `quality = low`, the Monte Carlo uncertainty band is `score ± 1` (uniform). High-quality rows have zero-width uncertainty.
-- **Impact if wrong:** Monte Carlo stability is over-estimated for high-quality rows; this is the conservative direction for a screening study.
-- **Mitigation:** declared quality is itself a stored column; reviewers can re-run with a different dispersion model.
+- **Statement:** every criterion produces a continuous 0-10 score. Rows marked as lower quality receive a wider Monte Carlo uncertainty band than high-quality rows.
+- **Impact if wrong:** stability could be overstated for candidates with weak evidence.
+- **Mitigation:** declared evidence quality is stored and carried into the national sensitivity analysis.
 
-### A-RUBRIC-02 — Hard safety floor at 5.0 for exclusionary criteria
+### A-RUBRIC-02: Hard safety floor at 5.0 for exclusionary criteria
 
-- **Domain:** NH-02, NH-03, NH-04, NH-05, NH-07, NH-10, EP-01, NS-01, NS-08.
-- **Statement:** any site whose ranking score falls strictly below 5.0 on an exclusionary criterion is excluded from composite ranking by a synthetic `E*:floor` verdict.
-- **Impact if wrong:** before the floor, about 7 per cent more pairs survived to ranking; the floor tightens but does not contradict the underlying hard E-code condition.
-- **Mitigation:** documented in Annex B and unit-tested in the scoring pipeline.
+- **Domain:** NH-02, NH-03, NH-04, NH-05, NH-07, NH-10, EP-01, NS-01, and NS-08.
+- **Statement:** any site whose ranking score falls strictly below 5.0 on an exclusionary criterion is removed from composite ranking.
+- **Impact if wrong:** the ranking could admit sites with critical weaknesses.
+- **Mitigation:** Annex B documents the floor rules, and Annex D shows the resulting failure modes.
 
-### A-RUBRIC-03 — Failed sites keep their 0–10 scores for transparency
+### A-RUBRIC-03: Failed sites keep their 0-10 scores for transparency
 
-- **Statement:** sites that fail a hard E-code or safety floor still carry all per-criterion ranking scores in the audit; their composite is null and they never enter banding or national shortlists.
-- **Impact if wrong:** none for ranking; reduces auditability if reverted.
+- **Statement:** sites that fail a hard E-code or safety floor still carry per-criterion scores in the audit evidence, but their composite ranking score is not used for shortlisting.
+- **Impact if wrong:** ranking would not change, but review transparency would be weaker.
+- **Mitigation:** failure-mode outputs keep the mechanism and criterion evidence visible.
 
-### A-RUBRIC-04 — Per-criterion weights are swing weights once normalised
+### A-RUBRIC-04: Per-criterion weights are interpreted as decision importance
 
-- **Statement:** published weights are interpreted as importance to the decision; the swing-weight audit rescales by observed score range to verify declared importance matches discriminating power.
-- **Impact if wrong:** the headline ranking is robust to weight perturbation (Jaccard at top-10 per cent ≥ 0.85 on every plus-or-minus-20 per cent profile).
+- **Statement:** published weights represent relative decision importance after normalisation.
+- **Impact if wrong:** a criterion with little observed score variation could appear more influential than it is.
+- **Mitigation:** the swing-weight audit checks whether declared importance matches discriminating power.
 
-## Sensitivity-suite assumptions
+## Sensitivity assumptions
 
-### A-SENS-01 — Plus-or-minus-20 per cent per-category weight envelope
+### A-SENS-01: Plus-or-minus-20 per cent category-weight envelope
 
-- **Statement:** the regulatory band for category weight perturbation is plus-or-minus-20 per cent.
-- **Impact if wrong:** wider envelopes would expose more borderline pairs as unstable; the suite is parameterised so the band can be widened at low cost.
+- **Statement:** each criterion family can be perturbed by plus or minus 20 per cent for robustness testing.
+- **Impact if wrong:** wider envelopes would expose more borderline candidates as unstable.
+- **Mitigation:** the sensitivity suite is parameterised so the envelope can be widened in a later review cycle.
 
-### A-SENS-02 — 10,000 Monte Carlo iterations is sufficient
+### A-SENS-02: 50,000 national Monte Carlo iterations
 
-- **Statement:** convergence of mean, fifth percentile, and ninety-fifth percentile is verified at 10,000 iterations against 1,000 and 3,000 iteration presets; differences are below 0.5 per cent on all reported metrics.
-- **Mitigation:** smaller presets ship with the driver so reviewers can retest convergence.
+- **Statement:** the version 1.2 national sensitivity analysis uses 50,000 Monte Carlo iterations for national rank-probability outputs.
+- **Impact if wrong:** top-rank and top-five probabilities could carry unnecessary sampling noise.
+- **Mitigation:** the fixed seed and deterministic sampling scheme make the analysis reproducible.
 
-### A-SENS-03 — Pair-specific RNG seeding
+### A-SENS-03: Pair-specific seed equals 42
 
-- **Statement:** every Monte Carlo draw is seeded from the pair's site identifier, SMR key, and a fixed integer so the suite is bit-reproducible.
-- **Impact if wrong:** reproduction failures would be detected at rerun; the seed is fixed in code.
+- **Statement:** each Monte Carlo draw is seeded deterministically from the site and reference-case pair with seed 42.
+- **Impact if wrong:** reproduction failures would be detected by rerun comparison.
+- **Mitigation:** the seed is fixed and documented in Annex C.
 
-### A-SENS-04 — Country-balance flag at 40 per cent share
+### A-SENS-04: Criterion-pair correlation flag at absolute correlation of 0.70
 
-- **Statement:** if any single country's share of the regional top-20 exceeds 40 per cent, the suite emits a country-balance flag.
-- **Impact if wrong:** soft signal of data-coverage bias rather than a hard rule; reviewers decide whether to redistribute scoring effort.
-
-### A-SENS-05 — Criterion-pair correlation flagged at |ρ| ≥ 0.70
-
-- **Statement:** any pair with Pearson or Spearman magnitude 0.70 or above is flagged as potentially double-counting an axis.
-- **Mitigation:** the correlation flag list documents the latest flagged pairs and the decision on each one.
+- **Statement:** any pair of criteria with Pearson or Spearman correlation of 0.70 or above is flagged for review.
+- **Impact if wrong:** the scoring framework could double-count an evidence axis.
+- **Mitigation:** the criterion-correlation artefact documents flagged pairs and reviewer decisions.
 
 ## Reporting and scope-management assumptions
 
-### A-REPORT-01 — Country shortlist sizing
+### A-REPORT-01: Country shortlist sizing
 
-- **Statement:** each country's list ranks at least the top 10 sites (fewer only if the country has fewer scored sites). Larger countries carry `K = min(n, max(10, ceil(0.30·n)))`.
-- **Impact if wrong:** small countries cannot offer a statistically meaningful 30 per cent slice; the floor of 10 forces a comparable narrative everywhere.
+- **Statement:** each country ranks at least the top 10 sites where enough sites exist; smaller countries rank all available candidates.
+- **Impact if wrong:** small countries may not support statistically meaningful long-list slices.
+- **Mitigation:** Chapter 5 country profiles explain small-pool limits where relevant.
 
-### A-REPORT-02 — Stamp-aligned artefacts
+### A-REPORT-02: Aligned methodology artefacts
 
-- **Statement:** every audit and report artefact within a single suite run shares the same provenance stamp; orphan stamps trigger a follow-up rerun rather than partial regeneration.
+- **Statement:** methodology, sensitivity, failure-mode, and report outputs should be aligned to the same frozen scoring and national sensitivity basis.
+- **Impact if wrong:** reviewers could read outputs that do not share the same analytical basis.
+- **Mitigation:** Annex F lists the generated methodology artefacts and maintenance notes.
 
-### A-REPORT-03 — Out-of-scope items are recorded, not hidden
+### A-REPORT-03: Out-of-scope items are recorded, not hidden
 
-- **Statement:** any IAEA SSR-1 Requirement the project does not cover is listed in the traceability matrix with an explicit `out_of_scope` label and rationale, rather than being silently omitted.
+- **Statement:** any SSR-1 Requirement the project does not cover is listed in Annex A with an explicit out-of-scope label and rationale.
+- **Impact if wrong:** the report could imply broader coverage than the Stage 1 and Stage 2 method supports.
+- **Mitigation:** Annex A preserves the full Requirement-level traceability matrix.
 
-## Per-dataset limitation catalogue
+## Evidence-source limitation catalogue
 
-The datasets below are the authoritative evidence sources the project uses for scoring. Each entry lists the data domain, spatial or temporal resolution, reference period, and the screening caveat that bounds how confidently the data can be used.
+The evidence categories below are the sources that shape scoring confidence. The report describes them by data family rather than by source-platform name.
 
-| Dataset or source | Domain | Resolution or scope | Reference period | Screening caveat |
-| --- | --- | --- | --- | --- |
-| European Seismic Hazard Model (EFEHR) | Seismic PGA and capable-fault proxy | European grid | Current EFEHR release | Stage 3 requires site-specific PSHA and PFDHA; screening Vs30 is a regional reference value. |
-| ERA5 reanalysis (ECMWF, Copernicus) | Wind, temperature, precipitation, dispersion | Roughly 0.25° grid | 1991–2020 climatology window | Coarse grid produces artefacts in mountainous regions; meteorological tower data is required at Stage 3. |
-| European Flood Awareness System and national flood-hazard cadastres | Flood hazard class | National and European grid | Current release | Coastal surge and dam-break contributions are not captured; design-basis flood analysis is a Stage 3 deliverable. |
-| CORINE Land Cover (EEA) | Land-use class, buildable area | 100 m European grid | CORINE 2018 and later | Urban or industrial classes can include non-buildable parcels; Stage 3 requires site-specific zoning. |
-| Natura 2000 network (EEA) | Protected area proximity | European vector | End of 2023 release | Article 6(3) appropriate assessment is a Stage 3 deliverable, not a screening verdict. |
-| WDPA (World Database on Protected Areas) | Non-Natura 2000 protected-area proxy | Global vector | Latest release | Not all IUCN categories impose the same restrictions; use with national-practice qualifier. |
-| WorldPop | Population density at screening radii | 100 m constrained | Latest release | Population projection is a linear projection for screening; Stage 3 requires national census plus municipal planning. |
-| OpenStreetMap (OSM contributors) | Roads, rail, airports, industrial and military features | Crowd-sourced vector | Rolling | Completeness is country-dependent; absence of a feature does not imply absence in reality. |
-| Global Energy Monitor and Beyond Fossil Fuels | Coal and thermal plant inventory | Global structured | Access window at drafting | Coal-retirement status may lag national sources; verify against national energy source at Stage 3. |
-| JRC ENSPRESO | Power plant database | European structured | Access window at drafting | Source reconciliation required against GEM and national inventories. |
-| ENTSO-E Transparency Platform | Grid topology and capacity | European platform | Access window at drafting | Public grid data supports screening only; firm-capacity headroom requires a transmission system operator study. |
-| Institute for the Study of War control-of-terrain map | Ukraine control-of-terrain | National | Dated at publication | Temporal snapshot; attribute with the exact map date when cited in the Ukraine sections. |
+| Evidence category | Domain | Resolution or scope | Screening caveat |
+| --- | --- | --- | --- |
+| Seismic and capable-fault hazard layers | PGA, fault proximity, and geotechnical proxies | Continental or national grid and vector products | Stage 3 requires site-specific PSHA, PFDHA, and geotechnical ground-truthing. |
+| Meteorological and climatological records | Wind, temperature, precipitation, and dispersion proxies | Gridded and national-station reference periods | Screening wind and precipitation values are relative indices for ranking. Implausibly low precipitation or wind values must be reconciled with national meteorological records before design-basis use. |
+| Flood-hazard and hydrological records | River, coastal, surge, and cooling-water context | National and continental hazard layers | Dam-break, combined-event, and design-basis flood studies are Stage 3 tasks. |
+| Land-cover and land-use inventories | Land availability, zoning, industrial context, and buildable-area proxies | Parcel, raster, or national land-use products where available | Industrial classification does not prove permitted, contiguous, or controlled land. |
+| Protected-area and ecological inventories | Non-radiological environmental constraints | National and international protected-area records | Legal significance depends on national practice and project-specific assessment. |
+| Population and settlement grids | EPZ population density, large-centre proximity, and projection proxies | Gridded population surfaces and national statistics where available | Stage 3 requires census, municipal planning, and evacuation-time evidence. |
+| Open infrastructure and transport inventories | Roads, rail, ports, airports, military facilities, and industrial hazards | Public mapping and institutional records | Absence of a mapped feature does not prove absence in reality. |
+| Thermal-plant and grid inventories | Candidate-site identification, plant status, grid context, and reuse potential | Public plant records and TSO disclosures | Retirement status, grid capacity, and ownership require national confirmation. |
+| Conflict and territorial-status records | War-context and control-of-terrain caveats | Dated public evidence | Any site progression depends on updated legal, security, and infrastructure conditions at the time of review. |
 
 ## Country-specific data limitations
 
-The table below lists the country-specific caveats that affect how the ranking should be read for each country. These supplement the per-dataset caveats above; they do not invalidate any specific ranking but they do identify where the ranking is most likely to be tightened by Stage 3 evidence.
-
 | Country | Caveat |
 | --- | --- |
-| Ukraine (UA) | War-context caveat. Occupied-territory status for any site should be attributed to a dated control-of-terrain map at publication. Detailed site progression depends on post-war territorial stabilisation and infrastructure-condition evidence. |
-| Belarus (BY) | National data access is restricted; the site count is small and ownership tracing is weaker than elsewhere. |
-| Moldova (MD) | Single site in the in-scope universe; the country narrative depends on cross-border cooling-water, grid, and emergency-planning coordination with neighbouring states. |
-| Russia-occupied regions (historical entries) | The ranking does not recompute political-control status. Any change in control would require a re-run with updated boundary data. |
-| Kosovo (XK) | Political-status caveat attaches to data availability; the country carries no survivors in the current pool. |
-| Turkey (TR) | Large universe with the strongest survivor pool but also the highest variability in data quality between provinces; national authority engagement is the priority for validating grid and emergency-planning proxies. |
+| Ukraine (UA) | War-context caveat. Any site progression depends on territorial stabilisation, updated infrastructure-condition evidence, and national authority review. |
+| Moldova (MD) | Single-site evidence makes the national narrative sensitive to cross-border cooling-water, grid, and emergency-planning assumptions. |
+| Kosovo (XK) | Political-status and data-availability caveats apply; the local failure artefact shows no surviving NuScale VOYGR-6 candidate. |
+| Turkey (TR) | The site universe is large and geographically varied; national authority engagement is central to validating grid, emergency-planning, and infrastructure proxies. |
 
-## Primary sources for this annex
+## Evidence basis
 
-- `report/methodology/assumption_register.md` — the authoritative assumption source.
-- `docs/large_assets.md` — the dataset index.
-- Connector reports under `docs/connector_reports/`.
-- Chapter 2 §2.3 and Chapter 4 §4.5 for the family-level summaries.
+This annex is drawn from the project-wide assumption register and the evidence-base summaries used by Chapters 2, 4, and 5. The generated source artefact is listed in Annex F.

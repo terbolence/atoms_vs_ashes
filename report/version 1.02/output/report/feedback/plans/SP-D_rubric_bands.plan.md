@@ -53,7 +53,7 @@ This sub-plan is **mechanical**. The substantive thinking happens in Phase 0.6 b
 **Offline wave landed.** All 18 Phase 0.6 band-proposal files were signed off (Stage 0) and the criterion-by-criterion YAML edits have already been merged into `config/scoring_rubrics/` with parity preserved on `config/scoring_specs/` (see prior session's offline SP-D wave: NH-03, NH-04, NH-05, NH-07, NH-08, NH-09, NH-11, NH-12, NH-13, NH-14, HI-02, HI-04, HI-05, HI-06, HI-08, EP-01, RI-04). HI-01 still depends on SP-F's `nearest_airport_class` enrichment landing before its v2 bands can be authored; the proposal explicitly captures that as a deferred follow-up. Each signed proposal has been augmented with a per-criterion `## Verification (2026-05-09)` block referencing the green test suite and the on-DB regression that will run as part of Stage 8b (SP-G scoring rerun).
 
 - `PYTHONPATH=src .venv/bin/pytest tests/scoring/ -q` => **89/89 passed** as of 2026-05-09.
-- `pytest tests/scripts/test_site_profile_unscored_rendering.py -q` => 5/5 passed (SP-E acceptance: pass-mark / unscored / favorable rendering).
+- `pytest tests/scripts/test_site_profile_unscored_rendering.py -q` => 5/5 passed (SP-E acceptance: pass-mark / unscored / favourable rendering).
 - The 18-anchor on-DB regression diff is deferred to Stage 8b under a new `run_id` (`feedback_rerun_<YYYYMMDD>`).
 
 Inventory of Phase 0.6 deliverables awaiting sign-off:
@@ -98,7 +98,7 @@ For each criterion id in `criteria_in_scope`:
 ## Cross-links
 
 - T2 in master plan.
-- FB-LL-01 (favorable-default), FB-LL-02 (renderer), FB-LL-03 (sub-classification fields from SP-F), FB-LL-05 (RI-04 dual mode), FB-LL-08 (AND-clause boundary check).
+- FB-LL-01 (favourable-default), FB-LL-02 (renderer), FB-LL-03 (sub-classification fields from SP-F), FB-LL-05 (RI-04 dual mode), FB-LL-08 (AND-clause boundary check).
 
 ## Out of scope
 

@@ -212,13 +212,18 @@ def test_national_sensitivity_runner_uses_separate_command(
 
     monkeypatch.setattr(_runner, "_start_command", fake_start)
     monkeypatch.setattr(_runner_national, "_start_command", fake_start)
-    start_national_sensitivity_run(
+    handle = start_national_sensitivity_run(
         profile=_profile_for_test(),
         mc_rank_draws=1234,
         min_pairs=4,
         seed=99,
         audit_dir="audit/out",
     )
+
+    assert handle.profile_path is not None
+    snap = yaml.safe_load(handle.profile_path.read_text())
+    assert snap["sensitivity"]["mc_iterations"] == 1234
+    assert snap["sensitivity"]["mc_seed"] == 99
 
     cmd = captured["cmd"]
     assert cmd[cmd.index("score") + 1] == "national-sensitivity"
@@ -263,9 +268,14 @@ def test_regional_sensitivity_runner_does_not_receive_national_flags(
         )
 
     monkeypatch.setattr(_runner, "_start_command", fake_start)
-    start_sensitivity_run(profile=_profile_for_test(), iterations=1000)
+    handle = start_sensitivity_run(profile=_profile_for_test(), iterations=1000)
+
+    assert handle.profile_path is not None
+    snap = yaml.safe_load(handle.profile_path.read_text())
+    assert snap["sensitivity"]["mc_iterations"] == 1000
 
     cmd = captured["cmd"]
     assert cmd[cmd.index("score") + 1] == "sensitivity"
+    assert cmd[cmd.index("--mc-draws") + 1] == "1000"
     assert "--mc-rank-draws" not in cmd
     assert "--min-pairs" not in cmd

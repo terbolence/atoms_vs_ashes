@@ -1,4 +1,10 @@
-"""Build the pandoc reference.docx template from report_format.json."""
+# man_hours: 4.0
+"""Build the pandoc reference.docx template from report_format.json.
+
+Do not edit ``reference.docx`` by hand. It is a generated Pandoc style cache;
+``report_format.json`` is the sole layout source of truth. Callers should use
+``ensure_reference_docx()`` so the template is rebuilt when the JSON changes.
+"""
 
 from __future__ import annotations
 

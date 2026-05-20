@@ -118,16 +118,30 @@ def export_active_profile_to_yaml(
     *,
     profile: RunProfile | None = None,
     runtime_dir: Path | None = None,
+    mc_iterations: int | None = None,
+    mc_seed: int | None = None,
 ) -> Path:
     """Serialise the active DB profile to a per-run YAML the engine can read.
 
     ``profile`` may be passed in for tests; in normal use the runner
     pulls the row from the DB itself. Returns the path to the written
     YAML — caller is responsible for treating it as transient.
+
+    When ``mc_iterations`` or ``mc_seed`` are set, they override the
+    values from the DB row so the snapshot matches the GUI/CLI launch.
     """
     p = _merged_runtime_profile(
         profile if profile is not None else _load_active_profile()
     )
+    sens_updates: dict[str, int] = {}
+    if mc_iterations is not None:
+        sens_updates["mc_iterations"] = mc_iterations
+    if mc_seed is not None:
+        sens_updates["mc_seed"] = mc_seed
+    if sens_updates:
+        p = p.model_copy(
+            update={"sensitivity": p.sensitivity.model_copy(update=sens_updates)},
+        )
     target_dir = runtime_dir if runtime_dir is not None else _runtime_root()
     target_dir.mkdir(parents=True, exist_ok=True)
     path = target_dir / f"{_RUNTIME_PROFILE_PREFIX}{run_id}{_RUNTIME_PROFILE_SUFFIX}"
@@ -212,10 +226,16 @@ def start_sensitivity_run(
     active = _merged_runtime_profile(
         profile if profile is not None else _load_active_profile()
     )
-    yaml_path = export_active_profile_to_yaml(run_id, profile=active)
+    seed_val = seed if seed is not None else int(active.sensitivity.mc_seed)
+    iter_val = (
+        iterations if iterations is not None
+        else int(active.sensitivity.mc_iterations)
+    )
+    yaml_path = export_active_profile_to_yaml(
+        run_id, profile=active, mc_iterations=iter_val, mc_seed=seed_val,
+    )
     cleanup_stale_runtime_profiles(keep_run_ids={run_id, *keep_run_ids})
     weight = weight_profile or active.weight_profile
-    seed_val = seed if seed is not None else int(active.sensitivity.mc_seed)
     audit = audit_dir or active.output.audit_dir
     cmd = [
         sys.executable, "-m", "atoms_vs_ashes",
@@ -226,8 +246,7 @@ def start_sensitivity_run(
         "--audit-dir", audit, "--seed", str(seed_val),
         "--profile", str(yaml_path.resolve()),
     ]
-    if iterations is not None:
-        cmd += ["--mc-draws", str(iterations)]
+    cmd += ["--mc-draws", str(iter_val)]
     for stage in include:
         cmd += ["--include", stage]
     if no_progress:

@@ -30,20 +30,20 @@ The schema and naming convention follow [`experts/quality/lessons_learned.md`](.
 
 ## FB-LL-01: "No hazard nearby" must score HIGH, not pass-mark (scoring, derived from reviewer comments)
 
-**Pattern observed**: For hazard-direction criteria (NH-_ natural hazards, HI-_ human-induced hazards, EP-01 emergency-planning feasibility), the reviewer's mental model is that the **absence of hazard evidence in a favorable direction is itself favorable evidence**. The current rubric structure leaves a `[5,6]` "project pass-mark" band that matches whenever the high-band predicate's AND-clauses are not all satisfied, dragging clearly favorable sites to a 5.5 score that the reviewer reads as "low/borderline". The defect spans 4 criterion families and 12 distinct criteria.
+**Pattern observed**: For hazard-direction criteria (NH-_ natural hazards, HI-_ human-induced hazards, EP-01 emergency-planning feasibility), the reviewer's mental model is that the **absence of hazard evidence in a favourable direction is itself favourable evidence**. The current rubric structure leaves a `[5,6]` "project pass-mark" band that matches whenever the high-band predicate's AND-clauses are not all satisfied, dragging clearly favourable sites to a 5.5 score that the reviewer reads as "low/borderline". The defect spans 4 criterion families and 12 distinct criteria.
 
-**Evidence (reviewer comment ids)**: #92 (NH-03 Liquefaction "De ce este scorul asa de jos? Daca susceptibility este low?"), #94 (NH-04 Slope), #95 (NH-05 Subsidence "Score prea mic — asta inseamna tasari mari sau cavitati in teren pe amplasament"), #96 (NH-06 Volcanic "Scor prea mic daca vulcanic hazard este neglijabil"), #97 (NH-07 Coastal flooding "Asi spune score 10 — nu exista coastal flooding in Austria"), #99 (flood zone class negligible), #100, #573 (NH-11 extreme precipitation low values), #101, #574 (NH-13 wildfire), #105, #578 (HI-01 airport favorable), #107, #579 (HI-02 industrial), #108, #109, #583 (HI-08 other nuclear installations).
+**Evidence (reviewer comment ids)**: #92 (NH-03 Liquefaction "De ce este scorul asa de jos? Daca susceptibility este low?"), #94 (NH-04 Slope), #95 (NH-05 Subsidence "Score prea mic — asta inseamna tasari mari sau cavitati in teren pe amplasament"), #96 (NH-06 Volcanic "Scor prea mic daca vulcanic hazard este neglijabil"), #97 (NH-07 Coastal flooding "Asi spune score 10 — nu exista coastal flooding in Austria"), #99 (flood zone class negligible), #100, #573 (NH-11 extreme precipitation low values), #101, #574 (NH-13 wildfire), #105, #578 (HI-01 airport favourable), #107, #579 (HI-02 industrial), #108, #109, #583 (HI-08 other nuclear installations).
 
 **Root-cause hypothesis**: Two overlapping defects in [`config/scoring_rubrics/*.yaml`](../../../../config/scoring_rubrics/) and [`src/atoms_vs_ashes/scoring/bands.py`](../../../../src/atoms_vs_ashes/scoring/bands.py):
 
-1. **Rubric**: high-end favorable bands lack an explicit "no hazard / hazard absent / clearly outside threshold" branch; the `[5,6]` band catches everything that is not exclusionary or not clearly hazardous.
+1. **Rubric**: high-end favourable bands lack an explicit "no hazard / hazard absent / clearly outside threshold" branch; the `[5,6]` band catches everything that is not exclusionary or not clearly hazardous.
 2. **Engine**: when `evaluate_bands` cannot match the high band, it falls through to `[5,6]` instead of recognising "this site is clearly outside the danger zone".
 
-**Distinct from project-history LL**: closest is **LL-019** (DEM slope buffer-MAX renders NH-04 unusable) — but LL-019 is about which **statistic** is computed from the raster, not about how the band condition is **expressed**. FB-LL-01 is the next layer up: even when the data is correct, the band assignment defaults to pass-mark in the favorable direction.
+**Distinct from project-history LL**: closest is **LL-019** (DEM slope buffer-MAX renders NH-04 unusable) — but LL-019 is about which **statistic** is computed from the raster, not about how the band condition is **expressed**. FB-LL-01 is the next layer up: even when the data is correct, the band assignment defaults to pass-mark in the favourable direction.
 
-**Sub-plans that must honor this lesson**: SP-D (rubric high-end branch design), SP-E (engine: distinguish "favorable-by-default" from "unscored" from "pass-mark match").
+**Sub-plans that must honor this lesson**: SP-D (rubric high-end branch design), SP-E (engine: distinguish "favourable-by-default" from "unscored" from "pass-mark match").
 
-**Acceptance test**: For each anchor site in the regression matrix where the reviewer expected a high score (#97 Austrian coastal flooding, #105 Timelkam airport, #578 Braila airport), the new rubric produces a score in `[8, 10]`, and the rendered profile bullet cites the favorable branch (e.g. "no airport within 30 km AND no military within 60 km — favorable").
+**Acceptance test**: For each anchor site in the regression matrix where the reviewer expected a high score (#97 Austrian coastal flooding, #105 Timelkam airport, #578 Braila airport), the new rubric produces a score in `[8, 10]`, and the rendered profile bullet cites the favourable branch (e.g. "no airport within 30 km AND no military within 60 km — favourable").
 
 **Promotion**: yes — this is a structural lesson about hazard-direction rubric design that applies beyond this rework.
 
@@ -59,9 +59,9 @@ The schema and naming convention follow [`experts/quality/lessons_learned.md`](.
 
 **Distinct from project-history LL**: closest is **LL-022** (Overpass road density zero = silent false negative) — that is a data-acquisition false zero from a disconnected API. FB-LL-02 is one level up: even with correct upstream data flagged as "unscored", the renderer asserts a numeric score next to a "no evidence" string. Different layer, different fix.
 
-**Sub-plans that must honor this lesson**: SP-E (rendering distinction: unscored vs favorable-by-default vs band-matched-pass-mark), SP-F (where the underlying NULL is actually a silent false negative per LL-022, fix the connector first so the criterion has data and exits the unscored branch).
+**Sub-plans that must honor this lesson**: SP-E (rendering distinction: unscored vs favourable-by-default vs band-matched-pass-mark), SP-F (where the underlying NULL is actually a silent false negative per LL-022, fix the connector first so the criterion has data and exits the unscored branch).
 
-**Acceptance test**: After SP-E, no rendered bullet emits a numeric score with `Evidence: values not in measurement tables` in the same line. Unscored criteria render as "no native score (unscored — see data quality note)" or similar; favorable-by-default criteria cite the favorable branch matched; pass-mark matches cite the pass-mark band condition.
+**Acceptance test**: After SP-E, no rendered bullet emits a numeric score with `Evidence: values not in measurement tables` in the same line. Unscored criteria render as "no native score (unscored — see data quality note)" or similar; favourable-by-default criteria cite the favourable branch matched; pass-mark matches cite the pass-mark band condition.
 
 **Promotion**: yes — this is a permanent rendering invariant.
 
@@ -172,17 +172,17 @@ The system has no automated cross-document numeric consistency check; both error
 
 ## FB-LL-08: High-end band conditions must not require ALL-of clauses where any clause may be missing (rubric, derived from reviewer comments)
 
-**Pattern observed**: The HI-01 [9,10] band requires `nearest_airport_km > 30 AND nearest_military_airfield_km > 60`. When `nearest_military_airfield_km` is missing or NULL (typical of sites where the military connector found no military airfield within 60 km, but did not affirmatively encode "no military airfield here"), the AND-clause cannot be satisfied and the site falls through to `[5,6]` even though the favorable airport condition is clearly met. The pattern likely repeats for any criterion whose high-end favorable branch requires multiple co-occurring favorable conditions; reviewer's complaints about "no major airport within 30 km" sites scoring 5.5 trace to exactly this defect.
+**Pattern observed**: The HI-01 [9,10] band requires `nearest_airport_km > 30 AND nearest_military_airfield_km > 60`. When `nearest_military_airfield_km` is missing or NULL (typical of sites where the military connector found no military airfield within 60 km, but did not affirmatively encode "no military airfield here"), the AND-clause cannot be satisfied and the site falls through to `[5,6]` even though the favourable airport condition is clearly met. The pattern likely repeats for any criterion whose high-end favourable branch requires multiple co-occurring favourable conditions; reviewer's complaints about "no major airport within 30 km" sites scoring 5.5 trace to exactly this defect.
 
 **Evidence (reviewer comment ids)**: #105 (Timelkam HI-01), #106 (Timelkam small airport), #578 (Braila HI-01 explicit "no major airports near by within 30 km"), and indirectly #76 / #79 (Riedersbach airport).
 
-**Root-cause hypothesis**: Rubric design pattern across [`config/scoring_rubrics/hi_human_induced.yaml`](../../../../config/scoring_rubrics/hi_human_induced.yaml) (HI-01 lines 13-18 confirmed; other HI-\* criteria suspected). The rubric authors expressed the high-end favorable branch as a strict conjunction; the engine has no notion that "missing data on a sub-condition should not knock the score down when the other sub-condition is favorable".
+**Root-cause hypothesis**: Rubric design pattern across [`config/scoring_rubrics/hi_human_induced.yaml`](../../../../config/scoring_rubrics/hi_human_induced.yaml) (HI-01 lines 13-18 confirmed; other HI-\* criteria suspected). The rubric authors expressed the high-end favourable branch as a strict conjunction; the engine has no notion that "missing data on a sub-condition should not knock the score down when the other sub-condition is favourable".
 
 **Distinct from project-history LL**: closest is **LL-007** (quality vocab must be enum) — same general theme of "missing data semantics matter" but applied to enum values, not band conjunctions. FB-LL-08 is the band-design analogue.
 
-**Sub-plans that must honor this lesson**: SP-D (boundary-example check per scoring-audit §8.2 must include "all favorable except one missing" as a mandatory test case for every high-end band).
+**Sub-plans that must honor this lesson**: SP-D (boundary-example check per scoring-audit §8.2 must include "all favourable except one missing" as a mandatory test case for every high-end band).
 
-**Acceptance test**: Every Phase 0.6 band-proposal file includes at least one boundary-example row of form "all favorable conditions met except sub-condition X is NULL" and shows the proposed band still produces a high score in that case (either by expressing the high band as OR-of-favorable-clauses, or by pre-treating NULL sub-conditions as favorable when other clauses already justify the high band).
+**Acceptance test**: Every Phase 0.6 band-proposal file includes at least one boundary-example row of form "all favourable conditions met except sub-condition X is NULL" and shows the proposed band still produces a high score in that case (either by expressing the high band as OR-of-favourable-clauses, or by pre-treating NULL sub-conditions as favourable when other clauses already justify the high band).
 
 **Promotion**: yes — a generally useful rubric-design rule.
 
@@ -262,7 +262,7 @@ The system has no automated cross-document numeric consistency check; both error
 | 565                                                            | n/a (data-grain audit; LL-020 already covers) | Phase 0.5                              |
 | 574                                                            | FB-LL-11                                      | SP-A clarification request to reviewer |
 
-All 43 non-ack comment ids appear in at least one row above (some appear in two FB-LL families intentionally — e.g. #105 cross-cuts FB-LL-01 favorable-default, FB-LL-02 renderer, and FB-LL-08 AND-clause).
+All 43 non-ack comment ids appear in at least one row above (some appear in two FB-LL families intentionally — e.g. #105 cross-cuts FB-LL-01 favourable-default, FB-LL-02 renderer, and FB-LL-08 AND-clause).
 
 ---
 
@@ -271,7 +271,7 @@ All 43 non-ack comment ids appear in at least one row above (some appear in two 
 | FB-LL    | Promote to LL?                                                   | Rationale                                                                         |
 | -------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | FB-LL-01 | yes                                                              | Hazard-direction rubric design is generally applicable.                           |
-| FB-LL-02 | yes                                                              | Renderer must distinguish unscored / favorable / pass-mark — permanent invariant. |
+| FB-LL-02 | yes                                                              | Renderer must distinguish unscored / favourable / pass-mark — permanent invariant. |
 | FB-LL-03 | yes                                                              | Proximity-hazard sub-classification — reusable connector design rule.             |
 | FB-LL-04 | yes                                                              | Stage 1 vs Stage 2 boundary — core IAEA siting methodology.                       |
 | FB-LL-05 | yes                                                              | Dual-mode criteria — generally useful rubric design pattern.                      |

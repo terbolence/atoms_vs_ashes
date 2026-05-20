@@ -1,94 +1,102 @@
+<!-- man_hours: 4.9 -->
 # 2. Stage 1: Site Survey
 
-This chapter explains how the study moves from the initial site universe to candidate sites suitable for Stage 2 comparison. It should stay at screening resolution and should not duplicate detailed criteria tables from methodology artefacts.
+Stage 1 establishes the survey population for the report. It converts a broad set of coal, lignite and thermal power plant locations into a screened inventory that can be compared in Stage 2 under one reference deployment envelope: NuScale VOYGR-6. The chapter follows the site survey logic in IAEA SSG-35, where regional review, site identification and initial screening precede comparative site selection (IAEA, 2015).
 
 ## 2.1 Objectives of the Site Survey Stage
 
-The objective of Stage 1 is to move from a broad regional inventory of coal and thermal power plant sites to a defined candidate population for Stage 2 comparison. In IAEA SSG-35 terms, this is the site survey stage: regional analysis, identification of potential sites, and screening to candidate sites [1]. It is not the point at which site suitability is confirmed.
+The objective of Stage 1 is to define which sites are credible enough to enter structured comparison. The work starts from existing or former energy and industrial locations because the report is concerned with coal-to-nuclear and thermal-site reuse, rather than an unconstrained greenfield search. At this stage, a site enters the inventory because it is identifiable, within the published study boundary, and potentially relevant to the NuScale VOYGR-6 reference case.
 
-For this report, Stage 1 has three practical outputs. First, it defines the study region and the types of sites that are eligible for consideration. Second, it creates a georeferenced site universe with enough plant, location, ownership, grid, cooling, environmental, and hazard context to support structured screening [6]. Third, it records the main data limitations so that Stage 2 rankings are interpreted as screening evidence, not as design-basis conclusions.
+Stage 1 produces three outputs for the rest of the report. It fixes the published country roster and site universe, assembles a common evidence base for every site, and applies initial screening logic so that Stage 2 ranks only those sites that can be compared responsibly. This keeps site-survey work separate from site-selection work: Stage 1 identifies and screens, while Stage 2 evaluates, ranks and tests robustness.
 
-The Stage 1 process therefore serves a control function. It prevents the later scoring and sensitivity analysis from comparing sites that are poorly identified, outside the intended geography, or unsupported by the minimum evidence needed for a defensible screening study. It also separates data-readiness issues from genuine siting concerns, which is essential for deciding whether a weak result reflects a poor site, a missing dataset, or a question that must be deferred to Stage 3 characterization.
+The survey stage also protects the reader from false precision. A site with weak evidence is not treated as favourable simply because a field is missing. The evidence grade is carried forward as a limitation, a review flag, or a Stage 3 characterisation question, depending on how much the missing evidence affects the screening conclusion.
 
 ## 2.2 Study Region and Initial Site Universe
 
-The study region covers Central, Eastern and Southern Europe as defined for the project scope. The in-scope country set is Austria, Bosnia and Herzegovina, Bulgaria, Belarus, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey, and Ukraine [7]. Other countries are outside the report boundary and are not included in the regional ranking.
+The published version 1.2 analysis covers 16 countries in Central, Eastern and Southern Europe: Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey and Ukraine. No country or site conclusion in this chapter relies on records outside the published roster.
 
-The initial site universe contains 363 georeferenced sites [7]. It is built primarily from coal and lignite power plant records, supplemented where the project scope identifies other thermal or industrial power plant sites that may be relevant to coal-to-nuclear or thermal-site reuse [6]. At this stage, inclusion in the universe means only that a site is relevant enough to enter screening. It does not mean the site is viable, preferred, available, or acceptable for nuclear deployment.
+The published site universe contains 352 site records. Each record has a representative location and enough plant identity information to enter screening. Inclusion is limited to survey relevance; availability, owner support, licensing readiness, construction feasibility and host-community acceptance belong to later technical, regulatory and stakeholder processes.
 
-| Scope element        | Treatment in Stage 1                                                                                              | Reporting implication                                                                  |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Geography            | Seventeen-country study area in Central, Eastern and Southern Europe.                                             | Rankings and country profiles do not claim completeness outside this region.           |
-| Site type            | Coal, lignite, and relevant thermal power plant sites, plus project-designated additional sites where applicable. | The study starts from reuse potential, not from a blank-map greenfield search.         |
-| Site geometry        | One representative site coordinate is used for screening measurements.                                            | Distances and buffers are screening proxies; Stage 3 must use actual site layouts [7]. |
-| Reference technology | NuScale VOYGR-6 is used as the single reference deployment envelope.                                              | Results compare sites against one consistent SMR case, not across vendor alternatives. |
+Table 2.1. Published Stage 1 site universe by country. NuScale VOYGR-6 reference case. Denominator: 352 published site records.
+
+| Country | Site records | Exclusionary pass | Clear of avoidance flags | Retained with avoidance flags | Exclusionary fail |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Austria | 8 | 6 | 0 | 6 | 2 |
+| Bosnia and Herzegovina | 11 | 5 | 0 | 5 | 6 |
+| Bulgaria | 15 | 7 | 0 | 7 | 8 |
+| Czechia | 29 | 29 | 0 | 29 | 0 |
+| Croatia | 2 | 1 | 0 | 1 | 1 |
+| Hungary | 11 | 11 | 1 | 10 | 0 |
+| Latvia | 1 | 1 | 0 | 1 | 0 |
+| Moldova | 1 | 1 | 0 | 1 | 0 |
+| Montenegro | 4 | 1 | 0 | 1 | 3 |
+| North Macedonia | 4 | 3 | 0 | 3 | 1 |
+| Poland | 63 | 61 | 3 | 58 | 2 |
+| Romania | 23 | 22 | 3 | 19 | 1 |
+| Serbia | 8 | 6 | 0 | 6 | 2 |
+| Slovakia | 6 | 5 | 1 | 4 | 1 |
+| Turkey | 146 | 110 | 8 | 102 | 36 |
+| Ukraine | 20 | 20 | 12 | 8 | 0 |
+| **Published total** | **352** | **289** | **28** | **261** | **63** |
+
+The table is a survey-stage inventory, not a shortlist. The large number of sites retained with avoidance flags reflects the character of coal and thermal brownfields: many sit in industrial corridors, populated regions, transport corridors or constrained water and land settings. Stage 2 uses those flags to explain ranking, confidence and Stage 3 follow-up requirements.
 
 ## 2.3 Data Acquisition and Evidence Base
 
-Stage 1 uses a layered evidence base. Plant identity and operating context come from structured power plant inventories and national or regional energy sources. Spatial and environmental evidence comes from open geospatial datasets, satellite products, hazard catalogues, infrastructure datasets, and national or European registers where available [8]. Curated LLM-assisted enrichment is used only for targeted gaps where deterministic sources do not provide the required field [7].
+Stage 1 uses a layered public-evidence base. Plant identity and operating context are assembled from structured plant inventories, national energy information, owner and operator material where available, and reviewed public records. Spatial evidence is collected from open mapping, hazard, environmental, population, infrastructure and administrative sources that support screening-grade measurement across the full published region.
 
-The source hierarchy is deliberately conservative. Authoritative structured data and first-party datasets take priority where they exist. Proxy datasets, volunteered geographic information, and lower-resolution spatial products are used when they are adequate for screening but not for licensing-grade conclusions. LLM-assisted evidence is treated as a curated supplement rather than an authoritative source.
+The evidence hierarchy is conservative. Authoritative public records and structured measurements are preferred where they exist. Screening proxies are used where they are appropriate for a regional survey but too coarse for licensing-grade conclusions. Automated public-evidence collection and structured review are used to close targeted gaps, with the resulting fields treated as lower-confidence evidence unless corroborated by stronger sources.
 
-| Evidence family                           | Typical sources                                                                         | Stage 1 role                                                                      | Main limitation                                                                    |
-| ----------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Plant inventory and status                | Global Energy Monitor, Beyond Fossil Fuels, JRC, national energy sources.               | Identify sites, coordinates, fuel type, status, capacity, and retirement context. | Source reconciliation is required where names, status, or coordinates differ.      |
-| Natural hazard evidence                   | Geological, seismic, flood, meteorological, volcanic, terrain, and land-cover datasets. | Establish whether major safety-related concerns require screening attention.      | Desk-scale sources do not replace site-specific hazard characterization.           |
-| Human-induced and infrastructure evidence | Industrial registers, transport networks, grid data, OpenStreetMap, national sources.   | Identify external hazards and practical implementation constraints.               | Public sources may understate classified, local, or operator-specific constraints. |
-| Population, land use, and environment     | Population grids, protected-area datasets, land-cover products, national registers.     | Support emergency-planning, radiological-impact, and environmental screening.     | Resolution and legal status vary across countries and source families.             |
-| Curated enrichment and assumptions        | Reviewed web/legal/policy evidence, assumption register, quality flags.                 | Fill targeted gaps and record uncertainty for later interpretation.               | Requires human review before being used for strong country or site claims.         |
+Table 2.2. Stage 1 evidence families. Published site universe. Denominator: all sites entering screening.
 
-Every evidence item is interpreted through provenance and quality controls. The database quality vocabulary distinguishes high, medium, low, insufficient, and not-applicable evidence [7]. These flags are not cosmetic: they shape how confidently a criterion can be used, whether a site should be treated as data-limited, and what should be checked during Stage 3 characterization.
+| Evidence family | Stage 1 use | Main limitation |
+| :--- | :--- | :--- |
+| Plant identity and status | Confirms plant name, country, fuel or thermal history, operating status, capacity context and representative location. | Records can differ by plant name, unit boundary, retirement status or coordinate precision. |
+| Natural hazards | Screens seismic, geological, hydrological, meteorological, terrain and combined-hazard context. | Desk-scale hazard layers cannot replace site-specific investigations or design-basis studies. |
+| Human-induced hazards | Screens nearby aviation, industrial, military, transport and other external-event sources. | Public evidence can be incomplete for classified, operator-specific or rapidly changing activities. |
+| Radiological and emergency-planning context | Screens population, dispersion pathways, access, geography and special-population indicators. | These indicators support comparison but do not define emergency planning zones or licensed dose outcomes. |
+| Non-safety implementation context | Screens grid, cooling, transport, land, infrastructure reuse, workforce, policy and coal-to-nuclear transition fit. | Public evidence does not prove site control, permits, grid rights, water rights, community acceptance or commercial readiness. |
+
+Each evidence item carries a quality interpretation. High-confidence evidence can support a stronger screening conclusion; lower-confidence or incomplete evidence is disclosed as a limitation and passed into Stage 2 uncertainty treatment. Missing evidence is therefore visible to the reader and to the later Stage 3 work programme.
 
 ## 2.4 Initial Eligibility Checks and Screening Logic
 
-Initial eligibility checks determine whether a site can be evaluated consistently before it enters the Stage 2 scoring workflow. These checks are deliberately basic. They confirm that the site is inside the study region, has a usable coordinate, belongs to the intended coal, lignite or thermal-site universe, and has enough minimum evidence to support screening.
+Initial eligibility checks confirm that each record can be evaluated consistently. The checks verify country scope, site identity, representative location, relevant site type, and the minimum evidence needed for screening. Duplicate, ambiguous or out-of-scope records are resolved before the comparison stage.
 
-The first screening layer is not a final judgment on nuclear suitability. It is a quality-control step that protects the later comparison from obvious identity errors, missing geography, duplicated records, or sites that are outside the project scope. Where evidence is incomplete but the site remains relevant, the site is retained with data-quality flags rather than silently removed.
+The screening logic has two layers. The first layer is a basic readiness check: a site needs a usable location and enough plant and spatial context to be evaluated under the common framework. The second layer applies exclusionary conditions and safety floors for the NuScale VOYGR-6 reference case. A hard exclusionary condition captures a measured or classified concern that cannot be responsibly offset by strengths elsewhere; a safety floor prevents a critical low score from being hidden inside a favourable composite score.
 
-| Check | Purpose | Stage 1 treatment |
-| --- | --- | --- |
-| Site identity | Confirm plant name, country, site type, and representative coordinate. | Resolve duplicates or naming conflicts before comparison. |
-| Geographic scope | Confirm the site falls within the 17-country study area. | Exclude sites outside the regional boundary from the report ranking. |
-| Technology envelope | Confirm the site can be assessed against the NuScale VOYGR-6 reference case. | Use one reference deployment envelope for consistency. |
-| Data availability | Confirm that minimum location, plant, hazard, infrastructure, and population evidence can be assembled. | Flag weak fields; do not treat missing data as favourable evidence. |
-| Screening constraints | Identify obvious hard constraints or safety-floor concerns. | Defer detailed reasoning to Stage 2 and the exclusionary-floor artefacts. |
+Table 2.3. Exclusionary floor summary. NuScale VOYGR-6 reference case. Denominator: sites entering Stage 1 screening.
 
-This logic keeps Stage 1 focused on readiness for comparison. It does not convert screening flags into construction decisions, and it does not remove the need for expert review where exclusion would have material consequences.
+| Gate | Criterion | Screening rule | Stage 1 implication |
+| :---: | :--- | :--- | :--- |
+| E1 | Seismic surface rupture | Mapped capable-fault separation below the score-5 boundary. | Removes sites where surface-rupture concern cannot be screened out at desk-study level. |
+| E2 | Settlement and liquefaction | High or very-high susceptibility without a documented remedy, or a score below the safety floor. | Removes sites where ground-improvement feasibility cannot be assumed. |
+| E3 | Slope stability | Terrain slope above the screening envelope, or a score below the safety floor. | Removes sites where earthworks and slope stability would dominate later evaluation. |
+| E4 | Volcanism | Holocene volcanic proximity inside the screening standoff, or a score below the safety floor. | Removes sites with direct volcanic-hazard concern at survey resolution. |
+| E8 | Emergency-plan feasibility | Emergency-planning composite below the hard floor. | Removes sites where access, geography and population context make emergency planning implausible at screening resolution. |
+
+Avoidance flags are treated differently from exclusions. They identify concerns that warrant caution, ranking penalty, targeted review or Stage 3 investigation while keeping the site in the candidate population. This distinction is important for brownfield energy sites, where industrial, transport or land-use constraints are common and need transparent treatment rather than silent removal.
 
 ## 2.5 Candidate Site Identification
 
-Candidate site identification is the point at which a potential site becomes suitable for Stage 2 evaluation. A site moves forward when it is within scope, can be represented spatially, has sufficient evidence for the main screening families, and does not fail the basic eligibility logic described above. This produces a candidate population that can be compared using the common scoring framework.
+A site becomes a Stage 2 candidate when it is inside the published country roster, has a usable representative location, can be evaluated against the NuScale VOYGR-6 reference case, and passes the exclusionary screen. Under the version 1.2 baseline, 289 of the 352 published site records meet that exclusionary-pass condition. Of those, 28 are clear of avoidance flags and 261 remain candidates with one or more cautions to be interpreted in Stage 2.
 
-The candidate step applies the IAEA and EPRI logic of progressive refinement. Regional analysis produces a broad potential-site universe; screening removes or flags sites that cannot be compared responsibly; Stage 2 then evaluates, ranks, and tests the robustness of the remaining candidates [1], [2]. The report keeps this distinction explicit so that a "candidate" is understood as a site ready for structured comparison, not a site that has been found suitable for construction.
+Candidate status is therefore a comparison status, not a siting approval. It means that the site can enter the weighted evaluation, national sensitivity analysis and country-level shortlist logic. Sites that fail the exclusionary screen still remain useful to the report because their failure modes show where the published site universe is constrained and which concerns are likely to be difficult to resolve.
 
-Exclusionary logic is handled through two connected gates: hard exclusionary conditions and safety floors. Hard conditions capture cases where a measured or classified feature is incompatible with the screening rule. Safety floors prevent a site with a material weakness on a critical axis from being rescued by unrelated strengths elsewhere in the scoring system [2]. Sites that fail these gates can still be described in the report, but they do not become preferred candidates for Stage 3 progression.
+The Stage 1 handoff follows the progressive-refinement approach in SSG-35 and EPRI siting guidance (IAEA, 2015; EPRI, 2022). A broad survey becomes a candidate population, the candidate population is ranked in Stage 2, and a smaller group of sites is then identified for possible progression toward Stage 3 characterisation.
 
 ## 2.6 Description of Candidate Sites
 
-Candidate sites should be described in a consistent pattern so that country and site profiles can be read comparatively. The description should start with plant identity, country, location, technology or fuel history, status, and the reason the site is relevant to coal-to-nuclear or thermal-site reuse. It should then summarise the screening-relevant context: grid connection, cooling-water context, transport access, land and infrastructure reuse, surrounding population, external hazards, and known environmental or emergency-planning constraints.
+Candidate sites are described through a consistent evidence pattern. Each description identifies the plant, country, local area, status, fuel or thermal history, installed-capacity context where available, and the reason the site is relevant to coal-to-nuclear or thermal-site reuse. The description then turns to the screening-relevant context: grid connection, cooling-water context, transport access, land and infrastructure reuse, surrounding population, external hazards, environmental constraints and emergency-planning conditions.
 
-The description should separate facts from interpretation. A plant's former coal role, grid proximity, industrial land, or cooling-water access may explain why it is worth screening, but those features do not by themselves establish nuclear suitability. Similarly, ownership, site control, policy support, and local acceptance should be described only to the extent supported by evidence.
+The report separates evidence from interpretation. Existing grid infrastructure, industrial land, cooling-water access or workforce context can explain why a site is worth screening, while nuclear suitability depends on the full safety, environmental, regulatory and stakeholder case. Ownership, site control, policy support and local acceptance are reported only where the evidence supports a factual statement.
 
-Each candidate description should also carry its data caveats. Low-quality, insufficient, not-applicable, or LLM-assisted fields should be stated plainly when they affect interpretation. This avoids giving the appearance of precision where the study has only screening-grade evidence.
+Data caveats stay visible in the country and site profiles. Where a field is lower confidence, unavailable or outside the scope of the survey, the report states the limitation and connects it to the Stage 3 work programme. This preserves the value of the survey while avoiding the appearance that screening-grade evidence has resolved site-specific engineering, legal or social questions.
 
 ## 2.7 Stage 1 Outputs and Limitations
 
-Stage 1 produces a defined site universe, a screened candidate population, and a documented evidence base for Stage 2 comparison. It also records where the evidence is strong, where it is only a proxy, and where data gaps require caution. These outputs allow the report to proceed from inventory building to transparent evaluation without presenting early screening as a final siting conclusion.
+Stage 1 produces the published site universe, the exclusionary-pass candidate population, and a documented evidence base for Stage 2 selection. It also records why some sites fail, why many retained sites carry avoidance flags, and where evidence quality affects interpretation. These outputs allow the report to move from inventory building to transparent comparison.
 
-The main limitation is resolution. Stage 1 uses representative coordinates, open datasets, structured inventories, screening proxies, and curated enrichment. It does not confirm land rights, final site boundaries, design-basis hazards, engineered mitigation, emergency-plan approval, grid connection agreements, water permits, environmental acceptability, or community consent. Those questions belong to later stages and require field, engineering, regulatory, and stakeholder work.
+The principal limitation is resolution. Stage 1 uses representative coordinates, regional evidence, public records, screening proxies and structured review. Later work must confirm final site boundaries, land rights, design-basis hazards, engineered protection, emergency-plan feasibility, grid connection rights, water permits, environmental acceptability, site control and stakeholder conditions.
 
-The practical result is a defensible handoff to Stage 2. Sites that pass Stage 1 are ready for comparative scoring, ranking, and sensitivity analysis. Sites that do not pass, or that remain data-limited, are still useful to the report because their failure modes and evidence gaps explain why they should not be prioritised without further work.
-
-## Drafting Notes
-
-- Primary links: `report/requirements/04_siting_methodology.md`, `report/methodology/assumption_register.md`, and `report/methodology/ssr1_traceability.md`.
-- Use sensitivity outputs only for Stage 2 and results references; Stage 1 should focus on site universe and evidence readiness.
-- Follow the analytical anchor and output rules in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md).
-- Human review should check country naming, plant status, and any coal-retirement claims against source data.
-
-## Working References for Chapter 2
-
-1. IAEA, _Site Survey and Site Selection for Nuclear Installations_, Safety Standards Series No. SSG-35, Vienna (2015).
-2. Project methodology artefacts: `report/requirements/04_siting_methodology.md`, `report/methodology/ssr1_traceability.md`, `report/methodology/exclusionary_floors.md`, `report/methodology/sensitivity_analysis.md`, `report/methodology/swing_weight_audit.md`, and `report/methodology/assumption_register.md`.
-3. Project assumption register: `report/methodology/assumption_register.md`.
-4. Project data requirements: `report/requirements/07_data_requirements.md`.
+The practical result is a controlled handoff to Stage 2. Sites that pass Stage 1 are ready for comparative scoring, ranking and national sensitivity analysis. Sites that fail, or remain data-limited, are still informative because their failure modes and evidence gaps identify the questions that must be resolved before any Stage 3 characterisation decision.

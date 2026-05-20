@@ -1,240 +1,201 @@
-# Per-Country Top-5 Site Candidates
+<!-- man_hours: 3.4 -->
+# Per-Country Top-Site Candidates
 
-_Reference SMR: NuScale VOYGR-6. Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric._
+Reference SMR: NuScale VOYGR-6. Analytical basis: the project's 50,000-iteration national Monte Carlo sensitivity analysis over the current frozen scoring rubric.
 
-## What this list is for
+## Interpretation
 
-This document lists the top-5 candidate sites in each in-scope country, ranked mechanically against the NuScale VOYGR-6 reference envelope. The ranking sorts full-pass sites first (highest composite score, then highest Monte-Carlo top-10 % hit rate), then avoidance-flag sites by the same rule, then exclusionary-fail sites where a country has fewer than 5 ranked candidates. The columns mirror the GUI Results / Sites ledger so the table reads the same as the screen view: status uses the same Full pass / Avoidance flag / Hard-fail labels, the composite column shows the baseline value, and the MC band column shows the 5th–95th percentile range from the 10 000-iteration sensitivity run.
+This section lists the leading exclusionary-pass candidates in each published country. The ranking follows the current national site ledgers: country rank first, then screening class, national composite score, national Monte Carlo interval, stability band, and top-tier hit rate. Countries with fewer than five exclusionary-pass records list the available ranked records only. Hard-failed records remain in the country ledgers and consolidated failure material, but they are not presented as top-site candidates.
 
-The intent is operational: this is the input for hand-picking which sites to advance to a full site profile in the next pass. A **✅** after a site name in the tables below means a site profile markdown already exists under `sites/` in this chapter (filled interpretation pass). You return a `sites = { Country: [Site1, Site2, ...] }` map of the candidates you want profiled and the next pass produces the per-site profile artefacts for each, on the same template as the Romania - Turceni prototype.
+Full-pass sites are candidates for detailed Stage 3 characterisation if national authorities wish to continue. Avoidance-flagged sites are candidates for an unlock review before they are treated as equivalent to full-pass sites. Ukraine's entries remain desk-study priorities under the country caveat in the Ukraine profile.
 
-Countries with no exclusionary-pass site (Albania, Slovenia, Kosovo) are out of scope for this list and are handled in `consolidated_failure_section.md`. Within an eligible country, the table intentionally surfaces avoidance-flag and even hard-fail candidates when there are fewer than 5 fully clean sites; the status column makes the screening verdict explicit so you can decide whether the candidate is worth a profile or whether the slot stays empty.
-
-## Per-country candidate tables
+## Per-Country Candidate Tables
 
 ### Austria (AT)
 
-_Country pool: 0 full pass, 6 avoidance flag, 2 hard-fail (8 total ranked)._
+Country pool: 0 full pass, 6 avoidance flag, 2 hard fail.
 
-| #   | Site                      | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Timelkam power station ✅ | Avoidance flag | 6.07      | 4.37 – 6.46 | A             | 100 %    | 66            | 1             | Avoidance flag on NS-02; band-A despite the flag. |
-| 2   | Voitsberg power station ✅ | Avoidance flag | 5.89      | 4.38 – 6.32 | D             | 6 %      | 330           | 2             | Avoidance flag on NS-02.                          |
-| 3   | Riedersbach power station ✅ | Avoidance flag | 5.81      | 4.31 – 6.23 | D             | 19 %     | 220           | 3             | Avoidance flag on NS-02, NS-05.                   |
-| 4   | Enns Power Station        | Avoidance flag | 5.51      | 4.17 – 5.98 | H             | 6 %      | 800           | 4             | Avoidance flag on HI-03, NS-05.                   |
-| 5   | Duernrohr power station   | Avoidance flag | 5.42      | 4.13 – 5.89 | G             | 6 %      | 802           | 5             | Avoidance flag on HI-03, NS-05.                   |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Riedersbach power station | Avoidance flag | 7.159 | 6.361-7.650 | A | 100% | 220 |
+| 2 | Timelkam power station | Avoidance flag | 7.016 | 6.245-7.487 | H | 0% | 66 |
+| 3 | Enns Power Station | Avoidance flag | 6.616 | 5.922-7.156 | H | 0% | 800 |
+| 4 | Voitsberg power station | Avoidance flag | 6.559 | 5.876-7.050 | H | 0% | 330 |
+| 5 | Duernrohr power station | Avoidance flag | 6.544 | 5.864-7.081 | H | 0% | 802 |
 
 ### Bosnia and Herzegovina (BA)
 
-_Country pool: 0 full pass, 6 avoidance flag, 5 hard-fail (11 total ranked)._
+Country pool: 0 full pass, 5 avoidance flag, 6 hard fail.
 
-| #   | Site                          | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ----------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Gacko Thermal Power Plant ✅ | Avoidance flag | 5.97      | 4.24 – 6.46 | A             | 100 %    | 650           | 1             | Avoidance flag on NS-02; band-A despite the flag. |
-| 2   | Banovici power station ✅       | Avoidance flag | 5.38      | 4.04 – 5.88 | D             | 0 %      | 350           | 2             | Avoidance flag on NS-02.                          |
-| 3   | Stanari Thermal Power Plant ✅ | Avoidance flag | 5.16      | 3.94 – 5.74 | D             | 0 %      | 300           | 3             | Avoidance flag on NS-02.                          |
-| 4   | Miljevina power station       | Avoidance flag | 5.01      | 3.89 – 5.50 | H             | 0 %      | 220           | 4             | Avoidance flag on NS-02.                          |
-| 5   | Kamengrad Thermal Power Plant | Avoidance flag | 4.94      | 3.86 – 5.50 | H             | 0 %      | 430           | 5             | Avoidance flag on HI-01, NS-02, NS-05.            |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Stanari Thermal Power Plant | Avoidance flag | 6.747 | 6.028-7.237 | A | 92% | 300 |
+| 2 | Miljevina power station | Avoidance flag | 6.622 | 5.927-7.131 | H | 8% | 220 |
+| 3 | Kamengrad Thermal Power Plant | Avoidance flag | 6.572 | 5.886-7.131 | H | 0% | 430 |
+| 4 | Ugljevik power station | Avoidance flag | 6.458 | 5.707-6.929 | H | 0% | 1,000 |
+| 5 | Banovici power station | Avoidance flag | 5.934 | 5.325-6.425 | H | 0% | 350 |
 
 ### Bulgaria (BG)
 
-_Country pool: 0 full pass, 6 avoidance flag, 9 hard-fail (15 total ranked)._
+Country pool: 0 full pass, 7 avoidance flag, 8 hard fail.
 
-| #   | Site                          | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ----------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Maritsa Iztok-2 power station ✅ | Avoidance flag | 6.03      | 4.35 – 6.42 | D             | 19 %     | 2,162         | 1             | Avoidance flag on HI-01.                                 |
-| 2   | Bobov Dol power station ✅      | Avoidance flag | 6.00      | 4.33 – 6.42 | D             | 25 %     | 1,030         | 2             | Avoidance flag on HI-01.                                 |
-| 3   | Vidin Works power station ✅    | Avoidance flag | 5.76      | 4.23 – 6.26 | A             | 100 %    | 120           | 3             | Avoidance flag on HI-01, NS-02; band-A despite the flag. |
-| 4   | Lom Power Station             | Avoidance flag | 5.58      | 4.12 – 5.96 | H             | 0 %      | 400           | 4             | Avoidance flag on NS-02, NS-05.                          |
-| 5   | Maritsa 3 power station       | Avoidance flag | 5.34      | 4.02 – 5.84 | H             | 0 %      | 120           | 5             | Avoidance flag on NS-02.                                 |
-
-### Belarus (BY)
-
-_Country pool: 0 full pass, 1 avoidance flag, 1 hard-fail (2 total ranked)._
-
-| #   | Site                    | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ----------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Lelchitsy power station | Avoidance flag | 5.43      | 3.98 – 5.87 | A             | 88 %     | 400           | 1             | Avoidance flag on NS-02, NS-05; band-A despite the flag. |
-| 2   | Zelwa power station     | Hard-fail      | —         | —           | H             | 12 %     | 1,000         | —             | Exclusionary fail on NS-08.                              |
-
-_Note: only 2 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Lom Power Station | Avoidance flag | 7.428 | 6.578-7.850 | A | 100% | 400 |
+| 2 | Maritsa 3 power station | Avoidance flag | 7.009 | 6.240-7.569 | D | 0% | 120 |
+| 3 | Bobov Dol power station | Avoidance flag | 6.984 | 6.220-7.525 | G | 0% | 1,030 |
+| 4 | Vidin Works power station | Avoidance flag | 6.828 | 6.093-7.369 | H | 0% | 120 |
+| 5 | Svilosa power station | Avoidance flag | 6.578 | 5.891-7.119 | H | 0% | 120 |
 
 ### Czechia (CZ)
 
-_Country pool: 0 full pass, 23 avoidance flag, 6 hard-fail (29 total ranked)._
+Country pool: 0 full pass, 29 avoidance flag, 0 hard fail.
 
-| #   | Site                     | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ------------------------ | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Tusimice power station ✅ | Avoidance flag | 6.09      | 4.37 – 6.47 | A             | 94 %     | 800           | 1             | Avoidance flag on HI-01; band-A despite the flag. |
-| 2   | Pocerady power station ✅ | Avoidance flag | 5.97      | 4.29 – 6.38 | C             | 75 %     | 1,000         | 2             | Avoidance flag on HI-01.                          |
-| 3   | Ledvice power station ✅ | Avoidance flag | 5.90      | 4.26 – 6.28 | B             | 94 %     | 990           | 3             | Avoidance flag on HI-01.                          |
-| 4   | Chvaletice power station | Avoidance flag | 5.83      | 4.26 – 6.30 | C             | 75 %     | 820           | 4             | Avoidance flag on HI-01.                          |
-| 5   | Melnik power station     | Avoidance flag | 5.74      | 4.19 – 6.20 | C             | 69 %     | 1,070         | 5             | Avoidance flag on HI-01.                          |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Tusimice power station | Avoidance flag | 7.095 | 6.144-7.691 | A | 92% | 800 |
+| 2 | Prunerov power station | Avoidance flag | 7.016 | 6.083-7.559 | C | 67% | 2,240 |
+| 3 | Chvaletice power station | Avoidance flag | 7.009 | 6.240-7.594 | D | 33% | 820 |
+| 4 | Pocerady power station | Avoidance flag | 6.931 | 6.018-7.526 | D | 0% | 1,000 |
+| 5 | Ledvice power station | Avoidance flag | 6.916 | 6.164-7.512 | D | 0% | 990 |
 
 ### Croatia (HR)
 
-_Country pool: 1 full pass, 0 avoidance flag, 1 hard-fail (2 total ranked)._
+Country pool: 0 full pass, 1 avoidance flag, 1 hard fail.
 
-| #   | Site                 | Status    | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | -------------------- | --------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Plomin power station ✅ | Full pass | 5.13      | 3.93 – 5.64 | A             | 100 %    | 842           | 1             | National rank-1 fully clear candidate; band-A stability. |
-| 2   | Ploče power station ✅ | Hard-fail | —         | —           | —             | —        | 800           | —             | Exclusionary fail on NH-02.                              |
-
-_Note: only 2 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Plomin power station | Avoidance flag | 6.214 | 5.467-6.730 | A | 100% | 842 |
 
 ### Hungary (HU)
 
-_Country pool: 2 full pass, 8 avoidance flag, 1 hard-fail (11 total ranked)._
+Country pool: 1 full pass, 10 avoidance flag, 0 hard fail.
 
-| #   | Site                        | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | --------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Mohacs power station ✅       | Full pass      | 6.47      | 4.62 – 6.89 | A             | 100 %    | 1,200         | 1             | National rank-1 fully clear candidate; band-A stability. |
-| 2   | Torony power station ✅       | Full pass      | 6.01      | 4.34 – 6.40 | D             | 6 %      | 600           | 2             | Rank-2 fully clear candidate; band-D stability.          |
-| 3   | Borsod power station ✅       | Avoidance flag | 5.98      | 4.39 – 6.40 | C             | 56 %     | 420           | 3             | Avoidance flag on HI-03, NS-02.                          |
-| 4   | Tiszapalkonya power station | Avoidance flag | 5.81      | 4.31 – 6.30 | D             | 0 %      | 265           | 4             | Avoidance flag on HI-03, NS-02.                          |
-| 5   | Matra power station         | Avoidance flag | 5.12      | 3.99 – 5.51 | H             | 0 %      | 1,384         | 5             | Avoidance flag on HI-01, HI-03, NS-05.                   |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Mohacs power station | Full pass | 7.584 | 6.705-8.075 | A | 100% | 1,200 |
+| 2 | Borsod power station | Avoidance flag | 6.941 | 6.184-7.381 | D | 0% | 420 |
+| 3 | Tiszapalkonya power station | Avoidance flag | 6.778 | 6.053-7.319 | D | 0% | 265 |
+| 4 | Matraterenye power station | Avoidance flag | 6.641 | 5.795-7.158 | H | 0% | 50 |
+| 5 | Torony power station | Avoidance flag | 6.595 | 5.760-7.059 | H | 0% | 600 |
 
 ### Latvia (LV)
 
-_Country pool: 0 full pass, 1 avoidance flag, 0 hard-fail (1 total ranked)._
+Country pool: 0 full pass, 1 avoidance flag, 0 hard fail.
 
-| #   | Site                  | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                       |
-| --- | --------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | --------------------------------------------------------------- |
-| 1   | Kurzeme power station ✅ | Avoidance flag | 5.82      | 4.32 – 6.28 | A             | 100 %    | 435           | 1             | Avoidance flag on HI-01, NS-02, NS-05; band-A despite the flag. |
-
-_Note: only 1 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Kurzeme power station | Avoidance flag | 6.603 | 5.912-7.200 | A | 100% | 435 |
 
 ### Moldova (MD)
 
-_Country pool: 0 full pass, 1 avoidance flag, 0 hard-fail (1 total ranked)._
+Country pool: 0 full pass, 1 avoidance flag, 0 hard fail.
 
-| #   | Site                    | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ----------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Kuchurgan power station ✅ | Avoidance flag | 5.66      | 4.07 – 6.15 | A             | 100 %    | 1,400         | 1             | Avoidance flag on HI-01; band-A despite the flag. |
-
-_Note: only 1 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Kuchurgan power station | Avoidance flag | 6.959 | 6.199-7.500 | A | 100% | 1,400 |
 
 ### Montenegro (ME)
 
-_Country pool: 0 full pass, 1 avoidance flag, 3 hard-fail (4 total ranked)._
+Country pool: 0 full pass, 1 avoidance flag, 3 hard fail.
 
-| #   | Site                   | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                          |
-| --- | ---------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ---------------------------------- |
-| 1   | Bar power station ✅     | Avoidance flag | 4.44      | 3.59 – 4.82 | D             | 6 %      | 800           | 1             | Avoidance flag on NH-01, NS-05.    |
-| 2   | Berane power station ✅ | Hard-fail      | —         | —           | A             | 94 %     | 110           | —             | Exclusionary fail on EP-01.        |
-| 3   | Maoce Power Station ✅ | Hard-fail      | —         | —           | —             | —        | 500           | —             | Exclusionary fail on NH-02.        |
-| 4   | Pljevlja power station | Hard-fail      | —         | —           | —             | —        | 479           | —             | Exclusionary fail on NH-02, NS-08. |
-
-_Note: only 4 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Bar power station | Avoidance flag | 6.023 | 5.321-6.467 | A | 100% | 800 |
 
 ### North Macedonia (MK)
 
-_Country pool: 0 full pass, 3 avoidance flag, 1 hard-fail (4 total ranked)._
+Country pool: 0 full pass, 3 avoidance flag, 1 hard fail.
 
-| #   | Site                   | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ---------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Bitola power station ✅ | Avoidance flag | 5.53      | 4.10 – 5.94 | A             | 100 %    | 699           | 1             | Avoidance flag on HI-01, NH-01; band-A despite the flag. |
-| 2   | Negotino power station ✅ | Avoidance flag | 4.90      | 3.83 – 5.31 | H             | 0 %      | 300           | 2             | Avoidance flag on HI-01, NS-02, NS-05.                   |
-| 3   | Oslomej power station ✅ | Avoidance flag | 4.51      | 3.66 – 4.93 | H             | 0 %      | 254           | 3             | Avoidance flag on NH-01, NS-02.                          |
-| 4   | Mariovo power station  | Hard-fail      | —         | —           | H             | 0 %      | 300           | —             | Exclusionary fail on NS-08.                              |
-
-_Note: only 4 ranked candidate(s) available in this country._
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Bitola power station | Avoidance flag | 6.812 | 5.927-7.329 | A | 100% | 699 |
+| 2 | Negotino power station | Avoidance flag | 6.707 | 5.846-7.171 | H | 0% | 300 |
+| 3 | Oslomej power station | Avoidance flag | 5.905 | 5.230-6.421 | H | 0% | 255 |
 
 ### Poland (PL)
 
-_Country pool: 2 full pass, 38 avoidance flag, 23 hard-fail (63 total ranked)._
+Country pool: 3 full pass, 58 avoidance flag, 2 hard fail.
 
-| #   | Site                     | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ------------------------ | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Opole power station ✅     | Full pass      | 6.58      | 4.67 – 7.08 | A             | 100 %    | 3,332         | 2             | Rank-2 fully clear candidate; band-A stability.   |
-| 2   | Dolna Odra power station ✅ | Full pass      | 5.95      | 4.38 – 6.42 | B             | 88 %     | 1,792         | 8             | Rank-8 fully clear candidate; band-B stability.   |
-| 3   | Polaniec power station ✅ | Avoidance flag | 6.79      | 4.77 – 7.21 | A             | 100 %    | 1,882         | 1             | Avoidance flag on HI-01; band-A despite the flag. |
-| 4   | Turów power station      | Avoidance flag | 6.33      | 4.45 – 6.83 | B             | 94 %     | 2,754         | 3             | Avoidance flag on HI-01.                          |
-| 5   | Puchaczow power station  | Avoidance flag | 6.31      | 4.54 – 6.70 | B             | 100 %    | 800           | 4             | Avoidance flag on HI-01.                          |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Polaniec power station | Avoidance flag | 7.422 | 6.573-7.956 | A | 100% | 1,882 |
+| 2 | Pólnoc power station | Full pass | 7.284 | 6.462-7.869 | A | 100% | 1,600 |
+| 3 | Adamow power station | Full pass | 7.227 | 6.245-7.822 | B | 92% | 600 |
+| 4 | Gubin Power Project | Avoidance flag | 7.222 | 6.412-7.803 | B | 92% | 3,000 |
+| 5 | Kedzierzyn CCS Project | Avoidance flag | 7.191 | 6.386-7.737 | C | 75% | 910 |
 
 ### Romania (RO)
 
-_Country pool: 3 full pass, 15 avoidance flag, 4 hard-fail (22 total ranked)._
+Country pool: 3 full pass, 19 avoidance flag, 1 hard fail.
 
-| #   | Site                      | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Turceni power station ✅    | Full pass      | 6.35      | 4.49 – 6.73 | A             | 100 %    | 2,640         | 1             | National rank-1 fully clear candidate; band-A stability. |
-| 2   | Rovinari power station ✅   | Full pass      | 5.83      | 4.23 – 6.24 | D             | 38 %     | 1,920         | 2             | Rank-2 fully clear candidate; band-D stability.          |
-| 3   | Braila power station ✅     | Full pass      | 5.82      | 4.34 – 6.24 | B             | 94 %     | 850           | 3             | Rank-3 fully clear candidate; band-B stability.          |
-| 4   | Romag Termo power station ✅ | Avoidance flag | 5.44      | 4.16 – 5.83 | D             | 12 %     | 1,065         | 4             | Avoidance flag on HI-03.                                 |
-| 5   | Giurgiu power station     | Avoidance flag | 5.39      | 4.18 – 5.79 | D             | 0 %      | 150           | 5             | Avoidance flag on NS-02, RI-04.                          |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Turceni power station | Full pass | 7.816 | 6.891-8.256 | A | 100% | 2,640 |
+| 2 | Rovinari power station | Full pass | 7.159 | 6.361-7.700 | B | 100% | 1,920 |
+| 3 | Iernut power station | Full pass | 7.114 | 5.285-7.555 | D | 0% | 800 |
+| 4 | Mintia-Deva power station | Avoidance flag | 7.016 | 6.245-7.487 | D | 0% | 1,285 |
+| 5 | Braila power station | Avoidance flag | 6.784 | 6.058-7.275 | D | 0% | 850 |
 
 ### Serbia (RS)
 
-_Country pool: 0 full pass, 7 avoidance flag, 1 hard-fail (8 total ranked)._
+Country pool: 0 full pass, 6 avoidance flag, 2 hard fail.
 
-| #   | Site                       | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | -------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Kolubara A power station ✅ | Avoidance flag | 5.65      | 4.15 – 6.06 | B             | 81 %     | 271           | 1             | Avoidance flag on NS-02.                                 |
-| 2   | Kolubara B power station ✅ | Avoidance flag | 5.50      | 4.09 – 5.92 | D             | 38 %     | 725           | 2             | Avoidance flag on NS-02.                                 |
-| 3   | Morava power station ✅      | Avoidance flag | 5.40      | 4.07 – 5.78 | A             | 81 %     | 120           | 3             | Avoidance flag on NS-02, NS-05; band-A despite the flag. |
-| 4   | Kostolac power station     | Avoidance flag | 5.30      | 4.00 – 5.88 | D             | 19 %     | 1,360         | 4             | Avoidance flag on HI-01.                                 |
-| 5   | Nikola Tesla power station | Avoidance flag | 5.28      | 4.01 – 5.74 | C             | 56 %     | 3,816         | 5             | Avoidance flag on HI-01, RI-04.                          |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Štavalj Power Station | Avoidance flag | 6.753 | 5.928-7.175 | A | 92% | 300 |
+| 2 | Kostolac power station | Avoidance flag | 6.634 | 5.906-7.244 | H | 8% | 1,360 |
+| 3 | Kolubara A power station | Avoidance flag | 6.559 | 5.831-7.069 | H | 0% | 271 |
+| 4 | Kovin power station | Avoidance flag | 6.503 | 5.831-7.094 | H | 0% | 700 |
+| 5 | Kolubara B power station | Avoidance flag | 6.472 | 5.744-6.981 | H | 0% | 725 |
 
 ### Slovakia (SK)
 
-_Country pool: 1 full pass, 4 avoidance flag, 1 hard-fail (6 total ranked)._
+Country pool: 1 full pass, 4 avoidance flag, 1 hard fail.
 
-| #   | Site                                  | Status         | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                         |
-| --- | ------------------------------------- | -------------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | ------------------------------------------------- |
-| 1   | Vojany I power station ✅              | Full pass      | 5.57      | 4.03 – 5.98 | D             | 0 %      | 660           | 2             | Rank-2 fully clear candidate; band-D stability.   |
-| 2   | Novaky power station ✅                | Avoidance flag | 6.22      | 4.29 – 6.59 | A             | 100 %    | 472           | 1             | Avoidance flag on HI-01; band-A despite the flag. |
-| 3   | Trebisov power station ✅              | Avoidance flag | 5.13      | 3.85 – 5.47 | H             | 0 %      | 885           | 3             | Avoidance flag on HI-01, NS-05.                   |
-| 4   | Martinska power station               | Avoidance flag | 5.12      | 3.85 – 5.50 | H             | 0 %      | 32            | 4             | Avoidance flag on HI-01, NS-02, RI-04.            |
-| 5   | U.S. Steel Kosice Works power station | Avoidance flag | 4.84      | 3.74 – 5.19 | H             | 0 %      | 208           | 5             | Avoidance flag on HI-01, NS-02, NS-05.            |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Vojany I power station | Full pass | 7.022 | 6.250-7.481 | A | 100% | 660 |
+| 2 | Trebisov power station | Avoidance flag | 6.741 | 6.023-7.281 | H | 0% | 885 |
+| 3 | Novaky power station | Avoidance flag | 6.716 | 6.003-7.237 | H | 0% | 472 |
+| 4 | Martinska power station | Avoidance flag | 6.303 | 5.669-6.775 | H | 0% | 32 |
+| 5 | U.S. Steel Kosice Works power station | Avoidance flag | 5.691 | 5.174-6.181 | H | 0% | 208 |
 
 ### Türkiye (TR)
 
-_Country pool: 16 full pass, 90 avoidance flag, 40 hard-fail (146 total ranked)._
+Country pool: 8 full pass, 102 avoidance flag, 36 hard fail.
 
-| #   | Site                          | Status    | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ----------------------------- | --------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Konya Karapınar power station ✅ | Full pass | 6.52      | 4.32 – 6.92 | A             | 100 %    | 1,000         | 1             | National rank-1 fully clear candidate; band-A stability. |
-| 2   | Akdeniz Enerji power station ✅ | Full pass | 6.28      | 4.34 – 6.77 | A             | 100 %    | 1,600         | 3             | Rank-3 fully clear candidate; band-A stability.          |
-| 3   | Yeşilovacık power station ✅    | Full pass | 6.21      | 4.29 – 6.70 | A             | 100 %    | 1,254         | 6             | Rank-6 fully clear candidate; band-A stability.          |
-| 4   | Eren-1 power station          | Full pass | 6.05      | 4.22 – 6.46 | A             | 100 %    | 490           | 8             | Rank-8 fully clear candidate; band-A stability.          |
-| 5   | METES power station           | Full pass | 5.99      | 4.20 – 6.48 | B             | 100 %    | 2,000         | 11            | Rank-11 fully clear candidate; band-B stability.         |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Konya Karapınar power station | Full pass | 7.784 | 6.528-8.301 | A | 100% | 1,000 |
+| 2 | Eren-1 power station | Full pass | 7.459 | 6.604-7.900 | A | 100% | 490 |
+| 3 | Tufanbeyli power station | Avoidance flag | 7.380 | 6.407-7.890 | A | 100% | 450 |
+| 4 | Karapinar Konya Şeker power station | Avoidance flag | 7.354 | 6.386-7.864 | A | 100% | 2,000 |
+| 5 | Çayırhan power station | Full pass | 7.347 | 6.513-7.806 | B | 100% | 1,420 |
 
 ### Ukraine (UA)
 
-_Country pool: 11 full pass, 6 avoidance flag, 3 hard-fail (20 total ranked)._
+Country pool: 12 full pass, 8 avoidance flag, 0 hard fail.
 
-| #   | Site                     | Status    | Composite | MC band     | National band | Top-10 % | Capacity (MW) | National rank | Rationale                                                |
-| --- | ------------------------ | --------- | --------- | ----------- | ------------- | -------- | ------------- | ------------- | -------------------------------------------------------- |
-| 1   | Zmiivska power station ✅ | Full pass | 6.09      | 4.03 – 6.47 | B             | 94 %     | 2,270         | 1             | National rank-1 fully clear candidate; band-B stability. |
-| 2   | Ladyzhyn power station ✅ | Full pass | 5.99      | 4.20 – 6.48 | B             | 100 %    | 1,800         | 3             | Rank-3 fully clear candidate; band-B stability.          |
-| 3   | Dobrotvir power station ✅ | Full pass | 5.99      | 4.20 – 6.40 | D             | 31 %     | 1,110         | 2             | Rank-2 fully clear candidate; band-D stability.          |
-| 4   | Burshtyn power station   | Full pass | 5.81      | 4.05 – 6.31 | D             | 6 %      | 3,166         | 5             | Rank-5 fully clear candidate; band-D stability.          |
-| 5   | Kryvorizka power station | Full pass | 5.57      | 3.86 – 5.92 | D             | 0 %      | 2,925         | 7             | Rank-7 fully clear candidate; band-D stability.          |
+| National rank | Site | Status | Composite | MC interval | Band | Top-tier hit rate | Capacity (MW) |
+| ---: | :--- | :--- | ---: | :---: | :---: | ---: | ---: |
+| 1 | Zmiivska power station | Full pass | 7.455 | 6.263-7.945 | A | 92% | 2,270 |
+| 2 | Dobrotvir power station | Full pass | 7.372 | 6.533-8.006 | B | 100% | 1,110 |
+| 3 | Ladyzhyn power station | Full pass | 7.197 | 6.391-7.706 | D | 8% | 1,800 |
+| 4 | Kryvorizka power station | Full pass | 7.166 | 6.051-7.655 | D | 0% | 2,925 |
+| 5 | Burshtyn power station | Full pass | 6.959 | 6.199-7.450 | D | 0% | 3,166 |
 
-## Status legend
+## Status Legend
 
-- **Full pass** - site clears both the exclusionary and avoidance screens against the NuScale VOYGR-6 reference envelope.
-- **Avoidance flag** - site clears the exclusionary screen but is flagged on at least one avoidance criterion (remediable through Stage 3 work or programme-level study).
-- **Hard-fail** - site is removed at the exclusionary screen; included in the country list only when the country has fewer than 5 ranked candidates above this status, so the user can see what would otherwise be blank rows.
+- **Full pass:** the site clears the exclusionary and avoidance screens against the NuScale VOYGR-6 reference envelope.
+- **Avoidance flag:** the site clears the exclusionary screen but carries at least one avoidance criterion that should be resolved before detailed characterisation.
+- **Hard fail:** the site is removed at the exclusionary screen and is not a top-site candidate under the current reference envelope.
 
-## National stability band reference
+## Stability Band Reference
 
-Bands A through H are computed from the 10 000-iteration Monte-Carlo audit of the full criterion-weight set:
+Bands A through H are computed from the national sensitivity analysis:
 
-- **A** - rank-stable under every weight set the audit considered.
-- **B / C / D** - rank-stable under most weight sets; some perturbations move the site within the national top quartile.
-- **E / F** - sensitive to weight choice; the site's national rank is volatile.
-- **G / H** - rank-fragile; the site's position depends materially on the specific weight set.
-
-## Criterion code reference
-
-- **EP-01** Emergency Planning Feasibility
-- **HI-01** Aircraft Crash
-- **HI-03** Toxic/Gas Releases
-- **NH-01** Seismic: Ground Motion
-- **NH-02** Seismic: Surface Rupture
-- **NS-02** Grid Connection
-- **NS-05** Site Footprint Adequacy
-- **NS-08** Ecological Sensitivity
-- **RI-04** Population Density at EPZ Radii
+- **A:** robust national shortlist candidate.
+- **B / C / D:** national top-tier or broader-tier candidate with increasing sensitivity to weights and score bands.
+- **E / F:** volatile candidate that requires stronger evidence before sequencing.
+- **G / H:** rank-fragile candidate whose position depends materially on scoring and evidence assumptions.

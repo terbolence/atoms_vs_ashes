@@ -1,5 +1,5 @@
-<!-- man_hours: 8.0 -->
-# Writing Quality Auditor — Publishable-Standard Reviewer
+<!-- man_hours: 9.0 -->
+# Writing Quality Auditor - Publishable-Standard Reviewer
 
 This is the **writing-quality / publication-readiness** auditor for the
 Atoms vs Ashes report. It is distinct from `experts/quality/auditor.md`,
@@ -50,21 +50,21 @@ A single markdown findings register with one row per defect:
 
 Severity levels:
 
-- **B (blocker)** — must be fixed before publication. Examples:
+- **B (blocker)** - must be fixed before publication. Examples:
   source-attribution leak, prohibited Stage-3 claim, VOYGR-6 capacity
   miswritten, internal process language in reader-facing text,
   unfilled specialist placeholder, broken numeric reconciliation
   across chapters.
-- **M (major)** — must be fixed unless the author can record a
+- **M (major)** - must be fixed unless the author can record a
   rationale for deferral in the QA note. Examples: caption missing
   denominator, table column running off the page, headings out of
   hierarchy, IEA-WEO tone breach in an executive paragraph.
-- **m (minor)** — should be fixed; do not block publication on it
+- **m (minor)** - should be fixed; do not block publication on it
   alone. Examples: minor typography, optional comma, single passive
   construction in a paragraph otherwise active.
 
 Close with a **publication-readiness verdict**: `ready`, `ready with
-listed minor fixes`, or `not ready — blockers listed`.
+listed minor fixes`, or `not ready - blockers listed`.
 
 ---
 
@@ -126,9 +126,12 @@ Nuclear Energy Series, in International English.
 - **No weak hedging.** Strike "we believe", "it might be argued",
   "arguably", "perhaps". The report makes claims it can support and
   declines claims it cannot.
-- **No em dashes as clause separators.** Use commas, semicolons,
-  parentheses, or separate sentences. The en dash is reserved for
-  numeric ranges (4.2 – 6.7).
+- **No U+2014 character.** The Unicode em dash character is a blocker
+  anywhere in reader-facing text. Use commas, semicolons, parentheses,
+  colons, or separate sentences.
+- **Positive formulation.** Reject definitions by negation, including
+  "the objective is not X, it is Y". Scope boundaries may be stated,
+  but the paragraph must lead with the affirmative claim.
 - **No first-person plural** outside the executive summary and the
   Recommendations chapter, and even there sparingly. The report is
   an institutional voice, not a memo.
@@ -162,7 +165,7 @@ Nuclear Energy Series, in International English.
   declarations are correct.
 - No column header runs to two lines unless the data column itself
   is genuinely two-line. Long column names ("Population Density at
-  EPZ Radii — site count flagged") are abbreviated in the column
+  EPZ Radii, site count flagged") are abbreviated in the column
   header and explained in the caption or a footnote.
 - Numeric columns are right-aligned. Score columns carry a
   consistent number of decimal places per column (e.g. composite to
@@ -185,7 +188,7 @@ Nuclear Energy Series, in International English.
   the country / cohort, the screening pool, the metric, the
   denominator, and an interpretation limit ("Illustrative example of
   the avoidance-Pareto pattern in low-population-pressure countries"
-  is the model — Ovidiu comment #65).
+  is the model - Ovidiu comment #65).
 - Figures referenced from text are referenced as "Figure 5.4" or
   "the avoidance Pareto for Romania", not "the chart below". Floating
   references break across page boundaries.
@@ -224,6 +227,16 @@ Nuclear Energy Series, in International English.
   recommended-top-sites ledger must reconcile or, where they are
   different metrics, must say so in one sentence (Ovidiu comment
   #568, Romania reconciliation).
+- **Coverage wording.** Hard-failed or excluded sites must not be
+  described as 0% coverage when measured evidence exists. Show the
+  real evidence coverage or measured values, then name the failed
+  exclusionary criterion, avoidance flag, safety-floor result, and
+  relevant threshold distance where available.
+- **Citation style.** Factual and numerical claims use Harvard-style
+  in-text citations and a consolidated Harvard-style reference list.
+  Repository paths, markdown files, run IDs, working references,
+  internal project files, and the GEM database are blockers in the
+  reader-facing reference list.
 
 ## §F. Source-attribution discipline (platform confidentiality)
 
@@ -246,6 +259,8 @@ text:
 - Internal connector names, raw response paths, run IDs in prose,
   database table names, alembic migration numbers, branch names,
   agent / Cursor markers.
+- LLM or model-process language. Describe automated discovery as
+  automated web searches and structured public-evidence collection.
 
 What is allowed:
 
@@ -256,8 +271,8 @@ What is allowed:
   public name (ANM, ANANP, IRP-MAI, Transelectrica, CNCAN, Ministry
   of National Defence). These are named because the report is *for*
   the country's government and these entities are the public
-  interlocutors of any future Stage 3 work — they are not data
-  sources in the platform-plumbing sense.
+  interlocutors of any future Stage 3 work, not data sources in the
+  platform-plumbing sense.
 
 **Interactive map exception.** Open basemap tiles (Carto, OSM) carry
 mandatory legal attribution. The auditor requires that interactive
@@ -284,12 +299,20 @@ respect. The auditor flags any markdown construction that breaks them.
   side-columns and captions.
 - **Headings**: a sans-serif display face with a fixed scale
   (e.g. 22 / 16 / 13 / 11.5 pt for H1–H4). Headings flush left.
-- **Tables**: rule above the header row, rule below the header row,
-  rule below the last data row; no vertical rules. Header row in
+- **Title page**: the first page must contain visible title-page
+  content and the lower-left rubric `Prepared for:` and `Contributors:`.
+  A blank title page is a blocker.
+- **Tables**: black borders on every cell side, including vertical
+  borders. Header row in
   small caps or semibold; body rows in regular weight. Numeric
   cells right-aligned; text cells left-aligned; column widths
   fitted to content.
-- **Figures**: full text-block width by default; half-width pairs
+- **Figures and country maps**: full text-block width by default;
+  country site-status maps should use the full page width where
+  practical. Use landscape page treatment for map-dominant pages.
+  In dense countries such as Turkey, label only the best full-pass
+  and avoidance-pass sites, capped at 20 labels.
+  Half-width pairs
   allowed where the comparison is the point. Captions in italic at
   9.5 pt, 11 pt leading, ragged right.
 - **Page breaks**: no widow or orphan lines (single line of a
@@ -324,6 +347,7 @@ Each occurrence is a blocker.
 - `AI`, `AI-generated`, `agent`, `the agent`, `the model`, `model
   says`, `LLM`, `prompt`, `Cursor`, `OpenAI`, `Anthropic`, `Composer`,
   `auto mode`.
+- The Unicode em dash character U+2014.
 - Internal run IDs in body prose (`score-2ffc8a70`, `nat-sens-…`,
   `sens-…`). These are allowed in the audit copy and the baseline
   decision file, but not in the published prose. If the report needs
@@ -367,7 +391,7 @@ Close the findings register with:
 - Minor count.
 - Verdict: `ready` (no blockers, no majors), `ready with listed
   minor fixes` (no blockers, no majors, minors recorded and
-  acceptable), or `not ready — blockers listed`.
+  acceptable), or `not ready - blockers listed`.
 
 The author and the country/site batch reviewers do not overrule
 this verdict. A `not ready` verdict requires another pass before

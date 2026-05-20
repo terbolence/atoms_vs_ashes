@@ -30,9 +30,9 @@ The renderer was the gap. Two production-path bugs fixed:
 2. `_family_section` now produces three distinct strings keyed off the score band:
    - **(a) pass-mark band match (4.5 <= score <= 6.5)**: appends `" - pass-mark band: <descriptor>"` after the score so the bullet labels itself rather than reading as an unqualified midpoint.
    - **(b) genuinely unscored** (existing): `"no native score (unscored - no band matched), ..., Evidence: not measured at this site (criterion remains unscored)"`.
-   - **(c) favorable-by-default (score >= 8.0)**: appends `" - favorable: <descriptor>"` so high-band matches read as positive evidence rather than ambiguous high numbers.
+   - **(c) favourable-by-default (score >= 8.0)**: appends `" - favourable: <descriptor>"` so high-band matches read as positive evidence rather than ambiguous high numbers.
 
-Tests: 94 passed (89 scoring + 5 renderer; two new tests cover the favorable and pass-mark branches with descriptors). Engine itself is untouched; the SP-E pure-function intent is met by stricter renderer code paths and the descriptor plumbing.
+Tests: 94 passed (89 scoring + 5 renderer; two new tests cover the favourable and pass-mark branches with descriptors). Engine itself is untouched; the SP-E pure-function intent is met by stricter renderer code paths and the descriptor plumbing.
 
 The renderer + engine must distinguish three cases that today all collapse to "score 5.x with `Evidence: values not in measurement tables`":
 
@@ -40,7 +40,7 @@ The renderer + engine must distinguish three cases that today all collapse to "s
 | --- | --- | --- | --- |
 | (a) Band matched, pass-mark band is the verdict | 5.5 (current) | "score 5.5/10 — pass-mark band matched: <descriptor>" | full weight |
 | (b) No band matched (genuinely unscored) | None | "no native score (unscored — no band matched, evidence: <signals or 'absent'>)" | excluded; counted toward unscored fraction |
-| (c) Low-hazard branch matched (favorable-by-default) | high (8-10) | "score 9.0/10 — favorable: <e.g. 'no airport within 30 km AND no military within 60 km'>" | full weight |
+| (c) Low-hazard branch matched (favourable-by-default) | high (8-10) | "score 9.0/10 — favourable: <e.g. 'no airport within 30 km AND no military within 60 km'>" | full weight |
 
 Cases (a) and (c) come from rubric edits in SP-D. Case (b) is the engine + renderer change owned here.
 
@@ -57,11 +57,11 @@ Cases (a) and (c) come from rubric edits in SP-D. Case (b) is the engine + rende
 
 1. When `score is None`, emit `no native score (unscored — no band matched)` instead of `5.0/10 (MC 5.0-5.0)`.
 2. When `signals` is empty, emit `Evidence: not measured at this site` (or similar) instead of `Evidence: values not in measurement tables`. The wording change is a credibility fix (FB-LL-02).
-3. When the matched band carries a `descriptor` string, append it after the score: `score 9.0/10 — <descriptor>` so favorable matches read as favorable rather than ambiguous.
+3. When the matched band carries a `descriptor` string, append it after the score: `score 9.0/10 — <descriptor>` so favourable matches read as favourable rather than ambiguous.
 
 ## Tests (pure-function before any rerun)
 
-- Unit tests on `evaluate_bands`: no-match returns score=None; favorable-band match returns the band score; pass-mark band match returns the pass-mark midpoint.
+- Unit tests on `evaluate_bands`: no-match returns score=None; favourable-band match returns the band score; pass-mark band match returns the pass-mark midpoint.
 - Snapshot test on `_family_section` for each of the three cases above.
 - Integration test against a synthetic site bundle showing all three cases co-occurring in one family.
 
@@ -75,7 +75,7 @@ Cases (a) and (c) come from rubric edits in SP-D. Case (b) is the engine + rende
 ## Cross-links
 
 - T3 in master plan.
-- FB-LL-01 (favorable-default semantics), FB-LL-02 (no number with no evidence).
+- FB-LL-01 (favourable-default semantics), FB-LL-02 (no number with no evidence).
 - Promoted-LL candidate "pass-mark midpoint asserts a numeric score with no evidence" (close-out todo).
 
 ## Out of scope

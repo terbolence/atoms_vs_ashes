@@ -1,38 +1,35 @@
-# Annex F: Generated Methodology Artefacts and Script References
+<!-- man_hours: 3.4 -->
+# Annex F: Generated Methodology Artefacts
 
-**What this annex adds.** Annex F is the report-facing index of generated methodology artefacts and the scripts that regenerate them. It is the reproducibility lookup a reviewer reaches for when a result in Chapters 2, 3, 4, 6 or Annexes A–E needs to be retraced to its source.
+**What this annex adds.** Annex F identifies the controlled methodology artefacts that support Chapters 2, 3, 4, 6 and Annexes A-E. It gives a publication-safe reproducibility map without exposing internal repository paths, command names, or working identifiers. Exact file locations and regeneration commands are retained in the internal audit copy.
 
-## Artefact index
+## Controlled Artefact Index
 
-| Artefact | Path | Generator or maintenance note |
+| Controlled artefact | Report use | Publication control |
 | --- | --- | --- |
-| IAEA SSR-1 to project criterion traceability | `report/methodology/ssr1_traceability.md` | `scripts.generate_ssr1_traceability` |
-| Exclusionary thresholds and safety-floor rules | `report/methodology/exclusionary_floors.md` | `scripts.generate_exclusionary_floors` |
-| Sensitivity method and reference run | `report/methodology/sensitivity_analysis.md` | `scripts.run_phase_1_6_sensitivity`; narrative partly manual |
-| Failure-mode analysis, global pack | `report/methodology/failure_analysis.md` | `scripts.generate_failure_analysis` |
-| Failure-mode analysis, NuScale VOYGR-6 pack | `report/methodology/failure_analysis_nuscale_voygr6.md` | `scripts.generate_failure_analysis --smr-nuscale` |
-| Failure-mode analysis, other vendor packs | `report/methodology/failure_analysis_<smr_key>.md` | `scripts.generate_failure_analysis --smr-<vendor>` |
-| Swing-weight audit | `report/methodology/swing_weight_audit.md` | `scripts.generate_swing_weight_audit` |
-| Criterion correlation flag list | `report/methodology/criterion_correlation.md` | Correlation figures and analysis scripts |
-| Project-wide assumption register | `report/methodology/assumption_register.md` | Manual; versioned with the rubric |
-| Regional and per-country sensitivity reports | `report/output/sensitivity/` | Current sensitivity export pack aligned with the frozen analysis |
-| Scoring specifications and rubrics | `config/scoring_specs/`; `config/scoring_rubrics/` | Source configuration for scoring detail; not duplicated in the report body |
-| Report build script | `scripts/build_report.py` | Assembles every chapter and annex into a single markdown file and converts to `.docx` |
-| Reference `.docx` style template | `report/output/build/reference.docx` | Input to the build script; contains title, heading, body, table, header and footer styles |
+| IAEA SSR-1 to project criterion traceability | Supports Annex A and the Chapter 1 methodology summary. | Must be regenerated when the criterion set or SSR-1 mapping changes. |
+| Exclusionary thresholds and safety-floor rules | Supports Annex B and the Chapter 2-3 dual-gate description. | Must share the same rubric basis as the main scoring run. |
+| National sensitivity method | Supports Chapter 3 Section 3.8, Chapter 4 Section 4.6, country profiles and Annex C. | Must use the 50,000-iteration national sensitivity basis for version 1.2. |
+| Failure-mode analysis | Supports Chapter 4 driver interpretation, Chapter 5 failure sections and Annex D. | Must be aligned to the NuScale VOYGR-6 reference case. |
+| Swing-weight audit | Supports explanation of criteria that move national ranks most strongly. | Must be reviewed when criterion weights or observed score ranges change. |
+| Criterion-correlation flag list | Supports checks for possible double-counting of related evidence axes. | Must be refreshed when scoring inputs or criteria are revised. |
+| Project-wide assumption register | Supports Annex E and the treatment of uncertainty in Chapters 2, 4, 5 and 6. | Must be updated whenever the rubric or evidence hierarchy changes. |
+| National sensitivity export pack | Supports score intervals, stability bands, and top-tier probabilities. | Must remain aligned with the published country and site profiles. |
+| Scoring specifications and rubrics | Define criterion names, weights, thresholds, bands and evidence treatment. | Must remain frozen for the report version unless a controlled revision is opened. |
+| Report layout specification | Defines the DOCX publication template, table treatment, heading levels and page rules. | Must be changed only through the report-format control process. |
+| Publication assembly package | Combines chapters, Chapter 5 profiles, recommendation tables, failure sections and annexes. | Must strip internal comments and local file links from the assembled publication copy. |
 
-## Reproducibility notes
+## Reproducibility Notes
 
-Each generator script reads from the scoring configuration (`config/scoring_rubrics/*.yaml` and `config/scoring_specs/`) and the merged evidence base. Rerunning a generator without first updating the rubric or the merged data yields bit-identical output, which is the project's guarantee of reproducibility. Where a generator ships with a test in `tests/scoring/`, the test asserts that the on-disk markdown matches the generator output so silent drift cannot land without a test failure.
+Each controlled artefact is derived from the same reconciled evidence base, scoring rubric and national sensitivity basis used in the report. Rerunning a generator without changing the rubric or evidence base should reproduce the same methodology output. Any change to a controlled artefact should be made together with the affected chapter, annex or profile so that the report does not mix analytical bases.
 
-The report-build script packages the chapters, the Chapter 5 country and site profiles, the top-5 recommendation list, the consolidated failure section, and Annexes A–F into a single markdown file, then calls pandoc against the reference `.docx` template and runs a post-processor to apply the report's formatting rules. The build-time inputs, outputs, and command-line flags are documented in `report/output/build/README.md`.
+The publication assembly package is a consumer of the report source files. It assembles the front matter, Chapters 1-8, the Chapter 5 country and site profile sequence, the recommendation and failure sections, and Annexes A-F into a single publication manuscript. The assembly step also removes internal comments and local source links so that the reader-facing copy contains report language rather than file-system references.
 
-## Human review
+## Human Review
 
-Before camera-ready publication, confirm that every generator listed above points to the current sensitivity export pack and the current frozen scoring rubric. Where a generator is rerun, refresh the linked markdown artefact and this index in the same change set.
+Before camera-ready publication, the report owner should confirm four points:
 
-## Primary sources for this annex
-
-- Generator scripts under `scripts/` and `src/scripts/`.
-- Methodology artefacts under `report/methodology/`.
-- Scoring configuration under `config/scoring_rubrics/` and `config/scoring_specs/`.
-- Build artefacts and style template under `report/output/build/`.
+1. The controlled artefacts all reflect the current frozen scoring rubric.
+2. National sensitivity outputs use the 50,000-iteration national basis and are interpreted within country pools.
+3. Annexes A-E cite the same controlled artefacts described here.
+4. The internal audit copy retains exact paths, commands, and identifiers for reproducibility, while the published copy remains free of internal implementation details.

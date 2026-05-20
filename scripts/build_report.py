@@ -1,10 +1,5 @@
-"""Assemble the Atoms vs Ashes report and export a formatted `.docx`.
-
-Layout and typography are controlled by
-``report/version 1.02/output/report/writing plan/report_format.json``.
-
-Run with ``python scripts/build_report.py`` from the repository root.
-"""
+# man_hours: 9.0
+"""Assemble the report and export a formatted `.docx`."""
 
 from __future__ import annotations
 
@@ -13,23 +8,19 @@ import re
 import shutil
 import subprocess
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 
-from make_reference_docx import build_reference_docx
 from report_docx_postprocess import postprocess_docx
-from report_format_config import DEFAULT_FORMAT_PATH, ReportFormatConfig
-
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
+from report_format_config import (
+    DEFAULT_FORMAT_PATH,
+    ReportFormatConfig,
+    ensure_reference_docx,
+)
+from report_section_discovery import Section, discover_sections
+from report_side_deliverables import build_side_deliverables
 
 REPORT_TITLE = "Atoms vs Ashes: Coal-to-Nuclear Siting Assessment"
 REPORT_SUBTITLE = "Stage 1 and Stage 2 Siting Study for Central, Eastern and Southern Europe"
-
-COUNTRY_ISO_ORDER: list[str] = [
-    "AT", "BA", "BG", "BY", "CZ", "HR", "HU", "LV", "MD", "ME",
-    "MK", "PL", "RO", "RS", "SK", "TR", "UA",
-]
 
 BANNED_TOKEN_PATTERNS = [
     re.compile(r"sens-[0-9a-f]{8}"),
@@ -46,87 +37,16 @@ SPECIALIST_BLOCK_OPEN = re.compile(r"<!--\s*specialist\s+[^>]*-->")
 SPECIALIST_BLOCK_CLOSE = re.compile(r"<!--\s*/specialist\s+[^>]*-->")
 
 
-@dataclass
-class Section:
-    path: Path
-    heading_shift: int = 0
-    rename_top_heading: str | None = None
+HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
+LOCAL_MARKDOWN_LINK = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)")
 
 
-def discover_chapter5_sections(chapters: Path) -> list[Section]:
-    sections: list[Section] = []
-    chapter5_root = chapters / "05_country_and_site_profiles"
-
-    chapter5_main = chapters / "05_country_and_site_profiles.md"
-    if chapter5_main.exists():
-        sections.append(Section(chapter5_main))
-
-    for iso in COUNTRY_ISO_ORDER:
-        country_file = chapter5_root / f"{iso}_country_prototype.md"
-        if country_file.exists():
-            sections.append(Section(country_file, heading_shift=1))
-            for site_file in sorted((chapter5_root / "sites").glob(f"{iso}_*.md")):
-                sections.append(Section(site_file, heading_shift=2))
-
-    for name in (
-        "recommended_top5_sites.md",
-        "consolidated_failure_section.md",
-        "02_ukraine_occupied_territory_caveat_plan.md",
-    ):
-        path = chapter5_root / name
-        if path.exists():
-            sections.append(Section(path, heading_shift=1))
-
-    return sections
-
-
-def discover_sections(
-    chapters: Path,
-    annexes: Path,
-    include_ukraine_caveat: bool = True,
-) -> list[Section]:
-    sections: list[Section] = []
-    for name in (
-        "00_acronyms.md",
-        "01_introduction.md",
-        "02_stage_1_site_survey.md",
-        "03_stage_2_site_selection.md",
-        "04_results_and_findings.md",
-    ):
-        path = chapters / name
-        if path.exists():
-            sections.append(Section(path))
-
-    sections.extend(discover_chapter5_sections(chapters))
-
-    if not include_ukraine_caveat:
-        sections = [
-            s for s in sections
-            if s.path.name != "02_ukraine_occupied_territory_caveat_plan.md"
-        ]
-
-    for name in (
-        "06_recommendations_for_detailed_site_evaluation.md",
-        "07_final_remarks.md",
-        "08_references.md",
-    ):
-        path = chapters / name
-        if path.exists():
-            sections.append(Section(path))
-
-    for annex in sorted(annexes.glob("annex_*.md")):
-        sections.append(Section(annex))
-
-    return sections
-
-
-def rewrite_image_paths(content: str, source_path: Path) -> str:
+def rewrite_image_paths(content: str, source_path: Path, assets_dir: Path) -> str:
     source_dir = source_path.parent
 
     def _rewrite(match: re.Match[str]) -> str:
         prefix = match.group("prefix")
         url = match.group("url")
-        trailing = match.group("trailing") or ""
 
         if url.startswith(("http://", "https://", "mailto:", "#", "/")):
             return match.group(0)
@@ -140,20 +60,35 @@ def rewrite_image_paths(content: str, source_path: Path) -> str:
 
         target = (source_dir / url).resolve()
         if target.exists():
-            return f"{prefix}{target.as_posix()}{trailing}"
+            assets_dir.mkdir(parents=True, exist_ok=True)
+            asset_path = assets_dir / target.name
+            if asset_path.resolve() != target:
+                shutil.copy2(target, asset_path)
+            asset_ref = f"{assets_dir.name}/{asset_path.name}"
+            return f"{prefix}{asset_ref})"
+        if prefix.startswith("!"):
+            return ""
         return match.group(0)
 
-    content = re.sub(
-        r"(?P<prefix>!\[[^\]]*\]\()(?P<url>[^)]+?)(?P<trailing>[^)]*\))",
+    return re.sub(
+        r"(?P<prefix>!\[[^\]]*\]\()(?P<url>[^)]+)\)",
         _rewrite,
         content,
     )
-    content = re.sub(
-        r"(?P<prefix>(?<!!)\[[^\]]+\]\()(?P<url>[^)]+?)(?P<trailing>[^)]*\))",
-        _rewrite,
-        content,
-    )
-    return content
+
+
+def strip_local_markdown_links(content: str) -> str:
+    def _strip(match: re.Match[str]) -> str:
+        label, url = match.groups()
+        if url.startswith(("http://", "https://", "mailto:")):
+            return match.group(0)
+        return label
+
+    return LOCAL_MARKDOWN_LINK.sub(_strip, content)
+
+
+def strip_html_comments(content: str) -> str:
+    return HTML_COMMENT.sub("", content)
 
 
 def shift_headings(content: str, shift: int) -> str:
@@ -176,16 +111,18 @@ def strip_specialist_comments(content: str) -> str:
 def strip_identifier_tokens(content: str) -> str:
     for pattern in BANNED_TOKEN_PATTERNS:
         content = pattern.sub(
-            "the project's 10,000-iteration Monte Carlo sensitivity analysis",
+            "the project's 50,000-iteration national Monte Carlo sensitivity analysis",
             content,
         )
     return content
 
 
-def prepare_section(section: Section) -> str:
+def prepare_section(section: Section, assets_dir: Path) -> str:
     text = section.path.read_text(encoding="utf-8")
     text = strip_specialist_comments(text)
-    text = rewrite_image_paths(text, section.path)
+    text = strip_html_comments(text)
+    text = rewrite_image_paths(text, section.path, assets_dir)
+    text = strip_local_markdown_links(text)
     text = shift_headings(text, section.heading_shift)
     return strip_identifier_tokens(text)
 
@@ -193,12 +130,14 @@ def prepare_section(section: Section) -> str:
 def build_merged_markdown(
     sections: list[Section],
     merged_path: Path,
+    fmt: ReportFormatConfig,
 ) -> tuple[int, list[str]]:
     merged_path.parent.mkdir(parents=True, exist_ok=True)
-    parts: list[str] = []
+    assets_dir = merged_path.parent / "assets"
+    parts: list[str] = [fmt.title_page_markdown()]
     for section in sections:
         if section.path.exists():
-            parts.append(prepare_section(section))
+            parts.append(prepare_section(section, assets_dir))
             parts.append("\n\n")
 
     merged = "".join(parts).strip() + "\n"
@@ -208,7 +147,10 @@ def build_merged_markdown(
     for ref in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", merged):
         if ref.startswith("http"):
             continue
-        if not Path(ref).exists():
+        ref_path = Path(ref)
+        if not ref_path.is_absolute():
+            ref_path = merged_path.parent / ref_path
+        if not ref_path.exists():
             missing_figures.append(ref)
 
     return len([s for s in sections if s.path.exists()]), missing_figures
@@ -231,7 +173,7 @@ def run_pandoc(merged_md: Path, output_docx: Path, reference_docx: Path) -> None
         "--metadata", f"title={REPORT_TITLE}",
         "--metadata", f"subtitle={REPORT_SUBTITLE}",
     ]
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True, cwd=merged_md.parent)
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -245,18 +187,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--out", type=Path, default=None)
     parser.add_argument("--merged-md", type=Path, default=None)
     parser.add_argument("--keep-merged", action="store_true")
-    parser.add_argument(
-        "--include-ukraine-caveat",
-        dest="include_ukraine_caveat",
-        action="store_true",
-        default=True,
-    )
-    parser.add_argument(
-        "--no-include-ukraine-caveat",
-        dest="include_ukraine_caveat",
-        action="store_false",
-    )
     parser.add_argument("--skip-postprocess", action="store_true")
+    parser.add_argument(
+        "--side-deliverables-only",
+        action="store_true",
+        help="Generate only the results table and work-audit synthesis deliverables.",
+    )
+    parser.add_argument(
+        "--skip-side-deliverables",
+        action="store_true",
+        help="Build only the main report DOCX.",
+    )
     return parser.parse_args(argv)
 
 
@@ -264,21 +205,19 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     fmt = ReportFormatConfig.load(args.format)
 
-    reference_docx = fmt.build_path("reference_docx")
+    if args.side_deliverables_only:
+        build_side_deliverables(fmt)
+        return 0
+
+    reference_docx = ensure_reference_docx(fmt)
     output_docx = args.out or fmt.build_path("output_docx")
     merged_md = args.merged_md or fmt.build_path("merged_markdown")
-    reference_docx.parent.mkdir(parents=True, exist_ok=True)
-
-    if not reference_docx.exists():
-        print(f"reference.docx missing; building from {fmt.path} ...")
-        build_reference_docx(reference_docx, fmt)
 
     sections = discover_sections(
         fmt.chapters_dir,
         fmt.annexes_dir,
-        include_ukraine_caveat=args.include_ukraine_caveat,
     )
-    section_count, missing_figures = build_merged_markdown(sections, merged_md)
+    section_count, missing_figures = build_merged_markdown(sections, merged_md, fmt)
 
     print(f"Merged {section_count} markdown files -> {merged_md}")
     if missing_figures:
@@ -305,8 +244,9 @@ def main(argv: list[str] | None = None) -> int:
             pass
 
     print(f"Wrote: {output_docx}")
+    if not args.skip_side_deliverables:
+        build_side_deliverables(fmt)
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

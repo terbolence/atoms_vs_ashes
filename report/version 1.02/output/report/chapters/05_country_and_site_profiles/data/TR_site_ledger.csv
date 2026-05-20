@@ -1,147 +1,147 @@
 national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
-1,Konya Karapınar power station,True,True,6.518,4.317,6.918,A,1.0,35.0,low,1000.0,37.614187,33.591193
-2,Çoban Yıldız power station,True,False,6.376,4.264,6.776,A,1.0,35.0,low,37.0,37.557261,32.847995
-3,Akdeniz Enerji power station,True,True,6.28,4.344,6.774,A,1.0,40.0,low,1600.0,36.201759,33.671397
-4,Kangal Etyemez power station,True,False,6.264,4.251,6.667,A,0.875,37.5,low,135.0,39.07743,37.29562
-5,Kangal power station,True,False,6.264,4.251,6.667,A,0.9375,37.5,low,457.0,39.077483,37.294973
-6,Yeşilovacık power station,True,True,6.209,4.286,6.703,A,1.0,37.5,low,1254.0,36.200611,33.663742
-7,Sarp Golvasi power station,True,False,6.126,4.198,6.529,A,1.0,37.5,low,1200.0,37.368333,35.706111
-8,Eren-1 power station,True,True,6.055,4.225,6.462,A,1.0,37.5,low,490.0,41.632,27.03
-9,Yüksek Gölovası power station,True,False,6.047,4.141,6.447,A,1.0,35.0,low,1200.0,37.368333,35.706111
-10,Yıldırım Elazığ power station,True,False,5.995,4.2,6.352,D,0.4375,37.5,low,200.0,38.662,39.772
-11,METES power station,True,True,5.989,4.198,6.484,B,1.0,37.5,low,2000.0,36.24,33.75
-12,Gerze power station,True,True,5.967,4.189,6.462,B,1.0,37.5,low,1200.0,41.86621,35.12424
-13,Karapinar Konya Şeker power station,True,True,5.948,4.13,6.414,C,0.625,37.5,low,2000.0,37.716,33.554
-14,Uluköy power station,True,False,5.943,4.128,6.437,D,0.0,37.5,low,640.0,38.199984,30.27055
-15,Diler (Akbayir) Elbistan power station,True,False,5.929,4.097,6.329,D,0.125,35.0,low,400.0,38.17,37.37
-16,Tufanbeyli power station,True,False,5.929,4.097,6.329,D,0.1875,35.0,low,450.0,38.18562,36.26994
-17,Seyitömer power station,True,True,5.901,4.163,6.308,D,0.0,37.5,low,600.0,39.572967,29.88164
-18,Tunçbilek power station,True,False,5.882,4.079,6.282,C,0.5625,35.0,low,665.0,39.619778,29.465881
-19,Alpu power station,True,False,5.871,4.176,6.28,B,1.0,40.0,low,1080.0,39.897,30.862
-20,Umut power station,True,True,5.849,4.167,6.344,D,0.125,40.0,low,660.0,41.133,37.156
-21,Barbaros-1 power station,True,True,5.812,4.152,6.28,D,0.1875,40.0,low,610.0,41.803,35.194
-22,Çayırhan power station,True,True,5.747,4.101,6.242,D,0.0625,37.5,low,1420.0,40.097,31.695
-23,Sinop Akfen power station,True,True,5.725,4.093,6.132,D,0.25,37.5,low,1600.0,41.953,34.83
-24,Filyos power station,True,True,5.703,4.084,6.11,B,0.8125,37.5,low,1600.0,41.57543,32.05965
-25,Çankırı Orta power station,True,False,5.694,4.009,6.094,B,0.8125,35.0,low,150.0,40.623886,33.112751
-26,Orta Anadolu power station,True,False,5.694,4.009,6.094,B,0.875,35.0,low,135.0,40.623886,33.112751
-27,Yunus Emre power station,True,False,5.593,4.04,6.0,D,0.0625,37.5,low,290.0,39.984309,31.635639
-28,Teyo Tufanbeyli power station,True,False,5.559,3.958,6.141,D,0.0,35.0,low,700.0,38.2299,36.2481
-29,Kahramanmaraş Anadolu power station,True,False,5.538,4.018,5.912,C,0.625,37.5,low,1200.0,38.350818,37.00706
-30,Sedef II TES power station,True,False,5.484,4.018,5.892,D,0.0,40.0,low,600.0,36.843,35.86
-31,Bolu Göynük power station,True,False,5.459,3.921,5.859,D,0.125,35.0,low,270.0,40.2514,30.8129
-32,Ada Yumurtalık power station,True,False,5.396,3.96,5.802,D,0.0625,37.5,low,1320.0,36.843,35.86
-33,Misis Adana power station,True,False,5.396,3.96,5.802,D,0.0,37.5,low,815.0,36.843,35.86
-34,Gürmin Enerji Amasya power station,True,False,5.374,3.952,5.78,D,0.0,37.5,low,300.0,40.889,35.597
-35,Polat power station,True,False,5.341,3.877,5.835,D,0.0,35.0,low,351.0,39.616008,29.442904
-36,ZETES power stations,True,False,5.318,3.868,5.718,G,0.0,35.0,low,3450.0,41.507471,31.894912
-37,Trakya Emba power station,True,True,5.297,3.921,5.67,H,0.0,37.5,low,1200.0,41.948092,28.04148
-38,Çankırı Yıldızlar power station,True,False,5.286,3.916,5.692,H,0.0,37.5,low,399.0,40.6078,33.3202
-39,Afşin-Elbistan power stations,True,False,5.275,3.912,5.648,D,0.1875,37.5,low,9283.0,38.347211,37.026002
-40,Gölovası power station,True,False,5.264,3.907,5.67,D,0.0,37.5,low,660.0,36.85356,35.89809
-41,Kütahya Domaniç power station,True,False,5.247,3.841,5.741,H,0.0,35.0,low,300.0,39.8,29.61
-42,Saltukova power station,True,False,5.242,3.899,5.648,D,0.0,37.5,low,350.0,41.519,32.094
-43,Ayas power station,True,False,5.226,3.912,5.634,D,0.0,40.0,low,625.5,36.82211,35.86753
-44,İsken Sugözü power station,True,False,5.226,3.912,5.634,D,0.0,40.0,low,1210.0,36.83502,35.879104
-45,Cenal power station,True,False,5.224,3.833,5.624,H,0.0,35.0,low,1320.0,40.4167,27.31829
-46,İÇDAŞ Bekirli power station,True,False,5.22,3.89,5.626,G,0.0,37.5,low,1200.0,40.39953,27.04973
-47,Soma Kolin power station,True,False,5.22,3.89,5.626,H,0.0,37.5,low,510.0,39.316608,27.748899
-48,Kirazlıdere power complex,True,False,5.188,3.848,5.591,G,0.0,37.5,low,1600.0,40.38227,26.99455
-49,Adana Ceyhan power station,True,False,5.181,3.874,5.56,D,0.0,37.5,low,800.0,37.0333,35.8167
-50,Iztek Ceyhan Komur power station,True,False,5.181,3.874,5.56,D,0.0,37.5,low,600.0,37.0333,35.8167
-51,Şırnak Galata power station,True,False,5.165,3.868,5.538,D,0.0,37.5,low,270.0,37.468,42.391
-52,Çan-2 power station,True,False,5.154,3.863,5.56,H,0.0,37.5,low,330.0,40.034352,26.950574
-53,EMBA Hunutlu power station,True,False,5.132,3.855,5.538,G,0.0,37.5,low,1320.0,36.81609,35.85481
-54,Zorlu Akçakoca power station,True,True,5.088,3.782,5.553,H,0.0,35.0,low,1220.0,41.087,31.12
-55,Kardemir Karabük Demir Çelik power station,True,False,5.082,3.78,5.482,H,0.0,35.0,low,77.5,41.514274,31.909608
-56,Astoria Ceyhan power station,True,False,5.075,3.85,5.484,H,0.0,40.0,low,1320.0,36.90659,35.96236
-57,Yumurtalık IC İçtaş power station,True,False,5.075,3.85,5.57,E,0.0,40.0,low,1200.0,36.77,35.79
-58,Albayrak Varaka Paper power station,True,False,5.066,3.828,5.56,H,0.0,37.5,low,40.0,39.559474,27.969536
-59,Çelikler Yumurtalık power station,True,False,5.066,3.828,5.473,E,0.0,37.5,low,1320.0,36.86788,35.90949
-60,Bandırma III power station,True,False,5.032,3.833,5.527,H,0.0,40.0,low,810.0,39.385,27.533
-61,Babadere power station,True,False,4.994,3.756,5.395,H,0.0,35.0,low,1600.0,39.609,26.189
-62,Kandilli power station,True,False,4.989,3.815,5.484,H,0.0,40.0,low,150.0,41.33935,31.51114
-63,Karaburun power station,True,False,4.989,3.815,5.398,H,0.0,40.0,low,1320.0,40.446,27.287
-64,Çalışkan Ceyhan power station,True,False,4.978,3.793,5.473,H,0.0,37.5,low,1320.0,36.93815,35.99446
-65,İÇDAŞ Biga power station,True,False,4.978,3.793,5.385,H,0.0,37.5,low,405.0,40.4438,27.13067
-66,Kıvanç power station,True,False,4.971,3.738,5.459,G,0.0,35.0,low,825.0,36.34,33.4
-67,Mersin Gülnar power station,True,False,4.971,3.738,5.459,H,0.0,35.0,low,373.0,36.33,33.4
-68,Suluova power station,True,False,4.934,3.775,5.341,H,0.0,37.5,low,270.0,40.859186,35.651886
-69,Zonguldak Modern power station,True,False,4.931,3.74,5.333,H,0.0,37.5,low,320.0,41.498,31.868
-70,Ada Yesildag Enerji power station,True,False,4.929,3.773,5.363,H,0.0,37.5,low,1200.0,36.3761,33.9322
-71,Kireçlik power station,True,False,4.903,3.78,5.312,H,0.0,40.0,low,1200.0,41.368944,31.587836
-72,Ant Enerji power station,True,False,4.89,3.758,5.297,H,0.0,37.5,low,160.0,37.366667,28.033333
-73,Saray Tekirdağ power station,True,False,4.879,3.753,5.341,H,0.0,37.5,low,300.0,41.445,27.921
-74,Vize power station,True,True,4.879,3.753,5.253,H,0.0,37.5,low,660.0,41.572996,27.811652
-75,Çatalağzı power station,True,False,4.868,3.716,5.241,H,0.0,37.5,low,974.0,41.517402,31.900198
-76,Ergene power station,True,False,4.849,3.758,5.312,H,0.0,40.0,low,170.0,41.2408,27.6967
-77,Zafer power station,True,False,4.802,3.722,5.209,H,0.0,37.5,low,1320.0,41.604444,32.511111
-78,Muğla power station,True,False,4.796,3.736,5.204,H,0.0,40.0,low,300.0,37.15,27.805
-79,Yeniköy power station,True,False,4.786,3.716,5.143,H,0.0,37.5,low,420.0,37.14019,27.87154
-80,Amasra Bartın power station,True,False,4.785,3.731,5.161,H,0.0,40.0,low,1200.0,41.72704,32.34971
-81,Güreci power station,True,False,4.785,3.676,5.279,H,0.0,35.0,low,1320.0,40.343889,26.683611
-82,HEMA Amasra power station,True,False,4.785,3.731,5.161,H,0.0,40.0,low,1320.0,41.723,32.349
-83,Şevketiye Lapseki power station,True,False,4.785,3.676,5.186,H,0.0,35.0,low,1320.0,40.395,26.792
-84,Biga power station,True,False,4.78,3.714,5.187,H,0.0,37.5,low,1540.0,40.47233,27.28625
-85,Bursa power station,True,False,4.78,3.714,5.187,H,0.0,37.5,low,270.0,39.90331,29.17746
-86,Naren Karabiga power station,True,False,4.78,3.714,5.187,H,0.0,37.5,low,1960.0,40.458066,27.254994
-87,Yenidere power station,True,False,4.78,3.714,5.187,H,0.0,37.5,low,200.0,37.458403,28.674831
-88,DETES 1 power station,True,False,4.776,3.665,5.176,H,0.0,35.0,low,160.0,41.498,31.868
-89,Ağan power station,True,False,4.758,3.705,5.165,H,0.0,37.5,low,1580.0,40.449823,27.304356
-90,Çebi Enerji power station,True,False,4.747,3.7,5.209,F,0.0,37.5,low,700.0,41.013446,27.961648
-91,Tosyalı İskenderun power station,True,False,4.692,3.678,5.099,H,0.0,37.5,low,1200.0,36.6971,36.2042
-92,Bingöl power station,True,False,4.654,3.663,5.011,H,0.0,37.5,low,150.0,39.31575,40.889156
-93,Meda power station,True,False,4.637,3.656,5.099,H,0.0,37.5,low,770.0,40.972709,27.876831
-94,Mert power station,True,False,4.637,3.656,5.099,H,0.0,37.5,low,1200.0,36.953333,36.203333
-95,Namal power station,True,False,4.599,3.606,5.0,H,0.0,35.0,low,1000.0,40.343889,26.683611
-96,Yeniyurt power station,True,False,4.582,3.634,4.989,H,0.0,37.5,low,300.0,36.886,36.151
-97,Selena power station,True,False,4.543,3.632,5.011,H,0.0,40.0,low,900.0,36.921472,36.04753
-98,Atakaş power station,True,False,4.538,3.63,4.946,H,0.0,40.0,low,660.0,36.6971,36.2042
-99,Burnaz power station,True,False,4.516,3.608,5.011,H,0.0,37.5,low,300.0,36.491859,36.192092
-100,Gebze Çolakoğlu power station,True,False,4.468,3.601,4.817,H,0.0,40.0,low,190.0,40.77758,29.538564
-101,Şırnak Silopi (CİNER) power station,True,False,4.418,3.568,4.791,H,0.0,37.5,low,405.0,37.310025,42.594696
-102,Lüminer Enerji power station,True,False,4.317,3.54,4.86,H,0.0,40.0,low,160.0,40.892,26.901
-103,Irmak power station,True,False,4.291,3.518,4.835,H,0.0,37.5,low,1320.0,39.79,26.3325
-104,Güney Akdeniz power station,True,False,4.269,3.509,4.813,H,0.0,37.5,low,1320.0,36.416667,35.883333
-105,Atlas Enerji İskenderun power station,True,False,4.038,3.416,4.418,H,0.0,37.5,low,1200.0,36.69028,36.20909
-106,Evrese power station,True,False,4.005,3.403,4.418,H,0.0,37.5,low,135.0,40.416667,26.666667
-,Adana Akdeniz power station,False,False,,,,H,0.0,0.0,low,600.0,36.8178,35.86216
+1,Konya Karapınar power station,True,True,7.784,6.528,8.301,A,1.0,70.59,low,1000.0,37.614187,33.591193
+2,Eren-1 power station,True,True,7.459,6.604,7.9,A,1.0,76.47,low,490.0,41.632,27.03
+3,Tufanbeyli power station,True,False,7.38,6.407,7.89,A,1.0,73.53,low,450.0,38.18562,36.26994
+4,Karapinar Konya Şeker power station,True,False,7.354,6.386,7.864,A,1.0,73.53,low,2000.0,37.716,33.554
+5,Çayırhan power station,True,True,7.347,6.513,7.806,B,1.0,76.47,low,1420.0,40.097,31.695
+6,Teyo Tufanbeyli power station,True,True,7.328,6.366,7.838,B,0.9167,73.53,low,700.0,38.2299,36.2481
+7,Tunçbilek power station,True,False,7.276,6.326,7.818,B,1.0,73.53,low,665.0,39.619778,29.465881
+8,Uluköy power station,True,False,7.263,6.316,7.701,B,1.0,73.53,low,640.0,38.199984,30.27055
+9,Sinop Akfen power station,True,True,7.26,6.27,7.724,B,1.0,73.53,low,1600.0,41.953,34.83
+10,Çoban Yıldız power station,True,False,7.185,6.255,7.675,B,0.9167,73.53,low,37.0,37.557261,32.847995
+11,Orta Anadolu power station,True,False,7.154,6.063,7.692,C,0.6667,70.59,low,135.0,40.623886,33.112751
+12,Kütahya Domaniç power station,True,False,7.121,6.101,7.557,D,0.0,70.59,low,300.0,39.8,29.61
+13,Gerze power station,True,False,7.116,6.326,7.587,D,0.1667,76.47,low,1200.0,41.86621,35.12424
+14,Bolu Göynük power station,True,False,7.107,6.194,7.565,D,0.0833,73.53,low,270.0,40.2514,30.8129
+15,Kangal Etyemez power station,True,False,7.072,6.29,7.55,D,0.0,76.47,low,135.0,39.07743,37.29562
+16,Kangal power station,True,False,7.072,6.29,7.55,D,0.0833,76.47,low,457.0,39.077483,37.294973
+17,Yeşilovacık power station,True,False,7.059,6.28,7.569,D,0.0833,76.47,low,1254.0,36.200611,33.663742
+18,Seyitömer power station,True,False,7.022,6.25,7.562,D,0.0,76.47,low,600.0,39.572967,29.88164
+19,Akdeniz Enerji power station,True,False,7.009,6.24,7.519,D,0.0,76.47,low,1600.0,36.201759,33.671397
+20,Çankırı Yıldızlar power station,True,False,6.957,6.038,7.441,D,0.0,73.53,low,399.0,40.6078,33.3202
+21,Alpu power station,True,False,6.947,6.189,7.437,D,0.0833,76.47,low,1080.0,39.897,30.862
+22,Sarp Golvasi power station,True,False,6.938,6.063,7.448,D,0.0,73.53,low,1200.0,37.368333,35.706111
+23,Yüksek Gölovası power station,True,False,6.938,6.063,7.448,D,0.0,73.53,low,1200.0,37.368333,35.706111
+24,Diler (Akbayir) Elbistan power station,True,False,6.908,5.881,7.37,D,0.0,70.59,low,400.0,38.17,37.37
+25,Babadere power station,True,False,6.891,5.987,7.355,D,0.0,73.53,low,1600.0,39.609,26.189
+26,Çankırı Orta power station,True,False,6.88,5.861,7.418,D,0.0,70.59,low,150.0,40.623886,33.112751
+27,Kahramanmaraş Anadolu power station,True,False,6.872,5.972,7.368,D,0.0,73.53,low,1200.0,38.350818,37.00706
+28,Zorlu Akçakoca power station,True,False,6.815,5.967,7.253,D,0.0,73.53,low,1220.0,41.087,31.12
+29,METES power station,True,True,6.809,6.078,7.319,D,0.0,76.47,low,2000.0,36.24,33.75
+30,Soma Kolin power station,True,False,6.809,6.078,7.269,D,0.0,76.47,low,510.0,39.316608,27.748899
+31,Afşin-Elbistan power stations,True,False,6.74,5.871,7.237,D,0.0,73.53,low,9283.0,38.347211,37.026002
+32,Umut power station,True,False,6.734,5.987,7.175,F,0.0,76.47,low,660.0,41.133,37.156
+33,Ada Yumurtalık power station,True,False,6.722,5.994,7.181,E,0.0,76.47,low,1320.0,36.843,35.86
+34,Misis Adana power station,True,False,6.722,5.994,7.181,F,0.0,76.47,low,815.0,36.843,35.86
+35,Sedef II TES power station,True,False,6.722,5.994,7.181,G,0.0,76.47,low,600.0,36.843,35.86
+36,Yunus Emre power station,True,False,6.72,5.856,7.257,E,0.0,73.53,low,290.0,39.984309,31.635639
+37,Barbaros-1 power station,True,False,6.719,6.005,7.125,G,0.0,76.47,low,610.0,41.803,35.194
+38,Karaburun power station,True,False,6.681,5.826,7.217,H,0.0,73.53,low,1320.0,40.446,27.287
+39,Bandırma III power station,True,False,6.672,5.967,7.181,H,0.0,76.47,low,810.0,39.385,27.533
+40,Cenal power station,True,False,6.668,5.816,7.151,H,0.0,73.53,low,1320.0,40.4167,27.31829
+41,Vize power station,True,True,6.653,5.952,7.144,H,0.0,76.47,low,660.0,41.572996,27.811652
+42,İÇDAŞ Bekirli power station,True,False,6.641,5.931,7.081,H,0.0,76.47,low,1200.0,40.39953,27.04973
+43,Filyos power station,True,False,6.628,5.9,7.05,H,0.0,76.47,low,1600.0,41.57543,32.05965
+44,Astoria Ceyhan power station,True,False,6.622,5.894,7.081,H,0.0,76.47,low,1320.0,36.90659,35.96236
+45,Adana Ceyhan power station,True,False,6.584,5.856,7.044,H,0.0,76.47,low,800.0,37.0333,35.8167
+46,Iztek Ceyhan Komur power station,True,False,6.584,5.856,7.044,H,0.0,76.47,low,600.0,37.0333,35.8167
+47,EMBA Hunutlu power station,True,False,6.572,5.844,7.031,H,0.0,76.47,low,1320.0,36.81609,35.85481
+48,Polat power station,True,False,6.562,5.77,7.0,H,0.0,73.53,low,351.0,39.616008,29.442904
+49,Kıvanç power station,True,True,6.556,5.73,7.122,H,0.0,73.53,low,825.0,36.34,33.4
+50,Zafer power station,True,False,6.534,5.787,6.975,H,0.0,76.47,low,1320.0,41.604444,32.511111
+51,Yenidere power station,True,False,6.523,5.705,7.007,H,0.0,73.53,low,200.0,37.458403,28.674831
+52,Şırnak Galata power station,True,False,6.503,5.794,6.944,H,0.0,76.47,low,270.0,37.468,42.391
+53,Mersin Gülnar power station,True,False,6.451,5.649,7.016,H,0.0,73.53,low,373.0,36.33,33.4
+54,Kirazlıdere power complex,True,False,6.431,5.737,6.856,H,0.0,76.47,low,1600.0,40.38227,26.99455
+55,Trakya Emba power station,True,False,6.391,5.662,6.812,H,0.0,76.47,low,1200.0,41.948092,28.04148
+56,Yeniköy power station,True,False,6.355,5.576,6.842,H,0.0,73.53,low,420.0,37.14019,27.87154
+57,Irmak power station,True,False,6.344,5.681,6.862,H,0.0,76.47,low,1320.0,39.79,26.3325
+58,Ece power station,True,False,6.328,5.619,6.769,H,0.0,76.47,low,600.0,36.780693,35.735779
+59,Gölovası power station,True,False,6.328,5.619,6.769,H,0.0,76.47,low,660.0,36.85356,35.89809
+60,Hande power station,True,False,6.328,5.619,6.769,H,0.0,76.47,low,600.0,36.780693,35.735779
+61,Çalışkan Ceyhan power station,True,False,6.322,5.594,6.781,H,0.0,76.47,low,1320.0,36.93815,35.99446
+62,Biga power station,True,False,6.306,5.538,6.77,H,0.0,73.53,low,1540.0,40.47233,27.28625
+63,Muğla power station,True,False,6.299,5.533,6.763,H,0.0,73.53,low,300.0,37.15,27.805
+64,Saltukova power station,True,False,6.299,5.533,6.816,H,0.0,73.53,low,350.0,41.519,32.094
+65,Ergene power station,True,False,6.291,5.631,6.731,H,0.0,76.47,low,170.0,41.2408,27.6967
+66,Çebi Enerji power station,True,False,6.278,5.619,6.769,H,0.0,76.47,low,700.0,41.013446,27.961648
+67,İsken Sugözü power station,True,False,6.278,5.569,6.719,H,0.0,76.47,low,1210.0,36.83502,35.879104
+68,Ada Yesildag Enerji power station,True,False,6.266,5.606,6.756,H,0.0,76.47,low,1200.0,36.3761,33.9322
+69,Ağan power station,True,False,6.253,5.497,6.77,H,0.0,73.53,low,1580.0,40.449823,27.304356
+70,Mert power station,True,False,6.253,5.525,6.675,H,0.0,76.47,low,1200.0,36.953333,36.203333
+71,Gürmin Enerji Amasya power station,True,False,6.247,5.55,6.687,H,0.0,76.47,low,300.0,40.889,35.597
+72,Sanko Yumurtalık power station,True,False,6.234,5.506,6.694,H,0.0,76.47,low,1600.0,36.876,35.894
+73,Suluova power station,True,False,6.234,5.537,6.675,H,0.0,76.47,low,270.0,40.859186,35.651886
+74,Amasra Bartın power station,True,False,6.216,5.537,6.687,H,0.0,76.47,low,1200.0,41.72704,32.34971
+75,Ayas power station,True,False,6.216,5.506,6.656,H,0.0,76.47,low,625.5,36.82211,35.86753
+76,HEMA Amasra power station,True,False,6.216,5.537,6.687,H,0.0,76.47,low,1320.0,41.723,32.349
+77,Kilikya power station,True,False,6.216,5.506,6.656,H,0.0,76.47,low,660.0,36.82786,35.87151
+78,Kandilli power station,True,False,6.209,5.512,6.7,H,0.0,76.47,low,150.0,41.33935,31.51114
+79,Naren Karabiga power station,True,False,6.201,5.457,6.717,H,0.0,73.53,low,1960.0,40.458066,27.254994
+80,Saray Tekirdağ power station,True,False,6.166,5.506,6.656,H,0.0,76.47,low,300.0,41.445,27.921
+81,Kireçlik power station,True,False,6.153,5.425,6.575,H,0.0,76.47,low,1200.0,41.368944,31.587836
+82,Çelikler Yumurtalık power station,True,False,6.148,5.417,6.612,H,0.0,73.53,low,1320.0,36.86788,35.90949
+83,Hakan Kömür power station,True,False,6.134,5.406,6.594,H,0.0,76.47,low,100.0,37.0333,35.8167
+84,İÇDAŞ Biga power station,True,False,6.122,5.396,6.586,H,0.0,73.53,low,405.0,40.4438,27.13067
+85,Albayrak Varaka Paper power station,True,False,6.084,5.437,6.575,H,0.0,76.47,low,40.0,39.559474,27.969536
+86,Hakan Enerji power station,True,False,6.053,5.344,6.494,H,0.0,76.47,low,100.0,36.84343,35.886929
+87,Yumurtalık IC İçtaş power station,True,False,6.028,5.319,6.469,H,0.0,76.47,low,1200.0,36.77,35.79
+88,Güreci power station,True,False,6.016,5.287,6.437,H,0.0,76.47,low,1320.0,40.343889,26.683611
+89,Lüminer Enerji power station,True,False,6.016,5.259,6.503,H,0.0,76.47,low,160.0,40.892,26.901
+90,Meda power station,True,False,6.016,5.356,6.506,H,0.0,76.47,low,770.0,40.972709,27.876831
+91,ZETES power stations,True,False,5.971,5.286,6.442,H,0.0,73.53,low,3450.0,41.507471,31.894912
+92,Adana Akdeniz power station,True,False,5.966,5.256,6.406,H,0.0,76.47,low,600.0,36.8178,35.86216
+93,Şırnak Silopi (CİNER) power station,True,False,5.859,5.194,6.355,H,0.0,73.53,low,405.0,37.310025,42.594696
+94,Şevketiye Lapseki power station,True,False,5.845,5.132,6.289,H,0.0,73.53,low,1320.0,40.395,26.792
+95,Çatalağzı power station,True,False,5.841,5.156,6.312,H,0.0,73.53,low,974.0,41.517402,31.900198
+96,Yeniyurt power station,True,False,5.834,5.087,6.275,H,0.0,76.47,low,300.0,36.886,36.151
+97,Güney Akdeniz power station,True,False,5.812,5.169,6.312,H,0.0,76.47,low,1320.0,36.416667,35.883333
+98,Namal power station,True,False,5.806,5.092,6.25,H,0.0,73.53,low,1000.0,40.343889,26.683611
+99,Atakaş power station,True,False,5.791,5.131,6.281,H,0.0,76.47,low,660.0,36.6971,36.2042
+100,Selena power station,True,False,5.756,5.062,6.181,H,0.0,76.47,low,900.0,36.921472,36.04753
+101,Çerkezköy power station,True,False,5.753,5.144,6.294,H,0.0,76.47,low,990.0,41.283333,28.0
+102,Burnaz power station,True,False,5.747,5.119,6.256,H,0.0,76.47,low,300.0,36.491859,36.192092
+103,Tosyalı İskenderun power station,True,False,5.741,5.131,6.281,H,0.0,76.47,low,1200.0,36.6971,36.2042
+104,Avdan power station,True,False,5.706,5.012,6.131,H,0.0,76.47,low,300.0,37.750237,29.094284
+105,Kardemir Karabük Demir Çelik power station,True,False,5.594,4.909,6.065,H,0.0,73.53,low,77.5,41.514274,31.909608
+106,Zonguldak Modern power station,True,False,5.594,4.909,6.065,H,0.0,73.53,low,320.0,41.498,31.868
+107,DETES 1 power station,True,False,5.464,4.831,5.987,H,0.0,73.53,low,160.0,41.498,31.868
+108,Atlas Enerji İskenderun power station,True,False,5.394,4.8,5.919,H,0.0,76.47,low,1200.0,36.69028,36.20909
+109,İskenderun power station,True,False,5.369,4.775,5.894,H,0.0,76.47,low,2000.0,36.587,36.173
+110,Evrese power station,True,False,5.237,4.556,5.612,H,0.0,76.47,low,135.0,40.416667,26.666667
 ,Aksa Akrilik power station,False,False,,,,,,0.0,low,100.0,40.691129,29.405596
 ,Aliağa Enka power station,False,False,,,,,,0.0,low,800.0,38.746,26.912
-,Avdan power station,False,False,,,,H,0.0,0.0,low,300.0,37.750237,29.094284
+,Ant Enerji power station,False,False,,,,,,0.0,low,160.0,37.366667,28.033333
 ,Bandırma Elektrik power station,False,False,,,,,,0.0,low,1600.0,40.30593,27.7272
-,Bandırma Karat power station,False,False,,,,H,0.0,0.0,low,1200.0,40.357,27.975
+,Bandırma Karat power station,False,False,,,,,,0.0,low,1200.0,40.357,27.975
+,Bingöl power station,False,False,,,,,,0.0,low,150.0,39.31575,40.889156
+,Bursa power station,False,False,,,,,,0.0,low,270.0,39.90331,29.17746
 ,Çan (18 Mart) power station,False,False,,,,,,0.0,low,320.0,40.02324,26.976837
-,Çerkezköy power station,False,False,,,,,,0.0,low,990.0,41.283333,28.0
+,Çan-2 power station,False,False,,,,,,0.0,low,330.0,40.034352,26.950574
 ,Çırpılar power station,False,False,,,,,,0.0,low,200.0,39.816777,27.339752
-,Demirtaş power station,False,False,,,,G,0.0,0.0,low,119.0,36.780693,35.735779
+,Demirtaş power station,False,False,,,,,,0.0,low,119.0,36.780693,35.735779
 ,Deniz power station,False,False,,,,,,0.0,low,1320.0,38.746,26.912
 ,Dinar power station,False,False,,,,,,0.0,low,500.0,38.064,30.167
-,DOSAB cogeneration plant,False,False,,,,H,0.0,0.0,low,50.0,40.243172,28.96442
-,Ece power station,False,False,,,,F,0.0,0.0,low,600.0,36.780693,35.735779
+,DOSAB cogeneration plant,False,False,,,,,,0.0,low,50.0,40.243172,28.96442
 ,Enyat Samsun power station,False,False,,,,,,0.0,low,150.0,40.97,35.67
-,Eti Maden Bandirma power station,False,False,,,,H,0.0,0.0,low,46.7,40.328921,27.990415
+,Eti Maden Bandirma power station,False,False,,,,,,0.0,low,46.7,40.328921,27.990415
+,Gebze Çolakoğlu power station,False,False,,,,,,0.0,low,190.0,40.77758,29.538564
 ,Gönen power station,False,False,,,,,,0.0,low,300.0,40.1,27.65
 ,Güneybatı Anadolu power station,False,False,,,,,,0.0,low,660.0,37.31,27.78
 ,Habaş power station,False,False,,,,,,0.0,low,600.0,38.77273,26.94599
-,Hakan Enerji power station,False,False,,,,D,0.0,0.0,low,100.0,36.84343,35.886929
-,Hakan Kömür power station,False,False,,,,,,0.0,low,100.0,37.0333,35.8167
-,Hande power station,False,False,,,,F,0.0,0.0,low,600.0,36.780693,35.735779
 ,Helvacı power station,False,False,,,,,,0.0,low,270.0,40.08,27.168
 ,Ilgın power station,False,False,,,,,,0.0,low,500.0,38.26,31.91
-,İskenderun power station,False,False,,,,,,0.0,low,2000.0,36.587,36.173
 ,İzdemir Enerji power station,False,False,,,,,,0.0,low,720.0,38.74173,26.92917
 ,Kemerköy power station,False,False,,,,,,0.0,low,630.0,37.035362,27.900592
-,Kilikya power station,False,False,,,,H,0.0,0.0,low,660.0,36.82786,35.87151
 ,Kipas MMP power station,False,False,,,,,,0.0,low,55.0,37.767197,27.445695
 ,Kınık power station,False,False,,,,,,0.0,low,700.0,39.084,27.45
 ,Orhaneli power station,False,False,,,,,,0.0,low,210.0,39.950224,28.870214
 ,Petkim power station,False,False,,,,,,0.0,low,205.0,38.795,26.970278
 ,Sanko Gölbaşı power station,False,False,,,,,,0.0,low,150.0,37.819719,37.718512
-,Sanko Yumurtalık power station,False,False,,,,D,0.0,0.0,low,1600.0,36.876,35.894
 ,Silopi (Şırnak) power station,False,False,,,,,,0.0,low,135.0,37.352619,42.552728
 ,Soma power station,False,False,,,,,,0.0,low,990.0,39.194462,27.635204
 ,Star Refinery Socar power station,False,False,,,,,,0.0,low,672.0,38.817,26.9103
 ,Tekirdağ Malkara power station,False,False,,,,,,0.0,low,1000.0,40.638726,27.004295
 ,Yatağan power station,False,False,,,,,,0.0,low,630.0,37.330905,28.102377
+,Yıldırım Elazığ power station,False,False,,,,,,0.0,low,200.0,38.662,39.772
 ,Zorlu Soma power station,False,False,,,,,,0.0,low,1220.0,39.186,27.608

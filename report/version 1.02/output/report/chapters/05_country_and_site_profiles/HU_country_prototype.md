@@ -1,85 +1,72 @@
 # Hungary Country Profile
 
-Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
 
-Hungary has 11 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 2 sites pass both the exclusionary and avoidance screens, 8 pass the exclusionary screen but retain avoidance flags, and 1 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+Hungary has 11 thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. One site passes both the exclusionary and avoidance screens, 10 sites pass the exclusionary screen but retain avoidance flags, and no site fails the exclusionary screen. The country is therefore a broad brownfield pool with one clear screening leader and a larger unlock pool whose value depends on resolving recurring grid, aircraft, toxic-release, land-footprint and population-distance constraints.
 
-The leading site is **Mohacs power station**, with a composite score of 6.467 and a Monte Carlo interval of 4.619-6.887. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+Hungary already has civil nuclear-power experience, so the Stage 3 programme can focus on site-specific characterisation while still refreshing regulatory, emergency-planning, workforce and public-stakeholder interfaces for a brownfield SMR envelope. The leading site is **Mohacs power station**, with a composite score of 7.584 and a Monte Carlo interval of 6.705-8.075. Its national stability band is `A` with a national top-10% hit rate of 100%, making it the only Hungarian site that combines a full-pass status with the strongest national stability signal.
 
-<!-- specialist key=country_exec scope=country country_code=HU bundle=HU_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:21Z -->
-Of 11 Hungarian thermal sites tested against the NuScale VOYGR-6 envelope, 2 clear both the exclusionary and avoidance screens, 8 pass exclusionary but carry avoidance flags, and 1 is removed at the exclusionary stage on Emergency Planning Feasibility (EP-01). Mohacs power station leads in band A with a 100 % top-10 % hit rate, a composite score of 6.467, and a 1 200 MW coal-fleet inheritance footprint; Torony power station is the second fully clear candidate at composite 6.010 in band D. The leadership pool is small but real, sufficient for a two-site initial programme rather than a one-site exercise.
+Hungary's 11 ranked thermal-site records produce one full-pass site and 10 exclusionary-pass sites with avoidance flags. Mohacs is the current leadership pool on its own: it records a full pass, a 7.584 composite score, an A national stability band and a 100% national top-10 hit rate. Borsod and Tiszapalkonya form the first follower tier by point estimate, but both remain avoidance-flag candidates and sit in band D; Matraterenye and Torony complete the top-five selected profile set, but both sit in band H and need stronger confirmation before they can be treated as robust fast followers.
 
-The avoidance unlock pool is large and remediable. **Grid Connection (NS-02)** carries 7 of the 10 exclusionary-pass sites with composite scores (70 %); closing it is a transmission-corridor study coordinated with MAVIR. **Toxic/Gas Releases (HI-03)** carries 6 sites (60 %) and is closable by refreshing the local industrial inventory and updating the Major Accident Hazards register. **Site Footprint Adequacy (NS-05)** carries 5 sites (50 %) and is closable through a parcel-by-parcel land-acquisition assessment against the buildable hectares the NuScale VOYGR-6 nuclear-island envelope requires. Closing all three would lift several band-D sites into a clear-pass status.
+The avoidance unlock pool is large and defines the national work programme. Grid Connection (NS-02) affects 8 of the 11 exclusionary-pass sites, Aircraft Crash (HI-01) affects 7, Toxic/Gas Releases (HI-03) affects 6, and Site Footprint Adequacy (NS-05) and Distance to Population Centres (RI-05) each affect 4. The practical unlock work is therefore not a single-site issue: it requires transmission-path confirmation, aircraft and flight-path screening, hazardous-neighbour verification, land-footprint confirmation and population-centre micro-modelling across the national pool.
 
-The greenfield lever is available but unlikely to be needed before the brownfield pool is exhausted; the inherited grid, water, and workforce assets at the existing thermal stations remain the strongest reason to lead with the brownfield list. A credible Stage 3 sequence begins with Mohacs power station as the lead site, with Torony power station as the fast follower, and a third wave drawn from the band-C and band-D candidates dependent on resolving NS-02, HI-03, and NS-05 in parallel as a national programme.
-<!-- /specialist key=country_exec -->
+A credible Stage 3 sequence begins with Mohacs as the full-characterisation lead. Borsod and Tiszapalkonya should be treated as the first avoidance-flagged candidates to revisit after the national grid and hazardous-neighbour checks are resolved, while Matraterenye and Torony are useful comparators for different constraint types: Matraterenye for land and grid limitations in a lower-population setting, and Torony for population-distance and aircraft constraints near Szombathely. Greenfield options remain a programme lever if the eventual build-out target exceeds what the brownfield pool can support.
 
 <a id="country-status-map"></a>
 
 ![Hungary status map](figures/HU_site_status_map.png)
 
-Interactive review map with marker tooltips: [HU_site_status_map.html](figures/HU_site_status_map.html).
 
 ## Hungary Site Ledger
 
 | Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
 |---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Mohacs power station | Full pass | 6.467 | 4.619 | 6.887 | A | 100% | 42% |
-| 2 | Torony power station | Full pass | 6.010 | 4.339 | 6.396 | D | 6% | 42% |
-| 3 | Borsod power station | Exclusion pass with avoidance flag | 5.976 | 4.390 | 6.396 | C | 56% | 42% |
-| 4 | Tiszapalkonya power station | Exclusion pass with avoidance flag | 5.807 | 4.311 | 6.302 | D | 0% | 42% |
-| 5 | Matra power station | Exclusion pass with avoidance flag | 5.123 | 3.991 | 5.509 | H | 0% | 42% |
-| 6 | Matraterenye power station | Exclusion pass with avoidance flag | 4.817 | 3.808 | 5.307 | H | 0% | 42% |
-| 7 | Oroszlány power station | Exclusion pass with avoidance flag | 4.802 | 3.841 | 5.189 | H | 0% | 42% |
-| 8 | Mecsek Hills power station | Exclusion pass with avoidance flag | 4.637 | 3.764 | 5.090 | H | 0% | 42% |
-| 9 | Banhida-II power station | Exclusion pass with avoidance flag | 4.448 | 3.676 | 4.868 | H | 0% | 42% |
-| 10 | Bakony power station | Exclusion pass with avoidance flag | 4.338 | 3.637 | 4.704 | H | 0% | 45% |
-| - | Pecs power station | Hard fail | - | - | - | - | - | 0% |
+| 1 | Mohacs power station | Full pass | 7.584 | 6.705 | 8.075 | A | 100% | 76% |
+| 2 | Borsod power station | Exclusion pass with avoidance flag | 6.941 | 6.184 | 7.381 | D | 0% | 76% |
+| 3 | Tiszapalkonya power station | Exclusion pass with avoidance flag | 6.778 | 6.053 | 7.319 | D | 0% | 76% |
+| 4 | Matraterenye power station | Exclusion pass with avoidance flag | 6.641 | 5.795 | 7.158 | H | 0% | 74% |
+| 5 | Torony power station | Exclusion pass with avoidance flag | 6.595 | 5.760 | 7.059 | H | 0% | 74% |
+| 6 | Matra power station | Exclusion pass with avoidance flag | 6.230 | 5.480 | 6.691 | H | 0% | 74% |
+| 7 | Oroszlány power station | Exclusion pass with avoidance flag | 5.967 | 5.278 | 6.480 | H | 0% | 74% |
+| 8 | Bakony power station | Exclusion pass with avoidance flag | 5.730 | 5.096 | 6.191 | H | 0% | 74% |
+| 9 | Banhida-II power station | Exclusion pass with avoidance flag | 5.418 | 4.856 | 5.954 | H | 0% | 74% |
+| 10 | Pecs power station | Exclusion pass with avoidance flag | 5.411 | 4.851 | 5.977 | H | 0% | 74% |
+| 11 | Mecsek Hills power station | Exclusion pass with avoidance flag | 5.220 | 4.705 | 5.806 | H | 0% | 74% |
 
 ## Avoidance Flag Pareto
 
-Of the 10 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
+Of the 11 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on five criteria. The denominator in each bullet is the full exclusionary-pass pool, not the top-five selected profile set.
 
 ![Avoidance flag Pareto](figures/HU_avoidance_pareto.png)
 
-- **Grid Connection (NS-02)** - 7 of 10 exclusionary-pass sites (70%).
-- **Toxic/Gas Releases (HI-03)** - 6 of 10 exclusionary-pass sites (60%).
-- **Site Footprint Adequacy (NS-05)** - 5 of 10 exclusionary-pass sites (50%).
-- **Aircraft Crash (HI-01)** - 4 of 10 exclusionary-pass sites (40%).
-- **Population Density at EPZ Radii (RI-04)** - 1 of 10 exclusionary-pass sites (10%).
-
-## Exclusionary Failure Pareto
-
-The exclusionary failures across the country trace back to a small number of criteria. They identify which screening checks are responsible for removing sites from further consideration.
-
-![Exclusionary failure Pareto](figures/HU_exclusionary_pareto.png)
-
-- **Emergency Planning Feasibility (EP-01)** - 1 of 11 country sites (9%).
+- **Grid Connection (NS-02)** - 8 of 11 exclusionary-pass sites (73%) - this criterion controls how quickly the avoidance-flag pool can be converted into Stage 3 characterisation candidates.
+- **Aircraft Crash (HI-01)** - 7 of 11 exclusionary-pass sites (64%) - this criterion controls how quickly the avoidance-flag pool can be converted into Stage 3 characterisation candidates.
+- **Toxic/Gas Releases (HI-03)** - 6 of 11 exclusionary-pass sites (55%) - this criterion controls how quickly the avoidance-flag pool can be converted into Stage 3 characterisation candidates.
+- **Site Footprint Adequacy (NS-05)** - 4 of 11 exclusionary-pass sites (36%) - this criterion controls how quickly the avoidance-flag pool can be converted into Stage 3 characterisation candidates.
+- **Distance to Population Centres (RI-05)** - 4 of 11 exclusionary-pass sites (36%) - this criterion controls how quickly the avoidance-flag pool can be converted into Stage 3 characterisation candidates.
 
 ## Family Strength and Weakness
 
-Across the country the strongest criterion family is **Natural Hazards** at a mean normalised score of 6.43/10. The weakest family is **Human-Induced Hazards** at 3.36/10. The bottom three individual criteria across the country are:
+Across the country the strongest criterion family is **Natural Hazards** at a mean normalised score of 7.22/10. The weakest family is **Non-Safety / Implementation** at 5.55/10, closely followed by Human-Induced Hazards at 5.71/10. The bottom three individual criteria across the country are:
 
-- **Military Installations (HI-06)** - mean 1.91/10 across 11 scored sites (min 0.0, max 3.5).
-- **Toxic/Gas Releases (HI-03)** - mean 3.36/10 across 11 scored sites (min 0.0, max 7.5).
-- **Grid Capacity Basic Filter (BF-01)** - mean 3.55/10 across 11 scored sites (min 0.0, max 7.5).
+- **Military Installations (HI-06)** - mean 1.14/10 across 11 scored sites (min 0.0, max 3.5).
+- **Electromagnetic Interference (HI-07)** - mean 1.50/10 across 11 scored sites (min 1.5, max 1.5).
+- **Grid Connection (NS-02)** - mean 2.95/10 across 11 scored sites (min 1.5, max 5.5).
+
+## National Sensitivity and Robustness
+
+The national sensitivity analysis separates Mohacs from the rest of the Hungarian brownfield pool. Mohacs remains in band A with a 100% national top-10 hit rate, while Borsod and Tiszapalkonya sit in band D and the remaining ranked sites sit in band H. The Monte Carlo intervals still overlap across the follower tier, so exact rank differences between Borsod, Tiszapalkonya, Matraterenye and Torony should not be overread before the avoidance flags are resolved.
 
 ## Interpretation for Site Selection
 
-The Hungary result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+The selected detailed site profiles are the top five nationally ranked sites under the frozen run: Mohacs, Borsod, Tiszapalkonya, Matraterenye and Torony. Mohacs is the only site that currently supports direct progression toward Stage 3 characterisation without an avoidance unlock. Borsod and Tiszapalkonya are the most credible fast-follower candidates because their scores are close to the leader and their limiting issues are specific: hazardous-neighbour and grid checks rather than exclusionary failures.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/HU_avoidance_pareto.png)
 
-The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
-
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Mohacs power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
-
-The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
-
-The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
+The chart shows the national remediation agenda for the exclusionary-pass pool. Grid-connection work has the largest denominator, aircraft and toxic-release checks define the main human-induced hazard agenda, and land-footprint and population-distance checks determine whether the follower tier can be elevated beyond comparator status. The absence of hard-fail sites is useful, but it does not make the pool uniformly ready: avoidance-flagged sites remain contingent until the relevant Stage 3 work confirms the measured constraints.
 
 ## Status Counts
 
-- Full pass: 2
-- Exclusion pass with avoidance flag: 8
-- Hard fail: 1
+- Full pass: 1 (Mohacs)
+- Exclusion pass with avoidance flag: 10
+- Hard fail: 0

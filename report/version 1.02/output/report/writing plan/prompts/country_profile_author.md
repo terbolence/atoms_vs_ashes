@@ -229,7 +229,7 @@ bullet, score column, or composite without naming the basis.
   full-pass sites, avoidance-flag sites, and hard-fail sites in terms
   of what Stage 3 effort each warrants. Do not single out the leading
   site as a deployment recommendation; describe it as a defensible
-  characterization candidate.
+  characterisation candidate.
 - Treat Monte Carlo intervals as evidence against false precision.
   When two sites' MC bands overlap, say so.
 - In the National Sensitivity and Robustness section, distinguish

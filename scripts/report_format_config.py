@@ -1,7 +1,14 @@
-"""Load report layout settings from report_format.json."""
+# man_hours: 4.0
+"""Load report layout settings from report_format.json.
+
+``report_format.json`` is the sole authoritative layout spec. ``reference.docx``
+is always derived from it; ``report_docx_postprocess`` applies table and
+run-level rules that Pandoc cannot express reliably.
+"""
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -85,3 +92,51 @@ class ReportFormatConfig:
 
     def margins_mm(self) -> dict[str, float]:
         return {k: float(v) for k, v in self.data["page"]["margins_mm"].items()}
+
+    def content_hash(self) -> str:
+        return hashlib.sha256(self.path.read_bytes()).hexdigest()
+
+    def reference_docx_hash_path(self) -> Path:
+        return self.build_path("reference_docx").with_suffix(".source.sha256")
+
+    def title_page_markdown(self) -> str:
+        title_page = self.data["typography"].get("title_page", {})
+        if not title_page.get("use_first_page", False):
+            return ""
+
+        rubric = title_page.get("rubric", {})
+        rubric_text = str(rubric.get("text", "")).strip()
+        parts: list[str] = []
+        if rubric_text:
+            for line in rubric_text.splitlines():
+                parts.append(f"**{line}**" if line else "")
+            parts.append("")
+        return "\n".join(parts).strip() + "\n\n"
+
+
+def ensure_reference_docx(
+    config: ReportFormatConfig,
+    *,
+    force: bool = False,
+) -> Path:
+    """Build or refresh the Pandoc reference template from ``report_format.json``."""
+    reference_docx = config.build_path("reference_docx")
+    hash_path = config.reference_docx_hash_path()
+    current_hash = config.content_hash()
+    reference_docx.parent.mkdir(parents=True, exist_ok=True)
+
+    up_to_date = (
+        reference_docx.exists()
+        and hash_path.exists()
+        and hash_path.read_text(encoding="utf-8").strip() == current_hash
+    )
+    if not force and up_to_date:
+        return reference_docx
+
+    from make_reference_docx import build_reference_docx
+
+    reason = "forced rebuild" if force else "report_format.json changed or reference.docx missing"
+    print(f"Building reference.docx from {config.path} ({reason}) ...")
+    build_reference_docx(reference_docx, config)
+    hash_path.write_text(f"{current_hash}\n", encoding="utf-8")
+    return reference_docx

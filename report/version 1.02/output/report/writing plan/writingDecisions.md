@@ -1,4 +1,4 @@
-<!-- man_hours: 4.6 -->
+<!-- man_hours: 6.3 -->
 # Report Writing Decisions and Drafting Guide
 
 This file is the controlling editorial guide for drafting the final report. It consolidates scope, structure, evidence anchors, country/site profile rules, prompt usage, and output organisation. Use it together with the canonical table of contents in [`tableOfContents.md`](tableOfContents.md), the prose standard in [`writingStyle.md`](writingStyle.md), and the version 1.2 operational controls in [`v1_2_iteration_controls.md`](v1_2_iteration_controls.md).
@@ -7,20 +7,32 @@ This file is the controlling editorial guide for drafting the final report. It c
 
 The main report is written for country governments, departments of energy, and senior public-sector decision-makers. It should read as a standalone, well-produced technical-policy report: regulator-aware, evidence-led, and suitable for strategic decisions about which coal or thermal power plant sites deserve progression toward detailed site evaluation.
 
-The report is not a licence application, site characterization report, vendor selection study, procurement recommendation, or legal opinion. It supports IAEA SSG-35 Stage 1 and Stage 2 decisions only: site survey, screening, comparison, ranking, and selection of sites that may justify Stage 3 characterization.
+The report is not a licence application, site characterisation report, vendor selection study, procurement recommendation, or legal opinion. It supports IAEA SSG-35 Stage 1 and Stage 2 decisions only: site survey, screening, comparison, ranking, and selection of sites that may justify Stage 3 characterisation.
 
 ## 2. Analytical Anchor
 
-Treat the report as having a single analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric. Country and site stability discussions must use the **national sensitivity analysis** as their primary frame: rank stability, top-rank probabilities, and shortlist robustness are interpreted within the same country and NuScale VOYGR-6 reference case, not merely in the regional pool.
+Treat the report as having a single analytical basis: the project's 50,000-iteration national Monte Carlo sensitivity analysis over the current frozen scoring rubric. Country and site stability discussions must use the **national sensitivity analysis** as their primary frame: rank stability, top-rank probabilities, and shortlist robustness are interpreted within the same country and NuScale VOYGR-6 reference case, not in the regional pool.
 
 | Item | Value |
 | --- | --- |
-| Sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis, interpreted nationally for country and site stability |
-| Iterations | 10,000 |
+| Sensitivity basis | The project's 50,000-iteration national Monte Carlo sensitivity analysis, interpreted nationally for country and site stability |
+| Iterations | 50,000 |
 | Seed | 42 (deterministic per site–SMR pair) |
 | Reference SMR case | NuScale VOYGR-6 only |
 
-Reader-facing prose (manuscript, annexes, captions, tables, ToC, executive brief) must refer to "the project's 10,000-iteration Monte Carlo sensitivity analysis" without naming internal run identifiers, session IDs, audit-file paths, or date-stamped folders. Where the prose discusses country choices, site stability, rank robustness, or Stage 3 sequencing, it must explicitly frame the result as **national sensitivity analysis**. Internal identifiers remain in the generated sensitivity export pack under `report/output/sensitivity/` for reproducibility but never appear in the manuscript.
+Reader-facing prose (manuscript, annexes, captions, tables, ToC, executive brief) must refer to "the project's 50,000-iteration national Monte Carlo sensitivity analysis" without naming internal run identifiers, session IDs, audit-file paths, or date-stamped folders. Where the prose discusses country choices, site stability, rank robustness, or Stage 3 sequencing, it must explicitly frame the result as **national sensitivity analysis**. Internal identifiers remain in the generated sensitivity export pack under `report/output/sensitivity/` for reproducibility but never appear in the manuscript.
+
+All score, score-band, rank-stability, and sensitivity tables used for country or site decisions must use the national sensitivity analysis. Regional sensitivity may remain in internal audit material, but under the 2026-05-18 user instruction it is not a report-drafting basis and must not drive country or site recommendations in the reader-facing report.
+
+## 2A. Reader-Facing Language and Confidentiality
+
+The published report must use direct, positive, institutional language. State the affirmative claim first and avoid phrasing that defines an idea by negating another idea. Scope boundaries may still be stated where legally necessary, but the prose should lead with what the Stage 1 and Stage 2 assessment supports.
+
+The Unicode em dash character U+2014 is prohibited in reader-facing report text, captions, tables, figure notes, annexes, and references. Use a comma, semicolon, colon, parentheses, or a separate sentence.
+
+Reader-facing text must not mention internal project paths, markdown files, repository files, run IDs, branch names, CLI commands, working references, drafting notes, placeholders, agent/process language, or the GEM database. Public documents and public institutional references remain allowed.
+
+Describe the evidence base qualitatively. Do not name specific upstream data platforms, connector names, or library names. For automated discovery work, write "automated web searches and structured evidence collection" or "automated public-evidence collection" rather than mentioning LLMs or internal databases.
 
 ## 3. Reference Technology Framing
 
@@ -63,6 +75,8 @@ Countries are ordered alphabetically.
 
 A country receives a full country profile only if it has at least one viable NuScale VOYGR-6 candidate. For drafting purposes, a viable candidate is a site/VOYGR-6 pair that survives exclusionary and safety-floor gates and remains in the ranked sensitivity-aware candidate set. If a site or country is borderline, ask the user before presenting it as viable.
 
+Belarus is excluded from the published country analysis unless the user later restores it. Treat it as outside the current strategic screening scope because of its geopolitical alignment with Russia. Do not spend country-profile drafting effort on Belarus in the published copy.
+
 Countries with no viable candidate should not receive full profiles. Present them in a consolidated failure section with:
 
 - Failed criteria or exclusionary gates.
@@ -73,11 +87,15 @@ Countries with no viable candidate should not receive full profiles. Present the
 Each full country profile should follow this sequence:
 
 1. Short national context for coal-to-nuclear or thermal-site reuse.
-2. Brief list of all relevant sites in that country.
-3. Ranking qualification in text: for example, top national candidate, stable high-ranking candidate, moderate but uncertain candidate, or screened-out candidate.
+2. A ranked country site table showing site name, status, national composite score, score band, national sensitivity band, failed exclusionary criteria where applicable, avoidance criteria where applicable, and the key measured value or threshold distance where available.
+3. Ranking qualification in text: for example, top national candidate, stable high-ranking candidate, moderate candidate requiring targeted review, or screened-out candidate.
 4. Explicit list of sites selected by the user for detailed analysis.
 5. Detailed site profiles only for selected sites.
 6. Country-level data gaps and recommended Stage 3 follow-up.
+
+Country descriptions must state whether the country has an established nuclear-power tradition or would be a first-time nuclear-power jurisdiction. For countries without a nuclear power history, mention that fact diplomatically in the national context and connect it to regulatory, institutional, and workforce readiness questions.
+
+Do not describe hard-failed sites as having 0% data or criteria coverage. Excluded sites can still have measured evidence. Show the real evidence coverage or measured values where available, then state the exclusionary trigger, avoidance flag, safety-floor outcome, and relevant threshold distance.
 
 The renderer also embeds the avoidance-flag Pareto chart in the "Interpretation for Site Selection" section and the exclusionary-failure Pareto chart in the "Exclusionary Failure Pareto" section. The country-level executive coal-to-nuclear paragraph is filled by the `country_exec` specialist (see §13).
 
@@ -98,6 +116,8 @@ Each selected site profile should include:
 - Residual risk register.
 - Stage 3 follow-up actions.
 - Evidence limitations.
+
+Where the site profile currently uses long bullet lists for site description, residual risks, or Stage 3 follow-up, prefer compact tables. Tables should make the evidence, implication, and required follow-up easier to compare.
 
 Ownership and infrastructure discussion must be factual first. Add short strategic interpretation only when the database supports it clearly. If certainty is not high, ask the user rather than implying control, project rights, public acceptance, or procurement feasibility.
 
@@ -121,6 +141,8 @@ Recommended visual pack:
 | Country comparison table | Generated from country ranking outputs | Mark selected sites clearly. |
 
 Wikipedia may be used only for light descriptive context and should not be the primary source for maps, rankings, or technical claims. Prefer first-party project data, open geospatial sources, and generated figures from scoring/sensitivity artefacts.
+
+Country site-status maps should use the full page width where practical. For countries where the map is the main visual evidence, prefer a landscape page treatment with the map occupying the page. For Turkey and any other country with dense site labels, label only the best full-pass and avoidance-pass sites, capped at 20 labels, and leave other sites as status markers.
 
 ### Country site-status map (`<CC>_site_status_map.png`)
 
@@ -198,11 +220,20 @@ When a chapter is split, the corresponding top-level chapter file should become 
 
 ## 11. Citation and Reference Convention
 
-Use inline numeric references such as `[1]`, `[2]`, and `[3]` in chapter text. Detail them at the end of the report in Harvard-style references. Every numerical or factual claim should have either:
+Use Harvard-style citations in chapter text, for example `(IAEA, 2015)` or `(U.S. DOE, 2022, p. 14)`. Detail them at the end of the report in a consolidated Harvard-style reference list. Every numerical or factual claim should have either:
 
 - A source reference.
-- A project artefact/run reference.
 - An explicit assumption ID.
+
+Reader-facing citations must not point to repository paths, markdown files, internal project files, working notes, run identifiers, or the GEM database.
+
+## 11A. Chapter-Specific Content Rules
+
+Chapter 1 must include a concise coal-to-nuclear rationale of roughly half to one A4 page. Cover the core hypothesis directly: retired or retiring coal and thermal sites can offer grid access, transport access, industrial zoning, cooling-water context, workforce continuity, and community transition pathways that may make them better screening candidates than greenfield sites.
+
+Chapter 4 results tables must present sites in ranking order and include scores, score bands, and national sensitivity bands. Avoid simple lists of sites. Section 4.5 should preserve confidence in the work: present improvements and human-review needs as normal next-step refinements for Stage 3, not as language that weakens the Stage 1 and Stage 2 conclusions.
+
+Chapter 6 and Chapter 7 should include a clear statement that the assessment framework can be expanded beyond coal and thermal plants to other large industrial sites that may be suitable for SMR accommodation.
 
 ## 12. Separate Executive Technical Brief
 

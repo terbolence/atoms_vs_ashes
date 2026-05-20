@@ -36,11 +36,11 @@ does not, and what the next stage of work has to do.
 - Always quote the raw measured value with units before naming a
   consequence.
 - Use IAEA-style language: **exclusionary**, **avoidance**,
-  **screening**, **characterization**, **EPZ**, **avoidance flag**,
+  **screening**, **characterisation**, **EPZ**, **avoidance flag**,
   **stability band**.
 - Never say "passes", "fails", "approved", "ready for licence",
   "construction-ready". Use "supports a decision to progress
-  toward Stage 3 characterization" or "remains contingent on".
+  toward Stage 3 characterisation" or "remains contingent on".
 - Do not name vendors, contractors, financing instruments, or
   procurement positions.
 - Do not propose specific engineering mitigations; name a Stage 3
@@ -184,13 +184,13 @@ Required content:
   explain whether the composite is dominated by family balance or
   by a small set of criteria.
 - Close with a Stage 3 sequencing sentence: where the next
-  characterization effort would produce the largest narrowing of
+  characterisation effort would produce the largest narrowing of
   the composite uncertainty band.
 
 ### `unlock_analysis`
 
 One paragraph (120-220 words) for a hard-fail site. Compact, factual,
-written for an executive who needs a deprecate / characterize /
+written for an executive who needs a deprecate / characterise /
 escalate decision. Required content:
 
 1. Open by naming the criterion(a) that fail, quoting the raw
@@ -217,7 +217,7 @@ escalate decision. Required content:
    question, and what plausible result would lift the site out of
    hard-fail status.
 5. Close with one of three explicit recommendations: **Deprecate**,
-   **Continue characterization**, or **Escalate to programme
+   **Continue characterisation**, or **Escalate to programme
    decision**.
 
 `unlock_analysis` limits:
@@ -296,7 +296,7 @@ datasets are not.
 ## Style anchors
 
 - IAEA SSG-35 framing: site survey, site selection, site evaluation,
-  characterization.
+  characterisation.
 - EPRI siting screening: exclusionary screen, avoidance screen,
   multi-criteria ranking.
 - DOE C2N: brownfield grid / water / workforce inheritance is the
@@ -308,5 +308,5 @@ datasets are not.
 
 - No external LLM, web, or tool call.
 - No site-suitability determination. The report supports a decision
-  to progress toward Stage 3 characterization; it does not approve,
+  to progress toward Stage 3 characterisation; it does not approve,
   license, recommend procurement, or commit any party to anything.

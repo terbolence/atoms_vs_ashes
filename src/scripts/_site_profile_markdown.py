@@ -1,4 +1,4 @@
-# man_hours: 2.4
+# man_hours: 2.8
 """Markdown renderer for one selected-site profile from a site bundle."""
 
 from __future__ import annotations
@@ -58,6 +58,8 @@ def render_site_markdown_from_bundle(
             country_name=country_name, smr_label=smr_label,
             country_profile_link=country_profile_link,
             site_id=site_id, bundle_name=bundle_name,
+            land_area=bundle.get("land_area"),
+            families=families,
         )
 
     crit_meta = _criteria_meta(rankings, verdicts)
@@ -69,6 +71,8 @@ def render_site_markdown_from_bundle(
     lines += _snapshot(
         site, composite, _band_for(bands, site.get("country_code")),
         composite_summary, country_profile_link,
+        land_area=bundle.get("land_area"),
+        families=families,
     )
     lines += _ownership_section(ownership, units)
     lines += _family_section(
@@ -223,6 +227,8 @@ def _snapshot(
     band: dict[str, Any],
     composite_summary: dict[str, Any] | None,
     country_profile_link: str | None,
+    land_area: dict[str, Any] | None = None,
+    families: dict[str, Any] | None = None,
 ) -> list[str]:
     lat = site.get("latitude")
     lon = site.get("longitude")
@@ -234,11 +240,27 @@ def _snapshot(
         if lat is not None and lon is not None else "-"
     )
     capacity_mw = int(site.get("installed_capacity_mw") or 0)
+    infra = (families or {}).get("infrastructure") or {}
+    area = land_area or {}
     rows: list[tuple[str, str]] = [
         ("Site name", str(site.get("name") or "-")),
         ("Coordinates", coord_text),
         ("Subnational unit", str(site.get("subnational_unit") or "-")),
         ("Installed thermal capacity (source data)", f"{capacity_mw:,} MW"),
+        (
+            "Available surface area",
+            _area_ha(
+                _first_present(site.get("site_area_ha"), area.get("site_area_ha"))
+            ),
+        ),
+        (
+            "Available surface area for development",
+            _area_ha(
+                _first_present(
+                    infra.get("buildable_area_ha"), area.get("buildable_area_ha")
+                )
+            ),
+        ),
         (
             "Composite score (baseline weights)",
             f"{_num(composite.get('composite_score'), 3)} "
@@ -597,6 +619,26 @@ def _num(value: Any, digits: int) -> str:
         return str(value)
 
 
+def _first_present(*values: Any) -> Any:
+    for value in values:
+        if value is not None and value != "":
+            return value
+    return None
+
+
+def _area_ha(value: Any) -> str:
+    if value is None or value == "":
+        return "N/A"
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        text = str(value).strip()
+        return text if text else "N/A"
+    if number != number:
+        return "N/A"
+    return f"{number:,.1f} ha"
+
+
 def _pct(value: Any) -> str:
     if value is None:
         return "-"
@@ -638,6 +680,8 @@ def _render_hard_fail(
     country_profile_link: dict[str, str] | None,
     site_id: str,
     bundle_name: str,
+    land_area: dict[str, Any] | None,
+    families: dict[str, Any] | None,
 ) -> str:
     """Compact site profile for a hard-fail site.
 
@@ -678,6 +722,8 @@ def _render_hard_fail(
         if lat is not None and lon is not None else "-"
     )
     capacity_mw = int(site.get("installed_capacity_mw") or 0)
+    infra = (families or {}).get("infrastructure") or {}
+    area = land_area or {}
     parents = sorted({
         (row.get("parent_name") or "").strip()
         for row in ownership if (row.get("parent_name") or "").strip()
@@ -693,6 +739,20 @@ def _render_hard_fail(
         ("Coordinates", coord_text),
         ("Subnational unit", str(site.get("subnational_unit") or "-")),
         ("Installed thermal capacity (source data)", f"{capacity_mw:,} MW"),
+        (
+            "Available surface area",
+            _area_ha(
+                _first_present(site.get("site_area_ha"), area.get("site_area_ha"))
+            ),
+        ),
+        (
+            "Available surface area for development",
+            _area_ha(
+                _first_present(
+                    infra.get("buildable_area_ha"), area.get("buildable_area_ha")
+                )
+            ),
+        ),
         ("Operating status", str(site.get("status") or "-")),
         ("Parent owner(s)", parent_text),
         ("Generating units on record", str(len(units))),

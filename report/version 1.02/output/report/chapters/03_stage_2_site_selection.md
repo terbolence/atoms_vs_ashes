@@ -1,164 +1,221 @@
-<!-- man_hours: 0.05 -->
+<!-- man_hours: 7.1 -->
 # 3. Stage 2: Site Selection
 
-This chapter explains how the candidate sites carried forward from Stage 1 are evaluated, compared, ranked, and shortlisted. It links IAEA site-selection language with the project's scoring workflow, while keeping the interpretation within screening scope. Stage 2 supports prioritisation for further work; it does not replace Stage 3 characterization, regulatory review, design-basis analysis, environmental assessment, or stakeholder consent.
+Stage 2 evaluates the candidate sites carried forward from the Stage 1 survey. It compares the sites through a common scoring framework, preserves exclusionary and safety-floor logic, and uses national sensitivity analysis to test whether a site remains credible within its own country. The result is a decision-support basis for selecting sites that justify Stage 3 characterisation.
 
 ## 3.1 Objectives of the Site Selection Stage
 
-The objective of Stage 2 is to compare the candidate sites identified in Stage 1 and determine which of them most clearly justify further investigation. In IAEA SSG-35 terms, this is the site selection stage: evaluation, comparison and ranking of candidates to identify preferred sites or shortlists [1]. It is still a screening-grade exercise, not a final site evaluation.
+The objective of Stage 2 is to compare candidate sites and identify those with the strongest case for further characterisation. In IAEA SSG-35 terms, Stage 2 is the site selection stage: candidate sites are evaluated, compared and ranked so that preferred sites or shortlists can be identified (IAEA, 2015). The exercise remains screening-grade and supports prioritisation rather than approval.
 
-Stage 2 converts the evidence base into structured decisions. It applies safety-related criteria, human-induced hazard criteria, radiological-impact and emergency-planning indicators, and non-safety implementation criteria in a common framework. Exclusionary gates and safety floors identify sites that should not proceed through composite ranking, while the scoring and sensitivity analysis compare the remaining candidates on a consistent basis [2], [4].
+Stage 2 converts the Stage 1 evidence base into structured decisions. It applies safety-related criteria, human-induced external-event criteria, radiological-impact and emergency-planning indicators, and non-safety implementation criteria. Exclusionary gates and safety floors control which sites can enter composite ranking; weighted scoring then compares the surviving sites on a consistent basis.
 
-The output is a prioritized and explained shortlist. A high ranking means that a site performs well under the report's screening methodology and remains credible under uncertainty testing. It does not mean that the site is licensed, available, buildable, locally accepted, or suitable without further work. Where Stage 2 supports a site, it supports a decision to progress toward Stage 3 characterization.
+The output is an explained shortlist logic. A strong Stage 2 result means that a site clears the screening gates, performs well across relevant criterion families, and remains credible under national uncertainty testing. It supports progression toward Stage 3 characterisation, where field investigation, regulator engagement, engineering studies, environmental review and stakeholder work would test the site in detail.
 
 ## 3.2 Evaluation Framework and Criterion Families
 
-The Stage 2 evaluation framework is built around criterion families. Each family represents a different question that a government or project sponsor would need to answer before deciding whether a former coal or thermal site deserves detailed characterization. The families are assessed in a common scoring structure so that sites can be compared across countries, but their interpretation is not identical. A poor score on a safety-related criterion has a different meaning from a weak score on workforce availability or coal-to-nuclear synergy.
+The Stage 2 framework is organised into criterion families. Each family answers a different siting question, and each criterion carries a baseline weight used in the composite score. The weights are decision weights for screening comparison; safety concerns retain control through exclusionary gates, safety floors and family-level interpretation.
 
-The framework follows three principles. First, safety-related concerns are treated as controlling constraints, not as tradeable preferences: a site that fails a safety-related criterion is most likely excluded outright, and a site that requires excessive engineering protection to meet safety targets is also screened out even where no single hard criterion fails. Second, non-safety and implementation factors are included because coal-to-nuclear reuse depends on grid, cooling, transport, land, workforce, and policy conditions. Third, uncertainty is recorded through data-quality flags and sensitivity testing, rather than hidden inside a single point score [2], [4].
+Three principles guide the framework. Safety-related concerns control eligibility before ranking. Non-safety implementation factors are then used to distinguish sites that can plausibly support a NuScale VOYGR-6 coal-to-nuclear transition pathway. Uncertainty is recorded through evidence quality, score ranges, avoidance flags and national sensitivity analysis rather than hidden inside one point estimate.
 
-| Criterion family | Main question answered | Examples of evidence used | Stage 2 use |
-| --- | --- | --- | --- |
-| Basic filters (BF) | Can the site be compared at all against the reference deployment envelope? | Grid export context, land footprint, representative site geometry. | Controls readiness for ranking and flags sites with weak basic feasibility. |
-| Natural hazards (NH) | Are natural external hazards compatible with screening-level nuclear siting expectations? | Seismic ground motion, capable faults, geotechnical conditions, flooding, volcanism, extreme weather, wildfire, combined hazards. | Provides exclusionary gates, safety floors, and weighted safety scores. |
-| Human-induced hazards (HI) | Are external human activities near the site a material hazard source? | Aviation, industrial facilities, toxic or flammable sources, transport corridors, military installations, electromagnetic interference, nearby nuclear installations. | Applies avoidance logic and ranking penalties where open-source evidence identifies external hazards. |
-| Radiological impact (RI) | Would local population, dispersion, and environmental pathways complicate radiological protection? | Atmospheric dispersion proxies, surface-water and groundwater context, population density rings, distance to population centres, population projections. | Supports comparative screening of dose-pathway and population-context concerns. |
-| Emergency planning (EP) | Is emergency planning likely to be feasible at screening resolution? | Road-network density, terrain and waterway barriers, hospitals and special populations, concurrent hazards. | Identifies sites where emergency response could be unusually constrained. |
-| Non-safety implementation (NS) | Does the site offer a credible deployment pathway for the NuScale VOYGR-6 reference case? | Cooling water, grid connection, heavy-haul access, land availability, existing infrastructure, environmental sensitivity, workforce, coal-to-nuclear synergies, policy setting. | Differentiates technically possible sites by practical implementation quality. |
+Table 3.1. Stage 2 criterion families and public interpretation. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
 
-This structure allows the report to compare unlike evidence without flattening it into a purely economic ranking. The composite score is useful because it forces consistency across the site universe. The family-level scores remain equally important because they show why a site ranks well, why it fails, or why it should be investigated further despite uncertainty.
+| Family | Main question | Stage 2 use |
+| :--- | :--- | :--- |
+| Basic filters | Can the site be compared against the reference deployment envelope? | Records readiness, land-footprint and grid-export context before full ranking. |
+| Natural hazards | Are natural external hazards compatible with screening-level nuclear siting expectations? | Applies exclusionary gates, safety floors, avoidance signals and weighted safety scores. |
+| Human-induced hazards | Do nearby human activities create external-event concerns relevant to nuclear siting? | Applies avoidance logic and ranking penalties for aviation, industrial, transport, military and other external-event sources. |
+| Radiological impact | Would population, dispersion or environmental pathways complicate radiological protection? | Scores dose-pathway and population-context indicators at screening resolution. |
+| Emergency planning | Is emergency planning likely to be feasible at screening resolution? | Tests access, geography, population, special-population and concurrent-hazard constraints. |
+| Non-safety implementation | Does the site offer a credible deployment pathway for the NuScale VOYGR-6 reference case? | Differentiates sites by cooling, grid, transport, land, infrastructure reuse, workforce, policy and coal-to-nuclear fit. |
+
+This structure keeps the composite score interpretable. The score provides a consistent ordering of sites that survive screening, while family results explain the reasons for that order and the questions that would dominate Stage 3 characterisation.
 
 ## 3.3 Safety-Related Criteria
 
-**Stage 1 vs Stage 2 boundary for safety-related criteria.** Most exclusionary criteria are safety-related and apply at Stage 1 screening: their purpose is to eliminate sites where a structural safety condition (capable fault under the foundation, an active volcanic vent inside the protective standoff, an inundation regime that no engineered defence can credibly absorb at screening resolution) makes the site unfit to continue. The candidate list entering Stage 2 is by construction free of those Stage 1 exclusionary failures. Safety-related criteria reappear in Stage 2 in two narrower roles: (a) as a *controlling constraint* on ranking, where a low score on a safety criterion still blocks composite progression via the safety-floor mechanism even when no hard exclusion fires; and (b) as a *protection-burden indicator*, where the criterion stays in the ranked pool but flags how much engineered protection or operational mitigation a Stage 3 study would have to demonstrate. A site that requires excessive engineering protection to meet safety targets is also a Stage 1 candidate for screening out, because the protective measure can become disproportionate to the project envelope; the Stage 2 score reflects the residual ranking question, not a re-litigation of the Stage 1 verdict.
+Safety-related criteria are treated as controlling constraints. A site that fails an exclusionary rule or safety floor leaves the composite ranking pool for the NuScale VOYGR-6 reference case. A site that remains in the pool can still carry safety-related weaknesses, but those weaknesses stay visible through lower scores, avoidance flags, family scores and Stage 3 follow-up requirements.
 
-Safety-related criteria have priority in Stage 2. They reflect the IAEA expectation that site evaluation must consider external natural events, site characteristics, population and emergency-planning context, and the interaction between the site and the proposed installation [1], [2]. At screening resolution, these criteria do not establish design-basis values. They identify whether a site has enough apparent margin to merit the more expensive work of Stage 3 characterization.
+The natural-hazard family covers seismic, geological, hydrological, meteorological and combined-hazard questions. Seismic ground motion and capable-fault proximity test whether the site has apparent margin against earthquake demand and surface rupture. Geotechnical criteria cover settlement, liquefaction, slope stability, subsidence, karst, mining legacy, bearing conditions, bedrock and groundwater. Flooding and weather criteria cover river and coastal inundation, storm surge, tsunami, extreme winds, precipitation, drought, snow, temperature extremes, wildfire and combined hazard interactions.
 
-The natural-hazard family covers seismic, geological, hydrological, meteorological, and combined-hazard questions. Seismic ground motion and capable-fault proximity test whether the site sits in a setting that could impose high design demand or surface-rupture concern. Geotechnical criteria address settlement, liquefaction, slope stability, subsidence, karst, mining legacy, bearing capacity, bedrock, and groundwater. Flooding criteria distinguish coastal, tsunami, storm-surge, and river-flood exposure. Weather-related criteria cover extreme winds, precipitation, drought, snow burden, temperature extremes, wildfire, and combined hazard interactions.
+Table 3.2. Safety-related criteria and baseline weights. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
 
-| Safety theme | Screening interpretation | Stage 3 follow-up if shortlisted |
-| --- | --- | --- |
-| Seismic and faulting | Desk-scale separation from mapped capable faults and long-return ground-motion proxies indicate whether the site has sufficient apparent seismic margin. | Probabilistic seismic hazard assessment, fault-capability review, geophysical survey, and site-specific ground-response analysis. |
-| Geotechnical conditions | Slope, liquefaction, subsidence, karst, bearing, bedrock, and groundwater indicators flag foundation and earthworks risk. | Boreholes, laboratory testing, geotechnical modelling, foundation-option studies, and mine-void or karst investigation. |
-| Flooding and water-related hazards | River, coastal, surge, tsunami, elevation, and water-source context identify sites with potential inundation or cooling vulnerability. | Design flood analysis, hydrology, dam-break and drainage studies, flood-defence feasibility, and cooling-water reliability assessment. |
-| Meteorological and environmental stressors | Extreme wind, temperature, precipitation, drought, snow, wildfire, and combined-hazard indicators test whether standard design assumptions may be strained. | Site-specific meteorological monitoring, climate-scenario stress testing, wildfire assessment, and combined-hazard studies. |
+| Criterion | Public-facing name | Baseline weight (%) | Stage 2 treatment |
+| :---: | :--- | ---: | :--- |
+| NH-01 | Seismic ground motion | 3.2 | Ranking and avoidance signal |
+| NH-02 | Seismic surface rupture | 3.2 | Exclusionary gate and ranking |
+| NH-03 | Settlement and liquefaction | 2.5 | Exclusionary gate and ranking |
+| NH-04 | Slope stability | 1.8 | Exclusionary gate and ranking |
+| NH-05 | Subsidence, karst, mining and oil or gas legacy | 2.5 | Ranking |
+| NH-06 | Foundation conditions | 1.8 | Ranking |
+| NH-07 | Volcanism | 3.5 | Exclusionary gate and ranking |
+| NH-08 | Coastal flooding, storm surge and tsunami | 2.1 | Avoidance signal and ranking |
+| NH-09 | River flooding | 2.8 | Avoidance signal and ranking |
+| NH-10 | Extreme winds | 1.1 | Ranking |
+| NH-11 | Extreme precipitation, snow and drought | 1.1 | Ranking |
+| NH-12 | Extreme temperatures | 1.4 | Ranking |
+| NH-13 | Forest and wildfire | 1.1 | Ranking |
+| NH-14 | Combined hazards | 1.1 | Ranking |
 
-Several safety-related criteria act as gates. A hard exclusionary condition removes a site from composite ranking where the screening evidence shows a condition that cannot be responsibly balanced by strengths elsewhere. A safety floor performs a related function: if a critical safety criterion scores below the minimum acceptable band, the site is not rescued by good performance on grid, workforce, or policy factors [4]. This protects the ranking from a common error in multi-criteria analysis, where a strong economic or infrastructure score masks a material safety weakness.
-
-The project criterion set maps to the substantive safety requirements in IAEA SSR-1 at screening resolution. Natural-hazard, human-induced, population, emergency-planning, dispersion, and combined-hazard requirements are covered fully by the scoring rubric. A small set of requirements is covered only partially because no desk study can close them out (long-term accumulation, engineered site protection), and operational and quality-assurance requirements are out of scope for pre-screening. The per-requirement coverage matrix is carried in Annex A and is materialised in machine-readable form at `config/ssr1_clause_map.yaml`, which is the source of truth for every Stage 1 vs Stage 2 mapping referenced in this chapter [2].
+The safety criteria align with the IAEA expectation that site evaluation considers external natural events, site characteristics, population and emergency-planning context, and the interaction between the proposed installation and its surroundings (IAEA, 2019). At this stage, the scores are screening indicators. Stage 3 would need site-specific seismic, geotechnical, hydrological, meteorological and combined-hazard studies before any design-basis conclusion.
 
 ## 3.4 Nuclear Security and Human-Induced Hazard Considerations
 
-Human-induced hazards are treated as external-event considerations at screening resolution. They are not a nuclear security assessment in the operational sense, and they do not assess classified threat information, adversary capability, physical protection design, cyber security, or site security plans. Their purpose is narrower: to identify nearby human activities that could create external hazards relevant to nuclear siting and to flag cases where open-source evidence is incomplete.
+Human-induced hazards are external-event screening criteria. They identify nearby activities that may create accident initiators, security-relevant constraints, emergency-planning complications or stakeholder concerns. Operational nuclear security, classified threat information, physical protection design, cyber security and site security plans belong to later programme and regulator-facing work.
 
-The human-induced family includes aircraft crash hazard, industrial explosions, toxic or gas releases, external fires, transport hazards, military installations, electromagnetic interference, and nearby nuclear installations. These criteria respond to the same practical concern: a site that looks attractive as a brownfield energy location may sit close to airports, hazardous industrial facilities, flammable storage, major hazmat routes, military infrastructure, or other sensitive installations. Those features do not automatically make a site unusable, but they can change the amount of engineering, regulatory, emergency-planning, and stakeholder work needed.
+The human-induced family includes aircraft crash hazard, industrial explosion and toxic release context, external fires, transport hazards, military installations, electromagnetic interference and nearby nuclear installations. The v1.2 treatment distinguishes major commercial or military aviation from minor airstrips, and it distinguishes higher-consequence military airfields or depots from lower-consequence training areas or administrative sites. That distinction avoids treating all nearby infrastructure as equivalent.
 
-The scoring logic distinguishes avoidance concerns from hard exclusions. For example, proximity to aviation, industrial, toxic, military, or heavy-hazard sources may create an avoidance penalty when it falls inside a project threshold. That penalty lowers the site's comparative position and signals a need for targeted review. It does not by itself prove that the site is impossible unless the evidence also triggers an exclusionary rule or a safety floor. This distinction is important for coal sites, many of which are located in established industrial corridors.
+Table 3.3. Human-induced criteria and baseline weights. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
 
-Open-source limitations are especially important for this family. Industrial registers are stronger in jurisdictions with mature public reporting systems. Military information may be incomplete or deliberately restricted. Transport-hazard intensity is often harder to confirm than route proximity. The report therefore treats human-induced hazard results as screening signals. A high score means the site has no obvious open-source concern; it does not certify the absence of classified, operator-specific, or future land-use hazards.
+| Criterion | Public-facing name | Baseline weight (%) | Stage 2 treatment |
+| :---: | :--- | ---: | :--- |
+| HI-01 | Aircraft crash hazard | 2.5 | Avoidance signal and ranking |
+| HI-02 | Industrial explosion hazard | 2.5 | Avoidance signal and ranking |
+| HI-03 | Toxic or gas release hazard | 2.5 | Avoidance signal and ranking |
+| HI-04 | External fires | 2.1 | Avoidance signal and ranking |
+| HI-05 | Transport hazards | 2.1 | Ranking |
+| HI-06 | Military installations | 2.1 | Avoidance signal and ranking |
+| HI-07 | Electromagnetic interference | 0.7 | Ranking |
+| HI-08 | Other nuclear installations | 1.1 | Ranking |
+
+Avoidance flags in this family are cautionary signals unless an exclusionary rule or safety floor is also triggered. This matters for coal and thermal brownfields because many sit inside established industrial or transport corridors. A high score means no obvious public-evidence concern was identified at screening resolution; it does not certify the absence of classified, operator-specific or future land-use hazards.
 
 ## 3.5 Radiological Impact and Emergency Planning Considerations
 
-Radiological-impact and emergency-planning criteria address the relationship between the site, surrounding population, environmental pathways, and response feasibility. At Stage 2, they are comparative indicators. They do not calculate licensed off-site dose, define emergency planning zones, approve emergency arrangements, or replace national regulatory requirements.
+Radiological-impact and emergency-planning criteria address the relationship between the site, surrounding population, environmental pathways and response feasibility. They support comparative screening of conditions that could make later licensed dose assessment, emergency arrangements or regulatory emergency-planning decisions more demanding.
 
-The radiological-impact family uses three types of screening evidence. Atmospheric dispersion proxies assess whether prevailing wind, atmospheric stability, and mixing-height conditions are generally favourable or unfavourable for dispersion. Surface-water and groundwater criteria test whether liquid pathway context could complicate monitoring or mitigation. Population criteria examine density in planning-relevant rings, distance to larger population centres, and long-term population trajectory. Together, these criteria identify sites where dose-pathway and population context could be more demanding in detailed evaluation [2], [5].
+The radiological-impact family covers atmospheric dispersion, surface-water and groundwater pathways, population density around planning-relevant rings, separation from larger population centres and long-term population trajectory. The population-density criterion is retained as a ranking signal in the v1.2 rubric. Population-centre separation is treated separately through an avoidance rule, and any future dose-feasibility judgement would require regulator-grade analysis rather than a desk-screening proxy.
 
-**Dual-mode population-context criteria (RI-04).** The Population Density at EPZ Radii criterion (RI-04) is *dual-mode* and the rubric encodes both modes explicitly. In the *avoidance / ranking* mode (the default for most sites in this report), RI-04 uses the orientative EPZ distances as a screening surrogate: the population density at the EPZ-relevant ring contributes to ranking, with optional avoidance penalties when the density exceeds project thresholds, but the criterion does not by itself remove the site from the ranked pool. In the *exclusion* mode (active when the dose calculation for the SMR design × EPZ × population distribution combination shows that legal off-site dose limits cannot be met or that an emergency plan cannot credibly be implemented within the regulatory envelope, per CNCAN / IAEA GSG-2), RI-04 fires as an exclusionary failure and the site exits the ranked pool. The choice between modes is *per-site evidence-driven, not per-criterion structural*: the rubric documents the avoidance threshold and the dose-feasibility threshold separately, and the engine selects the firing mode based on which threshold the site evidence triggers. This is the same logic the project applies to other dual-mode safety criteria where a screening-level surrogate (orientative distance) and a regulator-grade test (dose feasibility) coexist.
+Table 3.4. Radiological-impact criteria and baseline weights. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
 
-Emergency-planning criteria focus on feasibility rather than formal plan approval. The composite emergency-planning indicator considers road access, population context, terrain, special populations, and geographic barriers. Separate indicators then examine evacuation-route quality, physical-geography constraints, hospitals, prisons, care homes, and the possibility that concurrent hazards could degrade emergency response. A site with weak emergency-planning indicators is not automatically rejected unless it triggers an exclusionary rule, but it should not be treated as low-risk simply because it performs well on grid or land reuse.
+| Criterion | Public-facing name | Baseline weight (%) | Stage 2 treatment |
+| :---: | :--- | ---: | :--- |
+| RI-01 | Atmospheric dispersion | 2.1 | Ranking |
+| RI-02 | Surface-water dispersion | 1.8 | Ranking |
+| RI-03 | Groundwater dispersion | 1.8 | Ranking |
+| RI-04 | Population density around planning-relevant rings | 2.8 | Ranking |
+| RI-05 | Distance to large population centres | 3.5 | Avoidance signal and ranking |
+| RI-06 | Population projections over plant life | 1.8 | Ranking |
 
-These criteria are particularly important for government stakeholders because they affect the credibility of a future siting process. A site near dense population, complex terrain, weak transport networks, or many special-population facilities may still be technically assessable, but it carries a heavier burden of proof. Stage 3 would need to confirm road capacity, evacuation timing, sheltering assumptions, hospital interfaces, public-warning systems, jurisdictional coordination, and local emergency-management capacity.
+Emergency-planning criteria focus on feasibility. The composite emergency-planning indicator combines access, population context, terrain, special-population and geography indicators, with a hard floor where the composite falls below the project screening threshold. Separate criteria then examine evacuation-route quality, physical-geography constraints, hospitals, prisons and care homes, and the possibility that concurrent hazards could degrade response.
+
+Table 3.5. Emergency-planning criteria and baseline weights. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
+
+| Criterion | Public-facing name | Baseline weight (%) | Stage 2 treatment |
+| :---: | :--- | ---: | :--- |
+| EP-01 | Emergency-plan feasibility composite | 2.8 | Exclusionary gate and ranking |
+| EP-02 | Evacuation routes | 2.1 | Ranking |
+| EP-03 | Physical-geography constraints | 1.8 | Ranking |
+| EP-04 | Special populations | 2.1 | Ranking |
+| EP-05 | Concurrent-hazard impact on emergency planning | 1.4 | Ranking |
+
+These criteria are important for public-sector readers because they affect the credibility of any later siting process. A site near dense population, constrained terrain, weak transport networks or many special-population facilities carries a heavier burden of proof in Stage 3, even if it performs well on grid, land or reuse indicators.
 
 ## 3.6 Non-Safety-Related Criteria and Implementation Considerations
 
-Non-safety criteria are included because the report is not a blank-map nuclear siting exercise. It is a coal-to-nuclear and thermal-site reuse assessment using NuScale VOYGR-6 as the reference deployment envelope. A site that clears safety screening can still be a weak candidate if it lacks cooling options, transmission access, transport routes, land, environmental headroom, workforce, or a credible policy pathway. Conversely, a site with strong reuse value must still clear the safety gates before it can be ranked as viable.
+Non-safety criteria are included because this is a coal-to-nuclear and thermal-site reuse assessment. A site that clears safety screening can still be a weak candidate if it lacks cooling options, transmission access, transport routes, land, environmental headroom, workforce or a credible policy pathway. A site with strong reuse value still needs to clear the safety gates before it can be ranked as viable.
 
-The implementation criteria address five practical dimensions. Cooling and ultimate heat sink criteria test whether the site has a plausible water or dry-cooling pathway. Grid criteria consider proximity, voltage class, and export adequacy against the reference plant size. Transport and construction logistics assess heavy-haul routes, rail or waterway options, laydown practicality, and supply-chain geometry. Land, topography, ownership, zoning, ecological sensitivity, and non-radiological environmental indicators assess whether the physical and legal setting is likely to support development. Socioeconomic, workforce, coal-to-nuclear synergy, and policy criteria test whether the site aligns with a realistic transition narrative.
+The non-safety family covers five practical dimensions: heat rejection, grid export, heavy-haul and construction logistics, land and environmental compatibility, and transition value. Land availability is handled carefully. The canonical site footprint is the scoring basis for the land criterion, while any wider favourable area is treated only as screening-stage context for potential laydown or future flexibility.
 
-| Implementation area | Why it matters for coal-to-nuclear reuse | Interpretation limit |
-| --- | --- | --- |
-| Cooling and water | Existing thermal sites may have water infrastructure, but nuclear deployment needs reliable heat rejection under drought, seasonal, and permitting constraints. | Screening does not establish water rights, thermal-discharge compliance, or final cooling design. |
-| Grid connection | Coal sites often have transmission advantages, and VOYGR-6 requires a credible export pathway for the reference capacity. | Public grid-distance and voltage evidence does not prove available capacity or connection agreement. |
-| Heavy-haul and construction access | Modular construction still requires abnormal-load routes, staging, laydown, and port, rail, or highway interfaces. | Route proximity is not a transport permit or bridge-loading certification. |
-| Land, zoning, and environment | Brownfield land may reduce greenfield impact, but nuclear island footprint, protected areas, remediation, and zoning can constrain reuse. | Screening cannot confirm title, final plot boundaries, remediation liability, or EIA outcome. |
-| Workforce, policy, and synergies | Coal regions may offer industrial skills, transition value, and political rationale for reuse. | These are strategic indicators, not guarantees of public acceptance, procurement support, or project rights. |
+Table 3.6. Non-safety implementation criteria and baseline weights. NuScale VOYGR-6 reference case. Weight basis: project baseline criterion weights.
 
-The non-safety family is deliberately factual first. Where evidence supports a strategic interpretation, the report can state it clearly. Where the evidence is weak, the correct treatment is to flag a data gap or Stage 3 action. This is especially important for ownership, policy, and social-acceptance language, where overstatement would damage the credibility of the report.
+| Criterion | Public-facing name | Baseline weight (%) | Stage 2 treatment |
+| :---: | :--- | ---: | :--- |
+| BF-02 | Land and nuclear-island footprint | 1.8 | Basic filter and ranking |
+| NS-01 | Cooling water and ultimate heat sink | 2.8 | Avoidance signal and ranking |
+| NS-02 | Grid connection | 2.8 | Avoidance signal and ranking |
+| NS-03 | Heavy-haul transport access | 2.8 | Avoidance signal and ranking |
+| NS-04 | Site topography and grading | 2.1 | Ranking |
+| NS-05 | Land availability, ownership and zoning | 1.8 | Avoidance signal and ranking |
+| NS-06 | Existing infrastructure reuse | 1.8 | Ranking |
+| NS-07 | Non-radiological environmental impact | 1.8 | Avoidance signal and ranking |
+| NS-08 | Ecological sensitivity and protected-area screening | 2.1 | Exclusionary gate and ranking |
+| NS-09 | Socioeconomic impact | 1.8 | Ranking |
+| NS-10 | Workforce availability | 1.4 | Ranking |
+| NS-11 | Coal-to-nuclear synergies | 2.1 | Ranking |
+| NS-12 | Regulatory and policy environment | 2.1 | Ranking |
+| NS-13 | Construction logistics | 1.4 | Ranking |
+
+The non-safety interpretation is factual first. Strong grid proximity, cooling context, industrial land or workforce indicators can support a reuse case, but they do not prove owner consent, land control, public acceptance, environmental approval, grid rights, water rights or procurement feasibility. Those questions are treated as Stage 3 and programme-development issues.
 
 ## 3.7 Scoring, Ranking, and Comparison of Candidate Sites
 
-The scoring workflow converts criterion evidence into comparable site results. Each criterion is expressed on a 0-10 scale, where higher values represent more favourable screening conditions. Rubric bands translate raw evidence into scores. Some criteria use a single metric, such as distance to a hazard source. Others aggregate sub-scores, such as cooling-water source, distance, water stress and drought, or atmospheric dispersion components [4].
+Each criterion is scored on a 0-10 scale, where higher values represent more favourable screening conditions. Some criteria use a single measured value, such as distance to a hazard source. Others aggregate sub-scores, such as cooling source, distance and water-stress context, or atmospheric dispersion components. Low-confidence evidence can widen the score range and therefore widen the uncertainty envelope used in sensitivity analysis.
 
-The workflow separates gates from ranking. Exclusionary criteria and safety floors are evaluated before composite scoring. If a site fails an exclusionary gate for the reference deployment case, it remains in the evidence base but does not receive a composite ranking. Avoidance concerns and review flags remain visible, but they do not necessarily remove a site from the ranked pool. This keeps the ranking useful for decision support while preserving the reasons why a site failed or needs review.
+The method separates gates from ranking. Exclusionary criteria and safety floors are applied before composite scoring. If a site fails the exclusionary screen for NuScale VOYGR-6, it remains in the evidence record but receives no composite ranking. Avoidance flags and review flags remain visible for sites that survive the exclusionary screen, because those flags explain why a candidate may require targeted Stage 3 work.
 
-| Step | What the method does | Why it matters |
-| --- | --- | --- |
-| Evidence resolution | Uses the project evidence hierarchy and quality flags to choose the best available field for each criterion. | Prevents weaker evidence from silently overriding stronger structured data. |
-| Criterion banding | Converts raw values or categories into a 0-10 score and a score range where uncertainty exists. | Makes unlike evidence comparable while retaining uncertainty. |
-| Hard gates | Applies exclusionary rules where a critical condition is incompatible with progression at screening resolution. | Prevents unacceptable concerns from being offset by unrelated strengths. |
-| Safety floors | Removes sites that fall below the pass mark on critical exclusionary criteria even if no hard expression alone triggers. | Captures material weaknesses that would otherwise be hidden in averaging. |
-| Composite score | Combines eligible ranking scores using normalised criterion weights. | Produces a consistent ordering of sites that survive screening. |
-| Family scores and notes | Records per-family performance, data confidence, coverage, and caveats. | Explains the ranking rather than presenting a black-box number. |
+Table 3.7. Stage 2 scoring sequence. NuScale VOYGR-6 reference case. Denominator: sites that enter the Stage 2 candidate pool.
 
-The composite score is calculated only over criteria that participate in ranking and only for sites that clear exclusionary logic. Where some criteria are unscored, the method records coverage and applies a conservative envelope rather than pretending that missing evidence is favourable. Low-quality evidence widens the criterion score range, and that range is carried forward into the sensitivity analysis. The ranking is therefore not a single unqualified league table; it is a structured comparison with explicit caveats.
+| Step | Method action | Decision value |
+| :--- | :--- | :--- |
+| Evidence resolution | Selects the best available field for each criterion and records evidence quality. | Prevents weak evidence from silently overriding stronger evidence. |
+| Criterion banding | Converts raw values or categories into 0-10 scores and uncertainty ranges where needed. | Makes unlike evidence comparable while preserving uncertainty. |
+| Exclusionary gates | Applies hard rules for critical screening concerns. | Keeps incompatible sites out of composite ranking. |
+| Safety floors | Removes sites below the pass band on critical exclusionary criteria. | Prevents a safety weakness from being offset by unrelated strengths. |
+| Weighted composite | Combines eligible ranking scores using baseline criterion weights. | Produces a consistent ordering of sites that survive screening. |
+| Family explanation | Reports family scores, flags, confidence and limitations. | Shows why a site ranks as it does and what Stage 3 should test. |
 
-The weights reflect safety primacy and coal-to-nuclear implementation relevance. Natural hazards receive the largest single safety allocation, while non-safety implementation criteria are divided across infrastructure, site characteristics, socioeconomic factors, and coal-to-nuclear synergies. Within this structure, project-only viability criteria such as grid, transport, land, workforce, infrastructure reuse, and policy are included for ranking, but they do not replace SSR-1 safety considerations [3], [5].
+The composite score is therefore a disciplined comparison, not a substitute for expert judgement. It is calculated only for eligible sites and only over criteria that participate in ranking. Where a criterion is unscored, the report records coverage and uncertainty instead of treating missing evidence as favourable.
 
-## 3.8 Sensitivity and Robustness Analysis
+## 3.8 National Sensitivity and Robustness Analysis
 
-The sensitivity analysis tests whether the shortlist is robust to reasonable uncertainty in weights, scores, and screening thresholds. This is essential because Stage 2 combines many types of evidence, not all of which have the same precision. A site that ranks highly only under one narrow set of assumptions should be treated differently from a site that remains competitive across the sensitivity suite.
+The report uses national sensitivity analysis as the controlling frame for country and site choices. National rank means the order among candidates in the same country for the same NuScale VOYGR-6 reference case. This is the relevant decision frame for a government deciding which domestic sites should proceed toward Stage 3 characterisation.
 
-| Sensitivity component | What it tests | Interpretation in the report |
-| --- | --- | --- |
-| Criterion-importance testing | Removes or varies individual criteria to identify which ones most influence rank movement. | Shows the main drivers behind the ranking and highlights criteria that deserve attention in results interpretation. |
-| Category weight perturbation | Varies major criterion-family weights while keeping total weight normalised. | Tests whether the shortlist depends excessively on one policy or technical weighting judgement. |
-| Swing-weight adjustment | Reweights criteria by observed score range so criteria with little variation across sites contribute less discrimination. | Checks whether declared weights are aligned with actual discriminating power in the scored site pool. |
-| Score-uncertainty sampling | Samples scores within uncertainty bands where evidence quality is weaker. | Tests whether low-quality or wide-band evidence could materially shift site positions. |
-| Threshold perturbation | Varies screening thresholds around the reference operating point. | Tests whether sites close to pass/fail or score-band boundaries are fragile. |
-| Country-balance diagnostic | Checks whether the shortlist is excessively concentrated in one country. | Flags whether the regional shortlist is analytically diverse or dominated by one national context. |
+The national Monte Carlo analysis uses 50,000 iterations with seed 42. It tests how national ranking changes when score uncertainty, weights and screening thresholds vary within the project envelope. It reports rank stability, top-rank probability, top-three and top-five probability, median rank and rank uncertainty for each country slice where the candidate pool is large enough to support interpretation.
 
-The output of the sensitivity analysis is not only a changed rank. It is a robustness profile. The most useful sites are those that combine a strong reference ranking with stable performance under uncertainty. A site can be high-scoring but fragile if it depends on one favourable assumption, one weak data field, or one threshold boundary. A site can also be slightly lower in the reference ranking but strategically important if it remains consistently competitive across scenarios.
+Table 3.8. National sensitivity components. NuScale VOYGR-6 reference case. Denominator: country-level candidate pools.
 
-The report uses stability bands to translate the sensitivity suite into readable categories. The highest bands identify sites that repeatedly appear in the most competitive slices of the ranked pool. Mid-level bands identify broader long-list candidates that warrant attention but need stronger evidence or clearer justification. The lowest bands identify sites that rarely appear among leading candidates. These bands are decision-support categories, not licensing categories.
+| Component | What it tests | How to read it |
+| :--- | :--- | :--- |
+| Score-uncertainty sampling | Whether lower-confidence evidence could change the composite order. | Stable sites remain competitive even when uncertain scores move within their bands. |
+| Weight perturbation | Whether rankings depend heavily on one family weight judgement. | Robust sites stay near the top under reasonable changes in criterion importance. |
+| Threshold perturbation | Whether a site sits close to a pass, fail or score-band boundary. | Fragile sites need more targeted Stage 3 evidence before being treated as priorities. |
+| Criterion-importance testing | Which criteria drive rank movement within the national pool. | Helps focus Stage 3 investigation on the few evidence axes that matter most. |
+| Small-pool flagging | Whether a country has too few candidates for strong statistical interpretation. | Results are treated as indicative where the national candidate pool is very small. |
+
+National sensitivity is the evidence basis for country and site selection in this report. Country shortlists, site stability and Stage 3 sequencing are interpreted within the national candidate pool. A site described as stable in a country profile is stable within that national pool unless the report explicitly says otherwise.
 
 ## 3.9 Preferred Sites and Shortlist Rationale
 
-Preferred sites are selected through a combination of screening survival, reference ranking, sensitivity robustness, data confidence, and interpretability. A preferred site should not merely have a high score. It should have a defensible explanation: the site clears exclusionary logic, performs well across the main criterion families, remains credible under sensitivity testing, and has a clear pathway for Stage 3 questions.
+Preferred sites are selected through a combination of screening survival, composite rank, national sensitivity, data confidence and interpretability. A preferred site should clear exclusionary and safety-floor gates, perform well across the relevant criterion families, remain credible under national uncertainty testing, and have an understandable Stage 3 work programme.
 
-The shortlist rationale therefore uses four tests. First, the site must survive exclusionary and safety-floor gates for the NuScale VOYGR-6 reference case. Second, it should rank well in the reference comparison and have no unresolved weakness that would dominate later work. Third, it should show robustness under the sensitivity analysis, especially where data quality is lower or threshold proximity matters. Fourth, it should offer a practical reason for government attention, such as strong coal-to-nuclear reuse value, grid and cooling context, manageable emergency-planning conditions, or a clear national transition role.
+The shortlist rationale uses four tests. First, the site must survive the NuScale VOYGR-6 exclusionary screen. Second, it should rank well in the national comparison and show no unresolved weakness that dominates the result. Third, it should remain robust under national sensitivity analysis, especially where data quality is lower or a threshold is close. Fourth, it should have a practical reason for government attention, such as strong coal-to-nuclear reuse value, grid and cooling context, manageable emergency-planning conditions or a clear national transition role.
 
-This approach means the final shortlist may not simply reproduce the top numerical scores. A very high-scoring site can be less attractive if its position is unstable, if its evidence base is thin, or if one unresolved hazard dominates the next-step risk. A slightly lower-scoring site can be more useful if it is stable, transparent, nationally relevant, and clear about the Stage 3 investigations required. The report should make these trade-offs explicit rather than hiding them behind rank order.
+The resulting shortlist has two layers. The first layer is the profiled full-pass characterisation set: sites that clear both the exclusionary and avoidance screens and already have a selected-site profile in Chapter 5. The second layer is the profiled unlock set: sites that clear the exclusionary screen but carry one or more avoidance flags whose resolution could make them useful national candidates.
 
-Country presentation follows the same logic. Countries with at least one viable NuScale VOYGR-6 candidate receive full profiles. Countries without viable candidates are not treated as failures of national policy; they are described through the site-level reasons that prevented progression, including failed criteria, threshold distances where measurable, and whether the constraint appears immutable, costly to mitigate, or data-limited.
+Table 3.9. Preferred-site shortlist logic. NuScale VOYGR-6 reference case. Denominator: profiled Chapter 5 sites with exclusionary-pass status.
+
+| Site | Country | Screening class | National sensitivity reading | Stage 3 role |
+| :--- | :--- | :--- | :--- | :--- |
+| Turceni power station | Romania | Full pass | Band A, nationally stable leader | First Romanian characterisation candidate. |
+| Rovinari power station | Romania | Full pass | Band B, nationally persistent | Romanian fast follower after Turceni. |
+| Mohacs power station | Hungary | Full pass | Band A, nationally stable leader | Hungarian lead site for detailed characterisation. |
+| Zmiivska power station | Ukraine | Full pass | Band A, high top-tier persistence | Desk-study leader, subject to Ukraine security and access caveat. |
+| Dobrotvir power station | Ukraine | Full pass | Band B, strong top-tier persistence | Ukrainian fast follower under the same caveat. |
+| Pólnoc power station | Poland | Full pass | Band A, nationally stable | Polish full-pass leader behind the avoidance-led point-estimate lead. |
+| Adamow power station | Poland | Full pass | Band B, high top-tier persistence | Polish full-pass fast follower. |
+| Vojany I power station | Slovakia | Full pass | Band A, nationally stable leader | Slovak lead site for detailed characterisation. |
+| Konya Karapınar power station | Türkiye | Full pass | Band A, nationally stable leader | Turkish lead site for detailed characterisation. |
+| Eren-1 power station | Türkiye | Full pass | Band A, nationally stable follower | Turkish fast-follower full-pass candidate. |
+| Çayırhan power station | Türkiye | Full pass | Band B, nationally persistent | Turkish full-pass reserve candidate in the top national tier. |
+
+The unlock layer is equally important for country planning. Riedersbach, Stanari, Lom, Tusimice, Plomin, Kurzeme, Kuchurgan, Bar, Bitola, Polaniec, Štavalj, Tufanbeyli and Karapinar Konya Şeker are not equivalent to full-pass sites, but each is the leading or strategically relevant profiled candidate in an avoidance-led national pool. Their immediate work package is therefore issue-resolution: aircraft-crash context, grid-connection evidence, population-distance and emergency-planning checks, land envelope, cooling context, military or security features, or ecological screening, depending on the country profile and site residual-risk register.
+
+The final shortlist is a judgement over evidence, stability and next-step clarity as well as numerical score. A high-scoring site can be less useful if its rank is fragile, its evidence base is thin, or one unresolved hazard dominates Stage 3 risk. A slightly lower-scoring site can be more decision-relevant if it is stable, transparent, nationally important and clear about the investigations needed next.
 
 ## 3.10 Stage 2 Outputs and Limitations
 
-Stage 2 produces a structured decision-support package. It identifies which candidate sites survive the screening gates, how they compare across criterion families, why they rank as they do, how sensitive their position is to uncertainty, and which sites deserve consideration for Stage 3 characterization. It also records why other sites do not progress.
+Stage 2 produces a decision-support package for government and programme planning. It identifies which candidate sites survive the gates, how they compare across criterion families, why they rank as they do, how sensitive their position is within the national pool, and which sites justify Stage 3 characterisation.
 
-| Output | What it supports | What it does not prove |
-| --- | --- | --- |
-| Pass/fail and safety-floor status | Identifies sites that should not be ranked as viable candidates under the screening rules. | Does not replace expert adjudication where new site-specific evidence emerges. |
-| Criterion and family scores | Shows the strengths and weaknesses behind each site result. | Does not establish design-basis hazard values or final engineering requirements. |
-| Composite ranking | Provides a transparent ordering of surviving sites. | Does not approve construction, procurement, licensing, or ownership rights. |
-| Sensitivity and stability profile | Shows whether a site's position is robust to weight, score, and threshold uncertainty. | Does not eliminate the need for field data, regulator engagement, or local stakeholder work. |
-| Shortlist rationale | Explains which sites should be considered for Stage 3 characterization and why. | Does not guarantee political acceptance, financing, grid connection, water permits, EIA approval, or commercial feasibility. |
-| Failure-mode record | Explains why screened-out sites or countries should not receive full profiles without further evidence. | Does not permanently rule out a site if future mitigation, new data, or a different technology envelope changes the basis of assessment. |
+Table 3.9. Stage 2 outputs and interpretation limits. NuScale VOYGR-6 reference case. Denominator: Stage 2 candidate sites.
 
-The main limitation is resolution. Stage 2 uses representative coordinates, open datasets, structured databases, curated enrichment, and screening rubrics. It cannot confirm land ownership, final site boundary, site control, subsurface conditions, design-basis seismic or flood parameters, classified hazards, emergency-plan approval, water abstraction rights, grid connection rights, environmental acceptability, public acceptance, or national licensing readiness.
+| Output | What it supports | Interpretation limit |
+| :--- | :--- | :--- |
+| Pass, fail and safety-floor status | Identifies sites that should not be ranked as viable candidates under the screening rules. | New site-specific evidence may change a future screening conclusion. |
+| Criterion and family scores | Shows the strengths and weaknesses behind each site result. | Scores do not establish design-basis hazard values or final engineering requirements. |
+| Composite ranking | Provides a transparent ordering of eligible sites. | Ranking is not construction approval, licensing approval, procurement commitment or proof of site control. |
+| National sensitivity profile | Shows whether a site is robust within its domestic candidate pool. | Stability does not remove the need for field data, regulator engagement and stakeholder work. |
+| Shortlist rationale | Explains which sites should be considered for Stage 3 characterisation and why. | The rationale does not guarantee financing, grid connection rights, water permits, environmental approval or public acceptance. |
+| Failure-mode record | Explains why screened-out sites or countries do not progress under the current reference case. | A different technology envelope, new evidence or credible mitigation could justify re-screening. |
 
-The correct decision from Stage 2 is therefore conditional. Sites recommended by this chapter are not "suitable sites" in the licensing sense. They are sites for which the report supports a decision to progress toward Stage 3 characterization. Stage 3 should focus on the highest-impact uncertainties identified here: site-specific hazard studies, land and ownership confirmation, cooling and grid feasibility, environmental and emergency-planning review, stakeholder engagement, and regulator-facing evidence development.
+The main limitation is resolution. Stage 2 uses representative coordinates, public evidence, screening rubrics and national uncertainty analysis. Stage 3 must confirm land ownership, final site boundary, site control, subsurface conditions, design-basis seismic and flood parameters, classified hazards, emergency-plan feasibility, water rights, grid rights, environmental acceptability, stakeholder conditions and national licensing pathway.
 
-## Drafting Notes
-
-- Primary links: `report/methodology/exclusionary_floors.md`, `report/methodology/swing_weight_audit.md`, `report/methodology/sensitivity_analysis.md`, and `report/methodology/ssr1_traceability.md`.
-- Keep criterion order aligned with the rubric: NH, HI, RI, EP, NS, land use, socioeconomic.
-- Human review should check language around "preferred site" so it means shortlist priority, not licensing suitability.
-- Results, charts, site names, and country-specific shortlist claims belong in Chapter 4 and Chapter 5, not in this methodology chapter.
-
-## Working References for Chapter 3
-
-1. IAEA, _Site Survey and Site Selection for Nuclear Installations_, Safety Standards Series No. SSG-35, Vienna (2015).
-2. IAEA, _Site Evaluation for Nuclear Installations_, Safety Standards Series No. SSR-1 (Rev. 1), Vienna (2019).
-3. EPRI, _Advanced Nuclear Technology: Site Selection and Evaluation Criteria for New Nuclear Energy Generation Facilities (Siting Guide) - 2022 Revision_, Report No. 3002023910, Palo Alto (2022).
-4. Project methodology artefacts: `report/requirements/04_siting_methodology.md`, `report/methodology/ssr1_traceability.md`, `report/methodology/exclusionary_floors.md`, `report/methodology/sensitivity_analysis.md`, `report/methodology/swing_weight_audit.md`, and `report/methodology/assumption_register.md`.
-5. Project scoring rubric and criterion specifications: `config/scoring_rubrics/` and `config/scoring_specs/`.
+The correct Stage 2 decision is conditional. The report identifies sites that deserve further characterisation under the NuScale VOYGR-6 reference case. Licensing suitability would require the Stage 3 evidence base and the national regulatory process. Stage 3 should focus on the highest-impact uncertainties identified by the criterion family results, national sensitivity findings and country-level residual-risk registers.

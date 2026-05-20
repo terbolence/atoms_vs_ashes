@@ -8,7 +8,7 @@ One file per criterion in SP-D scope. Each file proposes a **specific, sign-off-
 - the Phase 0.5 data-sanity verdict that constrains what the edit can plausibly fix,
 - the diagnosis (why the current rubric does not deliver the reviewer-expected score),
 - the proposed bands with deltas highlighted,
-- a **boundary-example matrix** per FB-LL-08 (every high-end branch tested against the "all favorable except one missing" case),
+- a **boundary-example matrix** per FB-LL-08 (every high-end branch tested against the "all favourable except one missing" case),
 - regression cases naming the anchor sites the reviewer commented on (Timelkam, Riedersbach, Braila, etc).
 
 ## Hard gate
@@ -36,13 +36,13 @@ All Phase 0.6 band-proposal files in this folder use the **rubric `criterion_id`
 | `criterion_blocked_until_connector_rework` (SP-F gates these) | 2 | HI-01, HI-06 |
 | `data_needs_methodology_first` (SP-C lands first) | 1 | RI-04 |
 
-The 12 `data_needs_fix_before_band_edit` proposals all share a common defect (FB-LL-01 + FB-LL-08): the high-end favorable band `[9,10]` is too restrictive about NULL sub-conditions, dragging clearly favorable sites to the `[5,6]` pass-mark default. The cheap fix is rubric-side ("OR sub-condition IS NULL when the other clauses already justify favorable"); the expensive fix is data-side (SP-F connector rework). Each proposal recommends the cheap fix as the primary path and notes the data-side fix as a second-iteration upgrade.
+The 12 `data_needs_fix_before_band_edit` proposals all share a common defect (FB-LL-01 + FB-LL-08): the high-end favourable band `[9,10]` is too restrictive about NULL sub-conditions, dragging clearly favourable sites to the `[5,6]` pass-mark default. The cheap fix is rubric-side ("OR sub-condition IS NULL when the other clauses already justify favourable"); the expensive fix is data-side (SP-F connector rework). Each proposal recommends the cheap fix as the primary path and notes the data-side fix as a second-iteration upgrade.
 
 ## Cross-cutting design rules applied to every proposal
 
-1. **FB-LL-01**: every high-end `[9,10]` branch has at least one OR-clause that fires when the **favorable signal is unambiguous** (e.g. `coast_distance_km > 50 OR coast_distance_km IS NULL AND country_is_landlocked == true`). The pass-mark `[5,6]` band stops being the default catch-all in the favorable direction.
-2. **FB-LL-02**: where the proposed `[9,10]` branch cannot fire because the underlying column is NULL **and** the favorable inference would require evidence we do not have, the rubric **explicitly leaves the criterion unscored** rather than dropping to `[5,6]`. The renderer change in SP-E already handles unscored rendering.
-3. **FB-LL-08**: every proposed high-end band is tested with a "all favorable except one missing" boundary case in §6 of each file. If the proposed band cannot honor that case without changing semantics elsewhere, the proposal documents the trade-off and asks the reviewer to choose.
+1. **FB-LL-01**: every high-end `[9,10]` branch has at least one OR-clause that fires when the **favourable signal is unambiguous** (e.g. `coast_distance_km > 50 OR coast_distance_km IS NULL AND country_is_landlocked == true`). The pass-mark `[5,6]` band stops being the default catch-all in the favourable direction.
+2. **FB-LL-02**: where the proposed `[9,10]` branch cannot fire because the underlying column is NULL **and** the favourable inference would require evidence we do not have, the rubric **explicitly leaves the criterion unscored** rather than dropping to `[5,6]`. The renderer change in SP-E already handles unscored rendering.
+3. **FB-LL-08**: every proposed high-end band is tested with a "all favourable except one missing" boundary case in §6 of each file. If the proposed band cannot honor that case without changing semantics elsewhere, the proposal documents the trade-off and asks the reviewer to choose.
 4. **LL-019** (mean vs max statistic): for NH-04 explicitly; for any other criterion using a buffer-aggregated raster, the proposal cites which statistic is used.
 5. **LL-022** (false-zero plausibility): for any criterion where the underlying column is `0` rather than NULL on >5% of sites, the proposal flags it as `quality=low_silent_zero` and routes to the LLM fallback — this is how NH-13 wildfire is handled.
 

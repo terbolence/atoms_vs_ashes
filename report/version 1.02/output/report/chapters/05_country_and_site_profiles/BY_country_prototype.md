@@ -1,24 +1,21 @@
 # Belarus Country Profile
 
-Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Analytical basis: the project's 50,000-iteration national Monte Carlo sensitivity analysis over the current frozen scoring rubric.
 
 Belarus has 2 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 1 pass the exclusionary screen but retain avoidance flags, and 1 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
 The leading site is **Lelchitsy power station**, with a composite score of 5.434 and a Monte Carlo interval of 3.976-5.868. Its national stability band is `A` with a national top-10% hit rate of 88%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
-<!-- specialist key=country_exec scope=country country_code=BY bundle=BY_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:20Z -->
 Of 2 Belarusian thermal sites tested against the NuScale VOYGR-6 envelope, none clear both the exclusionary and avoidance screens, 1 passes exclusionary but carries avoidance flags, and 1 is removed at the exclusionary stage on Ecological Sensitivity (NS-08). Lelchitsy power station is the only ranked candidate with a band-A national stability profile, an 87.5 % top-10 % hit rate, and a composite score of 5.434. This is structurally a one-site-leader case, not a fleet pool.
 
 The avoidance unlock pool is fully concentrated. **Grid Connection (NS-02)** and **Site Footprint Adequacy (NS-05)** each carry the single exclusionary-pass site (100 %), so both must be closed for Lelchitsy to advance: NS-02 needs a transmission-corridor study against the host operator interconnection plan; NS-05 needs a parcel-by-parcel land assessment against the buildable hectares the NuScale VOYGR-6 nuclear-island envelope requires. Both are remediation routes, not deal-breakers.
 
-The Belarusian candidate pool is too small to support a fleet plan from the brownfield base; the greenfield lever would have to do most of the work if the host wishes to expand ambition beyond a single site. A credible Stage 3 sequence begins and ends with Lelchitsy power station, contingent on resolving NS-02 and NS-05 in parallel before any characterization budget is committed.
-<!-- /specialist key=country_exec -->
+The Belarusian candidate pool is too small to support a fleet plan from the brownfield base; the greenfield lever would have to do most of the work if the host wishes to expand ambition beyond a single site. A credible Stage 3 sequence begins and ends with Lelchitsy power station, contingent on resolving NS-02 and NS-05 in parallel before any characterisation budget is committed.
 
 <a id="country-status-map"></a>
 
 ![Belarus status map](figures/BY_site_status_map.png)
 
-Interactive review map with marker tooltips: [BY_site_status_map.html](figures/BY_site_status_map.html).
 
 ## Belarus Site Ledger
 

@@ -1,100 +1,32 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-03T11:10:44.804941+00:00",
+    "created_at": "2026-05-18T19:41:01.891427+00:00",
     "country_code": "BG",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
-    "analytics_run_id": "score-214bab4e",
-    "sensitivity_run_id": "sens-7b609bd0",
+    "analytics_run_id": "score-2ffc8a70",
+    "sensitivity_run_id": "nat-sens-139d3947",
     "sensitivity_stamp": "20260425b",
     "claim_boundary": "Screening-grade Stage 1-2 support only."
   },
   "totals": {
     "n_sites": 15,
     "n_full_pass": 0,
-    "n_avoidance_flag": 6,
-    "n_hard_fail": 9,
-    "n_with_score": 6,
+    "n_avoidance_flag": 7,
+    "n_hard_fail": 8,
+    "n_with_score": 7,
     "national_band_counts": {
-      "D": 2,
       "A": 1,
-      "H": 5,
-      "?": 7
+      "D": 1,
+      "G": 1,
+      "H": 4,
+      "?": 8
     }
   },
   "sites": [
     {
       "national_rank": 1,
-      "site_id": "ec5f337a-ca52-4b86-a0f4-4933eac349e3",
-      "name": "Maritsa Iztok-2 power station",
-      "country_code": "BG",
-      "subnational_unit": "Galabovo",
-      "local_area": null,
-      "latitude": 42.254053,
-      "longitude": 26.134007,
-      "installed_capacity_mw": 2162.0,
-      "site_status": "operating",
-      "passed_exclusionary": true,
-      "passed_avoidance": false,
-      "composite_score": 6.025,
-      "composite_score_low": 4.346,
-      "composite_score_high": 6.416,
-      "criteria_coverage": 42.5,
-      "avg_confidence": "low",
-      "national_band": "D",
-      "national_top10pct_hit_rate": 0.1875,
-      "regional_band": "D",
-      "regional_top10pct_hit_rate": 0.1875
-    },
-    {
-      "national_rank": 2,
-      "site_id": "b01fe781-dbc7-40f8-a544-946288020042",
-      "name": "Bobov Dol power station",
-      "country_code": "BG",
-      "subnational_unit": "Kyustendil",
-      "local_area": null,
-      "latitude": 42.285818,
-      "longitude": 23.03283,
-      "installed_capacity_mw": 1030.0,
-      "site_status": "operating",
-      "passed_exclusionary": true,
-      "passed_avoidance": false,
-      "composite_score": 6.0,
-      "composite_score_low": 4.335,
-      "composite_score_high": 6.416,
-      "criteria_coverage": 42.5,
-      "avg_confidence": "low",
-      "national_band": "D",
-      "national_top10pct_hit_rate": 0.25,
-      "regional_band": "D",
-      "regional_top10pct_hit_rate": 0.1875
-    },
-    {
-      "national_rank": 3,
-      "site_id": "a064c7ae-e699-4a94-a18c-79bdfe42bce3",
-      "name": "Vidin Works power station",
-      "country_code": "BG",
-      "subnational_unit": "Vidin",
-      "local_area": null,
-      "latitude": 43.948363,
-      "longitude": 22.850904,
-      "installed_capacity_mw": 120.0,
-      "site_status": "mothballed",
-      "passed_exclusionary": true,
-      "passed_avoidance": false,
-      "composite_score": 5.762,
-      "composite_score_low": 4.229,
-      "composite_score_high": 6.257,
-      "criteria_coverage": 42.5,
-      "avg_confidence": "low",
-      "national_band": "A",
-      "national_top10pct_hit_rate": 1.0,
-      "regional_band": "A",
-      "regional_top10pct_hit_rate": 1.0
-    },
-    {
-      "national_rank": 4,
       "site_id": "30c9e377-b575-46fa-880f-922c46e6500a",
       "name": "Lom Power Station",
       "country_code": "BG",
@@ -103,21 +35,23 @@
       "latitude": 43.7825,
       "longitude": 23.2175,
       "installed_capacity_mw": 400.0,
+      "site_area_ha": 146.29,
+      "favourable_area_ha": 146.29,
       "site_status": "cancelled",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 5.576,
-      "composite_score_low": 4.123,
-      "composite_score_high": 5.96,
-      "criteria_coverage": 40.0,
+      "composite_score": 7.428,
+      "composite_score_low": 6.578,
+      "composite_score_high": 7.85,
+      "criteria_coverage": 76.47,
       "avg_confidence": "low",
-      "national_band": "H",
-      "national_top10pct_hit_rate": 0.0,
-      "regional_band": "D",
-      "regional_top10pct_hit_rate": 0.0
+      "national_band": "A",
+      "national_top10pct_hit_rate": 1.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
-      "national_rank": 5,
+      "national_rank": 2,
       "site_id": "3bb6666f-de2f-4c6f-a28e-c3bddb71b54a",
       "name": "Maritsa 3 power station",
       "country_code": "BG",
@@ -126,21 +60,73 @@
       "latitude": 42.051942,
       "longitude": 25.623344,
       "installed_capacity_mw": 120.0,
+      "site_area_ha": 18.87,
+      "favourable_area_ha": 159.18,
       "site_status": "mothballed",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 5.343,
-      "composite_score_low": 4.022,
-      "composite_score_high": 5.838,
-      "criteria_coverage": 40.0,
+      "composite_score": 7.009,
+      "composite_score_low": 6.24,
+      "composite_score_high": 7.569,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 3,
+      "site_id": "b01fe781-dbc7-40f8-a544-946288020042",
+      "name": "Bobov Dol power station",
+      "country_code": "BG",
+      "subnational_unit": "Kyustendil",
+      "local_area": null,
+      "latitude": 42.285818,
+      "longitude": 23.03283,
+      "installed_capacity_mw": 1030.0,
+      "site_area_ha": 63.0,
+      "favourable_area_ha": 206.43,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.984,
+      "composite_score_low": 6.22,
+      "composite_score_high": 7.525,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "G",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 4,
+      "site_id": "a064c7ae-e699-4a94-a18c-79bdfe42bce3",
+      "name": "Vidin Works power station",
+      "country_code": "BG",
+      "subnational_unit": "Vidin",
+      "local_area": null,
+      "latitude": 43.948363,
+      "longitude": 22.850904,
+      "installed_capacity_mw": 120.0,
+      "site_area_ha": 130.0,
+      "favourable_area_ha": 169.46,
+      "site_status": "mothballed",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.828,
+      "composite_score_low": 6.093,
+      "composite_score_high": 7.369,
+      "criteria_coverage": 76.47,
       "avg_confidence": "low",
       "national_band": "H",
       "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
-      "national_rank": 6,
+      "national_rank": 5,
       "site_id": "2fb27566-cc7b-4530-8ff9-e55e3a1985bd",
       "name": "Svilosa power station",
       "country_code": "BG",
@@ -149,18 +135,70 @@
       "latitude": 43.642272,
       "longitude": 25.305007,
       "installed_capacity_mw": 120.0,
+      "site_area_ha": 172.0,
+      "favourable_area_ha": 77.14,
       "site_status": "retired",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 4.99,
-      "composite_score_low": 3.868,
-      "composite_score_high": 5.455,
-      "criteria_coverage": 40.0,
+      "composite_score": 6.578,
+      "composite_score_low": 5.891,
+      "composite_score_high": 7.119,
+      "criteria_coverage": 76.47,
       "avg_confidence": "low",
       "national_band": "H",
       "national_top10pct_hit_rate": 0.0,
-      "regional_band": "D",
-      "regional_top10pct_hit_rate": 0.0
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 6,
+      "site_id": "33a015dd-51e0-497e-b0d3-4b1b3f070438",
+      "name": "Republika power station",
+      "country_code": "BG",
+      "subnational_unit": "Pernik",
+      "local_area": null,
+      "latitude": 42.607124,
+      "longitude": 23.078699,
+      "installed_capacity_mw": 105.0,
+      "site_area_ha": 232.26,
+      "favourable_area_ha": 177.83,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.875,
+      "composite_score_low": 5.323,
+      "composite_score_high": 6.325,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 7,
+      "site_id": "704ef487-f600-4f23-b06e-a0f81b627597",
+      "name": "Ruse Iztok power station",
+      "country_code": "BG",
+      "subnational_unit": "Ruse",
+      "local_area": null,
+      "latitude": 43.866654,
+      "longitude": 26.010002,
+      "installed_capacity_mw": 400.0,
+      "site_area_ha": 32.0,
+      "favourable_area_ha": 274.91,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.616,
+      "composite_score_low": 5.114,
+      "composite_score_high": 6.156,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
       "national_rank": null,
@@ -172,6 +210,8 @@
       "latitude": 42.154555,
       "longitude": 25.906814,
       "installed_capacity_mw": 300.0,
+      "site_area_ha": 40.0,
+      "favourable_area_ha": 116.39,
       "site_status": "operating",
       "passed_exclusionary": false,
       "passed_avoidance": false,
@@ -195,6 +235,8 @@
       "latitude": 43.196354,
       "longitude": 27.632675,
       "installed_capacity_mw": 174.0,
+      "site_area_ha": 27.26,
+      "favourable_area_ha": 176.64,
       "site_status": "operating",
       "passed_exclusionary": false,
       "passed_avoidance": false,
@@ -218,9 +260,36 @@
       "latitude": 42.1573,
       "longitude": 25.9084,
       "installed_capacity_mw": 690.0,
+      "site_area_ha": 57.27,
+      "favourable_area_ha": 103.79,
       "site_status": "operating",
       "passed_exclusionary": false,
       "passed_avoidance": true,
+      "composite_score": null,
+      "composite_score_low": null,
+      "composite_score_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": null,
+      "national_top10pct_hit_rate": null,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": null,
+      "site_id": "ec5f337a-ca52-4b86-a0f4-4933eac349e3",
+      "name": "Maritsa Iztok-2 power station",
+      "country_code": "BG",
+      "subnational_unit": "Galabovo",
+      "local_area": null,
+      "latitude": 42.254053,
+      "longitude": 26.134007,
+      "installed_capacity_mw": 2162.0,
+      "site_area_ha": 512.0,
+      "favourable_area_ha": 177.54,
+      "site_status": "operating",
+      "passed_exclusionary": false,
+      "passed_avoidance": false,
       "composite_score": null,
       "composite_score_low": null,
       "composite_score_high": null,
@@ -241,6 +310,8 @@
       "latitude": 42.14502,
       "longitude": 26.003009,
       "installed_capacity_mw": 1608.0,
+      "site_area_ha": 300.0,
+      "favourable_area_ha": 298.4,
       "site_status": "operating",
       "passed_exclusionary": false,
       "passed_avoidance": true,
@@ -264,6 +335,8 @@
       "latitude": 42.1444,
       "longitude": 26.0033,
       "installed_capacity_mw": 600.0,
+      "site_area_ha": 124.34,
+      "favourable_area_ha": 298.4,
       "site_status": "cancelled",
       "passed_exclusionary": false,
       "passed_avoidance": true,
@@ -279,52 +352,6 @@
     },
     {
       "national_rank": null,
-      "site_id": "33a015dd-51e0-497e-b0d3-4b1b3f070438",
-      "name": "Republika power station",
-      "country_code": "BG",
-      "subnational_unit": "Pernik",
-      "local_area": null,
-      "latitude": 42.607124,
-      "longitude": 23.078699,
-      "installed_capacity_mw": 105.0,
-      "site_status": "operating",
-      "passed_exclusionary": false,
-      "passed_avoidance": false,
-      "composite_score": null,
-      "composite_score_low": null,
-      "composite_score_high": null,
-      "criteria_coverage": 0.0,
-      "avg_confidence": "low",
-      "national_band": "H",
-      "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
-    },
-    {
-      "national_rank": null,
-      "site_id": "704ef487-f600-4f23-b06e-a0f81b627597",
-      "name": "Ruse Iztok power station",
-      "country_code": "BG",
-      "subnational_unit": "Ruse",
-      "local_area": null,
-      "latitude": 43.866654,
-      "longitude": 26.010002,
-      "installed_capacity_mw": 400.0,
-      "site_status": "operating",
-      "passed_exclusionary": false,
-      "passed_avoidance": false,
-      "composite_score": null,
-      "composite_score_low": null,
-      "composite_score_high": null,
-      "criteria_coverage": 0.0,
-      "avg_confidence": "low",
-      "national_band": "H",
-      "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
-    },
-    {
-      "national_rank": null,
       "site_id": "93685558-3355-4da2-9a4a-4cccd89f9269",
       "name": "Sliven power station",
       "country_code": "BG",
@@ -333,6 +360,8 @@
       "latitude": 42.654762,
       "longitude": 26.325853,
       "installed_capacity_mw": 60.0,
+      "site_area_ha": 15.13,
+      "favourable_area_ha": 238.72,
       "site_status": "operating",
       "passed_exclusionary": false,
       "passed_avoidance": false,
@@ -356,6 +385,8 @@
       "latitude": 43.19477,
       "longitude": 27.765472,
       "installed_capacity_mw": 1260.0,
+      "site_area_ha": 100.0,
+      "favourable_area_ha": 73.54,
       "site_status": "retired",
       "passed_exclusionary": false,
       "passed_avoidance": false,
@@ -372,25 +403,32 @@
   ],
   "avoidance_pareto": [
     {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites": 6,
+      "share_of_exclusionary_pass": 0.8571
+    },
+    {
       "criterion_id": "HI-01",
       "criterion_name": "Aircraft Crash",
       "category": "human_induced_hazard",
       "n_sites": 4,
-      "share_of_exclusionary_pass": 0.6667
+      "share_of_exclusionary_pass": 0.5714
     },
     {
-      "criterion_id": "NS-02",
-      "criterion_name": "Grid Connection",
-      "category": "non_safety",
-      "n_sites": 4,
-      "share_of_exclusionary_pass": 0.6667
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites": 2,
+      "share_of_exclusionary_pass": 0.2857
     },
     {
-      "criterion_id": "NS-05",
-      "criterion_name": "Site Footprint Adequacy",
-      "category": "site_characteristics",
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
       "n_sites": 1,
-      "share_of_exclusionary_pass": 0.1667
+      "share_of_exclusionary_pass": 0.1429
     }
   ],
   "exclusionary_failure_pareto": [
@@ -398,44 +436,37 @@
       "criterion_id": "NH-02",
       "criterion_name": "Seismic: Surface Rupture",
       "category": "natural_hazard",
-      "n_sites": 7,
-      "share_of_country": 0.4667
+      "n_sites": 8,
+      "share_of_country": 0.5333
     },
     {
       "criterion_id": "NS-08",
       "criterion_name": "Ecological Sensitivity",
       "category": "non_safety",
-      "n_sites": 2,
-      "share_of_country": 0.1333
-    },
-    {
-      "criterion_id": "EP-01",
-      "criterion_name": "Emergency Planning Feasibility",
-      "category": "emergency_planning",
       "n_sites": 1,
       "share_of_country": 0.0667
     }
   ],
   "family_normalised_score_means": {
     "EP": {
-      "mean_normalised_score": 4.3378,
-      "n_sites": 6
+      "mean_normalised_score": 5.6662,
+      "n_sites": 7
     },
     "HI": {
-      "mean_normalised_score": 3.6148,
-      "n_sites": 6
+      "mean_normalised_score": 6.2329,
+      "n_sites": 7
     },
     "NH": {
-      "mean_normalised_score": 5.9688,
-      "n_sites": 6
+      "mean_normalised_score": 7.5067,
+      "n_sites": 7
     },
     "NS": {
-      "mean_normalised_score": 6.4091,
-      "n_sites": 6
+      "mean_normalised_score": 6.6088,
+      "n_sites": 7
     },
     "RI": {
-      "mean_normalised_score": 6.2626,
-      "n_sites": 6
+      "mean_normalised_score": 6.231,
+      "n_sites": 7
     }
   },
   "ranking_score_distribution": [
@@ -444,9 +475,27 @@
       "criterion_name": "Military Installations",
       "category": "human_induced_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 1.87,
+      "mean_score_0_10": 1.77,
       "min_score_0_10": 0.0,
       "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-08",
+      "criterion_name": "Ecological Sensitivity",
+      "category": "non_safety",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 2.03,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "HI-07",
+      "criterion_name": "Electromagnetic Interference",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 2.17,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 3.5
     },
     {
       "criterion_id": "EP-02",
@@ -458,15 +507,6 @@
       "max_score_0_10": 5.5
     },
     {
-      "criterion_id": "BF-01",
-      "criterion_name": "Grid Capacity Basic Filter",
-      "category": "basic_filter",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 3.27,
-      "min_score_0_10": 0.0,
-      "max_score_0_10": 7.5
-    },
-    {
       "criterion_id": "RI-02",
       "criterion_name": "Surface Water Dispersion",
       "category": "radiological_impact",
@@ -476,40 +516,22 @@
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NH-11",
-      "criterion_name": "Extreme Precipitation",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 4.0,
-      "min_score_0_10": 4.0,
-      "max_score_0_10": 4.0
-    },
-    {
       "criterion_id": "NS-02",
       "criterion_name": "Grid Connection",
       "category": "non_safety",
       "n_sites_scored": 15,
-      "mean_score_0_10": 4.3,
+      "mean_score_0_10": 3.9,
       "min_score_0_10": 1.5,
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "HI-03",
-      "criterion_name": "Toxic/Gas Releases",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 4.37,
-      "min_score_0_10": 0.0,
-      "max_score_0_10": 5.5
-    },
-    {
-      "criterion_id": "NH-06",
-      "criterion_name": "Geotechnical: Foundation",
+      "criterion_id": "NH-02",
+      "criterion_name": "Seismic: Surface Rupture",
       "category": "natural_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 4.63,
+      "mean_score_0_10": 4.23,
       "min_score_0_10": 0.0,
-      "max_score_0_10": 5.5
+      "max_score_0_10": 9.5
     },
     {
       "criterion_id": "RI-04",
@@ -521,152 +543,8 @@
       "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "HI-01",
-      "criterion_name": "Aircraft Crash",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 4.97,
-      "min_score_0_10": 3.5,
-      "max_score_0_10": 5.5
-    },
-    {
-      "criterion_id": "NS-07",
-      "criterion_name": "Environmental Impact (non-rad)",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "EP-03",
-      "criterion_name": "Physical Geography Constraints",
-      "category": "emergency_planning",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "EP-05",
-      "criterion_name": "Concurrent Hazard Impact",
-      "category": "emergency_planning",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-05",
-      "criterion_name": "Transport Hazards",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-08",
-      "criterion_name": "Other Nuclear Installations",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-07",
-      "criterion_name": "Volcanism",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-08",
-      "criterion_name": "Coastal Flooding",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-09",
-      "criterion_name": "River Flooding",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-13",
-      "criterion_name": "Forest/Wildfire",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-14",
-      "criterion_name": "Combined Hazards",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-06",
-      "criterion_name": "Existing Infrastructure",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-09",
-      "criterion_name": "Socioeconomic Impact",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
       "criterion_id": "NS-10",
       "criterion_name": "Workforce Availability",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-11",
-      "criterion_name": "Coal-to-Nuclear Synergies",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-12",
-      "criterion_name": "Regulatory/Political Environment",
-      "category": "non_safety",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-13",
-      "criterion_name": "Construction Logistics",
       "category": "non_safety",
       "n_sites_scored": 15,
       "mean_score_0_10": 5.0,
@@ -683,65 +561,38 @@
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "RI-03",
-      "criterion_name": "Groundwater Dispersion",
-      "category": "radiological_impact",
+      "criterion_id": "NS-13",
+      "criterion_name": "Construction Logistics",
+      "category": "non_safety",
       "n_sites_scored": 15,
       "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "RI-05",
-      "criterion_name": "Distance to Population Centres",
-      "category": "radiological_impact",
+      "criterion_id": "NS-12",
+      "criterion_name": "Regulatory/Political Environment",
+      "category": "non_safety",
       "n_sites_scored": 15,
       "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "HI-02",
-      "criterion_name": "Industrial Explosions",
-      "category": "human_induced_hazard",
+      "criterion_id": "NS-06",
+      "criterion_name": "Existing Infrastructure",
+      "category": "non_safety",
       "n_sites_scored": 15,
-      "mean_score_0_10": 5.03,
+      "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
-      "max_score_0_10": 5.5
+      "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "HI-04",
-      "criterion_name": "External Fires",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.03,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.5
-    },
-    {
-      "criterion_id": "NH-02",
-      "criterion_name": "Seismic: Surface Rupture",
+      "criterion_id": "NH-06",
+      "criterion_name": "Geotechnical: Foundation",
       "category": "natural_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 5.23,
-      "min_score_0_10": 1.5,
-      "max_score_0_10": 9.5
-    },
-    {
-      "criterion_id": "NH-03",
-      "criterion_name": "Geotechnical: Liquefaction",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.23,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.5
-    },
-    {
-      "criterion_id": "EP-01",
-      "criterion_name": "Emergency Planning Feasibility",
-      "category": "emergency_planning",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.37,
+      "mean_score_0_10": 5.1,
       "min_score_0_10": 3.5,
       "max_score_0_10": 5.5
     },
@@ -755,15 +606,6 @@
       "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "NH-05",
-      "criterion_name": "Geotechnical: Subsidence",
-      "category": "natural_hazard",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 5.5,
-      "min_score_0_10": 5.5,
-      "max_score_0_10": 5.5
-    },
-    {
       "criterion_id": "NH-01",
       "criterion_name": "Seismic: Ground Motion",
       "category": "natural_hazard",
@@ -773,22 +615,76 @@
       "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "HI-07",
-      "criterion_name": "Electromagnetic Interference",
-      "category": "human_induced_hazard",
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
       "n_sites_scored": 15,
-      "mean_score_0_10": 6.5,
-      "min_score_0_10": 5.0,
+      "mean_score_0_10": 5.77,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "BF-02",
+      "criterion_name": "Land Area Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 5.9,
+      "min_score_0_10": 1.5,
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NS-01",
-      "criterion_name": "Cooling Water Availability",
-      "category": "non_safety",
+      "criterion_id": "NH-14",
+      "criterion_name": "Combined Hazards",
+      "category": "natural_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 6.8,
-      "min_score_0_10": 6.0,
-      "max_score_0_10": 7.0
+      "mean_score_0_10": 5.9,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-03",
+      "criterion_name": "Geotechnical: Liquefaction",
+      "category": "natural_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 6.03,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "BF-01",
+      "criterion_name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 6.3,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 6.3,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-12",
+      "criterion_name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 6.37,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-03",
+      "criterion_name": "Groundwater Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 6.43,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
     },
     {
       "criterion_id": "NS-04",
@@ -800,36 +696,18 @@
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NS-03",
-      "criterion_name": "Transport Access",
-      "category": "non_safety",
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
       "n_sites_scored": 15,
-      "mean_score_0_10": 7.33,
-      "min_score_0_10": 6.0,
-      "max_score_0_10": 9.0
-    },
-    {
-      "criterion_id": "BF-02",
-      "criterion_name": "Land Area Basic Filter",
-      "category": "basic_filter",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 7.37,
-      "min_score_0_10": 3.5,
+      "mean_score_0_10": 7.23,
+      "min_score_0_10": 1.5,
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NS-05",
-      "criterion_name": "Site Footprint Adequacy",
-      "category": "site_characteristics",
-      "n_sites_scored": 15,
-      "mean_score_0_10": 7.37,
-      "min_score_0_10": 3.5,
-      "max_score_0_10": 9.5
-    },
-    {
-      "criterion_id": "NS-08",
-      "criterion_name": "Ecological Sensitivity",
-      "category": "non_safety",
+      "criterion_id": "NH-09",
+      "criterion_name": "River Flooding",
+      "category": "natural_hazard",
       "n_sites_scored": 15,
       "mean_score_0_10": 7.37,
       "min_score_0_10": 5.5,
@@ -840,9 +718,72 @@
       "criterion_name": "Geotechnical: Slope Stability",
       "category": "natural_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 8.03,
+      "mean_score_0_10": 7.4,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-01",
+      "criterion_name": "Cooling Water Availability",
+      "category": "non_safety",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 7.47,
+      "min_score_0_10": 4.0,
+      "max_score_0_10": 9.0
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 7.83,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 8.17,
       "min_score_0_10": 5.5,
       "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-10",
+      "criterion_name": "Extreme Winds",
+      "category": "natural_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 8.7,
+      "min_score_0_10": 7.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "EP-03",
+      "criterion_name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 8.97,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-05",
+      "criterion_name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 8.97,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-03",
+      "criterion_name": "Transport Access",
+      "category": "non_safety",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 9.07,
+      "min_score_0_10": 8.0,
+      "max_score_0_10": 10.0
     },
     {
       "criterion_id": "RI-06",
@@ -854,17 +795,44 @@
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NH-12",
-      "criterion_name": "Extreme Temperatures",
+      "criterion_id": "NH-11",
+      "criterion_name": "Extreme Precipitation",
       "category": "natural_hazard",
       "n_sites_scored": 15,
-      "mean_score_0_10": 9.5,
-      "min_score_0_10": 9.5,
+      "mean_score_0_10": 9.2,
+      "min_score_0_10": 8.0,
+      "max_score_0_10": 10.0
+    },
+    {
+      "criterion_id": "NH-08",
+      "criterion_name": "Coastal Flooding",
+      "category": "natural_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 9.23,
+      "min_score_0_10": 7.5,
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NH-10",
-      "criterion_name": "Extreme Winds",
+      "criterion_id": "HI-02",
+      "criterion_name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 9.23,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-04",
+      "criterion_name": "External Fires",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 15,
+      "mean_score_0_10": 9.23,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-07",
+      "criterion_name": "Volcanism",
       "category": "natural_hazard",
       "n_sites_scored": 15,
       "mean_score_0_10": 9.5,

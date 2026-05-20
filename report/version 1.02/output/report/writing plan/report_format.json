@@ -1,6 +1,18 @@
 {
   "schema_version": "1.0",
   "report_version": "1.2",
+  "_meta": {
+    "source_of_truth": "This file is the sole authoritative report layout spec.",
+    "reference_docx_policy": "reference.docx is generated from this file and must not be hand-edited.",
+    "postprocess_policy": "postprocess applies table autofit, cell alignment, and run-level fonts that Pandoc cannot express from the reference template alone.",
+    "publication_rules": [
+      "Reader-facing text must not use the Unicode em dash character U+2014.",
+      "Reader-facing prose must state the positive claim directly and avoid defining an idea by negating another idea.",
+      "Reader-facing text must not include drafting notes, working references, repository paths, or internal project file references.",
+      "Reader-facing citations must use Harvard-style references.",
+      "Country and site tables must use national sensitivity analysis scores and bands only."
+    ]
+  },
   "default_font_family": "Times New Roman",
   "page": {
     "size": "A4",
@@ -16,6 +28,17 @@
     "footer_height_mm": 14
   },
   "typography": {
+    "title_page": {
+      "use_first_page": true,
+      "avoid_blank_title_page": true,
+      "rubric": {
+        "text": "Prepared for:\n\nContributors:\n",
+        "position": "left_bottom_third",
+        "font_family": "Times New Roman",
+        "size_pt": 11,
+        "alignment": "left"
+      }
+    },
     "title": {
       "font_family": "Times New Roman",
       "size_pt": 22,
@@ -116,7 +139,9 @@
       "top_rule": true,
       "header_bottom_rule": true,
       "bottom_rule": true,
-      "vertical_rules": false
+      "vertical_rules": true,
+      "cell_all_sides": true,
+      "color_hex": "000000"
     },
     "cell_alignment": {
       "numeric": "right",

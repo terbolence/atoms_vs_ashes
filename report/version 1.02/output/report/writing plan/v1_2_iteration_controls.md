@@ -1,4 +1,4 @@
-<!-- man_hours: 3.0 -->
+<!-- man_hours: 4.2 -->
 # Version 1.2 Iteration Controls
 
 This file records the operational controls for preparing report version 1.2. It sits beside `writingDecisions.md`, `writingStyle.md`, and `tableOfContents.md` because these requirements must be visible to every country, site, methodology, and review pass.
@@ -24,8 +24,29 @@ Before final assembly, check all report prose, captions, tables, annexes, profil
 - `specialist interpretation pending`
 - `model says`
 - internal instructions to a writer or reviewer
+- the Unicode em dash character U+2014
+- definitions by negation, including "the objective is not X, it is Y"
+- repository paths, markdown filenames, project file references, run IDs, branch names, CLI commands, or working references
+- upstream data platform names or internal database names
+- `LLM` or equivalent model-process language
 
 Internal specialist placeholders may exist during drafting, but they must be filled or removed before a file is treated as publication-ready.
+
+## Publication Style Gate
+
+Every drafting and review pass must enforce these publication rules:
+
+- Use positive, direct phrasing. Present the affirmative claim and the client value before limitations.
+- Use Harvard-style in-text citations and a consolidated Harvard-style reference list.
+- Describe evidence sources qualitatively. Use "automated web searches and structured evidence collection" for automated discovery, and avoid naming internal data sources or model processes.
+- Use national sensitivity analysis for country and site ranking, scores, score bands, stability, and Stage 3 sequencing.
+- Present country site ledgers in ranked order with scores, score bands, national sensitivity bands, failed exclusionary criteria, avoidance criteria, and measured threshold evidence where available.
+- Show excluded sites with their real evidence coverage and failed criteria. Do not describe them as 0% coverage when measured evidence exists.
+- Use tables for long site-description lists, residual-risk registers, and Stage 3 follow-up checklists.
+- Use full-width country maps where practical. Prefer landscape treatment for map-dominant pages. Cap dense country-map labels, including Turkey, at the best full-pass and avoidance-pass sites up to 20 labels.
+- Mention first-time nuclear-power status in country descriptions where relevant.
+- Exclude Belarus from the published country analysis unless the user restores it.
+- Include a coal-to-nuclear rationale in Chapter 1 and the expandability of the method to other large industrial sites in the conclusions.
 
 ## Baseline Gate
 
@@ -112,10 +133,16 @@ Before publication assembly:
 - Check that VOYGR-6 is always treated as 462 MWe and never as VOYGR-12.
 - Check that Stage 1, Stage 2, and Stage 3 language remains distinct.
 - Check that missing evidence is not presented as a low score.
+- Check that excluded sites are not presented as 0% coverage when measured evidence exists.
 - Check that weight basis is visible wherever criterion weights are shown.
 - Check that all charts and captions name the denominator and metric.
 - Check that sensitivity and stability discussions are national where they support country/site choices or Stage 3 sequencing.
+- Check that Chapter 4 results tables are ranked and include scores, score bands, and national sensitivity bands.
+- Check that Chapter 2.3 and all evidence-base sections avoid upstream data-source names, internal database names, LLM language, repository paths, and working references.
+- Check that all citations use Harvard style and exclude the GEM database.
+- Check that the first report page contains visible title-page content and the lower-left rubric "Prepared for:" and "Contributors:".
+- Check that tables have black borders on all cell sides.
 - Check that every figure was regenerated from the accepted baseline.
-- Check that no writing notes, placeholders, TODOs, or AI/process markers remain.
+- Check that no writing notes, placeholders, TODOs, U+2014 characters, or AI/process markers remain.
 - Check that every country and site profile has passed batch review.
 - Check that the Ovidiu closure register has no unresolved publication blockers.

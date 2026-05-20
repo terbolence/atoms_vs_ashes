@@ -1,13 +1,13 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-03T11:11:29.401682+00:00",
+    "created_at": "2026-05-18T19:41:48.289061+00:00",
     "country_code": "MK",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
-    "analytics_run_id": "score-214bab4e",
-    "sensitivity_run_id": "sens-7b609bd0",
-    "sensitivity_stamp": "20260425b",
+    "analytics_run_id": "score-2ffc8a70",
+    "sensitivity_run_id": "nat-sens-139d3947",
+    "sensitivity_stamp": "20260518_national_50000",
     "claim_boundary": "Screening-grade Stage 1-2 support only."
   },
   "totals": {
@@ -18,7 +18,8 @@
     "n_with_score": 3,
     "national_band_counts": {
       "A": 1,
-      "H": 3
+      "H": 2,
+      "?": 1
     }
   },
   "sites": [
@@ -32,18 +33,20 @@
       "latitude": 41.05832,
       "longitude": 21.484266,
       "installed_capacity_mw": 699.0,
+      "site_area_ha": 145.73,
+      "favourable_area_ha": 0.0,
       "site_status": "operating",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 5.525,
-      "composite_score_low": 4.101,
-      "composite_score_high": 5.939,
-      "criteria_coverage": 40.0,
+      "composite_score": 6.812,
+      "composite_score_low": 5.927,
+      "composite_score_high": 7.329,
+      "criteria_coverage": 73.53,
       "avg_confidence": "low",
       "national_band": "A",
       "national_top10pct_hit_rate": 1.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
       "national_rank": 2,
@@ -55,18 +58,20 @@
       "latitude": 41.483333,
       "longitude": 22.1,
       "installed_capacity_mw": 300.0,
+      "site_area_ha": 192.91,
+      "favourable_area_ha": 192.91,
       "site_status": "cancelled",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 4.899,
-      "composite_score_low": 3.828,
-      "composite_score_high": 5.313,
-      "criteria_coverage": 40.0,
+      "composite_score": 6.707,
+      "composite_score_low": 5.846,
+      "composite_score_high": 7.171,
+      "criteria_coverage": 73.53,
       "avg_confidence": "low",
       "national_band": "H",
       "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
       "national_rank": 3,
@@ -78,18 +83,20 @@
       "latitude": 41.582133,
       "longitude": 21.000288,
       "installed_capacity_mw": 254.5,
+      "site_area_ha": 26.0,
+      "favourable_area_ha": 51.17,
       "site_status": "operating",
       "passed_exclusionary": true,
       "passed_avoidance": false,
-      "composite_score": 4.515,
-      "composite_score_low": 3.661,
-      "composite_score_high": 4.929,
-      "criteria_coverage": 40.0,
+      "composite_score": 5.905,
+      "composite_score_low": 5.23,
+      "composite_score_high": 6.421,
+      "criteria_coverage": 73.53,
       "avg_confidence": "low",
       "national_band": "H",
       "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     },
     {
       "national_rank": null,
@@ -101,6 +108,8 @@
       "latitude": 41.122815,
       "longitude": 21.805115,
       "installed_capacity_mw": 300.0,
+      "site_area_ha": 151.22,
+      "favourable_area_ha": 0.0,
       "site_status": "cancelled",
       "passed_exclusionary": false,
       "passed_avoidance": false,
@@ -109,10 +118,10 @@
       "composite_score_high": null,
       "criteria_coverage": 0.0,
       "avg_confidence": "low",
-      "national_band": "H",
-      "national_top10pct_hit_rate": 0.0,
-      "regional_band": "H",
-      "regional_top10pct_hit_rate": 0.0
+      "national_band": null,
+      "national_top10pct_hit_rate": null,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
     }
   ],
   "avoidance_pareto": [
@@ -120,8 +129,8 @@
       "criterion_id": "HI-01",
       "criterion_name": "Aircraft Crash",
       "category": "human_induced_hazard",
-      "n_sites": 2,
-      "share_of_exclusionary_pass": 0.6667
+      "n_sites": 3,
+      "share_of_exclusionary_pass": 1.0
     },
     {
       "criterion_id": "NH-01",
@@ -136,13 +145,6 @@
       "category": "non_safety",
       "n_sites": 2,
       "share_of_exclusionary_pass": 0.6667
-    },
-    {
-      "criterion_id": "NS-05",
-      "criterion_name": "Site Footprint Adequacy",
-      "category": "site_characteristics",
-      "n_sites": 1,
-      "share_of_exclusionary_pass": 0.3333
     }
   ],
   "exclusionary_failure_pareto": [
@@ -156,23 +158,23 @@
   ],
   "family_normalised_score_means": {
     "EP": {
-      "mean_normalised_score": 4.5038,
+      "mean_normalised_score": 5.9686,
       "n_sites": 3
     },
     "HI": {
-      "mean_normalised_score": 2.8869,
+      "mean_normalised_score": 6.6197,
       "n_sites": 3
     },
     "NH": {
-      "mean_normalised_score": 5.4889,
+      "mean_normalised_score": 7.1704,
       "n_sites": 3
     },
     "NS": {
-      "mean_normalised_score": 4.8634,
+      "mean_normalised_score": 5.7454,
       "n_sites": 3
     },
     "RI": {
-      "mean_normalised_score": 6.1567,
+      "mean_normalised_score": 6.163,
       "n_sites": 3
     }
   },
@@ -187,22 +189,31 @@
       "max_score_0_10": 1.5
     },
     {
-      "criterion_id": "HI-06",
-      "criterion_name": "Military Installations",
+      "criterion_id": "HI-07",
+      "criterion_name": "Electromagnetic Interference",
       "category": "human_induced_hazard",
       "n_sites_scored": 4,
-      "mean_score_0_10": 2.5,
+      "mean_score_0_10": 2.0,
       "min_score_0_10": 1.5,
       "max_score_0_10": 3.5
     },
     {
-      "criterion_id": "BF-01",
-      "criterion_name": "Grid Capacity Basic Filter",
-      "category": "basic_filter",
+      "criterion_id": "HI-06",
+      "criterion_name": "Military Installations",
+      "category": "human_induced_hazard",
       "n_sites_scored": 4,
-      "mean_score_0_10": 3.0,
+      "mean_score_0_10": 2.0,
       "min_score_0_10": 1.5,
-      "max_score_0_10": 5.5
+      "max_score_0_10": 3.5
+    },
+    {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 3.5,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
     },
     {
       "criterion_id": "RI-02",
@@ -227,27 +238,18 @@
       "criterion_name": "Ecological Sensitivity",
       "category": "non_safety",
       "n_sites_scored": 4,
-      "mean_score_0_10": 3.75,
-      "min_score_0_10": 0.0,
-      "max_score_0_10": 5.0
+      "mean_score_0_10": 4.5,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "NH-11",
-      "criterion_name": "Extreme Precipitation",
-      "category": "natural_hazard",
+      "criterion_id": "BF-02",
+      "criterion_name": "Land Area Basic Filter",
+      "category": "basic_filter",
       "n_sites_scored": 4,
-      "mean_score_0_10": 4.0,
-      "min_score_0_10": 4.0,
-      "max_score_0_10": 4.0
-    },
-    {
-      "criterion_id": "HI-01",
-      "criterion_name": "Aircraft Crash",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 4.0,
-      "min_score_0_10": 3.5,
-      "max_score_0_10": 5.5
+      "mean_score_0_10": 4.5,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
     },
     {
       "criterion_id": "NH-01",
@@ -259,177 +261,6 @@
       "max_score_0_10": 5.5
     },
     {
-      "criterion_id": "NS-02",
-      "criterion_name": "Grid Connection",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 4.5,
-      "min_score_0_10": 1.5,
-      "max_score_0_10": 9.5
-    },
-    {
-      "criterion_id": "NS-07",
-      "criterion_name": "Environmental Impact (non-rad)",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "EP-03",
-      "criterion_name": "Physical Geography Constraints",
-      "category": "emergency_planning",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "EP-05",
-      "criterion_name": "Concurrent Hazard Impact",
-      "category": "emergency_planning",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-02",
-      "criterion_name": "Industrial Explosions",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-03",
-      "criterion_name": "Toxic/Gas Releases",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-04",
-      "criterion_name": "External Fires",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-05",
-      "criterion_name": "Transport Hazards",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "HI-08",
-      "criterion_name": "Other Nuclear Installations",
-      "category": "human_induced_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-07",
-      "criterion_name": "Volcanism",
-      "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-08",
-      "criterion_name": "Coastal Flooding",
-      "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-09",
-      "criterion_name": "River Flooding",
-      "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-13",
-      "criterion_name": "Forest/Wildfire",
-      "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NH-14",
-      "criterion_name": "Combined Hazards",
-      "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-03",
-      "criterion_name": "Transport Access",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-06",
-      "criterion_name": "Existing Infrastructure",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-09",
-      "criterion_name": "Socioeconomic Impact",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-10",
-      "criterion_name": "Workforce Availability",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
-      "criterion_id": "NS-11",
-      "criterion_name": "Coal-to-Nuclear Synergies",
-      "category": "non_safety",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.0,
-      "min_score_0_10": 5.0,
-      "max_score_0_10": 5.0
-    },
-    {
       "criterion_id": "NS-12",
       "criterion_name": "Regulatory/Political Environment",
       "category": "non_safety",
@@ -439,8 +270,8 @@
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "NS-13",
-      "criterion_name": "Construction Logistics",
+      "criterion_id": "NS-03",
+      "criterion_name": "Transport Access",
       "category": "non_safety",
       "n_sites_scored": 4,
       "mean_score_0_10": 5.0,
@@ -457,63 +288,45 @@
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "RI-03",
-      "criterion_name": "Groundwater Dispersion",
-      "category": "radiological_impact",
+      "criterion_id": "NS-13",
+      "criterion_name": "Construction Logistics",
+      "category": "non_safety",
       "n_sites_scored": 4,
       "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "RI-05",
-      "criterion_name": "Distance to Population Centres",
-      "category": "radiological_impact",
+      "criterion_id": "NS-10",
+      "criterion_name": "Workforce Availability",
+      "category": "non_safety",
       "n_sites_scored": 4,
       "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
       "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "NH-03",
-      "criterion_name": "Geotechnical: Liquefaction",
-      "category": "natural_hazard",
+      "criterion_id": "NS-06",
+      "criterion_name": "Existing Infrastructure",
+      "category": "non_safety",
       "n_sites_scored": 4,
-      "mean_score_0_10": 5.25,
+      "mean_score_0_10": 5.0,
       "min_score_0_10": 5.0,
-      "max_score_0_10": 5.5
+      "max_score_0_10": 5.0
     },
     {
-      "criterion_id": "NS-05",
-      "criterion_name": "Site Footprint Adequacy",
-      "category": "site_characteristics",
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
       "n_sites_scored": 4,
-      "mean_score_0_10": 5.38,
-      "min_score_0_10": 1.5,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 3.5,
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "BF-02",
-      "criterion_name": "Land Area Basic Filter",
-      "category": "basic_filter",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.38,
-      "min_score_0_10": 1.5,
-      "max_score_0_10": 9.5
-    },
-    {
-      "criterion_id": "NH-05",
-      "criterion_name": "Geotechnical: Subsidence",
+      "criterion_id": "NH-14",
+      "criterion_name": "Combined Hazards",
       "category": "natural_hazard",
-      "n_sites_scored": 4,
-      "mean_score_0_10": 5.5,
-      "min_score_0_10": 5.5,
-      "max_score_0_10": 5.5
-    },
-    {
-      "criterion_id": "EP-01",
-      "criterion_name": "Emergency Planning Feasibility",
-      "category": "emergency_planning",
       "n_sites_scored": 4,
       "mean_score_0_10": 5.5,
       "min_score_0_10": 5.5,
@@ -529,22 +342,49 @@
       "max_score_0_10": 5.5
     },
     {
-      "criterion_id": "NS-01",
-      "criterion_name": "Cooling Water Availability",
-      "category": "non_safety",
+      "criterion_id": "RI-03",
+      "criterion_name": "Groundwater Dispersion",
+      "category": "radiological_impact",
       "n_sites_scored": 4,
       "mean_score_0_10": 6.0,
-      "min_score_0_10": 6.0,
-      "max_score_0_10": 6.0
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "HI-07",
-      "criterion_name": "Electromagnetic Interference",
-      "category": "human_induced_hazard",
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
       "n_sites_scored": 4,
-      "mean_score_0_10": 6.12,
-      "min_score_0_10": 5.0,
+      "mean_score_0_10": 6.0,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "BF-01",
+      "criterion_name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 6.5,
+      "min_score_0_10": 5.5,
       "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-02",
+      "criterion_name": "Seismic: Surface Rupture",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 6.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NH-12",
+      "criterion_name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 6.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
     },
     {
       "criterion_id": "RI-04",
@@ -556,8 +396,35 @@
       "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "NH-02",
-      "criterion_name": "Seismic: Surface Rupture",
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 6.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-01",
+      "criterion_name": "Cooling Water Availability",
+      "category": "non_safety",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 6.75,
+      "min_score_0_10": 6.0,
+      "max_score_0_10": 8.0
+    },
+    {
+      "criterion_id": "NH-04",
+      "criterion_name": "Geotechnical: Slope Stability",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 7.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-09",
+      "criterion_name": "River Flooding",
       "category": "natural_hazard",
       "n_sites_scored": 4,
       "mean_score_0_10": 7.5,
@@ -574,8 +441,8 @@
       "max_score_0_10": 7.5
     },
     {
-      "criterion_id": "NH-04",
-      "criterion_name": "Geotechnical: Slope Stability",
+      "criterion_id": "NH-03",
+      "criterion_name": "Geotechnical: Liquefaction",
       "category": "natural_hazard",
       "n_sites_scored": 4,
       "mean_score_0_10": 7.5,
@@ -592,8 +459,71 @@
       "max_score_0_10": 9.5
     },
     {
+      "criterion_id": "NH-05",
+      "criterion_name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 8.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 8.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
       "criterion_id": "NH-10",
       "criterion_name": "Extreme Winds",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 9.0,
+      "min_score_0_10": 7.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "EP-03",
+      "criterion_name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-02",
+      "criterion_name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-04",
+      "criterion_name": "External Fires",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-08",
+      "criterion_name": "Coastal Flooding",
       "category": "natural_hazard",
       "n_sites_scored": 4,
       "mean_score_0_10": 9.5,
@@ -601,13 +531,22 @@
       "max_score_0_10": 9.5
     },
     {
-      "criterion_id": "NH-12",
-      "criterion_name": "Extreme Temperatures",
+      "criterion_id": "NH-07",
+      "criterion_name": "Volcanism",
       "category": "natural_hazard",
       "n_sites_scored": 4,
       "mean_score_0_10": 9.5,
       "min_score_0_10": 9.5,
       "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-11",
+      "criterion_name": "Extreme Precipitation",
+      "category": "natural_hazard",
+      "n_sites_scored": 4,
+      "mean_score_0_10": 10.0,
+      "min_score_0_10": 10.0,
+      "max_score_0_10": 10.0
     }
   ],
   "criteria_lookup": {

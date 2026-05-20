@@ -23,7 +23,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 const bounds = [];
 bounds.push([45.136764, 14.162702]);
-L.circleMarker([45.136764, 14.162702], {radius: 7, color: '#222', weight: 1, fillColor: '#1f9d5a', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Plomin power station</strong><br>Status: Full pass<br>National rank: 1<br>Composite: 5.131<br>MC band: 3.930-5.636<br>Stability band: A</div>").bindTooltip("Plomin", {permanent: false, direction: 'top'});
+L.circleMarker([45.136764, 14.162702], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Plomin power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.214<br>MC band: 5.467-6.730<br>Stability band: A</div>").bindTooltip("Plomin", {permanent: false, direction: 'top'});
 bounds.push([43.050000, 17.433333]);
 L.circleMarker([43.050000, 17.433333], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Plo\u010de power station</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Plo\u010de", {permanent: false, direction: 'top'});
 if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }

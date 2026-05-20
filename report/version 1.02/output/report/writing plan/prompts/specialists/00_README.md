@@ -114,7 +114,7 @@ report-wide `report/output/writing plan/writingStyle.md`:
 - Active voice, IEA WEO tone, IAEA SSG-35 / SSR-1 framing.
 - Always quote raw measured values with units before naming a
   consequence.
-- "Support a decision to progress toward Stage 3 characterization",
+- "Support a decision to progress toward Stage 3 characterisation",
   not "site approval" or "licence-ready".
 - Brief if brief is sufficient. Longer when the criterion requires
   technical depth. Quality first.

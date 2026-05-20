@@ -1,77 +1,70 @@
+<!-- man_hours: 2.4 -->
 # Executive Technical Brief
 
-**Purpose.** This standalone brief explains how the automated assessment system was built and how its outputs should be interpreted by executives. It is a governance and audit summary, not a replacement for the technical report.
+**Purpose.** This standalone brief explains how the Atoms vs Ashes assessment system was built, what it produced, and how executives should interpret the outputs. It is a governance and audit summary for programme owners. It does not replace the client-facing technical report.
 
-**Analytical basis.** The brief reads against the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric. Metrics should be finalised only after the current sensitivity export pack and the technical report are aligned.
+**Analytical basis.** The brief is aligned with the version 1.2 report basis: NuScale VOYGR-6 as the single reference deployment envelope, a 352-record published site universe across 16 country profiles, and the project's 50,000-iteration national Monte Carlo sensitivity analysis for site-stability interpretation.
 
 ## 1. Objective and Scope of the Automated Assessment System
 
-Summarise the system objective: move from a broad coal and thermal plant site universe to a transparent, sensitivity-aware shortlist for Stage 3 characterization consideration.
+The system moves from a broad coal and thermal plant inventory to a transparent, sensitivity-aware set of national candidate sites for detailed Stage 3 characterisation consideration. It combines site identification, structured public-evidence collection, scoring, exclusionary screening, national sensitivity analysis, report generation, and human review.
 
-**Scope boundary:** The system supports IAEA SSG-35 Stage 1 and Stage 2 decisions only. It does not produce a licence application, design-basis site characterization, vendor selection, or investment decision.
+The scope is deliberately bounded. The system supports IAEA SSG-35 Stage 1 and Stage 2 decisions: site survey, screening, comparison, ranking, and selection for detailed follow-up. It does not produce a licence application, design-basis site characterisation, vendor selection, investment decision, construction approval, or public-acceptance finding.
 
-## 2. Broad Process Overview
+## 2. Process Used
 
-Describe the pipeline at executive level:
+The assessment workflow has seven steps:
 
-1. Candidate site inventory.
-2. Deterministic data acquisition and spatial enrichment.
-3. Curated LLM-supported enrichment where deterministic data are unavailable.
-4. Merge, provenance, and quality controls.
-5. Exclusionary screening and safety floors.
-6. Composite scoring and sensitivity analysis.
-7. Report-ready country and site narratives with human review.
+1. Candidate site inventory for coal, lignite, gas, oil, and other thermal power plant locations.
+2. Structured public-evidence collection for hazards, population, emergency planning, infrastructure, grid, cooling, land, environmental, ownership, and country context.
+3. Reconciled evidence preparation with provenance, quality labels, assumptions, and explicit data-gap treatment.
+4. Exclusionary screening and safety-floor checks for the NuScale VOYGR-6 reference case.
+5. Weighted composite scoring for sites that remain eligible after the gates.
+6. National sensitivity analysis to test rank stability within each country.
+7. Country profiles, selected-site profiles, annexes, and final review passes to convert the scoring evidence into a decision-ready report.
 
-## 3. Data Acquisition: API vs LLM at High Level
+The most important design choice is the separation between evidence and interpretation. Missing or low-quality evidence remains visible as a limitation or Stage 3 question. It is not converted into a hidden low score, and it is not treated as favourable by default.
 
-Explain the project hierarchy: deterministic APIs, rasters, and structured datasets are preferred; LLM-assisted fields are used for targeted gaps and must be reviewed for provenance and confidence.
+## 3. Public-Evidence Collection and API Lessons
 
-## 4. Merge, QA, and Versioning
+Structured public APIs, downloadable data products, national records, and geospatial evidence were preferred where they could support repeatable screening. They offered the strongest audit trail when responses carried stable identifiers, timestamps, source metadata, and clear null semantics.
 
-Summarise how the merged database, scoring run, rubric version, and sensitivity stamp should be named once in the final report and reused consistently.
+The practical lesson is that API availability is uneven. Some services are highly structured but geographically incomplete; some provide excellent coverage for EU member states and weaker coverage outside the EU; others are useful for discovery but too coarse for a direct screening score. The system therefore treats API evidence as screening-grade unless the source, resolution, and quality flag justify a stronger interpretation.
 
-**Placeholders to finalize:**
+Where structured evidence was unavailable, curated public-evidence collection filled targeted gaps. Those fields remain lower-confidence until confirmed through national-source review, owner/operator evidence, field measurement, or regulator engagement. This is appropriate for Stage 1 and Stage 2, but it must not be confused with Stage 3 evidence.
 
-- Merged database/run ID: `TBD`
-- Scoring rubric version: `TBD`
-- Sensitivity basis: the project's 10,000-iteration Monte Carlo sensitivity analysis
-- Reference SMR for narrative convention: `nuscale_voygr6`
+## 4. QA, Versioning, and Report Control
 
-## 5. Data Gaps and Certainty by Method
+The version 1.2 report uses one analytical basis across the main chapters, Chapter 5 profiles, and annexes. The reader-facing report states the sensitivity basis as the project's 50,000-iteration national Monte Carlo sensitivity analysis and does not expose internal run identifiers. The internal audit copy preserves the exact artefact trail for reproducibility.
 
-Summarise confidence at executive level:
+Quality control is organised around four checks. First, exclusionary gates and safety floors prevent unsuitable sites from entering composite ranking. Second, evidence-quality labels and assumption IDs preserve uncertainty. Third, national sensitivity analysis checks whether rankings are robust inside each country. Fourth, the writing and publication gates remove internal process language, stale sensitivity framing, and unsupported Stage 3 claims before assembly.
 
-- High certainty: deterministic structured fields with source provenance and stable quality flags.
-- Medium certainty: spatial proxies and screening-resolution hazard fields.
-- Lower certainty: LLM-enriched, low-quality, or missing fields requiring human review and Stage 3 confirmation.
+## 5. Operational Metrics
 
-## 6. Operational Metrics
-
-Finalize this section after the last production run.
-
-| Metric | Current value | Finalization note |
+| Metric | Current value | Interpretation |
 | --- | ---: | --- |
-| Sites in final regional sensitivity summary | TBD | Populate from the aligned report-output pack for the final run. |
-| Viable NuScale VOYGR-6 candidates | TBD | Populate from the final candidate/failure outputs. |
-| Failed or screened-out sites | TBD | Include reasons and threshold-distance summaries where measurable. |
-| Direct spend | TBD | Include API, LLM, compute, and data costs where tracked. |
-| Actual human workload | TBD | Pull from man-hours artefacts at final freeze. |
-| Equivalent human hours avoided | TBD | Estimate and state the assumption basis. |
-| Token usage | TBD | Include only if tracked and reviewed. |
-| Database size | TBD | Include relevant DB size, table counts, and generated artefact volumes. |
-| Final scoring run ID | TBD | Must match technical report. |
-| Final sensitivity basis | The project's 10,000-iteration Monte Carlo sensitivity analysis | Replace if rerun. |
+| Published country profiles | 16 | Austria through Ukraine, excluding Belarus from the published country sequence. |
+| Published site records in country ledgers | 352 | Main report site universe used in Chapters 2 and 4. |
+| Scored / ranked records | 285 | Records with composite scores and national sensitivity bands in the published country ledgers. |
+| Full-pass records | 36 | Sites clearing both exclusionary and avoidance screens in the published country ledgers. |
+| Avoidance-flag records | 249 | Exclusionary-pass sites requiring issue-specific unlock work. |
+| Hard-fail records in Chapter 4 evidence base | 75 | Includes published country ledgers plus consolidated no-pass country section. |
+| Sensitivity basis | 50,000 national iterations | National rank stability, not regional rank, controls country and site sequencing. |
+| Reference deployment envelope | 462 MWe | NuScale VOYGR-6 only. |
+| Tracked professional effort | 2,301 person-hours | Registry estimate for the full tracked project archive, not a timesheet. |
+| Written documentation | 153,348 lines | Equivalent to about 3,408 dense pages in the current tracked archive. |
+| Python software | 185,040 lines | Screening, connectors, scoring, GUI, report generation, and supporting scripts. |
 
-## 7. Clear Limitations
+Direct spend, hosted-model token usage, and external compute costs are not finalised in the tracked project artefacts available to this brief. They should be added from billing records before the brief is used for commercial or procurement reporting.
 
-- Outputs support survey, screening, ranking, and prioritisation.
-- Outputs do not substitute site characterization, field investigations, licensing review, regulator approval, commercial structuring, financing, procurement, or vendor selection.
-- Country and site narratives require human review before publication.
-- Site bundles and LLM-generated drafts are drafting inputs, not authoritative evidence by themselves.
+## 6. Certainty and Data Gaps
 
-## Review Checklist
+High-certainty fields are structured measurements or public institutional records with clear provenance and stable quality flags. Medium-certainty fields are screening proxies that support comparison but still need national or field confirmation. Lower-certainty fields are unavailable, unscored, low-quality, or dependent on public-evidence collection that requires human review.
 
-- [ ] Metrics match final scoring and sensitivity run.
-- [ ] Limitations match the main technical report.
-- [ ] Ownership and country-sensitive wording has been reviewed.
-- [ ] No unsupported licensing, vendor, or investment conclusions remain.
+The report handles uncertainty by carrying evidence coverage, score bands, national stability bands, residual-risk registers, and Stage 3 follow-up actions. This preserves confidence in the results because the report does not over-claim. It identifies which sites justify the next round of work and which questions that work must answer.
+
+## 7. Further Development
+
+The assessment framework can expand beyond coal and thermal plants to other large industrial sites with grid, water, transport, land, workforce, or redevelopment value. The same gates should apply: clear site universe, evidence hierarchy, exclusionary screening, weighted comparison, national sensitivity, residual-risk interpretation, and Stage 3 confirmation.
+
+The highest-value next improvements are stronger national-source confirmation, richer ownership and land-control evidence, automated consistency checks for country-profile counts, and publication-grade figure governance. These improvements would increase confidence without changing the report's Stage 1 and Stage 2 claim boundary.

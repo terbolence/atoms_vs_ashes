@@ -1,3 +1,4 @@
+# man_hours: 5.0
 """Apply report_format.json styling to a generated .docx."""
 
 from __future__ import annotations

@@ -1,16 +1,16 @@
 national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
-1,Maritsa Iztok-2 power station,True,False,6.025,4.346,6.416,D,0.1875,42.5,low,2162.0,42.254053,26.134007
-2,Bobov Dol power station,True,False,6.0,4.335,6.416,D,0.25,42.5,low,1030.0,42.285818,23.03283
-3,Vidin Works power station,True,False,5.762,4.229,6.257,A,1.0,42.5,low,120.0,43.948363,22.850904
-4,Lom Power Station,True,False,5.576,4.123,5.96,H,0.0,40.0,low,400.0,43.7825,23.2175
-5,Maritsa 3 power station,True,False,5.343,4.022,5.838,H,0.0,40.0,low,120.0,42.051942,25.623344
-6,Svilosa power station,True,False,4.99,3.868,5.455,H,0.0,40.0,low,120.0,43.642272,25.305007
+1,Lom Power Station,True,False,7.428,6.578,7.85,A,1.0,76.47,low,400.0,43.7825,23.2175
+2,Maritsa 3 power station,True,False,7.009,6.24,7.569,D,0.0,76.47,low,120.0,42.051942,25.623344
+3,Bobov Dol power station,True,False,6.984,6.22,7.525,G,0.0,76.47,low,1030.0,42.285818,23.03283
+4,Vidin Works power station,True,False,6.828,6.093,7.369,H,0.0,76.47,low,120.0,43.948363,22.850904
+5,Svilosa power station,True,False,6.578,5.891,7.119,H,0.0,76.47,low,120.0,43.642272,25.305007
+6,Republika power station,True,False,5.875,5.323,6.325,H,0.0,76.47,low,105.0,42.607124,23.078699
+7,Ruse Iztok power station,True,False,5.616,5.114,6.156,H,0.0,76.47,low,400.0,43.866654,26.010002
 ,Brikel power station,False,False,,,,,,0.0,low,300.0,42.154555,25.906814
 ,Deven power station,False,False,,,,,,0.0,low,174.0,43.196354,27.632675
 ,Maritsa Iztok-1 power station,False,True,,,,,,0.0,low,690.0,42.1573,25.9084
+,Maritsa Iztok-2 power station,False,False,,,,,,0.0,low,2162.0,42.254053,26.134007
 ,Maritsa Iztok-3 power station,False,True,,,,,,0.0,low,1608.0,42.14502,26.003009
 ,Maritsa Iztok-4 power station,False,True,,,,,,0.0,low,600.0,42.1444,26.0033
-,Republika power station,False,False,,,,H,0.0,0.0,low,105.0,42.607124,23.078699
-,Ruse Iztok power station,False,False,,,,H,0.0,0.0,low,400.0,43.866654,26.010002
 ,Sliven power station,False,False,,,,,,0.0,low,60.0,42.654762,26.325853
 ,Varna power station,False,False,,,,,,0.0,low,1260.0,43.19477,27.765472

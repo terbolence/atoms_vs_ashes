@@ -1,62 +1,68 @@
 # Bosnia and Herzegovina Country Profile
 
-Analytical basis: the project's 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric.
+Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
 
-Bosnia and Herzegovina has 11 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 6 pass the exclusionary screen but retain avoidance flags, and 5 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+Bosnia and Herzegovina has 11 thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. No site passes both the exclusionary and avoidance screens, 5 sites pass the exclusionary screen with avoidance flags, and 6 fail one or more exclusionary checks. The country is therefore an avoidance-led candidate pool: it has a ranked shortlist, but every progression case depends on closing at least one screening-stage constraint before Stage 3 characterisation can be justified.
 
-The leading site is **Gacko Thermal Power Plant**, with a composite score of 5.968 and a Monte Carlo interval of 4.242-6.463. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+Bosnia and Herzegovina should be handled as a first-time nuclear-power jurisdiction for this Stage 1-2 screening programme unless the sponsor supplies contrary institutional evidence. That does not prevent site progression, but it makes regulatory capacity, emergency-planning institutions, workforce readiness and cross-entity coordination part of the Stage 3 work plan rather than background assumptions.
 
-<!-- specialist key=country_exec scope=country country_code=BA bundle=BA_country_bundle.json status=filled by=cursor-agent filled_at=2026-05-03T11:20:20Z -->
-Of 11 Bosnia and Herzegovina thermal sites tested against the NuScale VOYGR-6 envelope, none clear both the exclusionary and avoidance screens, 6 pass exclusionary but carry avoidance flags, and 5 are removed at the exclusionary stage on Seismic: Surface Rupture (NH-02). Gacko Thermal Power Plant leads in band A with a 100 % top-10 % hit rate and a composite score of 5.968. The leadership pool is therefore a single stable candidate; the 45 % country-wide NH-02 fail rate reflects the regional Dinaride seismic context and is the primary structural reason the candidate pool is small.
+The leading site is **Stanari Thermal Power Plant**, with a composite score of 6.747 and a national Monte Carlo interval of 6.028-7.237. Its national stability band is `A`, with a national top-10% hit rate of 91.7%. The leader is therefore a stable national candidate, but it remains avoidance-flagged and should not be described as a full-pass site.
 
-The avoidance unlock pool is unusually concentrated. **Grid Connection (NS-02)** carries every one of the 6 exclusionary-pass sites (100 %), which is consistent with most Bosnian thermal-station corridors interconnecting at distribution voltage rather than transmission voltage; the unlock work is a corridor-by-corridor upgrade study coordinated through Elektroprenos BiH. **Aircraft Crash (HI-01)** and **Site Footprint Adequacy (NS-05)** each carry one further site (17 % each) and are closable by quantitative micro-siting analysis. The 45 % NH-02 hard-fail rate is a geological constraint; it cannot be unlocked by avoidance work and limits how far the candidate pool can grow.
+Bosnia and Herzegovina's 11 ranked thermal records produce no full-pass site, 5 avoidance-flagged exclusionary-pass sites, and 6 hard-fail sites. Stanari, Miljevina, Kamengrad, Ugljevik and Banovici form the current leadership pool because they are the only scored exclusionary-pass sites in the frozen national run. The pool is narrow and conditional: Stanari leads with band A stability, while the other four sites sit in band H and therefore depend more heavily on the weight choice and on targeted constraint closure.
 
-A credible Stage 3 sequence begins with Gacko Thermal Power Plant as the lead site, with Banovici power station and Stanari Thermal Power Plant as the only realistic fast followers in the band-D pool. The greenfield lever is available but inherits the same NH-02 footprint problem; any greenfield search must apply the regional capable-fault buffer at the screening stage, not at characterization. The Bosnian programme is best framed as a one-to-three-site exercise rather than a fleet plan.
-<!-- /specialist key=country_exec -->
+The avoidance unlock pool is concentrated. Grid Connection (NS-02) affects 5 of 5 exclusionary-pass sites, or 100%, making transmission-path confirmation the national unlock work. Aircraft Crash (HI-01) affects one site, or 20%, and should be closed through aviation and military-airspace review. The exclusionary tail is geological: Seismic: Surface Rupture (NH-02) removes 6 of 11 records, or 55%, and cannot be treated as a grid or permitting issue.
+
+Greenfield options remain a programme lever if the brownfield shortlist cannot support the desired build-out, but they would need to screen against the same Dinaride capable-fault constraints from the outset. A credible Stage 3 sequence begins with Stanari as the national lead, tests Miljevina and Kamengrad as the first fast followers, keeps Ugljevik and Banovici as conditional reserve candidates, and treats the hard-fail sites as comparators unless new capable-fault evidence changes the exclusionary result.
 
 <a id="country-status-map"></a>
 
 ![Bosnia and Herzegovina status map](figures/BA_site_status_map.png)
 
-Interactive review map with marker tooltips: [BA_site_status_map.html](figures/BA_site_status_map.html).
 
 ## Bosnia and Herzegovina Site Ledger
 
 | Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
 |---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Gacko Thermal Power Plant | Exclusion pass with avoidance flag | 5.968 | 4.242 | 6.463 | A | 100% | 40% |
-| 2 | Banovici power station | Exclusion pass with avoidance flag | 5.384 | 4.040 | 5.879 | D | 0% | 40% |
-| 3 | Stanari Thermal Power Plant | Exclusion pass with avoidance flag | 5.162 | 3.943 | 5.737 | D | 0% | 40% |
-| 4 | Miljevina power station | Exclusion pass with avoidance flag | 5.010 | 3.894 | 5.505 | H | 0% | 42% |
-| 5 | Kamengrad Thermal Power Plant | Exclusion pass with avoidance flag | 4.936 | 3.861 | 5.505 | H | 0% | 42% |
-| 6 | Ugljevik power station | Exclusion pass with avoidance flag | 4.707 | 3.744 | 5.172 | H | 0% | 40% |
+| 1 | Stanari Thermal Power Plant | Exclusion pass with avoidance flag | 6.747 | 6.028 | 7.237 | A | 92% | 76% |
+| 2 | Miljevina power station | Exclusion pass with avoidance flag | 6.622 | 5.927 | 7.131 | H | 8% | 76% |
+| 3 | Kamengrad Thermal Power Plant | Exclusion pass with avoidance flag | 6.572 | 5.886 | 7.131 | H | 0% | 76% |
+| 4 | Ugljevik power station | Exclusion pass with avoidance flag | 6.458 | 5.707 | 6.929 | H | 0% | 74% |
+| 5 | Banovici power station | Exclusion pass with avoidance flag | 5.934 | 5.325 | 6.425 | H | 0% | 76% |
 | - | Bugojno Thermal Power Project | Hard fail | - | - | - | - | - | 0% |
+| - | Gacko Thermal Power Plant | Hard fail | - | - | - | - | - | 0% |
 | - | Glinica power station | Hard fail | - | - | - | - | - | 0% |
 | - | Kakanj Thermal Power Plant | Hard fail | - | - | - | - | - | 0% |
 | - | Kongora Thermal Power Plant | Hard fail | - | - | - | - | - | 0% |
 | - | Tuzla Thermal Power Plant | Hard fail | - | - | - | - | - | 0% |
 
+## Selected Sites for Detailed Analysis
+
+- **Stanari Thermal Power Plant** - national rank 1, exclusion pass with avoidance flag, composite 6.747, national stability band A.
+- **Miljevina power station** - national rank 2, exclusion pass with avoidance flag, composite 6.622, national stability band H.
+- **Kamengrad Thermal Power Plant** - national rank 3, exclusion pass with avoidance flag, composite 6.572, national stability band H.
+- **Ugljevik power station** - national rank 4, exclusion pass with avoidance flag, composite 6.458, national stability band H.
+- **Banovici power station** - national rank 5, exclusion pass with avoidance flag, composite 5.934, national stability band H.
+
 ## Avoidance Flag Pareto
 
-Of the 6 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
+Of the 5 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move Bosnia and Herzegovina from a conditional shortlist to a stronger Stage 3 candidate pool.
 
 ![Avoidance flag Pareto](figures/BA_avoidance_pareto.png)
 
-- **Grid Connection (NS-02)** - 6 of 6 exclusionary-pass sites (100%).
-- **Aircraft Crash (HI-01)** - 1 of 6 exclusionary-pass sites (17%).
-- **Site Footprint Adequacy (NS-05)** - 1 of 6 exclusionary-pass sites (17%).
+- **Grid Connection (NS-02)** - 5 of 5 exclusionary-pass sites (100%).
+- **Aircraft Crash (HI-01)** - 1 of 5 exclusionary-pass sites (20%).
 
 ## Exclusionary Failure Pareto
 
-The exclusionary failures across the country trace back to a small number of criteria. They identify which screening checks are responsible for removing sites from further consideration.
+The exclusionary failures across the country trace back to a single criterion. It identifies which screening check is responsible for removing sites from further consideration.
 
 ![Exclusionary failure Pareto](figures/BA_exclusionary_pareto.png)
 
-- **Seismic: Surface Rupture (NH-02)** - 5 of 11 country sites (45%).
+- **Seismic: Surface Rupture (NH-02)** - 6 of 11 country sites (55%).
 
 ## Family Strength and Weakness
 
-Across the country the strongest criterion family is **Radiological Impact** at a mean normalised score of 6.19/10. The weakest family is **Emergency Planning** at 3.67/10. The bottom three individual criteria across the country are:
+Across the country the strongest criterion family is **HI** at a mean normalised score of 7.57/10. The weakest family is **EP** at 4.65/10. The bottom three individual criteria across the country are:
 
 - **Military Installations (HI-06)** - mean 1.64/10 across 11 scored sites (min 0.0, max 5.0).
 - **Evacuation Routes (EP-02)** - mean 2.41/10 across 11 scored sites (min 1.5, max 3.5).
@@ -64,20 +70,16 @@ Across the country the strongest criterion family is **Radiological Impact** at 
 
 ## Interpretation for Site Selection
 
-The Bosnia and Herzegovina result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+The Bosnia and Herzegovina result should be read as a conditional shortlist, not as a full-pass country package. The decisive distinction is that the five ranked sites survive the exclusionary screen, while all five still carry avoidance flags. That makes them candidates for targeted Stage 3 scoping only after grid and aviation constraints are tested at site level.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/BA_avoidance_pareto.png)
 
-The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
+Stanari is the only site with band A national stability, so it is the correct first characterisation focus. Miljevina, Kamengrad, Ugljevik and Banovici remain useful because their composite scores cluster near the leader, but their band H sensitivity result means small changes in weights or evidence can affect their order. The hard-fail sites remain in the evidence base as comparators because NH-02 surface-rupture screening is a structural exclusionary question until site-specific geological evidence proves otherwise.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Gacko Thermal Power Plant** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
-
-The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
-
-The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
+The main Stage 3 questions are therefore targeted: confirm the transmission pathway and export-capacity case, resolve the aviation and airspace flag where present, verify capable-fault margins for excluded and near-threshold sites, and convert low-confidence emergency-planning, surface-water and land-envelope proxies into measured local evidence.
 
 ## Status Counts
 
 - Full pass: 0
-- Exclusion pass with avoidance flag: 6
-- Hard fail: 5
+- Exclusion pass with avoidance flag: 5
+- Hard fail: 6

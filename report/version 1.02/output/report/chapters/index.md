@@ -1,3 +1,4 @@
+<!-- man_hours: 1.3 -->
 # Report Chapters Index
 
 This folder is the working terrain for the final report body. It mirrors the canonical ToC in [`../writing plan/tableOfContents.md`](../writing%20plan/tableOfContents.md), follows the drafting rules in [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md), and is exempt from markdown line-count limits under the project rule for `report/output/**`.
@@ -21,11 +22,11 @@ This folder is the working terrain for the final report body. It mirrors the can
 - Annex terrain: [`../annexes/index.md`](../annexes/index.md)
 - Executive technical brief: [`../executive_technical_brief.md`](../executive_technical_brief.md)
 - Writing decisions: [`../writing plan/writingDecisions.md`](../writing%20plan/writingDecisions.md)
-- Analytical basis: project 10,000-iteration Monte Carlo sensitivity analysis over the current frozen scoring rubric. Current sensitivity export pack: [`../sensitivity/`](../sensitivity/).
+- Analytical basis: project 50,000-iteration national Monte Carlo sensitivity analysis over the current frozen scoring rubric. Current sensitivity export pack: [`../sensitivity/`](../sensitivity/).
 
 ## Drafting Rule
 
-Use these files for section-by-section AI drafting with human review. Do not treat screening outputs as licensing conclusions; keep Stage 3 characterization, field confirmation, and regulator-facing approval outside the claim boundary.
+Use these files for section-by-section AI drafting with human review. Do not treat screening outputs as licensing conclusions; keep Stage 3 characterisation, field confirmation, and regulator-facing approval outside the claim boundary.
 
 ## Splitting Rule
 
