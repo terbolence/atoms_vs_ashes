@@ -31,6 +31,14 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--smr", default="nuscale_voygr6", help="SMR key (default nuscale_voygr6)")
     p.add_argument("--run-id", help="Scoring run_id; auto-resolved when omitted")
     p.add_argument(
+        "--sensitivity-run-id",
+        default=None,
+        help=(
+            "Sensitivity run_id explicitly; required for national-sensitivity "
+            "runs because resolve_runs() picks the latest regional run by default."
+        ),
+    )
+    p.add_argument(
         "--sensitivity-stamp",
         default="20260425b",
         help="Report output stamp used for file links (default: 20260425b)",
@@ -47,7 +55,9 @@ def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     init_engine(Settings())
     with session_scope() as session:
-        scoring, sensitivity = resolve_runs(session, args.run_id, None)
+        scoring, sensitivity = resolve_runs(
+            session, args.run_id, args.sensitivity_run_id,
+        )
         payload = build_site_bundle(
             session,
             site_id=_site_uuid(args.site_id),

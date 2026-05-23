@@ -8,46 +8,42 @@ criteria:
     name: Aircraft crash hazard
     phases: [avoidance, ranking]
     weight_factor: 7
-    normalised_weight_pct: 2.5
+    normalised_weight_pct: 3.0435
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-01 (IAEA NS-G-3.1; SSG-35 Table II-1; A1-A4)"}
     primary_metric: composite
     db_fields: {api: [site_human_induced.nearest_airport_km, site_human_induced.nearest_airport_type, site_human_induced.nearest_airport_class, site_human_induced.nearest_military_airfield_km, site_human_induced.nearest_military_class, site_human_induced.nearest_military_km, site_human_induced.nearest_high_consequence_military_class, site_human_induced.nearest_high_consequence_military_km, site_human_induced.hi06_quality, site_human_induced.flight_path_distance_km, site_human_induced.hi01_comment], llm: hi01_aircraft_text}
-    # HI-01 v3 (A+B+C decision, 2026-05-16): derive class-specific airport
-    # distances in the merge context so a nearby large/medium airport is not
-    # hidden by a closer small airport or heliport. A completed HI-06 search
-    # with no military airfield now passes A3 instead of producing universal
-    # inconclusive verdicts. A1/A4 avoidance signals are aligned with bands:
-    # nearby small/GA/heliport or flight-path-proxy hits can no longer also
-    # land in the favourable [9,10] small-airport band.
+    # HI-01 v4 (Phase 1C of v1.03 feedback closure, reviewer #183):
+    # helipads / small / heliport / GA / seaplane / balloonport classes
+    # contribute NO scoring signal to HI-01. Only large + medium commercial
+    # and military airports drive bands and A2/A3/A4. The small/heliport
+    # distances are still persisted by the OurAirports connector for
+    # transparency, but they are absent from band conditions, fail
+    # conditions, the flight-path proxy, and the scoring context.
     # Band order is INTENTIONAL: the engine takes the first matching band.
-    # Hard under-flight and avoidance-proximity bands are checked before the
-    # favourable small/major-airport bands, then the 7-8 and pass-mark bands.
     bands:
-      - {score_range: [9, 10], condition_expr: "nearest_airport_class is null", descriptor: "No airport in OurAirports search radius (search completed, nothing in range)."}
-      - {score_range: [0, 0], condition_expr: "under_flight_path == true", descriptor: "Direct under-flight of aircraft corridor with no remedy."}
+      - {score_range: [9, 10], condition_expr: "nearest_airport_class is null", descriptor: "No large / medium / military airport in OurAirports search radius (search completed, nothing in scoring scope)."}
+      - {score_range: [0, 0], condition_expr: "under_flight_path == true", descriptor: "Direct under-flight of a commercial aircraft corridor with no remedy."}
       - {score_range: [1, 2], condition_expr: "nearest_large_airport_km < 8 or nearest_military_airfield_km < 16", descriptor: "Large airport < 8 km or military airbase < 16 km."}
-      - {score_range: [3, 4], condition_expr: "nearest_major_airport_km < 15 or nearest_military_airfield_km < 30 or nearest_light_airport_km < 10 or flight_path_distance_km < 4", descriptor: "Major airport < 15 km, small/GA/heliport < 10 km, flight-path proxy < 4 km, or military airbase < 30 km (avoidance penalty)."}
-      - {score_range: [9, 10], condition_expr: "nearest_airport_class in ['small_airport', 'small', 'small_ga', 'general_aviation', 'light', 'heliport', 'seaplane_base', 'balloonport'] and (nearest_major_airport_km is null or nearest_major_airport_km > 30) and (nearest_light_airport_km is null or nearest_light_airport_km >= 10) and (flight_path_distance_km is null or flight_path_distance_km >= 4) and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Only small / GA / heliport airport >= 10 km nearby, no flight-path proxy < 4 km, no major airport within 30 km, and no military airbase within 60 km."}
+      - {score_range: [3, 4], condition_expr: "nearest_major_airport_km < 15 or nearest_military_airfield_km < 30 or flight_path_distance_km < 4", descriptor: "Major airport < 15 km, flight-path proxy < 4 km, or military airbase < 30 km (avoidance penalty)."}
       - {score_range: [9, 10], condition_expr: "nearest_major_airport_km > 30 and (flight_path_distance_km is null or flight_path_distance_km >= 4) and (nearest_military_airfield_km is null or nearest_military_airfield_km > 60)", descriptor: "Nearest large/medium airport > 30 km, no flight-path proxy < 4 km, and no military airbase within 60 km."}
       - {score_range: [7, 8], condition_expr: "nearest_major_airport_km >= 15 and nearest_major_airport_km <= 30 and (under_flight_path == false or under_flight_path is null) and (flight_path_distance_km is null or flight_path_distance_km >= 4)", descriptor: "Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy."}
-      - {score_range: [5, 6], condition_expr: "nearest_major_airport_km >= 15 or nearest_military_airfield_km >= 30 or nearest_light_airport_km >= 10 or flight_path_distance_km >= 4", descriptor: "Outside avoidance-proximity thresholds, but not enough margin for a high band."}
-    # A1-A4 split per report/sites_evaluation/10_appendices.md Table A.2 and
-    # report/sites_evaluation/04_criteria_human_induced.md §4.3 HI-01. Each
-    # aircraft-crash sub-threshold becomes its own verdict so appendix
-    # coverage is 1-to-1 (see audit/plans/.../siting_report_end_to_end plan
-    # Phase 1.4 "E1-E9 + A1-A15 evaluators").
+      - {score_range: [5, 6], condition_expr: "nearest_major_airport_km >= 15 or nearest_military_airfield_km >= 30 or flight_path_distance_km >= 4", descriptor: "Outside avoidance-proximity thresholds, but not enough margin for a high band."}
+    # A2-A4 split per report/sites_evaluation/10_appendices.md Table A.2 and
+    # report/sites_evaluation/04_criteria_human_induced.md §4.3 HI-01. A1
+    # (small / GA / heliport < 10 km) was retired in Phase 1C of the v1.03
+    # feedback closure (reviewer #183): only large + medium commercial and
+    # military airports drive HI-01 scoring penalties.
     fail_conditions:
-      - {code: A1, action: avoidance_penalty, condition_expr: "nearest_light_airport_km < 10", descriptor: "A1 — SSG-35: general-aviation / small / heliport airport < 10 km."}
       - {code: A2, action: avoidance_penalty, condition_expr: "nearest_major_airport_km < 15", descriptor: "A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."}
       - {code: A3, action: avoidance_penalty, condition_expr: "nearest_military_airfield_km < 30 or (nearest_airport_km < 30 and nearest_airport_type in ['military', 'military_major', 'military_minor', 'military_base'])", null_pass_condition_expr: "nearest_military_airfield_km is null and hi06_quality in ['ok', 'verified', 'high', 'medium', 'low', 'screening', 'screening_default', 'approximate']", descriptor: "A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."}
-      - {code: A4, action: avoidance_penalty, condition_expr: "under_flight_path == true or flight_path_distance_km < 4", descriptor: "A4 — SSG-35: flight-path overhead / < 4 km from airway."}
+      - {code: A4, action: avoidance_penalty, condition_expr: "under_flight_path == true or flight_path_distance_km < 4", descriptor: "A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only)."}
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: HI-02
     name: Industrial explosions (Seveso / IED)
     phases: [avoidance, ranking]
     weight_factor: 7
-    normalised_weight_pct: 2.5
+    normalised_weight_pct: 3.0435
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-02 (NS-R-3 §3.49-3.50; NS-G-3.1; A7)"}
     primary_metric: nearest_seveso_km
@@ -70,7 +66,7 @@ criteria:
     name: Toxic / gas releases
     phases: [avoidance, ranking]
     weight_factor: 7
-    normalised_weight_pct: 2.5
+    normalised_weight_pct: 3.0435
     weight_factors: {baseline: 7, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-03 (IAEA NS-G-3.1; SSG-35 Table II-1; A8)"}
     primary_metric: nearest_toxic_source_km
@@ -90,7 +86,7 @@ criteria:
     name: External fires
     phases: [avoidance, ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-04 (IAEA NS-G-3.1)"}
     primary_metric: nearest_flammable_storage_km
@@ -110,7 +106,7 @@ criteria:
     name: Transport hazards (hazmat road / rail / pipe)
     phases: [ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-05 (IAEA NS-G-3.1)"}
     weight_factors: {baseline: 6, epri: 3}
@@ -134,7 +130,7 @@ criteria:
     name: Military installations
     phases: [avoidance, ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-06 (IAEA NS-G-3.1; SSG-35 Table II-1; A5-A6)"}
     primary_metric: nearest_military_km
@@ -155,7 +151,7 @@ criteria:
     name: Electromagnetic interference
     phases: [ranking]
     weight_factor: 2
-    normalised_weight_pct: 0.7
+    normalised_weight_pct: 0.8696
     weight_factors: {baseline: 2, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-07 (SSG-35 §4.4(c))"}
     primary_metric: transmitter_count_10km
@@ -183,7 +179,7 @@ criteria:
     name: Other nuclear installations
     phases: [ranking]
     weight_factor: 3
-    normalised_weight_pct: 1.1
+    normalised_weight_pct: 1.3043
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § HI-08 (SSG-35 §3.24-3.27)"}
     primary_metric: nearest_nuclear_km

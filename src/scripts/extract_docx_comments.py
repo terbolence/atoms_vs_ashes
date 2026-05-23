@@ -1,16 +1,22 @@
-# man_hours: 4.0
-"""Extract reviewer comments from a `.docx`, with anchored context and a triage scaffold.
+"""Extract reviewer comments from a `.docx`, with rich anchored context.
 
 A `.docx` is a ZIP archive. Reviewer comments live in `word/comments.xml`
 (typically a few KB even for very large reports), with optional threading and
-resolution metadata in `word/commentsExtended.xml`. By default this script also
-streams `word/document.xml` to attach, per comment, the **anchor text** (what
-the reviewer highlighted) and the **heading path** (chapter -> section -> ...)
-so downstream routing into subsystems is data-driven rather than manual.
+resolution metadata in `word/commentsExtended.xml`. By default this script
+also streams `word/document.xml` to attach, per comment:
+
+- the **heading path** (chapter -> section -> ...);
+- the **anchor span** (what the reviewer highlighted);
+- the **anchor paragraph** in full plus the **preceding** and **following**
+  paragraph for surrounding context;
+- a **subsection-relative paragraph index** so the comment can be pinpointed
+  inside the section; and
+- a resolved **report-file pointer** (``chapters/02_...md`` or a per-site
+  Markdown file) when the heading path can be matched to a v1.03 source file.
 
 Outputs (next to the input by default):
 
-  - `<stem>_comments.json`  — machine-readable list of comments + anchors
+  - `<stem>_comments.json`  — machine-readable list of comments + context
   - `<stem>_comments.md`    — numbered, human-readable digest
   - `<stem>_triage.yaml`    — idempotent triage scaffold (or `.json` fallback)
 
@@ -26,12 +32,22 @@ from __future__ import annotations
 import argparse
 import sys
 import zipfile
-from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
-from xml.etree import ElementTree as ET
 
 from _docx_comment_anchors import Anchor, extract_anchors
+from _docx_comment_parse import (
+    COMMENTS_EXT_PART,
+    COMMENTS_PART,
+    DOCUMENT_PART,
+    Comment,
+    ext_paraid_to_comment_id,
+    merge_extended,
+    parse_comments,
+    parse_extended,
+    read_part,
+)
+from _docx_comment_report_paths import ReportPathIndex, detect_language
 from _docx_comment_triage import TriageInputComment, write_triage
 from _docx_comment_writers import write_json, write_markdown
 
@@ -39,123 +55,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = (
     PROJECT_ROOT / "report" / "output" / "feedback" / "atoms_vs_ashes_report_feedback.docx"
 )
-
-NS = {
-    "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
-    "w14": "http://schemas.microsoft.com/office/word/2010/wordml",
-    "w15": "http://schemas.microsoft.com/office/word/2012/wordml",
-}
-
-COMMENTS_PART = "word/comments.xml"
-COMMENTS_EXT_PART = "word/commentsExtended.xml"
-DOCUMENT_PART = "word/document.xml"
-
-
-@dataclass
-class Comment:
-    id: str
-    author: str
-    initials: str
-    date: str
-    text: str
-    para_ids: list[str] = field(default_factory=list)
-    done: bool | None = None
-    parent_para_id: str | None = None
-    anchor_text: str | None = None
-    anchor_chars: int | None = None
-    heading_path: list[str] = field(default_factory=list)
-    chapter: str | None = None
-    paragraph_index: int | None = None
-
-
-def _read_part(zf: zipfile.ZipFile, member: str) -> bytes | None:
-    try:
-        return zf.read(member)
-    except KeyError:
-        return None
-
-
-def _paragraph_text(p: ET.Element) -> str:
-    pieces: list[str] = []
-    for node in p.iter():
-        tag = node.tag.split("}", 1)[-1]
-        if tag == "t":
-            pieces.append(node.text or "")
-        elif tag == "tab":
-            pieces.append("\t")
-        elif tag == "br":
-            pieces.append("\n")
-    return "".join(pieces).strip()
-
-
-def _comment_text(comment: ET.Element) -> tuple[str, list[str]]:
-    bodies: list[str] = []
-    para_ids: list[str] = []
-    for p in comment.findall("w:p", NS):
-        para_id = p.get(f"{{{NS['w14']}}}paraId")
-        if para_id:
-            para_ids.append(para_id)
-        text = _paragraph_text(p)
-        if text:
-            bodies.append(text)
-    return "\n\n".join(bodies), para_ids
-
-
-def parse_comments(xml_bytes: bytes) -> list[Comment]:
-    root = ET.fromstring(xml_bytes)
-    comments: list[Comment] = []
-    for c in root.findall("w:comment", NS):
-        text, para_ids = _comment_text(c)
-        comments.append(
-            Comment(
-                id=c.get(f"{{{NS['w']}}}id", ""),
-                author=c.get(f"{{{NS['w']}}}author", ""),
-                initials=c.get(f"{{{NS['w']}}}initials", ""),
-                date=c.get(f"{{{NS['w']}}}date", ""),
-                text=text,
-                para_ids=para_ids,
-            )
-        )
-    comments.sort(key=lambda x: int(x.id) if x.id.isdigit() else x.id)
-    return comments
-
-
-def parse_extended(xml_bytes: bytes) -> dict[str, dict[str, str | bool]]:
-    root = ET.fromstring(xml_bytes)
-    by_para: dict[str, dict[str, str | bool]] = {}
-    for ex in root.findall("w15:commentEx", NS):
-        para_id = ex.get(f"{{{NS['w15']}}}paraId")
-        if not para_id:
-            continue
-        done_attr = ex.get(f"{{{NS['w15']}}}done", "0")
-        parent = ex.get(f"{{{NS['w15']}}}parentParaId")
-        by_para[para_id] = {
-            "done": done_attr in ("1", "true", "True"),
-            "parent_para_id": parent,
-        }
-    return by_para
-
-
-def merge_extended(comments: list[Comment], extended: dict[str, dict[str, str | bool]]) -> None:
-    if not extended:
-        return
-    for c in comments:
-        for pid in c.para_ids:
-            meta = extended.get(pid)
-            if not meta:
-                continue
-            if c.done is None:
-                c.done = bool(meta.get("done"))
-            if c.parent_para_id is None and meta.get("parent_para_id"):
-                c.parent_para_id = str(meta["parent_para_id"])
-
-
-def _ext_paraid_to_comment_id(comments: list[Comment]) -> dict[str, str]:
-    mapping: dict[str, str] = {}
-    for c in comments:
-        for pid in c.para_ids:
-            mapping[pid] = c.id
-    return mapping
 
 
 def merge_anchors(comments: list[Comment], anchors: dict[str, Anchor]) -> int:
@@ -168,24 +67,45 @@ def merge_anchors(comments: list[Comment], anchors: dict[str, Anchor]) -> int:
         c.anchor_chars = a.anchor_chars
         c.heading_path = list(a.heading_path)
         c.chapter = a.chapter
+        c.section_heading = a.section_heading or None
         c.paragraph_index = a.paragraph_index
+        c.subsection_paragraph_index = a.subsection_paragraph_index
+        c.span_paragraphs = a.span_paragraphs
+        c.paragraph_text = a.paragraph_text or None
+        c.prev_paragraph_text = a.prev_paragraph_text or None
+        c.next_paragraph_text = a.next_paragraph_text or None
         matched += 1
     return matched
+
+
+def annotate_languages(comments: list[Comment]) -> None:
+    for c in comments:
+        lang = detect_language(c.text or "")
+        c.language = lang or None
+
+
+def attach_report_paths(comments: list[Comment], index: ReportPathIndex) -> None:
+    for c in comments:
+        if not c.heading_path:
+            continue
+        rel = index.resolve(c.heading_path)
+        if rel:
+            c.report_path = rel
 
 
 def extract(docx_path: Path, *, with_anchors: bool = True, max_anchor_chars: int = 400) -> list[Comment]:
     if not docx_path.exists():
         raise SystemExit(f"Input not found: {docx_path}")
     with zipfile.ZipFile(docx_path) as zf:
-        comments_xml = _read_part(zf, COMMENTS_PART)
+        comments_xml = read_part(zf, COMMENTS_PART)
         if comments_xml is None:
             members = [n for n in zf.namelist() if "comment" in n.lower()]
             raise SystemExit(
                 f"`{COMMENTS_PART}` not found in {docx_path.name}. "
                 f"Comment-related entries: {members or 'none'}"
             )
-        ext_xml = _read_part(zf, COMMENTS_EXT_PART)
-        document_xml = _read_part(zf, DOCUMENT_PART) if with_anchors else None
+        ext_xml = read_part(zf, COMMENTS_EXT_PART)
+        document_xml = read_part(zf, DOCUMENT_PART) if with_anchors else None
 
     comments = parse_comments(comments_xml)
     if ext_xml is not None:
@@ -194,7 +114,19 @@ def extract(docx_path: Path, *, with_anchors: bool = True, max_anchor_chars: int
         valid_ids = {c.id for c in comments}
         anchors = extract_anchors(document_xml, valid_ids, max_anchor_chars=max_anchor_chars)
         merge_anchors(comments, anchors)
+    annotate_languages(comments)
     return comments
+
+
+def _infer_report_root(docx_path: Path) -> Path | None:
+    """Walk upwards looking for an ``output/report/chapters`` sibling."""
+    for parent in [docx_path.parent, *docx_path.parents]:
+        candidate = parent / "output" / "report"
+        if (candidate / "chapters").is_dir():
+            return candidate
+        if (parent / "chapters").is_dir() and parent.name == "report":
+            return parent
+    return None
 
 
 def _to_triage_inputs(comments: list[Comment], parent_lookup: dict[str, str]) -> list[TriageInputComment]:
@@ -212,6 +144,10 @@ def _to_triage_inputs(comments: list[Comment], parent_lookup: dict[str, str]) ->
                 anchor_excerpt=c.anchor_text or "",
                 done=c.done,
                 parent_id=parent_id,
+                report_path=c.report_path,
+                section_heading=c.section_heading,
+                paragraph_text=c.paragraph_text,
+                language=c.language,
             )
         )
     return items
@@ -236,6 +172,13 @@ def _build_parser() -> argparse.ArgumentParser:
         "--max-anchor-chars", type=int, default=400,
         help="Truncate stored anchor text to this many chars (default: 400)",
     )
+    p.add_argument(
+        "--report-root", type=Path, default=None,
+        help=(
+            "Override the v1.03 report root used to resolve heading paths to "
+            "Markdown file pointers. Default: auto-detect from the DOCX location."
+        ),
+    )
     return p
 
 
@@ -250,7 +193,10 @@ def main(argv: Iterable[str] | None = None) -> int:
         with_anchors=not args.no_anchors,
         max_anchor_chars=args.max_anchor_chars,
     )
-    parent_lookup = _ext_paraid_to_comment_id(comments)
+    report_root = args.report_root.resolve() if args.report_root else _infer_report_root(docx_path)
+    report_index = ReportPathIndex(report_root)
+    attach_report_paths(comments, report_index)
+    parent_lookup = ext_paraid_to_comment_id(comments)
     anchored = sum(1 for c in comments if c.anchor_text is not None)
 
     json_path = out_dir / f"{docx_path.stem}_comments.json"
@@ -263,7 +209,17 @@ def main(argv: Iterable[str] | None = None) -> int:
             f"({len(comments)} comments, {anchored} anchored)"
         )
     if not args.no_markdown:
-        write_markdown(comments, md_path, docx_path, parent_lookup)
+        if report_root and report_root.is_relative_to(PROJECT_ROOT):
+            report_root_str = str(report_root.relative_to(PROJECT_ROOT))
+        else:
+            report_root_str = None
+        write_markdown(
+            comments,
+            md_path,
+            docx_path,
+            parent_lookup,
+            report_root=report_root_str,
+        )
         print(f"wrote {md_path.relative_to(PROJECT_ROOT)}")
     if not args.no_triage:
         triage_inputs = _to_triage_inputs(comments, parent_lookup)

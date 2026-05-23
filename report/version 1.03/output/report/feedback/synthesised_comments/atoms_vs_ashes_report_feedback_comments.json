@@ -1,0 +1,389 @@
+{
+  "extracted_at": "2026-05-23T08:14:31+00:00",
+  "count": 14,
+  "anchors_attached": 14,
+  "comments": [
+    {
+      "id": "32",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:08:00Z",
+      "text": "O.K.",
+      "para_ids": [
+        "2E1EFE8F"
+      ],
+      "done": false,
+      "anchor_text": "The practical result is a controlled handoff to Stage 2. Sites that pass Stage 1 are ready for comparative scoring, ranking and national sensitivity analysis",
+      "anchor_chars": 157,
+      "heading_path": [
+        "2. Stage 1: Site Survey",
+        "2.7 Stage 1 Outputs and Limitations"
+      ],
+      "chapter": "2. Stage 1: Site Survey",
+      "section_heading": "2.7 Stage 1 Outputs and Limitations",
+      "paragraph_index": 447,
+      "subsection_paragraph_index": 2,
+      "span_paragraphs": 1,
+      "paragraph_text": "The practical result is a controlled handoff to Stage 2. Sites that pass Stage 1 are ready for comparative scoring, ranking and national sensitivity analysis. Sites that fail, or remain data-limited, are still informative because their failure modes and evidence gaps identify the questions that must be resolved before any Stage 3 characterisation decision.",
+      "prev_paragraph_text": "The principal limitation is resolution. Stage 1 uses representative coordinates, regional evidence, public records, screening proxies and structured review. Later work must confirm final site boundaries, land rights, design-basis hazards, engineered protection, emergency-plan feasibility, grid connection rights, water permits, environmental acceptability, site control and stakeholder conditions.",
+      "next_paragraph_text": "Stage 2 evaluates the candidate sites carried forward from the Stage 1 survey. It compares the sites through a common scoring framework, preserves exclusionary and safety-floor logic, and uses national sensitivity analysis to test whether a site remains credible within its own country. The result is a decision-support basis for selecting sites that justify Stage 3 characterisation.",
+      "report_path": "chapters/02_stage_1_site_survey.md"
+    },
+    {
+      "id": "38",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:10:00Z",
+      "text": "Stage 3 should be detaile site evaluation and confirmation. Site survey and selection covers Stages 1 and 2 and propose a or more sites to go in stage 3 on ranking + socio-economic considerations",
+      "para_ids": [
+        "72D851A7"
+      ],
+      "done": false,
+      "anchor_text": "follow-up requirements",
+      "anchor_chars": 22,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.3 Safety-Related Criteria"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "section_heading": "3.3 Safety-Related Criteria",
+      "paragraph_index": 481,
+      "subsection_paragraph_index": 0,
+      "span_paragraphs": 1,
+      "paragraph_text": "Safety-related criteria are treated as controlling constraints. A site that fails an exclusionary rule or safety floor leaves the composite ranking pool for the NuScale VOYGR-6 reference case. A site that remains in the pool can still carry safety-related weaknesses, but those weaknesses stay visible through lower scores, avoidance flags, family scores and Stage 3 follow-up requirements.",
+      "prev_paragraph_text": "This structure keeps the composite score interpretable. The score provides a consistent ordering of sites that survive screening, while family results explain the reasons for that order and the questions that would dominate Stage 3 characterisation.",
+      "next_paragraph_text": "The natural-hazard family covers seismic, geological, hydrological, meteorological and combined-hazard questions. Seismic ground motion and capable-fault proximity test whether the site has apparent margin against earthquake demand and surface rupture. Geotechnical criteria cover settlement, liquefaction, slope stability, subsidence, karst, mining legacy, bearing conditions, bedrock and groundwater. Flooding and weather criteria cover river and coastal inundation, storm surge, tsunami, extreme winds, precipitation, drought, snow, temperature extremes, wildfire and combined hazard interactions.",
+      "report_path": "chapters/03_stage_2_site_selection.md",
+      "language": "en"
+    },
+    {
+      "id": "43",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-20T15:49:00Z",
+      "text": "Verifica ca suma weight factors este 1 sau 100%\n\nAm incercat si am obtinut 97.4",
+      "para_ids": [
+        "77ECA089",
+        "2E79B12A"
+      ],
+      "done": false,
+      "anchor_text": "Baseline weight",
+      "anchor_chars": 15,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.5 Radiological Impact and Emergency Planning Considerations"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "section_heading": "3.5 Radiological Impact and Emergency Planning Considerations",
+      "paragraph_index": 592,
+      "subsection_paragraph_index": 5,
+      "span_paragraphs": 1,
+      "paragraph_text": "Baseline weight (%)",
+      "prev_paragraph_text": "Public-facing name",
+      "next_paragraph_text": "Stage 2 treatment",
+      "report_path": "chapters/03_stage_2_site_selection.md",
+      "language": "ro"
+    },
+    {
+      "id": "50",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-20T15:53:00Z",
+      "text": "In text you talk about 3 sites fully passed – here are only 2 – correlate text with tables",
+      "para_ids": [
+        "5D945FD7"
+      ],
+      "done": false,
+      "anchor_text": "Rovinari power stationRomaniaFull passBand B, nationally persistentRomanian fast follower after Turceni.",
+      "anchor_chars": 104,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.9 Preferred Sites and Shortlist Rationale"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "section_heading": "3.9 Preferred Sites and Shortlist Rationale",
+      "paragraph_index": 774,
+      "subsection_paragraph_index": 14,
+      "span_paragraphs": 4,
+      "paragraph_text": "Rovinari power station",
+      "prev_paragraph_text": "First Romanian characterisation candidate.",
+      "next_paragraph_text": "Romanian fast follower after Turceni.",
+      "report_path": "chapters/03_stage_2_site_selection.md",
+      "language": "en"
+    },
+    {
+      "id": "54",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:22:00Z",
+      "text": "Check Chapter 4 – seems to have some redundant text  sometime explan same thing with different wording. Should be a way to make it more concise.",
+      "para_ids": [
+        "28D76F72"
+      ],
+      "done": false,
+      "anchor_text": "4. Results and Findings",
+      "anchor_chars": 23,
+      "heading_path": [
+        "3. Stage 2: Site Selection",
+        "3.10 Stage 2 Outputs and Limitations"
+      ],
+      "chapter": "3. Stage 2: Site Selection",
+      "section_heading": "3.10 Stage 2 Outputs and Limitations",
+      "paragraph_index": 852,
+      "subsection_paragraph_index": 25,
+      "span_paragraphs": 1,
+      "paragraph_text": "4. Results and Findings",
+      "prev_paragraph_text": "The correct Stage 2 decision is conditional. The report identifies sites that deserve further characterisation under the NuScale VOYGR-6 reference case. Licensing suitability would require the Stage 3 evidence base and the national regulatory process. Stage 3 should focus on the highest-impact uncertainties identified by the criterion family results, national sensitivity findings and country-level residual-risk registers.",
+      "next_paragraph_text": "Chapter 4 presents the results of the Stage 1-2 screening and ranking work for the NuScale VOYGR-6 reference deployment envelope. The chapter uses the current Scientific Council",
+      "report_path": "chapters/03_stage_2_site_selection.md",
+      "language": "en"
+    },
+    {
+      "id": "55",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-22T09:54:00Z",
+      "text": "de recompletat - s-a pierdut textul",
+      "para_ids": [
+        "5FE38185"
+      ],
+      "done": false,
+      "anchor_text": "Scientific Council",
+      "anchor_chars": 18,
+      "heading_path": [
+        "4. Results and Findings"
+      ],
+      "chapter": "4. Results and Findings",
+      "section_heading": "4. Results and Findings",
+      "paragraph_index": 853,
+      "subsection_paragraph_index": 0,
+      "span_paragraphs": 1,
+      "paragraph_text": "Chapter 4 presents the results of the Stage 1-2 screening and ranking work for the NuScale VOYGR-6 reference deployment envelope. The chapter uses the current Scientific Council",
+      "prev_paragraph_text": "The correct Stage 2 decision is conditional. The report identifies sites that deserve further characterisation under the NuScale VOYGR-6 reference case. Licensing suitability would require the Stage 3 evidence base and the national regulatory process. Stage 3 should focus on the highest-impact uncertainties identified by the criterion family results, national sensitivity findings and country-level residual-risk registers.",
+      "next_paragraph_text": "country ledgers, the Chapter 5 selected-site outputs, and the project’s 50,000-iteration national Monte Carlo sensitivity analysis. The findings support prioritisation for Stage 3 characterisation; they do not establish site approval, licensing readiness, procurement suitability, construction readiness, or final site suitability.",
+      "report_path": "chapters/04_results_and_findings.md",
+      "language": "ro"
+    },
+    {
+      "id": "57",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:17:00Z",
+      "text": "Do we need cross countries evaluation more than illustrated in Table 4.1??",
+      "para_ids": [
+        "37A45A55"
+      ],
+      "done": false,
+      "anchor_text": "Regional and Cross-Country Findings",
+      "anchor_chars": 35,
+      "heading_path": [
+        "4. Results and Findings"
+      ],
+      "chapter": "4. Results and Findings",
+      "section_heading": "4. Results and Findings",
+      "paragraph_index": 855,
+      "subsection_paragraph_index": 2,
+      "span_paragraphs": 1,
+      "paragraph_text": "4.1 Regional and Cross-Country Findings",
+      "prev_paragraph_text": "country ledgers, the Chapter 5 selected-site outputs, and the project’s 50,000-iteration national Monte Carlo sensitivity analysis. The findings support prioritisation for Stage 3 characterisation; they do not establish site approval, licensing readiness, procurement suitability, construction readiness, or final site suitability.",
+      "next_paragraph_text": "The regional finding is selective but not empty. The current published country ledgers contain 16 country portfolios with 352 thermal and coal-site records. Of these, 289 records have composite scores and national sensitivity bands; 28 clear both the exclusionary and avoidance screens, 261 clear the exclusionary screen but retain at least one avoidance flag, and 63 are removed at the exclusionary screen. Chapter 5’s consolidated failure section adds Albania, Kosovo, and Slovenia as portfolios with no exclusionary-pass brownfield site in the screened thermal fleet.",
+      "report_path": "chapters/04_results_and_findings.md",
+      "language": "en"
+    },
+    {
+      "id": "60",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:45:00Z",
+      "text": "If Iernut is a full pass why is not here",
+      "para_ids": [
+        "559FDCDA"
+      ],
+      "done": false,
+      "anchor_text": "PrioritySiteCountryCompositeMC intervalBandTop-tier probabilitySequencing rationale",
+      "anchor_chars": 83,
+      "heading_path": [
+        "4. Results and Findings",
+        "4.3 Sites Recommended for Progression Toward Stage 3"
+      ],
+      "chapter": "4. Results and Findings",
+      "section_heading": "4.3 Sites Recommended for Progression Toward Stage 3",
+      "paragraph_index": 966,
+      "subsection_paragraph_index": 3,
+      "span_paragraphs": 7,
+      "paragraph_text": "Priority",
+      "prev_paragraph_text": "Table 4.3.1. First-wave Stage 3 characterisation candidates. Cohort: Chapter 5 profiled sites with full-pass status. Metric: national composite score, national Monte Carlo interval, national stability band, and national top-tier probability. Interpretation limit: recommendation is for detailed characterisation, not approval or construction.",
+      "next_paragraph_text": "Sequencing rationale",
+      "report_path": "chapters/04_results_and_findings.md",
+      "language": "en"
+    },
+    {
+      "id": "61",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:48:00Z",
+      "text": "Romania has sites in this chategory. Why is not here?",
+      "para_ids": [
+        "13078168"
+      ],
+      "done": false,
+      "anchor_text": "Table 4.3.2. Conditional unlock candidates. Cohort: Chapter 5 profiled sites that pass exclusionary screening but retain an avoidance flag. Metric: national stability evidence and controlling progression condition. Interpretation limit: these sites require issue-specific resolution before they are treated as Stage 3 characterisation candidates.",
+      "anchor_chars": 346,
+      "heading_path": [
+        "4. Results and Findings",
+        "4.3 Sites Recommended for Progression Toward Stage 3"
+      ],
+      "chapter": "4. Results and Findings",
+      "section_heading": "4.3 Sites Recommended for Progression Toward Stage 3",
+      "paragraph_index": 1087,
+      "subsection_paragraph_index": 124,
+      "span_paragraphs": 1,
+      "paragraph_text": "Table 4.3.2. Conditional unlock candidates. Cohort: Chapter 5 profiled sites that pass exclusionary screening but retain an avoidance flag. Metric: national stability evidence and controlling progression condition. Interpretation limit: these sites require issue-specific resolution before they are treated as Stage 3 characterisation candidates.",
+      "prev_paragraph_text": "This table does not exhaust every full-pass record in the regional evidence base. It records the first-wave profiled set now visible in Chapter 5. Additional full-pass records in Türkiye, Ukraine, Poland and Romania can be sequenced after their country and site profiles are brought to the same evidentiary standard.",
+      "next_paragraph_text": "Site",
+      "report_path": "chapters/04_results_and_findings.md",
+      "language": "mixed"
+    },
+    {
+      "id": "63",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:51:00Z",
+      "text": "Use a more technical term (for me cohort sugest migratory life forms) coming in cohorts) you use it in several places. A cohort of sites – is nut usual usage of this term",
+      "para_ids": [
+        "55E2B891"
+      ],
+      "done": false,
+      "anchor_text": "cohort",
+      "anchor_chars": 6,
+      "heading_path": [
+        "4. Results and Findings",
+        "4.4 Main Drivers of Suitability and Exclusion"
+      ],
+      "chapter": "4. Results and Findings",
+      "section_heading": "4.4 Main Drivers of Suitability and Exclusion",
+      "paragraph_index": 1174,
+      "subsection_paragraph_index": 1,
+      "span_paragraphs": 1,
+      "paragraph_text": "Natural hazards remain the strongest mean family in the scored cohort, but individual seismic and geotechnical checks still remove sites where the screening evidence indicates a hard constraint. Non-safety implementation is also strong on average, which explains why several coal and thermal sites remain attractive after the safety screen. Radiological impact and emergency planning sit near the mid-range and remain important progression controls.",
+      "prev_paragraph_text": "The leading positive driver is the combination of acceptable safety screening with non-safety implementation strength. Full-pass and high-ranked avoidance candidates tend to retain usable grid, thermal-site infrastructure, access, water context, and industrial land indicators. These advantages matter because coal and thermal sites can preserve infrastructure that a greenfield SMR programme would otherwise have to build or permit from scratch.",
+      "next_paragraph_text": "Avoidance flags define the main unlock agenda. Across the published country ledgers, grid connection appears in 144 avoidance-flag records, aircraft-crash screening in 123, distance to population centres in 71, seismic ground motion in 69, and site-footprint adequacy in 40. These counts overlap because one site can carry more than one flag. The practical interpretation is that unlock work is multi-disciplinary: electrical interface, aviation-screening, population and EPZ micro-modelling, seismic, and land-envelope questions often need to be resolved together.",
+      "report_path": "chapters/04_results_and_findings.md",
+      "language": "mixed"
+    },
+    {
+      "id": "70",
+      "author": "Ovidiu  Lucian Coman",
+      "initials": "OLC",
+      "date": "2026-05-22T08:58:00Z",
+      "text": "Semas to have several similar table saying same things",
+      "para_ids": [
+        "58992F5F"
+      ],
+      "done": false,
+      "anchor_text": "CountryCurrent profileLeading candidate in the national ledgerScreening class",
+      "anchor_chars": 77,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "5.2 Country Profiles and Top Sites"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "section_heading": "5.2 Country Profiles and Top Sites",
+      "paragraph_index": 1402,
+      "subsection_paragraph_index": 1,
+      "span_paragraphs": 3,
+      "paragraph_text": "Country",
+      "prev_paragraph_text": "The country profiles are assembled in alphabetical order and linked through the Chapter 5 index. The published roster contains the accepted country packets only.",
+      "next_paragraph_text": "Screening class",
+      "report_path": "chapters/05_country_and_site_profiles.md",
+      "language": "en"
+    },
+    {
+      "id": "104",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-22T09:53:00Z",
+      "text": "utilizeaza definitia de capable fault din SSG 9 rev1;",
+      "para_ids": [
+        "732B2432"
+      ],
+      "done": false,
+      "anchor_text": "capable fault",
+      "anchor_chars": 13,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Duernrohr power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "section_heading": "Natural Hazards (NH)",
+      "paragraph_index": 1637,
+      "subsection_paragraph_index": 1,
+      "span_paragraphs": 1,
+      "paragraph_text": "Seismic: Surface Rupture (NH-02) - score 7.5/10 (MC 7.0-8.0), weight n/a, data quality screening grade. Evidence: nearest mapped capable fault 23.9 km; fault slip rate 0.022 mm/yr; fault name: ATCF008.",
+      "prev_paragraph_text": "Seismic: Ground Motion (NH-01) - score 5.5/10 (MC 5.0-6.0), pass-mark band: At or below the score-5 risk boundary., weight 0.0455, data quality high. Evidence: PGA at 475-year return period 0.087 g; PGA at 2,475-year return period 0.201 g; Vs30 reference (m/s): 760.0.",
+      "next_paragraph_text": "Geotechnical: Liquefaction (NH-03) - score 5.5/10 (MC 5.0-6.0), pass-mark band: Moderate susceptibility, or high/very-high with documented (with mitigation to be confirmed) mitigation., weight n/a, data quality medium. Evidence: liquefaction susceptibility: high; dominant soil type: silty_clay_loam.",
+      "report_path": "chapters/05_country_and_site_profiles/sites/AT_duernrohr_power_station.md",
+      "language": "ro"
+    },
+    {
+      "id": "105",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-22T09:54:00Z",
+      "text": "filtrul este de 5km, nu de 8 km.",
+      "para_ids": [
+        "63A14A1C"
+      ],
+      "done": false,
+      "anchor_text": "capable fault",
+      "anchor_chars": 13,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Duernrohr power station Site Profile",
+        "Natural Hazards (NH)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "section_heading": "Natural Hazards (NH)",
+      "paragraph_index": 1637,
+      "subsection_paragraph_index": 1,
+      "span_paragraphs": 1,
+      "paragraph_text": "Seismic: Surface Rupture (NH-02) - score 7.5/10 (MC 7.0-8.0), weight n/a, data quality screening grade. Evidence: nearest mapped capable fault 23.9 km; fault slip rate 0.022 mm/yr; fault name: ATCF008.",
+      "prev_paragraph_text": "Seismic: Ground Motion (NH-01) - score 5.5/10 (MC 5.0-6.0), pass-mark band: At or below the score-5 risk boundary., weight 0.0455, data quality high. Evidence: PGA at 475-year return period 0.087 g; PGA at 2,475-year return period 0.201 g; Vs30 reference (m/s): 760.0.",
+      "next_paragraph_text": "Geotechnical: Liquefaction (NH-03) - score 5.5/10 (MC 5.0-6.0), pass-mark band: Moderate susceptibility, or high/very-high with documented (with mitigation to be confirmed) mitigation., weight n/a, data quality medium. Evidence: liquefaction susceptibility: high; dominant soil type: silty_clay_loam.",
+      "report_path": "chapters/05_country_and_site_profiles/sites/AT_duernrohr_power_station.md",
+      "language": "ro"
+    },
+    {
+      "id": "183",
+      "author": "Bogdan Termegan",
+      "initials": "BT",
+      "date": "2026-05-22T09:56:00Z",
+      "text": "Make sure to apply the criteria correctly. Large airports and military airports prevail for their respective limits on distance. However, small heliports and aerodromes do not affect this criteria as much.",
+      "para_ids": [
+        "5412A779"
+      ],
+      "done": false,
+      "anchor_text": "small airfield",
+      "anchor_chars": 14,
+      "heading_path": [
+        "5. Country and Site Profiles",
+        "Austria Country Profile",
+        "Enns Power Station Site Profile",
+        "Human-Induced and Security-Relevant Hazards (HI)"
+      ],
+      "chapter": "5. Country and Site Profiles",
+      "section_heading": "Human-Induced and Security-Relevant Hazards (HI)",
+      "paragraph_index": 1779,
+      "subsection_paragraph_index": 0,
+      "span_paragraphs": 1,
+      "paragraph_text": "Aircraft Crash (HI-01) - score 7.5/10 (MC 7.0-8.0), weight 0.0354, data quality high. Evidence: nearest airport 13.2 km; nearest flight path 6.6 km; airports within search radius 6; airport name: Hofkirchen Airfield; airport type: small airfield.",
+      "prev_paragraph_text": "Enns has a favourable natural-hazard screen, with low seismic loading and no current natural-hazard exclusionary signal. PGA is 0.036 g at 475 years and 0.068 g at 2,475 years, and the nearest mapped capable fault is 50.0 km away. Liquefaction susceptibility is moderate on silty clay loam, bearing capacity is 87.3 kPa, depth to bedrock is 24.7 m, and mean site slope is 5.19 degrees. The river-flood class is negligible and the site is 279.0 km from the coast. The main Stage 3 tasks are local geotechnical confirmation and a check of the precipitation values, which are too coarse for design drainage or flood claims.",
+      "next_paragraph_text": "Industrial Explosions (HI-02) - score 9.5/10 (MC 9.0-10.0), favourable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality high. Evidence: nearest industrial site 5.36 km.",
+      "report_path": "chapters/05_country_and_site_profiles/sites/AT_enns_power_station.md",
+      "language": "en"
+    }
+  ]
+}

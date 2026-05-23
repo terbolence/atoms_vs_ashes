@@ -1,0 +1,23 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+345fb795-170a-4fb5-833c-f6bcf2eb450c,Turceni power station,RO,A,1.0,1.0,1.0,17,17
+958e4d82-853a-41f1-a442-94b4c4314221,Rovinari power station,RO,A,0.8824,0.9412,1.0,17,17
+af7f107f-71b5-5a33-8125-9ccb7060f895,Iernut power station,RO,A,0.8824,0.8824,0.9412,17,16
+52a7babe-313f-493b-86b9-bd0c4aece4c3,Mintia-Deva power station,RO,A,0.8235,0.8824,0.9412,17,17
+29836b52-a882-4921-95a7-6417e636d9a2,Braila power station,RO,B,0.7059,0.8824,1.0,17,17
+693d9b73-f9fc-4502-9b94-be020c5d21fb,Suceava power station,RO,B,0.1765,0.8235,0.9412,17,17
+825dc024-9a53-4237-bf59-cbe0af0cf87d,Govora power station,RO,C,0.1765,0.7059,0.9412,17,17
+c3790475-3d3b-4e2b-92ae-24503fe03e6b,Romag Termo power station,RO,D,0.0588,0.2353,1.0,17,17
+9825e28e-fd6e-460d-9caf-0342563f9060,Paroseni power station,RO,D,0.0588,0.1765,0.8824,17,17
+aff5ffe6-fe7a-4de7-afad-9d4645a64cd9,Doicesti power station,RO,D,0.0,0.1176,0.8824,17,17
+6aed2eac-1c97-40c5-b842-fb15fd510f35,Giurgiu power station,RO,D,0.0,0.1176,0.7059,17,17
+d498ded8-449c-4672-8bb9-0ed6c8fef775,Slatina power station,RO,D,0.0,0.0,0.9412,17,17
+e073b3f8-4312-4d34-b322-6289a3121af1,Isalnita power station,RO,F,0.0588,0.1176,0.4706,17,17
+dac2a974-a2de-46c5-b581-03985a9ae7d0,Bacau CHP power station,RO,F,0.0,0.1176,0.4118,17,17
+18ecb024-ee4f-4045-8254-5e95d61dea8c,FPCU Feldioara,RO,G,0.0,0.0588,0.2353,17,17
+a4fa3246-27d6-4740-898c-bdf9dadcb88c,Craiova II power station,RO,H,0.0,0.0,0.1765,17,17
+5a33e5f0-6d86-4eab-adea-6c6bad7f3f45,Arad power station,RO,H,0.0,0.0,0.1176,17,17
+8781d874-5923-4795-9c9f-b2a6c709025a,Galati Power Station,RO,H,0.0,0.0,0.0588,17,17
+e43af28e-a3d3-4047-a9cf-f3b0990754b4,Târgu Jiu Thermal Plant,RO,H,0.0,0.0,0.0588,17,17
+1d8be6d0-f3a5-4b32-9d46-3526289731f8,Iasi-2 power station,RO,H,0.0,0.0,0.0,17,17
+3bef37a3-239e-498d-a160-77452a6a9b79,Bucharest North East power station,RO,H,0.0,0.0,0.0,17,17
+6c428b2a-ad09-448b-b24c-22465929d69c,Oradea power station,RO,H,0.0,0.0,0.0,17,16

@@ -368,13 +368,44 @@ def classify_aquifer(props: dict[str, Any]) -> HydrogeologyAssessment:
 # ---------------------------------------------------------------------------
 
 
+_EGDI_CAPABLE_ACTIVITIES: frozenset[str] = frozenset({
+    "active",
+    "possibly active",
+    "capable",
+})
+
+
+def _is_capable_feature(feature: dict[str, Any]) -> bool:
+    """Return True if a HIKE fault feature maps to an SSG-9 capable fault.
+
+    Mirrors the EFSM20 connector semantics (see
+    ``connectors/efsm20_faults/models.py``): a fault is "capable" per
+    IAEA SSG-9 rev. 1 §3.8-3.22 when its activity classification
+    indicates Quaternary movement (``active`` / ``possibly active``) or
+    when the source's own ``capable`` flag is set. Non-capable / inactive
+    traces are excluded from NH-02 distance evidence so the engine never
+    screens a site against a non-capable trace.
+    """
+    activity, _ = classify_fault_activity(feature.get("properties", {}))
+    if activity is None:
+        return False
+    return activity.strip().lower() in _EGDI_CAPABLE_ACTIVITIES
+
+
 def build_fault_assessment(
     features: list[dict[str, Any]],
     lat: float,
     lon: float,
     layer_name: str,
 ) -> FaultAssessment:
-    """Build a FaultAssessment from parsed HIKE fault GeoJSON features."""
+    """Build a FaultAssessment from parsed HIKE fault GeoJSON features.
+
+    The nearest-distance value is taken over the **capable** subset only,
+    matching the EFSM20 primary path. If no capable features are present,
+    the assessment records the count but leaves the distance / type /
+    activity fields unset so downstream code can distinguish "no capable
+    fault detected" from "capable fault at X km".
+    """
     assessment = FaultAssessment(
         fault_count_within_buffer=len(features),
         source_layer=layer_name,
@@ -382,7 +413,11 @@ def build_fault_assessment(
     if not features:
         return assessment
 
-    dist_km, nearest = nearest_feature_distance(features, lat, lon)
+    capable_features = [f for f in features if _is_capable_feature(f)]
+    if not capable_features:
+        return assessment
+
+    dist_km, nearest = nearest_feature_distance(capable_features, lat, lon)
     assessment.nearest_fault_distance_km = dist_km
 
     if nearest is not None:

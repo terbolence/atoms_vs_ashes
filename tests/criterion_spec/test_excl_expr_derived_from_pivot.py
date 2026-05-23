@@ -229,3 +229,84 @@ def test_no_override_required_for_recipe_only_codes(default_bundle):
     for cid in ("NH-02", "NH-04", "NH-07"):
         assert cid in out.derived_exclusion_exprs
         assert out.criteria[cid].fail_conditions
+
+
+# ---------------------------------------------------------------------------
+# Phase 1B (#104 + #105): NH-02 capable-fault radius is run-profile-tunable
+# across the full bounds range, propagating end-to-end through bands and E1.
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("threshold", [0.5, 1.0, 5.0, 8.0, 10.0, 50.0, 100.0])
+def test_nh02_e1_threshold_propagates_to_bands_and_exclusion(
+    default_bundle, threshold
+):
+    out = compile_bundle(
+        default_bundle, fail_thresholds={"NH-02": {"E1": threshold}}
+    )
+    fmt = (
+        f"{threshold:.1f}".rstrip("0").rstrip(".")
+        if not float(threshold).is_integer()
+        else f"{int(threshold)}"
+    )
+    assert _fail_expr(out, "NH-02", "E1") == f"nearest_fault_km < {fmt}"
+    score5 = next(
+        b for b in out.criteria["NH-02"].bands if b.score_range == (5.0, 6.0)
+    )
+    assert f"nearest_fault_km >= {float(threshold):g}" in score5.condition_expr.replace(
+        f"{float(threshold):.1f}", f"{float(threshold):g}"
+    )
+
+
+def test_nh02_e1_bounds_accept_full_parametrised_range():
+    """`threshold_metadata.yaml` bounds must accept the same range the
+    parametrised propagation test exercises (and must reject zero /
+    negative inputs).
+    """
+    bundle = load_template_bundle(str(SPEC_DIR))
+    nh02_template = bundle.by_id["NH-02"]
+    e1 = next(
+        fc for fc in nh02_template.fail_conditions if fc.code == "E1"
+    )
+    threshold = e1.threshold
+    assert threshold is not None, "NH-02 E1 must carry a threshold spec"
+    for value in [0.5, 1.0, 5.0, 8.0, 10.0, 50.0, 100.0]:
+        assert threshold.is_in_bounds(value), (
+            f"NH-02 E1 bounds must accept {value} (project requires "
+            f"freeform user input across the plausible siting range)"
+        )
+    assert not threshold.is_in_bounds(0.0)
+    assert not threshold.is_in_bounds(-1.0)
+    assert not threshold.is_in_bounds(1000.0)
+
+
+def test_nh02_rubric_stack_matches_threshold_metadata_default():
+    """Cross-stack consistency: the fallback rubric stack's NH-02 E1
+    pivot must equal the spec stack's default. Drift fails CI.
+    """
+    import re
+
+    from atoms_vs_ashes.scoring.rubric import load_rubric_bundle
+
+    rubric_dir = SPEC_DIR.parent / "scoring_rubrics"
+    rubric_bundle = load_rubric_bundle(str(rubric_dir))
+    nh02 = rubric_bundle["NH-02"]
+
+    bundle = load_template_bundle(str(SPEC_DIR))
+    e1 = next(
+        fc for fc in bundle.by_id["NH-02"].fail_conditions if fc.code == "E1"
+    )
+    spec_default = float(e1.threshold.default_value)
+
+    rubric_e1 = next(fc for fc in nh02.fail_conditions if fc.code == "E1")
+    match = re.search(r"nearest_fault_km\s*<\s*([0-9.]+)", rubric_e1.condition_expr)
+    assert match, (
+        f"NH-02 E1 condition_expr must encode the pivot numerically; "
+        f"got {rubric_e1.condition_expr!r}"
+    )
+    rubric_pivot = float(match.group(1))
+    assert rubric_pivot == spec_default, (
+        f"Rubric stack NH-02 E1 pivot={rubric_pivot} drifted from "
+        f"spec/threshold_metadata default={spec_default}. Update one or "
+        f"the other so the fallback path matches the canonical source."
+    )

@@ -21,18 +21,34 @@ SOURCE_URL = "https://seismofaults.eu/efsm20data"
 DOWNLOAD_URL = "https://seismofaults.eu/images/downloads/efsm20/EFSM20_GeoJSON.zip"
 DATA_DIR_DEFAULT = "sources/efsm20"
 
-# IAEA SSG-9 Rev.1 §3.8–3.22: "capable fault" requires evidence of
-# Quaternary movement.  EFSM20 uses "Active" / "Possibly active" as
-# the closest proxy for IAEA capability assessment.
+# IAEA SSG-9 rev. 1 §3.8-3.22 defines a "capable fault" as one capable of
+# producing surface deformation of the ground (recent Quaternary movement,
+# kinematic interaction with a known capable fault, or comparable evidence).
+#
+# This project's canonical proxy for SSG-9 capability is the EFSM20
+# `Activity` attribute taking the values "Active" or "Possibly active".
+# A trace whose activity_class falls in this set is treated as the
+# distance source for the NH-02 (Seismic: Surface Rupture) screening
+# criterion across the entire scoring stack. The E1 screening radius
+# itself is NOT defined here: it lives in
+# `config/scoring_specs/threshold_metadata.yaml` (norm default 8 km per
+# SSG-9 rev. 1, run-profile-tunable). The connector emits the raw
+# distance only; the score engine applies whatever radius the active
+# run profile declares. See [src/atoms_vs_ashes/connectors/egdi_geology/]
+# for the fallback path which honours the same capability semantics.
 CAPABLE_ACTIVITY_CLASSES: frozenset[str] = frozenset({
     "active",
     "possibly active",
 })
 
-# E-rule E1 threshold: 8 km to nearest capable fault
-E1_THRESHOLD_KM = 8.0
-
-# Search radius for spatial queries (km)
+# Connector-scoped detection window for spatial queries (km). This is
+# NOT the E1 screening radius; it is the radius within which the
+# connector searches for any candidate fault trace before computing the
+# nearest-capable distance. Distances beyond this window are reported as
+# "no fault detected in search window" and the score engine treats them
+# as outside any plausible E1 radius. If a user run profile sets the E1
+# radius above SEARCH_RADIUS_KM, the connector cannot detect faults past
+# this point; widen this window deliberately in that case.
 SEARCH_RADIUS_KM = 50.0
 
 # Conservative surface rupture zone buffer (km) per spec §7.2
@@ -84,7 +100,6 @@ class FaultResult:
     fault_slip_rate_mm_yr: float | None = None
     fault_activity_class: str | None = None
     fault_type: str | None = None
-    capable_fault_within_8km: bool = False
     within_rupture_zone: bool = False
     faults_within_50km: int = 0
     capable_faults_within_50km: int = 0
@@ -107,7 +122,6 @@ class FaultResult:
             ),
             "fault_activity_class": self.fault_activity_class,
             "fault_type": self.fault_type,
-            "capable_fault_within_8km": self.capable_fault_within_8km,
             "within_rupture_zone": self.within_rupture_zone,
             "faults_within_50km": self.faults_within_50km,
             "capable_faults_within_50km": self.capable_faults_within_50km,
@@ -134,7 +148,7 @@ class SiteEnrichmentSummary:
     site_name: str
     status: str  # "ok" | "error" | "cached"
     nearest_fault_km: float | None = None
-    capable_within_8km: bool | None = None
+    nearest_fault_activity_class: str | None = None
     source: str | None = None
     error: str | None = None
     elapsed_ms: int = 0
@@ -166,7 +180,7 @@ class BatchResult:
                     "site_name": s.site_name,
                     "status": s.status,
                     "nearest_fault_km": s.nearest_fault_km,
-                    "capable_within_8km": s.capable_within_8km,
+                    "nearest_fault_activity_class": s.nearest_fault_activity_class,
                     "source": s.source,
                     "error": s.error,
                     "elapsed_ms": s.elapsed_ms,

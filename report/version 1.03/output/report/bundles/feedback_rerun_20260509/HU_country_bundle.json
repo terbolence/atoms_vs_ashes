@@ -1,0 +1,1037 @@
+{
+  "metadata": {
+    "bundle_schema": "country_bundle.v1",
+    "created_at": "2026-05-23T17:27:50.230819+00:00",
+    "country_code": "HU",
+    "smr_key": "nuscale_voygr6",
+    "smr_label": "NuScale VOYGR-6",
+    "analytics_run_id": "score-c2a90942",
+    "sensitivity_run_id": "nat-sens-b1a62885",
+    "sensitivity_stamp": "20260523",
+    "claim_boundary": "Screening-grade Stage 1-2 support only."
+  },
+  "provenance": {
+    "nh02_e1_threshold_km": 5.0
+  },
+  "totals": {
+    "n_sites": 11,
+    "n_full_pass": 1,
+    "n_avoidance_flag": 10,
+    "n_hard_fail": 0,
+    "n_with_score": 11,
+    "national_band_counts": {
+      "A": 1,
+      "D": 2,
+      "H": 8
+    }
+  },
+  "sites": [
+    {
+      "national_rank": 1,
+      "site_id": "997474f6-9bfd-4abd-a2ac-d8618db8f0b4",
+      "name": "Mohacs power station",
+      "country_code": "HU",
+      "subnational_unit": "Southern Transdanubia",
+      "local_area": null,
+      "latitude": 45.99593,
+      "longitude": 18.67985,
+      "installed_capacity_mw": 1200.0,
+      "site_area_ha": 30.16,
+      "favourable_area_ha": 68.64,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": true,
+      "composite_score": 7.584,
+      "composite_score_low": 6.705,
+      "composite_score_high": 8.075,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "A",
+      "national_top10pct_hit_rate": 1.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 2,
+      "site_id": "f7dcdb63-26e6-44cd-b440-ec14fe507d90",
+      "name": "Borsod power station",
+      "country_code": "HU",
+      "subnational_unit": "Northern Hungary",
+      "local_area": null,
+      "latitude": 47.904814,
+      "longitude": 21.055306,
+      "installed_capacity_mw": 420.0,
+      "site_area_ha": 66.01,
+      "favourable_area_ha": 168.74,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.941,
+      "composite_score_low": 6.184,
+      "composite_score_high": 7.381,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 3,
+      "site_id": "059b3ad4-7196-4e6b-b169-8605ceeed841",
+      "name": "Torony power station",
+      "country_code": "HU",
+      "subnational_unit": "Western Transdanubia",
+      "local_area": null,
+      "latitude": 47.23626,
+      "longitude": 16.53706,
+      "installed_capacity_mw": 600.0,
+      "site_area_ha": 135.32,
+      "favourable_area_ha": 89.3,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.872,
+      "composite_score_low": 5.972,
+      "composite_score_high": 7.336,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 4,
+      "site_id": "5de5f907-98e7-42d3-a7dd-cb65f839697b",
+      "name": "Tiszapalkonya power station",
+      "country_code": "HU",
+      "subnational_unit": "Northern Hungary",
+      "local_area": null,
+      "latitude": 47.916826,
+      "longitude": 21.075933,
+      "installed_capacity_mw": 265.0,
+      "site_area_ha": 18.77,
+      "favourable_area_ha": 98.06,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.778,
+      "composite_score_low": 6.053,
+      "composite_score_high": 7.319,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 5,
+      "site_id": "903d6b94-cd9d-4c32-b7e2-4bbfbee929df",
+      "name": "Matraterenye power station",
+      "country_code": "HU",
+      "subnational_unit": "Northern Hungary",
+      "local_area": null,
+      "latitude": 48.016667,
+      "longitude": 19.95,
+      "installed_capacity_mw": 49.9,
+      "site_area_ha": 98.54,
+      "favourable_area_ha": 98.54,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.641,
+      "composite_score_low": 5.795,
+      "composite_score_high": 7.158,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 6,
+      "site_id": "28b36531-865d-42ae-afb3-b8bad86f7014",
+      "name": "Matra power station",
+      "country_code": "HU",
+      "subnational_unit": "Northern Hungary",
+      "local_area": null,
+      "latitude": 47.79027,
+      "longitude": 20.06358,
+      "installed_capacity_mw": 1384.0,
+      "site_area_ha": 244.0,
+      "favourable_area_ha": 108.83,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.23,
+      "composite_score_low": 5.48,
+      "composite_score_high": 6.691,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 7,
+      "site_id": "651839d3-4e8f-4214-89aa-1f96ea221121",
+      "name": "Oroszlány power station",
+      "country_code": "HU",
+      "subnational_unit": "Central Transdanubia",
+      "local_area": null,
+      "latitude": 47.501741,
+      "longitude": 18.271075,
+      "installed_capacity_mw": 250.0,
+      "site_area_ha": 61.0,
+      "favourable_area_ha": 150.46,
+      "site_status": "mothballed",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.967,
+      "composite_score_low": 5.278,
+      "composite_score_high": 6.48,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 8,
+      "site_id": "ef325d90-6d2d-4f8f-89f2-3bc98beb149b",
+      "name": "Bakony power station",
+      "country_code": "HU",
+      "subnational_unit": "Central Transdanubia",
+      "local_area": null,
+      "latitude": 47.0956,
+      "longitude": 17.558444,
+      "installed_capacity_mw": 60.0,
+      "site_area_ha": 6.0,
+      "favourable_area_ha": 129.35,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.73,
+      "composite_score_low": 5.096,
+      "composite_score_high": 6.191,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 9,
+      "site_id": "f2b3a729-602a-4b6b-acc9-004244f2e556",
+      "name": "Banhida-II power station",
+      "country_code": "HU",
+      "subnational_unit": "Central Transdanubia",
+      "local_area": null,
+      "latitude": 47.571057,
+      "longitude": 18.365557,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 11.0,
+      "favourable_area_ha": 175.12,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.418,
+      "composite_score_low": 4.856,
+      "composite_score_high": 5.954,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 10,
+      "site_id": "e1649639-2e45-4226-9c7a-783d2dcb6724",
+      "name": "Pecs power station",
+      "country_code": "HU",
+      "subnational_unit": "Southern Transdanubia",
+      "local_area": null,
+      "latitude": 46.064103,
+      "longitude": 18.263048,
+      "installed_capacity_mw": 60.0,
+      "site_area_ha": 6.5,
+      "favourable_area_ha": 169.93,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.411,
+      "composite_score_low": 4.851,
+      "composite_score_high": 5.977,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 11,
+      "site_id": "34d88ce8-d49c-4b19-af2d-6efcb1b72149",
+      "name": "Mecsek Hills power station",
+      "country_code": "HU",
+      "subnational_unit": "Southern Transdanubia",
+      "local_area": null,
+      "latitude": 46.1,
+      "longitude": 18.083333,
+      "installed_capacity_mw": 400.0,
+      "site_area_ha": 3.54,
+      "favourable_area_ha": 2.39,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.405,
+      "composite_score_low": 4.846,
+      "composite_score_high": 5.99,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    }
+  ],
+  "avoidance_pareto": [
+    {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites": 8,
+      "share_of_exclusionary_pass": 0.7273
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites": 6,
+      "share_of_exclusionary_pass": 0.5455
+    },
+    {
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "n_sites": 5,
+      "share_of_exclusionary_pass": 0.4545
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites": 4,
+      "share_of_exclusionary_pass": 0.3636
+    },
+    {
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites": 4,
+      "share_of_exclusionary_pass": 0.3636
+    }
+  ],
+  "exclusionary_failure_pareto": [],
+  "family_normalised_score_means": {
+    "EP": {
+      "mean_normalised_score": 5.9044,
+      "n_sites": 11
+    },
+    "HI": {
+      "mean_normalised_score": 5.8873,
+      "n_sites": 11
+    },
+    "NH": {
+      "mean_normalised_score": 7.2188,
+      "n_sites": 11
+    },
+    "NS": {
+      "mean_normalised_score": 5.5475,
+      "n_sites": 11
+    },
+    "RI": {
+      "mean_normalised_score": 6.1262,
+      "n_sites": 11
+    }
+  },
+  "ranking_score_distribution": [
+    {
+      "criterion_id": "HI-06",
+      "criterion_name": "Military Installations",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 1.14,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 3.5
+    },
+    {
+      "criterion_id": "HI-07",
+      "criterion_name": "Electromagnetic Interference",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 1.5,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 1.5
+    },
+    {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 2.95,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NS-08",
+      "criterion_name": "Ecological Sensitivity",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 2.95,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "BF-02",
+      "criterion_name": "Land Area Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 3.14,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "RI-02",
+      "criterion_name": "Surface Water Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 3.68,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 3.82,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "EP-02",
+      "criterion_name": "Evacuation Routes",
+      "category": "emergency_planning",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 3.86,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "RI-04",
+      "criterion_name": "Population Density at EPZ Radii",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 4.41,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NS-12",
+      "criterion_name": "Regulatory/Political Environment",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "RI-01",
+      "criterion_name": "Atmospheric Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-13",
+      "criterion_name": "Construction Logistics",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-10",
+      "criterion_name": "Workforce Availability",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-06",
+      "criterion_name": "Existing Infrastructure",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NH-06",
+      "criterion_name": "Geotechnical: Foundation",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.32,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "BF-01",
+      "criterion_name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "RI-03",
+      "criterion_name": "Groundwater Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.5,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NH-03",
+      "criterion_name": "Geotechnical: Liquefaction",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.86,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.86,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "EP-04",
+      "criterion_name": "Special Populations",
+      "category": "emergency_planning",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.86,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 5.86,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-03",
+      "criterion_name": "Transport Access",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 9.0
+    },
+    {
+      "criterion_id": "NH-05",
+      "criterion_name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.05,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.59,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-12",
+      "criterion_name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.59,
+      "min_score_0_10": 6.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NS-04",
+      "criterion_name": "Site Topography",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.59,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-01",
+      "criterion_name": "Cooling Water Availability",
+      "category": "non_safety",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.73,
+      "min_score_0_10": 4.0,
+      "max_score_0_10": 10.0
+    },
+    {
+      "criterion_id": "NH-14",
+      "criterion_name": "Combined Hazards",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.77,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 6.95,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-04",
+      "criterion_name": "Geotechnical: Slope Stability",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 7.14,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-01",
+      "criterion_name": "Seismic: Ground Motion",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 7.14,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NH-09",
+      "criterion_name": "River Flooding",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 7.5,
+      "min_score_0_10": 7.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-06",
+      "criterion_name": "Population Projections",
+      "category": "radiological_impact",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 7.86,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-10",
+      "criterion_name": "Extreme Winds",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 8.05,
+      "min_score_0_10": 7.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-11",
+      "criterion_name": "Extreme Precipitation",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 8.18,
+      "min_score_0_10": 8.0,
+      "max_score_0_10": 10.0
+    },
+    {
+      "criterion_id": "EP-03",
+      "criterion_name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 8.41,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-08",
+      "criterion_name": "Coastal Flooding",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-02",
+      "criterion_name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-07",
+      "criterion_name": "Volcanism",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-04",
+      "criterion_name": "External Fires",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-02",
+      "criterion_name": "Seismic: Surface Rupture",
+      "category": "natural_hazard",
+      "n_sites_scored": 11,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    }
+  ],
+  "criteria_lookup": {
+    "RI-05": {
+      "criterion_id": "RI-05",
+      "name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "NS-05": {
+      "criterion_id": "NS-05",
+      "name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "phase": "ranking"
+    },
+    "NH-06": {
+      "criterion_id": "NH-06",
+      "name": "Geotechnical: Foundation",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-10": {
+      "criterion_id": "NH-10",
+      "name": "Extreme Winds",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-11": {
+      "criterion_id": "NH-11",
+      "name": "Extreme Precipitation",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-12": {
+      "criterion_id": "NH-12",
+      "name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-13": {
+      "criterion_id": "NH-13",
+      "name": "Forest/Wildfire",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-14": {
+      "criterion_id": "NH-14",
+      "name": "Combined Hazards",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "HI-03": {
+      "criterion_id": "HI-03",
+      "name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-04": {
+      "criterion_id": "HI-04",
+      "name": "External Fires",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-05": {
+      "criterion_id": "HI-05",
+      "name": "Transport Hazards",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "HI-07": {
+      "criterion_id": "HI-07",
+      "name": "Electromagnetic Interference",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "HI-08": {
+      "criterion_id": "HI-08",
+      "name": "Other Nuclear Installations",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "RI-01": {
+      "criterion_id": "RI-01",
+      "name": "Atmospheric Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-02": {
+      "criterion_id": "RI-02",
+      "name": "Surface Water Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-03": {
+      "criterion_id": "RI-03",
+      "name": "Groundwater Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-06": {
+      "criterion_id": "RI-06",
+      "name": "Population Projections",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "EP-02": {
+      "criterion_id": "EP-02",
+      "name": "Evacuation Routes",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-03": {
+      "criterion_id": "EP-03",
+      "name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-04": {
+      "criterion_id": "EP-04",
+      "name": "Special Populations",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-05": {
+      "criterion_id": "EP-05",
+      "name": "Concurrent Hazard Impact",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "NS-01": {
+      "criterion_id": "NS-01",
+      "name": "Cooling Water Availability",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-02": {
+      "criterion_id": "NS-02",
+      "name": "Grid Connection",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-03": {
+      "criterion_id": "NS-03",
+      "name": "Transport Access",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-04": {
+      "criterion_id": "NS-04",
+      "name": "Site Topography",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-06": {
+      "criterion_id": "NS-06",
+      "name": "Existing Infrastructure",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-07": {
+      "criterion_id": "NS-07",
+      "name": "Environmental Impact (non-rad)",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-09": {
+      "criterion_id": "NS-09",
+      "name": "Socioeconomic Impact",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-10": {
+      "criterion_id": "NS-10",
+      "name": "Workforce Availability",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-11": {
+      "criterion_id": "NS-11",
+      "name": "Coal-to-Nuclear Synergies",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-12": {
+      "criterion_id": "NS-12",
+      "name": "Regulatory/Political Environment",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-13": {
+      "criterion_id": "NS-13",
+      "name": "Construction Logistics",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NH-05b": {
+      "criterion_id": "NH-05b",
+      "name": "Geotechnical: Subsidence & Collapse",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "BF-01": {
+      "criterion_id": "BF-01",
+      "name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "phase": "screening"
+    },
+    "BF-02": {
+      "criterion_id": "BF-02",
+      "name": "Land Area Basic Filter",
+      "category": "basic_filter",
+      "phase": "screening"
+    },
+    "NH-01": {
+      "criterion_id": "NH-01",
+      "name": "Seismic: Ground Motion",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-02": {
+      "criterion_id": "NH-02",
+      "name": "Seismic: Surface Rupture",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-03": {
+      "criterion_id": "NH-03",
+      "name": "Geotechnical: Liquefaction",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-04": {
+      "criterion_id": "NH-04",
+      "name": "Geotechnical: Slope Stability",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-05": {
+      "criterion_id": "NH-05",
+      "name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-07": {
+      "criterion_id": "NH-07",
+      "name": "Volcanism",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-08": {
+      "criterion_id": "NH-08",
+      "name": "Coastal Flooding",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-09": {
+      "criterion_id": "NH-09",
+      "name": "River Flooding",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "HI-01": {
+      "criterion_id": "HI-01",
+      "name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-02": {
+      "criterion_id": "HI-02",
+      "name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-06": {
+      "criterion_id": "HI-06",
+      "name": "Military Installations",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "RI-04": {
+      "criterion_id": "RI-04",
+      "name": "Population Density at EPZ Radii",
+      "category": "radiological_impact",
+      "phase": "screening"
+    },
+    "EP-01": {
+      "criterion_id": "EP-01",
+      "name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
+      "phase": "screening"
+    },
+    "NS-08": {
+      "criterion_id": "NS-08",
+      "name": "Ecological Sensitivity",
+      "category": "non_safety",
+      "phase": "screening"
+    }
+  },
+  "limitations_for_llm": [
+    "Treat bands and rankings as screening-grade outputs, not licensing findings.",
+    "Avoidance-flag sites are not discarded; they require Stage 3 follow-up.",
+    "Pareto counts are conditional: avoidance is conditional on exclusionary pass."
+  ]
+}

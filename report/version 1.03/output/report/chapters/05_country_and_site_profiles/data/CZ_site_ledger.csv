@@ -1,0 +1,30 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Tusimice power station,True,False,7.095,6.144,7.691,A,0.9167,73.53,low,800.0,50.381868,13.339973
+2,Prunerov power station,True,False,7.016,6.083,7.559,C,0.6667,73.53,low,2240.0,50.415122,13.255958
+3,Chvaletice power station,True,False,7.009,6.24,7.594,D,0.3333,76.47,low,820.0,50.028062,15.450504
+4,Pocerady power station,True,False,6.931,6.018,7.526,D,0.0,73.53,low,1000.0,50.4267,13.6747
+5,Ledvice power station,True,False,6.916,6.164,7.512,D,0.0,76.47,low,990.0,50.57658,13.779761
+6,Melnik power station,True,False,6.916,6.164,7.531,D,0.0833,76.47,low,1070.0,50.413132,14.41582
+7,Plana Nad Luznici power station,True,False,6.773,5.896,7.309,D,0.0,73.53,low,46.5,49.368459,14.702139
+8,Mondi Steti power station,True,False,6.716,6.003,7.331,D,0.0,76.47,low,94.0,50.460918,14.375854
+9,Hodonin power station,True,False,6.672,5.967,7.181,H,0.0,76.47,low,107.0,48.847759,17.120129
+10,Prerov power station,True,False,6.648,5.801,7.145,H,0.0,73.53,low,41.0,49.445061,17.428525
+11,Trinec-E3 power station,True,False,6.51,5.694,7.046,H,0.0,73.53,low,32.0,49.677778,18.672778
+12,Opatovice power station,True,False,6.464,5.659,7.059,H,0.0,73.53,low,360.0,50.12283,15.790765
+13,Sko-Energo power station,True,False,6.438,5.639,6.98,H,0.0,73.53,low,70.0,50.41721,14.93293
+14,Tisova power station,True,False,6.345,5.568,6.888,H,0.0,73.53,low,276.0,50.149402,12.610338
+15,Vresova TPS power station,True,False,6.339,5.563,6.954,H,0.0,73.53,low,400.0,50.255816,12.695936
+16,Zlin power station,True,False,6.214,5.467,6.73,H,0.0,73.53,low,30.0,49.225,17.654
+17,Porici power station,True,False,6.201,5.457,6.724,H,0.0,73.53,low,165.0,50.572812,15.963992
+18,Komorany power station,True,False,6.153,5.548,6.7,H,0.0,76.47,low,197.0,50.522288,13.572102
+19,Pribram power station,True,False,6.089,5.371,6.572,H,0.0,73.53,low,38.0,49.696,14.003
+20,Detmarovice power station,True,False,6.016,5.437,6.506,H,0.0,76.47,low,800.0,49.907184,18.464559
+21,Plzen CHP power station,True,False,6.016,5.316,6.533,H,0.0,73.53,low,137.0,49.754333,13.398754
+22,Plzenska energetika ELU III power station,True,False,5.951,5.265,6.414,H,0.0,73.53,low,65.0,49.739529,13.345461
+23,Mostecka Power Station,True,False,5.911,5.235,6.487,H,0.0,73.53,low,1200.0,50.503,13.63617
+24,Malesice power station,True,False,5.809,5.27,6.344,H,0.0,76.47,low,110.0,50.084967,14.525273
+25,Olomouc power station,True,False,5.74,5.104,6.257,H,0.0,73.53,low,50.0,49.570879,17.304121
+26,Kladno power station,True,False,5.703,5.184,6.319,H,0.0,76.47,low,405.6,50.1535,14.12858
+27,Marianske Hory power station,True,False,5.701,5.073,6.145,H,0.0,73.53,low,30.0,49.86,18.27
+28,Trebovice power station,True,False,5.622,5.013,6.066,H,0.0,73.53,low,177.0,49.831905,18.211305
+29,Karvina power station,True,False,5.378,4.922,5.9,H,0.0,76.47,low,125.0,49.823463,18.480287

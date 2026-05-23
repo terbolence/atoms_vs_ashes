@@ -169,10 +169,14 @@ def main() -> None:
             if s.nearest_fault_km is not None
             else "N/A"
         )
-        within = f"within_8km={'YES' if s.capable_within_8km else 'no'}" if s.capable_within_8km is not None else ""
+        activity = (
+            f"activity={s.nearest_fault_activity_class}"
+            if s.nearest_fault_activity_class
+            else ""
+        )
         err = f" | ERROR: {s.error}" if s.error else ""
         print(
-            f"  {icon} {s.site_name[:45]:<45} | {nearest:>9} | {within:<17} | {s.elapsed_ms:>5} ms{err}",
+            f"  {icon} {s.site_name[:45]:<45} | {nearest:>9} | {activity:<24} | {s.elapsed_ms:>5} ms{err}",
             flush=True,
         )
 
@@ -184,8 +188,17 @@ def main() -> None:
         print(f"  Max:    {max(distances):.1f} km", flush=True)
         print(f"  Mean:   {sum(distances)/len(distances):.1f} km", flush=True)
         print(f"  Median: {sorted(distances)[len(distances)//2]:.1f} km", flush=True)
-        within_8 = sum(1 for s in result.per_site if s.capable_within_8km)
-        print(f"  Sites with capable fault within 8 km: {within_8}", flush=True)
+        capable_sites = sum(
+            1 for s in result.per_site
+            if s.nearest_fault_activity_class
+            and s.nearest_fault_activity_class.strip().lower()
+            in {"active", "possibly active"}
+        )
+        print(
+            f"  Sites with at least one SSG-9-capable fault detected "
+            f"in the {50}-km connector window: {capable_sites}",
+            flush=True,
+        )
 
     connector.close()
     print(f"\n[{_ts()}] Done.", flush=True)

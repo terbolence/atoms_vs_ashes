@@ -28,7 +28,9 @@ def _patch_helpers(monkeypatch: pytest.MonkeyPatch):
 
     monkeypatch.setattr(spm, "_full_name", lambda cid: f"Test Criterion {cid}")
     monkeypatch.setattr(
-        spm, "evidence_for", lambda cid, families: {"signals": []}
+        spm,
+        "evidence_for",
+        lambda cid, families, *, provenance=None: {"signals": []},
     )
     monkeypatch.setattr(spm, "quality_for", lambda cid, families: "low")
     monkeypatch.setattr(spm, "_sanitize_quality", lambda q: q or "n/a")

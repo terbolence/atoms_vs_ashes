@@ -165,13 +165,20 @@ class TestHi01V2BandsFire:
         assert result.matched_band.score_range == (9.0, 10.0)
 
     def test_small_or_ga_airport_with_no_military_lands_favourable(self, hi01) -> None:
-        """Only a small / GA / heliport feature nearby + no military airbase."""
+        """Phase 1C of v1.03 (reviewer #183): only a small / GA / heliport
+        feature in the OurAirports search radius means the connector's
+        scoring scope is empty (the small airfield is preserved as
+        informational only via ``nearest_small_airport_km`` /
+        ``nearest_any_airport_km``). With ``nearest_airport_class is None``
+        the favourable [9,10] sentinel band triggers.
+        """
         ctx = {
-            "nearest_airport_km": 12.0,
-            "nearest_airport_class": "small_airport",
-            "nearest_light_airport_km": 12.0,
+            "nearest_airport_km": None,
+            "nearest_airport_class": None,
+            "nearest_small_airport_km": 12.0,
+            "nearest_any_airport_km": 12.0,
             "nearest_major_airport_km": None,
-            "flight_path_distance_km": 6.0,
+            "flight_path_distance_km": None,
             "nearest_military_airfield_km": None,
         }
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
@@ -319,20 +326,27 @@ class TestHi01AvoidanceDecisionsABC:
         assert result.matched_band is not None
         assert result.matched_band.score_range == (3.0, 4.0)
 
-    def test_a1_a4_no_longer_share_favourable_small_airport_band(self, hi01) -> None:
+    def test_small_airfield_proximity_no_longer_drives_avoidance(self, hi01) -> None:
+        """Phase 1C of v1.03 (reviewer #183): a small / GA / heliport
+        airfield close to the site no longer fires A1 (the verdict is
+        retired) nor any other avoidance penalty. Only the flight-path
+        proxy from a large / medium airport can still trigger A4, and
+        only if a major / military airport is within the relevant
+        threshold do A2 / A3 fire.
+        """
         ctx = {
-            "nearest_airport_km": 7.3,
-            "nearest_airport_type": "small_airport",
-            "nearest_airport_class": "small_airport",
-            "nearest_light_airport_km": 7.3,
+            "nearest_airport_km": None,
+            "nearest_airport_class": None,
+            "nearest_small_airport_km": 7.3,
+            "nearest_any_airport_km": 7.3,
             "nearest_major_airport_km": 34.2,
             "nearest_military_airfield_km": None,
-            "flight_path_distance_km": 3.65,
+            "flight_path_distance_km": None,
             "under_flight_path": False,
         }
         verdicts = self._verdicts_by_code(hi01, ctx)
-        assert verdicts["A1"].verdict == "fail"
-        assert verdicts["A4"].verdict == "fail"
+        assert "A1" not in verdicts
+        assert verdicts.get("A2") is None or verdicts["A2"].verdict != "fail"
         result = evaluate_criterion_value(hi01, ctx, quality="medium")
         assert result.matched_band is not None
-        assert result.matched_band.score_range == (3.0, 4.0)
+        assert result.matched_band.score_range == (9.0, 10.0)

@@ -1,0 +1,1348 @@
+{
+  "metadata": {
+    "bundle_schema": "country_bundle.v1",
+    "created_at": "2026-05-23T17:27:50.379274+00:00",
+    "country_code": "RO",
+    "smr_key": "nuscale_voygr6",
+    "smr_label": "NuScale VOYGR-6",
+    "analytics_run_id": "score-c2a90942",
+    "sensitivity_run_id": "nat-sens-b1a62885",
+    "sensitivity_stamp": "20260523",
+    "claim_boundary": "Screening-grade Stage 1-2 support only."
+  },
+  "provenance": {
+    "nh02_e1_threshold_km": 5.0
+  },
+  "totals": {
+    "n_sites": 23,
+    "n_full_pass": 3,
+    "n_avoidance_flag": 19,
+    "n_hard_fail": 1,
+    "n_with_score": 22,
+    "national_band_counts": {
+      "A": 1,
+      "B": 1,
+      "D": 4,
+      "G": 1,
+      "H": 15,
+      "?": 1
+    }
+  },
+  "sites": [
+    {
+      "national_rank": 1,
+      "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+      "name": "Turceni power station",
+      "country_code": "RO",
+      "subnational_unit": "Gorj",
+      "local_area": null,
+      "latitude": 44.669722,
+      "longitude": 23.407778,
+      "installed_capacity_mw": 2640.0,
+      "site_area_ha": 173.0,
+      "favourable_area_ha": 235.12,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": true,
+      "composite_score": 7.816,
+      "composite_score_low": 6.891,
+      "composite_score_high": 8.256,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "A",
+      "national_top10pct_hit_rate": 1.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 2,
+      "site_id": "958e4d82-853a-41f1-a442-94b4c4314221",
+      "name": "Rovinari power station",
+      "country_code": "RO",
+      "subnational_unit": "Gorj",
+      "local_area": null,
+      "latitude": 44.910633,
+      "longitude": 23.134754,
+      "installed_capacity_mw": 1920.0,
+      "site_area_ha": 150.0,
+      "favourable_area_ha": 128.18,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": true,
+      "composite_score": 7.159,
+      "composite_score_low": 6.361,
+      "composite_score_high": 7.7,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "B",
+      "national_top10pct_hit_rate": 1.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 3,
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "name": "Iernut power station",
+      "country_code": "RO",
+      "subnational_unit": "Mureș",
+      "local_area": "Iernut",
+      "latitude": 46.4677,
+      "longitude": 24.1833,
+      "installed_capacity_mw": 800.0,
+      "site_area_ha": 50.0,
+      "favourable_area_ha": null,
+      "site_status": "construction",
+      "passed_exclusionary": true,
+      "passed_avoidance": true,
+      "composite_score": 7.114,
+      "composite_score_low": 5.285,
+      "composite_score_high": 7.555,
+      "criteria_coverage": 52.94,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 4,
+      "site_id": "52a7babe-313f-493b-86b9-bd0c4aece4c3",
+      "name": "Mintia-Deva power station",
+      "country_code": "RO",
+      "subnational_unit": "Hunedoara",
+      "local_area": null,
+      "latitude": 45.912791,
+      "longitude": 22.826129,
+      "installed_capacity_mw": 1285.0,
+      "site_area_ha": 329.78,
+      "favourable_area_ha": 131.99,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 7.016,
+      "composite_score_low": 6.245,
+      "composite_score_high": 7.487,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 5,
+      "site_id": "29836b52-a882-4921-95a7-6417e636d9a2",
+      "name": "Braila power station",
+      "country_code": "RO",
+      "subnational_unit": "Braila",
+      "local_area": null,
+      "latitude": 45.165033,
+      "longitude": 27.923383,
+      "installed_capacity_mw": 850.0,
+      "site_area_ha": 41.78,
+      "favourable_area_ha": 179.76,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.784,
+      "composite_score_low": 6.058,
+      "composite_score_high": 7.275,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 6,
+      "site_id": "825dc024-9a53-4237-bf59-cbe0af0cf87d",
+      "name": "Govora power station",
+      "country_code": "RO",
+      "subnational_unit": "Vâlcea",
+      "local_area": null,
+      "latitude": 45.039047,
+      "longitude": 24.287572,
+      "installed_capacity_mw": 200.0,
+      "site_area_ha": 28.15,
+      "favourable_area_ha": 278.91,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.703,
+      "composite_score_low": 5.992,
+      "composite_score_high": 7.125,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 7,
+      "site_id": "693d9b73-f9fc-4502-9b94-be020c5d21fb",
+      "name": "Suceava power station",
+      "country_code": "RO",
+      "subnational_unit": "Suceava",
+      "local_area": null,
+      "latitude": 47.651873,
+      "longitude": 26.298268,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 75.56,
+      "favourable_area_ha": 247.28,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.653,
+      "composite_score_low": 5.952,
+      "composite_score_high": 7.144,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "G",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 8,
+      "site_id": "c3790475-3d3b-4e2b-92ae-24503fe03e6b",
+      "name": "Romag Termo power station",
+      "country_code": "RO",
+      "subnational_unit": "Mehedinti",
+      "local_area": null,
+      "latitude": 44.677808,
+      "longitude": 22.685995,
+      "installed_capacity_mw": 1065.0,
+      "site_area_ha": 80.94,
+      "favourable_area_ha": 169.31,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.491,
+      "composite_score_low": 5.821,
+      "composite_score_high": 6.962,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 9,
+      "site_id": "aff5ffe6-fe7a-4de7-afad-9d4645a64cd9",
+      "name": "Doicesti power station",
+      "country_code": "RO",
+      "subnational_unit": "Dâmboviţa",
+      "local_area": null,
+      "latitude": 45.002896,
+      "longitude": 25.397236,
+      "installed_capacity_mw": 1400.0,
+      "site_area_ha": 40.0,
+      "favourable_area_ha": 49.32,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.478,
+      "composite_score_low": 5.811,
+      "composite_score_high": 6.95,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 10,
+      "site_id": "9825e28e-fd6e-460d-9caf-0342563f9060",
+      "name": "Paroseni power station",
+      "country_code": "RO",
+      "subnational_unit": "Hunedoara",
+      "local_area": null,
+      "latitude": 45.366101,
+      "longitude": 23.261351,
+      "installed_capacity_mw": 350.0,
+      "site_area_ha": 82.67,
+      "favourable_area_ha": 87.56,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.441,
+      "composite_score_low": 5.78,
+      "composite_score_high": 6.912,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 11,
+      "site_id": "6aed2eac-1c97-40c5-b842-fb15fd510f35",
+      "name": "Giurgiu power station",
+      "country_code": "RO",
+      "subnational_unit": "Giurgiu",
+      "local_area": null,
+      "latitude": 43.879766,
+      "longitude": 25.926778,
+      "installed_capacity_mw": 150.0,
+      "site_area_ha": 140.0,
+      "favourable_area_ha": 138.82,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.266,
+      "composite_score_low": 5.639,
+      "composite_score_high": 6.806,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 12,
+      "site_id": "18ecb024-ee4f-4045-8254-5e95d61dea8c",
+      "name": "FPCU Feldioara",
+      "country_code": "RO",
+      "subnational_unit": "Brașov",
+      "local_area": null,
+      "latitude": 45.7917,
+      "longitude": 25.5889,
+      "installed_capacity_mw": 160.0,
+      "site_area_ha": 345.0,
+      "favourable_area_ha": 314.1,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.197,
+      "composite_score_low": 5.583,
+      "composite_score_high": 6.662,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 13,
+      "site_id": "e073b3f8-4312-4d34-b322-6289a3121af1",
+      "name": "Isalnita power station",
+      "country_code": "RO",
+      "subnational_unit": "Dolj",
+      "local_area": null,
+      "latitude": 44.38763,
+      "longitude": 23.718195,
+      "installed_capacity_mw": 1130.0,
+      "site_area_ha": 159.43,
+      "favourable_area_ha": 222.36,
+      "site_status": "mothballed",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.174,
+      "composite_score_low": 5.437,
+      "composite_score_high": 6.638,
+      "criteria_coverage": 73.53,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 14,
+      "site_id": "a4fa3246-27d6-4740-898c-bdf9dadcb88c",
+      "name": "Craiova II power station",
+      "country_code": "RO",
+      "subnational_unit": null,
+      "local_area": null,
+      "latitude": 44.34294,
+      "longitude": 23.81076,
+      "installed_capacity_mw": 450.0,
+      "site_area_ha": 120.84,
+      "favourable_area_ha": 134.75,
+      "site_status": "operating",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.078,
+      "composite_score_low": 5.487,
+      "composite_score_high": 6.569,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 15,
+      "site_id": "e43af28e-a3d3-4047-a9cf-f3b0990754b4",
+      "name": "Târgu Jiu Thermal Plant",
+      "country_code": "RO",
+      "subnational_unit": "Gorj",
+      "local_area": null,
+      "latitude": 45.034167,
+      "longitude": 23.274722,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 9.0,
+      "favourable_area_ha": 7.47,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 6.041,
+      "composite_score_low": 5.457,
+      "composite_score_high": 6.512,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 16,
+      "site_id": "d498ded8-449c-4672-8bb9-0ed6c8fef775",
+      "name": "Slatina power station",
+      "country_code": "RO",
+      "subnational_unit": "Suceava",
+      "local_area": null,
+      "latitude": 44.429722,
+      "longitude": 24.364167,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 11.51,
+      "favourable_area_ha": 7.06,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.991,
+      "composite_score_low": 5.417,
+      "composite_score_high": 6.481,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 17,
+      "site_id": "dac2a974-a2de-46c5-b581-03985a9ae7d0",
+      "name": "Bacau CHP power station",
+      "country_code": "RO",
+      "subnational_unit": "Bacau",
+      "local_area": null,
+      "latitude": 46.530524,
+      "longitude": 26.940874,
+      "installed_capacity_mw": 60.0,
+      "site_area_ha": 4.8,
+      "favourable_area_ha": 215.69,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.978,
+      "composite_score_low": 5.407,
+      "composite_score_high": 6.419,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 18,
+      "site_id": "8781d874-5923-4795-9c9f-b2a6c709025a",
+      "name": "Galati Power Station",
+      "country_code": "RO",
+      "subnational_unit": "Galati",
+      "local_area": null,
+      "latitude": 45.423333,
+      "longitude": 28.0425,
+      "installed_capacity_mw": 800.0,
+      "site_area_ha": 22.3,
+      "favourable_area_ha": 0.0,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.941,
+      "composite_score_low": 5.376,
+      "composite_score_high": 6.481,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 19,
+      "site_id": "5a33e5f0-6d86-4eab-adea-6c6bad7f3f45",
+      "name": "Arad power station",
+      "country_code": "RO",
+      "subnational_unit": "Arad",
+      "local_area": null,
+      "latitude": 46.222424,
+      "longitude": 21.328771,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 70.86,
+      "favourable_area_ha": 295.27,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.903,
+      "composite_score_low": 5.346,
+      "composite_score_high": 6.444,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 20,
+      "site_id": "3bef37a3-239e-498d-a160-77452a6a9b79",
+      "name": "Bucharest North East power station",
+      "country_code": "RO",
+      "subnational_unit": "Bucharest",
+      "local_area": null,
+      "latitude": 44.4325,
+      "longitude": 26.103889,
+      "installed_capacity_mw": 400.0,
+      "site_area_ha": 1.9,
+      "favourable_area_ha": 0.0,
+      "site_status": "cancelled",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.463,
+      "composite_score_low": 4.987,
+      "composite_score_high": 5.856,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 21,
+      "site_id": "6c428b2a-ad09-448b-b24c-22465929d69c",
+      "name": "Oradea power station",
+      "country_code": "RO",
+      "subnational_unit": "Bihor",
+      "local_area": null,
+      "latitude": 47.084677,
+      "longitude": 21.892868,
+      "installed_capacity_mw": 100.0,
+      "site_area_ha": 11.23,
+      "favourable_area_ha": 279.19,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.428,
+      "composite_score_low": 4.962,
+      "composite_score_high": 5.969,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": 22,
+      "site_id": "1d8be6d0-f3a5-4b32-9d46-3526289731f8",
+      "name": "Iasi-2 power station",
+      "country_code": "RO",
+      "subnational_unit": "Iaşi",
+      "local_area": null,
+      "latitude": 47.147296,
+      "longitude": 27.717157,
+      "installed_capacity_mw": 110.0,
+      "site_area_ha": 64.11,
+      "favourable_area_ha": 245.0,
+      "site_status": "retired",
+      "passed_exclusionary": true,
+      "passed_avoidance": false,
+      "composite_score": 5.391,
+      "composite_score_low": 4.8,
+      "composite_score_high": 5.912,
+      "criteria_coverage": 76.47,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "national_top10pct_hit_rate": 0.0,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    },
+    {
+      "national_rank": null,
+      "site_id": "729f8d17-57c0-4d9a-adab-4b612d4abde5",
+      "name": "Brasov power station",
+      "country_code": "RO",
+      "subnational_unit": "Brașov",
+      "local_area": null,
+      "latitude": 45.662296,
+      "longitude": 25.646845,
+      "installed_capacity_mw": 130.0,
+      "site_area_ha": 50.0,
+      "favourable_area_ha": 236.5,
+      "site_status": "retired",
+      "passed_exclusionary": false,
+      "passed_avoidance": false,
+      "composite_score": null,
+      "composite_score_low": null,
+      "composite_score_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": null,
+      "national_top10pct_hit_rate": null,
+      "regional_band": null,
+      "regional_top10pct_hit_rate": null
+    }
+  ],
+  "avoidance_pareto": [
+    {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites": 13,
+      "share_of_exclusionary_pass": 0.5909
+    },
+    {
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites": 13,
+      "share_of_exclusionary_pass": 0.5909
+    },
+    {
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "n_sites": 11,
+      "share_of_exclusionary_pass": 0.5
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites": 5,
+      "share_of_exclusionary_pass": 0.2273
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites": 5,
+      "share_of_exclusionary_pass": 0.2273
+    }
+  ],
+  "exclusionary_failure_pareto": [
+    {
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
+      "n_sites": 1,
+      "share_of_country": 0.0435
+    }
+  ],
+  "family_normalised_score_means": {
+    "EP": {
+      "mean_normalised_score": 5.3165,
+      "n_sites": 22
+    },
+    "HI": {
+      "mean_normalised_score": 6.2486,
+      "n_sites": 22
+    },
+    "NH": {
+      "mean_normalised_score": 7.3142,
+      "n_sites": 22
+    },
+    "NS": {
+      "mean_normalised_score": 6.9278,
+      "n_sites": 22
+    },
+    "RI": {
+      "mean_normalised_score": 4.7861,
+      "n_sites": 22
+    }
+  },
+  "ranking_score_distribution": [
+    {
+      "criterion_id": "HI-06",
+      "criterion_name": "Military Installations",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 0.41,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "HI-07",
+      "criterion_name": "Electromagnetic Interference",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 2.7,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NS-02",
+      "criterion_name": "Grid Connection",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 2.98,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NS-08",
+      "criterion_name": "Ecological Sensitivity",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 3.24,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-04",
+      "criterion_name": "Population Density at EPZ Radii",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 3.24,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-05",
+      "criterion_name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 3.96,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "EP-02",
+      "criterion_name": "Evacuation Routes",
+      "category": "emergency_planning",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 4.02,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "EP-04",
+      "criterion_name": "Special Populations",
+      "category": "emergency_planning",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 4.2,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NH-06",
+      "criterion_name": "Geotechnical: Foundation",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 4.63,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "NS-06",
+      "criterion_name": "Existing Infrastructure",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-10",
+      "criterion_name": "Workforce Availability",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-12",
+      "criterion_name": "Regulatory/Political Environment",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "NS-13",
+      "criterion_name": "Construction Logistics",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "RI-01",
+      "criterion_name": "Atmospheric Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.0,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 5.0
+    },
+    {
+      "criterion_id": "RI-02",
+      "criterion_name": "Surface Water Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.24,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "BF-01",
+      "criterion_name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.33,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 5.5
+    },
+    {
+      "criterion_id": "RI-03",
+      "criterion_name": "Groundwater Dispersion",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.67,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.76,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NH-01",
+      "criterion_name": "Seismic: Ground Motion",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.83,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "HI-01",
+      "criterion_name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.85,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-12",
+      "criterion_name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.89,
+      "min_score_0_10": 4.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "BF-02",
+      "criterion_name": "Land Area Basic Filter",
+      "category": "basic_filter",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 5.93,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-14",
+      "criterion_name": "Combined Hazards",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 6.11,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "NH-03",
+      "criterion_name": "Geotechnical: Liquefaction",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 6.37,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-03",
+      "criterion_name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 6.98,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-05",
+      "criterion_name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.26,
+      "min_score_0_10": 0.0,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-09",
+      "criterion_name": "River Flooding",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.41,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 7.5
+    },
+    {
+      "criterion_id": "RI-06",
+      "criterion_name": "Population Projections",
+      "category": "radiological_impact",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.48,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-01",
+      "criterion_name": "Cooling Water Availability",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.65,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 9.0
+    },
+    {
+      "criterion_id": "NH-04",
+      "criterion_name": "Geotechnical: Slope Stability",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.67,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NS-04",
+      "criterion_name": "Site Topography",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 7.83,
+      "min_score_0_10": 3.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "EP-03",
+      "criterion_name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 8.11,
+      "min_score_0_10": 1.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-11",
+      "criterion_name": "Extreme Precipitation",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 8.17,
+      "min_score_0_10": 6.0,
+      "max_score_0_10": 10.0
+    },
+    {
+      "criterion_id": "NS-03",
+      "criterion_name": "Transport Access",
+      "category": "non_safety",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 8.87,
+      "min_score_0_10": 5.0,
+      "max_score_0_10": 10.0
+    },
+    {
+      "criterion_id": "NH-05",
+      "criterion_name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 8.89,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-10",
+      "criterion_name": "Extreme Winds",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 8.98,
+      "min_score_0_10": 7.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-04",
+      "criterion_name": "External Fires",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 9.24,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "HI-02",
+      "criterion_name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 9.24,
+      "min_score_0_10": 5.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-02",
+      "criterion_name": "Seismic: Surface Rupture",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-08",
+      "criterion_name": "Coastal Flooding",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    },
+    {
+      "criterion_id": "NH-07",
+      "criterion_name": "Volcanism",
+      "category": "natural_hazard",
+      "n_sites_scored": 23,
+      "mean_score_0_10": 9.5,
+      "min_score_0_10": 9.5,
+      "max_score_0_10": 9.5
+    }
+  ],
+  "criteria_lookup": {
+    "RI-05": {
+      "criterion_id": "RI-05",
+      "name": "Distance to Population Centres",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "NS-05": {
+      "criterion_id": "NS-05",
+      "name": "Site Footprint Adequacy",
+      "category": "site_characteristics",
+      "phase": "ranking"
+    },
+    "NH-06": {
+      "criterion_id": "NH-06",
+      "name": "Geotechnical: Foundation",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-10": {
+      "criterion_id": "NH-10",
+      "name": "Extreme Winds",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-11": {
+      "criterion_id": "NH-11",
+      "name": "Extreme Precipitation",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-12": {
+      "criterion_id": "NH-12",
+      "name": "Extreme Temperatures",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-13": {
+      "criterion_id": "NH-13",
+      "name": "Forest/Wildfire",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "NH-14": {
+      "criterion_id": "NH-14",
+      "name": "Combined Hazards",
+      "category": "natural_hazard",
+      "phase": "ranking"
+    },
+    "HI-03": {
+      "criterion_id": "HI-03",
+      "name": "Toxic/Gas Releases",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-04": {
+      "criterion_id": "HI-04",
+      "name": "External Fires",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-05": {
+      "criterion_id": "HI-05",
+      "name": "Transport Hazards",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "HI-07": {
+      "criterion_id": "HI-07",
+      "name": "Electromagnetic Interference",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "HI-08": {
+      "criterion_id": "HI-08",
+      "name": "Other Nuclear Installations",
+      "category": "human_induced_hazard",
+      "phase": "ranking"
+    },
+    "RI-01": {
+      "criterion_id": "RI-01",
+      "name": "Atmospheric Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-02": {
+      "criterion_id": "RI-02",
+      "name": "Surface Water Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-03": {
+      "criterion_id": "RI-03",
+      "name": "Groundwater Dispersion",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "RI-06": {
+      "criterion_id": "RI-06",
+      "name": "Population Projections",
+      "category": "radiological_impact",
+      "phase": "ranking"
+    },
+    "EP-02": {
+      "criterion_id": "EP-02",
+      "name": "Evacuation Routes",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-03": {
+      "criterion_id": "EP-03",
+      "name": "Physical Geography Constraints",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-04": {
+      "criterion_id": "EP-04",
+      "name": "Special Populations",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "EP-05": {
+      "criterion_id": "EP-05",
+      "name": "Concurrent Hazard Impact",
+      "category": "emergency_planning",
+      "phase": "ranking"
+    },
+    "NS-01": {
+      "criterion_id": "NS-01",
+      "name": "Cooling Water Availability",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-02": {
+      "criterion_id": "NS-02",
+      "name": "Grid Connection",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-03": {
+      "criterion_id": "NS-03",
+      "name": "Transport Access",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-04": {
+      "criterion_id": "NS-04",
+      "name": "Site Topography",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-06": {
+      "criterion_id": "NS-06",
+      "name": "Existing Infrastructure",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-07": {
+      "criterion_id": "NS-07",
+      "name": "Environmental Impact (non-rad)",
+      "category": "non_safety",
+      "phase": "screening"
+    },
+    "NS-09": {
+      "criterion_id": "NS-09",
+      "name": "Socioeconomic Impact",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-10": {
+      "criterion_id": "NS-10",
+      "name": "Workforce Availability",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-11": {
+      "criterion_id": "NS-11",
+      "name": "Coal-to-Nuclear Synergies",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-12": {
+      "criterion_id": "NS-12",
+      "name": "Regulatory/Political Environment",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NS-13": {
+      "criterion_id": "NS-13",
+      "name": "Construction Logistics",
+      "category": "non_safety",
+      "phase": "ranking"
+    },
+    "NH-05b": {
+      "criterion_id": "NH-05b",
+      "name": "Geotechnical: Subsidence & Collapse",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "BF-01": {
+      "criterion_id": "BF-01",
+      "name": "Grid Capacity Basic Filter",
+      "category": "basic_filter",
+      "phase": "screening"
+    },
+    "BF-02": {
+      "criterion_id": "BF-02",
+      "name": "Land Area Basic Filter",
+      "category": "basic_filter",
+      "phase": "screening"
+    },
+    "NH-01": {
+      "criterion_id": "NH-01",
+      "name": "Seismic: Ground Motion",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-02": {
+      "criterion_id": "NH-02",
+      "name": "Seismic: Surface Rupture",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-03": {
+      "criterion_id": "NH-03",
+      "name": "Geotechnical: Liquefaction",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-04": {
+      "criterion_id": "NH-04",
+      "name": "Geotechnical: Slope Stability",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-05": {
+      "criterion_id": "NH-05",
+      "name": "Geotechnical: Subsidence",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-07": {
+      "criterion_id": "NH-07",
+      "name": "Volcanism",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-08": {
+      "criterion_id": "NH-08",
+      "name": "Coastal Flooding",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "NH-09": {
+      "criterion_id": "NH-09",
+      "name": "River Flooding",
+      "category": "natural_hazard",
+      "phase": "screening"
+    },
+    "HI-01": {
+      "criterion_id": "HI-01",
+      "name": "Aircraft Crash",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-02": {
+      "criterion_id": "HI-02",
+      "name": "Industrial Explosions",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "HI-06": {
+      "criterion_id": "HI-06",
+      "name": "Military Installations",
+      "category": "human_induced_hazard",
+      "phase": "screening"
+    },
+    "RI-04": {
+      "criterion_id": "RI-04",
+      "name": "Population Density at EPZ Radii",
+      "category": "radiological_impact",
+      "phase": "screening"
+    },
+    "EP-01": {
+      "criterion_id": "EP-01",
+      "name": "Emergency Planning Feasibility",
+      "category": "emergency_planning",
+      "phase": "screening"
+    },
+    "NS-08": {
+      "criterion_id": "NS-08",
+      "name": "Ecological Sensitivity",
+      "category": "non_safety",
+      "phase": "screening"
+    }
+  },
+  "limitations_for_llm": [
+    "Treat bands and rankings as screening-grade outputs, not licensing findings.",
+    "Avoidance-flag sites are not discarded; they require Stage 3 follow-up.",
+    "Pareto counts are conditional: avoidance is conditional on exclusionary pass."
+  ]
+}

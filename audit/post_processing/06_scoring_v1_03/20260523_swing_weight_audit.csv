@@ -1,0 +1,49 @@
+criterion_id,family,name,declared_weight,observed_min,observed_max,observed_range,swing_weight,delta
+RI-05,RI,Distance to large population centres (>50 k),0.043478,0.0,9.5,9.5,0.072161,0.028683
+NH-01,NH,Seismic ground motion (PGA),0.03913,0.0,9.5,9.5,0.064945,0.025814
+NS-02,NS,Grid connection (detailed),0.034783,0.0,9.5,9.5,0.057729,0.022946
+NH-09,NH,River flooding,0.034783,5.5,7.5,2.0,0.012153,-0.022629
+HI-05,HI,Transport hazards (hazmat road / rail / pipe),0.026087,,,,0.004558,-0.021529
+NS-11,NS,Coal-to-nuclear synergies,0.026087,,,,0.004558,-0.021529
+NS-12,NS,Regulatory / political environment,0.026087,5.0,5.0,0.0,0.004558,-0.021529
+RI-01,RI,"Atmospheric dispersion (wind, stability, BLH)",0.026087,5.0,5.0,0.0,0.004558,-0.021529
+HI-03,HI,Toxic / gas releases,0.030435,0.0,9.5,9.5,0.050513,0.020078
+NS-06,NS,Existing infrastructure reuse,0.021739,5.0,5.0,0.0,0.003798,-0.017941
+NS-07,NS,Environmental impact (non-radiological),0.021739,,,,0.003798,-0.017941
+NS-09,NS,Socioeconomic impact,0.021739,,,,0.003798,-0.017941
+NH-08,NH,"Coastal flooding (storm surge, tsunami)",0.026087,0.0,9.5,9.5,0.043297,0.01721
+EP-05,EP,Concurrent-hazard impact on EP,0.017391,,,,0.003038,-0.014353
+NS-10,NS,Workforce availability,0.017391,5.0,5.0,0.0,0.003038,-0.014353
+NS-13,NS,Construction logistics,0.017391,5.0,5.0,0.0,0.003038,-0.014353
+NS-05,NS,Land availability / ownership / zoning,0.021739,0.0,9.5,9.5,0.036081,0.014341
+RI-04,RI,Population density (EPZ rings),0.034783,1.5,9.5,8.0,0.048614,0.013831
+HI-01,HI,Aircraft crash hazard,0.030435,1.5,9.5,8.0,0.042537,0.012102
+NH-05,NH,Subsidence / karst / mining / oil & gas,0.030435,1.5,9.5,8.0,0.042537,0.012102
+HI-08,HI,Other nuclear installations,0.013043,,,,0.002279,-0.010765
+NH-13,NH,Forest / wildfire,0.013043,,,,0.002279,-0.010765
+EP-04,EP,"Special populations (hospitals, prisons, care homes)",0.026087,1.5,9.5,8.0,0.03646,0.010373
+NS-04,NS,Site topography / grading,0.026087,1.5,9.5,8.0,0.03646,0.010373
+HI-02,HI,Industrial explosions (Seveso / IED),0.030435,5.5,9.5,4.0,0.021269,-0.009166
+EP-03,EP,Physical-geography constraints,0.021739,1.5,9.5,8.0,0.030384,0.008644
+BF-02,BF,Land / nuclear-island footprint,0.021739,1.5,9.5,8.0,0.030384,0.008644
+RI-02,RI,Surface water dispersion,0.021739,1.5,9.5,8.0,0.030384,0.008644
+RI-06,RI,Population projections (60-yr design life),0.021739,1.5,9.5,8.0,0.030384,0.008644
+NH-14,NH,Combined hazards,0.013043,0.0,9.5,9.5,0.021648,0.008605
+HI-04,HI,External fires,0.026087,5.5,9.5,4.0,0.01823,-0.007857
+NS-01,NS,Cooling water / ultimate heat sink,0.034783,3.0,10.0,7.0,0.042537,0.007754
+NH-10,NH,Extreme winds,0.013043,1.5,9.5,8.0,0.01823,0.005187
+NH-11,NH,"Extreme precipitation (rain, snow, drought)",0.013043,2.0,10.0,8.0,0.01823,0.005187
+NS-03,NS,Transport access (heavy haul road / rail / port),0.034783,5.0,10.0,5.0,0.030384,-0.004399
+HI-07,HI,Electromagnetic interference,0.008696,1.5,9.5,8.0,0.012153,0.003458
+HI-06,HI,Military installations,0.026087,0.0,5.0,5.0,0.022788,-0.003299
+NH-12,NH,Extreme temperatures,0.017391,3.5,8.5,5.0,0.015192,-0.0022
+EP-02,EP,Evacuation routes (road network),0.026087,1.5,7.5,6.0,0.027345,0.001258
+RI-03,RI,Groundwater dispersion,0.021739,1.5,7.5,6.0,0.022788,0.001049
+NH-06,NH,"Foundation conditions (bearing, bedrock, groundwater)",0.021739,0.0,5.5,5.5,0.020889,-0.00085
+EP-01,EP,Emergency-plan feasibility (composite),0.0,1.5,7.5,6.0,0.0,0.0
+BF-01,BF,Grid export / connection adequacy (basic-filter note),0.0,1.5,9.5,8.0,0.0,0.0
+NH-02,NH,Seismic surface rupture (capable faults),0.0,0.0,9.5,9.5,0.0,0.0
+NH-03,NH,Geotechnical - settlement and liquefaction,0.0,3.5,9.5,6.0,0.0,0.0
+NH-04,NH,Geotechnical - slope stability,0.0,3.5,9.5,6.0,0.0,0.0
+NH-07,NH,Volcanism,0.0,5.5,9.5,4.0,0.0,0.0
+NS-08,NS,Ecological sensitivity (Natura 2000 / WDPA),0.0,1.5,9.5,8.0,0.0,0.0

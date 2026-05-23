@@ -1,0 +1,7 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Vojany I power station,True,True,7.022,6.25,7.481,A,1.0,76.47,low,660.0,48.5525,21.972625
+2,Novaky power station,True,True,6.978,6.215,7.5,H,0.0,76.47,low,472.0,48.698823,18.533458
+3,Trebisov power station,True,False,6.741,6.023,7.281,H,0.0,76.47,low,885.0,48.627778,21.717222
+4,Martinska power station,True,False,6.303,5.669,6.775,H,0.0,76.47,low,32.0,49.059218,18.907019
+5,U.S. Steel Kosice Works power station,True,False,5.691,5.174,6.181,H,0.0,76.47,low,208.0,48.615945,21.194562
+,Kosice power station,False,False,,,,,,0.0,low,121.0,48.698047,21.271726

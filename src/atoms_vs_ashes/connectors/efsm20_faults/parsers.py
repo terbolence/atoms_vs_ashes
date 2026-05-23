@@ -17,7 +17,6 @@ from shapely.geometry import LineString, MultiLineString, Point, shape
 
 from atoms_vs_ashes.connectors.efsm20_faults.models import (
     CAPABLE_ACTIVITY_CLASSES,
-    E1_THRESHOLD_KM,
     RUPTURE_ZONE_BUFFER_KM,
     SEARCH_RADIUS_KM,
     FaultResult,
@@ -136,7 +135,6 @@ def query_site(
             nearest_fault_km=SEARCH_RADIUS_KM,
             fault_name="none_in_search_radius",
             fault_slip_rate_mm_yr=0.0,
-            capable_fault_within_8km=False,
             quality="efsm20_no_fault_50km",
         )
 
@@ -154,7 +152,6 @@ def query_site(
         capable_faults.sort(key=lambda x: x[1])
         nearest_trace, nearest_dist = capable_faults[0]
 
-        within_8km = nearest_dist < E1_THRESHOLD_KM
         within_rupture = nearest_dist < RUPTURE_ZONE_BUFFER_KM
 
         return FaultResult(
@@ -164,7 +161,6 @@ def query_site(
             fault_slip_rate_mm_yr=nearest_trace.slip_rate_mm_yr,
             fault_activity_class=nearest_trace.activity_class,
             fault_type=nearest_trace.fault_type,
-            capable_fault_within_8km=within_8km,
             within_rupture_zone=within_rupture,
             faults_within_50km=total_count,
             capable_faults_within_50km=capable_count,
@@ -181,7 +177,6 @@ def query_site(
         fault_name=nearest_trace.fault_name,
         fault_activity_class=nearest_trace.activity_class,
         fault_type=nearest_trace.fault_type,
-        capable_fault_within_8km=False,
         faults_within_50km=total_count,
         capable_faults_within_50km=0,
         quality="efsm20_no_capable_50km",

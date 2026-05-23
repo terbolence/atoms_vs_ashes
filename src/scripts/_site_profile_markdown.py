@@ -41,6 +41,7 @@ def render_site_markdown_from_bundle(
 ) -> str:
     site = bundle.get("site") or {}
     families = bundle.get("criterion_families") or {}
+    provenance = bundle.get("provenance") or {}
     verdicts = (bundle.get("screening") or {}).get("verdicts") or []
     rankings = (bundle.get("scoring") or {}).get("ranking_scores") or []
     composites = (bundle.get("scoring") or {}).get("composite_rankings") or []
@@ -80,6 +81,7 @@ def render_site_markdown_from_bundle(
         site_id=site_id, bundle_name=bundle_name,
         family_key="family_natural_hazards",
         family_label="Natural Hazards (NH)",
+        provenance=provenance,
     )
     lines += _family_section(
         "## Human-Induced and Security-Relevant Hazards (HI)",
@@ -87,6 +89,7 @@ def render_site_markdown_from_bundle(
         site_id=site_id, bundle_name=bundle_name,
         family_key="family_human_hazards",
         family_label="Human-Induced and Security-Relevant Hazards (HI)",
+        provenance=provenance,
     )
     lines += _family_section(
         "## Radiological Impact and Emergency Planning (RI / EP)",
@@ -94,6 +97,7 @@ def render_site_markdown_from_bundle(
         site_id=site_id, bundle_name=bundle_name,
         family_key="family_radiological_emergency",
         family_label="Radiological Impact and Emergency Planning (RI / EP)",
+        provenance=provenance,
     )
     lines += _family_section(
         "## Non-Safety and Implementation Considerations (NS)",
@@ -101,6 +105,7 @@ def render_site_markdown_from_bundle(
         site_id=site_id, bundle_name=bundle_name,
         family_key="family_infrastructure",
         family_label="Non-Safety and Implementation Considerations (NS)",
+        provenance=provenance,
     )
     lines += _composite_block(
         composite, bands, site, chart_paths,
@@ -359,6 +364,7 @@ def _family_section(
     bundle_name: str = "",
     family_key: str,
     family_label: str,
+    provenance: dict[str, Any] | None = None,
 ) -> list[str]:
     if isinstance(family_keys, str):
         keys = [family_keys]
@@ -373,7 +379,7 @@ def _family_section(
     for item in sorted(items, key=lambda i: i["criterion_id"]):
         cid = item["criterion_id"]
         crit_name = _full_name(cid)
-        evidence = evidence_for(cid, families)
+        evidence = evidence_for(cid, families, provenance=provenance)
         signals = evidence["signals"]
         score = item.get("score_0_10")
         quality_flag = item.get("quality_flag")

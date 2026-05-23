@@ -1,12 +1,13 @@
-# man_hours: 3.0
-"""Stream `word/document.xml` to find the anchored text + heading path for each comment id.
+"""Stream `word/document.xml` to resolve anchored context for each reviewer comment.
 
-Used by `extract_docx_comments.py`. Kept as a private helper so the orchestrator
-stays under the project's 300-line file budget.
+Used by `extract_docx_comments.py`. For every comment the extractor records the
+heading path (chapter -> section -> ...) plus a rich paragraph context: the full
+paragraph that hosts the highlighted span, the preceding text paragraph, the
+following text paragraph, and the paragraph index inside the current subsection.
 
-Key idea: `iterparse` with `start`/`end` events, an in-memory heading stack, and
-per-comment buffers. Paragraph elements are `clear()`-ed on close to keep memory
-bounded for very large reports.
+Kept as a private helper so the orchestrator stays under the project's
+300-line file budget. Memory is bounded by clearing closed `<w:p>` elements
+during `iterparse`.
 """
 
 from __future__ import annotations
@@ -32,6 +33,8 @@ HEADING_LEVELS: dict[str, int] = {
     "Heading9": 9,
 }
 
+SUBSECTION_RESET_LEVEL = 2
+
 
 @dataclass
 class Anchor:
@@ -42,26 +45,25 @@ class Anchor:
     anchor_chars: int
     heading_path: list[str] = field(default_factory=list)
     chapter: str = ""
+    section_heading: str = ""
     paragraph_index: int = 0
+    subsection_paragraph_index: int = 0
+    paragraph_text: str = ""
+    prev_paragraph_text: str = ""
+    next_paragraph_text: str = ""
+    span_paragraphs: int = 1
 
 
 def _localname(tag: str) -> str:
     return tag.split("}", 1)[-1] if "}" in tag else tag
 
 
-def _truncate(text: str, limit: int) -> str:
-    if len(text) <= limit:
-        return text
-    return text[: limit].rstrip() + "…"
-
-
 def _heading_path(stack: list[tuple[int, str]]) -> list[str]:
-    """Return the path excluding Title (level 0) — chapter-down only."""
+    """Return the heading path excluding Title (level 0)."""
     return [t for level, t in stack if level >= 1]
 
 
 def _chapter(stack: list[tuple[int, str]]) -> str:
-    """Top-level Heading1 if present; otherwise the first non-empty entry."""
     for level, t in stack:
         if level == 1 and t:
             return t
@@ -71,15 +73,52 @@ def _chapter(stack: list[tuple[int, str]]) -> str:
     return stack[0][1] if stack else ""
 
 
-def _make_anchor(cid: str, body: str, ctx: dict, max_chars: int) -> Anchor:
+def _section_heading(stack: list[tuple[int, str]]) -> str:
+    """Deepest heading on the stack (the immediate parent section)."""
+    for level, t in reversed(stack):
+        if level >= 1 and t:
+            return t
+    return ""
+
+
+def _new_pending(cid: str, ctx: dict) -> dict:
+    return {
+        "comment_id": cid,
+        "heading_path": list(ctx["heading_path"]),
+        "chapter": ctx["chapter"],
+        "section_heading": ctx["section_heading"],
+        "paragraph_index": ctx["paragraph_index"],
+        "subsection_paragraph_index": ctx["subsection_paragraph_index"],
+        "prev_paragraph_text": ctx["prev_paragraph_text"],
+        "anchor_buf": [],
+        "paragraph_text": "",
+        "span_paragraphs": 0,
+        "needs_next": True,
+    }
+
+
+def _finalize(p: dict, *, next_text: str = "", max_chars: int = 400) -> Anchor:
+    body = "".join(p["anchor_buf"]).strip() or p["paragraph_text"]
     return Anchor(
-        comment_id=cid,
-        anchor_text=_truncate(body, max_chars),
+        comment_id=p["comment_id"],
+        anchor_text=body if len(body) <= max_chars else body[:max_chars].rstrip() + "…",
         anchor_chars=len(body),
-        heading_path=list(ctx["heading_path"]),
-        chapter=ctx["chapter"],
-        paragraph_index=ctx["paragraph_index"],
+        heading_path=list(p["heading_path"]),
+        chapter=p["chapter"],
+        section_heading=p["section_heading"],
+        paragraph_index=p["paragraph_index"],
+        subsection_paragraph_index=p["subsection_paragraph_index"],
+        paragraph_text=p["paragraph_text"],
+        prev_paragraph_text=p["prev_paragraph_text"],
+        next_paragraph_text=next_text,
+        span_paragraphs=max(p["span_paragraphs"], 1),
     )
+
+
+def _push_heading(stack: list[tuple[int, str]], level: int, text: str) -> None:
+    while stack and stack[-1][0] >= level:
+        stack.pop()
+    stack.append((level, text))
 
 
 def extract_anchors(
@@ -87,17 +126,20 @@ def extract_anchors(
     valid_ids: set[str],
     max_anchor_chars: int = 400,
 ) -> dict[str, Anchor]:
-    """Return `{comment_id: Anchor}` for every id in `valid_ids` found in the body.
+    """Return `{comment_id: Anchor}` with rich paragraph context for each valid id.
 
-    Comments inside footnotes/headers/footers are ignored (they live in other
-    XML parts) and silently end up without anchors — handled at the call site.
+    Comments inside footnotes, headers, or footers live in different XML parts and
+    are silently skipped here. Their absence is handled at the call site.
     """
     finalized: dict[str, Anchor] = {}
     open_ranges: dict[str, dict] = {}
+    awaiting_next: list[dict] = []
     pending_points: dict[str, dict] = {}
 
     heading_stack: list[tuple[int, str]] = []
     paragraph_index = 0
+    subsection_paragraph_index = 0
+    last_text_paragraph = ""
 
     in_paragraph = False
     para_text_parts: list[str] = []
@@ -117,25 +159,20 @@ def extract_anchors(
             elif tag == "commentRangeStart":
                 cid = elem.get(W_ID, "")
                 if cid and cid in valid_ids and cid not in open_ranges and cid not in finalized:
-                    open_ranges[cid] = {
+                    ctx = {
                         "heading_path": _heading_path(heading_stack),
                         "chapter": _chapter(heading_stack),
+                        "section_heading": _section_heading(heading_stack),
                         "paragraph_index": paragraph_index,
-                        "buf": [],
+                        "subsection_paragraph_index": subsection_paragraph_index,
+                        "prev_paragraph_text": last_text_paragraph,
                     }
+                    open_ranges[cid] = _new_pending(cid, ctx)
             elif tag == "commentRangeEnd":
                 cid = elem.get(W_ID, "")
-                data = open_ranges.pop(cid, None)
-                if data is not None:
-                    body = "".join(data["buf"]).strip()
-                    if body:
-                        finalized[cid] = _make_anchor(cid, body, data, max_anchor_chars)
-                    else:
-                        pending_points[cid] = {
-                            "heading_path": data["heading_path"],
-                            "chapter": data["chapter"],
-                            "paragraph_index": data["paragraph_index"],
-                        }
+                pending = open_ranges.pop(cid, None)
+                if pending is not None:
+                    awaiting_next.append(pending)
             elif tag == "commentReference":
                 cid = elem.get(W_ID, "")
                 if (
@@ -148,41 +185,62 @@ def extract_anchors(
                     pending_points[cid] = {
                         "heading_path": _heading_path(heading_stack),
                         "chapter": _chapter(heading_stack),
+                        "section_heading": _section_heading(heading_stack),
                         "paragraph_index": paragraph_index,
+                        "subsection_paragraph_index": subsection_paragraph_index,
+                        "prev_paragraph_text": last_text_paragraph,
                     }
-        else:  # end
-            if tag == "t":
-                text = elem.text or ""
+        else:
+            if tag in ("t", "tab", "br"):
+                text = "\t" if tag == "tab" else ("\n" if tag == "br" else (elem.text or ""))
                 if in_paragraph:
                     para_text_parts.append(text)
                 if open_ranges:
                     for data in open_ranges.values():
-                        data["buf"].append(text)
-            elif tag == "tab":
-                if in_paragraph:
-                    para_text_parts.append("\t")
-                if open_ranges:
-                    for data in open_ranges.values():
-                        data["buf"].append("\t")
-            elif tag == "br":
-                if in_paragraph:
-                    para_text_parts.append("\n")
-                if open_ranges:
-                    for data in open_ranges.values():
-                        data["buf"].append("\n")
+                        data["anchor_buf"].append(text)
             elif tag == "p":
                 para_text = "".join(para_text_parts).strip()
-                for cid, data in list(pending_points.items()):
-                    if data["paragraph_index"] == paragraph_index:
-                        finalized[cid] = _make_anchor(cid, para_text, data, max_anchor_chars)
+                is_heading = para_style in HEADING_LEVELS
+                for data in open_ranges.values():
+                    data["span_paragraphs"] += 1
+                    if not data["paragraph_text"]:
+                        data["paragraph_text"] = para_text
+                for cid, ctx in list(pending_points.items()):
+                    if ctx["paragraph_index"] == paragraph_index:
+                        pending = _new_pending(cid, ctx)
+                        pending["paragraph_text"] = para_text
+                        pending["span_paragraphs"] = 1
+                        finalized[cid] = _finalize(pending, max_chars=max_anchor_chars)
                         del pending_points[cid]
-                if para_style in HEADING_LEVELS and para_text:
+                if awaiting_next:
+                    still_waiting: list[dict] = []
+                    for pending in awaiting_next:
+                        if not pending["paragraph_text"]:
+                            pending["paragraph_text"] = para_text
+                        if is_heading or not para_text:
+                            still_waiting.append(pending)
+                            continue
+                        if pending["paragraph_index"] == paragraph_index:
+                            still_waiting.append(pending)
+                            continue
+                        finalized[pending["comment_id"]] = _finalize(
+                            pending, next_text=para_text, max_chars=max_anchor_chars
+                        )
+                    awaiting_next = still_waiting
+                if is_heading and para_text:
                     level = HEADING_LEVELS[para_style]
-                    while heading_stack and heading_stack[-1][0] >= level:
-                        heading_stack.pop()
-                    heading_stack.append((level, para_text))
+                    _push_heading(heading_stack, level, para_text)
+                    if level >= SUBSECTION_RESET_LEVEL:
+                        subsection_paragraph_index = 0
+                    else:
+                        subsection_paragraph_index = 0
+                elif para_text:
+                    subsection_paragraph_index += 1
+                    last_text_paragraph = para_text
                 paragraph_index += 1
                 in_paragraph = False
                 elem.clear()
 
+    for pending in awaiting_next:
+        finalized[pending["comment_id"]] = _finalize(pending, max_chars=max_anchor_chars)
     return finalized

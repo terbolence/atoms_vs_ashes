@@ -1,0 +1,6 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+770f1d3c-e5fd-493c-a376-e708d2abec6c,Vojany I power station,SK,A,0.8824,0.9412,1.0,17,17
+c97125b3-20ed-4e21-a853-b928644ec7dd,Novaky power station,SK,B,0.4706,0.9412,1.0,17,17
+1719d38b-61e8-4b01-844b-3a2f85c8a186,Trebisov power station,SK,D,0.0,0.0588,0.8824,17,17
+06defca3-9105-437f-afd4-52f5603d9b8e,Martinska power station,SK,H,0.0,0.0,0.0588,17,17
+a2d8261c-3d08-4015-946c-47dbddbd0b98,U.S. Steel Kosice Works power station,SK,H,0.0,0.0,0.0,17,17

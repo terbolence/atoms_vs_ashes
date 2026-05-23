@@ -1,0 +1,21 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Zmiivska power station,True,True,7.455,6.263,7.945,A,0.9167,70.59,low,2270.0,49.586013,36.523875
+2,Dobrotvir power station,True,True,7.372,6.533,8.006,B,1.0,76.47,low,1110.0,50.214293,24.374654
+3,Ladyzhyn power station,True,True,7.197,6.391,7.706,D,0.0833,76.47,low,1800.0,48.705825,29.218668
+4,Kryvorizka power station,True,True,7.166,6.051,7.655,D,0.0,70.59,low,2925.0,47.543204,33.659513
+5,Burshtyn power station,True,True,6.959,6.199,7.45,D,0.0,76.47,low,3166.0,49.210383,24.666536
+6,Starobesheve power station,True,True,6.887,5.965,7.377,D,0.0,73.53,low,2010.0,47.800786,38.005422
+7,Kurakhov power station,True,True,6.797,5.742,7.315,H,0.0,70.59,low,1532.0,47.994514,37.237077
+8,Trypilska power station,True,True,6.795,5.894,7.364,H,0.0,73.53,low,1225.0,50.133377,30.74667
+9,Luganskaya power station,True,True,6.788,5.889,7.258,H,0.0,73.53,low,1420.0,48.749346,39.261917
+10,Vuglegirska power station,True,True,6.616,5.758,7.139,H,0.0,73.53,low,1200.0,48.464745,38.20266
+11,Zaporizhia power station,True,True,6.543,5.702,7.033,H,0.0,73.53,low,1250.0,47.507238,34.625478
+12,Zuevskaya power station,True,True,6.417,5.606,6.887,H,0.0,73.53,low,1290.0,48.034804,38.285213
+13,Prydniprovska power station,True,False,6.318,5.53,6.808,H,0.0,73.53,low,2455.0,48.405291,35.111749
+14,Myronivskyi power station,True,False,6.192,5.434,6.609,H,0.0,73.53,low,275.0,48.479778,38.284834
+15,Slavyansk power station,True,True,6.185,5.429,6.728,H,0.0,73.53,low,1540.0,48.870681,37.765621
+16,Kalush power station,True,False,6.153,5.548,6.694,H,0.0,76.47,low,200.0,49.07049,24.318522
+17,Chernihiv power station,True,False,6.126,5.384,6.748,H,0.0,73.53,low,220.0,51.45496,31.260173
+18,Darnytska power station,True,False,6.02,5.303,6.623,H,0.0,73.53,low,160.0,50.447771,30.642949
+19,Cherkasy power station,True,False,5.921,5.227,6.358,H,0.0,73.53,low,180.0,49.390543,32.067372
+20,Kramatorskaya power station,True,False,5.781,5.121,6.252,H,0.0,73.53,low,120.0,48.747705,37.572339

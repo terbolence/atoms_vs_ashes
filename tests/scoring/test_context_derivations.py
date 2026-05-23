@@ -113,8 +113,12 @@ class TestHi01AirportClassDistanceDerivation:
             "hi01_comment": "Nearest large: 34.2 km; Nearest medium: 18.1 km",
         }
         apply_derived_context_values(values)
+        # Per Phase 1C of v1.03 feedback closure (reviewer #183),
+        # ``nearest_light_airport_km`` is no longer emitted into the
+        # scoring context. The per-class small distance stays populated
+        # for transparency.
         assert values["nearest_small_airport_km"] == 7.3
-        assert values["nearest_light_airport_km"] == 7.3
+        assert "nearest_light_airport_km" not in values
         assert values["nearest_large_airport_km"] == 34.2
         assert values["nearest_medium_airport_km"] == 18.1
         assert values["nearest_major_airport_km"] == 18.1
@@ -128,7 +132,7 @@ class TestHi01AirportClassDistanceDerivation:
         }
         apply_derived_context_values(values)
         assert values["nearest_heliport_km"] == 1.39
-        assert values["nearest_light_airport_km"] == 1.39
+        assert "nearest_light_airport_km" not in values
         assert values["nearest_medium_airport_km"] == 4.3
         assert values["nearest_major_airport_km"] == 4.3
 

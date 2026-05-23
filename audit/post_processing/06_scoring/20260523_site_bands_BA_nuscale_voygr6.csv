@@ -1,0 +1,7 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+85257083-08d1-4560-b198-a9df414da4a9,Gacko Thermal Power Plant,BA,A,1.0,1.0,1.0,17,17
+e75c63e5-ef2f-4e08-8f8c-3da41215af9d,Stanari Thermal Power Plant,BA,A,0.8235,0.8824,0.8824,17,17
+aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9,Miljevina power station,BA,C,0.1176,0.7647,0.9412,17,17
+344e0e9a-558e-4749-bb66-cd746be50cbd,Kamengrad Thermal Power Plant,BA,D,0.0,0.2941,0.8824,17,17
+a23d073a-cbbd-469a-b134-380945fd3f4c,Ugljevik power station,BA,D,0.0,0.0,0.8824,17,17
+82011c29-a3d3-4a81-a27b-019d2649a251,Banovici power station,BA,E,0.0,0.0,0.5882,17,17

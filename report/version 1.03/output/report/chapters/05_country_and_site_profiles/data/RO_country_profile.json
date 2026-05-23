@@ -1,0 +1,1011 @@
+{
+  "country": "Romania (RO)",
+  "country_code": "RO",
+  "smr_key": "nuscale_voygr6",
+  "smr_label": "NuScale VOYGR-6",
+  "scoring_run_id": "score-214bab4e",
+  "sensitivity_run_id": "sens-7b609bd0",
+  "selected_site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+  "selected_site_name": "Turceni power station",
+  "sites": [
+    {
+      "national_rank": 1,
+      "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+      "name": "Turceni power station",
+      "status": "pass",
+      "status_label": "Full pass",
+      "latitude": 44.669722,
+      "longitude": 23.407778,
+      "capacity_mw": 2640.0,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": "Gorj",
+      "composite": 6.347,
+      "composite_low": 4.489,
+      "composite_high": 6.733,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "A",
+      "regional_band": "A",
+      "national_top10_rate": 1.0,
+      "regional_top10_rate": 1.0,
+      "family_scores": {
+        "EP": 5.505681818181818,
+        "HI": 3.837878787878788,
+        "NH": 6.561688311688312,
+        "NS": 7.287037037037037,
+        "RI": 7.246411483253589
+      }
+    },
+    {
+      "national_rank": 2,
+      "site_id": "958e4d82-853a-41f1-a442-94b4c4314221",
+      "name": "Rovinari power station",
+      "status": "pass",
+      "status_label": "Full pass",
+      "latitude": 44.910633,
+      "longitude": 23.134754,
+      "capacity_mw": 1920.0,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": "Gorj",
+      "composite": 5.828,
+      "composite_low": 4.233,
+      "composite_high": 6.242,
+      "criteria_coverage": 40.0,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "B",
+      "national_top10_rate": 0.375,
+      "regional_top10_rate": 0.875,
+      "family_scores": {
+        "EP": 5.505681818181818,
+        "HI": 3.657342657342657,
+        "NH": 5.91801948051948,
+        "NS": 6.915824915824915,
+        "RI": 5.875598086124403
+      }
+    },
+    {
+      "national_rank": 3,
+      "site_id": "29836b52-a882-4921-95a7-6417e636d9a2",
+      "name": "Braila power station",
+      "status": "pass",
+      "status_label": "Full pass",
+      "latitude": 45.165033,
+      "longitude": 27.923383,
+      "capacity_mw": 850.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Braila",
+      "composite": 5.819,
+      "composite_low": 4.341,
+      "composite_high": 6.241,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "B",
+      "regional_band": "B",
+      "national_top10_rate": 0.9375,
+      "regional_top10_rate": 0.9375,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 5.4152892561983474,
+        "NH": 5.91801948051948,
+        "NS": 7.063131313131312,
+        "RI": 5.875598086124403
+      }
+    },
+    {
+      "national_rank": 4,
+      "site_id": "c3790475-3d3b-4e2b-92ae-24503fe03e6b",
+      "name": "Romag Termo power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 44.677808,
+      "longitude": 22.685995,
+      "capacity_mw": 1065.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Mehedinti",
+      "composite": 5.44,
+      "composite_low": 4.161,
+      "composite_high": 5.833,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "D",
+      "national_top10_rate": 0.125,
+      "regional_top10_rate": 0.125,
+      "family_scores": {
+        "EP": 4.505681818181818,
+        "HI": 2.4576446280991737,
+        "NH": 5.91801948051948,
+        "NS": 7.731481481481481,
+        "RI": 5.559808612440191
+      }
+    },
+    {
+      "national_rank": 5,
+      "site_id": "6aed2eac-1c97-40c5-b842-fb15fd510f35",
+      "name": "Giurgiu power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 43.879766,
+      "longitude": 25.926778,
+      "capacity_mw": 150.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Giurgiu",
+      "composite": 5.388,
+      "composite_low": 4.178,
+      "composite_high": 5.786,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "D",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 5.236888111888112,
+        "NH": 5.560876623376624,
+        "NS": 6.693602693602694,
+        "RI": 4.717703349282297
+      }
+    },
+    {
+      "national_rank": 6,
+      "site_id": "52a7babe-313f-493b-86b9-bd0c4aece4c3",
+      "name": "Mintia-Deva power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.912791,
+      "longitude": 22.826129,
+      "capacity_mw": 1285.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Hunedoara",
+      "composite": 5.33,
+      "composite_low": 4.088,
+      "composite_high": 5.698,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 3.1534090909090913,
+        "NH": 7.0625,
+        "NS": 4.635521885521885,
+        "RI": 7.246411483253589
+      }
+    },
+    {
+      "national_rank": 7,
+      "site_id": "18ecb024-ee4f-4045-8254-5e95d61dea8c",
+      "name": "FPCU Feldioara",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.7917,
+      "longitude": 25.5889,
+      "capacity_mw": null,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": "Brașov",
+      "composite": 5.323,
+      "composite_low": 4.013,
+      "composite_high": 5.737,
+      "criteria_coverage": 40.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 2.5018939393939394,
+        "HI": 3.657342657342657,
+        "NH": 5.91801948051948,
+        "NS": 6.766835016835016,
+        "RI": 5.348086124401914
+      }
+    },
+    {
+      "national_rank": 8,
+      "site_id": "825dc024-9a53-4237-bf59-cbe0af0cf87d",
+      "name": "Govora power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.039047,
+      "longitude": 24.287572,
+      "capacity_mw": 200.0,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": "Vâlcea",
+      "composite": 5.317,
+      "composite_low": 4.031,
+      "composite_high": 5.782,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "G",
+      "regional_band": "D",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 4.505681818181818,
+        "HI": 2.903030303030303,
+        "NH": 5.91801948051948,
+        "NS": 6.247474747474747,
+        "RI": 5.559808612440191
+      }
+    },
+    {
+      "national_rank": 9,
+      "site_id": "693d9b73-f9fc-4502-9b94-be020c5d21fb",
+      "name": "Suceava power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 47.651873,
+      "longitude": 26.298268,
+      "capacity_mw": 100.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Suceava",
+      "composite": 5.307,
+      "composite_low": 4.077,
+      "composite_high": 5.698,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "D",
+      "national_top10_rate": 0.0625,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 5.507575757575758,
+        "HI": 3.1534090909090913,
+        "NH": 5.91801948051948,
+        "NS": 6.9907407407407405,
+        "RI": 4.190191387559809
+      }
+    },
+    {
+      "national_rank": 10,
+      "site_id": "e073b3f8-4312-4d34-b322-6289a3121af1",
+      "name": "Isalnita power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 44.38763,
+      "longitude": 23.718195,
+      "capacity_mw": 1130.0,
+      "site_status": "mothballed",
+      "local_area": null,
+      "subnational_unit": "Dolj",
+      "composite": 5.293,
+      "composite_low": 4.0,
+      "composite_high": 5.677,
+      "criteria_coverage": 40.0,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "D",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 1.8863636363636362,
+        "NH": 6.204545454545454,
+        "NS": 6.98989898989899,
+        "RI": 5.032296650717704
+      }
+    },
+    {
+      "national_rank": 11,
+      "site_id": "d498ded8-449c-4672-8bb9-0ed6c8fef775",
+      "name": "Slatina power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 44.429722,
+      "longitude": 24.364167,
+      "capacity_mw": 100.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Suceava",
+      "composite": 5.263,
+      "composite_low": 4.117,
+      "composite_high": 5.661,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "D",
+      "regional_band": "D",
+      "national_top10_rate": 0.125,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 4.505681818181818,
+        "HI": 4.236013986013986,
+        "NH": 5.560876623376624,
+        "NS": 6.693602693602694,
+        "RI": 4.717703349282297
+      }
+    },
+    {
+      "national_rank": 12,
+      "site_id": "dac2a974-a2de-46c5-b581-03985a9ae7d0",
+      "name": "Bacau CHP power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 46.530524,
+      "longitude": 26.940874,
+      "capacity_mw": 60.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Bacau",
+      "composite": 5.091,
+      "composite_low": 3.912,
+      "composite_high": 5.475,
+      "criteria_coverage": 40.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "D",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 4.505681818181818,
+        "HI": 1.8863636363636362,
+        "NH": 5.91801948051948,
+        "NS": 6.693602693602694,
+        "RI": 4.190191387559809
+      }
+    },
+    {
+      "national_rank": 13,
+      "site_id": "5a33e5f0-6d86-4eab-adea-6c6bad7f3f45",
+      "name": "Arad power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 46.222424,
+      "longitude": 21.328771,
+      "capacity_mw": 100.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Arad",
+      "composite": 5.069,
+      "composite_low": 3.985,
+      "composite_high": 5.463,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "D",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 3.731404958677686,
+        "NH": 5.560876623376624,
+        "NS": 6.9907407407407405,
+        "RI": 4.190191387559809
+      }
+    },
+    {
+      "national_rank": 14,
+      "site_id": "9825e28e-fd6e-460d-9caf-0342563f9060",
+      "name": "Paroseni power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.366101,
+      "longitude": 23.261351,
+      "capacity_mw": 350.0,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": "Hunedoara",
+      "composite": 4.822,
+      "composite_low": 3.811,
+      "composite_high": 5.287,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 3.837878787878788,
+        "NH": 5.560876623376624,
+        "NS": 5.062289562289562,
+        "RI": 5.032296650717704
+      }
+    },
+    {
+      "national_rank": 15,
+      "site_id": "aff5ffe6-fe7a-4de7-afad-9d4645a64cd9",
+      "name": "Doicesti power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.002896,
+      "longitude": 25.397236,
+      "capacity_mw": 1400.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Dâmboviţa",
+      "composite": 4.759,
+      "composite_low": 3.837,
+      "composite_high": 5.13,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 3.731404958677686,
+        "NH": 5.91801948051948,
+        "NS": 4.782828282828283,
+        "RI": 5.032296650717704
+      }
+    },
+    {
+      "national_rank": 16,
+      "site_id": "3bef37a3-239e-498d-a160-77452a6a9b79",
+      "name": "Bucharest North East power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 44.4325,
+      "longitude": 26.103889,
+      "capacity_mw": 400.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Bucharest",
+      "composite": 4.708,
+      "composite_low": 3.813,
+      "composite_high": 5.056,
+      "criteria_coverage": 45.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 4.503787878787879,
+        "HI": 3.731404958677686,
+        "NH": 4.9350649350649345,
+        "NS": 6.117845117845118,
+        "RI": 3.662679425837321
+      }
+    },
+    {
+      "national_rank": 17,
+      "site_id": "e43af28e-a3d3-4047-a9cf-f3b0990754b4",
+      "name": "Târgu Jiu Thermal Plant",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 45.034167,
+      "longitude": 23.274722,
+      "capacity_mw": 100.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Gorj",
+      "composite": 4.515,
+      "composite_low": 3.674,
+      "composite_high": 4.851,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 4.505681818181818,
+        "HI": 2.903030303030303,
+        "NH": 4.9350649350649345,
+        "NS": 5.228956228956228,
+        "RI": 4.190191387559809
+      }
+    },
+    {
+      "national_rank": 18,
+      "site_id": "1d8be6d0-f3a5-4b32-9d46-3526289731f8",
+      "name": "Iasi-2 power station",
+      "status": "avoidance-flag",
+      "status_label": "Exclusion pass with avoidance flag",
+      "latitude": 47.147296,
+      "longitude": 27.717157,
+      "capacity_mw": 110.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Iaşi",
+      "composite": 4.344,
+      "composite_low": 3.628,
+      "composite_high": 4.736,
+      "criteria_coverage": 42.5,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {
+        "EP": 3.503787878787879,
+        "HI": 1.7522727272727274,
+        "NH": 5.560876623376624,
+        "NS": 5.284511784511785,
+        "RI": 4.5047846889952154
+      }
+    },
+    {
+      "national_rank": null,
+      "site_id": "729f8d17-57c0-4d9a-adab-4b612d4abde5",
+      "name": "Brasov power station",
+      "status": "hard-fail",
+      "status_label": "Hard fail",
+      "latitude": 45.662296,
+      "longitude": 25.646845,
+      "capacity_mw": 130.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Brașov",
+      "composite": null,
+      "composite_low": null,
+      "composite_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": null,
+      "regional_band": null,
+      "national_top10_rate": null,
+      "regional_top10_rate": null,
+      "family_scores": {}
+    },
+    {
+      "national_rank": null,
+      "site_id": "a4fa3246-27d6-4740-898c-bdf9dadcb88c",
+      "name": "Craiova II power station",
+      "status": "hard-fail",
+      "status_label": "Hard fail",
+      "latitude": 44.34294,
+      "longitude": 23.81076,
+      "capacity_mw": 450.0,
+      "site_status": "operating",
+      "local_area": null,
+      "subnational_unit": null,
+      "composite": null,
+      "composite_low": null,
+      "composite_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "E",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {}
+    },
+    {
+      "national_rank": null,
+      "site_id": "8781d874-5923-4795-9c9f-b2a6c709025a",
+      "name": "Galati Power Station",
+      "status": "hard-fail",
+      "status_label": "Hard fail",
+      "latitude": 45.423333,
+      "longitude": 28.0425,
+      "capacity_mw": 800.0,
+      "site_status": "cancelled",
+      "local_area": null,
+      "subnational_unit": "Galati",
+      "composite": null,
+      "composite_low": null,
+      "composite_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": "H",
+      "regional_band": "H",
+      "national_top10_rate": 0.0,
+      "regional_top10_rate": 0.0,
+      "family_scores": {}
+    },
+    {
+      "national_rank": null,
+      "site_id": "6c428b2a-ad09-448b-b24c-22465929d69c",
+      "name": "Oradea power station",
+      "status": "hard-fail",
+      "status_label": "Hard fail",
+      "latitude": 47.084677,
+      "longitude": 21.892868,
+      "capacity_mw": 100.0,
+      "site_status": "retired",
+      "local_area": null,
+      "subnational_unit": "Bihor",
+      "composite": null,
+      "composite_low": null,
+      "composite_high": null,
+      "criteria_coverage": 0.0,
+      "avg_confidence": "low",
+      "national_band": null,
+      "regional_band": null,
+      "national_top10_rate": null,
+      "regional_top10_rate": null,
+      "family_scores": {}
+    }
+  ],
+  "selected_site_detail": {
+    "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+    "smr_key": "nuscale_voygr6",
+    "name": "Turceni power station",
+    "country_code": "RO",
+    "status": "pass",
+    "latitude": 44.669722,
+    "longitude": 23.407778,
+    "capacity_mw": 2640.0,
+    "composite": 6.347,
+    "composite_low": 4.489,
+    "composite_high": 6.733,
+    "failed_criteria": [],
+    "avoidance_flags": [],
+    "strengths": [
+      {
+        "criterion_id": "BF-02",
+        "name": "Land Area Basic Filter",
+        "family": "bf",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary.\", \"criterion\": \"BF-02\", \"name\": \"Land / nuclear-island footprint\", \"notes\": [], \"quality\": null, \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "HI-07",
+        "name": "Electromagnetic Interference",
+        "family": "hi",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"No high-power transmitters in 10 km radius.\", \"criterion\": \"HI-07\", \"name\": \"Electromagnetic interference\", \"notes\": [], \"quality\": \"not_found\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 2}"
+      },
+      {
+        "criterion_id": "NH-02",
+        "name": "Seismic: Surface Rupture",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level.\", \"criterion\": \"NH-02\", \"name\": \"Seismic surface rupture (capable faults)\", \"notes\": [], \"quality\": \"efsm20_no_fault_50km\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 9}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "name": "Extreme Winds",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"Well below the risk boundary.\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.extreme_wind_ms\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "name": "Extreme Temperatures",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NS-04",
+        "name": "Site Topography",
+        "family": "ns",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"> 80 %.\", \"criterion\": \"NS-04\", \"name\": \"Site topography / grading\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "name": "Site Footprint Adequacy",
+        "family": "ns",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-06",
+        "name": "Population Projections",
+        "family": "ri",
+        "score_0_10": 9.5,
+        "justification": "{\"band\": \"Declining (< -0.5 %/yr).\", \"criterion\": \"RI-06\", \"name\": \"Population projections (60-yr design life)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 5}"
+      }
+    ],
+    "all_criterion_scores": [
+      {
+        "criterion_id": "BF-01",
+        "family": "bf",
+        "score_0_10": 7.5,
+        "chart_semantic": "bf"
+      },
+      {
+        "criterion_id": "BF-02",
+        "family": "bf",
+        "score_0_10": 9.5,
+        "chart_semantic": "bf"
+      },
+      {
+        "criterion_id": "EP-01",
+        "family": "ep",
+        "score_0_10": 5.5,
+        "chart_semantic": "ep"
+      },
+      {
+        "criterion_id": "EP-02",
+        "family": "ep",
+        "score_0_10": 3.5,
+        "chart_semantic": "ep"
+      },
+      {
+        "criterion_id": "EP-03",
+        "family": "ep",
+        "score_0_10": 5.0,
+        "chart_semantic": "ep"
+      },
+      {
+        "criterion_id": "EP-04",
+        "family": "ep",
+        "score_0_10": 7.5,
+        "chart_semantic": "ep"
+      },
+      {
+        "criterion_id": "EP-05",
+        "family": "ep",
+        "score_0_10": 5.0,
+        "chart_semantic": "ep"
+      },
+      {
+        "criterion_id": "HI-01",
+        "family": "hi",
+        "score_0_10": 5.5,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-02",
+        "family": "hi",
+        "score_0_10": 5.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-03",
+        "family": "hi",
+        "score_0_10": 5.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-04",
+        "family": "hi",
+        "score_0_10": 5.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-05",
+        "family": "hi",
+        "score_0_10": 5.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-06",
+        "family": "hi",
+        "score_0_10": 0.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-07",
+        "family": "hi",
+        "score_0_10": 9.5,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "HI-08",
+        "family": "hi",
+        "score_0_10": 5.0,
+        "chart_semantic": "hi"
+      },
+      {
+        "criterion_id": "NH-01",
+        "family": "nh",
+        "score_0_10": 7.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-02",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-03",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-04",
+        "family": "nh",
+        "score_0_10": 7.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-05",
+        "family": "nh",
+        "score_0_10": 5.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-06",
+        "family": "nh",
+        "score_0_10": 5.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-07",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-08",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-09",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-10",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-11",
+        "family": "nh",
+        "score_0_10": 4.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-12",
+        "family": "nh",
+        "score_0_10": 9.5,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-13",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NH-14",
+        "family": "nh",
+        "score_0_10": 5.0,
+        "chart_semantic": "nh"
+      },
+      {
+        "criterion_id": "NS-01",
+        "family": "ns",
+        "score_0_10": 7.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-02",
+        "family": "ns",
+        "score_0_10": 5.5,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-03",
+        "family": "ns",
+        "score_0_10": 6.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-04",
+        "family": "ns",
+        "score_0_10": 9.5,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-05",
+        "family": "ns",
+        "score_0_10": 9.5,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-06",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-07",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-08",
+        "family": "ns",
+        "score_0_10": 7.5,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-09",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-10",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-11",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-12",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "NS-13",
+        "family": "ns",
+        "score_0_10": 5.0,
+        "chart_semantic": "ns"
+      },
+      {
+        "criterion_id": "RI-01",
+        "family": "ri",
+        "score_0_10": 5.0,
+        "chart_semantic": "ri"
+      },
+      {
+        "criterion_id": "RI-02",
+        "family": "ri",
+        "score_0_10": 3.5,
+        "chart_semantic": "ri"
+      },
+      {
+        "criterion_id": "RI-03",
+        "family": "ri",
+        "score_0_10": 5.0,
+        "chart_semantic": "ri"
+      },
+      {
+        "criterion_id": "RI-04",
+        "family": "ri",
+        "score_0_10": 7.5,
+        "chart_semantic": "ri"
+      },
+      {
+        "criterion_id": "RI-05",
+        "family": "ri",
+        "score_0_10": 5.0,
+        "chart_semantic": "ri"
+      },
+      {
+        "criterion_id": "RI-06",
+        "family": "ri",
+        "score_0_10": 9.5,
+        "chart_semantic": "ri"
+      }
+    ],
+    "family_contributions": [
+      {
+        "family": "ns",
+        "weighted_contribution": 0.8657
+      },
+      {
+        "family": "nh",
+        "weighted_contribution": 0.8084
+      },
+      {
+        "family": "ri",
+        "weighted_contribution": 0.6058
+      },
+      {
+        "family": "ep",
+        "weighted_contribution": 0.29069999999999996
+      },
+      {
+        "family": "hi",
+        "weighted_contribution": 0.25329999999999997
+      }
+    ]
+  }
+}

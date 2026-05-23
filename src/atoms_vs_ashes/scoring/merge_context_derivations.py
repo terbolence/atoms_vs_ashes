@@ -32,7 +32,6 @@ DERIVED_CONTEXT_NAMES: frozenset[str] = frozenset({
     "nearest_small_airport_km",
     "nearest_heliport_km",
     "nearest_major_airport_km",
-    "nearest_light_airport_km",
     "site_within_strict_protected",
     "nearest_volcano_km",
     "coast_distance_km",
@@ -423,10 +422,11 @@ def _derive_hi01_airport_class_distances(values: dict[str, Any]) -> None:
         values.get("nearest_large_airport_km"),
         values.get("nearest_medium_airport_km"),
     ))
-    _set_min_distance(values, "nearest_light_airport_km", (
-        values.get("nearest_small_airport_km"),
-        values.get("nearest_heliport_km"),
-    ))
+    # Phase 1C of v1.03 feedback closure (reviewer #183): the
+    # composite `nearest_light_airport_km` derivation is dropped from
+    # the scoring context. Per-class small / heliport distances stay
+    # populated (informational) but do not flow into any HI-01 band
+    # condition or fail expression.
 
 
 def _derive_hi01_distances_from_nearest(values: dict[str, Any]) -> None:

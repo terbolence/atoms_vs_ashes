@@ -1,0 +1,3 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+e77a7e7f-11ba-4e61-98da-f44471bc52ab,Berane power station,ME,C,0.5882,0.5882,1.0,17,17
+3795824b-cb76-48dd-a65c-764c757ddc76,Bar power station,ME,C,0.4118,0.5294,0.8824,17,17

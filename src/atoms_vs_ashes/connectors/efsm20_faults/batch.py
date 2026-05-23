@@ -16,7 +16,6 @@ from sqlalchemy.orm import Session
 
 from atoms_vs_ashes.connectors.efsm20_faults.models import (
     CRITERION_ID,
-    E1_THRESHOLD_KM,
     SEARCH_RADIUS_KM,
     SOURCE_NAME,
     SOURCE_URL,
@@ -57,10 +56,6 @@ def enrich_site(
         return SiteEnrichmentSummary(
             site_id=site_id, site_name=site.name, status="cached",
             nearest_fault_km=float(cached.nearest_fault_km) if cached.nearest_fault_km else None,
-            capable_within_8km=(
-                cached.nearest_fault_km is not None
-                and float(cached.nearest_fault_km) < E1_THRESHOLD_KM
-            ),
             source=SOURCE_NAME,
             elapsed_ms=elapsed,
         )
@@ -73,7 +68,7 @@ def enrich_site(
         return SiteEnrichmentSummary(
             site_id=site_id, site_name=site.name, status="ok",
             nearest_fault_km=result.nearest_fault_km,
-            capable_within_8km=result.capable_fault_within_8km,
+            nearest_fault_activity_class=result.fault_activity_class,
             source=result.source, elapsed_ms=elapsed,
         )
     except Exception as exc:
@@ -151,13 +146,12 @@ def enrich_batch(
                 site_id=str(site.site_id), site_name=site.name,
                 index=i + 1, total=len(sites),
                 nearest_fault_km=result.nearest_fault_km,
-                capable_within_8km=result.capable_fault_within_8km,
                 elapsed_ms=elapsed_ms,
             )
             batch.per_site.append(SiteEnrichmentSummary(
                 site_id=site.site_id, site_name=site.name, status="ok",
                 nearest_fault_km=result.nearest_fault_km,
-                capable_within_8km=result.capable_fault_within_8km,
+                nearest_fault_activity_class=result.fault_activity_class,
                 source=result.source,
                 elapsed_ms=elapsed_ms,
             ))
@@ -293,37 +287,48 @@ def _persist_result(
             confidence="low", run_id=run_id,
         ))
 
-    if result.capable_fault_within_8km:
+    has_capable = (
+        result.capable_faults_within_50km > 0
+        and result.fault_activity_class is not None
+        and result.fault_activity_class.strip().lower() in {
+            "active", "possibly active"
+        }
+        and result.nearest_fault_km is not None
+    )
+    if has_capable:
         obs_text = (
-            f"Capable fault within {E1_THRESHOLD_KM} km (E-rule E1). "
-            f"Nearest capable fault: {result.fault_name or 'unnamed'} at "
-            f"{result.nearest_fault_km:.1f} km "
+            f"Nearest SSG-9 rev. 1 capable fault: {result.fault_name or 'unnamed'} "
+            f"at {result.nearest_fault_km:.1f} km "
             f"(activity: {result.fault_activity_class}). "
         )
         if result.within_rupture_zone:
             obs_text += (
                 "Site is within estimated surface rupture zone "
-                f"(< {1.0} km from fault trace). "
+                "(< 1.0 km from fault trace). "
             )
         obs_text += (
-            "IAEA SSG-9 Rev.1 §3.8–3.22: capable faults within 8 km "
-            "of a nuclear installation require detailed investigation. "
-            "This is a screening-grade assessment; site-specific "
+            "IAEA SSG-9 rev. 1 §3.8-3.22 defines capable faults by "
+            "their potential to produce surface deformation of the ground. "
+            "The E1 verdict (inside / outside the screening radius) is "
+            "applied downstream by the score engine using the active "
+            "run-profile threshold; this connector emits the raw "
+            "distance and activity class only. Site-specific "
             "paleoseismological studies are required."
         )
         session.add(SiteObservation(
             site_id=site_id, criterion_id=CRITERION_ID, source_type="vector",
             observation=obs_text,
-            impact="negative", confidence="high", run_id=run_id,
+            impact="neutral", confidence="high", run_id=run_id,
         ))
     elif is_no_fault:
         session.add(SiteObservation(
             site_id=site_id, criterion_id=CRITERION_ID, source_type="vector",
             observation=(
                 f"No EFSM20 seismogenic faults within {SEARCH_RADIUS_KM:.0f} km. "
-                f"Site is located on a stable tectonic platform with no mapped "
-                f"Quaternary-active fault sources. "
-                f"E-rule E1 satisfied for fault proximity."
+                "Site is located on a stable tectonic platform with no "
+                "mapped Quaternary-active fault sources within the connector "
+                "detection window. E1 verdict applied downstream by the "
+                "score engine against the active run-profile threshold."
             ),
             impact="positive", confidence="high", run_id=run_id,
         ))
@@ -334,11 +339,13 @@ def _persist_result(
         session.add(SiteObservation(
             site_id=site_id, criterion_id=CRITERION_ID, source_type="vector",
             observation=(
-                f"No capable (active/possibly active) faults within 50 km. "
-                f"Nearest fault of any class: {result.fault_name or 'unnamed'} "
-                f"at {result.nearest_fault_km:.1f} km "
+                "No SSG-9 rev. 1 capable (active / possibly active) faults "
+                "within 50 km. Nearest fault of any class: "
+                f"{result.fault_name or 'unnamed'} at "
+                f"{result.nearest_fault_km:.1f} km "
                 f"(activity: {result.fault_activity_class}). "
-                f"E-rule E1 satisfied for fault proximity."
+                "E1 verdict applied downstream by the score engine against "
+                "the active run-profile threshold."
             ),
             impact="positive", confidence="high", run_id=run_id,
         ))

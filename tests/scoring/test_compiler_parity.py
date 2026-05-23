@@ -250,16 +250,19 @@ def test_simple_numeric_thresholds_score_at_least_five_at_boundary(template_bund
 
 
 def test_out_of_bounds_rejected_without_expert_flag():
+    # NH-02 E1 bounds widened to {min: 0.1, max: 500.0} per Phase 1B
+    # of the v1.03 feedback closure. Use 1000 km to push beyond the
+    # new ceiling while still exercising the rejection path.
     bundle = load_template_bundle(str(SPEC_DIR))
     with pytest.raises(ValueError, match="outside bounds"):
-        compile_bundle(bundle, fail_thresholds={"NH-02": {"E1": 100.0}})
+        compile_bundle(bundle, fail_thresholds={"NH-02": {"E1": 1000.0}})
 
 
 def test_expert_override_accepts_out_of_bounds():
     bundle = load_template_bundle(str(SPEC_DIR))
     out = compile_bundle(
         bundle,
-        fail_thresholds={"NH-02": {"E1": 100.0}},
+        fail_thresholds={"NH-02": {"E1": 1000.0}},
         expert_override=True,
     )
     rec = next(o for o in out.overrides if o.code == "E1")

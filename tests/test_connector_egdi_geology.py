@@ -448,6 +448,74 @@ class TestBuildFaultAssessment:
         assert "nearest_fault_distance_km" in d
         assert "fault_count_within_buffer" in d
 
+    def test_capability_filter_picks_capable_over_closer_inactive(self):
+        """Phase 1B (SSG-9 rev. 1 mapping): the EGDI fallback must take the
+        nearest *capable* fault, not the literal nearest trace.
+
+        Locks the SSG-9 capability semantics so an inactive trace right
+        next to the site never displaces a more distant active trace
+        from the NH-02 evidence path.
+        """
+        mixed = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[23.101, 44.151], [23.102, 44.152]],
+                    },
+                    "properties": {
+                        "fault_type": "normal",
+                        "activity": "inactive",
+                        "name": "Closer Inactive",
+                    },
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[23.5, 44.5], [23.6, 44.6]],
+                    },
+                    "properties": {
+                        "fault_type": "thrust",
+                        "activity": "active",
+                        "name": "Farther Active",
+                    },
+                },
+            ],
+        }
+        features = parse_geojson_features(mixed)
+        result = build_fault_assessment(features, 44.15, 23.10, "layer")
+        assert result.fault_count_within_buffer == 2
+        assert result.nearest_fault_distance_km is not None
+        assert result.nearest_fault_activity == "active"
+        assert result.nearest_fault_distance_km > 1.0
+
+    def test_only_non_capable_returns_no_distance(self):
+        only_inactive = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[23.10, 44.15], [23.11, 44.16]],
+                    },
+                    "properties": {
+                        "fault_type": "strike-slip",
+                        "activity": "inactive",
+                        "name": "Inactive Only",
+                    },
+                },
+            ],
+        }
+        features = parse_geojson_features(only_inactive)
+        result = build_fault_assessment(features, 44.15, 23.10, "layer")
+        assert result.fault_count_within_buffer == 1
+        assert result.nearest_fault_distance_km is None
+        assert result.nearest_fault_activity is None
+
 
 class TestBuildMiningAssessment:
     def test_with_point_features(self):

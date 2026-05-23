@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Bulgaria (BG) site-screening status map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+.legend span { margin-right: 1rem; font-size: 0.9rem; }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem;
+  margin-right: 0.25rem; border: 1px solid #222; vertical-align: -0.1rem; }
+#map { width: 100%; height: 760px; border: 1px solid #ddd; }
+.callout { font-size: 12px; line-height: 1.25; }
+</style>
+<h1>Bulgaria (BG) site-screening status for NuScale VOYGR-6</h1>
+<p>Country context and borders are provided by OpenStreetMap tiles. Click a marker for site name, status, composite score, Monte Carlo band, and stability band.</p>
+<div class="legend"><span><i style="background:#1f9d5a"></i>Full pass</span><span><i style="background:#d4a017"></i>Exclusion pass with avoidance flag</span><span><i style="background:#c0392b"></i>Hard fail</span></div>
+<div id="map"></div>
+<script>
+const map = L.map('map').setView([43.142179, 24.005917], 7);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+const bounds = [];
+bounds.push([43.782500, 23.217500]);
+L.circleMarker([43.782500, 23.217500], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Lom Power Station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 7.428<br>MC band: 6.578-7.850<br>Stability band: N/A</div>").bindTooltip("Lom", {permanent: false, direction: 'top'});
+bounds.push([42.051942, 25.623344]);
+L.circleMarker([42.051942, 25.623344], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Maritsa 3 power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 7.009<br>MC band: 6.240-7.569<br>Stability band: N/A</div>").bindTooltip("Maritsa 3", {permanent: false, direction: 'top'});
+bounds.push([42.285818, 23.032830]);
+L.circleMarker([42.285818, 23.032830], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Bobov Dol power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 6.984<br>MC band: 6.220-7.525<br>Stability band: N/A</div>").bindTooltip("Bobov Dol", {permanent: false, direction: 'top'});
+bounds.push([43.948363, 22.850904]);
+L.circleMarker([43.948363, 22.850904], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Vidin Works power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.828<br>MC band: 6.093-7.369<br>Stability band: N/A</div>").bindTooltip("Vidin Works", {permanent: false, direction: 'top'});
+bounds.push([43.642272, 25.305007]);
+L.circleMarker([43.642272, 25.305007], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Svilosa power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 6.578<br>MC band: 5.891-7.119<br>Stability band: N/A</div>").bindTooltip("Svilosa", {permanent: false, direction: 'top'});
+if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
+</script>

@@ -1,0 +1,35 @@
+{
+  "run_id": "fail_20260523_c2a90942",
+  "summary": {
+    "total_pairs": 0,
+    "survived": 0,
+    "hard_only": 0,
+    "floor_only": 0,
+    "both": 0,
+    "n_distinct_sites": 0,
+    "n_distinct_smrs": 0,
+    "qualification_mode": "normal"
+  },
+  "per_criterion": [],
+  "per_country": [],
+  "per_smr": [],
+  "per_pair_failures": [],
+  "top_n_per_country": [],
+  "per_country_margins": [],
+  "near_miss": {
+    "gap_threshold_pct": 10.0,
+    "rows": [],
+    "by_country": [],
+    "by_criterion": []
+  },
+  "sensitivity": {
+    "mc": null,
+    "threshold_targeted": [],
+    "threshold_global_stress": null,
+    "oat_top5": [],
+    "weights": null,
+    "country_balance": []
+  },
+  "provenance": {},
+  "multi_failure_histogram": {}
+}

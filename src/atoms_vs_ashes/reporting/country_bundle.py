@@ -28,6 +28,7 @@ from atoms_vs_ashes.db.models_analytics import (
     CompositeScoreComponent,
     SiteBand,
 )
+from atoms_vs_ashes.reporting.run_profile_provenance import run_profile_provenance
 from atoms_vs_ashes.reporting.site_bundle import (
     _jsonable,
     _model_dict,
@@ -396,6 +397,7 @@ def build_country_bundle(
             "sensitivity_stamp": sensitivity_stamp,
             "claim_boundary": "Screening-grade Stage 1-2 support only.",
         },
+        "provenance": run_profile_provenance(session, run_id=run_id),
         "totals": {
             "n_sites": n_country,
             "n_full_pass": n_full_pass,

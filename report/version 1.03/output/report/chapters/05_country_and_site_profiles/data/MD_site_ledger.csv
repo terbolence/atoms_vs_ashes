@@ -1,0 +1,2 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Kuchurgan power station,True,False,6.959,6.199,7.5,A,1.0,76.47,low,1400.0,46.629027,29.939714

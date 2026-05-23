@@ -1,0 +1,6 @@
+criterion_id,criterion_name,hard_pairs,floor_pairs,intersection_pairs,union_pairs
+NH-02,Seismic surface rupture (capable faults),50,0,0,50
+EP-01,Emergency-plan feasibility (composite),5,0,0,5
+NH-04,Geotechnical - slope stability,3,0,0,3
+NS-08,Ecological sensitivity (Natura 2000 / WDPA),3,0,0,3
+NH-03,Geotechnical - settlement and liquefaction,0,1,0,1

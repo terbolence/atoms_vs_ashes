@@ -1,0 +1,21 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+cec871bd-c7f6-4444-b0da-9b3a9ecc6963,Ladyzhyn power station,UA,A,0.9412,1.0,1.0,17,17
+29b3a802-7ef1-4722-ad59-b1511b1b0075,Zmiivska power station,UA,A,0.9412,0.9412,1.0,17,17
+5ed0a674-a292-44bc-997f-5c1990da1235,Dobrotvir power station,UA,A,0.9412,0.9412,1.0,17,17
+83fede8b-5f92-429d-920d-9a8928a74780,Kryvorizka power station,UA,A,0.8235,0.8824,0.9412,17,17
+c47eb6a3-49c1-4879-95b6-9bcd53b7af04,Burshtyn power station,UA,B,0.1765,0.8824,1.0,17,17
+447a9ea1-47fa-48a3-93f2-a77cbd629ac7,Starobesheve power station,UA,B,0.1176,0.8235,0.9412,17,17
+cdb6adfb-52ff-4631-939a-001080b20450,Trypilska power station,UA,D,0.1176,0.3529,1.0,17,17
+46b96bc3-b190-4045-9c86-eb674e2ea35e,Kurakhov power station,UA,D,0.0588,0.4706,0.9412,17,17
+4e45df00-0d28-44d0-9697-3fa33d76fc88,Luganskaya power station,UA,D,0.0,0.4118,0.8824,17,17
+725406d6-860f-4ca0-9c6a-425675bac381,Zaporizhia power station,UA,D,0.0,0.2353,0.9412,17,17
+3657989a-61ae-4fe3-9e8b-6ba7e68f8c59,Vuglegirska power station,UA,D,0.0,0.1176,0.8824,17,17
+f2c061de-66ad-4fce-b911-7f1899f25b75,Zuevskaya power station,UA,D,0.0,0.0,0.8235,17,17
+fb7d4d9a-3f27-4b50-9941-6a8fccd25e9a,Kalush power station,UA,D,0.0,0.0,0.7647,17,17
+02253fcc-4fc6-42d4-a6a8-42365487302f,Prydniprovska power station,UA,E,0.0,0.0,0.5882,17,17
+3bd2a957-ff3b-4bfd-9dba-808279edccb9,Myronivskyi power station,UA,H,0.0,0.0,0.1765,17,17
+70781f2c-24c2-486c-8b32-310c36ba1238,Slavyansk power station,UA,H,0.0,0.0,0.1176,17,17
+e4c6a713-99e6-4fdf-afaa-d456779c504c,Chernihiv power station,UA,H,0.0,0.0,0.1176,17,17
+038d42e9-769b-4b22-9513-dccff48b42cd,Darnytska power station,UA,H,0.0,0.0,0.0588,17,16
+95872473-c476-4ceb-bcf5-54cfdf415e42,Cherkasy power station,UA,H,0.0,0.0,0.0,17,16
+d3b9e403-7744-44c5-b5c3-999c4c1911d8,Kramatorskaya power station,UA,H,0.0,0.0,0.0,17,16

@@ -42,13 +42,16 @@ NH-02:
     recommended:
       value: 8.0
       rationale: >
-        IAEA SSG-9 / SSG-35 require avoidance of capable faults; the project
-        adopts an 8 km buffer consistent with SSG-35 and NUREG-0800
-        §2.5.3 site characterisation envelopes. Overriding this value
-        regenerates only the simple separation expression; the slip-rate
-        clause is a fixed best-practice envelope and is not user-tunable.
-      sources: ["IAEA SSG-9 §6.21", "IAEA SSG-35 §3.18-3.22", "NUREG-0800 §2.5.3"]
-    bounds: {min: 1.0, max: 25.0}
+        Norm default 8 km, configurable per run profile. IAEA SSG-9 rev. 1
+        §3.8-3.22 defines a capable fault as one capable of producing surface
+        deformation of the ground; the project maps this to the EFSM20
+        active / possibly-active activity classes (see efsm20_faults connector
+        documentation). The E1 screening radius is run-profile-tunable so the
+        user can study tighter or looser envelopes (e.g. 5 km project study,
+        100 km regional sensitivity) without code changes; the bands and E1
+        expression follow the active value via `derive_expr_from_recipe`.
+      sources: ["IAEA SSG-9 rev. 1 §3.8-3.22", "IAEA SSG-35 §3.18-3.22", "NUREG-0800 §2.5.3"]
+    bounds: {min: 0.1, max: 500.0}
 
 NH-04:
   E3:

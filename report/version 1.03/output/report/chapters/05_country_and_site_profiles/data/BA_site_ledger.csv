@@ -1,0 +1,12 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Gacko Thermal Power Plant,True,False,6.951,6.073,7.442,A,1.0,73.53,low,650.0,43.172137,18.511555
+2,Stanari Thermal Power Plant,True,False,6.747,6.028,7.237,H,0.0,76.47,low,300.0,44.753861,17.792444
+3,Miljevina power station,True,False,6.622,5.927,7.131,H,0.0,76.47,low,220.0,43.518304,18.652091
+4,Kamengrad Thermal Power Plant,True,False,6.572,5.886,7.131,H,0.0,76.47,low,430.0,44.766667,16.666667
+5,Ugljevik power station,True,False,6.458,5.707,6.929,H,0.0,73.53,low,1000.0,44.683446,18.968516
+6,Banovici power station,True,False,5.934,5.325,6.425,H,0.0,76.47,low,350.0,44.4,18.5333
+,Bugojno Thermal Power Project,False,True,,,,,,0.0,low,600.0,44.05,17.45
+,Glinica power station,False,False,,,,,,0.0,low,500.0,43.333,17.8
+,Kakanj Thermal Power Plant,False,False,,,,,,0.0,low,1050.0,44.089633,18.113865
+,Kongora Thermal Power Plant,False,True,,,,,,0.0,low,550.0,43.64611,17.33139
+,Tuzla Thermal Power Plant,False,False,,,,,,0.0,low,1640.0,44.52104,18.606443

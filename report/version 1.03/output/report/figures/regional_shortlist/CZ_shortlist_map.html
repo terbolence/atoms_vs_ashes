@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Czechia (CZ) site-screening status map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+.legend span { margin-right: 1rem; font-size: 0.9rem; }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem;
+  margin-right: 0.25rem; border: 1px solid #222; vertical-align: -0.1rem; }
+#map { width: 100%; height: 760px; border: 1px solid #ddd; }
+.callout { font-size: 12px; line-height: 1.25; }
+</style>
+<h1>Czechia (CZ) site-screening status for NuScale VOYGR-6</h1>
+<p>Country context and borders are provided by OpenStreetMap tiles. Click a marker for site name, status, composite score, Monte Carlo band, and stability band.</p>
+<div class="legend"><span><i style="background:#1f9d5a"></i>Full pass</span><span><i style="background:#d4a017"></i>Exclusion pass with avoidance flag</span><span><i style="background:#c0392b"></i>Hard fail</span></div>
+<div id="map"></div>
+<script>
+const map = L.map('map').setView([50.365666, 13.900179], 7);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+const bounds = [];
+bounds.push([50.381868, 13.339973]);
+L.circleMarker([50.381868, 13.339973], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Tusimice power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 7.095<br>MC band: 6.144-7.691<br>Stability band: N/A</div>").bindTooltip("Tusimice", {permanent: false, direction: 'top'});
+bounds.push([50.415122, 13.255958]);
+L.circleMarker([50.415122, 13.255958], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Prunerov power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 7.016<br>MC band: 6.083-7.559<br>Stability band: N/A</div>").bindTooltip("Prunerov", {permanent: false, direction: 'top'});
+bounds.push([50.028062, 15.450504]);
+L.circleMarker([50.028062, 15.450504], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Chvaletice power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 7.009<br>MC band: 6.240-7.594<br>Stability band: N/A</div>").bindTooltip("Chvaletice", {permanent: false, direction: 'top'});
+bounds.push([50.426700, 13.674700]);
+L.circleMarker([50.426700, 13.674700], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Pocerady power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.931<br>MC band: 6.018-7.526<br>Stability band: N/A</div>").bindTooltip("Pocerady", {permanent: false, direction: 'top'});
+bounds.push([50.576580, 13.779761]);
+L.circleMarker([50.576580, 13.779761], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Ledvice power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 6.916<br>MC band: 6.164-7.512<br>Stability band: N/A</div>").bindTooltip("Ledvice", {permanent: false, direction: 'top'});
+if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
+</script>

@@ -1,0 +1,121 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+2ec95392-978d-4a43-85b9-af3282c212ba,Tunçbilek power station,TR,A,1.0,1.0,1.0,17,17
+778e0750-19f9-426e-a6c7-e0e30645fb97,Çoban Yıldız power station,TR,A,1.0,1.0,1.0,17,17
+a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c,Karapinar Konya Şeker power station,TR,A,1.0,1.0,1.0,17,17
+ad0c8590-c672-43f2-a813-1217a10f7d2d,Konya Karapınar power station,TR,A,1.0,1.0,1.0,17,17
+142cad75-648a-495d-8c10-792351e72126,Eren-1 power station,TR,A,0.9412,1.0,1.0,17,17
+6c9571c4-5d3b-4f88-a7be-fa8c21425eeb,Tufanbeyli power station,TR,A,0.9412,1.0,1.0,17,17
+ddc8bb9c-bf77-4075-b38c-600fb072acf8,Uluköy power station,TR,A,0.8824,1.0,1.0,17,17
+57c0c830-725f-46ee-9322-0a4a3ad9efda,Yüksek Gölovası power station,TR,A,0.8824,0.9412,1.0,17,17
+674deb4f-110c-4120-bea0-5f0711da3ea1,Çayırhan power station,TR,A,0.8824,0.9412,1.0,17,17
+d1863136-5ff4-4b4d-a9c0-6219e92d637d,Sarp Golvasi power station,TR,A,0.8824,0.9412,1.0,17,17
+e03c394f-1c08-4101-b1fe-f6662fe4b424,Sinop Akfen power station,TR,A,0.8824,0.9412,1.0,17,17
+bfadbe66-971d-4f64-b222-604a7ee6ac6b,Kangal Etyemez power station,TR,A,0.8824,0.8824,1.0,17,17
+f2e65fcf-afc4-4443-ac14-f15c8ffe48f3,Orta Anadolu power station,TR,A,0.8824,0.8824,1.0,17,17
+43f99d45-6635-4392-a522-4a06445fdaf2,Teyo Tufanbeyli power station,TR,A,0.8824,0.8824,0.9412,17,17
+d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e,Yeşilovacık power station,TR,A,0.8235,1.0,1.0,17,17
+e780e4ac-0506-4186-9b58-0f378f878345,Gerze power station,TR,A,0.8235,0.9412,1.0,17,17
+0248611c-b745-404f-ad50-c2870882c7a1,Kangal power station,TR,A,0.8235,0.8824,1.0,17,17
+2b6a65d3-efb0-44d8-b88b-9aad311f4ac4,Bolu Göynük power station,TR,B,0.7647,0.8824,1.0,17,17
+2a3aad60-2bff-4206-8275-f6e2029f9278,Kütahya Domaniç power station,TR,B,0.7647,0.8824,0.9412,17,17
+5fa0dfa9-c272-444e-8e70-80ab55b5d36c,Akdeniz Enerji power station,TR,B,0.4706,1.0,1.0,17,17
+94a5c55f-c499-41b1-81da-deaa36686399,Seyitömer power station,TR,B,0.3529,0.8824,1.0,17,17
+225656d9-8709-4c2f-9992-1e4f20a6fce8,Yıldırım Elazığ power station,TR,B,0.3529,0.8235,1.0,17,17
+9699244b-14c0-4e27-afd1-105494fccd60,Alpu power station,TR,B,0.2941,1.0,1.0,17,17
+c657c5c3-38a2-472d-8962-9e7cefcd2c1e,Diler (Akbayir) Elbistan power station,TR,B,0.1765,0.8824,1.0,17,17
+fc307877-758b-4dbf-afbe-abfc4a778155,Çankırı Yıldızlar power station,TR,B,0.1765,0.8824,0.9412,17,17
+dd413ee8-a6f2-4e7c-8e6c-6d0ed8637d83,Çankırı Orta power station,TR,B,0.1176,0.8235,1.0,17,17
+d3f986d9-a023-4d43-a0fb-03361f310873,Umut power station,TR,B,0.0588,0.8824,1.0,17,17
+b8875ff2-9e9d-4520-8879-c71468e9cc50,Babadere power station,TR,B,0.0588,0.8235,0.8824,17,17
+55cfe45b-6357-40f9-8623-e9916f91f839,Kahramanmaraş Anadolu power station,TR,B,0.0,0.9412,1.0,17,17
+cb08e7b6-0af3-45d9-95c3-3832e7e2677c,Filyos power station,TR,C,0.1765,0.7647,0.9412,17,17
+166f5fcc-1cc4-4cf5-9e52-59e7ce1557c6,METES power station,TR,C,0.1176,0.5294,1.0,17,17
+7cc9cffa-e4e4-4546-902d-c8f4800dbdb2,Zorlu Akçakoca power station,TR,D,0.0588,0.4706,1.0,17,17
+1289753b-43db-4058-8fe1-6e38b5fb01b5,Barbaros-1 power station,TR,D,0.0588,0.1765,0.9412,17,17
+9a6447f2-2887-4cce-a115-dc773d7f6eb1,Soma Kolin power station,TR,D,0.0,0.4706,1.0,17,17
+48149515-0774-404d-b273-790b660a8d90,Yunus Emre power station,TR,D,0.0,0.2353,1.0,17,17
+4b11cac9-4fe0-4a2a-9c09-4fe9a0ac6015,Ada Yumurtalık power station,TR,D,0.0,0.2353,1.0,17,17
+b588126a-42d6-49dc-b227-9283af5a2578,Misis Adana power station,TR,D,0.0,0.2353,1.0,17,17
+b5ff798e-e059-4d8b-a903-00a1fefc62ab,Sedef II TES power station,TR,D,0.0,0.2353,1.0,17,17
+e9bc02be-cf10-4b27-9b8a-0d4a954720e4,Afşin-Elbistan power stations,TR,D,0.0,0.2353,1.0,17,17
+0fec985c-c66e-40af-a123-a9ba4db269bb,Karaburun power station,TR,D,0.0,0.1765,0.8824,17,17
+9eb693f6-6994-4937-bc4d-e8213baa5d47,Trakya Emba power station,TR,D,0.0,0.1765,0.8824,17,17
+a96dc545-41a9-4b0d-a7a3-f40ef711e5e3,Cenal power station,TR,D,0.0,0.1765,0.8824,17,17
+56b8e2a3-1885-431f-9fd1-4cd3bebfad61,Iztek Ceyhan Komur power station,TR,D,0.0,0.1176,0.9412,17,17
+8a5dc384-e272-41ed-9868-a0686ac3fc7e,Adana Ceyhan power station,TR,D,0.0,0.1176,0.9412,17,17
+cc635340-954c-4428-9fa1-14383c7faceb,İÇDAŞ Bekirli power station,TR,D,0.0,0.1176,0.9412,17,17
+1f305180-6bbf-4758-9a98-78bc9e96e195,ZETES power stations,TR,D,0.0,0.1176,0.8824,17,17
+381221dd-76da-4adf-9b19-5da9f0779c22,Vize power station,TR,D,0.0,0.1176,0.8824,17,17
+d020ac37-4f23-41b1-8f1e-b425b5769424,Kirazlıdere power complex,TR,D,0.0,0.1176,0.8824,17,17
+fecb62d9-6fb8-4f8d-83e3-78a7c75adb6e,Bandırma III power station,TR,D,0.0,0.1176,0.8824,17,17
+3e5f4317-6f40-44fb-bfa2-e21dc4d9922d,Sanko Yumurtalık power station,TR,D,0.0,0.0588,0.9412,17,17
+52028d4f-7796-4463-832e-cff2e439c96a,Yenidere power station,TR,D,0.0,0.0588,0.8824,17,17
+b5a75ec8-a2fe-42ad-b33e-ea32e20ebdfb,Astoria Ceyhan power station,TR,D,0.0,0.0588,0.8824,17,17
+3f1ad930-cffb-4991-badd-773db74b890c,EMBA Hunutlu power station,TR,D,0.0,0.0,0.9412,17,17
+5a19f424-1a15-44e6-bf1b-c2c5886ac1bf,Gürmin Enerji Amasya power station,TR,D,0.0,0.0,0.9412,17,17
+aa336cdc-f6fe-4b08-b46d-69e852c501bf,Ece power station,TR,D,0.0,0.0,0.9412,17,17
+e10aae79-05b7-4ad9-9d69-60ce190b4444,Hande power station,TR,D,0.0,0.0,0.9412,17,17
+1820429d-bd95-4e56-a6db-d9bb57e2ae07,Mersin Gülnar power station,TR,D,0.0,0.0,0.8824,17,17
+231565d3-4f56-43ee-a357-1f4451c6fbc3,Polat power station,TR,D,0.0,0.0,0.8824,17,17
+3bc834ed-5c2b-47d6-b555-2e20b9044053,Bursa power station,TR,D,0.0,0.0,0.8824,17,17
+5b6be56c-d981-470c-a979-13a8764a34b8,Kıvanç power station,TR,D,0.0,0.0,0.8824,17,17
+6ddc2960-3d72-4d5f-b358-56d1c54f47e0,İsken Sugözü power station,TR,D,0.0,0.0,0.8824,17,17
+75f807aa-8278-43a3-8654-730713b96001,Bingöl power station,TR,D,0.0,0.0,0.8824,17,17
+772e2484-419b-47de-9739-924ac371ad10,Zafer power station,TR,D,0.0,0.0,0.8824,17,17
+c9c85786-eb26-4e7b-b280-83a54b7e834f,Gölovası power station,TR,D,0.0,0.0,0.8824,17,17
+cf9150af-0325-44d8-bbaf-493e742f2e2b,Şırnak Galata power station,TR,D,0.0,0.0,0.8824,17,17
+7a805295-0cd2-48be-972e-5282c996549c,Ayas power station,TR,D,0.0,0.0,0.8235,17,17
+82aac38c-3037-466c-9b37-bff9da707645,Hakan Kömür power station,TR,D,0.0,0.0,0.8235,17,16
+e71ec827-7143-48dd-8c8a-8e81705fa971,Çalışkan Ceyhan power station,TR,D,0.0,0.0,0.8235,17,17
+0947a4c8-4fc1-492f-9c66-2c9a993c7fb0,HEMA Amasra power station,TR,D,0.0,0.0,0.7647,17,17
+44698c12-3c50-4602-8104-dafa5fd215b6,Adana Akdeniz power station,TR,D,0.0,0.0,0.7647,17,17
+9163ca37-1b31-409d-974f-9e7ed5e5f33d,Amasra Bartın power station,TR,D,0.0,0.0,0.7647,17,17
+d21335d4-0a3d-4464-85e0-352745a38db4,Kilikya power station,TR,D,0.0,0.0,0.7647,17,17
+a4af3789-2c40-41fc-a3ec-3b8d2fc6c645,Çelikler Yumurtalık power station,TR,D,0.0,0.0,0.7059,17,17
+737b6d06-1d0c-4ae6-9683-ab3fea192b32,Yeniköy power station,TR,E,0.0,0.0,0.5882,17,17
+3819acc8-761d-49ba-89e7-967d3d37ec0e,Irmak power station,TR,E,0.0,0.0,0.5294,17,17
+746fc66e-d31f-4c5d-bf5c-ab5031b04b15,İÇDAŞ Biga power station,TR,F,0.0,0.0,0.4118,17,17
+0049a899-af5f-41cd-86ae-2ba729b6365f,Muğla power station,TR,G,0.0,0.0,0.2941,17,17
+2ed9363f-a9fe-46e5-8b92-c50b47a9077a,Saltukova power station,TR,G,0.0,0.0,0.2941,17,17
+d12e7ffc-4cd3-4ff4-81da-ae360d59409b,Çebi Enerji power station,TR,G,0.0,0.0,0.2941,17,17
+2350bab4-9869-43f1-b62f-a4d5aea77ef5,Biga power station,TR,G,0.0,0.0,0.2353,17,17
+28980273-0ba6-4c8c-b080-7ff9b33cc4c9,Çan-2 power station,TR,G,0.0,0.0,0.2353,17,17
+42d5b3fd-7d07-409b-9154-4441695b7901,Mert power station,TR,G,0.0,0.0,0.2353,17,17
+d48d2f39-d58f-4299-9b2f-56d194d2d13b,Ada Yesildag Enerji power station,TR,G,0.0,0.0,0.2353,17,17
+d5151598-5a1a-4697-8147-592845ffef6c,Güreci power station,TR,G,0.0,0.0,0.2353,17,17
+f92bc907-9b9b-4d21-92fd-1705bd71128c,Ergene power station,TR,G,0.0,0.0,0.2353,17,17
+21ccc44f-3244-4e7f-9654-eae424288200,Naren Karabiga power station,TR,H,0.0,0.0,0.1765,17,17
+8b16dc60-1a2b-4b2c-bcad-1c334d246ae3,Çatalağzı power station,TR,H,0.0,0.0,0.1765,17,17
+96129c93-83a6-4b1c-929b-bfccba86a796,Suluova power station,TR,H,0.0,0.0,0.1765,17,17
+ce39538c-997e-4a7d-bc32-f164f50f9aa0,Ağan power station,TR,H,0.0,0.0,0.1765,17,17
+db87ce6a-3802-44c5-945f-8a95d3cf111b,Saray Tekirdağ power station,TR,H,0.0,0.0,0.1765,17,17
+44362378-9c74-44af-8a08-be4877f50e97,Tosyalı İskenderun power station,TR,H,0.0,0.0,0.1176,17,17
+5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770,Namal power station,TR,H,0.0,0.0,0.1176,17,17
+76cd9b7f-7613-4fd4-95ab-bf534a2e2f5e,Kireçlik power station,TR,H,0.0,0.0,0.1176,17,17
+8782d6f2-5f9f-4c67-b9f2-6756857bd200,Ant Enerji power station,TR,H,0.0,0.0,0.1176,17,17
+91f28dbb-16bd-449b-a20a-dc2b70cf2e66,Yumurtalık IC İçtaş power station,TR,H,0.0,0.0,0.1176,17,17
+adeb10a5-aaae-4e2c-b426-3db1c3d9bd5b,Hakan Enerji power station,TR,H,0.0,0.0,0.1176,17,17
+bac4a081-83dc-4aba-8076-b67bfc55f54c,Lüminer Enerji power station,TR,H,0.0,0.0,0.1176,17,17
+ca423571-d2ab-44d4-b5ce-3e649d9cc776,Kandilli power station,TR,H,0.0,0.0,0.1176,17,17
+fa6b7ac3-c1bf-478f-8d0a-1f357ea480cf,Zonguldak Modern power station,TR,H,0.0,0.0,0.1176,17,17
+c8e1cc12-080a-4e01-925d-8fd6e4334856,Meda power station,TR,H,0.0,0.0,0.0588,17,17
+cb825b0f-e315-4221-b194-43d5b472382d,Albayrak Varaka Paper power station,TR,H,0.0,0.0,0.0588,17,17
+0ca4ff78-4113-4ad9-ac04-0fd541d42338,Şevketiye Lapseki power station,TR,H,0.0,0.0,0.0,17,17
+161660e7-3ccf-4704-b452-b126599700a0,DOSAB cogeneration plant,TR,H,0.0,0.0,0.0,17,17
+1624a526-07d8-44a4-8ed7-3b035b748f03,İskenderun power station,TR,H,0.0,0.0,0.0,17,16
+17568f0f-91fd-4efe-b4df-2c7cc5d80b7d,Evrese power station,TR,H,0.0,0.0,0.0,17,17
+1ce7624e-1d72-4293-8ff4-09096b56ddd2,Atlas Enerji İskenderun power station,TR,H,0.0,0.0,0.0,17,17
+28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc,Demirtaş power station,TR,H,0.0,0.0,0.0,17,15
+3a06636d-c742-4b72-b9cd-21a4537c331b,Selena power station,TR,H,0.0,0.0,0.0,17,17
+5067ece3-b204-495e-81c1-90a523252547,DETES 1 power station,TR,H,0.0,0.0,0.0,17,17
+53481b7f-5b85-4bab-be04-4866c2e72c12,Güney Akdeniz power station,TR,H,0.0,0.0,0.0,17,17
+7b4d3f8f-a644-48a3-93f9-cd3c154dc5c2,Burnaz power station,TR,H,0.0,0.0,0.0,17,17
+829f61ff-0ad1-4288-8dd9-e41abbd0b6a7,Gebze Çolakoğlu power station,TR,H,0.0,0.0,0.0,17,17
+8dd46a05-6e0c-4009-90ad-bd5909c25622,Kardemir Karabük Demir Çelik power station,TR,H,0.0,0.0,0.0,17,17
+98019711-a8c3-424a-870e-00d4fea75ed1,Şırnak Silopi (CİNER) power station,TR,H,0.0,0.0,0.0,17,17
+b90e80f9-66f3-4290-8aa2-518b8422aba0,Eti Maden Bandirma power station,TR,H,0.0,0.0,0.0,17,17
+bb2453b0-c76d-40ea-bcc4-870391f05b2f,Bandırma Karat power station,TR,H,0.0,0.0,0.0,17,17
+c6b846cb-3a01-4e17-9d51-da4b58fd1827,Atakaş power station,TR,H,0.0,0.0,0.0,17,17
+c7afd455-7beb-4d23-8d3b-e9a102782d2b,Avdan power station,TR,H,0.0,0.0,0.0,17,17
+e894ba3e-e397-47c9-b0b9-a72cfb6bd680,Çerkezköy power station,TR,H,0.0,0.0,0.0,17,16
+e8b6e342-2011-4343-b415-a8bf08501499,Yeniyurt power station,TR,H,0.0,0.0,0.0,17,17

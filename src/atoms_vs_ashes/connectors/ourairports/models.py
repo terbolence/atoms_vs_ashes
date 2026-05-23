@@ -151,7 +151,14 @@ class AirportProximityResult:
 
     lat: float
     lon: float
+    # ``nearest_airport_km`` is the nearest large / medium airport (the
+    # HI-01 scoring scope after Phase 1C of v1.03 feedback closure,
+    # reviewer #183). The literal nearest feature of any class —
+    # including helipads, small airfields, GA strips, seaplane bases —
+    # is preserved as ``nearest_any_airport_km`` for transparency but is
+    # not consulted by HI-01 bands or A2/A3/A4.
     nearest_airport_km: float | None = None
+    nearest_any_airport_km: float | None = None
     nearest_airport_name: str | None = None
     nearest_airport_type: str | None = None
     nearest_airport_class: str | None = None
@@ -175,6 +182,10 @@ class AirportProximityResult:
             "nearest_airport_km": (
                 round(self.nearest_airport_km, 2)
                 if self.nearest_airport_km is not None else None
+            ),
+            "nearest_any_airport_km": (
+                round(self.nearest_any_airport_km, 2)
+                if self.nearest_any_airport_km is not None else None
             ),
             "nearest_airport_name": self.nearest_airport_name,
             "nearest_airport_type": self.nearest_airport_type,

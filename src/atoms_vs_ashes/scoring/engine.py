@@ -146,6 +146,17 @@ class ScoringEngine:
         self.weights = weights if weights is not None else (
             weight_normalisation(self.bundle, profile=weight_profile)
         )
+        weight_sum = sum(self.weights.values())
+        if not abs(weight_sum - 1.0) < 1e-9:
+            active_count = sum(
+                1 for c in self.bundle.values() if c.participates_in_composite
+            )
+            raise ValueError(
+                "Composite weights must sum to 1.0; got "
+                f"{weight_sum!r} across {len(self.weights)} entries "
+                f"(profile={weight_profile!r}, "
+                f"active composite criteria in bundle={active_count})."
+            )
         self.dataset_meta = dataset_meta
         self.threshold_overrides = threshold_overrides or {}
         self.cancellation = cancellation

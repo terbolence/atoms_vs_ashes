@@ -1,0 +1,11 @@
+stamp,run_id,metric,value
+20260523,score-c2a90942,total_pairs,0
+20260523,score-c2a90942,survived,0
+20260523,score-c2a90942,failed_any,0
+20260523,score-c2a90942,failed_hard_only,0
+20260523,score-c2a90942,failed_floor_only,0
+20260523,score-c2a90942,failed_both,0
+20260523,score-c2a90942,failed_by_hard_anywhere,0
+20260523,score-c2a90942,failed_by_floor_anywhere,0
+20260523,score-c2a90942,n_distinct_sites,0
+20260523,score-c2a90942,n_distinct_smrs,0

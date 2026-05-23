@@ -1,0 +1,24 @@
+national_rank,name,passed_exclusionary,passed_avoidance,composite_score,composite_score_low,composite_score_high,national_band,national_top10pct_hit_rate,criteria_coverage,avg_confidence,installed_capacity_mw,latitude,longitude
+1,Turceni power station,True,True,7.816,6.891,8.256,A,1.0,76.47,low,2640.0,44.669722,23.407778
+2,Rovinari power station,True,True,7.159,6.361,7.7,B,1.0,76.47,low,1920.0,44.910633,23.134754
+3,Iernut power station,True,True,7.114,5.285,7.555,D,0.0,52.94,low,800.0,46.4677,24.1833
+4,Mintia-Deva power station,True,False,7.016,6.245,7.487,D,0.0,76.47,low,1285.0,45.912791,22.826129
+5,Braila power station,True,False,6.784,6.058,7.275,D,0.0,76.47,low,850.0,45.165033,27.923383
+6,Govora power station,True,False,6.703,5.992,7.125,D,0.0,76.47,low,200.0,45.039047,24.287572
+7,Suceava power station,True,False,6.653,5.952,7.144,G,0.0,76.47,low,100.0,47.651873,26.298268
+8,Romag Termo power station,True,False,6.491,5.821,6.962,H,0.0,76.47,low,1065.0,44.677808,22.685995
+9,Doicesti power station,True,False,6.478,5.811,6.95,H,0.0,76.47,low,1400.0,45.002896,25.397236
+10,Paroseni power station,True,False,6.441,5.78,6.912,H,0.0,76.47,low,350.0,45.366101,23.261351
+11,Giurgiu power station,True,False,6.266,5.639,6.806,H,0.0,76.47,low,150.0,43.879766,25.926778
+12,FPCU Feldioara,True,False,6.197,5.583,6.662,H,0.0,76.47,low,160.0,45.7917,25.5889
+13,Isalnita power station,True,False,6.174,5.437,6.638,H,0.0,73.53,low,1130.0,44.38763,23.718195
+14,Craiova II power station,True,False,6.078,5.487,6.569,H,0.0,76.47,low,450.0,44.34294,23.81076
+15,Târgu Jiu Thermal Plant,True,False,6.041,5.457,6.512,H,0.0,76.47,low,100.0,45.034167,23.274722
+16,Slatina power station,True,False,5.991,5.417,6.481,H,0.0,76.47,low,100.0,44.429722,24.364167
+17,Bacau CHP power station,True,False,5.978,5.407,6.419,H,0.0,76.47,low,60.0,46.530524,26.940874
+18,Galati Power Station,True,False,5.941,5.376,6.481,H,0.0,76.47,low,800.0,45.423333,28.0425
+19,Arad power station,True,False,5.903,5.346,6.444,H,0.0,76.47,low,100.0,46.222424,21.328771
+20,Bucharest North East power station,True,False,5.463,4.987,5.856,H,0.0,76.47,low,400.0,44.4325,26.103889
+21,Oradea power station,True,False,5.428,4.962,5.969,H,0.0,76.47,low,100.0,47.084677,21.892868
+22,Iasi-2 power station,True,False,5.391,4.8,5.912,H,0.0,76.47,low,110.0,47.147296,27.717157
+,Brasov power station,False,False,,,,,,0.0,low,130.0,45.662296,25.646845

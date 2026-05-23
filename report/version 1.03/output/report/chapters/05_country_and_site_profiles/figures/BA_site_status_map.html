@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Bosnia and Herzegovina (BA) site-screening status map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+.legend span { margin-right: 1rem; font-size: 0.9rem; }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem;
+  margin-right: 0.25rem; border: 1px solid #222; vertical-align: -0.1rem; }
+#map { width: 100%; height: 760px; border: 1px solid #ddd; }
+.callout { font-size: 12px; line-height: 1.25; }
+</style>
+<h1>Bosnia and Herzegovina (BA) site-screening status for NuScale VOYGR-6</h1>
+<p>Country context and borders are provided by OpenStreetMap tiles. Click a marker for site name, status, composite score, Monte Carlo band, and stability band.</p>
+<div class="legend"><span><i style="background:#1f9d5a"></i>Full pass</span><span><i style="background:#d4a017"></i>Exclusion pass with avoidance flag</span><span><i style="background:#c0392b"></i>Hard fail</span></div>
+<div id="map"></div>
+<script>
+const map = L.map('map').setView([44.084927, 18.038752], 7);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+const bounds = [];
+bounds.push([44.753861, 17.792444]);
+L.circleMarker([44.753861, 17.792444], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Stanari Thermal Power Plant</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.747<br>MC band: 6.028-7.237<br>Stability band: A</div>").bindTooltip("Stanari Thermal Power Plant", {permanent: false, direction: 'top'});
+bounds.push([43.518304, 18.652091]);
+L.circleMarker([43.518304, 18.652091], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Miljevina power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 6.622<br>MC band: 5.927-7.131<br>Stability band: H</div>").bindTooltip("Miljevina", {permanent: false, direction: 'top'});
+bounds.push([44.766667, 16.666667]);
+L.circleMarker([44.766667, 16.666667], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kamengrad Thermal Power Plant</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 6.572<br>MC band: 5.886-7.131<br>Stability band: H</div>").bindTooltip("Kamengrad Thermal Power Plant", {permanent: false, direction: 'top'});
+bounds.push([44.683446, 18.968516]);
+L.circleMarker([44.683446, 18.968516], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Ugljevik power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.458<br>MC band: 5.707-6.929<br>Stability band: H</div>").bindTooltip("Ugljevik", {permanent: false, direction: 'top'});
+bounds.push([44.400000, 18.533300]);
+L.circleMarker([44.400000, 18.533300], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Banovici power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 5.934<br>MC band: 5.325-6.425<br>Stability band: H</div>").bindTooltip("Banovici", {permanent: false, direction: 'top'});
+bounds.push([44.050000, 17.450000]);
+L.circleMarker([44.050000, 17.450000], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Bugojno Thermal Power Project</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Bugojno Thermal Power Project", {permanent: false, direction: 'top'});
+bounds.push([43.172137, 18.511555]);
+L.circleMarker([43.172137, 18.511555], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Gacko Thermal Power Plant</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Gacko Thermal Power Plant", {permanent: false, direction: 'top'});
+bounds.push([43.333000, 17.800000]);
+L.circleMarker([43.333000, 17.800000], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Glinica power station</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Glinica", {permanent: false, direction: 'top'});
+bounds.push([44.089633, 18.113865]);
+L.circleMarker([44.089633, 18.113865], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kakanj Thermal Power Plant</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Kakanj Thermal Power Plant", {permanent: false, direction: 'top'});
+bounds.push([43.646110, 17.331390]);
+L.circleMarker([43.646110, 17.331390], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kongora Thermal Power Plant</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Kongora Thermal Power Plant", {permanent: false, direction: 'top'});
+bounds.push([44.521040, 18.606443]);
+L.circleMarker([44.521040, 18.606443], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Tuzla Thermal Power Plant</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: N/A</div>").bindTooltip("Tuzla Thermal Power Plant", {permanent: false, direction: 'top'});
+if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
+</script>

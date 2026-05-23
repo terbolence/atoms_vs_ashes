@@ -286,18 +286,18 @@ def compute_proximity_result(
         result.quality = "low"
         return result
 
-    nearest = airports_with_distances[0]
-    result.nearest_airport_km = nearest[1]
-    result.nearest_airport_name = nearest[0].name
-    result.nearest_airport_type = nearest[0].airport_type
-    result.nearest_airport_class = nearest[0].airport_type
-    result.nearest_airport_scheduled_service = nearest[0].scheduled_service
-    result.nearest_airport_runway_length_m = nearest[0].runway_length_m
+    # Phase 1C of v1.03 feedback closure (reviewer #183):
+    # ``nearest_airport_km`` for HI-01 scoring scope is the nearest
+    # large / medium airport. The literal nearest feature of any class
+    # is preserved as ``nearest_any_airport_km`` (informational only).
+    literal_nearest = airports_with_distances[0]
+    result.nearest_any_airport_km = literal_nearest[1]
 
     nearest_large: float | None = None
     nearest_medium: float | None = None
     nearest_small: float | None = None
     nearest_heliport: float | None = None
+    scoring_scope_nearest: tuple[AirportRecord, float] | None = None
     count_30km = 0
 
     nearby_30: list[NearbyAirport] = []
@@ -306,9 +306,13 @@ def compute_proximity_result(
         if airport.airport_type == "large_airport":
             if nearest_large is None or dist < nearest_large:
                 nearest_large = dist
+            if scoring_scope_nearest is None or dist < scoring_scope_nearest[1]:
+                scoring_scope_nearest = (airport, dist)
         elif airport.airport_type == "medium_airport":
             if nearest_medium is None or dist < nearest_medium:
                 nearest_medium = dist
+            if scoring_scope_nearest is None or dist < scoring_scope_nearest[1]:
+                scoring_scope_nearest = (airport, dist)
         elif airport.airport_type in ("small_airport", "seaplane_base"):
             if nearest_small is None or dist < nearest_small:
                 nearest_small = dist
@@ -331,26 +335,34 @@ def compute_proximity_result(
                 runway_length_m=airport.runway_length_m,
             ))
 
+    if scoring_scope_nearest is not None:
+        scoring_airport, scoring_dist = scoring_scope_nearest
+        result.nearest_airport_km = scoring_dist
+        result.nearest_airport_name = scoring_airport.name
+        result.nearest_airport_type = scoring_airport.airport_type
+        result.nearest_airport_class = scoring_airport.airport_type
+        result.nearest_airport_scheduled_service = scoring_airport.scheduled_service
+        result.nearest_airport_runway_length_m = scoring_airport.runway_length_m
+
     result.nearest_large_airport_km = nearest_large
     result.nearest_type2_airport_km = nearest_medium
     result.nearest_small_airport_km = nearest_small
     result.airport_count = count_30km
     result.airports_within_30km = nearby_30
 
-    # Flight path distance proxy: direct distance for heliports,
-    # 0.5 × distance for airports (approach/departure corridor width)
+    # Flight path distance proxy: 0.5 × distance for the nearest large /
+    # medium airport (approach / departure corridor width). Small / GA
+    # strips and helipads are excluded after Phase 1C (reviewer #183).
     flight_path_candidates: list[float] = []
-    if nearest_heliport is not None:
-        flight_path_candidates.append(nearest_heliport)
     for airport, dist in airports_with_distances:
-        if airport.airport_type in ("large_airport", "medium_airport", "small_airport"):
+        if airport.airport_type in ("large_airport", "medium_airport"):
             flight_path_candidates.append(dist * 0.5)
             break
     if flight_path_candidates:
         result.nearest_flight_path_km = min(flight_path_candidates)
 
     result.avoidance_violations = _check_avoidance_violations(
-        nearest_large, nearest_medium, nearest_small, result.nearest_flight_path_km,
+        nearest_large, nearest_medium, result.nearest_flight_path_km,
     )
 
     return result
@@ -359,20 +371,26 @@ def compute_proximity_result(
 def _check_avoidance_violations(
     nearest_large: float | None,
     nearest_medium: float | None,
-    nearest_small: float | None,
     nearest_flight_path: float | None,
 ) -> list[str]:
-    """Check which avoidance thresholds are violated."""
+    """Check which large + medium avoidance thresholds are violated.
+
+    Phase 1C of v1.03 feedback closure (reviewer #183): A1 (small / GA /
+    heliport proximity) is retired here; the connector no longer emits
+    avoidance verdicts driven by helipad or small-airfield distances.
+    The A3 tier label is reused for medium-airport coarse proximity.
+    """
     violations: list[str] = []
 
-    if nearest_flight_path is not None and nearest_flight_path < AVOIDANCE_THRESHOLDS_KM["A1"]:
-        violations.append("A1")
     if nearest_medium is not None and nearest_medium < AVOIDANCE_THRESHOLDS_KM["A2"]:
         violations.append("A2")
-    if nearest_small is not None and nearest_small < AVOIDANCE_THRESHOLDS_KM["A3"]:
-        violations.append("A3")
     if nearest_large is not None and nearest_large < AVOIDANCE_THRESHOLDS_KM["A4"]:
         violations.append("A4")
+    if (
+        nearest_flight_path is not None
+        and nearest_flight_path < AVOIDANCE_THRESHOLDS_KM["A1"]
+    ):
+        violations.append("A4_flight_path")
 
     return violations
 

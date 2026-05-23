@@ -11,7 +11,6 @@ from shapely.geometry import LineString, MultiLineString
 
 from atoms_vs_ashes.connectors.efsm20_faults.models import (
     CAPABLE_ACTIVITY_CLASSES,
-    E1_THRESHOLD_KM,
     SOURCE_NAME,
     FaultResult,
     FaultSpatialIndex,
@@ -286,20 +285,24 @@ class TestQuerySite:
         trace = parse_feature(close_feature, 0)
         index = build_spatial_index([trace])
         result = query_site(45.005, 26.005, index)
-        assert result.capable_fault_within_8km is True
+        # Connector emits raw distance only; the score engine renders
+        # the E1 verdict against the active run-profile threshold.
         assert result.nearest_fault_km is not None
-        assert result.nearest_fault_km < E1_THRESHOLD_KM
+        assert result.nearest_fault_km < 8.0
+        assert result.fault_activity_class is not None
+        assert result.fault_activity_class.strip().lower() in CAPABLE_ACTIVITY_CLASSES
+        assert result.capable_faults_within_50km >= 1
 
     def test_site_far_from_all_faults(self):
         """Site far from any fault (e.g. in the Atlantic)."""
         index = _build_test_index()
         result = query_site(0.0, 0.0, index)
         assert result.faults_within_50km == 0
-        assert result.capable_fault_within_8km is False
+        assert result.capable_faults_within_50km == 0
         assert result.quality == "efsm20_no_fault_50km"
 
     def test_only_inactive_faults_nearby(self):
-        """Site near only an inactive fault should not flag E1."""
+        """Site near only an inactive fault: no capable distance recorded."""
         inactive_feature = {
             "type": "Feature",
             "geometry": {
@@ -314,7 +317,6 @@ class TestQuerySite:
         trace = parse_feature(inactive_feature, 0)
         index = build_spatial_index([trace])
         result = query_site(50.005, 30.005, index)
-        assert result.capable_fault_within_8km is False
         assert result.capable_faults_within_50km == 0
         assert result.faults_within_50km > 0
         assert result.quality == "efsm20_no_capable_50km"
@@ -363,15 +365,15 @@ class TestFaultResultStructure:
         expected_keys = {
             "lat", "lon", "nearest_fault_km", "fault_name",
             "fault_slip_rate_mm_yr", "fault_activity_class", "fault_type",
-            "capable_fault_within_8km", "within_rupture_zone",
+            "within_rupture_zone",
             "faults_within_50km", "capable_faults_within_50km",
             "source", "quality", "error",
         }
         assert set(d.keys()) == expected_keys
+        assert "capable_fault_within_8km" not in d
 
     def test_default_values(self):
         r = FaultResult(lat=45.0, lon=26.0)
-        assert r.capable_fault_within_8km is False
         assert r.within_rupture_zone is False
         assert r.faults_within_50km == 0
         assert r.source == SOURCE_NAME

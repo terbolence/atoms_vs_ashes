@@ -96,6 +96,7 @@ def test_export_markdown_docx_rejects_results_table(
 def test_build_results_table_deliverable_regenerates_markdown_first(
     scripts_on_path: None,
     monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
 ) -> None:
     from build_results_table_deliverable import build_results_table_deliverable
 
@@ -146,11 +147,12 @@ def test_build_results_table_deliverable_regenerates_markdown_first(
 
     stats = build_results_table_deliverable(
         format_path=FORMAT_PATH,
-        output_dir=REPO_ROOT / "report/version 1.02/output/report/build",
+        output_dir=tmp_path,
     )
 
     assert calls == ["markdown", "pandoc", "postprocess", "landscape"]
     assert stats["selected_site_rows"] == 1
+    assert (tmp_path / "atoms_vs_ashes_results_table.md").read_text() == "# stub\n"
 
 
 def test_results_table_scope_rules(scripts_on_path: None) -> None:

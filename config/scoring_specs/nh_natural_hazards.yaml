@@ -8,7 +8,7 @@ criteria:
     name: Grid export / connection adequacy (basic-filter note)
     phases: [basic_filter]
     weight_factor: 8
-    normalised_weight_pct: 2.8
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 8, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-01 (EPRI grid screening; project A13)"}
     db_fields: {api: [site_infrastructure_v2.nearest_substation_km, site_infrastructure_v2.hv_line_voltage_kv, site_infrastructure_v2.grid_export_capacity_mw], llm: bf01_grid_text}
@@ -31,7 +31,7 @@ criteria:
     name: Land / nuclear-island footprint
     phases: [basic_filter, ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § BF-02 (EPRI footprint; project A15)"}
     db_fields: {api: [site_infrastructure_v2.favourable_area_ha, site_infrastructure_v2.buildable_area_ha, site_infrastructure_v2.largest_contiguous_ha, sites.site_area_ha], llm: bf02_land_text}
@@ -52,7 +52,7 @@ criteria:
     name: Seismic ground motion (PGA)
     phases: [ranking, avoidance]
     weight_factor: 9
-    normalised_weight_pct: 3.2
+    normalised_weight_pct: 3.913
     weight_factors: {baseline: 9, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-01 (IAEA SSG-9; NS-R-3 §3; SSG-35; project A10)"}
     primary_metric: pga_2475yr_g
@@ -73,7 +73,7 @@ criteria:
     name: Seismic surface rupture (capable faults)
     phases: [exclusionary, ranking]
     weight_factor: 9
-    normalised_weight_pct: 3.2
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 9, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-02 (NS-R-3 §3.7; SSG-35 Table II-1; E1)"}
     primary_metric: nearest_fault_km
@@ -104,7 +104,7 @@ criteria:
     # combination exactly once.
     phases: [exclusionary, ranking]
     weight_factor: 7
-    normalised_weight_pct: 2.5
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 7, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-03 (NS-R-3 §3.38-3.40; NS-G-3.6; E2)"}
     primary_metric: liquefaction_suscept
@@ -123,7 +123,7 @@ criteria:
     name: Geotechnical - slope stability
     phases: [exclusionary, ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-04 (SSG-35 Table I-1; NS-G-3.6; E3)"}
     primary_metric: slope_angle_deg
@@ -166,7 +166,7 @@ criteria:
     name: Subsidence / karst / mining / oil & gas
     phases: [ranking]
     weight_factor: 7
-    normalised_weight_pct: 2.5
+    normalised_weight_pct: 3.0435
     weight_factors: {baseline: 7, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-05 (NS-R-3 §3.35-3.36; SSG-35; E5/E6)"}
     primary_metric: mining_void_distance_km
@@ -189,7 +189,7 @@ criteria:
     name: Foundation conditions (bearing, bedrock, groundwater)
     phases: [ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-06 (NS-G-3.6)"}
     primary_metric: bearing_capacity_kpa
@@ -207,7 +207,7 @@ criteria:
     name: Volcanism
     phases: [exclusionary, ranking]
     weight_factor: 10
-    normalised_weight_pct: 3.5
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 10, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-07 (IAEA SSG-21; SSG-35 Table I-1; E4)"}
     primary_metric: nearest_volcano_km
@@ -254,7 +254,7 @@ criteria:
     name: Coastal flooding (storm surge, tsunami)
     phases: [avoidance, ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-08 (IAEA SSG-18; SSG-35 §A.19-A.27; A9/A11)"}
     primary_metric: coast_distance_km
@@ -279,7 +279,7 @@ criteria:
     name: River flooding
     phases: [avoidance, ranking]
     weight_factor: 8
-    normalised_weight_pct: 2.8
+    normalised_weight_pct: 3.4783
     weight_factors: {baseline: 8, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-09 (IAEA SSG-18; SSG-35 §A.28-A.30; A11)"}
     primary_metric: river_distance_km
@@ -329,7 +329,7 @@ criteria:
     # hourly i10fg.
     phases: [ranking]
     weight_factor: 3
-    normalised_weight_pct: 1.1
+    normalised_weight_pct: 1.3043
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-10 (IAEA SSG-18; SSG-35 Table I-1)"}
     primary_metric: max_wind_speed_ms
@@ -348,7 +348,7 @@ criteria:
     name: Extreme precipitation (rain, snow, drought)
     phases: [ranking]
     weight_factor: 3
-    normalised_weight_pct: 1.1
+    normalised_weight_pct: 1.3043
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-11 (IAEA SSG-18)"}
     db_fields: {api: [site_natural_hazards.spi12_min, site_natural_hazards.snow_months_per_year, site_natural_hazards.mean_annual_precip_mm, site_natural_hazards.extreme_precip_mm, site_natural_hazards.freezing_days_per_year], llm: nh11_precip_text}
@@ -406,7 +406,7 @@ criteria:
     name: Extreme temperatures
     phases: [ranking]
     weight_factor: 4
-    normalised_weight_pct: 1.4
+    normalised_weight_pct: 1.7391
     weight_factors: {baseline: 4, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-12 (IAEA SSG-18)"}
     db_fields: {api: [site_natural_hazards.extreme_temp_max_c, site_natural_hazards.extreme_temp_min_c, site_natural_hazards.nh12_quality, site_natural_hazards.nh12_comment, site_natural_hazards.run_id, site_natural_hazards.fetched_at], llm: nh12_temperature_text}
@@ -442,7 +442,7 @@ criteria:
     name: Forest / wildfire
     phases: [ranking]
     weight_factor: 3
-    normalised_weight_pct: 1.1
+    normalised_weight_pct: 1.3043
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-13 (SSG-35 §4.3(l))"}
     primary_metric: combustible_veg_pct
@@ -459,7 +459,7 @@ criteria:
     name: Combined hazards
     phases: [ranking]
     weight_factor: 3
-    normalised_weight_pct: 1.1
+    normalised_weight_pct: 1.3043
     weight_factors: {baseline: 3, epri: 3}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § NH-14 (SSG-35 §4.3(m))"}
     primary_metric: nh_min_resolved_score

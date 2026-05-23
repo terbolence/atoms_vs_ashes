@@ -64,6 +64,10 @@ class TriageInputComment:
     anchor_excerpt: str
     done: bool | None
     parent_id: str | None
+    report_path: str | None = None
+    section_heading: str | None = None
+    paragraph_text: str | None = None
+    language: str | None = None
 
 
 _ACK_RE = re.compile(r"^(ok|ok\.|da|da\.|noted|nota)\.?$", re.IGNORECASE)
@@ -111,8 +115,12 @@ def _build_auto_block(c: TriageInputComment) -> dict[str, object]:
         "author": c.author,
         "date": c.date,
         "chapter": c.chapter,
+        "section_heading": c.section_heading or "",
         "heading_path": list(c.heading_path),
+        "report_path": c.report_path or "",
+        "language": c.language or "",
         "anchor_excerpt": _excerpt(c.anchor_excerpt),
+        "paragraph_excerpt": _excerpt(c.paragraph_text or "", limit=240),
         "text_excerpt": _excerpt(c.text),
         "reply_to": c.parent_id,
         "done": bool(c.done) if c.done is not None else False,

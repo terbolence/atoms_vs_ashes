@@ -1,0 +1,2 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+ab151830-e5bd-46de-8400-01aa4c165366,Plomin power station,HR,A,1.0,1.0,1.0,17,17

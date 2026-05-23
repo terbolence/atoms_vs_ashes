@@ -182,12 +182,15 @@ def test_unknown_code_rejected(tmp_path: Path):
 
 
 def test_out_of_bounds_rejected_without_expert(tmp_path: Path):
+    # NH-02 E1 bounds widened to {min: 0.1, max: 500.0} per Phase 1B
+    # of the v1.03 feedback closure. Use a value above the new ceiling
+    # to verify the out-of-bounds gate still trips.
     p = _write(
         tmp_path,
         """
         run_label: bad
         fail_thresholds:
-          NH-02: {E1: 100.0}
+          NH-02: {E1: 1000.0}
         """,
     )
     with pytest.raises(ValueError, match="outside bounds"):
@@ -201,7 +204,7 @@ def test_expert_override_records_warning(tmp_path: Path):
         run_label: bad
         expert_override: true
         fail_thresholds:
-          NH-02: {E1: 100.0}
+          NH-02: {E1: 1000.0}
         """,
     )
     out = load_run_profile(p)

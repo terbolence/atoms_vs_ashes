@@ -8,7 +8,7 @@ criteria:
     name: Atmospheric dispersion (wind, stability, BLH)
     phases: [ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-01 (IAEA NS-G-3.2; SSG-35 §4.5)"}
     db_fields: {api: [site_radiological.wind_rose_json, site_radiological.pg_class_f_fraction, site_radiological.pg_class_e_fraction, site_radiological.mean_mixing_height_m], llm: ri01_dispersion_text}
@@ -47,7 +47,7 @@ criteria:
     name: Surface water dispersion
     phases: [ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-02 (IAEA NS-G-3.2)"}
     primary_metric: cooling_flow_m3s
@@ -64,7 +64,7 @@ criteria:
     name: Groundwater dispersion
     phases: [ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-03 (IAEA NS-G-3.2)"}
     primary_metric: ri03_aquifer_screening_class
@@ -82,7 +82,7 @@ criteria:
     name: Population density (EPZ rings)
     phases: [ranking]
     weight_factor: 8
-    normalised_weight_pct: 2.8
+    normalised_weight_pct: 3.4783
     weight_factors: {baseline: 8, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-04 (IAEA NS-G-3.2; SSG-35 §A.39)"}
     db_fields: {api: [site_radiological.pop_density_5km, site_radiological.pop_density_16km, site_radiological.pop_density_25km, site_radiological.pop_density_80km], llm: ri04_population_text}
@@ -134,7 +134,7 @@ criteria:
     name: Distance to large population centres (>50 k)
     phases: [avoidance, ranking]
     weight_factor: 10
-    normalised_weight_pct: 3.5
+    normalised_weight_pct: 4.3478
     weight_factors: {baseline: 10, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-05 (IAEA NS-G-3.2)"}
     primary_metric: ri05_distance_margin_pct
@@ -166,7 +166,7 @@ criteria:
     name: Population projections (60-yr design life)
     phases: [ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 5}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § RI-06 (SSG-35 §A.39)"}
     primary_metric: pop_growth_rate_pct

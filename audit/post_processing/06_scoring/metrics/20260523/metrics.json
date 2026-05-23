@@ -1,0 +1,4461 @@
+{
+  "run_id": "fail_20260523_c2a90942",
+  "summary": {
+    "total_pairs": 362,
+    "survived": 304,
+    "hard_only": 57,
+    "floor_only": 0,
+    "both": 1,
+    "n_distinct_sites": 362,
+    "n_distinct_smrs": 1,
+    "qualification_mode": "normal"
+  },
+  "per_criterion": [
+    {
+      "criterion_id": "NH-02",
+      "criterion_name": "Seismic surface rupture (capable faults)",
+      "hard_pairs": 50,
+      "floor_pairs": 0,
+      "union_pairs": 50,
+      "intersection_pairs": 0
+    },
+    {
+      "criterion_id": "EP-01",
+      "criterion_name": "Emergency-plan feasibility (composite)",
+      "hard_pairs": 5,
+      "floor_pairs": 0,
+      "union_pairs": 5,
+      "intersection_pairs": 0
+    },
+    {
+      "criterion_id": "NH-04",
+      "criterion_name": "Geotechnical - slope stability",
+      "hard_pairs": 3,
+      "floor_pairs": 0,
+      "union_pairs": 3,
+      "intersection_pairs": 0
+    },
+    {
+      "criterion_id": "NS-08",
+      "criterion_name": "Ecological sensitivity (Natura 2000 / WDPA)",
+      "hard_pairs": 3,
+      "floor_pairs": 0,
+      "union_pairs": 3,
+      "intersection_pairs": 0
+    },
+    {
+      "criterion_id": "NH-03",
+      "criterion_name": "Geotechnical - settlement and liquefaction",
+      "hard_pairs": 0,
+      "floor_pairs": 1,
+      "union_pairs": 1,
+      "intersection_pairs": 0
+    }
+  ],
+  "per_country": [
+    {
+      "country_code": "TR",
+      "n_sites": 146,
+      "n_pairs": 146,
+      "survived": 119,
+      "hard_only": 27,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 119,
+      "mean_composite": 6.422134453781513,
+      "p10_composite": 5.741,
+      "p90_composite": 7.116
+    },
+    {
+      "country_code": "PL",
+      "n_sites": 63,
+      "n_pairs": 63,
+      "survived": 61,
+      "hard_only": 2,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 61,
+      "mean_composite": 6.311016393442623,
+      "p10_composite": 5.603,
+      "p90_composite": 7.153
+    },
+    {
+      "country_code": "CZ",
+      "n_sites": 29,
+      "n_pairs": 29,
+      "survived": 29,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 29,
+      "mean_composite": 6.320413793103448,
+      "p10_composite": 5.701,
+      "p90_composite": 6.931
+    },
+    {
+      "country_code": "RO",
+      "n_sites": 23,
+      "n_pairs": 23,
+      "survived": 22,
+      "hard_only": 1,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 22,
+      "mean_composite": 6.341181818181818,
+      "p10_composite": 5.428,
+      "p90_composite": 7.114
+    },
+    {
+      "country_code": "UA",
+      "n_sites": 20,
+      "n_pairs": 20,
+      "survived": 20,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 20,
+      "mean_composite": 6.5844,
+      "p10_composite": 5.921,
+      "p90_composite": 7.197
+    },
+    {
+      "country_code": "BG",
+      "n_sites": 15,
+      "n_pairs": 15,
+      "survived": 8,
+      "hard_only": 7,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 8,
+      "mean_composite": 6.819,
+      "p10_composite": 5.875,
+      "p90_composite": 7.428
+    },
+    {
+      "country_code": "BA",
+      "n_sites": 11,
+      "n_pairs": 11,
+      "survived": 6,
+      "hard_only": 5,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 6,
+      "mean_composite": 6.5473333333333334,
+      "p10_composite": 5.934,
+      "p90_composite": 6.747
+    },
+    {
+      "country_code": "HU",
+      "n_sites": 11,
+      "n_pairs": 11,
+      "survived": 11,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 11,
+      "mean_composite": 6.270636363636363,
+      "p10_composite": 5.405,
+      "p90_composite": 6.941
+    },
+    {
+      "country_code": "AT",
+      "n_sites": 8,
+      "n_pairs": 8,
+      "survived": 6,
+      "hard_only": 2,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 6,
+      "mean_composite": 6.706833333333333,
+      "p10_composite": 6.347,
+      "p90_composite": 7.016
+    },
+    {
+      "country_code": "RS",
+      "n_sites": 8,
+      "n_pairs": 8,
+      "survived": 7,
+      "hard_only": 1,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 7,
+      "mean_composite": 6.5842857142857145,
+      "p10_composite": 6.453,
+      "p90_composite": 6.716
+    },
+    {
+      "country_code": "SK",
+      "n_sites": 6,
+      "n_pairs": 6,
+      "survived": 5,
+      "hard_only": 1,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 5,
+      "mean_composite": 6.547,
+      "p10_composite": 5.691,
+      "p90_composite": 6.978
+    },
+    {
+      "country_code": "ME",
+      "n_sites": 4,
+      "n_pairs": 4,
+      "survived": 2,
+      "hard_only": 2,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 2,
+      "mean_composite": 6.023,
+      "p10_composite": 6.023,
+      "p90_composite": 6.023
+    },
+    {
+      "country_code": "MK",
+      "n_sites": 4,
+      "n_pairs": 4,
+      "survived": 3,
+      "hard_only": 1,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 3,
+      "mean_composite": 6.566666666666666,
+      "p10_composite": 6.181,
+      "p90_composite": 6.812
+    },
+    {
+      "country_code": "XK",
+      "n_sites": 4,
+      "n_pairs": 4,
+      "survived": 0,
+      "hard_only": 4,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 0,
+      "mean_composite": null,
+      "p10_composite": null,
+      "p90_composite": null
+    },
+    {
+      "country_code": "SI",
+      "n_sites": 3,
+      "n_pairs": 3,
+      "survived": 0,
+      "hard_only": 3,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 0,
+      "mean_composite": null,
+      "p10_composite": null,
+      "p90_composite": null
+    },
+    {
+      "country_code": "BY",
+      "n_sites": 2,
+      "n_pairs": 2,
+      "survived": 2,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 2,
+      "mean_composite": 7.1845,
+      "p10_composite": 6.991,
+      "p90_composite": 7.378
+    },
+    {
+      "country_code": "HR",
+      "n_sites": 2,
+      "n_pairs": 2,
+      "survived": 1,
+      "hard_only": 1,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 1,
+      "mean_composite": 6.214,
+      "p10_composite": 6.214,
+      "p90_composite": 6.214
+    },
+    {
+      "country_code": "AL",
+      "n_sites": 1,
+      "n_pairs": 1,
+      "survived": 0,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 1,
+      "n_sites_with_survivor": 0,
+      "mean_composite": null,
+      "p10_composite": null,
+      "p90_composite": null
+    },
+    {
+      "country_code": "LV",
+      "n_sites": 1,
+      "n_pairs": 1,
+      "survived": 1,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 1,
+      "mean_composite": 6.603,
+      "p10_composite": 6.603,
+      "p90_composite": 6.603
+    },
+    {
+      "country_code": "MD",
+      "n_sites": 1,
+      "n_pairs": 1,
+      "survived": 1,
+      "hard_only": 0,
+      "floor_only": 0,
+      "both": 0,
+      "n_sites_with_survivor": 1,
+      "mean_composite": 6.959,
+      "p10_composite": 6.959,
+      "p90_composite": 6.959
+    }
+  ],
+  "per_smr": [
+    {
+      "smr_key": "nuscale_voygr6",
+      "n_pairs": 362,
+      "survived": 304,
+      "hard_only": 57,
+      "floor_only": 0,
+      "both": 1
+    }
+  ],
+  "per_pair_failures": [
+    {
+      "site_id": "e6ecead0-54d1-41fe-8268-1253d0d7ef3e",
+      "site_name": "Porto Romano Power Station",
+      "country_code": "AL",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.31,
+      "threshold": 8.0,
+      "margin": -4.6899999999999995,
+      "margin_norm": -0.5862499999999999,
+      "severity": "critical"
+    },
+    {
+      "site_id": "e6ecead0-54d1-41fe-8268-1253d0d7ef3e",
+      "site_name": "Porto Romano Power Station",
+      "country_code": "AL",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-03",
+      "code": "E2",
+      "action": "exclude_floor",
+      "metric": null,
+      "value": null,
+      "threshold": null,
+      "margin": null,
+      "margin_norm": null,
+      "severity": "floor"
+    },
+    {
+      "site_id": "021c723b-98af-4b72-8f6c-ade538885f10",
+      "site_name": "St Andrae power station",
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.24,
+      "threshold": 8.0,
+      "margin": -4.76,
+      "margin_norm": -0.595,
+      "severity": "critical"
+    },
+    {
+      "site_id": "33d83e11-cfcd-47cb-be5e-82ca0fc352cc",
+      "site_name": "Zeltweg power station",
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-04",
+      "code": "E3",
+      "action": "exclude",
+      "metric": "slope_angle_deg",
+      "value": 26.02,
+      "threshold": 25,
+      "margin": 1.0199999999999996,
+      "margin_norm": 0.04079999999999998,
+      "severity": "trivial"
+    },
+    {
+      "site_id": "0155b913-765f-4d44-89f5-c176b6867cef",
+      "site_name": "Kongora Thermal Power Plant",
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.56,
+      "threshold": 8.0,
+      "margin": -4.4399999999999995,
+      "margin_norm": -0.5549999999999999,
+      "severity": "critical"
+    },
+    {
+      "site_id": "0fb50bcc-5616-40d8-9109-8136a958f18d",
+      "site_name": "Tuzla Thermal Power Plant",
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.65,
+      "threshold": 8.0,
+      "margin": -6.35,
+      "margin_norm": -0.79375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "67e5a20f-e3ab-4c18-9864-cf4591d6e15f",
+      "site_name": "Bugojno Thermal Power Project",
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.03,
+      "threshold": 8.0,
+      "margin": -6.97,
+      "margin_norm": -0.87125,
+      "severity": "critical"
+    },
+    {
+      "site_id": "e2d645e3-c829-4aac-8f6f-d6a5507fd5fa",
+      "site_name": "Glinica power station",
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.05,
+      "threshold": 8.0,
+      "margin": -4.95,
+      "margin_norm": -0.61875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "e671be33-8b91-40bd-b563-b833293654aa",
+      "site_name": "Kakanj Thermal Power Plant",
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.19,
+      "threshold": 8.0,
+      "margin": -4.8100000000000005,
+      "margin_norm": -0.6012500000000001,
+      "severity": "critical"
+    },
+    {
+      "site_id": "0e860f58-416b-4116-836d-04edf8ded225",
+      "site_name": "Maritsa Iztok-3 power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.98,
+      "threshold": 8.0,
+      "margin": -4.02,
+      "margin_norm": -0.5025,
+      "severity": "critical"
+    },
+    {
+      "site_id": "398cc0f2-25d5-428a-93c9-5e4859680e86",
+      "site_name": "Deven power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.05,
+      "threshold": 8.0,
+      "margin": -6.95,
+      "margin_norm": -0.86875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "85c56b15-450b-4bb1-b75e-5ea00ee51cb2",
+      "site_name": "Varna power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.27,
+      "threshold": 8.0,
+      "margin": -5.73,
+      "margin_norm": -0.71625,
+      "severity": "critical"
+    },
+    {
+      "site_id": "93685558-3355-4da2-9a4a-4cccd89f9269",
+      "site_name": "Sliven power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.39,
+      "threshold": 8.0,
+      "margin": -6.61,
+      "margin_norm": -0.82625,
+      "severity": "critical"
+    },
+    {
+      "site_id": "b1bcb7d3-cd40-40c9-9c59-a01fa71053b3",
+      "site_name": "Maritsa Iztok-4 power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 4.05,
+      "threshold": 8.0,
+      "margin": -3.95,
+      "margin_norm": -0.49375,
+      "severity": "severe"
+    },
+    {
+      "site_id": "d12d7173-8595-4b53-92af-75b44b5a2fb7",
+      "site_name": "Maritsa Iztok-1 power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.33,
+      "threshold": 8.0,
+      "margin": -4.67,
+      "margin_norm": -0.58375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "fee1d5b3-827f-4172-8492-a3e114a3c39e",
+      "site_name": "Brikel power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.65,
+      "threshold": 8.0,
+      "margin": -4.35,
+      "margin_norm": -0.54375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "85c56b15-450b-4bb1-b75e-5ea00ee51cb2",
+      "site_name": "Varna power station",
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NS-08",
+      "code": "E7",
+      "action": "exclude",
+      "metric": null,
+      "value": null,
+      "threshold": null,
+      "margin": null,
+      "margin_norm": null,
+      "severity": null
+    },
+    {
+      "site_id": "7af0e000-3d19-4e5e-b504-f74897f1510c",
+      "site_name": "Plo\u010de power station",
+      "country_code": "HR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.24,
+      "threshold": 8.0,
+      "margin": -4.76,
+      "margin_norm": -0.595,
+      "severity": "critical"
+    },
+    {
+      "site_id": "a851b5f3-8392-4766-82b9-379c6c04fe5d",
+      "site_name": "Maoce Power Station",
+      "country_code": "ME",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.94,
+      "threshold": 8.0,
+      "margin": -4.0600000000000005,
+      "margin_norm": -0.5075000000000001,
+      "severity": "critical"
+    },
+    {
+      "site_id": "a9385c82-79b7-4f8d-b609-0a12ed946fe6",
+      "site_name": "Pljevlja power station",
+      "country_code": "ME",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.09,
+      "threshold": 8.0,
+      "margin": -7.91,
+      "margin_norm": -0.98875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "a9385c82-79b7-4f8d-b609-0a12ed946fe6",
+      "site_name": "Pljevlja power station",
+      "country_code": "ME",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NS-08",
+      "code": "E7",
+      "action": "exclude",
+      "metric": null,
+      "value": null,
+      "threshold": null,
+      "margin": null,
+      "margin_norm": null,
+      "severity": null
+    },
+    {
+      "site_id": "7bff5ef2-646d-4b83-83b0-7f3da32f0254",
+      "site_name": "Mariovo power station",
+      "country_code": "MK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NS-08",
+      "code": "E7",
+      "action": "exclude",
+      "metric": null,
+      "value": null,
+      "threshold": null,
+      "margin": null,
+      "margin_norm": null,
+      "severity": null
+    },
+    {
+      "site_id": "9f4a0d6c-e2fa-4e9b-b412-d779d4abf82c",
+      "site_name": "Bydgoszcz power station",
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "EP-01",
+      "code": "E8",
+      "action": "exclude",
+      "metric": "ep01_composite_score",
+      "value": 24.3,
+      "threshold": 30,
+      "margin": -5.699999999999999,
+      "margin_norm": -0.18999999999999997,
+      "severity": "minor"
+    },
+    {
+      "site_id": "d40cdaf1-49e4-4c59-a6c8-2402cd2bf006",
+      "site_name": "Zeran power station",
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "EP-01",
+      "code": "E8",
+      "action": "exclude",
+      "metric": "ep01_composite_score",
+      "value": 24.4,
+      "threshold": 30,
+      "margin": -5.600000000000001,
+      "margin_norm": -0.1866666666666667,
+      "severity": "minor"
+    },
+    {
+      "site_id": "729f8d17-57c0-4d9a-adab-4b612d4abde5",
+      "site_name": "Brasov power station",
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "EP-01",
+      "code": "E8",
+      "action": "exclude",
+      "metric": "ep01_composite_score",
+      "value": 26.6,
+      "threshold": 30,
+      "margin": -3.3999999999999986,
+      "margin_norm": -0.11333333333333329,
+      "severity": "minor"
+    },
+    {
+      "site_id": "5d53da59-04c8-43e6-b29e-220bea4d9eb7",
+      "site_name": "Despotovac power station",
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.9,
+      "threshold": 8.0,
+      "margin": -4.1,
+      "margin_norm": -0.5125,
+      "severity": "critical"
+    },
+    {
+      "site_id": "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd",
+      "site_name": "Trbovlje power station",
+      "country_code": "SI",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.45,
+      "threshold": 8.0,
+      "margin": -5.55,
+      "margin_norm": -0.69375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "0750b80c-a54b-4ea5-b3e5-9dfb7309eca2",
+      "site_name": "Sostanj power station",
+      "country_code": "SI",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.25,
+      "threshold": 8.0,
+      "margin": -7.75,
+      "margin_norm": -0.96875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "4cf7f820-7ad9-411e-bf39-2bbef290aaf6",
+      "site_name": "Te-Tol power station",
+      "country_code": "SI",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.33,
+      "threshold": 8.0,
+      "margin": -6.67,
+      "margin_norm": -0.83375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd",
+      "site_name": "Trbovlje power station",
+      "country_code": "SI",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-04",
+      "code": "E3",
+      "action": "exclude",
+      "metric": "slope_angle_deg",
+      "value": 27.25,
+      "threshold": 25,
+      "margin": 2.25,
+      "margin_norm": 0.09,
+      "severity": "minor"
+    },
+    {
+      "site_id": "66edd8f5-e60a-412d-9b80-56496d1407b1",
+      "site_name": "Kosice power station",
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "EP-01",
+      "code": "E8",
+      "action": "exclude",
+      "metric": "ep01_composite_score",
+      "value": 18.5,
+      "threshold": 30,
+      "margin": -11.5,
+      "margin_norm": -0.38333333333333336,
+      "severity": "severe"
+    },
+    {
+      "site_id": "28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc",
+      "site_name": "Demirta\u015f power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "EP-01",
+      "code": "E8",
+      "action": "exclude",
+      "metric": "ep01_composite_score",
+      "value": 29.8,
+      "threshold": 30,
+      "margin": -0.1999999999999993,
+      "margin_norm": -0.006666666666666643,
+      "severity": "trivial"
+    },
+    {
+      "site_id": "021d1717-149a-4a32-af7b-5955ff593e45",
+      "site_name": "Star Refinery Socar power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.72,
+      "threshold": 8.0,
+      "margin": -7.28,
+      "margin_norm": -0.91,
+      "severity": "critical"
+    },
+    {
+      "site_id": "0ada7b2a-f928-4c21-b082-4c7345094245",
+      "site_name": "Tekirda\u011f Malkara power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.99,
+      "threshold": 8.0,
+      "margin": -6.01,
+      "margin_norm": -0.75125,
+      "severity": "critical"
+    },
+    {
+      "site_id": "0ca0b969-c519-48f3-97ab-7173d3aa6085",
+      "site_name": "G\u00f6nen power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.85,
+      "threshold": 8.0,
+      "margin": -6.15,
+      "margin_norm": -0.76875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "28baef4d-44e3-4b2e-bbe3-75f736371553",
+      "site_name": "Enyat Samsun power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 4.22,
+      "threshold": 8.0,
+      "margin": -3.7800000000000002,
+      "margin_norm": -0.47250000000000003,
+      "severity": "severe"
+    },
+    {
+      "site_id": "47c1271c-e2b2-42f5-99ee-f616bbef5b7e",
+      "site_name": "Ilg\u0131n power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.88,
+      "threshold": 8.0,
+      "margin": -7.12,
+      "margin_norm": -0.89,
+      "severity": "critical"
+    },
+    {
+      "site_id": "4ca3c560-6d90-4bcf-b131-4e39b6b4f0de",
+      "site_name": "Soma power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 4.11,
+      "threshold": 8.0,
+      "margin": -3.8899999999999997,
+      "margin_norm": -0.48624999999999996,
+      "severity": "severe"
+    },
+    {
+      "site_id": "59f96677-d42b-4ae1-a3e9-32f3dc396a83",
+      "site_name": "Dinar power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.02,
+      "threshold": 8.0,
+      "margin": -6.98,
+      "margin_norm": -0.8725,
+      "severity": "critical"
+    },
+    {
+      "site_id": "61b7e396-5c25-4591-9da1-eb54475f1805",
+      "site_name": "Zorlu Soma power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.17,
+      "threshold": 8.0,
+      "margin": -5.83,
+      "margin_norm": -0.72875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "7defe42d-669b-489f-aff5-d1b83436607d",
+      "site_name": "K\u0131n\u0131k power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 4.06,
+      "threshold": 8.0,
+      "margin": -3.9400000000000004,
+      "margin_norm": -0.49250000000000005,
+      "severity": "severe"
+    },
+    {
+      "site_id": "80179871-04fa-4806-9385-caf739b8a171",
+      "site_name": "Haba\u015f power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.98,
+      "threshold": 8.0,
+      "margin": -5.02,
+      "margin_norm": -0.6275,
+      "severity": "critical"
+    },
+    {
+      "site_id": "80b922cb-9e78-49aa-9d28-1dc84b1affef",
+      "site_name": "Orhaneli power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.46,
+      "threshold": 8.0,
+      "margin": -6.54,
+      "margin_norm": -0.8175,
+      "severity": "critical"
+    },
+    {
+      "site_id": "86996d34-c6e5-4097-ac28-ad2e5467f783",
+      "site_name": "Petkim power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.67,
+      "threshold": 8.0,
+      "margin": -5.33,
+      "margin_norm": -0.66625,
+      "severity": "critical"
+    },
+    {
+      "site_id": "8e7f6abf-e420-4f40-b9da-9ea76ccedfb1",
+      "site_name": "Kemerk\u00f6y power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.41,
+      "threshold": 8.0,
+      "margin": -7.59,
+      "margin_norm": -0.94875,
+      "severity": "critical"
+    },
+    {
+      "site_id": "992a4bf0-3ff0-4f12-bb89-50dc9e8d7d35",
+      "site_name": "Aksa Akrilik power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.95,
+      "threshold": 8.0,
+      "margin": -4.05,
+      "margin_norm": -0.50625,
+      "severity": "critical"
+    },
+    {
+      "site_id": "a70bbc9a-1469-4d56-be56-f282ed4130a8",
+      "site_name": "Deniz power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.4,
+      "threshold": 8.0,
+      "margin": -7.6,
+      "margin_norm": -0.95,
+      "severity": "critical"
+    },
+    {
+      "site_id": "ad1e8841-e4e4-413b-820a-8c14e09da5a0",
+      "site_name": "\u00c7an (18 Mart) power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.04,
+      "threshold": 8.0,
+      "margin": -4.96,
+      "margin_norm": -0.62,
+      "severity": "critical"
+    },
+    {
+      "site_id": "ba1f1f36-18b4-49ae-9882-f90418dc88ce",
+      "site_name": "Band\u0131rma Elektrik power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.56,
+      "threshold": 8.0,
+      "margin": -7.4399999999999995,
+      "margin_norm": -0.9299999999999999,
+      "severity": "critical"
+    },
+    {
+      "site_id": "bcb86777-4a54-4891-bb26-35b201bbd57d",
+      "site_name": "Alia\u011fa Enka power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.4,
+      "threshold": 8.0,
+      "margin": -7.6,
+      "margin_norm": -0.95,
+      "severity": "critical"
+    },
+    {
+      "site_id": "bddb4fb7-c01d-4b71-bc30-1896b88298bf",
+      "site_name": "\u00c7\u0131rp\u0131lar power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.96,
+      "threshold": 8.0,
+      "margin": -6.04,
+      "margin_norm": -0.755,
+      "severity": "critical"
+    },
+    {
+      "site_id": "c13aeeb7-05e5-4f00-9b4b-654e73e5150d",
+      "site_name": "Sanko G\u00f6lba\u015f\u0131 power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.16,
+      "threshold": 8.0,
+      "margin": -5.84,
+      "margin_norm": -0.73,
+      "severity": "critical"
+    },
+    {
+      "site_id": "cf918ba6-6226-479f-b04c-b3c67885c0ba",
+      "site_name": "Kipas MMP power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.84,
+      "threshold": 8.0,
+      "margin": -7.16,
+      "margin_norm": -0.895,
+      "severity": "critical"
+    },
+    {
+      "site_id": "d110df11-ad8e-44dc-8a32-af692ca46c6f",
+      "site_name": "G\u00fcneybat\u0131 Anadolu power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.43,
+      "threshold": 8.0,
+      "margin": -7.57,
+      "margin_norm": -0.94625,
+      "severity": "critical"
+    },
+    {
+      "site_id": "d19ed873-b20a-43fd-b7e8-62e985c88820",
+      "site_name": "\u0130zdemir Enerji power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 1.03,
+      "threshold": 8.0,
+      "margin": -6.97,
+      "margin_norm": -0.87125,
+      "severity": "critical"
+    },
+    {
+      "site_id": "e0e73325-5b32-4fef-b925-f0bb91114450",
+      "site_name": "Helvac\u0131 power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 4.12,
+      "threshold": 8.0,
+      "margin": -3.88,
+      "margin_norm": -0.485,
+      "severity": "severe"
+    },
+    {
+      "site_id": "fd4f7f8c-0d23-450d-9ea0-1b8e52e9a8af",
+      "site_name": "Yata\u011fan power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.96,
+      "threshold": 8.0,
+      "margin": -7.04,
+      "margin_norm": -0.88,
+      "severity": "critical"
+    },
+    {
+      "site_id": "e05ff795-8984-4170-9874-5355b70985b1",
+      "site_name": "Silopi (\u015e\u0131rnak) power station",
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-04",
+      "code": "E3",
+      "action": "exclude",
+      "metric": "slope_angle_deg",
+      "value": 31.48,
+      "threshold": 25,
+      "margin": 6.48,
+      "margin_norm": 0.25920000000000004,
+      "severity": "severe"
+    },
+    {
+      "site_id": "28be296b-6ef5-4c7e-a604-3af01af45d17",
+      "site_name": "Kosovo A power station",
+      "country_code": "XK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.53,
+      "threshold": 8.0,
+      "margin": -4.470000000000001,
+      "margin_norm": -0.5587500000000001,
+      "severity": "critical"
+    },
+    {
+      "site_id": "76eba99c-dade-46dc-9130-478e43aa6202",
+      "site_name": "Kosovo B power station",
+      "country_code": "XK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 2.29,
+      "threshold": 8.0,
+      "margin": -5.71,
+      "margin_norm": -0.71375,
+      "severity": "critical"
+    },
+    {
+      "site_id": "d28fa85d-4f6c-4b26-a585-cb0bed226ecb",
+      "site_name": "Kosovo C power station",
+      "country_code": "XK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 3.32,
+      "threshold": 8.0,
+      "margin": -4.68,
+      "margin_norm": -0.585,
+      "severity": "critical"
+    },
+    {
+      "site_id": "d9f32912-81f1-4b1c-a2b1-f04298217cec",
+      "site_name": "Istok power station",
+      "country_code": "XK",
+      "smr_key": "nuscale_voygr6",
+      "criterion_id": "NH-02",
+      "code": "E1",
+      "action": "exclude",
+      "metric": "nearest_fault_km",
+      "value": 0.95,
+      "threshold": 8.0,
+      "margin": -7.05,
+      "margin_norm": -0.88125,
+      "severity": "critical"
+    }
+  ],
+  "top_n_per_country": [
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "660d9d71-6733-4294-951b-1c58614d58cf",
+      "site_name": "Riedersbach power station",
+      "composite_score": 7.159,
+      "composite_score_low": 6.361,
+      "composite_score_high": 7.65,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.21,
+          "NH": 8.16,
+          "NS": 5.96,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "2dcd2c6d-f375-4408-9492-7910662fac03",
+      "site_name": "Timelkam power station",
+      "composite_score": 7.016,
+      "composite_score_low": 6.245,
+      "composite_score_high": 7.487,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 7.41,
+          "NH": 7.8,
+          "NS": 6.7,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "532bfb42-0d4c-42cf-a81a-287f2b3a75bf",
+      "site_name": "Enns Power Station",
+      "composite_score": 6.616,
+      "composite_score_low": 5.922,
+      "composite_score_high": 7.156,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.81,
+          "NH": 8.02,
+          "NS": 7.84,
+          "RI": 4.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "99d712ac-7993-4186-8a0e-2e88bae7e90f",
+      "site_name": "Voitsberg power station",
+      "composite_score": 6.559,
+      "composite_score_low": 5.876,
+      "composite_score_high": 7.05,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.21,
+          "NH": 7.18,
+          "NS": 5.96,
+          "RI": 5.86
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "6e7fc4d8-636d-411a-baef-e138a5a07acc",
+      "site_name": "Duernrohr power station",
+      "composite_score": 6.544,
+      "composite_score_low": 5.864,
+      "composite_score_high": 7.081,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 5.77,
+          "NH": 7.13,
+          "NS": 8.59,
+          "RI": 3.5
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "AT",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "90820fe3-9889-4faf-9906-7c528f8d7bc5",
+      "site_name": "Mellach power station",
+      "composite_score": 6.347,
+      "composite_score_low": 5.705,
+      "composite_score_high": 6.837,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.67,
+          "NH": 7.67,
+          "NS": 6.47,
+          "RI": 5.14
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "85257083-08d1-4560-b198-a9df414da4a9",
+      "site_name": "Gacko Thermal Power Plant",
+      "composite_score": 6.951,
+      "composite_score_low": 6.073,
+      "composite_score_high": 7.442,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 9.36,
+          "NH": 5.93,
+          "NS": 6.53,
+          "RI": 8.21
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "e75c63e5-ef2f-4e08-8f8c-3da41215af9d",
+      "site_name": "Stanari Thermal Power Plant",
+      "composite_score": 6.747,
+      "composite_score_low": 6.028,
+      "composite_score_high": 7.237,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.9,
+          "NH": 6.47,
+          "NS": 5.96,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9",
+      "site_name": "Miljevina power station",
+      "composite_score": 6.622,
+      "composite_score_low": 5.927,
+      "composite_score_high": 7.131,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 8.13,
+          "NH": 5.76,
+          "NS": 5.61,
+          "RI": 8.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "344e0e9a-558e-4749-bb66-cd746be50cbd",
+      "site_name": "Kamengrad Thermal Power Plant",
+      "composite_score": 6.572,
+      "composite_score_low": 5.886,
+      "composite_score_high": 7.131,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.93,
+          "NH": 6.78,
+          "NS": 6.19,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "a23d073a-cbbd-469a-b134-380945fd3f4c",
+      "site_name": "Ugljevik power station",
+      "composite_score": 6.458,
+      "composite_score_low": 5.707,
+      "composite_score_high": 6.929,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.41,
+          "NH": 6.6,
+          "NS": 5.67,
+          "RI": 6.8
+        },
+        "unscored_fraction": 0.2172
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "82011c29-a3d3-4a81-a27b-019d2649a251",
+      "site_name": "Banovici power station",
+      "composite_score": 5.934,
+      "composite_score_low": 5.325,
+      "composite_score_high": 6.425,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 2.21,
+          "HI": 7.5,
+          "NH": 7.09,
+          "NS": 5.33,
+          "RI": 5.14
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "ec5f337a-ca52-4b86-a0f4-4933eac349e3",
+      "site_name": "Maritsa Iztok-2 power station",
+      "composite_score": 7.709,
+      "composite_score_low": 6.806,
+      "composite_score_high": 8.169,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.61,
+          "NH": 7.31,
+          "NS": 8.47,
+          "RI": 8.57
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "30c9e377-b575-46fa-880f-922c46e6500a",
+      "site_name": "Lom Power Station",
+      "composite_score": 7.428,
+      "composite_score_low": 6.578,
+      "composite_score_high": 7.85,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.53,
+          "NH": 7.84,
+          "NS": 7.33,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "a064c7ae-e699-4a94-a18c-79bdfe42bce3",
+      "site_name": "Vidin Works power station",
+      "composite_score": 7.091,
+      "composite_score_low": 6.306,
+      "composite_score_high": 7.631,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.41,
+          "NH": 7.36,
+          "NS": 6.53,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "3bb6666f-de2f-4c6f-a28e-c3bddb71b54a",
+      "site_name": "Maritsa 3 power station",
+      "composite_score": 7.009,
+      "composite_score_low": 6.24,
+      "composite_score_high": 7.569,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.67,
+          "NH": 7.53,
+          "NS": 5.84,
+          "RI": 7.43
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "b01fe781-dbc7-40f8-a544-946288020042",
+      "site_name": "Bobov Dol power station",
+      "composite_score": 6.984,
+      "composite_score_low": 6.22,
+      "composite_score_high": 7.525,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.07,
+          "NH": 7.67,
+          "NS": 7.04,
+          "RI": 8.0
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "2fb27566-cc7b-4530-8ff9-e55e3a1985bd",
+      "site_name": "Svilosa power station",
+      "composite_score": 6.578,
+      "composite_score_low": 5.891,
+      "composite_score_high": 7.119,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.33,
+          "NH": 7.44,
+          "NS": 6.19,
+          "RI": 6.36
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "704ef487-f600-4f23-b06e-a0f81b627597",
+      "site_name": "Ruse Iztok power station",
+      "composite_score": 5.878,
+      "composite_score_low": 5.326,
+      "composite_score_high": 6.419,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 5.93,
+          "NH": 7.09,
+          "NS": 6.93,
+          "RI": 2.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BG",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "33a015dd-51e0-497e-b0d3-4b1b3f070438",
+      "site_name": "Republika power station",
+      "composite_score": 5.875,
+      "composite_score_low": 5.323,
+      "composite_score_high": 6.325,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 5.11,
+          "NH": 7.67,
+          "NS": 6.41,
+          "RI": 3.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BY",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "fac3d0b5-36a5-48ae-8494-f2f08e4342f4",
+      "site_name": "Zelwa power station",
+      "composite_score": 7.378,
+      "composite_score_low": 6.538,
+      "composite_score_high": 7.944,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.41,
+          "NH": 7.31,
+          "NS": 7.1,
+          "RI": 8.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "BY",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "68aabff9-e662-4b9f-b37d-4c2ebc5f7539",
+      "site_name": "Lelchitsy power station",
+      "composite_score": 6.991,
+      "composite_score_low": 6.225,
+      "composite_score_high": 7.487,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.61,
+          "NH": 7.76,
+          "NS": 6.36,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "287cbb48-bb08-40dd-82c5-cfe1530dfbb9",
+      "site_name": "Tusimice power station",
+      "composite_score": 7.095,
+      "composite_score_low": 6.144,
+      "composite_score_high": 7.691,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.27,
+          "NS": 8.61,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "b0ba194f-3c80-4725-b1e7-fa5277b38833",
+      "site_name": "Prunerov power station",
+      "composite_score": 7.016,
+      "composite_score_low": 6.083,
+      "composite_score_high": 7.559,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.27,
+          "NS": 8.17,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "d762ceeb-514f-43a6-9f91-a2d422ed6c60",
+      "site_name": "Chvaletice power station",
+      "composite_score": 7.009,
+      "composite_score_low": 6.24,
+      "composite_score_high": 7.594,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.47,
+          "NH": 6.69,
+          "NS": 8.36,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "32484f7b-18a4-4b21-8e6a-6d68ae099d02",
+      "site_name": "Pocerady power station",
+      "composite_score": 6.931,
+      "composite_score_low": 6.018,
+      "composite_score_high": 7.526,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.47,
+          "NH": 7.13,
+          "NS": 8.76,
+          "RI": 6.0
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "2fe0a0b3-4108-427e-8e54-f77e1ea7227c",
+      "site_name": "Ledvice power station",
+      "composite_score": 6.916,
+      "composite_score_low": 6.164,
+      "composite_score_high": 7.512,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.21,
+          "NH": 7.44,
+          "NS": 7.27,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "f3523341-daaa-4573-a856-becb2e1bb9e3",
+      "site_name": "Melnik power station",
+      "composite_score": 6.916,
+      "composite_score_low": 6.164,
+      "composite_score_high": 7.531,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.44,
+          "NS": 7.79,
+          "RI": 6.0
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "9c4291f1-173b-467e-ae26-8cb01312c605",
+      "site_name": "Plana Nad Luznici power station",
+      "composite_score": 6.773,
+      "composite_score_low": 5.896,
+      "composite_score_high": 7.309,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.47,
+          "NH": 7.84,
+          "NS": 5.13,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "e299922a-1670-4aff-acda-fd80600af9af",
+      "site_name": "Mondi Steti power station",
+      "composite_score": 6.716,
+      "composite_score_low": 6.003,
+      "composite_score_high": 7.331,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.22,
+          "NS": 6.87,
+          "RI": 6.36
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "180880c2-7284-4723-b02a-a62348b9b40b",
+      "site_name": "Hodonin power station",
+      "composite_score": 6.672,
+      "composite_score_low": 5.967,
+      "composite_score_high": 7.181,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.47,
+          "NH": 6.87,
+          "NS": 6.3,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "CZ",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "60baaa73-dd8c-4865-bb18-6c73d63a4052",
+      "site_name": "Prerov power station",
+      "composite_score": 6.648,
+      "composite_score_low": 5.801,
+      "composite_score_high": 7.145,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.44,
+          "NS": 6.39,
+          "RI": 6.14
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "ab151830-e5bd-46de-8400-01aa4c165366",
+      "site_name": "Plomin power station",
+      "composite_score": 6.214,
+      "composite_score_low": 5.467,
+      "composite_score_high": 6.73,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.41,
+          "NH": 5.18,
+          "NS": 5.13,
+          "RI": 7.14
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "997474f6-9bfd-4abd-a2ac-d8618db8f0b4",
+      "site_name": "Mohacs power station",
+      "composite_score": 7.584,
+      "composite_score_low": 6.705,
+      "composite_score_high": 8.075,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.61,
+          "NH": 7.76,
+          "NS": 7.73,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "f7dcdb63-26e6-44cd-b440-ec14fe507d90",
+      "site_name": "Borsod power station",
+      "composite_score": 6.941,
+      "composite_score_low": 6.184,
+      "composite_score_high": 7.381,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 5.81,
+          "NH": 7.49,
+          "NS": 7.5,
+          "RI": 6.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "059b3ad4-7196-4e6b-b169-8605ceeed841",
+      "site_name": "Torony power station",
+      "composite_score": 6.872,
+      "composite_score_low": 5.972,
+      "composite_score_high": 7.336,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 7.01,
+          "NH": 7.49,
+          "NS": 7.13,
+          "RI": 5.14
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "5de5f907-98e7-42d3-a7dd-cb65f839697b",
+      "site_name": "Tiszapalkonya power station",
+      "composite_score": 6.778,
+      "composite_score_low": 6.053,
+      "composite_score_high": 7.319,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.21,
+          "NH": 7.8,
+          "NS": 5.96,
+          "RI": 6.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "903d6b94-cd9d-4c32-b7e2-4bbfbee929df",
+      "site_name": "Matraterenye power station",
+      "composite_score": 6.641,
+      "composite_score_low": 5.795,
+      "composite_score_high": 7.158,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.27,
+          "NH": 6.87,
+          "NS": 5.2,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "28b36531-865d-42ae-afb3-b8bad86f7014",
+      "site_name": "Matra power station",
+      "composite_score": 6.23,
+      "composite_score_low": 5.48,
+      "composite_score_high": 6.691,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 4.57,
+          "NH": 7.49,
+          "NS": 6.39,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "651839d3-4e8f-4214-89aa-1f96ea221121",
+      "site_name": "Oroszl\u00e1ny power station",
+      "composite_score": 5.967,
+      "composite_score_low": 5.278,
+      "composite_score_high": 6.48,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 4.57,
+          "NH": 6.78,
+          "NS": 5.28,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "ef325d90-6d2d-4f8f-89f2-3bc98beb149b",
+      "site_name": "Bakony power station",
+      "composite_score": 5.73,
+      "composite_score_low": 5.096,
+      "composite_score_high": 6.191,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 4.57,
+          "NH": 6.64,
+          "NS": 4.17,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "f2b3a729-602a-4b6b-acc9-004244f2e556",
+      "site_name": "Banhida-II power station",
+      "composite_score": 5.418,
+      "composite_score_low": 4.856,
+      "composite_score_high": 5.954,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 5.27,
+          "NH": 6.78,
+          "NS": 5.28,
+          "RI": 3.64
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "HU",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "e1649639-2e45-4226-9c7a-783d2dcb6724",
+      "site_name": "Pecs power station",
+      "composite_score": 5.411,
+      "composite_score_low": 4.851,
+      "composite_score_high": 5.977,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.41,
+          "NH": 7.62,
+          "NS": 3.57,
+          "RI": 3.29
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "LV",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "1a5b8f8f-f4be-4514-8738-755d25e19b41",
+      "site_name": "Kurzeme power station",
+      "composite_score": 6.603,
+      "composite_score_low": 5.912,
+      "composite_score_high": 7.2,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.81,
+          "NH": 7.09,
+          "NS": 6.7,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "MD",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "b3eb5dd2-98cf-40c4-b9ee-2a86fd066093",
+      "site_name": "Kuchurgan power station",
+      "composite_score": 6.959,
+      "composite_score_low": 6.199,
+      "composite_score_high": 7.5,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.47,
+          "NH": 7.22,
+          "NS": 7.67,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "ME",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "3795824b-cb76-48dd-a65c-764c757ddc76",
+      "site_name": "Bar power station",
+      "composite_score": 6.023,
+      "composite_score_low": 5.321,
+      "composite_score_high": 6.467,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.41,
+          "NH": 4.8,
+          "NS": 6.39,
+          "RI": 6.36
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "ME",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "e77a7e7f-11ba-4e61-98da-f44471bc52ab",
+      "site_name": "Berane power station",
+      "composite_score": 6.023,
+      "composite_score_low": 5.321,
+      "composite_score_high": 6.559,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 3.62,
+          "HI": 6.47,
+          "NH": 6.33,
+          "NS": 5.35,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "MK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "1739b1b7-a6f3-466c-9dfa-3d1de9d5b6db",
+      "site_name": "Bitola power station",
+      "composite_score": 6.812,
+      "composite_score_low": 5.927,
+      "composite_score_high": 7.329,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.81,
+          "NH": 7.27,
+          "NS": 6.98,
+          "RI": 6.43
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "MK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "83d3abe4-2049-47ad-a66b-46034edb7569",
+      "site_name": "Negotino power station",
+      "composite_score": 6.707,
+      "composite_score_low": 5.846,
+      "composite_score_high": 7.171,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.59,
+          "NH": 7.67,
+          "NS": 6.24,
+          "RI": 6.21
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "MK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "756218bb-3f16-443e-b6c6-400cd0ce2f87",
+      "site_name": "Oslomej power station",
+      "composite_score": 6.181,
+      "composite_score_low": 5.442,
+      "composite_score_high": 6.697,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.67,
+          "NH": 6.6,
+          "NS": 4.02,
+          "RI": 5.86
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "2981a12d-3444-4301-96ba-a63ef50bec3e",
+      "site_name": "Polaniec power station",
+      "composite_score": 7.684,
+      "composite_score_low": 6.785,
+      "composite_score_high": 8.219,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.61,
+          "NH": 7.44,
+          "NS": 8.59,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "b24f9ac5-5ddf-4b19-ba95-76dafeca3d2c",
+      "site_name": "P\u00f3lnoc power station",
+      "composite_score": 7.284,
+      "composite_score_low": 6.462,
+      "composite_score_high": 7.869,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.87,
+          "NH": 8.02,
+          "NS": 7.67,
+          "RI": 6.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "e4e3b5f0-7038-47a5-84e3-04eb07b3c4d7",
+      "site_name": "Adamow power station",
+      "composite_score": 7.227,
+      "composite_score_low": 6.245,
+      "composite_score_high": 7.822,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.41,
+          "NH": 7.93,
+          "NS": 6.69,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "917008f5-fba1-4ef7-b82d-9aded2b69267",
+      "site_name": "Gubin Power Project",
+      "composite_score": 7.222,
+      "composite_score_low": 6.412,
+      "composite_score_high": 7.803,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.47,
+          "NH": 7.58,
+          "NS": 8.53,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "239ea0eb-a9c4-43cc-ac5f-35271bdc6613",
+      "site_name": "Kedzierzyn CCS Project",
+      "composite_score": 7.191,
+      "composite_score_low": 6.386,
+      "composite_score_high": 7.737,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.41,
+          "NH": 8.07,
+          "NS": 6.36,
+          "RI": 6.86
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "52db4dae-b014-45a4-96c4-49f80c1fdd11",
+      "site_name": "Opalenie power station",
+      "composite_score": 7.184,
+      "composite_score_low": 6.381,
+      "composite_score_high": 7.769,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 6.19,
+          "NH": 7.93,
+          "NS": 7.67,
+          "RI": 6.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "dadadad9-b67e-44b8-a9ab-4cbf116da20b",
+      "site_name": "Puchaczow power station",
+      "composite_score": 7.153,
+      "composite_score_low": 6.356,
+      "composite_score_high": 7.65,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 5.93,
+          "NH": 7.44,
+          "NS": 8.13,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "558e7bff-5b5d-4666-9ca3-ec02f2269aab",
+      "site_name": "Dolna Odra power station",
+      "composite_score": 7.134,
+      "composite_score_low": 6.341,
+      "composite_score_high": 7.769,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.87,
+          "NH": 7.67,
+          "NS": 7.44,
+          "RI": 6.93
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "7fc17ab0-ce24-4830-a938-b8424d1e9368",
+      "site_name": "Swiecie Pulp Mill power station",
+      "composite_score": 7.116,
+      "composite_score_low": 6.326,
+      "composite_score_high": 7.731,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 7.41,
+          "NH": 7.93,
+          "NS": 6.24,
+          "RI": 6.36
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "PL",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "a55e3643-8ed4-434b-b14f-2d549d09c0d9",
+      "site_name": "Zarnowiec power station",
+      "composite_score": 6.984,
+      "composite_score_low": 6.058,
+      "composite_score_high": 7.579,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.27,
+          "NH": 7.49,
+          "NS": 6.83,
+          "RI": 6.57
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "345fb795-170a-4fb5-833c-f6bcf2eb450c",
+      "site_name": "Turceni power station",
+      "composite_score": 7.816,
+      "composite_score_low": 6.891,
+      "composite_score_high": 8.256,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.53,
+          "NH": 7.8,
+          "NS": 8.36,
+          "RI": 8.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "958e4d82-853a-41f1-a442-94b4c4314221",
+      "site_name": "Rovinari power station",
+      "composite_score": 7.159,
+      "composite_score_low": 6.361,
+      "composite_score_high": 7.7,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 7.9,
+          "NH": 7.53,
+          "NS": 7.21,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "site_name": "Iernut power station",
+      "composite_score": 7.114,
+      "composite_score_low": 5.285,
+      "composite_score_high": 7.555,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 7.94,
+          "NH": 6.57,
+          "NS": 8.26,
+          "RI": 7.67
+        },
+        "unscored_fraction": 0.4444
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "52a7babe-313f-493b-86b9-bd0c4aece4c3",
+      "site_name": "Mintia-Deva power station",
+      "composite_score": 7.016,
+      "composite_score_low": 6.245,
+      "composite_score_high": 7.487,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.21,
+          "NH": 7.76,
+          "NS": 7.9,
+          "RI": 6.79
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "29836b52-a882-4921-95a7-6417e636d9a2",
+      "site_name": "Braila power station",
+      "composite_score": 6.784,
+      "composite_score_low": 6.058,
+      "composite_score_high": 7.275,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.27,
+          "NH": 7.44,
+          "NS": 7.5,
+          "RI": 5.14
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "825dc024-9a53-4237-bf59-cbe0af0cf87d",
+      "site_name": "Govora power station",
+      "composite_score": 6.703,
+      "composite_score_low": 5.992,
+      "composite_score_high": 7.125,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.53,
+          "NH": 7.53,
+          "NS": 7.16,
+          "RI": 4.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "693d9b73-f9fc-4502-9b94-be020c5d21fb",
+      "site_name": "Suceava power station",
+      "composite_score": 6.653,
+      "composite_score_low": 5.952,
+      "composite_score_high": 7.144,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 5.13,
+          "NH": 7.31,
+          "NS": 7.44,
+          "RI": 6.5
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "c3790475-3d3b-4e2b-92ae-24503fe03e6b",
+      "site_name": "Romag Termo power station",
+      "composite_score": 6.491,
+      "composite_score_low": 5.821,
+      "composite_score_high": 6.962,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.93,
+          "NH": 7.53,
+          "NS": 7.79,
+          "RI": 4.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "aff5ffe6-fe7a-4de7-afad-9d4645a64cd9",
+      "site_name": "Doicesti power station",
+      "composite_score": 6.478,
+      "composite_score_low": 5.811,
+      "composite_score_high": 6.95,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.33,
+          "NH": 7.53,
+          "NS": 6.81,
+          "RI": 5.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RO",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "9825e28e-fd6e-460d-9caf-0342563f9060",
+      "site_name": "Paroseni power station",
+      "composite_score": 6.441,
+      "composite_score_low": 5.78,
+      "composite_score_high": 6.912,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 2.91,
+          "HI": 7.41,
+          "NH": 7.4,
+          "NS": 5.73,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "296282b1-d079-4c1e-b2df-12c25128b963",
+      "site_name": "\u0160tavalj Power Station",
+      "composite_score": 6.753,
+      "composite_score_low": 5.928,
+      "composite_score_high": 7.175,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 4.32,
+          "HI": 7.41,
+          "NH": 6.87,
+          "NS": 6.41,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "2b03f2e2-64ac-4262-bbff-7a536bda5722",
+      "site_name": "Morava power station",
+      "composite_score": 6.716,
+      "composite_score_low": 6.003,
+      "composite_score_high": 7.256,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.41,
+          "NH": 7.31,
+          "NS": 6.01,
+          "RI": 6.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "993ccce2-d5e1-498d-827d-8dbfeb42582b",
+      "site_name": "Kostolac power station",
+      "composite_score": 6.634,
+      "composite_score_low": 5.906,
+      "composite_score_high": 7.244,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.47,
+          "NH": 7.27,
+          "NS": 6.64,
+          "RI": 6.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "0182ec25-0df9-4e4b-9861-d76a332bc282",
+      "site_name": "Kolubara A power station",
+      "composite_score": 6.559,
+      "composite_score_low": 5.831,
+      "composite_score_high": 7.069,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 8.01,
+          "NH": 7.13,
+          "NS": 5.9,
+          "RI": 4.57
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "5d4aee8d-9e73-4987-907a-d092e0ba92ed",
+      "site_name": "Kovin power station",
+      "composite_score": 6.503,
+      "composite_score_low": 5.831,
+      "composite_score_high": 7.094,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 5.81,
+          "NH": 7.04,
+          "NS": 7.56,
+          "RI": 5.5
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "d30af109-79cb-4ab5-a878-6f574b58116a",
+      "site_name": "Kolubara B power station",
+      "composite_score": 6.472,
+      "composite_score_low": 5.744,
+      "composite_score_high": 6.981,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 8.01,
+          "NH": 6.82,
+          "NS": 5.9,
+          "RI": 4.57
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "RS",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "c8f15aca-174b-4be6-a6d9-abfa4685d10d",
+      "site_name": "Nikola Tesla power station",
+      "composite_score": 6.453,
+      "composite_score_low": 5.694,
+      "composite_score_high": 6.994,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.21,
+          "NH": 7.31,
+          "NS": 7.79,
+          "RI": 4.0
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "770f1d3c-e5fd-493c-a376-e708d2abec6c",
+      "site_name": "Vojany I power station",
+      "composite_score": 7.022,
+      "composite_score_low": 6.25,
+      "composite_score_high": 7.481,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.27,
+          "NH": 6.78,
+          "NS": 7.73,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "c97125b3-20ed-4e21-a853-b928644ec7dd",
+      "site_name": "Novaky power station",
+      "composite_score": 6.978,
+      "composite_score_low": 6.215,
+      "composite_score_high": 7.5,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 3.62,
+          "HI": 7.41,
+          "NH": 7.49,
+          "NS": 6.99,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "1719d38b-61e8-4b01-844b-3a2f85c8a186",
+      "site_name": "Trebisov power station",
+      "composite_score": 6.741,
+      "composite_score_low": 6.023,
+      "composite_score_high": 7.281,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.21,
+          "NH": 7.18,
+          "NS": 7.39,
+          "RI": 6.36
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "06defca3-9105-437f-afd4-52f5603d9b8e",
+      "site_name": "Martinska power station",
+      "composite_score": 6.303,
+      "composite_score_low": 5.669,
+      "composite_score_high": 6.775,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 6.21,
+          "NH": 6.11,
+          "NS": 7.21,
+          "RI": 5.79
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "SK",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "a2d8261c-3d08-4015-946c-47dbddbd0b98",
+      "site_name": "U.S. Steel Kosice Works power station",
+      "composite_score": 5.691,
+      "composite_score_low": 5.174,
+      "composite_score_high": 6.181,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 6.21,
+          "NH": 6.87,
+          "NS": 5.9,
+          "RI": 3.14
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "ad0c8590-c672-43f2-a813-1217a10f7d2d",
+      "site_name": "Konya Karap\u0131nar power station",
+      "composite_score": 7.784,
+      "composite_score_low": 6.528,
+      "composite_score_high": 8.301,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 9.22,
+          "NH": 7.44,
+          "NS": 6.98,
+          "RI": 7.86
+        },
+        "unscored_fraction": 0.2626
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "142cad75-648a-495d-8c10-792351e72126",
+      "site_name": "Eren-1 power station",
+      "composite_score": 7.459,
+      "composite_score_low": 6.604,
+      "composite_score_high": 7.9,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 7.67,
+          "NH": 7.4,
+          "NS": 7.67,
+          "RI": 7.5
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "6c9571c4-5d3b-4f88-a7be-fa8c21425eeb",
+      "site_name": "Tufanbeyli power station",
+      "composite_score": 7.38,
+      "composite_score_low": 6.407,
+      "composite_score_high": 7.89,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 9.22,
+          "NH": 7.27,
+          "NS": 6.3,
+          "RI": 7.86
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c",
+      "site_name": "Karapinar Konya \u015eeker power station",
+      "composite_score": 7.354,
+      "composite_score_low": 6.386,
+      "composite_score_high": 7.864,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 8.95,
+          "NH": 7.09,
+          "NS": 6.87,
+          "RI": 6.71
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "674deb4f-110c-4120-bea0-5f0711da3ea1",
+      "site_name": "\u00c7ay\u0131rhan power station",
+      "composite_score": 7.347,
+      "composite_score_low": 6.513,
+      "composite_score_high": 7.806,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 8.13,
+          "NH": 6.91,
+          "NS": 7.73,
+          "RI": 6.57
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "43f99d45-6635-4392-a522-4a06445fdaf2",
+      "site_name": "Teyo Tufanbeyli power station",
+      "composite_score": 7.328,
+      "composite_score_low": 6.366,
+      "composite_score_high": 7.838,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 9.09,
+          "NH": 6.64,
+          "NS": 7.44,
+          "RI": 7.29
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "2ec95392-978d-4a43-85b9-af3282c212ba",
+      "site_name": "Tun\u00e7bilek power station",
+      "composite_score": 7.276,
+      "composite_score_low": 6.326,
+      "composite_score_high": 7.818,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 8.95,
+          "NH": 7.36,
+          "NS": 7.67,
+          "RI": 5.29
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "ddc8bb9c-bf77-4075-b38c-600fb072acf8",
+      "site_name": "Uluk\u00f6y power station",
+      "composite_score": 7.263,
+      "composite_score_low": 6.316,
+      "composite_score_high": 7.701,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 6.68,
+          "HI": 9.36,
+          "NH": 7.09,
+          "NS": 5.27,
+          "RI": 8.21
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "e03c394f-1c08-4101-b1fe-f6662fe4b424",
+      "site_name": "Sinop Akfen power station",
+      "composite_score": 7.26,
+      "composite_score_low": 6.27,
+      "composite_score_high": 7.724,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 7.61,
+          "NH": 7.27,
+          "NS": 5.5,
+          "RI": 8.43
+        },
+        "unscored_fraction": 0.2323
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "TR",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "778e0750-19f9-426e-a6c7-e0e30645fb97",
+      "site_name": "\u00c7oban Y\u0131ld\u0131z power station",
+      "composite_score": 7.185,
+      "composite_score_low": 6.255,
+      "composite_score_high": 7.675,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 7.38,
+          "HI": 9.09,
+          "NH": 7.44,
+          "NS": 6.53,
+          "RI": 5.5
+        },
+        "unscored_fraction": 0.2222
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 1,
+      "site_id": "29b3a802-7ef1-4722-ad59-b1511b1b0075",
+      "site_name": "Zmiivska power station",
+      "composite_score": 7.455,
+      "composite_score_low": 6.263,
+      "composite_score_high": 7.945,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 8.95,
+          "NH": 7.26,
+          "NS": 7.33,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.2677
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 2,
+      "site_id": "5ed0a674-a292-44bc-997f-5c1990da1235",
+      "site_name": "Dobrotvir power station",
+      "composite_score": 7.372,
+      "composite_score_low": 6.533,
+      "composite_score_high": 8.006,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.67,
+          "NH": 7.44,
+          "NS": 7.79,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 3,
+      "site_id": "cec871bd-c7f6-4444-b0da-9b3a9ecc6963",
+      "site_name": "Ladyzhyn power station",
+      "composite_score": 7.197,
+      "composite_score_low": 6.391,
+      "composite_score_high": 7.706,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 7.67,
+          "NH": 7.49,
+          "NS": 6.3,
+          "RI": 8.0
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 4,
+      "site_id": "83fede8b-5f92-429d-920d-9a8928a74780",
+      "site_name": "Kryvorizka power station",
+      "composite_score": 7.166,
+      "composite_score_low": 6.051,
+      "composite_score_high": 7.655,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 8.95,
+          "NH": 6.76,
+          "NS": 6.64,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.2677
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 5,
+      "site_id": "c47eb6a3-49c1-4879-95b6-9bcd53b7af04",
+      "site_name": "Burshtyn power station",
+      "composite_score": 6.959,
+      "composite_score_low": 6.199,
+      "composite_score_high": 7.45,
+      "family_scores": {
+        "notes": [
+          "unscored_penalty_applied"
+        ],
+        "categories": {
+          "EP": 5.97,
+          "HI": 8.13,
+          "NH": 6.42,
+          "NS": 7.56,
+          "RI": 6.21
+        },
+        "unscored_fraction": 0.1919
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 6,
+      "site_id": "447a9ea1-47fa-48a3-93f2-a77cbd629ac7",
+      "site_name": "Starobesheve power station",
+      "composite_score": 6.887,
+      "composite_score_low": 5.965,
+      "composite_score_high": 7.377,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.56,
+          "HI": 7.67,
+          "NH": 7.26,
+          "NS": 7.1,
+          "RI": 6.57
+        },
+        "unscored_fraction": 0.2374
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 7,
+      "site_id": "46b96bc3-b190-4045-9c86-eb674e2ea35e",
+      "site_name": "Kurakhov power station",
+      "composite_score": 6.797,
+      "composite_score_low": 5.742,
+      "composite_score_high": 7.315,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.21,
+          "NH": 6.6,
+          "NS": 7.72,
+          "RI": 6.57
+        },
+        "unscored_fraction": 0.2778
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 8,
+      "site_id": "cdb6adfb-52ff-4631-939a-001080b20450",
+      "site_name": "Trypilska power station",
+      "composite_score": 6.795,
+      "composite_score_low": 5.894,
+      "composite_score_high": 7.364,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 5.26,
+          "HI": 7.27,
+          "NH": 6.99,
+          "NS": 7.79,
+          "RI": 5.64
+        },
+        "unscored_fraction": 0.2374
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 9,
+      "site_id": "4e45df00-0d28-44d0-9697-3fa33d76fc88",
+      "site_name": "Luganskaya power station",
+      "composite_score": 6.788,
+      "composite_score_low": 5.889,
+      "composite_score_high": 7.258,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.56,
+          "HI": 7.41,
+          "NH": 6.6,
+          "NS": 6.76,
+          "RI": 7.64
+        },
+        "unscored_fraction": 0.2374
+      },
+      "qualification_mode": "normal"
+    },
+    {
+      "country_code": "UA",
+      "smr_key": "nuscale_voygr6",
+      "rank": 10,
+      "site_id": "3657989a-61ae-4fe3-9e8b-6ba7e68f8c59",
+      "site_name": "Vuglegirska power station",
+      "composite_score": 6.616,
+      "composite_score_low": 5.758,
+      "composite_score_high": 7.139,
+      "family_scores": {
+        "notes": [
+          "high_unscored_fraction"
+        ],
+        "categories": {
+          "EP": 4.56,
+          "HI": 6.61,
+          "NH": 6.99,
+          "NS": 6.87,
+          "RI": 7.07
+        },
+        "unscored_fraction": 0.2374
+      },
+      "qualification_mode": "normal"
+    }
+  ],
+  "per_country_margins": [
+    {
+      "country_code": "TR",
+      "n_sites_total": 146,
+      "n_sites_passed": 119,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 25,
+          "median_gap": -6.54,
+          "p90_gap": -3.9400000000000004,
+          "max_gap": -3.7800000000000002,
+          "examples": [
+            {
+              "site_id": "a70bbc9a-1469-4d56-be56-f282ed4130a8",
+              "site_name": "Deniz power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.4,
+              "threshold": 8.0,
+              "gap": -7.6,
+              "gap_norm": -0.95,
+              "severity": "critical"
+            },
+            {
+              "site_id": "bcb86777-4a54-4891-bb26-35b201bbd57d",
+              "site_name": "Alia\u011fa Enka power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.4,
+              "threshold": 8.0,
+              "gap": -7.6,
+              "gap_norm": -0.95,
+              "severity": "critical"
+            },
+            {
+              "site_id": "8e7f6abf-e420-4f40-b9da-9ea76ccedfb1",
+              "site_name": "Kemerk\u00f6y power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.41,
+              "threshold": 8.0,
+              "gap": -7.59,
+              "gap_norm": -0.94875,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "EP-01",
+          "code": "E8",
+          "metric": "ep01_composite_score",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -0.1999999999999993,
+          "p90_gap": -0.1999999999999993,
+          "max_gap": -0.1999999999999993,
+          "examples": [
+            {
+              "site_id": "28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc",
+              "site_name": "Demirta\u015f power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 29.8,
+              "threshold": 30,
+              "gap": -0.1999999999999993,
+              "gap_norm": -0.006666666666666643,
+              "severity": "trivial"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NH-04",
+          "code": "E3",
+          "metric": "slope_angle_deg",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": 6.48,
+          "p90_gap": 6.48,
+          "max_gap": 6.48,
+          "examples": [
+            {
+              "site_id": "e05ff795-8984-4170-9874-5355b70985b1",
+              "site_name": "Silopi (\u015e\u0131rnak) power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 31.48,
+              "threshold": 25,
+              "gap": 6.48,
+              "gap_norm": 0.25920000000000004,
+              "severity": "severe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "PL",
+      "n_sites_total": 63,
+      "n_sites_passed": 61,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "EP-01",
+          "code": "E8",
+          "metric": "ep01_composite_score",
+          "units": null,
+          "n_eliminated": 2,
+          "median_gap": -5.699999999999999,
+          "p90_gap": -5.600000000000001,
+          "max_gap": -5.600000000000001,
+          "examples": [
+            {
+              "site_id": "9f4a0d6c-e2fa-4e9b-b412-d779d4abf82c",
+              "site_name": "Bydgoszcz power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 24.3,
+              "threshold": 30,
+              "gap": -5.699999999999999,
+              "gap_norm": -0.18999999999999997,
+              "severity": "minor"
+            },
+            {
+              "site_id": "d40cdaf1-49e4-4c59-a6c8-2402cd2bf006",
+              "site_name": "Zeran power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 24.4,
+              "threshold": 30,
+              "gap": -5.600000000000001,
+              "gap_norm": -0.1866666666666667,
+              "severity": "minor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "RO",
+      "n_sites_total": 23,
+      "n_sites_passed": 22,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "EP-01",
+          "code": "E8",
+          "metric": "ep01_composite_score",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -3.3999999999999986,
+          "p90_gap": -3.3999999999999986,
+          "max_gap": -3.3999999999999986,
+          "examples": [
+            {
+              "site_id": "729f8d17-57c0-4d9a-adab-4b612d4abde5",
+              "site_name": "Brasov power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 26.6,
+              "threshold": 30,
+              "gap": -3.3999999999999986,
+              "gap_norm": -0.11333333333333329,
+              "severity": "minor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "BG",
+      "n_sites_total": 15,
+      "n_sites_passed": 8,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 7,
+          "median_gap": -4.67,
+          "p90_gap": -4.02,
+          "max_gap": -3.95,
+          "examples": [
+            {
+              "site_id": "398cc0f2-25d5-428a-93c9-5e4859680e86",
+              "site_name": "Deven power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 1.05,
+              "threshold": 8.0,
+              "gap": -6.95,
+              "gap_norm": -0.86875,
+              "severity": "critical"
+            },
+            {
+              "site_id": "93685558-3355-4da2-9a4a-4cccd89f9269",
+              "site_name": "Sliven power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 1.39,
+              "threshold": 8.0,
+              "gap": -6.61,
+              "gap_norm": -0.82625,
+              "severity": "critical"
+            },
+            {
+              "site_id": "85c56b15-450b-4bb1-b75e-5ea00ee51cb2",
+              "site_name": "Varna power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 2.27,
+              "threshold": 8.0,
+              "gap": -5.73,
+              "gap_norm": -0.71625,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NS-08",
+          "code": "E7",
+          "metric": null,
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": null,
+          "p90_gap": null,
+          "max_gap": null,
+          "examples": [
+            {
+              "site_id": "85c56b15-450b-4bb1-b75e-5ea00ee51cb2",
+              "site_name": "Varna power station",
+              "smr_key": "nuscale_voygr6",
+              "value": null,
+              "threshold": null,
+              "gap": null,
+              "gap_norm": null,
+              "severity": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "BA",
+      "n_sites_total": 11,
+      "n_sites_passed": 6,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 5,
+          "median_gap": -6.35,
+          "p90_gap": -4.8100000000000005,
+          "max_gap": -4.4399999999999995,
+          "examples": [
+            {
+              "site_id": "67e5a20f-e3ab-4c18-9864-cf4591d6e15f",
+              "site_name": "Bugojno Thermal Power Project",
+              "smr_key": "nuscale_voygr6",
+              "value": 1.03,
+              "threshold": 8.0,
+              "gap": -6.97,
+              "gap_norm": -0.87125,
+              "severity": "critical"
+            },
+            {
+              "site_id": "0fb50bcc-5616-40d8-9109-8136a958f18d",
+              "site_name": "Tuzla Thermal Power Plant",
+              "smr_key": "nuscale_voygr6",
+              "value": 1.65,
+              "threshold": 8.0,
+              "gap": -6.35,
+              "gap_norm": -0.79375,
+              "severity": "critical"
+            },
+            {
+              "site_id": "e2d645e3-c829-4aac-8f6f-d6a5507fd5fa",
+              "site_name": "Glinica power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.05,
+              "threshold": 8.0,
+              "gap": -4.95,
+              "gap_norm": -0.61875,
+              "severity": "critical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "AT",
+      "n_sites_total": 8,
+      "n_sites_passed": 6,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -4.76,
+          "p90_gap": -4.76,
+          "max_gap": -4.76,
+          "examples": [
+            {
+              "site_id": "021c723b-98af-4b72-8f6c-ade538885f10",
+              "site_name": "St Andrae power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.24,
+              "threshold": 8.0,
+              "gap": -4.76,
+              "gap_norm": -0.595,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NH-04",
+          "code": "E3",
+          "metric": "slope_angle_deg",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": 1.0199999999999996,
+          "p90_gap": 1.0199999999999996,
+          "max_gap": 1.0199999999999996,
+          "examples": [
+            {
+              "site_id": "33d83e11-cfcd-47cb-be5e-82ca0fc352cc",
+              "site_name": "Zeltweg power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 26.02,
+              "threshold": 25,
+              "gap": 1.0199999999999996,
+              "gap_norm": 0.04079999999999998,
+              "severity": "trivial"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "RS",
+      "n_sites_total": 8,
+      "n_sites_passed": 7,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -4.1,
+          "p90_gap": -4.1,
+          "max_gap": -4.1,
+          "examples": [
+            {
+              "site_id": "5d53da59-04c8-43e6-b29e-220bea4d9eb7",
+              "site_name": "Despotovac power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.9,
+              "threshold": 8.0,
+              "gap": -4.1,
+              "gap_norm": -0.5125,
+              "severity": "critical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "SK",
+      "n_sites_total": 6,
+      "n_sites_passed": 5,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "EP-01",
+          "code": "E8",
+          "metric": "ep01_composite_score",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -11.5,
+          "p90_gap": -11.5,
+          "max_gap": -11.5,
+          "examples": [
+            {
+              "site_id": "66edd8f5-e60a-412d-9b80-56496d1407b1",
+              "site_name": "Kosice power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 18.5,
+              "threshold": 30,
+              "gap": -11.5,
+              "gap_norm": -0.38333333333333336,
+              "severity": "severe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "ME",
+      "n_sites_total": 4,
+      "n_sites_passed": 2,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 2,
+          "median_gap": -7.91,
+          "p90_gap": -4.0600000000000005,
+          "max_gap": -4.0600000000000005,
+          "examples": [
+            {
+              "site_id": "a9385c82-79b7-4f8d-b609-0a12ed946fe6",
+              "site_name": "Pljevlja power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.09,
+              "threshold": 8.0,
+              "gap": -7.91,
+              "gap_norm": -0.98875,
+              "severity": "critical"
+            },
+            {
+              "site_id": "a851b5f3-8392-4766-82b9-379c6c04fe5d",
+              "site_name": "Maoce Power Station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.94,
+              "threshold": 8.0,
+              "gap": -4.0600000000000005,
+              "gap_norm": -0.5075000000000001,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NS-08",
+          "code": "E7",
+          "metric": null,
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": null,
+          "p90_gap": null,
+          "max_gap": null,
+          "examples": [
+            {
+              "site_id": "a9385c82-79b7-4f8d-b609-0a12ed946fe6",
+              "site_name": "Pljevlja power station",
+              "smr_key": "nuscale_voygr6",
+              "value": null,
+              "threshold": null,
+              "gap": null,
+              "gap_norm": null,
+              "severity": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "MK",
+      "n_sites_total": 4,
+      "n_sites_passed": 3,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NS-08",
+          "code": "E7",
+          "metric": null,
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": null,
+          "p90_gap": null,
+          "max_gap": null,
+          "examples": [
+            {
+              "site_id": "7bff5ef2-646d-4b83-83b0-7f3da32f0254",
+              "site_name": "Mariovo power station",
+              "smr_key": "nuscale_voygr6",
+              "value": null,
+              "threshold": null,
+              "gap": null,
+              "gap_norm": null,
+              "severity": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "XK",
+      "n_sites_total": 4,
+      "n_sites_passed": 0,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 4,
+          "median_gap": -5.71,
+          "p90_gap": -4.470000000000001,
+          "max_gap": -4.470000000000001,
+          "examples": [
+            {
+              "site_id": "d9f32912-81f1-4b1c-a2b1-f04298217cec",
+              "site_name": "Istok power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.95,
+              "threshold": 8.0,
+              "gap": -7.05,
+              "gap_norm": -0.88125,
+              "severity": "critical"
+            },
+            {
+              "site_id": "76eba99c-dade-46dc-9130-478e43aa6202",
+              "site_name": "Kosovo B power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 2.29,
+              "threshold": 8.0,
+              "gap": -5.71,
+              "gap_norm": -0.71375,
+              "severity": "critical"
+            },
+            {
+              "site_id": "d28fa85d-4f6c-4b26-a585-cb0bed226ecb",
+              "site_name": "Kosovo C power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.32,
+              "threshold": 8.0,
+              "gap": -4.68,
+              "gap_norm": -0.585,
+              "severity": "critical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "SI",
+      "n_sites_total": 3,
+      "n_sites_passed": 0,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 3,
+          "median_gap": -6.67,
+          "p90_gap": -5.55,
+          "max_gap": -5.55,
+          "examples": [
+            {
+              "site_id": "0750b80c-a54b-4ea5-b3e5-9dfb7309eca2",
+              "site_name": "Sostanj power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 0.25,
+              "threshold": 8.0,
+              "gap": -7.75,
+              "gap_norm": -0.96875,
+              "severity": "critical"
+            },
+            {
+              "site_id": "4cf7f820-7ad9-411e-bf39-2bbef290aaf6",
+              "site_name": "Te-Tol power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 1.33,
+              "threshold": 8.0,
+              "gap": -6.67,
+              "gap_norm": -0.83375,
+              "severity": "critical"
+            },
+            {
+              "site_id": "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd",
+              "site_name": "Trbovlje power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 2.45,
+              "threshold": 8.0,
+              "gap": -5.55,
+              "gap_norm": -0.69375,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NH-04",
+          "code": "E3",
+          "metric": "slope_angle_deg",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": 2.25,
+          "p90_gap": 2.25,
+          "max_gap": 2.25,
+          "examples": [
+            {
+              "site_id": "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd",
+              "site_name": "Trbovlje power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 27.25,
+              "threshold": 25,
+              "gap": 2.25,
+              "gap_norm": 0.09,
+              "severity": "minor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "HR",
+      "n_sites_total": 2,
+      "n_sites_passed": 1,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -4.76,
+          "p90_gap": -4.76,
+          "max_gap": -4.76,
+          "examples": [
+            {
+              "site_id": "7af0e000-3d19-4e5e-b504-f74897f1510c",
+              "site_name": "Plo\u010de power station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.24,
+              "threshold": 8.0,
+              "gap": -4.76,
+              "gap_norm": -0.595,
+              "severity": "critical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country_code": "AL",
+      "n_sites_total": 1,
+      "n_sites_passed": 0,
+      "criteria_eliminating_sites": [
+        {
+          "criterion_id": "NH-02",
+          "code": "E1",
+          "metric": "nearest_fault_km",
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": -4.6899999999999995,
+          "p90_gap": -4.6899999999999995,
+          "max_gap": -4.6899999999999995,
+          "examples": [
+            {
+              "site_id": "e6ecead0-54d1-41fe-8268-1253d0d7ef3e",
+              "site_name": "Porto Romano Power Station",
+              "smr_key": "nuscale_voygr6",
+              "value": 3.31,
+              "threshold": 8.0,
+              "gap": -4.6899999999999995,
+              "gap_norm": -0.5862499999999999,
+              "severity": "critical"
+            }
+          ]
+        },
+        {
+          "criterion_id": "NH-03",
+          "code": "E2",
+          "metric": null,
+          "units": null,
+          "n_eliminated": 1,
+          "median_gap": null,
+          "p90_gap": null,
+          "max_gap": null,
+          "examples": [
+            {
+              "site_id": "e6ecead0-54d1-41fe-8268-1253d0d7ef3e",
+              "site_name": "Porto Romano Power Station",
+              "smr_key": "nuscale_voygr6",
+              "value": null,
+              "threshold": null,
+              "gap": null,
+              "gap_norm": null,
+              "severity": "floor"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "near_miss": {
+    "gap_threshold_pct": 10.0,
+    "rows": [
+      {
+        "site_id": "28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc",
+        "site_name": "Demirta\u015f power station",
+        "country_code": "TR",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-01",
+        "code": "E8",
+        "metric": "ep01_composite_score",
+        "value": 29.8,
+        "threshold": 30,
+        "gap": -0.1999999999999993,
+        "gap_norm": -0.006666666666666643,
+        "would_pass_at_threshold": 29.8,
+        "composite_if_passed": null
+      },
+      {
+        "site_id": "33d83e11-cfcd-47cb-be5e-82ca0fc352cc",
+        "site_name": "Zeltweg power station",
+        "country_code": "AT",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-04",
+        "code": "E3",
+        "metric": "slope_angle_deg",
+        "value": 26.02,
+        "threshold": 25,
+        "gap": 1.0199999999999996,
+        "gap_norm": 0.04079999999999998,
+        "would_pass_at_threshold": 26.02,
+        "composite_if_passed": null
+      }
+    ],
+    "by_country": [
+      {
+        "country_code": "AT",
+        "n_near_miss": 1
+      },
+      {
+        "country_code": "TR",
+        "n_near_miss": 1
+      }
+    ],
+    "by_criterion": [
+      {
+        "criterion_id": "EP-01",
+        "code": "E8",
+        "n_near_miss": 1
+      },
+      {
+        "criterion_id": "NH-04",
+        "code": "E3",
+        "n_near_miss": 1
+      }
+    ]
+  },
+  "sensitivity": {
+    "mc": null,
+    "threshold_targeted": [],
+    "threshold_global_stress": null,
+    "oat_top5": [],
+    "weights": null,
+    "country_balance": []
+  },
+  "provenance": {},
+  "multi_failure_histogram": {
+    "1": 54,
+    "2": 4
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "report_version": "1.3",
+  "_meta": {
+    "source_of_truth": "This file is the sole authoritative report layout spec.",
+    "reference_docx_policy": "reference.docx is generated from this file and must not be hand-edited.",
+    "postprocess_policy": "postprocess applies table autofit, cell alignment, and run-level fonts that Pandoc cannot express from the reference template alone.",
+    "publication_rules": [
+      "Reader-facing text must not use the Unicode em dash character U+2014.",
+      "Reader-facing prose must state the positive claim directly and avoid defining an idea by negating another idea.",
+      "Reader-facing text must not include drafting notes, working references, repository paths, or internal project file references.",
+      "Reader-facing citations must use Harvard-style references.",
+      "Country and site tables must use national sensitivity analysis scores and bands only."
+    ]
+  },
+  "default_font_family": "Times New Roman",
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "landscape_allowed_for": ["oversize_tables"],
+    "margins_mm": {
+      "inside": 25,
+      "outside": 20,
+      "top": 22,
+      "bottom": 22
+    },
+    "running_header_height_mm": 12,
+    "footer_height_mm": 14
+  },
+  "typography": {
+    "title_page": {
+      "use_first_page": true,
+      "avoid_blank_title_page": true,
+      "rubric": {
+        "text": "Prepared for:\n\nContributors:\n",
+        "position": "left_bottom_third",
+        "font_family": "Times New Roman",
+        "size_pt": 11,
+        "alignment": "left"
+      }
+    },
+    "title": {
+      "font_family": "Times New Roman",
+      "size_pt": 22,
+      "alignment": "left",
+      "weight": "bold"
+    },
+    "subtitle": {
+      "font_family": "Times New Roman",
+      "size_pt": 14,
+      "alignment": "left",
+      "weight": "regular"
+    },
+    "body": {
+      "font_family": "Times New Roman",
+      "size_pt": 11,
+      "leading_pt": 13.2,
+      "alignment": "justify",
+      "hyphenation": true,
+      "line_spacing": 1.2
+    },
+    "headings": {
+      "h1": {
+        "font_family": "Times New Roman",
+        "size_pt": 16,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h2": {
+        "font_family": "Times New Roman",
+        "size_pt": 13,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h3": {
+        "font_family": "Times New Roman",
+        "size_pt": 12,
+        "alignment": "left",
+        "weight": "bold"
+      },
+      "h4": {
+        "font_family": "Times New Roman",
+        "size_pt": 11,
+        "alignment": "left",
+        "weight": "bold"
+      }
+    },
+    "table_caption": {
+      "font_family": "Times New Roman",
+      "size_pt": 9.5,
+      "leading_pt": 11,
+      "alignment": "left",
+      "style": "regular",
+      "position": "above"
+    },
+    "figure_caption": {
+      "font_family": "Times New Roman",
+      "size_pt": 9.5,
+      "leading_pt": 11,
+      "alignment": "left",
+      "style": "italic",
+      "position": "below"
+    },
+    "running_head": {
+      "font_family": "Times New Roman",
+      "size_pt": 9,
+      "alignment": "left"
+    },
+    "footer_page_number": {
+      "font_family": "Times New Roman",
+      "size_pt": 9,
+      "alignment": "center",
+      "position": "bottom_center"
+    }
+  },
+  "heading_hierarchy": {
+    "document_title": 0,
+    "chapter": 1,
+    "section": 2,
+    "subsection": 3,
+    "site_block": 3,
+    "no_skip_levels": true
+  },
+  "tables": {
+    "width": "fit_content",
+    "max_width": "text_block",
+    "layout": "autofit_contents",
+    "header_row": {
+      "weight": "bold",
+      "background_hex": "D9D9D9",
+      "repeat_on_page_break": true,
+      "repeat_threshold_rows": 30
+    },
+    "body_row": {
+      "font_family": "Times New Roman",
+      "size_pt": 11
+    },
+    "borders": {
+      "top_rule": true,
+      "header_bottom_rule": true,
+      "bottom_rule": true,
+      "vertical_rules": true,
+      "cell_all_sides": true,
+      "color_hex": "000000"
+    },
+    "cell_alignment": {
+      "numeric": "right",
+      "text": "left",
+      "short_label": "center"
+    },
+    "cell_vertical_alignment": "center",
+    "line_spacing": 1.15,
+    "column_width": "fit_content",
+    "markdown_alignment": {
+      "numeric": "---:",
+      "text": ":---",
+      "centered_label": ":---:"
+    },
+    "caption_continued_suffix": "(continued)",
+    "allow_rowspan_colspan_in_source": false
+  },
+  "figures": {
+    "default_width": "text_block",
+    "half_width_pairs_allowed": true,
+    "require_legend": true,
+    "require_scale_or_denominator": true,
+    "require_north_arrow_for_maps": true
+  },
+  "pagination": {
+    "front_matter_style": "lower_roman",
+    "main_matter_start": 1,
+    "main_matter_style": "arabic",
+    "main_matter_begins_at": "introduction",
+    "page_number_on_every_page": true,
+    "page_number_position": "bottom_center"
+  },
+  "running_heads": {
+    "verso": "chapter_number_and_title",
+    "recto": "section_number_and_title",
+    "page_number_position": "bottom_center"
+  },
+  "page_breaks": {
+    "avoid_widows": true,
+    "avoid_orphans": true,
+    "avoid_heading_at_page_bottom": true,
+    "keep_table_with_caption": true,
+    "keep_figure_with_caption": true
+  },
+  "hyperlinks": {
+    "print": {
+      "show_url_in_footnote_when_load_bearing": true,
+      "visible_text_only": true
+    },
+    "pdf": {
+      "live_links": true,
+      "use_publisher_link_colour": true,
+      "underline": false
+    }
+  },
+  "build": {
+    "reference_docx": "build/reference.docx",
+    "output_docx": "build/atoms_vs_ashes_report.docx",
+    "merged_markdown": "build/merged.md"
+  }
+}

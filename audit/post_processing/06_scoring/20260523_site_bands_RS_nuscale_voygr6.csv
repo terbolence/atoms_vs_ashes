@@ -1,0 +1,8 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+2b03f2e2-64ac-4262-bbff-7a536bda5722,Morava power station,RS,A,0.8824,0.8824,0.9412,17,17
+296282b1-d079-4c1e-b2df-12c25128b963,Štavalj Power Station,RS,B,0.7647,0.8235,0.8824,17,17
+993ccce2-d5e1-498d-827d-8dbfeb42582b,Kostolac power station,RS,B,0.1765,0.8235,1.0,17,17
+0182ec25-0df9-4e4b-9861-d76a332bc282,Kolubara A power station,RS,C,0.4706,0.7647,0.8824,17,17
+d30af109-79cb-4ab5-a878-6f574b58116a,Kolubara B power station,RS,D,0.0588,0.3529,0.8235,17,17
+5d4aee8d-9e73-4987-907a-d092e0ba92ed,Kovin power station,RS,D,0.0588,0.2941,0.9412,17,17
+c8f15aca-174b-4be6-a6d9-abfa4685d10d,Nikola Tesla power station,RS,D,0.0,0.1765,0.9412,17,17

@@ -223,11 +223,17 @@ class TestComputeProximityResult:
 # ---------------------------------------------------------------------------
 
 class TestAvoidanceViolations:
+    """Phase 1C of v1.03 feedback closure (reviewer #183): the connector-
+    side ``_check_avoidance_violations`` no longer takes ``nearest_small``
+    and no longer emits an A1 verdict driven by helipad / small airfield
+    proximity. Only large + medium scoring classes drive A2 / A4, plus a
+    flight-path proxy reported as ``A4_flight_path``.
+    """
+
     def test_no_violations_when_far(self):
         violations = _check_avoidance_violations(
             nearest_large=50.0,
             nearest_medium=30.0,
-            nearest_small=20.0,
             nearest_flight_path=10.0,
         )
         assert violations == []
@@ -236,7 +242,6 @@ class TestAvoidanceViolations:
         violations = _check_avoidance_violations(
             nearest_large=10.0,  # < 16 km threshold
             nearest_medium=30.0,
-            nearest_small=20.0,
             nearest_flight_path=10.0,
         )
         assert "A4" in violations
@@ -245,53 +250,51 @@ class TestAvoidanceViolations:
         violations = _check_avoidance_violations(
             nearest_large=50.0,
             nearest_medium=5.0,  # < 8 km threshold
-            nearest_small=20.0,
             nearest_flight_path=10.0,
         )
         assert "A2" in violations
 
-    def test_a3_violation_small_airport(self):
+    def test_flight_path_proxy_violation(self):
         violations = _check_avoidance_violations(
             nearest_large=50.0,
             nearest_medium=30.0,
-            nearest_small=3.0,  # < 4 km threshold
-            nearest_flight_path=10.0,
-        )
-        assert "A3" in violations
-
-    def test_a1_violation_flight_path(self):
-        violations = _check_avoidance_violations(
-            nearest_large=50.0,
-            nearest_medium=30.0,
-            nearest_small=20.0,
             nearest_flight_path=1.5,  # < 2 km threshold
         )
-        assert "A1" in violations
+        assert "A4_flight_path" in violations
+        assert "A1" not in violations
 
     def test_multiple_violations(self):
         violations = _check_avoidance_violations(
             nearest_large=10.0,
             nearest_medium=5.0,
-            nearest_small=3.0,
             nearest_flight_path=1.5,
         )
-        assert set(violations) == {"A1", "A2", "A3", "A4"}
+        assert set(violations) == {"A2", "A4", "A4_flight_path"}
 
     def test_none_values_no_violations(self):
         violations = _check_avoidance_violations(
             nearest_large=None,
             nearest_medium=None,
-            nearest_small=None,
             nearest_flight_path=None,
         )
         assert violations == []
 
     def test_exact_threshold_no_violation(self):
         violations = _check_avoidance_violations(
-            nearest_large=16.0,  # exactly at threshold — not violated
+            nearest_large=16.0,
             nearest_medium=8.0,
-            nearest_small=4.0,
             nearest_flight_path=2.0,
+        )
+        assert violations == []
+
+    def test_small_airfield_proximity_no_longer_violates(self):
+        """A small airfield 1 km away must not flag any avoidance code:
+        only large + medium and the flight-path proxy contribute.
+        """
+        violations = _check_avoidance_violations(
+            nearest_large=50.0,
+            nearest_medium=30.0,
+            nearest_flight_path=None,
         )
         assert violations == []
 

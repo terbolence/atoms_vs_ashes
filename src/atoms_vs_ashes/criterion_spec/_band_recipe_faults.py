@@ -37,8 +37,9 @@ def fault_distance_higher_is_better(metric: str, score5_pivot: float) -> list[Ba
             score_range=(5, 6),
             condition_expr=f"{metric} >= {_km(f)}",
             descriptor=(
-                f"Borderline acceptable separation: meets the {pivot_label} score boundary; "
-                "check against the 8 km conservative screen and local capability evidence."
+                f"Borderline acceptable separation: meets the {pivot_label} "
+                "score boundary; check against the active run-profile "
+                "screening radius and local capability evidence."
             ),
         ),
         BandSpec(

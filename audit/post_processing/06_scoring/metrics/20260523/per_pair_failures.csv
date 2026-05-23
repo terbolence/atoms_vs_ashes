@@ -1,0 +1,63 @@
+site_id,site_name,country_code,smr_key,criterion_id,code,action,metric,value,threshold,margin,margin_norm,severity
+e6ecead0-54d1-41fe-8268-1253d0d7ef3e,Porto Romano Power Station,AL,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.31,8.0,-4.6899999999999995,-0.5862499999999999,critical
+e6ecead0-54d1-41fe-8268-1253d0d7ef3e,Porto Romano Power Station,AL,nuscale_voygr6,NH-03,E2,exclude_floor,,,,,,floor
+021c723b-98af-4b72-8f6c-ade538885f10,St Andrae power station,AT,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.24,8.0,-4.76,-0.595,critical
+33d83e11-cfcd-47cb-be5e-82ca0fc352cc,Zeltweg power station,AT,nuscale_voygr6,NH-04,E3,exclude,slope_angle_deg,26.02,25,1.0199999999999996,0.04079999999999998,trivial
+0155b913-765f-4d44-89f5-c176b6867cef,Kongora Thermal Power Plant,BA,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.56,8.0,-4.4399999999999995,-0.5549999999999999,critical
+0fb50bcc-5616-40d8-9109-8136a958f18d,Tuzla Thermal Power Plant,BA,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.65,8.0,-6.35,-0.79375,critical
+67e5a20f-e3ab-4c18-9864-cf4591d6e15f,Bugojno Thermal Power Project,BA,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.03,8.0,-6.97,-0.87125,critical
+e2d645e3-c829-4aac-8f6f-d6a5507fd5fa,Glinica power station,BA,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.05,8.0,-4.95,-0.61875,critical
+e671be33-8b91-40bd-b563-b833293654aa,Kakanj Thermal Power Plant,BA,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.19,8.0,-4.8100000000000005,-0.6012500000000001,critical
+0e860f58-416b-4116-836d-04edf8ded225,Maritsa Iztok-3 power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.98,8.0,-4.02,-0.5025,critical
+398cc0f2-25d5-428a-93c9-5e4859680e86,Deven power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.05,8.0,-6.95,-0.86875,critical
+85c56b15-450b-4bb1-b75e-5ea00ee51cb2,Varna power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.27,8.0,-5.73,-0.71625,critical
+93685558-3355-4da2-9a4a-4cccd89f9269,Sliven power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.39,8.0,-6.61,-0.82625,critical
+b1bcb7d3-cd40-40c9-9c59-a01fa71053b3,Maritsa Iztok-4 power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,4.05,8.0,-3.95,-0.49375,severe
+d12d7173-8595-4b53-92af-75b44b5a2fb7,Maritsa Iztok-1 power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.33,8.0,-4.67,-0.58375,critical
+fee1d5b3-827f-4172-8492-a3e114a3c39e,Brikel power station,BG,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.65,8.0,-4.35,-0.54375,critical
+85c56b15-450b-4bb1-b75e-5ea00ee51cb2,Varna power station,BG,nuscale_voygr6,NS-08,E7,exclude,,,,,,
+7af0e000-3d19-4e5e-b504-f74897f1510c,Ploče power station,HR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.24,8.0,-4.76,-0.595,critical
+a851b5f3-8392-4766-82b9-379c6c04fe5d,Maoce Power Station,ME,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.94,8.0,-4.0600000000000005,-0.5075000000000001,critical
+a9385c82-79b7-4f8d-b609-0a12ed946fe6,Pljevlja power station,ME,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.09,8.0,-7.91,-0.98875,critical
+a9385c82-79b7-4f8d-b609-0a12ed946fe6,Pljevlja power station,ME,nuscale_voygr6,NS-08,E7,exclude,,,,,,
+7bff5ef2-646d-4b83-83b0-7f3da32f0254,Mariovo power station,MK,nuscale_voygr6,NS-08,E7,exclude,,,,,,
+9f4a0d6c-e2fa-4e9b-b412-d779d4abf82c,Bydgoszcz power station,PL,nuscale_voygr6,EP-01,E8,exclude,ep01_composite_score,24.3,30,-5.699999999999999,-0.18999999999999997,minor
+d40cdaf1-49e4-4c59-a6c8-2402cd2bf006,Zeran power station,PL,nuscale_voygr6,EP-01,E8,exclude,ep01_composite_score,24.4,30,-5.600000000000001,-0.1866666666666667,minor
+729f8d17-57c0-4d9a-adab-4b612d4abde5,Brasov power station,RO,nuscale_voygr6,EP-01,E8,exclude,ep01_composite_score,26.6,30,-3.3999999999999986,-0.11333333333333329,minor
+5d53da59-04c8-43e6-b29e-220bea4d9eb7,Despotovac power station,RS,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.9,8.0,-4.1,-0.5125,critical
+008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd,Trbovlje power station,SI,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.45,8.0,-5.55,-0.69375,critical
+0750b80c-a54b-4ea5-b3e5-9dfb7309eca2,Sostanj power station,SI,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.25,8.0,-7.75,-0.96875,critical
+4cf7f820-7ad9-411e-bf39-2bbef290aaf6,Te-Tol power station,SI,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.33,8.0,-6.67,-0.83375,critical
+008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd,Trbovlje power station,SI,nuscale_voygr6,NH-04,E3,exclude,slope_angle_deg,27.25,25,2.25,0.09,minor
+66edd8f5-e60a-412d-9b80-56496d1407b1,Kosice power station,SK,nuscale_voygr6,EP-01,E8,exclude,ep01_composite_score,18.5,30,-11.5,-0.38333333333333336,severe
+28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc,Demirtaş power station,TR,nuscale_voygr6,EP-01,E8,exclude,ep01_composite_score,29.8,30,-0.1999999999999993,-0.006666666666666643,trivial
+021d1717-149a-4a32-af7b-5955ff593e45,Star Refinery Socar power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.72,8.0,-7.28,-0.91,critical
+0ada7b2a-f928-4c21-b082-4c7345094245,Tekirdağ Malkara power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.99,8.0,-6.01,-0.75125,critical
+0ca0b969-c519-48f3-97ab-7173d3aa6085,Gönen power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.85,8.0,-6.15,-0.76875,critical
+28baef4d-44e3-4b2e-bbe3-75f736371553,Enyat Samsun power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,4.22,8.0,-3.7800000000000002,-0.47250000000000003,severe
+47c1271c-e2b2-42f5-99ee-f616bbef5b7e,Ilgın power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.88,8.0,-7.12,-0.89,critical
+4ca3c560-6d90-4bcf-b131-4e39b6b4f0de,Soma power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,4.11,8.0,-3.8899999999999997,-0.48624999999999996,severe
+59f96677-d42b-4ae1-a3e9-32f3dc396a83,Dinar power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.02,8.0,-6.98,-0.8725,critical
+61b7e396-5c25-4591-9da1-eb54475f1805,Zorlu Soma power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.17,8.0,-5.83,-0.72875,critical
+7defe42d-669b-489f-aff5-d1b83436607d,Kınık power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,4.06,8.0,-3.9400000000000004,-0.49250000000000005,severe
+80179871-04fa-4806-9385-caf739b8a171,Habaş power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.98,8.0,-5.02,-0.6275,critical
+80b922cb-9e78-49aa-9d28-1dc84b1affef,Orhaneli power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.46,8.0,-6.54,-0.8175,critical
+86996d34-c6e5-4097-ac28-ad2e5467f783,Petkim power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.67,8.0,-5.33,-0.66625,critical
+8e7f6abf-e420-4f40-b9da-9ea76ccedfb1,Kemerköy power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.41,8.0,-7.59,-0.94875,critical
+992a4bf0-3ff0-4f12-bb89-50dc9e8d7d35,Aksa Akrilik power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.95,8.0,-4.05,-0.50625,critical
+a70bbc9a-1469-4d56-be56-f282ed4130a8,Deniz power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.4,8.0,-7.6,-0.95,critical
+ad1e8841-e4e4-413b-820a-8c14e09da5a0,Çan (18 Mart) power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.04,8.0,-4.96,-0.62,critical
+ba1f1f36-18b4-49ae-9882-f90418dc88ce,Bandırma Elektrik power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.56,8.0,-7.4399999999999995,-0.9299999999999999,critical
+bcb86777-4a54-4891-bb26-35b201bbd57d,Aliağa Enka power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.4,8.0,-7.6,-0.95,critical
+bddb4fb7-c01d-4b71-bc30-1896b88298bf,Çırpılar power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.96,8.0,-6.04,-0.755,critical
+c13aeeb7-05e5-4f00-9b4b-654e73e5150d,Sanko Gölbaşı power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.16,8.0,-5.84,-0.73,critical
+cf918ba6-6226-479f-b04c-b3c67885c0ba,Kipas MMP power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.84,8.0,-7.16,-0.895,critical
+d110df11-ad8e-44dc-8a32-af692ca46c6f,Güneybatı Anadolu power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.43,8.0,-7.57,-0.94625,critical
+d19ed873-b20a-43fd-b7e8-62e985c88820,İzdemir Enerji power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,1.03,8.0,-6.97,-0.87125,critical
+e0e73325-5b32-4fef-b925-f0bb91114450,Helvacı power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,4.12,8.0,-3.88,-0.485,severe
+fd4f7f8c-0d23-450d-9ea0-1b8e52e9a8af,Yatağan power station,TR,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.96,8.0,-7.04,-0.88,critical
+e05ff795-8984-4170-9874-5355b70985b1,Silopi (Şırnak) power station,TR,nuscale_voygr6,NH-04,E3,exclude,slope_angle_deg,31.48,25,6.48,0.25920000000000004,severe
+28be296b-6ef5-4c7e-a604-3af01af45d17,Kosovo A power station,XK,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.53,8.0,-4.470000000000001,-0.5587500000000001,critical
+76eba99c-dade-46dc-9130-478e43aa6202,Kosovo B power station,XK,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,2.29,8.0,-5.71,-0.71375,critical
+d28fa85d-4f6c-4b26-a585-cb0bed226ecb,Kosovo C power station,XK,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,3.32,8.0,-4.68,-0.585,critical
+d9f32912-81f1-4b1c-a2b1-f04298217cec,Istok power station,XK,nuscale_voygr6,NH-02,E1,exclude,nearest_fault_km,0.95,8.0,-7.05,-0.88125,critical

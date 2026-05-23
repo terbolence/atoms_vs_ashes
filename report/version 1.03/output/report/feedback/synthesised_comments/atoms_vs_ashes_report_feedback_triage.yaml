@@ -1,0 +1,574 @@
+generated_at: "2026-05-23T15:14:24+00:00"
+source: atoms_vs_ashes_report_feedback.docx
+categories:
+  - ack
+  - wording
+  - scoring
+  - weights
+  - exclusionary
+  - sensitivity
+  - data
+  - connector
+  - methodology
+  - clarification
+subsystems:
+  - report-text
+  - scoring-engine
+  - swing-weights
+  - sensitivity
+  - data-connector
+  - methodology-doc
+  - qa-cross-check
+items:
+  - id: "32"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:08:00Z"
+      chapter: "2. Stage 1: Site Survey"
+      section_heading: 2.7 Stage 1 Outputs and Limitations
+      heading_path:
+        - "2. Stage 1: Site Survey"
+        - 2.7 Stage 1 Outputs and Limitations
+      report_path: chapters/02_stage_1_site_survey.md
+      language: ""
+      anchor_excerpt:
+        The practical result is a controlled handoff to Stage 2. Sites that pass Stage 1 are
+        ready for comparative scoring, ranking and national sensitivity analysis
+      paragraph_excerpt:
+        The practical result is a controlled handoff to Stage 2. Sites that pass Stage
+        1 are ready for comparative scoring, ranking and national sensitivity analysis. Sites that fail,
+        or remain data-limited, are still informative because their fail…
+      text_excerpt: O.K.
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: ack
+    subsystem: report-text
+    action: Acknowledgement of Stage 1 handoff paragraph; no change required.
+    depends_on: []
+    notes: Reviewer signalled approval ("O.K.") of the Stage 1 handoff framing. Close as acknowledged.
+    phase: 5f
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "38"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:10:00Z"
+      chapter: "3. Stage 2: Site Selection"
+      section_heading: 3.3 Safety-Related Criteria
+      heading_path:
+        - "3. Stage 2: Site Selection"
+        - 3.3 Safety-Related Criteria
+      report_path: chapters/03_stage_2_site_selection.md
+      language: en
+      anchor_excerpt: follow-up requirements
+      paragraph_excerpt:
+        Safety-related criteria are treated as controlling constraints. A site that fails
+        an exclusionary rule or safety floor leaves the composite ranking pool for the NuScale VOYGR-6 reference
+        case. A site that remains in the pool can still carry…
+      text_excerpt:
+        Stage 3 should be detaile site evaluation and confirmation. Site survey and selection
+        covers Stages 1 and 2 and propose a or more sites to go in stage 3 on rank…
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: scoring-engine
+    category: methodology
+    subsystem: report-text
+    action:
+      Reframe Stage 3 as detailed site evaluation and confirmation; clarify that Stage 1+2 produce
+      a ranked candidate set whose Stage 3 progression is driven by ranking plus socio-economic considerations.
+      Propagate the framing into 3.3, 3.10, and Chapter 6.
+    depends_on: []
+    notes: Per user answer 2026-05-23 (master plan answer set). Pure prose work; no engine change.
+    phase: 5d
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "43"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-20T15:49:00Z"
+      chapter: "3. Stage 2: Site Selection"
+      section_heading: 3.5 Radiological Impact and Emergency Planning Considerations
+      heading_path:
+        - "3. Stage 2: Site Selection"
+        - 3.5 Radiological Impact and Emergency Planning Considerations
+      report_path: chapters/03_stage_2_site_selection.md
+      language: ro
+      anchor_excerpt: Baseline weight
+      paragraph_excerpt: Baseline weight (%)
+      text_excerpt: Verifica ca suma weight factors este 1 sau 100%  Am incercat si am obtinut 97.4
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: scoring-engine
+    category: weights
+    subsystem: swing-weights
+    action:
+      Implement active-criterion weight normalisation (`weight_i / sum_of_active_weights`) with a
+      `sum == 1.0` assertion enforced in code and a pytest integration test. The same normalisation becomes
+      the source of truth for both the scoring engine and the UI per-criterion percentages. Triggers a full
+      rerun (Phase 2).
+    depends_on: []
+    notes:
+      Reviewer reproduced the gap by hand and got 97.4%, confirming that the published baseline weights
+      only cover active criteria after some were deactivated. Treat as a structural fix, not a re-labelling.
+    phase: 1+rerun
+    en_paraphrase:
+      (draft - please confirm) Verify that the sum of the weight factors is 1 (i.e. 100%).
+      I tried it and got 97.4.
+    closure_status: in-progress
+    closure_evidence: |
+      src/atoms_vs_ashes/scoring/rubric.py weight_normalisation() (engine-side, sums to 1.0 over 41 composite-participating active criteria);
+      src/atoms_vs_ashes/scoring/engine.py __init__ (added sum==1.0 invariant assertion);
+      src/scripts/normalise_published_weights.py (new single-source script regenerating published percentages);
+      config/scoring_rubrics/*.yaml + config/scoring_specs/*.yaml normalised_weight_pct (all 5+5 files rewritten);
+      report/version 1.03/sites_evaluation/02_master_weights.md (regenerated under <!-- begin: weights-master --> markers);
+      report/version 1.03/output/report/chapters/03_stage_2_site_selection.md Tables 3.2-3.6 (regenerated under <!-- begin: weights-{family} --> markers);
+      report/version 1.03/methodology/swing_weight_audit.md (Phase 2: Declared + Swing columns fully refreshed against nat-sens-b1a62885 / stamp 20260523 via generate_swing_weight_audit.py; audit CSV at audit/post_processing/06_scoring/20260523_swing_weight_audit.csv).
+    verification_method: |
+      tests/scoring/test_weight_sum_invariant.py (profile x basis x deactivation matrix); idempotent rerun of normalise_published_weights.py produces zero diff; Phase 2 swing-weight audit CSV regenerated and methodology MD overwritten in place.
+  - id: "50"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-20T15:53:00Z"
+      chapter: "3. Stage 2: Site Selection"
+      section_heading: 3.9 Preferred Sites and Shortlist Rationale
+      heading_path:
+        - "3. Stage 2: Site Selection"
+        - 3.9 Preferred Sites and Shortlist Rationale
+      report_path: chapters/03_stage_2_site_selection.md
+      language: en
+      anchor_excerpt:
+        Rovinari power stationRomaniaFull passBand B, nationally persistentRomanian fast follower
+        after Turceni.
+      paragraph_excerpt: Rovinari power station
+      text_excerpt:
+        In text you talk about 3 sites fully passed – here are only 2 – correlate text with
+        tables
+      reply_to: null
+      done: false
+      heuristic_category: wording
+      heuristic_subsystem: report-text
+    category: clarification
+    subsystem: report-text
+    action:
+      After the Phase 2 rerun, reconcile the 3.9 full-pass count in prose with the new published ledger.
+      The body text must agree with the table cohort exactly (either both 3 or both 2 or whatever the new
+      ledger shows).
+    depends_on:
+      - "#43"
+      - "#104"
+      - "#105"
+      - "#183"
+    notes: Truth depends on the rerun outcome; do not edit the prose count until the new ledger is published.
+    phase: 5a
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "54"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:22:00Z"
+      chapter: "3. Stage 2: Site Selection"
+      section_heading: 3.10 Stage 2 Outputs and Limitations
+      heading_path:
+        - "3. Stage 2: Site Selection"
+        - 3.10 Stage 2 Outputs and Limitations
+      report_path: chapters/03_stage_2_site_selection.md
+      language: en
+      anchor_excerpt: 4. Results and Findings
+      paragraph_excerpt: 4. Results and Findings
+      text_excerpt:
+        Check Chapter 4 – seems to have some redundant text  sometime explan same thing with
+        different wording. Should be a way to make it more concise.
+      reply_to: null
+      done: false
+      heuristic_category: wording
+      heuristic_subsystem: report-text
+    category: wording
+    subsystem: report-text
+    action:
+      Apply the Chapter 4 redundancy pass per Phase 5c steps 1-4 (inventory, categorise using the
+      six source-of-truth rules, decide per category, execute). Author rewrites authorised.
+    depends_on:
+      - "#57"
+      - "#70"
+    notes:
+      "Grouped with #57 and #70 into one structural-redundancy editorial pass. The root cause is the
+      same canonical-view discipline gap codified in the master plan."
+    phase: 5c
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "55"
+    auto:
+      author: Bogdan Termegan
+      date: "2026-05-22T09:54:00Z"
+      chapter: 4. Results and Findings
+      section_heading: 4. Results and Findings
+      heading_path:
+        - 4. Results and Findings
+      report_path: chapters/04_results_and_findings.md
+      language: ro
+      anchor_excerpt: Scientific Council
+      paragraph_excerpt:
+        Chapter 4 presents the results of the Stage 1-2 screening and ranking work for
+        the NuScale VOYGR-6 reference deployment envelope. The chapter uses the current Scientific Council
+      text_excerpt: de recompletat - s-a pierdut textul
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: clarification
+    subsystem: report-text
+    action:
+      Recover the lost paragraph from the v1.02 source at `report/version 1.02/output/report/chapters/04_results_and_findings.md`
+      and re-insert it into the Chapter 4 intro. Do not LLM-regenerate (user answer 7).
+    depends_on: []
+    notes:
+      The current Chapter 4 intro paragraph trails off mid-sentence after "the current Scientific Council";
+      v1.02 source has the full sentence.
+    phase: 5b
+    en_paraphrase: (draft - please confirm) To be re-completed - the text was lost.
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "57"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:17:00Z"
+      chapter: 4. Results and Findings
+      section_heading: 4. Results and Findings
+      heading_path:
+        - 4. Results and Findings
+      report_path: chapters/04_results_and_findings.md
+      language: en
+      anchor_excerpt: Regional and Cross-Country Findings
+      paragraph_excerpt: 4.1 Regional and Cross-Country Findings
+      text_excerpt: Do we need cross countries evaluation more than illustrated in Table 4.1??
+      reply_to: null
+      done: false
+      heuristic_category: wording
+      heuristic_subsystem: report-text
+    category: wording
+    subsystem: report-text
+    action:
+      Decide canonical home for cross-country evaluation. Per rule 1+6, keep Table 4.1 as the canonical
+      regional view and remove or cross-reference any sibling cross-country tables in Chapter 5.2. Record
+      the per-category decision in this row's `notes` once Phase 5c step 3 fixes it.
+    depends_on:
+      - "#54"
+      - "#70"
+    notes: "Grouped with #54 and #70 into one structural-redundancy editorial pass."
+    phase: 5c
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "60"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:45:00Z"
+      chapter: 4. Results and Findings
+      section_heading: 4.3 Sites Recommended for Progression Toward Stage 3
+      heading_path:
+        - 4. Results and Findings
+        - 4.3 Sites Recommended for Progression Toward Stage 3
+      report_path: chapters/04_results_and_findings.md
+      language: en
+      anchor_excerpt: PrioritySiteCountryCompositeMC intervalBandTop-tier probabilitySequencing rationale
+      paragraph_excerpt: Priority
+      text_excerpt: If Iernut is a full pass why is not here
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: data
+    subsystem: report-text
+    action:
+      After the Phase 2 rerun, verify Iernut's treatment in Table 4.3.1 (first-wave Stage 3 candidates).
+      Either add Iernut if it is a full pass under the new rubric, or explain in prose why it is not in
+      the first-wave table (e.g. sequencing rationale, country quota).
+    depends_on:
+      - "#43"
+      - "#104"
+      - "#105"
+      - "#183"
+    notes: Truth depends on the rerun outcome.
+    phase: 5a
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "61"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:48:00Z"
+      chapter: 4. Results and Findings
+      section_heading: 4.3 Sites Recommended for Progression Toward Stage 3
+      heading_path:
+        - 4. Results and Findings
+        - 4.3 Sites Recommended for Progression Toward Stage 3
+      report_path: chapters/04_results_and_findings.md
+      language: mixed
+      anchor_excerpt:
+        "Table 4.3.2. Conditional unlock candidates. Cohort: Chapter 5 profiled sites that
+        pass exclusionary screening but retain an avoidance flag. Metric: national sta…"
+      paragraph_excerpt:
+        "Table 4.3.2. Conditional unlock candidates. Cohort: Chapter 5 profiled sites that
+        pass exclusionary screening but retain an avoidance flag. Metric: national stability evidence and
+        controlling progression condition. Interpretation limit: the…"
+      text_excerpt: Romania has sites in this chategory. Why is not here?
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: data
+    subsystem: report-text
+    action:
+      After the Phase 2 rerun, verify Romanian entries in Table 4.3.2 (conditional unlock candidates).
+      Either add the missing Romanian sites or explain in prose why no Romanian record qualifies as a conditional-unlock
+      candidate.
+    depends_on:
+      - "#43"
+      - "#104"
+      - "#105"
+      - "#183"
+    notes: Truth depends on the rerun outcome.
+    phase: 5a
+    en_paraphrase:
+      (draft - please confirm) Romania has sites in this category. Why are they not listed
+      here?
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "63"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:51:00Z"
+      chapter: 4. Results and Findings
+      section_heading: 4.4 Main Drivers of Suitability and Exclusion
+      heading_path:
+        - 4. Results and Findings
+        - 4.4 Main Drivers of Suitability and Exclusion
+      report_path: chapters/04_results_and_findings.md
+      language: mixed
+      anchor_excerpt: cohort
+      paragraph_excerpt:
+        Natural hazards remain the strongest mean family in the scored cohort, but individual
+        seismic and geotechnical checks still remove sites where the screening evidence indicates a hard
+        constraint. Non-safety implementation is also strong on a…
+      text_excerpt:
+        Use a more technical term (for me cohort sugest migratory life forms) coming in cohorts)
+        you use it in several places. A cohort of sites – is nut usual usage of…
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: wording
+    subsystem: report-text
+    action:
+      Terminology sweep across chapters, captions, methodology, country profiles, site profiles, and
+      the executive summary. Replace `cohort` with `set` (statistical groupings, table captions) or `shortlist`
+      (recommendation lists), per context.
+    depends_on: []
+    notes:
+      Reviewer finds `cohort` non-technical in this domain. Choose substitution per context; do not
+      blanket-replace.
+    phase: 5e
+    en_paraphrase:
+      (draft - please confirm) Use a more technical term. To me "cohort" suggests migratory
+      life forms moving in cohorts. You use it in several places; "a cohort of sites" is not the usual usage
+      of this term.
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "70"
+    auto:
+      author: Ovidiu  Lucian Coman
+      date: "2026-05-22T08:58:00Z"
+      chapter: 5. Country and Site Profiles
+      section_heading: 5.2 Country Profiles and Top Sites
+      heading_path:
+        - 5. Country and Site Profiles
+        - 5.2 Country Profiles and Top Sites
+      report_path: chapters/05_country_and_site_profiles.md
+      language: en
+      anchor_excerpt: CountryCurrent profileLeading candidate in the national ledgerScreening class
+      paragraph_excerpt: Country
+      text_excerpt: Semas to have several similar table saying same things
+      reply_to: null
+      done: false
+      heuristic_category: wording
+      heuristic_subsystem: report-text
+    category: wording
+    subsystem: report-text
+    action:
+      Consolidate the Chapter 5.2 country tables. Per rule 6, country-level data lives in Chapter
+      5 only or is referenced from Chapter 4; pick one home and remove duplicates. Per rule 4, render the
+      canonical country-summary table from `data/*_country_bundle.json` programmatically.
+    depends_on:
+      - "#54"
+      - "#57"
+    notes: "Grouped with #54 and #57 into one structural-redundancy editorial pass."
+    phase: 5c
+    en_paraphrase: ""
+    closure_status: open
+    closure_evidence: ""
+    verification_method: ""
+  - id: "104"
+    auto:
+      author: Bogdan Termegan
+      date: "2026-05-22T09:53:00Z"
+      chapter: 5. Country and Site Profiles
+      section_heading: Natural Hazards (NH)
+      heading_path:
+        - 5. Country and Site Profiles
+        - Austria Country Profile
+        - Duernrohr power station Site Profile
+        - Natural Hazards (NH)
+      report_path: chapters/05_country_and_site_profiles/sites/AT_duernrohr_power_station.md
+      language: ro
+      anchor_excerpt: capable fault
+      paragraph_excerpt:
+        "Seismic: Surface Rupture (NH-02) - score 7.5/10 (MC 7.0-8.0), weight n/a, data
+        quality screening grade. Evidence: nearest mapped capable fault 23.9 km; fault slip rate 0.022 mm/yr;
+        fault name: ATCF008."
+      text_excerpt: utilizeaza definitia de capable fault din SSG 9 rev1;
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: methodology
+    subsystem: scoring-engine
+    action:
+      Encode the IAEA SSG-9 rev. 1 definition of "capable fault" in the NH-02 criterion spec (a fault
+      capable of producing surface deformation of the ground). The capability test is combined with the
+      5 km screening radius from
+    depends_on:
+      - "#105"
+    notes:
+      "Paired with #105; together they replace the current 'nearest mapped capable fault' treatment.
+      Per user answer 2."
+    phase: 1+rerun
+    en_paraphrase: (draft - please confirm) Use the definition of "capable fault" from SSG-9 rev. 1.
+    closure_status: in-progress
+    closure_evidence: |
+      src/atoms_vs_ashes/connectors/efsm20_faults/models.py CAPABLE_ACTIVITY_CLASSES (docstring expanded to cite SSG-9 rev. 1 §3.8-3.22 explicitly);
+      src/atoms_vs_ashes/connectors/egdi_geology/parsers.py build_fault_assessment (now filters by capability before nearest-distance, matching EFSM20 semantics);
+      src/atoms_vs_ashes/connectors/efsm20_faults/parsers.py + batch.py (distance-only persistence; downstream renders the E1 verdict against the active run-profile threshold);
+      report/version 1.03/methodology/business_logic.md NH-02 + sites_evaluation/03_criteria_natural_hazards.md (SSG-9 mapping documented; slip-rate OR clause retired);
+      Phase 2: refreshed bundles (65 site + 17 country + 20 feedback_rerun) under score-c2a90942 / nat-sens-b1a62885 / stamp 20260523 carry provenance.nh02_e1_threshold_km = 5.0 (active run radius), and the NH-02 evidence signal renders the SSG-9 inside/outside classification dynamically (e.g. St Andrae @ 3.24 km -> inside; Duernrohr @ 23.9 km -> outside).
+    verification_method: |
+      tests/test_connector_egdi_geology.py::TestBuildFaultAssessment::test_capability_filter_picks_capable_over_closer_inactive + test_only_non_capable_returns_no_distance;
+      tests/test_connectors_efsm20_faults.py (distance-only observation flow);
+      Phase 2 spot-check: provenance + dynamic NH-02 evidence verified on Polaniec (PL), Turceni (RO), Duernrohr (AT), St Andrae (AT - hard fail) bundles.
+  - id: "105"
+    auto:
+      author: Bogdan Termegan
+      date: "2026-05-22T09:54:00Z"
+      chapter: 5. Country and Site Profiles
+      section_heading: Natural Hazards (NH)
+      heading_path:
+        - 5. Country and Site Profiles
+        - Austria Country Profile
+        - Duernrohr power station Site Profile
+        - Natural Hazards (NH)
+      report_path: chapters/05_country_and_site_profiles/sites/AT_duernrohr_power_station.md
+      language: ro
+      anchor_excerpt: capable fault
+      paragraph_excerpt:
+        "Seismic: Surface Rupture (NH-02) - score 7.5/10 (MC 7.0-8.0), weight n/a, data
+        quality screening grade. Evidence: nearest mapped capable fault 23.9 km; fault slip rate 0.022 mm/yr;
+        fault name: ATCF008."
+      text_excerpt: filtrul este de 5km, nu de 8 km.
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: exclusionary
+    subsystem: scoring-engine
+    action:
+      "Change the NH-02 screening radius to 5 km (was 8 km). Combine with the capable-fault definition
+      from #104. Update exclusionary floors, criterion spec, and methodology docs. Triggers rerun."
+    depends_on:
+      - "#104"
+    notes: Per user answer 2 (both IAEA SSG-9 rev. 1 and EPRI latest revision use 5 km).
+    phase: 1+rerun
+    en_paraphrase: (draft - please confirm) The filter is 5 km, not 8 km.
+    closure_status: in-progress
+    closure_evidence: |
+      Per user clarification ("I can put whatever I want in that input: 1, 5, 8 or 100 km. Make it work with anything. In reality it will be 5km") the NH-02 screening radius is now a run-profile parameter, not a hard-coded constant.
+      config/scoring_specs/threshold_metadata.yaml NH-02 E1 (default 8.0, bounds widened to {min: 0.1, max: 500.0}, rationale rewritten to cite SSG-9 rev. 1);
+      config/scoring_rubrics/nh_natural_hazards.yaml NH-02 (rubric fallback stack aligned to 8 km norm default);
+      src/atoms_vs_ashes/connectors/efsm20_faults/models.py (E1_THRESHOLD_KM and capable_fault_within_8km field removed; connector now stores distance only; SEARCH_RADIUS_KM degrade-case documented in the header);
+      src/atoms_vs_ashes/criterion_spec/_band_recipe_faults.py (band-5 descriptor reads the active pivot dynamically);
+      src/atoms_vs_ashes/reporting/run_profile_provenance.py (new module; reads NH-02 E1 from the run's CompiledScoringSnapshot and falls back to threshold_metadata.yaml default);
+      src/atoms_vs_ashes/reporting/site_bundle.py + country_bundle.py (every emitted bundle JSON now carries provenance.nh02_e1_threshold_km alongside metadata);
+      src/scripts/_site_profile_intelligence.py evidence_for (accepts provenance; NH-02 evidence appends a dynamic "E1 verdict (radius R km): inside|outside" signal computed from the active threshold);
+      src/scripts/_site_profile_markdown.py (threads provenance through _family_section so the verdict reflects the active run profile, not a Python constant);
+      B1 validation audit recorded: GUI threshold editor (src/atoms_vs_ashes/gui/_threshold_editor_widgets.py + criterion_spec/preview.py) sources min_value/max_value from spec.bounds, no hard-coded clamps; no `assert pivot < 25` guards anywhere under src/atoms_vs_ashes/criterion_spec or runprofile;
+      report/version 1.03/methodology/business_logic.md NH-02 + methodology.md + sites_evaluation/03_criteria_natural_hazards.md + requirements/05_1_siting_criteria_natural_hazards.md (all rephrased as norm-default 8 km, configurable per run profile).
+      User can study a 5 km radius (or any value in [0.1, 500.0]) by overriding NH-02 E1 in the run profile; bands, E1 expression, evidence-line verdict and methodology output all follow the active value.
+      Phase 2 (frozen): the v1.03 production run was executed with the user-selected 5 km radius (score-c2a90942 snapshot). Bundles emit provenance.nh02_e1_threshold_km = 5.0; the regenerated failure_analysis_nuscale_voygr6.md confirms NH-02 is now the dominant filter (50 of 58 fail-cases, 86.2 % share); the dynamic verdict line renders correctly for both inside (St Andrae 3.24 km) and outside (Polaniec 50 km, Turceni 50 km, Duernrohr 23.9 km) cases.
+    verification_method: |
+      tests/criterion_spec/test_excl_expr_derived_from_pivot.py::test_nh02_e1_threshold_propagates_to_bands_and_exclusion (parametrised over [0.5, 1.0, 5.0, 8.0, 10.0, 50.0, 100.0]);
+      test_nh02_e1_bounds_accept_full_parametrised_range; test_nh02_rubric_stack_matches_threshold_metadata_default (cross-stack drift guard);
+      tests/scoring/test_compiler_parity.py::test_out_of_bounds_rejected_without_expert_flag (1000 km now triggers rejection at the new ceiling);
+      tests/reporting/test_run_profile_provenance.py (snapshot round-trip across [0.5..100] km; metadata-yaml fallback; renderer verdict respects provenance for inside/outside cases; renderer omits the verdict gracefully when provenance or distance is missing).
+  - id: "183"
+    auto:
+      author: Bogdan Termegan
+      date: "2026-05-22T09:56:00Z"
+      chapter: 5. Country and Site Profiles
+      section_heading: Human-Induced and Security-Relevant Hazards (HI)
+      heading_path:
+        - 5. Country and Site Profiles
+        - Austria Country Profile
+        - Enns Power Station Site Profile
+        - Human-Induced and Security-Relevant Hazards (HI)
+      report_path: chapters/05_country_and_site_profiles/sites/AT_enns_power_station.md
+      language: en
+      anchor_excerpt: small airfield
+      paragraph_excerpt:
+        "Aircraft Crash (HI-01) - score 7.5/10 (MC 7.0-8.0), weight 0.0354, data quality
+        high. Evidence: nearest airport 13.2 km; nearest flight path 6.6 km; airports within search radius
+        6; airport name: Hofkirchen Airfield; airport type: small air…"
+      text_excerpt:
+        Make sure to apply the criteria correctly. Large airports and military airports prevail
+        for their respective limits on distance. However, small heliports and ae…
+      reply_to: null
+      done: false
+      heuristic_category: ""
+      heuristic_subsystem: ""
+    category: scoring
+    subsystem: scoring-engine
+    action:
+      Strip helipads and small airfields from HI-01 scoring bands entirely; only large commercial
+      and military airports remain in HI-01 (user answer 3). Update criterion spec, band recipes, airport
+      classification logic, and methodology docs. Triggers rerun.
+    depends_on: []
+    notes: Removes the Hofkirchen-Airfield-class signal that currently penalises Enns and similar sites.
+    phase: 1+rerun
+    en_paraphrase: ""
+    closure_status: in-progress
+    closure_evidence: |
+      config/scoring_rubrics/hi_human_induced.yaml HI-01 + config/scoring_specs/hi_human_induced.yaml HI-01 (A1 retired; small-class favourable band dropped; nearest_light_airport_km removed from band conditions);
+      src/atoms_vs_ashes/scoring/merge_context_derivations.py (stopped emitting nearest_light_airport_km into the scoring context; per-class small/heliport distances stay informational);
+      src/atoms_vs_ashes/connectors/ourairports/parsers.py compute_proximity_result (nearest_airport_km is now nearest large/medium; nearest_any_airport_km preserved for transparency; flight-path proxy restricted to large/medium) + _check_avoidance_violations (A1 dropped);
+      src/atoms_vs_ashes/connectors/ourairports/models.py AirportProximityResult (nearest_any_airport_km added; to_dict updated);
+      report/version 1.03/sites_evaluation/04_criteria_human_induced.md HI-01 + sites_evaluation/10_appendices.md A.2 + methodology/business_logic.md HI-01 (rephrased: only large + medium commercial and military airports drive scoring);
+      Phase 2: regenerated AT_enns_power_station_site_bundle.json under score-c2a90942 / nat-sens-b1a62885 / stamp 20260523 (HI-01 no longer penalised by Hofkirchen-class small airfields; reviewer's reported issue retired upstream).
+    verification_method: |
+      tests/test_connectors_ourairports.py::TestAvoidanceViolations (rebuilt around A2 / A4 / A4_flight_path only; new test_small_airfield_proximity_no_longer_violates);
+      tests/scoring/test_search_sentinel_bands.py (HI-01 v4 sentinel + A1 retirement assertions);
+      tests/scoring/test_context_derivations.py (asserts nearest_light_airport_km absent from derived scoring context);
+      Phase 2 frozen-run bundle for AT_enns_power_station reflects the new HI-01 banding.

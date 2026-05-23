@@ -35,6 +35,7 @@ from atoms_vs_ashes.db.queries import (
     site_criterion_scores,
     top_n_per_country,
 )
+from atoms_vs_ashes.reporting.run_profile_provenance import run_profile_provenance
 
 FAMILY_MODELS = {
     "natural_hazards": SiteNaturalHazards,
@@ -300,6 +301,7 @@ def build_site_bundle(
             "sensitivity_stamp": sensitivity_stamp,
             "claim_boundary": "Screening-grade Stage 1-2 support only.",
         },
+        "provenance": run_profile_provenance(session, run_id=run_id),
         "site": _model_dict(site),
         "land_area": _land_area_summary(site),
         "ownership": _rows(session, SiteOwnership, site_id),

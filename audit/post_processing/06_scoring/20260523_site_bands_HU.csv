@@ -1,0 +1,12 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+997474f6-9bfd-4abd-a2ac-d8618db8f0b4,Mohacs power station,HU,A,1.0,1.0,1.0,17,17
+f7dcdb63-26e6-44cd-b440-ec14fe507d90,Borsod power station,HU,A,0.8235,0.8824,1.0,17,17
+5de5f907-98e7-42d3-a7dd-cb65f839697b,Tiszapalkonya power station,HU,B,0.0,0.8235,1.0,17,17
+059b3ad4-7196-4e6b-b169-8605ceeed841,Torony power station,HU,C,0.0588,0.5882,1.0,17,17
+903d6b94-cd9d-4c32-b7e2-4bbfbee929df,Matraterenye power station,HU,D,0.0,0.0,0.8824,17,17
+28b36531-865d-42ae-afb3-b8bad86f7014,Matra power station,HU,E,0.0,0.0,0.5882,17,17
+34d88ce8-d49c-4b19-af2d-6efcb1b72149,Mecsek Hills power station,HU,H,0.0,0.0,0.0,17,17
+651839d3-4e8f-4214-89aa-1f96ea221121,Oroszlány power station,HU,H,0.0,0.0,0.0,17,17
+e1649639-2e45-4226-9c7a-783d2dcb6724,Pecs power station,HU,H,0.0,0.0,0.0,17,16
+ef325d90-6d2d-4f8f-89f2-3bc98beb149b,Bakony power station,HU,H,0.0,0.0,0.0,17,17
+f2b3a729-602a-4b6b-acc9-004244f2e556,Banhida-II power station,HU,H,0.0,0.0,0.0,17,17

@@ -397,7 +397,45 @@ def _read_json_extra(family_dict: dict[str, Any], col: str, key: str) -> Any:
     return None
 
 
-def evidence_for(criterion_id: str, families: dict[str, Any]) -> dict[str, Any]:
+def _nh02_e1_verdict_signal(
+    family_dict: dict[str, Any], provenance: dict[str, Any] | None,
+) -> str | None:
+    """Compose the ``E1 verdict (radius R km): inside|outside`` signal.
+
+    Reads the active screening radius from the bundle's ``provenance``
+    block (populated by ``reporting.run_profile_provenance`` from the
+    compiled scoring snapshot of the parent run). Returns ``None`` when
+    either the distance or the threshold is unknown; callers will simply
+    omit the line rather than print a stale verdict.
+    """
+
+    distance = family_dict.get("nearest_fault_km")
+    if distance in (None, ""):
+        return None
+    try:
+        distance_f = float(distance)
+    except (TypeError, ValueError):
+        return None
+    threshold = (provenance or {}).get("nh02_e1_threshold_km")
+    if threshold is None:
+        return None
+    try:
+        threshold_f = float(threshold)
+    except (TypeError, ValueError):
+        return None
+    verdict = "inside" if distance_f < threshold_f else "outside"
+    return (
+        f"E1 verdict (radius {_fmt(threshold_f, 'km')}): {verdict} "
+        f"the SSG-9 capable-fault screening envelope"
+    )
+
+
+def evidence_for(
+    criterion_id: str,
+    families: dict[str, Any],
+    *,
+    provenance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Return measured values + context for one criterion id.
 
     The returned dict always contains a ``signals`` list of bullet
@@ -405,6 +443,11 @@ def evidence_for(criterion_id: str, families: dict[str, Any]) -> dict[str, Any]:
     structured registry (typically the LLM-derived ranking criteria
     NS-09 to NS-12 or BF-01/02). Callers can fall back to the ranking
     score and justification in that case.
+
+    For NH-02, when ``provenance.nh02_e1_threshold_km`` is supplied the
+    function appends an E1-verdict signal that reflects the active
+    run-profile screening radius (so a user-tuned threshold is rendered
+    directly without any Python constant).
     """
     spec = CRITERION_FIELDS.get(criterion_id)
     if not spec:
@@ -426,6 +469,10 @@ def evidence_for(criterion_id: str, families: dict[str, Any]) -> dict[str, Any]:
         if value in (None, ""):
             continue
         bits.append(f"{label}: {_fmt(value, '')}")
+    if criterion_id == "NH-02":
+        verdict_signal = _nh02_e1_verdict_signal(family_dict, provenance)
+        if verdict_signal is not None:
+            bits.append(verdict_signal)
     return {
         "signals": bits,
         "signal_count": len(bits),

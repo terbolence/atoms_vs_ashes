@@ -1,0 +1,5 @@
+site_id,site_name,country,band,top5pct_hit_rate,top10pct_hit_rate,top30pct_hit_rate,scenarios_total,scenarios_scored
+1739b1b7-a6f3-466c-9dfa-3d1de9d5b6db,Bitola power station,MK,A,1.0,1.0,1.0,17,17
+83d3abe4-2049-47ad-a66b-46034edb7569,Negotino power station,MK,B,0.1765,0.8824,0.8824,17,17
+756218bb-3f16-443e-b6c6-400cd0ce2f87,Oslomej power station,MK,D,0.0588,0.1176,0.8235,17,17
+7bff5ef2-646d-4b83-83b0-7f3da32f0254,Mariovo power station,MK,H,0.0,0.0,0.0,17,14

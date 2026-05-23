@@ -7,7 +7,7 @@ criteria:
     name: Emergency-plan feasibility (composite)
     phases: [exclusionary, ranking]
     weight_factor: 8
-    normalised_weight_pct: 2.8
+    normalised_weight_pct: 0.0  # excluded from composite normalisation
     weight_factors: {baseline: 8, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-01 (NS-R-3 §2.27-2.29; SSG-35 §4.6; E8)"}
     primary_metric: ep01_composite_score
@@ -54,7 +54,7 @@ criteria:
     name: Evacuation routes (road network)
     phases: [ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-02 (SSG-35 §4.6(a)-(b))"}
     primary_metric: road_density_km_per_km2
@@ -72,7 +72,7 @@ criteria:
     name: Physical-geography constraints
     phases: [ranking]
     weight_factor: 5
-    normalised_weight_pct: 1.8
+    normalised_weight_pct: 2.1739
     weight_factors: {baseline: 5, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-03 (SSG-35 §4.6(a))"}
     primary_metric: relief_m_per_10km
@@ -96,7 +96,7 @@ criteria:
     name: Special populations (hospitals, prisons, care homes)
     phases: [ranking]
     weight_factor: 6
-    normalised_weight_pct: 2.1
+    normalised_weight_pct: 2.6087
     weight_factors: {baseline: 6, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-04 (SSG-35 §4.6(c))"}
     primary_metric: special_pop_count
@@ -113,7 +113,7 @@ criteria:
     name: Concurrent-hazard impact on EP
     phases: [ranking]
     weight_factor: 4
-    normalised_weight_pct: 1.4
+    normalised_weight_pct: 1.7391
     weight_factors: {baseline: 4, epri: 4}
     weight_basis_source: {baseline: "report/sites_evaluation/02_master_weights.md §3 master weight table (project engineering team intent)", epri: "docs/expert_siting_criteria_evaluation_matrix.md § EP-05 (SSG-35 §4.6(f))"}
     primary_metric: ep05_concurrent_index
