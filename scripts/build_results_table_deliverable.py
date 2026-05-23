@@ -1,5 +1,21 @@
 # man_hours: 1.2
-"""Build the v1.2 landscape results-table deliverable."""
+"""Build the v1.2 landscape results-table deliverable.
+
+This module is the only supported build path for ``atoms_vs_ashes_results_table``
+(``.md``, ``.csv``, and landscape ``.docx``). It always regenerates Markdown from
+country ledgers before exporting Word.
+
+Run directly::
+
+    python scripts/build_results_table_deliverable.py
+
+Or through the report build::
+
+    python scripts/build_report.py --side-deliverables-only
+    python scripts/build_report.py   # unless --skip-side-deliverables
+
+Do not use ``scripts/export_markdown_docx.py`` on the results-table Markdown.
+"""
 
 from __future__ import annotations
 
@@ -19,13 +35,33 @@ from report_format_config import (
     ensure_reference_docx,
 )
 from results_table_data import build_results_markdown
+from results_table_model import RESULTS_TABLE_OUTPUT_STEM
 
-OUTPUT_STEM = "atoms_vs_ashes_results_table"
+OUTPUT_STEM = RESULTS_TABLE_OUTPUT_STEM
+
+_MANUAL_EXPORT_ERROR = (
+    "The results table must be built with scripts/build_results_table_deliverable.py "
+    "(or python scripts/build_report.py --side-deliverables-only), which regenerates "
+    "Markdown and CSV from country ledgers before exporting DOCX. "
+    "export_markdown_docx.py is not supported for this deliverable."
+)
+
+
+def is_results_table_markdown(path: Path) -> bool:
+    return path.resolve().stem == OUTPUT_STEM
+
+
+def reject_manual_results_table_export(path: Path) -> None:
+    if is_results_table_markdown(path):
+        raise ValueError(_MANUAL_EXPORT_ERROR)
 
 
 def _run_pandoc(markdown_path: Path, output_docx: Path, reference_docx: Path) -> None:
     if shutil.which("pandoc") is None:
         raise RuntimeError("pandoc not found on PATH; install pandoc first.")
+    markdown_path = markdown_path.resolve()
+    output_docx = output_docx.resolve()
+    reference_docx = reference_docx.resolve()
     command = [
         "pandoc",
         markdown_path.name,

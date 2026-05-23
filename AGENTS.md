@@ -6,7 +6,7 @@
 ## Rule Index
 
 - `.cursor/rules/audit-trail.mdc` — always on; conversation logs and plan mirrors.
-- `.cursor/rules/man-hours.mdc` — disabled on 2026-05-20; agent no longer adds first-line effort metadata or maintains `audit/man_hours_registry.yml`.
+- `.cursor/rules/man-hours.mdc` — archived (deactivated); do not track effort or maintain man-hours metadata.
 - `.cursor/rules/live-api-safety.mdc` — always on; project-specific pointer to the global live-API consent rule.
 - `.cursor/rules/feature-completion-checklist.mdc` — always on; mandatory Feature Completion Matrix and end-to-end trace for non-trivial features.
 - `.cursor/rules/api-enrichment-ops.mdc` — API/enrichment runs and connector operations.
@@ -42,7 +42,6 @@ Read `experts/connectors/api_enrichment_operations.md` before enrichment work an
 atoms-vs-ashes enrich --help
 .venv/bin/ava-client run --test-sites --dry-run
 PYTHONPATH=src python src/scripts/verify_raw_response_coverage.py --run-id <run_id>
-python src/scripts/man_hours_report.py
 PYTHONPATH=src python -m scripts.export_country_bundle --country-code <CC>
 PYTHONPATH=src python -m scripts.export_site_bundle --site-id <UUID>
 python src/scripts/extract_docx_comments.py --input <feedback.docx>
@@ -61,7 +60,7 @@ A non-trivial change (anything touching more than one module, or anything the us
 3. At least one **outermost-surface test** exists per user-visible surface (GUI / CLI / runner smoke test that would fail if the feature were backend-only). Pure unit tests are not sufficient.
 4. Every new DB table or CSV is read by an existing or new consumer (Results page, report renderer, export bundle, snapshot).
 5. The final response cites the one-line trace from §8 of the matrix so the user can verify wiring without opening any file.
-6. Audit log under `audit/conversations/` and man-hours entries per `.cursor/rules/audit-trail.mdc` and `.cursor/rules/man-hours.mdc` are present in the same change.
+6. Audit log under `audit/conversations/` per `.cursor/rules/audit-trail.mdc` is present in the same change.
 
 When uncertain whether a change qualifies as "non-trivial", default to opening the matrix.
 

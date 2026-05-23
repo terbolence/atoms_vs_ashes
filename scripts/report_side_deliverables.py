@@ -1,5 +1,9 @@
 # man_hours: 0.8
-"""Build the report's side deliverables."""
+"""Build the report's side deliverables.
+
+The results table is always produced by ``build_results_table_deliverable``,
+which regenerates ``atoms_vs_ashes_results_table.{md,csv,docx}`` from ledgers.
+"""
 
 from __future__ import annotations
 
@@ -9,7 +13,7 @@ from build_work_audit_synthesis import build_work_audit_synthesis
 
 
 def build_side_deliverables(fmt: ReportFormatConfig) -> None:
-    print("Building side deliverable: results table ...")
+    print("Building side deliverable: results table (ledger -> md/csv/docx) ...")
     results_stats = build_results_table_deliverable(
         format_path=fmt.path,
         output_dir=fmt.report_root / "build",

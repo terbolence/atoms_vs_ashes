@@ -39,7 +39,7 @@ Read these before starting any criterion review. Cite specific sections when you
 | Live-API safety | `experts/connectors/api_enrichment_operations.md` + `.cursor/rules/live-api-safety.mdc` | Any new field that implies a live enrichment call |
 | Lessons capture | `experts/quality/lessons_learned.md` | After completion — append `LL-NNN` if anything non-obvious surfaced |
 
-Also obey, by reference, every `.cursor/rules/*.mdc` rule in this repo. The ones you will hit most often: `audit-trail.mdc`, `man-hours.mdc`, `file-size-limits.mdc`, `data-quality-discipline.mdc`, `co-located-site-variants.mdc`, `live-api-safety.mdc`, `llm-dedup-safety.mdc`.
+Also obey, by reference, every `.cursor/rules/*.mdc` rule in this repo. The ones you will hit most often: `audit-trail.mdc`, `file-size-limits.mdc`, `data-quality-discipline.mdc`, `co-located-site-variants.mdc`, `live-api-safety.mdc`, `llm-dedup-safety.mdc`. (`man-hours.mdc` is archived — do not track effort.)
 
 ---
 
@@ -292,7 +292,7 @@ For each criterion change you produce tests of these shapes, dispatched by phase
 | `[basic_filter]` | (a) Per-SMR cutoff resolution; (b) cutoff blocks site for the SMR; (c) cutoff does not affect other SMRs' verdicts |
 | Soft flags | (a) Flag fires for the configured input; (b) score before / after the flag is identical |
 
-All test files declare first-line `# man_hours: X.X`, register in `audit/man_hours_registry.yml`, and live under `tests/scoring/` or `tests/criterion_spec/`.
+All test files live under `tests/scoring/` or `tests/criterion_spec/`.
 
 ---
 
@@ -350,13 +350,12 @@ Do not present the change as ready for sign-off until all seven evidences are in
 
 ---
 
-# N. Audit, plans, man-hours, lessons — wire it into project rules
+# N. Audit, plans, lessons — wire it into project rules
 
 Reference, do not restate, the rules:
 
 - `audit-trail.mdc` — mirror the criterion-change plan into both `audit/plans/` and `architecture/plans/`; write the conversation log to `audit/conversations/YYYY-MM-DD_<slug>.md`.
 - Plan working copy: `~/.cursor/plans/<slug>_<8char-uuid>.plan.md` (per global plans-output-location rule).
-- `man-hours.mdc` — first-line `# man_hours: X.Y` (or `<!-- man_hours: X.Y -->` for `.md`) on any new or edited file; update `audit/man_hours_registry.yml`.
 - `data-quality-discipline.mdc` — hard data fields and `*_quality` labels live in separate conditions; never overload.
 - `co-located-site-variants.mdc` — surface cluster-level impact when the change can re-classify a duplicate-envelope cluster.
 - `llm-dedup-safety.mdc` — if the change implies a new LLM-derived field, plan dedup before any enrichment.

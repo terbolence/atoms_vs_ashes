@@ -1,93 +1,21 @@
-<!-- man_hours: 3.2 -->
 ---
-description: Require man-hours effort estimates on every file created or edited
+description: ARCHIVED — man-hours effort tracking (disabled; do not apply)
 alwaysApply: false
 ---
 
-# Man-Hours Estimation Rule
+# Man-Hours Rule (Archived)
 
-> **Disabled on 2026-05-20 by user instruction.** The agent should no longer add `man_hours` comments to new or edited files, no longer maintain `audit/man_hours_registry.yml`, and no longer regenerate `audit/man_hours_summary.md`. Existing entries are preserved as a historical record. Re-enable by setting `alwaysApply: true` and removing this notice.
+**Status: deactivated.** Do not measure, estimate, or record effort for the agent.
 
-Every file in this project must carry a man-hours estimate representing the equivalent senior-engineer effort to produce the file's **current final state** from scratch.
+The agent must **not**:
 
-## On File Creation
+- Add `# man_hours` or `<!-- man_hours -->` comments to new or edited files
+- Update `audit/man_hours_registry.yml`
+- Regenerate `audit/man_hours_summary.md`
+- Mention person-hours, person-days, or registry updates in audit logs unless the user explicitly asks
 
-Add a comment on the **very first line** of the new file:
+Existing first-line comments and registry rows are a historical archive only.
 
-- **Markdown (`.md`, `.mdc`):** `<!-- man_hours: X.X -->`
-- **Python (`.py`):** `# man_hours: X.X`
-- **YAML / TOML / Mako (`.yml`, `.yaml`, `.toml`, `.mako`):** `# man_hours: X.X`
+`python src/scripts/man_hours_report.py` remains available for optional manual use; the agent should not run it unless the user requests a scale report.
 
-Then add a matching entry in `audit/man_hours_registry.yml` under the `files:` key:
-
-```yaml
-  path/to/file.ext:
-    hours: X.X
-    category: "<category>"
-```
-
-## On File Edit
-
-Update the `man_hours` value in the file's first-line comment **and** in `audit/man_hours_registry.yml` so both reflect the **total cumulative** effort to produce the file in its current state — not just the incremental delta from this edit.
-
-## Category Mapping
-
-Derive the category from the file path prefix:
-
-| Path prefix / filename                                            | Category                  |
-| ----------------------------------------------------------------- | ------------------------- |
-| `requirements/`                                                   | Requirements & Analysis   |
-| `architecture/`                                                   | Architecture & Design     |
-| `src/`                                                            | Implementation            |
-| `tests/`                                                          | Testing                   |
-| `alembic/`                                                        | Database & Migrations     |
-| `config/`, `docker-compose.yml`, `pyproject.toml`, `.env*`, `.cursor/` | Configuration & DevOps    |
-| `sources/`                                                        | Research & Data Sources   |
-| `experts/`                                                        | AI Prompts & Tooling      |
-| `audit/`                                                          | Project Management & QA   |
-
-If a file does not match any prefix, use "Other".
-
-## Estimation Guidance
-
-Estimate as a **senior engineer** working alone, including research, design thinking, implementation, self-review, and iteration — not just raw typing time.
-
-| Example file                              | Typical range | Why                                                             |
-| ----------------------------------------- | ------------- | --------------------------------------------------------------- |
-| Simple `__init__.py` (empty or re-exports) | 0.1–0.25 h   | Boilerplate only                                                |
-| Configuration (`default.yml`, `pyproject.toml`) | 1–4 h     | Research dependencies, tune thresholds, cross-check docs        |
-| Alembic migration (13 tables, enums, indexes) | 8–12 h     | Schema design, field types, constraints, testing                |
-| Connector (`corine.py`, ~370 LOC, WFS protocol) | 12–16 h   | API research, protocol handling, ring analysis, error handling  |
-| Requirements spec (`01_overview.md`, ~260 lines) | 20–40 h   | Domain research, stakeholder alignment, technology comparison   |
-| Architecture spec (screening engine, ~150 lines) | 8–16 h    | Design decisions, interface contracts, traceability mapping     |
-| Test file (~200 LOC, mocks + fixtures)    | 4–8 h         | Fixture design, edge cases, integration setup                   |
-| Regulation map (`SSG-35_map.md`)          | 6–12 h        | Read full IAEA document, extract and structure key information  |
-| Expert system prompt (~280 lines)         | 6–10 h        | Cross-reference entire codebase, synthesize integration specs   |
-
-## Excluded Files
-
-Do not add man-hours comments to:
-
-- Generated / aggregated files (`agregated_requirements.md`, `agregated_architecture.md`)
-- Files inside `.venv/`, `.git/`, `__pycache__/`
-- The registry itself (`audit/man_hours_registry.yml`)
-- The generated summary (`audit/man_hours_summary.md`)
-
-## Regenerating the Summary
-
-After updating estimates, run:
-
-```bash
-python src/scripts/man_hours_report.py
-```
-
-This writes **`audit/man_hours_summary.md`** — a plain-language **Project Scale Report** for the full git archive:
-
-- At-a-glance effort, documentation volume (~pages), software size, criteria & connectors
-- Written documentation by folder (`report/`, `audit/`, `criteria/`, …)
-- Software, data exports (JSON/CSV), person-hours in plain English
-- Full inventory table; technical `cloc` appendix collapsed; detailed registry in `<details>`
-
-Requires **`cloc`** on PATH for the technical appendix (`brew install cloc`).
-
-Implementation: `src/scripts/man_hours_report.py`, `src/scripts/_man_hours_metrics.py`.
+Conversation and plan audit logging still applies via `.cursor/rules/audit-trail.mdc`.

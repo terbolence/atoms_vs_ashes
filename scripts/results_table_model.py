@@ -21,6 +21,9 @@ FAILURE_SECTION = (
     "consolidated_failure_section.md"
 )
 
+# Canonical build: scripts/build_results_table_deliverable.py (also via build_report.py).
+RESULTS_TABLE_OUTPUT_STEM = "atoms_vs_ashes_results_table"
+
 PUBLISHED_COUNTRIES: tuple[str, ...] = (
     "AT", "BA", "BG", "CZ", "HR", "HU", "LV", "MD", "ME",
     "MK", "PL", "RO", "RS", "SK", "TR", "UA",

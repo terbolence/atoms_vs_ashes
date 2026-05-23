@@ -78,6 +78,17 @@ Prefer OpenStreetMap, Carto, Natural Earth, existing project GIS outputs, DB lay
 
 The static country site-status map renderer is `src/scripts/_country_profile_map.py` and uses the basemap helper at `src/atoms_vs_ashes/cartography/basemap.py`. It tries CartoDB Positron OSM tiles first and falls back to bundled Natural Earth assets in `data/cartography/`. Callout boxes are drawn only for sites that pass the exclusionary screen and are stacked in the left/right margins to avoid overlap; hard-fail sites stay as plain coloured markers with their identity readable from the basemap.
 
+## Side deliverables (v1.2 build folder)
+
+Regenerate the executive results table only through the ledger-backed builder (never `export_markdown_docx.py` on the table Markdown):
+
+```bash
+python scripts/build_results_table_deliverable.py
+python scripts/build_report.py --side-deliverables-only
+```
+
+A full report build also runs this unless `--skip-side-deliverables` is set. Outputs: `report/version 1.02/output/report/build/atoms_vs_ashes_results_table.{md,csv,docx}`.
+
 ## Output Locations
 
 - Client-facing chapters: `report/output/chapters/`.

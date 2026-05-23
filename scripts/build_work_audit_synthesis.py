@@ -227,6 +227,9 @@ The platform's future value is broader than the report. It can become a repeatab
 def _run_pandoc(markdown_path: Path, output_docx: Path, reference_docx: Path) -> None:
     if shutil.which("pandoc") is None:
         raise RuntimeError("pandoc not found on PATH; install pandoc first.")
+    markdown_path = markdown_path.resolve()
+    output_docx = output_docx.resolve()
+    reference_docx = reference_docx.resolve()
     command = [
         "pandoc",
         markdown_path.name,

@@ -18,4 +18,4 @@ When adding or changing a connector, treat it as complete only when all applicab
 - **Raw response logging:** per-site HTTP and raster extraction must use `log_raw_response` or `log_raster_extraction`; see `.cursor/rules/raw-response-logging.mdc`.
 - **Sample report:** produce `docs/connector_reports/<slug>_sample_report.md` with metric and quality legends; see `.cursor/rules/connector-reports.mdc`.
 - **Tests:** add or update pure-logic integration coverage and snapshots under `tests/integrationSnapshots/`; see `.cursor/rules/integration-tests.mdc`.
-- **Effort and audit:** update man-hours metadata and leave a conversation audit log for substantive changes.
+- **Audit:** leave a conversation audit log for substantive changes (see `.cursor/rules/audit-trail.mdc`).

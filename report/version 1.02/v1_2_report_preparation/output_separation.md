@@ -16,6 +16,7 @@ This manifest separates the version 1.2 report outputs into the published copy a
 | Annexes | `report/version 1.02/output/report/annexes/annex_a_*.md` through `annex_f_*.md` | Included after Chapter 8. Annex F uses publication-safe artefact descriptions; exact paths and commands remain in the audit copy. |
 | Static figures | PNG figures under `report/version 1.02/output/report/chapters/05_country_and_site_profiles/figures/` | Published where referenced by the report source and available on disk. |
 | Final assembled report | `report/version 1.02/output/report/build/atoms_vs_ashes_report.docx` | Client-facing export produced by the local report build pipeline. |
+| Results-table side deliverable | `report/version 1.02/output/report/build/atoms_vs_ashes_results_table.{md,csv,docx}` | Client-facing landscape table. Always rebuild with `python scripts/build_results_table_deliverable.py` or `python scripts/build_report.py` (side deliverables included unless `--skip-side-deliverables`). |
 
 ## Internal Audit Copy
 

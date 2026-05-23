@@ -24,6 +24,7 @@ from report_format_config import (
 )
 
 from build_report import rewrite_image_paths, strip_identifier_tokens, strip_specialist_comments
+from build_results_table_deliverable import reject_manual_results_table_export
 
 
 def export_markdown(
@@ -98,6 +99,11 @@ def main(argv: list[str] | None = None) -> int:
     for source in args.sources:
         if not source.exists():
             print(f"ERROR: source not found: {source}", file=sys.stderr)
+            return 1
+        try:
+            reject_manual_results_table_export(source)
+        except ValueError as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
             return 1
         output = out_dir / f"{source.stem}.docx"
         export_markdown(

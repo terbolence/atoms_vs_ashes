@@ -81,7 +81,7 @@ Fill every row. `N/A` is allowed only with a justification.
 | Methodology / report docs | Updates under `report/version */methodology/` or chapter prompts | | | |
 | Expert prompts | Updated or new prompt under `experts/` | | | |
 | Audit log | Conversation log under `audit/conversations/` and plan mirror per `.cursor/rules/audit-trail.mdc` | | | |
-| Man-hours metadata | First-line metadata on every touched file plus `audit/man_hours_registry.yml` | | | |
+| Man-hours metadata | Archived — not required (`.cursor/rules/man-hours.mdc` deactivated) | | Not applicable | Rule disabled 2026-05-20 |
 
 ## 5. Negative Acceptance Tests
 

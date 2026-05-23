@@ -56,9 +56,8 @@ unless:
   (with justification) or `Deferred` (with user approval evidence).
 - At least one negative acceptance test exists per user-visible surface.
 - The Final Trace covers every hop with a real file path.
-- The audit trail and man-hours updates required by
-  `.cursor/rules/audit-trail.mdc` and `.cursor/rules/man-hours.mdc` are
-  present in the same change.
+- The audit trail required by `.cursor/rules/audit-trail.mdc` is present
+  in the same change.
 
 ## Anti-patterns this rule blocks
 
