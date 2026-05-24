@@ -1,6 +1,6 @@
 # Kuchurgan power station Site Profile
 
-Kuchurgan power station is Moldova's only ranked brownfield thermal-site candidate in the frozen NuScale VOYGR-6 Stage 1-2 screen. It passes the exclusionary screen but retains an Aircraft Crash (HI-01) avoidance flag, so the profile supports a targeted Stage 3 decision gate rather than an unconditional site-characterisation programme.
+Kuchurgan power station is a coal/thermal site in Moldova that has been tested against the NuScale VOYGR-6 reference deployment envelope. This profile reads the screening evidence at a level that supports a decision to progress toward Stage 3 characterization. It is not a site-suitability determination, vendor recommendation, or licensing finding.
 
 ## Site Snapshot
 
@@ -20,117 +20,125 @@ _See the country status map in_ [Moldova Country Profile](../MD_country_prototyp
 
 ## Ownership and Coal-to-Nuclear Context
 
-The bundle records Kuchurgan as a mothballed 1,400 MW coal-fired complex with seven mothballed units. The earliest unit commissioning year is 1964 and the most recent is 1971. The site therefore has a long thermal-generation history, but the reuse case depends on whether grid, land, cooling, ownership and governance conditions can be verified for nuclear-grade redevelopment.
+- **Inter RAO Capital JSC** (29.56% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Inter RAO Capital JSC -> Inter RAO PJSC [29.56%] -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 8 [100.0%]
+- **Rosneftegaz JSC** (26.37% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Rosneftegaz JSC -> Inter RAO PJSC [26.37%] -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 8 [100.0%]
+- **Government of Russia** (6.45% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Government of Russia  -> Federal Agency for State Property Management (Russia)  [100.0%] -> Federal Grid Company - Rosseti PJSC [75.28%] -> Inter RAO PJSC [8.57%] -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 6 [100.0%]
+- **Inter RAO PJSC** (100.00% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Inter RAO PJSC -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 8 [100.0%]
+- **Federal Agency for State Property Management (Russia)** (6.45% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Federal Agency for State Property Management (Russia)  -> Federal Grid Company - Rosseti PJSC [75.28%] -> Inter RAO PJSC [8.57%] -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 8 [100.0%]
+- **Federal Grid Company - Rosseti PJSC** (8.57% share), headquartered in Russia; immediate operator Moldavskaya GRES CJSC. Path: Federal Grid Company - Rosseti PJSC -> Inter RAO PJSC [8.57%] -> Moldavskaya GRES CJSC [100.0%] -> Kuchurgan power station Unit 8 [100.0%]
 
-The ownership chain is concentrated around Russian-linked entities. The immediate operator is Moldavskaya GRES CJSC, with Inter RAO PJSC recorded as the 100% parent of the plant operator in the site bundle. Additional beneficial ownership rows include Inter RAO Capital JSC, Rosneftegaz JSC, the Government of Russia, the Federal Agency for State Property Management, and Federal Grid Company - Rosseti PJSC. This evidence should be treated as an ownership and programme-governance issue for Stage 3, not as a statement that any party has project rights for nuclear redevelopment.
-
-Kuchurgan is also a first-programme governance case for Moldova. Stage 3 preparation would need to test the recognised Moldovan regulatory pathway, the de facto local governance environment, cross-border interfaces with Ukraine where relevant, workforce readiness, site access, land control and investor eligibility before technical characterisation can be relied on for a deployment decision.
+Generating units on record: 7 mothballed.
+Earliest unit commissioning: 1964; most recent: 1971.
 
 ## Natural Hazards (NH)
 
-| Criterion | Screening score | Key evidence |
-| --- | ---: | --- |
-| NH-01 Seismic ground motion | 7.5/10 | 475-year PGA 0.085 g; 2,475-year PGA 0.156 g |
-| NH-02 Surface rupture | 9.5/10 | No mapped capable fault inside the 50 km search radius |
-| NH-03 Liquefaction | 9.5/10 | Very low liquefaction susceptibility; silty clay loam |
-| NH-04 Slope stability | 9.5/10 | Mean site slope 2.73 degrees; gentle slope-stability class |
-| NH-05 Subsidence / karst / mining | 5.5/10 | Moderate karst-severity context; mapped mining feature 9.301 km away |
-| NH-06 Foundation conditions | 5.5/10 | Bearing-capacity proxy 84.7 kPa; depth to bedrock 26.74 m |
-| NH-09 River flooding | 7.5/10 | Flood-zone class negligible at screening stage |
-| NH-11 Extreme precipitation | 10.0/10 | Screening precipitation values remain low-confidence for design use |
+- **Seismic: Ground Motion (NH-01)** - score 7.5/10 (MC 7.0-8.0), weight 0.0455, data quality high. Evidence: PGA at 475-year return period 0.085 g; PGA at 2,475-year return period 0.156 g; Vs30 reference (m/s): 760.0.
+- **Seismic: Surface Rupture (NH-02)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level., weight n/a, data quality screening grade. Evidence: nearest mapped capable fault 50.0 km; fault slip rate 0 mm/yr; fault name: none_in_search_radius; E1 verdict (radius 5 km): outside the SSG-9 capable-fault screening envelope.
+- **Geotechnical: Liquefaction (NH-03)** - score 9.5/10 (MC 9.0-10.0) — favorable: Negligible susceptibility (Stage-1 favourable default)., weight n/a, data quality medium. Evidence: liquefaction susceptibility: very_low; dominant soil type: silty_clay_loam.
+- **Geotechnical: Slope Stability (NH-04)** - score 9.5/10 (MC 9.0-10.0) — favorable: Well below the risk boundary., weight n/a, data quality screening grade. Evidence: site slope 2.73 deg; max slope in 1 km box 47.9 deg; slope stability class: gentle.
+- **Geotechnical: Subsidence (NH-05)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: At or above the mine-distance score-5 pivot; review possible., weight 0.0354, data quality medium. Evidence: karst present: no; karst severity: moderate; formation type: carbonate (Discontinuous carbonate rocks).
+- **Geotechnical: Foundation (NH-06)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: Typical European mixed conditions (bearing 80-150 kPa)., weight 0.0253, data quality medium. Evidence: bearing capacity 84.7 kPa; depth to bedrock 26.7 m.
+- **Volcanism (NH-07)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong margin above the score-5 boundary (or connector confirmed no in-radius signal)., weight n/a, data quality high. Evidence: volcanic hazard class: negligible.
+- **Coastal Flooding (NH-08)** - score 9.5/10 (MC 9.0-10.0) — favorable: Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal., weight 0.0303, data quality medium. Evidence: distance to coast 66.0 km.
+- **River Flooding (NH-09)** - score 7.5/10 (MC 7.0-8.0), weight 0.0404, data quality medium. Evidence: flood zone class: negligible.
+- **Extreme Winds (NH-10)** - score 7.5/10 (MC 7.0-8.0), weight 0.0152, data quality medium. Evidence: design wind speed 7.85 m/s.
+- **Extreme Precipitation (NH-11)** - score 10.0/10 (MC 9.0-10.0) — favorable: aggregated(mean_of_sub_scores), weight 0.0152, data quality medium. Evidence: extreme daily precipitation 0.15 mm; mean annual precipitation 15.7 mm/yr.
+- **Extreme Temperatures (NH-12)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: aggregated(mean_of_sub_scores), weight 0.0202, data quality medium. Evidence: extreme high temperature 26.4 deg C; extreme low temperature -6.86 deg C.
+- **Combined Hazards (NH-14)** - score 9.5/10 (MC 9.0-10.0) — favorable: At least 5 underlying NH criteria resolved, all >= 7; no interaction pair below 7., weight 0.0152, data quality n/a. Evidence: values not in measurement tables.
 
-Natural hazards are one of Kuchurgan's stronger screening families. Ground motion sits comfortably below the project screening boundary, surface-rupture evidence is favourable at desk-study level, liquefaction is very low in the current data, and the site has a gentle topographic profile. These findings support carrying the site into targeted review if the aviation avoidance issue is resolved.
+### Interpretation - Natural Hazards (NH)
 
-The main natural-hazard follow-up is not a standing exclusionary trigger; it is evidence hardening. Stage 3 should confirm flood levels for the Kuchurhan River and reservoir setting, run geotechnical fieldwork for bearing, groundwater, liquefaction and karst uncertainty, and replace the low-confidence precipitation and design-hydrology proxies with national station records and site drainage surveys.
+
+<!-- specialist key=family_natural_hazards scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Natural Hazards (NH). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_natural_hazards` then `... patch --country <CC> --site-name <name> --key family_natural_hazards --text-file <draft.md>`._
+<!-- /specialist key=family_natural_hazards -->
 
 ## Human-Induced and Security-Relevant Hazards (HI)
 
-| Criterion | Screening score | Key evidence |
-| --- | ---: | --- |
-| HI-01 Aircraft Crash | 3.5/10 | Lymanske Airfield 7.03 km away; flight-path proxy 3.52 km away; 2 airports within 30 km |
-| HI-02 Industrial explosions | 9.5/10 | Completed search records no in-radius signal in the current evidence |
-| HI-03 Toxic / gas releases | 9.5/10 | Completed search records no in-radius signal in the current evidence |
-| HI-04 External fires | 9.5/10 | Completed search records no in-radius signal in the current evidence |
-| HI-06 Military installations | 1.5/10 | Nearest high-consequence military feature 11.38 km away; 13 military features within 25 km |
-| HI-07 Electromagnetic interference | 1.5/10 | Nearest transmitter 0.47 km away; 85 transmitter-like features within 25 km |
+- **Aircraft Crash (HI-01)** - score 3.5/10 (MC 3.0-4.0), weight 0.0354, data quality high. Evidence: nearest airport 7.03 km; nearest flight path 3.52 km; airports within search radius 2; airport name: Lymanske Airfield; airport type: small_airport.
+- **Industrial Explosions (HI-02)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality screening grade. Evidence: values not in measurement tables.
+- **Toxic/Gas Releases (HI-03)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality screening grade. Evidence: values not in measurement tables.
+- **External Fires (HI-04)** - score 9.5/10 (MC 9.0-10.0) — favorable: > 15 km, or completed flammable-storage search found nothing in radius., weight 0.0303, data quality screening grade. Evidence: values not in measurement tables.
+- **Military Installations (HI-06)** - score 1.5/10 (MC 1.0-2.0), weight 0.0303, data quality medium. Evidence: nearest military installation 11.4 km; military installations within radius 13; installation name: ДОТ № 1202 ТиУР.
+- **Electromagnetic Interference (HI-07)** - score 1.5/10 (MC 1.0-2.0), weight 0.0101, data quality medium. Evidence: nearest high-power transmitter 0.47 km; transmitters within radius 85; transmitter type: mast.
 
-Human-induced hazards are the binding family for site selection. HI-01 is the only country-level avoidance flag and must be resolved before Kuchurgan is promoted from an avoidance-flagged candidate to a Stage 3 characterisation candidate. The airfield and flight-path distances require a current aviation hazard assessment, including runway use, approach and departure paths, airspace restrictions and cross-border operating conditions.
+### Interpretation - Human-Induced and Security-Relevant Hazards (HI)
 
-HI-06 and HI-07 are not recorded as exclusionary failures, but they are material residual risks. The military-feature cluster, nearest high-consequence feature at 11.38 km, and dense transmitter environment require security, standoff and electromagnetic compatibility review. Stage 3 should also refresh hazardous-neighbour evidence because the site sits in a governance environment where standard public industrial registers may be incomplete.
+
+<!-- specialist key=family_human_hazards scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Human-Induced and Security-Relevant Hazards (HI). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_human_hazards` then `... patch --country <CC> --site-name <name> --key family_human_hazards --text-file <draft.md>`._
+<!-- /specialist key=family_human_hazards -->
 
 ## Radiological Impact and Emergency Planning (RI / EP)
 
-| Criterion | Screening score | Key evidence |
-| --- | ---: | --- |
-| EP-01 Emergency planning feasibility | 7.5/10 | Composite 67.0/100; road sub-score 37.0/100; evacuation feasible |
-| EP-02 Evacuation routes | 1.5/10 | EPZ road density 0.27 km/km2; road length 529.66 km; motorway access present |
-| EP-04 Special populations | 5.5/10 | 15 hospitals or clinics in the EPZ; no prisons or care homes recorded |
-| RI-02 Surface water dispersion | 1.5/10 | Cooling-source flow 6.73 m3/s; liquid-pathway dilution needs low-flow confirmation |
-| RI-04 Population density | 5.5/10 | 7,498 people within 5 km; 81,888 people within 25 km |
-| RI-05 Distance to large population centres | 9.5/10 | No city above 50,000 people recorded within the screening envelope |
-| RI-06 Population projections | 7.5/10 | Projected 25 km population 44,025 after 60 years |
+- **Emergency Planning Feasibility (EP-01)** - score 7.5/10 (MC 7.0-8.0), weight n/a, data quality high. Evidence: EP feasibility composite 67.0 /100; road sub-score 37.0 /100; special-population sub-score 90.0 /100; geography sub-score 95.0 /100; population sub-score 95.0 /100; evacuation feasible: yes.
+- **Evacuation Routes (EP-02)** - score 1.5/10 (MC 1.0-2.0), weight 0.0303, data quality medium. Evidence: road density in EPZ 0.27 km/km2; road length in EPZ 529.7 km; motorway access: yes.
+- **Physical Geography Constraints (EP-03)** - score 9.5/10 (MC 9.0-10.0) — favorable: No measured relief; open river/waterway context (interim screening)., weight 0.0253, data quality medium. Evidence: waterways crossing EPZ 0; major river barrier: no.
+- **Special Populations (EP-04)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: 9-25., weight 0.0303, data quality medium. Evidence: hospitals in EPZ 15; prisons in EPZ 0; care homes in EPZ 0.
+- **Atmospheric Dispersion (RI-01)** - score no native score (unscored — no band matched), weight 0.0303, data quality medium. Evidence: annual mean wind speed 1.07 m/s; atmospheric mixing height 578.8 m; prevailing wind direction: NNW.
+- **Surface Water Dispersion (RI-02)** - score 1.5/10 (MC 1.0-2.0), weight 0.0253, data quality n/a. Evidence: values not in measurement tables.
+- **Groundwater Dispersion (RI-03)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: Moderate-permeability aquifer screening proxy., weight 0.0253, data quality medium. Evidence: aquifer type: inland water.
+- **Population Density at EPZ Radii (RI-04)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: aggregated(min_of_sub_scores), weight 0.0404, data quality screening grade. Evidence: population density within 5 km 95.5 /km2; population density within 16 km 48.7 /km2; population density within 25 km 41.7 /km2; population density within 80 km 106.5 /km2; population within 25 km 81,888 people.
+- **Distance to Population Centres (RI-05)** - score 9.5/10 (MC 9.0-10.0) — favorable: No >=50k population-centre proxy within screening envelope., weight 0.0505, data quality screening grade. Evidence: values not in measurement tables.
+- **Population Projections (RI-06)** - score 7.5/10 (MC 7.0-8.0), weight 0.0253, data quality screening grade. Evidence: annual population growth rate -0.471 %/yr; projected population at 25 km in 60 yr 44,025 people.
 
-Radiological impact is moderate in the current evidence and emergency planning is the more immediate constraint. Population density is manageable for a screening-stage site, with 95.48 people/km2 within 5 km and 41.71 people/km2 within 25 km. The nearest large-population-centre criterion is favourable in the current bundle, and population projection evidence reduces long-term pressure within the 25 km planning radius.
+### Interpretation - Radiological Impact and Emergency Planning (RI / EP)
 
-The road network and liquid-pathway evidence require early Stage 3 attention. EP-02 scores 1.5/10 because the EPZ road density is low, even though the bundle records motorway access. RI-02 also scores 1.5/10 because the current surface-water dispersion proxy is tied to a 6.73 m3/s Kuchurhan River flow. Stage 3 should therefore model EPZ clearance times, test cross-border emergency-planning interfaces, and quantify low-flow dilution and discharge pathways before any emergency-planning conclusion is hardened.
+
+<!-- specialist key=family_radiological_emergency scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Radiological Impact and Emergency Planning (RI / EP). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_radiological_emergency` then `... patch --country <CC> --site-name <name> --key family_radiological_emergency --text-file <draft.md>`._
+<!-- /specialist key=family_radiological_emergency -->
 
 ## Non-Safety and Implementation Considerations (NS)
 
-| Criterion | Screening score | Key evidence |
-| --- | ---: | --- |
-| BF-01 Grid capacity basic filter | 7.5/10 | Basic grid adequacy note is favourable |
-| BF-02 Land area basic filter | 9.5/10 | Contiguous and buildable area exceeds the ideal screening area |
-| NS-01 Cooling water availability | 8.0/10 | Kuchurhan River 0.98 km away; flow 6.73 m3/s; water-stress label Low |
-| NS-02 Grid connection | 7.5/10 | Substation 0.47 km away; high-voltage line 0.06 km away; 330 kV nearby line; 1,400 MW export-capacity estimate |
-| NS-03 Transport access | 8.0/10 | Highway 2.77 km away; rail 0.20 km away; waterway 8.29 km away; heavy-haul capable |
-| NS-04 Site topography | 5.5/10 | 44.1% favourable land cover; 48.0% unfavourable land cover |
-| NS-05 Site footprint adequacy | 9.5/10 | 200.0 ha canonical site area; 186.16 ha buildable area; 4 buildable patches |
-| NS-08 Ecological sensitivity | 5.5/10 | Nistrul de Jos Emerald Network area 8.444 km away; no direct overlap recorded |
+- **Grid Capacity Basic Filter (BF-01)** - score 7.5/10 (MC 7.0-8.0), weight n/a, data quality n/a. Evidence: values not in measurement tables.
+- **Land Area Basic Filter (BF-02)** - score 9.5/10 (MC 9.0-10.0) — favorable: Contiguous and buildable >= ideal area (70 ha/module)., weight 0.0253, data quality n/a. Evidence: values not in measurement tables.
+- **Cooling Water Availability (NS-01)** - score 8.0/10 (MC 8.0-9.0) — favorable: aggregated(weighted_mean_of_sub_scores), weight 0.0404, data quality screening grade. Evidence: distance to cooling source 0.98 km; cooling source flow 6.73 m3/s; cooling source type: river; cooling source name: Kuchurhan River; water stress label: Low.
+- **Grid Connection (NS-02)** - score 7.5/10 (MC 7.0-8.0), weight 0.0404, data quality high. Evidence: nearest substation 0.47 km; nearest high-voltage line 0.06 km; highest nearby line voltage 330.0 kV; grid export capacity 1,400 MW; substations within radius 408; HV lines within radius 693.
+- **Transport Access (NS-03)** - score 8.0/10 (MC 8.0-9.0) — favorable: aggregated(weighted_mean_of_sub_scores), weight 0.0404, data quality high. Evidence: nearest highway 2.77 km; nearest rail line 0.2 km; nearest waterway 8.29 km; heavy-haul capable: yes.
+- **Site Topography (NS-04)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: 40-60 %., weight 0.0303, data quality screening grade. Evidence: favourable land cover 44.1 %; moderate land cover 7.9 %; unfavourable land cover 48.0 %; favourable area 80.7 ha; dominant land class: 512.
+- **Site Footprint Adequacy (NS-05)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong margin above the score-5 boundary., weight 0.0253, data quality high. Evidence: buildable area 186.2 ha; largest contiguous patch 186.2 ha; buildable patch count 4.
+- **Existing Infrastructure (NS-06)** - score no native score (unscored — no band matched), weight 0.0253, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Ecological Sensitivity (NS-08)** - score 5.5/10 (MC 3.5-7.5) — pass-mark band: Both networks NULL or >= 5 km., weight n/a, data quality insufficient. Evidence: natural land cover 48.0 %; distance to nearest protected area 8.444 km; Natura 2000 sensitivity class: unknown; protected-area overlap: no; protected-area sensitivity class: low; Natura 2000 sites within 5 km: 0; nearest protected-area designation: Emerald Network.
+- **Workforce Availability (NS-10)** - score no native score (unscored — no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Regulatory/Political Environment (NS-12)** - score no native score (unscored — no band matched), weight 0.0303, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Construction Logistics (NS-13)** - score no native score (unscored — no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
 
-Implementation evidence is the strongest part of Kuchurgan's profile. The physical brownfield case is clear at screening level: the site has a large available surface-area estimate, a 186.16 ha buildable-area estimate, a nearby 330 kV grid context, 1,400 MW of inferred export capacity, rail access, and a low water-stress cooling-source label. These are the attributes that justify retaining Kuchurgan after the aviation flag is resolved.
+### Interpretation - Non-Safety and Implementation Considerations (NS)
 
-The same evidence also defines the main limits. The 200.0 ha surface-area value and 186.16 ha development-area value are screening-stage land figures; they do not prove available, contiguous, permitted or controlled nuclear-development land. The ecological screen records Nistrul de Jos 8.444 km away with no overlap, but the non-EU protected-area context and the low-confidence regulatory-political criterion mean Stage 3 should include national EIA scoping, protected-area pathway review, land-title confirmation and grid-operability confirmation.
+
+<!-- specialist key=family_infrastructure scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Non-Safety and Implementation Considerations (NS). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_infrastructure` then `... patch --country <CC> --site-name <name> --key family_infrastructure --text-file <draft.md>`._
+<!-- /specialist key=family_infrastructure -->
 
 ## Composite Score and Stability
 
-Baseline composite score is 6.959, bracketed by the national Monte Carlo interval at 6.199-7.500. National stability band is `A`, with 100% top-5, top-10 and top-30 hit rates across 12 scored national sensitivity scenarios.
+Baseline composite score is 6.959, bracketed by Monte Carlo at 6.199-7.500. National stability band is `A` with a top-10% hit rate of 100% across 12 scored Monte Carlo scenarios.
 
 ![Criterion scores](../figures/MD_kuchurgan_power_station_criterion_scores.png)
 
 ![Family contributions](../figures/MD_kuchurgan_power_station_family_contributions.png)
 
-Kuchurgan's national stability is high because it is the only ranked Moldovan site. The score is still useful: it shows that the site remains Moldova's leading brownfield candidate under national weight perturbations and that its positive implementation, natural-hazard and radiological attributes are not a narrow baseline-weight artefact. The interpretation should stay disciplined, however. The site is nationally stable but avoidance-flagged, and the country has no second brownfield candidate to absorb a negative finding.
-
-The practical Stage 3 priority is therefore to retire the issues that could change the go/no-go judgement. HI-01 aviation hazard comes first, followed by HI-06 security and governance, EP-02 evacuation capacity, RI-02 liquid-pathway dilution, HI-07 electromagnetic compatibility, land-control confirmation, ecological screening and ownership/programme governance.
+<!-- specialist key=stability scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Composite stability and sensitivity (plain-English read). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key stability` then `... patch --country <CC> --site-name <name> --key stability --text-file <draft.md>`._
+<!-- /specialist key=stability -->
 
 ## Residual Risk Register
 
-| Concern | Evidence | Consequence | Stage 3 action | Owner discipline |
-| --- | --- | --- | --- | --- |
-| Aircraft Crash (HI-01) | Small airfield 7.03 km away; flight-path proxy 3.52 km away | The only Moldovan site remains avoidance-flagged until aviation hazard is resolved | Commission aviation hazard assessment with current flight-path and airspace evidence | aviation safety |
-| Military Installations (HI-06) | Nearest high-consequence military feature 11.38 km away; 13 military features within 25 km | Security standoff and governance constraints could materially narrow the feasible site envelope | Confirm feature classification, operating status, standoff requirements and security interfaces | security |
-| Electromagnetic Interference (HI-07) | Nearest transmitter 0.47 km away; 85 transmitter-like features within 25 km | RF/EMI controls may require exclusion distances, shielding or operating constraints | Survey transmitter inventory, field strengths and compatibility requirements | electrical / I&C |
-| Evacuation Routes (EP-02) | EPZ road density 0.27 km/km2; 529.66 km of road; motorway access present | Low route density may constrain clearance-time assumptions | Model EPZ clearance times under realistic traffic and seasonal conditions | emergency planning |
-| Surface Water Dispersion (RI-02) | Kuchurhan River flow proxy 6.73 m3/s; RI-02 score 1.5/10 | Low-flow dilution may constrain discharge pathway design | Quantify low-flow recurrence, reservoir interaction, downstream users and discharge limits | hydrology |
-| Land and Ownership | 200.0 ha site area and 186.16 ha buildable area are screening-stage values; ownership chain runs through Russian-linked entities | Land control, sanctions, title, access or programme eligibility may become gating issues | Verify title, site-control rights, ownership eligibility and governance approvals | legal / programme |
-| Ecological Sensitivity (NS-08) | Nistrul de Jos Emerald Network area 8.444 km away; no overlap recorded | Indirect effects could alter the usable development envelope | Run protected-area pathway review and national EIA scoping | EIA |
-| Governance and First-Programme Readiness | Moldova is treated as a first-programme nuclear jurisdiction in this profile | Regulatory, institutional and workforce readiness may dominate the technical site path | Define national regulator, emergency authorities, workforce plan and international support route | programme governance |
+
+<!-- specialist key=residual_risk scope=site site_id=b3eb5dd2-98cf-40c4-b9ee-2a86fd066093 bundle=MD_kuchurgan_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Residual risk register (specialist synthesis). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key residual_risk` then `... patch --country <CC> --site-name <name> --key residual_risk --text-file <draft.md>`._
+<!-- /specialist key=residual_risk -->
 
 ## Stage 3 Follow-Up Checklist
 
-- Resolve **Aircraft Crash (HI-01)** using current aviation, flight-path and airspace data for the 7.03 km airfield and 3.52 km flight-path proxy.
-- Confirm **Military Installations (HI-06)** feature class, operating status and required security standoff.
-- Run **Electromagnetic Interference (HI-07)** field-strength and transmitter-inventory surveys.
-- Model **Evacuation Routes (EP-02)** clearance times using the 0.27 km/km2 EPZ road-density constraint.
-- Quantify **Surface Water Dispersion (RI-02)** low-flow dilution for the Kuchurhan River and reservoir setting.
-- Verify **Site Footprint Adequacy (NS-05)** land control, contiguity, buildability and permitted reuse for the 200.0 ha site area and 186.16 ha development-area estimate.
-- Scope **Ecological Sensitivity (NS-08)** against the Nistrul de Jos protected-area pathway and national EIA requirements.
-- Confirm grid operability for the 330 kV context, nearby substation, nearby high-voltage line and 1,400 MW export-capacity estimate.
-- Resolve ownership and programme-governance eligibility before committing to field characterisation.
+- [ ] Resolve **Aircraft Crash (HI-01)** avoidance flag - measured {"flight_path_distance_km": 3.52, "under_flight_path": false} vs threshold A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only)..
+- [ ] Re-measure **Evacuation Routes (EP-02)** - native score 1.5/10 with confidence medium.
+- [ ] Re-measure **Military Installations (HI-06)** - native score 1.5/10 with confidence medium.
+- [ ] Re-measure **Electromagnetic Interference (HI-07)** - native score 1.5/10 with confidence medium.
+- [ ] Re-measure **Surface Water Dispersion (RI-02)** - native score 1.5/10 with confidence insufficient.
+- [ ] Re-measure **Aircraft Crash (HI-01)** - native score 3.5/10 with confidence high.
 
 ## Evidence Limitations
 
-- The aviation, military, industrial-hazard and emergency-planning evidence needs current local authority confirmation because Kuchurgan sits in a complex governance setting.
-- The surface-area and development-area values are screening-stage land indicators and do not prove nuclear-development rights, title, permitting status or constructability.
-- RI-02, EP-02, HI-06 and HI-07 have low or weak scores that should be treated as priority characterisation issues.
-- NS-06, NS-10, NS-12 and NS-13 remain unscored or low-confidence implementation fields and should be converted into site-specific evidence before any deployment-level conclusion.
+- No criterion-family quality fields are flagged as low or missing in this bundle.

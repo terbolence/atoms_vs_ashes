@@ -1,21 +1,20 @@
 # Croatia Country Profile
 
-Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
+Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
 
-Croatia has two thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. No site clears both the exclusionary and avoidance screens, one site passes the exclusionary screen with an avoidance flag, and one site fails an exclusionary check. The country is therefore a constrained brownfield case: Plomin is the only ranked Croatian candidate, while Ploče remains in the evidence base as a hard-fail comparator.
+Croatia has 2 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 1 pass the exclusionary screen but retain avoidance flags, and 1 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
-The leading site is **Plomin power station**, with a composite score of 6.214 and a Monte Carlo interval of 5.467-6.730. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is stable within Croatia, but it is not avoidance-clean because Coastal Flooding (NH-08) remains unresolved at screening stage.
+The leading site is **Plomin power station**, with a composite score of 6.214 and a Monte Carlo interval of 5.467-6.730. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
-Croatia's brownfield pool is narrow and should be treated as a single-candidate Stage 3 question rather than a fleet sequence. Plomin combines national rank 1, band A stability and 100% top-10 persistence with an avoidance flag on Coastal Flooding (NH-08). The relevant decision is therefore whether a focused Stage 3 package can resolve the low-elevation coastal exposure, land-envelope and ecological constraints around Plomin, not whether Croatia has several equivalent brownfield options.
-
-The unlock pool is one site and one avoidance criterion. Plomin's NH-08 flag is driven by a sea-coast distance of 3.51 km and a site elevation of 5.88 m, with storm-surge and tsunami exposure still unconfirmed at this screening level. Ploče does not form part of that unlock pool because it fails Seismic: Surface Rupture (NH-02), with the nearest mapped capable fault 3.24 km from the site.
-
-Croatia has regional nuclear-sector exposure through Krško co-ownership, but this screening record does not by itself establish a domestic new-build delivery pathway. A credible programme cadence would start with Plomin only after coastal-flood, land, ecological, security and emergency-planning questions are tested in Stage 3. Expansion beyond Plomin would require a separate greenfield or wider industrial-site search outside the current coal and thermal brownfield pool.
+<!-- specialist key=country_exec scope=country country_code=HR bundle=HR_country_bundle.json status=pending -->
+> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country HR --key country_exec` then `... patch --country HR --key country_exec --text-file <draft.md>`._
+<!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
 
 ![Croatia status map](figures/HR_site_status_map.png)
 
+Interactive review map with marker tooltips: [HR_site_status_map.html](figures/HR_site_status_map.html).
 
 ## Croatia Site Ledger
 
@@ -26,7 +25,7 @@ Croatia has regional nuclear-sector exposure through Krško co-ownership, but th
 
 ## Avoidance Flag Pareto
 
-Of the one site that passes the exclusionary screen, the avoidance-phase flag is concentrated in Coastal Flooding (NH-08). Resolving this question is the condition for treating Plomin as a cleaner Stage 3 candidate.
+Of the 1 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
 
 ![Avoidance flag Pareto](figures/HR_avoidance_pareto.png)
 
@@ -50,17 +49,17 @@ Across the country the strongest criterion family is **Human-Induced Hazards** a
 
 ## Interpretation for Site Selection
 
-The Croatia result supports a targeted, single-site Stage 3 pathway rather than a multi-site brownfield shortlist. Plomin is the only ranked site and the only site that passes the exclusionary screen. Its avoidance flag means the site should progress only with a tightly scoped coastal-flood and site-envelope work package.
+The Croatia result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/HR_avoidance_pareto.png)
 
 The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Plomin power station** is important because it leads nationally and sits inside the strongest stability band. The avoidance flag prevents it from being treated as a clean candidate, but the stable national ranking is a defensible reason to spend Stage 3 effort on field confirmation before reopening lower-ranked or excluded brownfield locations.
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Plomin power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
 
-The Monte Carlo interval is a caution against false precision: Croatia has only one scored site, so national stability reflects Plomin's dominance within a small country pool. The decisive distinction is whether Stage 3 can retire the NH-08 avoidance flag while also confirming land, ecology, security and emergency-planning assumptions.
+The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
 
-The main Stage 3 questions are therefore targeted rather than generic: confirm coastal flooding and tsunami exposure, test the buildable land envelope, verify ecological permitting constraints, review military and electromagnetic-interference features, and model emergency-planning clearance times for the Istrian setting.
+The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
 
 ## Status Counts
 

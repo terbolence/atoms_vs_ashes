@@ -21,24 +21,15 @@ Two failure mechanisms are tracked side by side: a **hard E-code** rubric expres
 
 ## Glossary
 
-| Term | Definition |
-| --- | --- |
-| **Site** | One candidate parcel identified by `site_id`, associated with a country code. |
-| **SMR design** | One vendor / model identified by `smr_key` (e.g. `nuscale_voygr6`). 8 designs are evaluated. |
-| **Site × technology evaluation (pair)** | One row per `(site_id, smr_key)` pairing. The universe is sites × designs. |
-| **Exclusionary phase** | Pre-scoring screening: a pair is rejected before any composite score is computed. |
-| **Hard E-code** (`prompt_key = E1, E2, …`) | A rubric `condition_expr` evaluated to true (e.g. `nearest_fault_km < 5`). |
-| **Safety floor** (`prompt_key = E<k>:floor`) | The 0–10 ranking score for an exclusionary criterion is strictly below its `pass_mark` (5.0 by default). |
-| **Survived** | Pair passed every hard E-code and every floor. |
-| **Hard only** | Hard expression triggered; floor not breached. |
-| **Floor only** | Score below 5.0 floor; rubric expression did not trigger. |
-| **Hard ∧ floor** | Both gates failed for the same pair. |
+See the canonical glossary in [`failure_analysis.md` § Glossary](./failure_analysis.md#glossary). Terms are identical across the global and SMR-specific failure reports; only the population filter changes (this file is the `smr_key = rolls_royce_smr` filter).
 
 ## 1. Funnel — universe → survivors
 
 ![Failure funnel](../output/report/sensitivity/20260523/figures/failure/per_smr/rolls_royce_smr/failure_funnel.png)
 
 ## 2. Failures by exclusionary criterion
+
+Pivot view: Pivot view: per-criterion failure counts filtered to `smr_key = rolls_royce_smr`. Canonical home: `failure_analysis.md` § 2. Source: `audit/post_processing/06_scoring/20260523_failure_breakdown_rolls_royce_smr_per_criterion.csv` (slice `smr_key=rolls_royce_smr`)._
 
 Counts are unique pairs (a pair that triggers both `EP-01` hard and `EP-01:floor` is counted once in `Hard ∧ floor`, **not** twice). The *Share of all failures* column expresses each criterion's contribution against the total of **0** failed pairings.
 
@@ -51,6 +42,8 @@ Counts are unique pairs (a pair that triggers both `EP-01` hard and `EP-01:floor
 
 ## 3. Failures by country
 
+Pivot view: Pivot view: per-country survivorship filtered to `smr_key = rolls_royce_smr`. Canonical home: `failure_analysis.md` § 3. Source: `audit/post_processing/06_scoring/20260523_failure_breakdown_rolls_royce_smr_per_country.csv` (slice `smr_key=rolls_royce_smr`)._
+
 ISO codes follow ISO 3166-1 alpha-2. *Survival rate* is the share of evaluations within the country that pass every exclusionary check.
 
 | ISO | Country | n sites | n pairs | Survived | Survival rate | Hard only | Hard ∧ floor | Floor only | Sites w/ survivor |
@@ -59,6 +52,8 @@ ISO codes follow ISO 3166-1 alpha-2. *Survival rate* is the share of evaluations
 ![Per-country outcomes](../output/report/sensitivity/20260523/figures/failure/per_smr/rolls_royce_smr/failures_by_country.png)
 
 ## 5. Compound vs. single-criterion failures
+
+Pivot view: Pivot view: compound-failure histogram filtered to `smr_key = rolls_royce_smr`. Canonical home: `failure_analysis.md` § 5. Source: `audit/post_processing/06_scoring/20260523_failure_breakdown_rolls_royce_smr_multi_failure.csv` (slice `smr_key=rolls_royce_smr`)._
 
 _No compound failures observed._
 

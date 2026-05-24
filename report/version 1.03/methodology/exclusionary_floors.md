@@ -5,6 +5,8 @@
 > `tests/scoring/test_exclusionary_floors_doc.py` asserts the on-disk
 > file matches the generator output, so YAML edits cannot drift silently.
 
+> **Reader-facing summary:** the report-audience version of these exclusionary bands lives in [`annex_b_scoring_methodology_and_exclusionary_floors.md`](../output/report/annexes/annex_b_scoring_methodology_and_exclusionary_floors.md). This file is the engineering-audit surface; Annex B is the reader-facing summary surface. Per the Phase 5c redundancy inventory the two surfaces are retained as a deliberate two-audience treatment under SST rule 2.
+
 ## How the dual gate works
 
 Each exclusionary criterion can mark a (site, SMR) pair as failed via

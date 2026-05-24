@@ -290,11 +290,11 @@ criteria:
     primary_metric: max_wind_speed_ms
     db_fields: {api: [site_natural_hazards.max_wind_speed_ms, site_natural_hazards.nh10_quality, site_natural_hazards.nh10_comment, site_natural_hazards.run_id, site_natural_hazards.fetched_at], llm: nh10_winds_text}
     bands:
-      - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 7.5", descriptor: "Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s)."}
-      - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 9.0", descriptor: "Lower-middle relative wind exposure in the current smoothed ERA5 cohort (7.5-9.0 m/s)."}
-      - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 10.5", descriptor: "Middle relative wind exposure around the observed cohort mean (9.0-10.5 m/s)."}
-      - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 12.5", descriptor: "Higher relative wind exposure in the current smoothed ERA5 cohort (10.5-12.5 m/s)."}
-      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Highest relative or out-of-cohort exposure for the current proxy; 49 m/s remains design-envelope review, not validated by this metric."}
+      - {score_range: [9, 10], condition_expr: "max_wind_speed_ms < 7.5", descriptor: "Lowest relative wind exposure in the current ERA5 monthly-means gust set (< 7.5 m/s)."}
+      - {score_range: [7, 8], condition_expr: "max_wind_speed_ms < 9.0", descriptor: "Lower-middle relative wind exposure in the current smoothed ERA5 set (7.5-9.0 m/s)."}
+      - {score_range: [5, 6], condition_expr: "max_wind_speed_ms < 10.5", descriptor: "Middle relative wind exposure around the observed set mean (9.0-10.5 m/s)."}
+      - {score_range: [3, 4], condition_expr: "max_wind_speed_ms < 12.5", descriptor: "Higher relative wind exposure in the current smoothed ERA5 set (10.5-12.5 m/s)."}
+      - {score_range: [1, 2], condition_expr: "max_wind_speed_ms <= 49", descriptor: "Highest relative or out-of-set exposure for the current proxy; 49 m/s remains design-envelope review, not validated by this metric."}
       - {score_range: [0, 0], condition_expr: "max_wind_speed_ms > 49", descriptor: "Above the project design-envelope review threshold; flag for design-margin review, not automatic site exclusion."}
     fail_conditions:
       - {code: project_wind_envelope, action: review_flag, condition_expr: "max_wind_speed_ms > 49", descriptor: "Fujita-equivalent gust > 49 m/s (177 km/h); review for design-margin and vendor envelope. Per SSG-18 and SSG-35 Table I-1 this is a design-basis matter, not a site exclusion."}
@@ -311,7 +311,7 @@ criteria:
       Bucket C partial-data repair (2026-05-17 auditor pass): current ERA5
       precipitation rows are ranking-grade proxy evidence only. The persisted
       `mean_annual_precip_mm` and `extreme_precip_mm` values are known to be
-      implausibly low for their declared units in the local cohort, so scoring
+      implausibly low for their declared units in the local set, so scoring
       uses derived context keys `mean_annual_precip_corrected_mm` and
       `extreme_precip_corrected_mm`. These keys preserve already-plausible
       values and scale only monthly-means proxy values that are clearly too low.
@@ -350,11 +350,11 @@ criteria:
         weight: 0.25
         primary_metric: extreme_precip_corrected_mm
         bands:
-          - {score_range: [9, 10], condition_expr: "extreme_precip_corrected_mm < 6", descriptor: "Lowest observed corrected extreme-precipitation proxy in this cohort."}
+          - {score_range: [9, 10], condition_expr: "extreme_precip_corrected_mm < 6", descriptor: "Lowest observed corrected extreme-precipitation proxy in this set."}
           - {score_range: [7, 8], condition_expr: "extreme_precip_corrected_mm < 9", descriptor: "Lower-middle corrected extreme-precipitation proxy."}
           - {score_range: [5, 6], condition_expr: "extreme_precip_corrected_mm < 12", descriptor: "Middle corrected extreme-precipitation proxy."}
           - {score_range: [3, 4], condition_expr: "extreme_precip_corrected_mm < 18", descriptor: "Higher corrected extreme-precipitation proxy; drainage review."}
-          - {score_range: [1, 2], condition_expr: "extreme_precip_corrected_mm >= 18", descriptor: "Highest corrected extreme-precipitation proxy in this cohort."}
+          - {score_range: [1, 2], condition_expr: "extreme_precip_corrected_mm >= 18", descriptor: "Highest corrected extreme-precipitation proxy in this set."}
     fail_conditions: []
     quality_floor: {low_quality_uncertainty_bands: 1}
   - criterion_id: NH-12
@@ -378,7 +378,7 @@ criteria:
       - key: tmax
         primary_metric: extreme_temp_max_c
         bands:
-          - {score_range: [9, 10], condition_expr: "extreme_temp_max_c < 23", descriptor: "Coolest high-temperature exposure in the current cohort (Tmax < 23 C)."}
+          - {score_range: [9, 10], condition_expr: "extreme_temp_max_c < 23", descriptor: "Coolest high-temperature exposure in the current set (Tmax < 23 C)."}
           - {score_range: [7, 8], condition_expr: "extreme_temp_max_c < 26", descriptor: "Lower-middle heat exposure (23-26 C)."}
           - {score_range: [5, 6], condition_expr: "extreme_temp_max_c < 29", descriptor: "Middle heat exposure (26-29 C)."}
           - {score_range: [3, 4], condition_expr: "extreme_temp_max_c < 32", descriptor: "Higher heat exposure (29-32 C)."}
@@ -386,7 +386,7 @@ criteria:
       - key: tmin
         primary_metric: extreme_temp_min_c
         bands:
-          - {score_range: [9, 10], condition_expr: "extreme_temp_min_c > 2", descriptor: "Mildest cold-tail exposure in the current cohort (Tmin > 2 C)."}
+          - {score_range: [9, 10], condition_expr: "extreme_temp_min_c > 2", descriptor: "Mildest cold-tail exposure in the current set (Tmin > 2 C)."}
           - {score_range: [7, 8], condition_expr: "extreme_temp_min_c > -4", descriptor: "Lower cold-stress exposure (-4 to 2 C)."}
           - {score_range: [5, 6], condition_expr: "extreme_temp_min_c > -8", descriptor: "Middle cold-stress exposure (-8 to -4 C)."}
           - {score_range: [3, 4], condition_expr: "extreme_temp_min_c > -12", descriptor: "Higher cold-stress exposure (-12 to -8 C)."}

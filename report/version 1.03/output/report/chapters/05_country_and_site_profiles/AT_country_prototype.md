@@ -1,21 +1,20 @@
 # Austria Country Profile
 
-Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
+Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
 
-Austria has 8 thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. No site passes both the exclusionary and avoidance screens, 6 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. Austria should therefore be read as a constrained brownfield pool rather than a clean shortlist. It also requires first-time nuclear-power operating-jurisdiction treatment in any Stage 3 programme, with legal, regulatory, workforce and public-policy readiness reviewed before a project claim is made.
+Austria has 8 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 6 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
-The leading site is **Riedersbach power station**, with a composite score of 7.159 and a Monte Carlo interval of 6.361-7.650. Its national stability band is `A` with a national top-10% hit rate of 100%. The next five scored sites remain in band H, so the national result is a single robust leader followed by a technically relevant but sensitivity-fragile avoidance-flagged tier.
+The leading site is **Riedersbach power station**, with a composite score of 7.159 and a Monte Carlo interval of 6.361-7.650. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
-Riedersbach, Timelkam, Enns, Voitsberg and Duernrohr are the five selected Austrian profiles because they are the top five sites by national rank under the frozen baseline. None is a clean full-pass candidate at Stage 1-2. Riedersbach is the only band-A site and the only site with a 100% national top-10 hit rate; the other four selected sites have overlapping Monte Carlo bands but no top-10 persistence in the national sensitivity analysis. This makes Riedersbach the lead Stage 3 characterisation candidate, while the rest of the selected set should be treated as a contingency and issue-resolution pool.
-
-The national unlock agenda is concentrated but demanding. Grid Connection (NS-02) affects 4 of 6 exclusionary-pass sites and is the main programme-level constraint. Toxic/Gas Releases (HI-03) and Distance to Population Centres (RI-05) each affect 2 of 6 sites, while Aircraft Crash (HI-01) and Site Footprint Adequacy (NS-05) each affect one site. Austria's favourable natural-hazard mean does not remove the need for this work: the weak national signals sit in human-induced hazards, radiological proximity and ecological sensitivity.
-
-A credible sequence starts with Riedersbach, because it combines the strongest national stability signal with strong cooling-water and transport evidence, then tests Timelkam as the Upper Austria alternative and Enns, Voitsberg and Duernrohr as targeted issue-resolution cases. The decision gate is not whether Austria has brownfield assets; it does. The decision gate is whether the avoidance flags can be retired without creating a larger legal, emergency-planning or public-policy burden than a new industrial-site search would carry.
+<!-- specialist key=country_exec scope=country country_code=AT bundle=AT_country_bundle.json status=pending -->
+> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country AT --key country_exec` then `... patch --country AT --key country_exec --text-file <draft.md>`._
+<!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
 
 ![Austria status map](figures/AT_site_status_map.png)
 
+Interactive review map with marker tooltips: [AT_site_status_map.html](figures/AT_site_status_map.html).
 
 ## Austria Site Ledger
 
@@ -61,13 +60,17 @@ Across the country the strongest criterion family is **Natural Hazards** at a me
 
 ## Interpretation for Site Selection
 
-Austria's site-selection result should be read by class first and rank second. The two hard-fail sites remain useful comparators for exclusionary logic, but they should not absorb Stage 3 effort unless the failed natural-hazard findings are overturned by better evidence. The six exclusionary-pass sites are not equivalent candidates: all carry avoidance flags, and only Riedersbach has a strong national sensitivity profile.
+The Austria result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/AT_avoidance_pareto.png)
 
-The avoidance Pareto shows the practical unlock sequence for Austria. Transmission adequacy is the first system-level question because NS-02 affects most of the exclusionary-pass pool. Hazardous-neighbour and population-centre checks follow because they determine whether Enns and Duernrohr can remain in the selected set after detailed evidence review. Site-footprint work is narrower but important for Riedersbach because its buildable development area is small relative to the broader site surface.
+The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
 
-The Monte Carlo intervals overlap across the selected sites, so point-rank differences below Riedersbach should not be overinterpreted. The robust finding is that Austria has one nationally stable avoidance-flagged leader and four selected follow-up sites whose Stage 3 value depends on retiring specific flags. Field work should therefore begin with Riedersbach, run a parallel transmission and land review for Timelkam and Voitsberg, and keep Enns and Duernrohr contingent on hazardous-neighbour, population-centre and ecological screens.
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Riedersbach power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+
+The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
+
+The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
 
 ## Status Counts
 

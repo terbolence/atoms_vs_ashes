@@ -34,7 +34,7 @@ The register is versioned with the rubric. Any rubric change should update or ad
 ### A-SCOPE-03: Current country roster
 
 - **Domain:** site universe.
-- **Statement:** the candidate-site population is restricted to the countries defined in the published report roster (inherited from version 1.2) and supporting methodology artefacts.
+- **Statement:** the candidate-site population is restricted to the countries defined in the published report roster (16 in-scope countries plus the three consolidated no-pass portfolios) and supporting methodology artefacts.
 - **Impact if wrong:** results would not claim completeness for countries outside the roster.
 - **Mitigation:** country scope is stated in the main report and country-profile chapter.
 
@@ -98,7 +98,7 @@ The register is versioned with the rubric. Any rubric change should update or ad
 
 ### A-SENS-02: 50,000 national Monte Carlo iterations
 
-- **Statement:** the version 1.2 national sensitivity analysis uses 50,000 Monte Carlo iterations for national rank-probability outputs.
+- **Statement:** the national sensitivity analysis (run `nat-sens-b1a62885`, stamp `20260523`, parent scoring run `score-c2a90942`) uses 50,000 Monte Carlo iterations for national rank-probability outputs.
 - **Impact if wrong:** top-rank and top-five probabilities could carry unnecessary sampling noise.
 - **Mitigation:** the fixed seed and deterministic sampling scheme make the analysis reproducible.
 

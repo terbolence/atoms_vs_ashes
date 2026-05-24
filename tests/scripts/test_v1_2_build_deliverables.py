@@ -137,7 +137,7 @@ def test_build_results_table_deliverable_regenerates_markdown_first(
         fake_postprocess,
     )
     monkeypatch.setattr(
-        "build_results_table_deliverable._set_landscape_a4",
+        "build_results_table_deliverable._set_landscape_a3",
         fake_landscape,
     )
     monkeypatch.setattr(

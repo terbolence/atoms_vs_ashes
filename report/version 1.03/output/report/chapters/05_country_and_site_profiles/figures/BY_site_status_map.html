@@ -22,9 +22,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 const bounds = [];
-bounds.push([51.789444, 28.321389]);
-L.circleMarker([51.789444, 28.321389], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Lelchitsy power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 5.434<br>MC band: 3.976-5.868<br>Stability band: A</div>").bindTooltip("Lelchitsy", {permanent: false, direction: 'top'});
 bounds.push([53.150000, 24.816700]);
-L.circleMarker([53.150000, 24.816700], {radius: 7, color: '#222', weight: 1, fillColor: '#c0392b', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Zelwa power station</strong><br>Status: Hard fail<br>National rank: N/A<br>Composite: N/A<br>MC band: N/A<br>Stability band: H</div>").bindTooltip("Zelwa", {permanent: false, direction: 'top'});
+L.circleMarker([53.150000, 24.816700], {radius: 7, color: '#222', weight: 1, fillColor: '#1f9d5a', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Zelwa power station</strong><br>Status: Full pass<br>National rank: 1<br>Composite: 7.378<br>MC band: 6.538-7.944<br>Stability band: A</div>").bindTooltip("Zelwa", {permanent: false, direction: 'top'});
+bounds.push([51.789444, 28.321389]);
+L.circleMarker([51.789444, 28.321389], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Lelchitsy power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 6.991<br>MC band: 6.225-7.487<br>Stability band: H</div>").bindTooltip("Lelchitsy", {permanent: false, direction: 'top'});
 if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
 </script>

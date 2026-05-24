@@ -1,6 +1,6 @@
 # Karapinar Konya Şeker power station Site Profile
 
-Karapinar Konya Şeker power station is a coal/thermal site in Türkiye that has been tested against the NuScale VOYGR-6 reference deployment envelope. This profile reads the screening evidence at a level that supports a decision to progress toward Stage 3 characterisation. It is not a site-suitability determination, vendor recommendation, or licensing finding.
+Karapinar Konya Şeker power station is a coal/thermal site in Türkiye that has been tested against the NuScale VOYGR-6 reference deployment envelope. This profile reads the screening evidence at a level that supports a decision to progress toward Stage 3 characterization. It is not a site-suitability determination, vendor recommendation, or licensing finding.
 
 ## Site Snapshot
 
@@ -26,76 +26,84 @@ Generating units on record: 1 cancelled.
 
 ## Natural Hazards (NH)
 
-- **Seismic: Ground Motion (NH-01)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: At or below the score-5 risk boundary., weight 0.0455, data quality high. Evidence: PGA at 475-year return period 0.132 g; PGA at 2,475-year return period 0.308 g; Vs30 reference (m/s): 760.0.
-- **Seismic: Surface Rupture (NH-02)** - score 9.5/10 (MC 9.0-10.0) - favourable: Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level., weight n/a, data quality screening grade. Evidence: nearest mapped capable fault 50.0 km; fault slip rate 0 mm/yr; fault name: none_in_search_radius.
-- **Geotechnical: Liquefaction (NH-03)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: Moderate susceptibility, or high/very-high with documented (with mitigation to be confirmed for `high`) mitigation., weight n/a, data quality medium. Evidence: liquefaction susceptibility: moderate.
-- **Geotechnical: Slope Stability (NH-04)** - score 9.5/10 (MC 9.0-10.0) - favourable: Well below the risk boundary., weight n/a, data quality screening grade. Evidence: site slope 1.64 deg; max slope in 1 km box 23.0 deg; slope stability class: flat.
-- **Geotechnical: Subsidence (NH-05)** - score 9.5/10 (MC 9.0-10.0) - favourable: No karst; mine-feature distance well above the score-5 pivot (or unknown)., weight 0.0354, data quality medium. Evidence: karst present: no; karst severity: none.
+- **Seismic: Ground Motion (NH-01)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: At or below the score-5 risk boundary., weight 0.0455, data quality high. Evidence: PGA at 475-year return period 0.132 g; PGA at 2,475-year return period 0.308 g; Vs30 reference (m/s): 760.0.
+- **Seismic: Surface Rupture (NH-02)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level., weight n/a, data quality screening grade. Evidence: nearest mapped capable fault 50.0 km; fault slip rate 0 mm/yr; fault name: none_in_search_radius; E1 verdict (radius 5 km): outside the SSG-9 capable-fault screening envelope.
+- **Geotechnical: Liquefaction (NH-03)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: Moderate susceptibility, or high/very-high with documented (or pending for `high`) mitigation., weight n/a, data quality medium. Evidence: liquefaction susceptibility: moderate.
+- **Geotechnical: Slope Stability (NH-04)** - score 9.5/10 (MC 9.0-10.0) — favorable: Well below the risk boundary., weight n/a, data quality screening grade. Evidence: site slope 1.64 deg; max slope in 1 km box 23.0 deg; slope stability class: flat.
+- **Geotechnical: Subsidence (NH-05)** - score 9.5/10 (MC 9.0-10.0) — favorable: No karst; mine-feature distance well above the score-5 pivot (or unknown)., weight 0.0354, data quality medium. Evidence: karst present: no; karst severity: none.
 - **Geotechnical: Foundation (NH-06)** - score 3.5/10 (MC 3.0-4.0), weight 0.0253, data quality medium. Evidence: depth to bedrock 29.9 m.
-- **Volcanism (NH-07)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: At or above the score-5 boundary., weight n/a, data quality medium. Evidence: nearest Holocene volcano 71.0 km; volcano name: Hasandag-Keciboyduran Volcanic Complex; volcanic hazard class: low.
-- **Coastal Flooding (NH-08)** - score 9.5/10 (MC 9.0-10.0) - favourable: Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal., weight 0.0303, data quality medium. Evidence: distance to coast 138.4 km.
+- **Volcanism (NH-07)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: At or above the score-5 boundary., weight n/a, data quality medium. Evidence: nearest Holocene volcano 71.0 km; volcano name: Hasandag-Keciboyduran Volcanic Complex; volcanic hazard class: low.
+- **Coastal Flooding (NH-08)** - score 9.5/10 (MC 9.0-10.0) — favorable: Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal., weight 0.0303, data quality medium. Evidence: distance to coast 138.4 km.
 - **River Flooding (NH-09)** - score 7.5/10 (MC 7.0-8.0), weight 0.0404, data quality medium. Evidence: flood zone class: negligible.
-- **Extreme Winds (NH-10)** - score 7.5/10 (MC 7.0-8.0), weight 0.0152, data quality medium. Evidence: screening wind-speed index 7.76 m/s.
-- **Extreme Precipitation (NH-11)** - score 8.0/10 (MC 8.0-9.0) - favourable: aggregated(mean_of_sub_scores), weight 0.0152, data quality medium. Evidence: screening extreme-precipitation index 0.11 mm; screening precipitation index 10.4 mm/yr.
-- **Extreme Temperatures (NH-12)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: aggregated(mean_of_sub_scores), weight 0.0202, data quality medium. Evidence: extreme high temperature 27.8 deg C; extreme low temperature -7.18 deg C.
-- **Combined Hazards (NH-14)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: At least 5 resolved, exactly one moderate hazard (3-5) or moderate interaction only., weight 0.0152, data quality n/a. Evidence: values not in measurement tables.
+- **Extreme Winds (NH-10)** - score 7.5/10 (MC 7.0-8.0), weight 0.0152, data quality medium. Evidence: design wind speed 7.76 m/s.
+- **Extreme Precipitation (NH-11)** - score 8.0/10 (MC 8.0-9.0) — favorable: aggregated(mean_of_sub_scores), weight 0.0152, data quality medium. Evidence: extreme daily precipitation 0.11 mm; mean annual precipitation 10.4 mm/yr.
+- **Extreme Temperatures (NH-12)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: aggregated(mean_of_sub_scores), weight 0.0202, data quality medium. Evidence: extreme high temperature 27.8 deg C; extreme low temperature -7.18 deg C.
+- **Combined Hazards (NH-14)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: At least 5 resolved, exactly one moderate hazard (3-5) or moderate interaction only., weight 0.0152, data quality n/a. Evidence: values not in measurement tables.
 
 ### Interpretation - Natural Hazards (NH)
 
 
-The natural-hazards evidence for Karapinar Konya Şeker power station supports Stage 3 characterisation, with the strongest screening signals in Coastal Flooding (NH-08) at 9.5/10, Geotechnical: Subsidence (NH-05) at 9.5/10. The main constraints are Geotechnical: Foundation (NH-06) at 3.5/10, Grid Capacity Basic Filter (BF-01) at 5.5/10, Seismic: Ground Motion (NH-01) at 5.5/10. These scores should be read as Stage 1-2 screening evidence: the criterion bullets above carry the measured values, while the Stage 3 programme should confirm the low-scoring and low-confidence inputs through field, authority and engineering review before any siting claim is hardened.
+<!-- specialist key=family_natural_hazards scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Natural Hazards (NH). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_natural_hazards` then `... patch --country <CC> --site-name <name> --key family_natural_hazards --text-file <draft.md>`._
+<!-- /specialist key=family_natural_hazards -->
 
 ## Human-Induced and Security-Relevant Hazards (HI)
 
-- **Aircraft Crash (HI-01)** - score 9.5/10 (MC 9.0-10.0) - favourable: Only small / GA / heliport airport >= 10 km nearby, no flight-path proxy < 4 km, no major airport within 30 km, and no military airbase within 60 km., weight 0.0354, data quality high. Evidence: nearest airport 70.1 km; nearest flight path 35.1 km; airports within search radius 0; airport name: Aksaray Airport; airport type: small airfield.
-- **Industrial Explosions (HI-02)** - score 9.5/10 (MC 7.5-10.0) - favourable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality low. Evidence: values not in measurement tables.
-- **Toxic/Gas Releases (HI-03)** - score 9.5/10 (MC 7.5-10.0) - favourable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality low. Evidence: values not in measurement tables.
-- **External Fires (HI-04)** - score 9.5/10 (MC 7.5-10.0) - favourable: > 15 km, or completed flammable-storage search found nothing in radius., weight 0.0303, data quality low. Evidence: values not in measurement tables.
-- **Military Installations (HI-06)** - score no native score (unscored - no band matched), weight 0.0303, data quality screening grade. Evidence: military installations within radius 0.
+- **Aircraft Crash (HI-01)** - score 9.5/10 (MC 9.0-10.0) — favorable: Nearest large/medium airport > 30 km, no flight-path proxy < 4 km, and no military airbase within 60 km., weight 0.0354, data quality high. Evidence: nearest airport 70.1 km; nearest flight path 35.1 km; airports within search radius 0; airport name: Aksaray Airport; airport type: small_airport.
+- **Industrial Explosions (HI-02)** - score 9.5/10 (MC 7.5-10.0) — favorable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality low. Evidence: values not in measurement tables.
+- **Toxic/Gas Releases (HI-03)** - score 9.5/10 (MC 7.5-10.0) — favorable: Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal)., weight 0.0354, data quality low. Evidence: values not in measurement tables.
+- **External Fires (HI-04)** - score 9.5/10 (MC 7.5-10.0) — favorable: > 15 km, or completed flammable-storage search found nothing in radius., weight 0.0303, data quality low. Evidence: values not in measurement tables.
+- **Military Installations (HI-06)** - score no native score (unscored — no band matched), weight 0.0303, data quality screening grade. Evidence: military installations within radius 0.
 - **Electromagnetic Interference (HI-07)** - score 1.5/10 (MC 1.0-2.0), weight 0.0101, data quality medium. Evidence: nearest high-power transmitter 0.38 km; transmitters within radius 15; transmitter type: minaret.
 
 ### Interpretation - Human-Induced and Security-Relevant Hazards (HI)
 
 
-The human-induced and security-relevant evidence for Karapinar Konya Şeker power station supports Stage 3 characterisation, with the strongest screening signals in External Fires (HI-04) at 9.5/10, Toxic/Gas Releases (HI-03) at 9.5/10. The main constraints are Electromagnetic Interference (HI-07) at 1.5/10, Military Installations (HI-06) at 5.0/10, Aircraft Crash (HI-01) at 9.5/10. These scores should be read as Stage 1-2 screening evidence: the criterion bullets above carry the measured values, while the Stage 3 programme should confirm the low-scoring and low-confidence inputs through field, authority and engineering review before any siting claim is hardened.
+<!-- specialist key=family_human_hazards scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Human-Induced and Security-Relevant Hazards (HI). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_human_hazards` then `... patch --country <CC> --site-name <name> --key family_human_hazards --text-file <draft.md>`._
+<!-- /specialist key=family_human_hazards -->
 
 ## Radiological Impact and Emergency Planning (RI / EP)
 
-- **Emergency Planning Feasibility (EP-01)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: At or above the composite score-5 boundary., weight n/a, data quality high. Evidence: EP feasibility composite 59.0 /100; road sub-score 42.2 /100; special-population sub-score 90.0 /100; geography sub-score 95.0 /100; population sub-score 60.0 /100; evacuation feasible: yes.
+- **Emergency Planning Feasibility (EP-01)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: At or above the composite score-5 boundary., weight n/a, data quality high. Evidence: EP feasibility composite 59.0 /100; road sub-score 42.2 /100; special-population sub-score 90.0 /100; geography sub-score 95.0 /100; population sub-score 60.0 /100; evacuation feasible: yes.
 - **Evacuation Routes (EP-02)** - score 3.5/10 (MC 3.0-4.0), weight 0.0303, data quality medium. Evidence: road density in EPZ 0.337 km/km2; road length in EPZ 662.4 km; motorway access: yes.
-- **Physical Geography Constraints (EP-03)** - score 9.5/10 (MC 9.0-10.0) - favourable: No measured relief; open river/waterway context (interim screening)., weight 0.0253, data quality medium. Evidence: waterways crossing EPZ 0; major river barrier: no.
-- **Special Populations (EP-04)** - score 9.5/10 (MC 9.0-10.0) - favourable: 0-2 facilities., weight 0.0303, data quality medium. Evidence: hospitals in EPZ 1; prisons in EPZ 0; care homes in EPZ 0.
-- **Atmospheric Dispersion (RI-01)** - score no native score (unscored - no band matched), weight 0.0303, data quality medium. Evidence: annual mean wind speed 1.11 m/s; atmospheric mixing height 646.0 m; prevailing wind direction: NNW.
+- **Physical Geography Constraints (EP-03)** - score 9.5/10 (MC 9.0-10.0) — favorable: No measured relief; open river/waterway context (interim screening)., weight 0.0253, data quality medium. Evidence: waterways crossing EPZ 0; major river barrier: no.
+- **Special Populations (EP-04)** - score 9.5/10 (MC 9.0-10.0) — favorable: 0-2 facilities., weight 0.0303, data quality medium. Evidence: hospitals in EPZ 1; prisons in EPZ 0; care homes in EPZ 0.
+- **Atmospheric Dispersion (RI-01)** - score no native score (unscored — no band matched), weight 0.0303, data quality medium. Evidence: annual mean wind speed 1.11 m/s; atmospheric mixing height 646.0 m; prevailing wind direction: NNW.
 - **Surface Water Dispersion (RI-02)** - score 1.5/10 (MC 1.0-2.0), weight 0.0253, data quality n/a. Evidence: values not in measurement tables.
-- **Groundwater Dispersion (RI-03)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: Moderate-permeability aquifer screening proxy., weight 0.0253, data quality medium. Evidence: aquifer type: volcanic rocks.
+- **Groundwater Dispersion (RI-03)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: Moderate-permeability aquifer screening proxy., weight 0.0253, data quality medium. Evidence: aquifer type: volcanic rocks.
 - **Population Density at EPZ Radii (RI-04)** - score 3.5/10 (MC 3.0-4.0), weight 0.0404, data quality screening grade. Evidence: population density within 5 km 414.4 /km2; population density within 16 km 44.5 /km2; population density within 25 km 22.6 /km2; population density within 80 km 39.5 /km2; population within 25 km 44,355 people.
-- **Distance to Population Centres (RI-05)** - score 9.5/10 (MC 9.0-10.0) - favourable: No >=50k population-centre proxy within screening envelope., weight 0.0505, data quality screening grade. Evidence: values not in measurement tables.
+- **Distance to Population Centres (RI-05)** - score 9.5/10 (MC 9.0-10.0) — favorable: No >=50k population-centre proxy within screening envelope., weight 0.0505, data quality screening grade. Evidence: values not in measurement tables.
 - **Population Projections (RI-06)** - score 7.5/10 (MC 7.0-8.0), weight 0.0253, data quality screening grade. Evidence: annual population growth rate -0.25 %/yr; projected population at 25 km in 60 yr 48,622 people.
 
 ### Interpretation - Radiological Impact and Emergency Planning (RI / EP)
 
 
-The radiological-impact and emergency-planning evidence for Karapinar Konya Şeker power station supports Stage 3 characterisation, with the strongest screening signals in Distance to Population Centres (RI-05) at 9.5/10, Special Populations (EP-04) at 9.5/10. The main constraints are Surface Water Dispersion (RI-02) at 1.5/10, Evacuation Routes (EP-02) at 3.5/10, Population Density at EPZ Radii (RI-04) at 3.5/10. These scores should be read as Stage 1-2 screening evidence: the criterion bullets above carry the measured values, while the Stage 3 programme should confirm the low-scoring and low-confidence inputs through field, authority and engineering review before any siting claim is hardened.
+<!-- specialist key=family_radiological_emergency scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Radiological Impact and Emergency Planning (RI / EP). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_radiological_emergency` then `... patch --country <CC> --site-name <name> --key family_radiological_emergency --text-file <draft.md>`._
+<!-- /specialist key=family_radiological_emergency -->
 
 ## Non-Safety and Implementation Considerations (NS)
 
-- **Grid Capacity Basic Filter (BF-01)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: Note: substation 15-30 km OR 110-219 kV; reinforcement plausible., weight n/a, data quality n/a. Evidence: values not in measurement tables.
-- **Land Area Basic Filter (BF-02)** - score 9.5/10 (MC 9.0-10.0) - favourable: Contiguous and buildable >= ideal area (70 ha/module)., weight 0.0253, data quality n/a. Evidence: values not in measurement tables.
+- **Grid Capacity Basic Filter (BF-01)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: Note: substation 15-30 km OR 110-219 kV; reinforcement plausible., weight n/a, data quality n/a. Evidence: values not in measurement tables.
+- **Land Area Basic Filter (BF-02)** - score 9.5/10 (MC 9.0-10.0) — favorable: Contiguous and buildable >= ideal area (70 ha/module)., weight 0.0253, data quality n/a. Evidence: values not in measurement tables.
 - **Cooling Water Availability (NS-01)** - score 3.0/10 (MC 3.0-4.0), weight 0.0404, data quality screening grade. Evidence: distance to cooling source 11.4 km; cooling source flow 0.14 m3/s; cooling source type: small_river; cooling source name: HYRIV-20660735; water stress label: Extremely High.
-- **Grid Connection (NS-02)** - score 5.5/10 (MC 5.0-6.0) - pass-mark band: aggregated(min_of_sub_scores), weight 0.0404, data quality high. Evidence: nearest substation 1.72 km; nearest high-voltage line 3.01 km; highest nearby line voltage 154.0 kV; grid export capacity 2,000 MW; substations within radius 6; HV lines within radius 21.
-- **Transport Access (NS-03)** - score 10.0/10 (MC 9.0-10.0) - favourable: aggregated(weighted_mean_of_sub_scores), weight 0.0404, data quality medium. Evidence: nearest highway 0.88 km; heavy-haul capable: yes.
+- **Grid Connection (NS-02)** - score 5.5/10 (MC 5.0-6.0) — pass-mark band: aggregated(min_of_sub_scores), weight 0.0404, data quality high. Evidence: nearest substation 1.72 km; nearest high-voltage line 3.01 km; highest nearby line voltage 154.0 kV; grid export capacity 2,000 MW; substations within radius 6; HV lines within radius 21.
+- **Transport Access (NS-03)** - score 10.0/10 (MC 9.0-10.0) — favorable: aggregated(weighted_mean_of_sub_scores), weight 0.0404, data quality medium. Evidence: nearest highway 0.88 km; heavy-haul capable: yes.
 - **Site Topography (NS-04)** - score 7.5/10 (MC 7.0-8.0), weight 0.0303, data quality screening grade. Evidence: favourable land cover 77.5 %; moderate land cover 21.7 %; unfavourable land cover 0.7 %; favourable area 243.5 ha; dominant land class: 112.
-- **Site Footprint Adequacy (NS-05)** - score 9.5/10 (MC 9.0-10.0) - favourable: Very strong margin above the score-5 boundary., weight 0.0253, data quality screening grade. Evidence: buildable area 312.2 ha; largest contiguous patch 1,247 ha; buildable patch count 1.
-- **Existing Infrastructure (NS-06)** - score no native score (unscored - no band matched), weight 0.0253, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
-- **Ecological Sensitivity (NS-08)** - score 5.5/10 (MC 3.5-7.5) - pass-mark band: Both networks NULL or >= 5 km., weight n/a, data quality insufficient. Evidence: natural land cover 0.7 %; distance to nearest protected area 7.231 km; Natura 2000 sensitivity class: unknown; protected-area overlap: no; protected-area sensitivity class: low; Natura 2000 sites within 5 km: 0; nearest protected-area designation: Wetland of International Importance (Ramsar Site).
-- **Workforce Availability (NS-10)** - score no native score (unscored - no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
-- **Regulatory/Political Environment (NS-12)** - score no native score (unscored - no band matched), weight 0.0303, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
-- **Construction Logistics (NS-13)** - score no native score (unscored - no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Site Footprint Adequacy (NS-05)** - score 9.5/10 (MC 9.0-10.0) — favorable: Very strong margin above the score-5 boundary., weight 0.0253, data quality screening grade. Evidence: buildable area 312.2 ha; largest contiguous patch 1,247 ha; buildable patch count 1.
+- **Existing Infrastructure (NS-06)** - score no native score (unscored — no band matched), weight 0.0253, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Ecological Sensitivity (NS-08)** - score 5.5/10 (MC 3.5-7.5) — pass-mark band: Both networks NULL or >= 5 km., weight n/a, data quality insufficient. Evidence: natural land cover 0.7 %; distance to nearest protected area 7.231 km; Natura 2000 sensitivity class: unknown; protected-area overlap: no; protected-area sensitivity class: low; Natura 2000 sites within 5 km: 0; nearest protected-area designation: Wetland of International Importance (Ramsar Site).
+- **Workforce Availability (NS-10)** - score no native score (unscored — no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Regulatory/Political Environment (NS-12)** - score no native score (unscored — no band matched), weight 0.0303, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
+- **Construction Logistics (NS-13)** - score no native score (unscored — no band matched), weight 0.0202, data quality n/a. Evidence: not measured at this site (criterion remains unscored).
 
 ### Interpretation - Non-Safety and Implementation Considerations (NS)
 
 
-The non-safety and implementation evidence for Karapinar Konya Şeker power station supports Stage 3 characterisation, with the strongest screening signals in Transport Access (NS-03) at 10.0/10, Site Footprint Adequacy (NS-05) at 9.5/10. The main constraints are Cooling Water Availability (NS-01) at 3.0/10, Existing Infrastructure (NS-06) at 5.0/10, Workforce Availability (NS-10) at 5.0/10. These scores should be read as Stage 1-2 screening evidence: the criterion bullets above carry the measured values, while the Stage 3 programme should confirm the low-scoring and low-confidence inputs through field, authority and engineering review before any siting claim is hardened.
+<!-- specialist key=family_infrastructure scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Interpretation - Non-Safety and Implementation Considerations (NS). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_infrastructure` then `... patch --country <CC> --site-name <name> --key family_infrastructure --text-file <draft.md>`._
+<!-- /specialist key=family_infrastructure -->
 
 ## Composite Score and Stability
 
@@ -105,33 +113,29 @@ Baseline composite score is 7.354, bracketed by Monte Carlo at 6.386-7.864. Nati
 
 ![Family contributions](../figures/TR_karapinar_konya_seker_power_station_family_contributions.png)
 
-Karapinar Konya Şeker power station's baseline composite score is 7.354, with a Monte Carlo bracket of 6.386-7.864. The national stability band is A, with a national top-10% hit rate of 100% in the project's 50,000-iteration national Monte Carlo sensitivity analysis. That places the site in the national shortlist on the accepted Turkey basis. The result supports prioritised Stage 3 characterisation, not site approval or licensing readiness.
+<!-- specialist key=stability scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Composite stability and sensitivity (plain-English read). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key stability` then `... patch --country <CC> --site-name <name> --key stability --text-file <draft.md>`._
+<!-- /specialist key=stability -->
 
 ## Residual Risk Register
 
 
-| Concern | Evidence | Consequence | Stage 3 action | Owner discipline |
-| --- | --- | --- | --- | --- |
-| Electromagnetic Interference (HI-07) | Screening score 1.5/10, MC 1.0-2.0, confidence medium | Could narrow the viable siting envelope or require mitigation before characterisation progresses | Confirm measured inputs, authority constraints and engineering response for HI-07 | HI specialist |
-| Surface Water Dispersion (RI-02) | Screening score 1.5/10, MC 1.0-2.0, confidence insufficient | Could narrow the viable siting envelope or require mitigation before characterisation progresses | Confirm measured inputs, authority constraints and engineering response for RI-02 | RI specialist |
-| Cooling Water Availability (NS-01) | Screening score 3.0/10, MC 3.0-4.0, confidence medium | Could narrow the viable siting envelope or require mitigation before characterisation progresses | Confirm measured inputs, authority constraints and engineering response for NS-01 | NS specialist |
-| Evacuation Routes (EP-02) | Screening score 3.5/10, MC 3.0-4.0, confidence medium | Could narrow the viable siting envelope or require mitigation before characterisation progresses | Confirm measured inputs, authority constraints and engineering response for EP-02 | EP specialist |
-| Geotechnical: Foundation (NH-06) | Screening score 3.5/10, MC 3.0-4.0, confidence medium | Could narrow the viable siting envelope or require mitigation before characterisation progresses | Confirm measured inputs, authority constraints and engineering response for NH-06 | NH specialist |
-
-These residual risks define the first Stage 3 work package. They do not overturn the national ranking, but they identify the evidence needed before Turkey treats the site as more than a screening-stage candidate.
+<!-- specialist key=residual_risk scope=site site_id=a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c bundle=TR_karapinar_konya_seker_power_station_site_bundle.json status=pending -->
+> _Specialist interpretation pending: Residual risk register (specialist synthesis). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key residual_risk` then `... patch --country <CC> --site-name <name> --key residual_risk --text-file <draft.md>`._
+<!-- /specialist key=residual_risk -->
 
 ## Stage 3 Follow-Up Checklist
 
-- Resolve **Cooling Water Availability (NS-01)** avoidance flag - measured cooling-source distance 11.36 km and extremely high water-stress context against the cooling-water avoidance screen; assess cooling-tower or dry/hybrid cooling options under SSG-35 ultimate-heat-sink characterisation.
-- Re-measure **Electromagnetic Interference (HI-07)** - native score 1.5/10 with confidence medium.
-- Re-measure **Surface Water Dispersion (RI-02)** - native score 1.5/10 with confidence insufficient.
-- Re-measure **Cooling Water Availability (NS-01)** - native score 3.0/10 with confidence medium.
-- Re-measure **Evacuation Routes (EP-02)** - native score 3.5/10 with confidence medium.
-- Re-measure **Geotechnical: Foundation (NH-06)** - native score 3.5/10 with confidence medium.
-- Improve data quality for **Geotechnical: Subsidence & Collapse (NH-05b)** - current flag `low`.
-- Improve data quality for **Industrial Explosions (HI-02)** - current flag `low`.
-- Improve data quality for **Toxic/Gas Releases (HI-03)** - current flag `low`.
-- Improve data quality for **External Fires (HI-04)** - current flag `low`.
+- [ ] Resolve **Cooling Water Availability (NS-01)** avoidance flag - measured {"cooling_distance_km": 11.36, "water_stress_label": "Extremely High"} vs threshold Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)..
+- [ ] Re-measure **Electromagnetic Interference (HI-07)** - native score 1.5/10 with confidence medium.
+- [ ] Re-measure **Surface Water Dispersion (RI-02)** - native score 1.5/10 with confidence insufficient.
+- [ ] Re-measure **Cooling Water Availability (NS-01)** - native score 3.0/10 with confidence medium.
+- [ ] Re-measure **Evacuation Routes (EP-02)** - native score 3.5/10 with confidence medium.
+- [ ] Re-measure **Geotechnical: Foundation (NH-06)** - native score 3.5/10 with confidence medium.
+- [ ] Improve data quality for **Geotechnical: Subsidence & Collapse (NH-05b)** - current flag `low`.
+- [ ] Improve data quality for **Industrial Explosions (HI-02)** - current flag `low`.
+- [ ] Improve data quality for **Toxic/Gas Releases (HI-03)** - current flag `low`.
+- [ ] Improve data quality for **External Fires (HI-04)** - current flag `low`.
 
 ## Evidence Limitations
 

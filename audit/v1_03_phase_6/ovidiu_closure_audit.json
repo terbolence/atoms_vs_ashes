@@ -1,0 +1,91 @@
+{
+  "ovidiu_comment_ids": [
+    "32",
+    "38",
+    "43",
+    "50",
+    "54",
+    "57",
+    "60",
+    "61",
+    "63",
+    "70"
+  ],
+  "results": [
+    {
+      "comment_id": "32",
+      "closure_status": "acknowledged",
+      "description": "Stage 1 handoff paragraph in \u00a72.7 (Chapter 2) \u2014 reviewer-approved ack-close.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "38",
+      "closure_status": "resolved-in-report",
+      "description": "Stage 3 framing propagated into Chapter 6 opener + \u00a73.3 + \u00a73.10 cross-references.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "43",
+      "closure_status": "resolved-in-report",
+      "description": "Baseline weights across Tables 3.2-3.6 sum to 100.00% (idempotent blocks).",
+      "findings": [
+        "weights sum = 100.00%"
+      ],
+      "passed": true
+    },
+    {
+      "comment_id": "50",
+      "closure_status": "resolved-in-report",
+      "description": "\u00a73.9 reflects 33-site full-pass set; three Romanian leaders present in Table 3.9.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "54",
+      "closure_status": "resolved-in-report",
+      "description": "Chapter 4 narrative cites canonical regenerated tables; no 'Cohort:' captions.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "57",
+      "closure_status": "resolved-in-report",
+      "description": "Chapter 4 cross-country surface is the canonical regional view (Tables 4.1.1 / 4.3.1 / 4.3.2).",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "60",
+      "closure_status": "resolved-in-report",
+      "description": "Iernut row visible in Table 4.3.1 with composite 7.114.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "61",
+      "closure_status": "resolved-in-report",
+      "description": "Braila + Romag Termo rows visible in Table 4.3.2.",
+      "findings": [],
+      "passed": true
+    },
+    {
+      "comment_id": "63",
+      "closure_status": "resolved-in-report",
+      "description": "'cohort' replaced with 'set' across chapter + annex prose (rubric YAML + Table 4.1.1 generator updated).",
+      "findings": [
+        "0 cohort hits in chapters + annexes"
+      ],
+      "passed": true
+    },
+    {
+      "comment_id": "70",
+      "closure_status": "resolved-in-report",
+      "description": "\u00a75.2 country-index table present exactly once (no duplicate sibling tables).",
+      "findings": [],
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

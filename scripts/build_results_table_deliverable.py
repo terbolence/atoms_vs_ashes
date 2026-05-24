@@ -35,7 +35,7 @@ from report_format_config import (
     ensure_reference_docx,
 )
 from results_table_data import build_results_markdown
-from results_table_model import RESULTS_TABLE_OUTPUT_STEM
+from results_table_model import RESULTS_TABLE_OUTPUT_STEM, configure_from_format
 
 OUTPUT_STEM = RESULTS_TABLE_OUTPUT_STEM
 
@@ -77,13 +77,13 @@ def _run_pandoc(markdown_path: Path, output_docx: Path, reference_docx: Path) ->
     subprocess.run(command, check=True, cwd=markdown_path.parent)
 
 
-def _set_landscape_a4(docx_path: Path, config: ReportFormatConfig) -> None:
+def _set_landscape_a3(docx_path: Path, config: ReportFormatConfig) -> None:
     doc = Document(docx_path)
     margins = config.margins_mm()
     for section in doc.sections:
         section.orientation = WD_ORIENT.LANDSCAPE
-        section.page_width = Mm(297)
-        section.page_height = Mm(210)
+        section.page_width = Mm(420)
+        section.page_height = Mm(297)
         section.top_margin = Mm(margins["top"])
         section.bottom_margin = Mm(margins["bottom"])
         section.left_margin = Mm(margins["inside"])
@@ -97,6 +97,7 @@ def build_results_table_deliverable(
     output_dir: Path | None = None,
 ) -> dict[str, int | str]:
     fmt = ReportFormatConfig.load(format_path)
+    configure_from_format(fmt)
     build_dir = output_dir or fmt.report_root / "build"
     build_dir.mkdir(parents=True, exist_ok=True)
     markdown_path = build_dir / f"{OUTPUT_STEM}.md"
@@ -106,7 +107,7 @@ def build_results_table_deliverable(
     reference_docx = ensure_reference_docx(fmt)
     _run_pandoc(markdown_path, output_docx, reference_docx)
     postprocess_docx(output_docx, fmt)
-    _set_landscape_a4(output_docx, fmt)
+    _set_landscape_a3(output_docx, fmt)
     stats.update({
         "markdown": str(markdown_path),
         "csv": str(csv_path),

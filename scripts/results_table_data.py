@@ -8,14 +8,12 @@ import re
 import shutil
 from pathlib import Path
 
-from results_table_flags import flag_note, site_surface_area
+import results_table_model as _model
+from results_table_flags import flag_note, site_owner, site_surface_area
 from results_table_model import (
     COUNTRY_NAMES,
     COUNTRY_ORDER,
     CSV_COLUMNS,
-    DATA_DIR,
-    FAILURE_SECTION,
-    FIGURES_DIR,
     NO_PASS_COUNTRIES,
     PUBLISHED_COUNTRIES,
     SiteRow,
@@ -87,7 +85,7 @@ def _sort_key(row: dict[str, str]) -> tuple[int, float]:
 
 
 def ledger_rows(country_code: str) -> list[dict[str, str]]:
-    path = DATA_DIR / f"{country_code}_site_ledger.csv"
+    path = _model.DATA_DIR / f"{country_code}_site_ledger.csv"
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
 
@@ -110,6 +108,7 @@ def _site_row(country_code: str, row: dict[str, str]) -> SiteRow:
         country=COUNTRY_NAMES[country_code],
         rank=row.get("national_rank", "").strip() or "Not ranked",
         site=site_name,
+        owner=site_owner(country_code, site_name),
         status=status,
         power_export_proxy_mw=_format_number(row.get("installed_capacity_mw", ""), decimals=1),
         site_surface_area_ha=_format_number(str(area), decimals=1) if area is not None else "",
@@ -128,9 +127,9 @@ def _site_row(country_code: str, row: dict[str, str]) -> SiteRow:
 
 
 def _parse_no_pass_summaries() -> dict[str, str]:
-    if not FAILURE_SECTION.exists():
+    if not _model.FAILURE_SECTION.exists():
         return {}
-    text = FAILURE_SECTION.read_text(encoding="utf-8")
+    text = _model.FAILURE_SECTION.read_text(encoding="utf-8")
     summaries: dict[str, str] = {}
     pattern = r"^- \*\*(?P<country>.+?) \((?P<code>[A-Z]{2})\)\*\* - (?P<text>.+)$"
     for match in re.finditer(pattern, text, re.MULTILINE):
@@ -139,7 +138,7 @@ def _parse_no_pass_summaries() -> dict[str, str]:
 
 
 def _copy_map(country_code: str, assets_dir: Path) -> str | None:
-    source = FIGURES_DIR / f"{country_code}_site_status_map.png"
+    source = _model.FIGURES_DIR / f"{country_code}_site_status_map.png"
     if not source.exists():
         return None
     assets_dir.mkdir(parents=True, exist_ok=True)
@@ -156,6 +155,7 @@ def _markdown_table(rows: list[SiteRow]) -> str:
     table_rows = [[
         "Rank",
         "Site",
+        "Owner",
         "Status",
         "Power export proxy (MW)",
         "Site surface area (ha)",
@@ -165,11 +165,12 @@ def _markdown_table(rows: list[SiteRow]) -> str:
         "Top-tier probability",
         "Exclusionary outcome",
         "Avoidance / failure note",
-    ], [":---:", ":---", ":---", "---:", "---:", "---:", ":---:", ":---:", "---:", ":---:", ":---"]]
+    ], [":---:", ":---", ":---", ":---", "---:", "---:", "---:", ":---:", ":---:", "---:", ":---:", ":---"]]
     for row in rows:
         table_rows.append([
             row.rank,
             row.site,
+            row.owner,
             row.status,
             row.power_export_proxy_mw,
             row.site_surface_area_ha,
@@ -218,7 +219,7 @@ def build_results_markdown(markdown_path: Path, csv_path: Path, output_stem: str
         if map_ref:
             copied_maps += 1
             parts.extend([
-                f"![{country_name} site status map]({map_ref})" + "{width=9in}",
+                f"![{country_name} site status map]({map_ref})" + "{width=15in}",
                 "",
             ])
         if country_code in NO_PASS_COUNTRIES:

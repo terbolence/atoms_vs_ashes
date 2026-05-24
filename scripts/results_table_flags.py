@@ -12,7 +12,8 @@ from functools import cache
 from pathlib import Path
 from typing import Any
 
-from results_table_model import DATA_DIR, REPO_ROOT
+import results_table_model as _model
+from results_table_model import REPO_ROOT
 
 FAILURE_OUTCOMES = (
     REPO_ROOT / "audit/post_processing/db_extract/20260425b_nuscale_voygr6/06_failure_outcomes.csv"
@@ -32,7 +33,7 @@ def _site_slug(name: str) -> str:
 @cache
 def _bundle_index() -> dict[tuple[str, str], Path]:
     index: dict[tuple[str, str], Path] = {}
-    for path in DATA_DIR.glob("*_site_bundle.json"):
+    for path in _model.DATA_DIR.glob("*_site_bundle.json"):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
@@ -46,7 +47,7 @@ def _bundle_index() -> dict[tuple[str, str], Path]:
 
 
 def _bundle_path(country_code: str, site_name: str) -> Path | None:
-    direct = DATA_DIR / f"{country_code}_{_site_slug(site_name)}_site_bundle.json"
+    direct = _model.DATA_DIR / f"{country_code}_{_site_slug(site_name)}_site_bundle.json"
     if direct.exists():
         return direct
     return _bundle_index().get((country_code, _normalise_name(site_name)))
@@ -68,6 +69,30 @@ def site_surface_area(country_code: str, site_name: str) -> float | None:
         return None
     value = data.get("site", {}).get("site_area_ha")
     return float(value) if isinstance(value, int | float) else None
+
+
+def site_owner(country_code: str, site_name: str) -> str:
+    """Owner string for the results-table Owner column.
+
+    Returns ``owner_operator`` from the site bundle. If ``parent_company``
+    is non-empty and differs textually from ``owner_operator``, the parent
+    is appended in the form ``Operator (parent: Parent)``. Missing or
+    empty fields produce ``""`` so the column renders blank, consistent
+    with surface-area handling.
+    """
+    data = _site_bundle(country_code, site_name)
+    if data is None:
+        return ""
+    site = data.get("site", {}) or {}
+    operator = str(site.get("owner_operator") or "").strip()
+    parent = str(site.get("parent_company") or "").strip()
+    if not operator and not parent:
+        return ""
+    if not operator:
+        return parent
+    if parent and parent != operator:
+        return f"{operator} (parent: {parent})"
+    return operator
 
 
 def _criterion_flags(

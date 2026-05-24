@@ -201,5 +201,10 @@
     "reference_docx": "build/reference.docx",
     "output_docx": "build/atoms_vs_ashes_report.docx",
     "merged_markdown": "build/merged.md"
+  },
+  "results_table": {
+    "data_dir": "chapters/05_country_and_site_profiles/data",
+    "figures_dir": "chapters/05_country_and_site_profiles/figures",
+    "failure_section": "chapters/05_country_and_site_profiles/consolidated_failure_section.md"
   }
 }

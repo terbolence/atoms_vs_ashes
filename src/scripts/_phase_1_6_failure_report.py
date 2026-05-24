@@ -146,7 +146,18 @@ def render_methodology(
         smr_label=smr_label, smr_banner=smr_banner,
     )
     parts.extend(_source_links(audit_paths))
-    parts.extend([_INTRO_PROVENANCE, "", glossary_block()])
+    parts.append(_INTRO_PROVENANCE)
+    parts.append("")
+    if smr_label is None:
+        parts.append(glossary_block())
+    else:
+        parts.append(
+            "## Glossary\n\nSee the canonical glossary in "
+            "[`failure_analysis.md` § Glossary](./failure_analysis.md#glossary). "
+            "Terms are identical across the global and SMR-specific failure "
+            "reports; only the population filter changes (this file is the "
+            f"`smr_key = {smr_label}` filter).\n"
+        )
 
     parts.extend([
         "## 1. Funnel — universe → survivors",

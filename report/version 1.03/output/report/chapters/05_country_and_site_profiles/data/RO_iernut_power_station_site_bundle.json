@@ -1,0 +1,3672 @@
+{
+  "metadata": {
+    "bundle_schema": "site_bundle.v1",
+    "created_at": "2026-05-23T19:46:21.682021+00:00",
+    "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+    "smr_key": "nuscale_voygr6",
+    "analytics_run_id": "score-c2a90942",
+    "sensitivity_run_id": "nat-sens-b1a62885",
+    "sensitivity_stamp": "20260523",
+    "claim_boundary": "Screening-grade Stage 1-2 support only."
+  },
+  "provenance": {
+    "nh02_e1_threshold_km": 5.0
+  },
+  "site": {
+    "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+    "name": "Iernut power station",
+    "alternative_names": [
+      "Centralei Termoelectrice Iernut",
+      "CTE Iernut",
+      "Ludus-Iernut"
+    ],
+    "country_code": "RO",
+    "country_name": "Romania",
+    "latitude": 46.4677,
+    "longitude": 24.1833,
+    "geom": "0101000020e6100000575bb1bfec2e38406b2bf697dd3b4740",
+    "location_accuracy": "exact",
+    "local_area": "Iernut",
+    "subnational_unit": "Mureș",
+    "region": "Europe",
+    "plant_type": "gas",
+    "installed_capacity_mw": 800.0,
+    "status": "construction",
+    "start_year": 2026,
+    "retired_year": null,
+    "planned_retirement": null,
+    "coal_phaseout_year": null,
+    "grid_voltage_kv": 400,
+    "grid_capacity_mw": 800.0,
+    "cooling_water_source": null,
+    "site_area_ha": 50.0,
+    "site_area_source": "manual_verified",
+    "site_area_confidence": "high",
+    "site_area_review_flags": [
+      "S6"
+    ],
+    "site_area_candidates_json": [
+      {
+        "flags": [],
+        "source": "manual_verified",
+        "has_url": false,
+        "value_ha": 50.0,
+        "weak_osm": false,
+        "provenance": "User manual: ~half Balta Iernut (~109 ha) plus adjacent Romgaz land; OSM plant polygon ~21 ha understated.",
+        "useful_osm": false,
+        "write_eligible": true,
+        "confidence_tier": "high",
+        "confidence_score": 75,
+        "source_confidence": "high"
+      },
+      {
+        "flags": [],
+        "source": "osm_polygon",
+        "has_url": false,
+        "value_ha": 20.77,
+        "weak_osm": false,
+        "provenance": "source=osm_overpass; osm_id=way/592884797; tags=[landuse=industrial, name=Termocentrala Iernut, power=plant]; dist=0.12km; candidates=2",
+        "useful_osm": true,
+        "write_eligible": false,
+        "confidence_tier": "none",
+        "confidence_score": 10,
+        "source_confidence": "medium"
+      },
+      {
+        "flags": [],
+        "source": "buildable_area_inference",
+        "has_url": false,
+        "value_ha": 20.77,
+        "weak_osm": false,
+        "provenance": "site_infrastructure_v2.buildable_area_ha",
+        "useful_osm": false,
+        "write_eligible": true,
+        "confidence_tier": "review",
+        "confidence_score": 42,
+        "source_confidence": "low"
+      },
+      {
+        "flags": [],
+        "source": "contiguous_capped_inference",
+        "has_url": false,
+        "value_ha": 20.77,
+        "weak_osm": false,
+        "provenance": "capped site_infrastructure_v2.largest_contiguous_ha",
+        "useful_osm": false,
+        "write_eligible": true,
+        "confidence_tier": "review",
+        "confidence_score": 40,
+        "source_confidence": "low"
+      },
+      {
+        "flags": [
+          "S9"
+        ],
+        "source": "capacity_bounded_inference",
+        "has_url": false,
+        "value_ha": 20.77,
+        "weak_osm": false,
+        "provenance": "installed_capacity_mw * 0.08",
+        "useful_osm": false,
+        "write_eligible": true,
+        "confidence_tier": "review",
+        "confidence_score": 35,
+        "source_confidence": "low"
+      }
+    ],
+    "expansion_potential_ha": null,
+    "site_area_resolved_at": "2026-05-17T18:59:39.497969+03:00",
+    "site_area_resolve_run_id": "iernut_manual_site_area_20260517",
+    "elevation_m": 290.53,
+    "owner_operator": "Romgaz SA [100%]",
+    "parent_company": "Romgaz SA [100.0%]",
+    "combustion_technology": "combined cycle",
+    "coal_type": null,
+    "coal_source": null,
+    "net_zero_year": null,
+    "location": "Iernut, Mureș County",
+    "permits": null,
+    "permit_date": null,
+    "owner_gem_id": null,
+    "parent_gem_id": null,
+    "gem_unit_phase_id": null,
+    "gem_location_id": null,
+    "wiki_url": "https://www.gem.wiki/Iernut_power_station",
+    "extended_data": {
+      "fuel": "fossil gas: natural gas",
+      "source": "alembic_049",
+      "address": "545100, Mures, Iernut, Str. Energeticii nr 1",
+      "gem_wiki_url": "https://www.gem.wiki/Iernut_power_station",
+      "romgaz_ccgt_url": "https://www.romgaz.ro/en/ccgt-project-overview-0",
+      "romgaz_branch_url": "https://www.romgaz.ro/en/iernut-power-plant-branch",
+      "ccgt_configuration": "4 gas turbines, 4 heat recovery steam generators, 2 steam turbines",
+      "manual_characterization": {
+        "export_basis": "Legacy CTE Iernut 800 MW nameplate; existing 110/220/400 kV Transelectrica connection (not CCGT-only 430 MW GEM figure).",
+        "grid_export_capacity_mw": 800
+      },
+      "ri05_nearest_50k_geonames": {
+        "name": "Târgu Mureş",
+        "source": "geonames_cities5000_dump",
+        "dump_date": "2026-05-17",
+        "dump_file": "cities5000",
+        "geoname_id": 665004,
+        "population": 212752,
+        "attribution": "GeoNames (CC BY 4.0)",
+        "distance_km": 29.819,
+        "country_code": "RO",
+        "feature_code": "PPLA"
+      },
+      "ccgt_installed_capacity_mw": 430,
+      "gross_electrical_efficiency_pct": 56
+    },
+    "unit_count": 1,
+    "operating_capacity_mw": null,
+    "last_verified": "2026-05-17T13:50:18.833088+03:00",
+    "created_at": "2026-05-17T13:50:18.833088+03:00",
+    "updated_at": "2026-05-17T19:01:27.028376+03:00",
+    "source_db": "merged",
+    "merge_run_id": "iernut_manual_site_area_20260517"
+  },
+  "land_area": {
+    "site_area_ha": 50.0,
+    "site_area_source": "manual_verified",
+    "site_area_confidence": "high",
+    "favourable_area_ha": null,
+    "favourable_area_method": null,
+    "reporting_note": "Use site_area_ha as the NS-05/A15 surface-area indicator. Use favourable_area_ha, when populated, as the wider expansion envelope for laydown or future site expansion."
+  },
+  "ownership": [],
+  "units": [],
+  "criterion_families": {
+    "natural_hazards": {
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "pga_475yr_g": null,
+      "pga_2475yr_g": null,
+      "spectral_accel_json": {
+        "lat": 46.4677,
+        "lon": 24.1833,
+        "uhs": null,
+        "error": "EFEHR returned no data and GEM raster fallback unavailable",
+        "source": "efehr_eshm20",
+        "quality": "insufficient",
+        "model_id": null,
+        "pga_475yr": null,
+        "sa_values": {},
+        "model_name": "ESHM20",
+        "pga_2475yr": null,
+        "hazard_curve": null,
+        "vs30_reference": 760.0,
+        "grid_distance_km": 0.0
+      },
+      "nh01_source": "efehr_eshm20",
+      "nh01_quality": "insufficient",
+      "nh01_comment": "Model: ESHM20; UHS: unavailable (spectra endpoint non-functional)",
+      "nearest_fault_km": 50.0,
+      "fault_name": "none_in_search_radius",
+      "fault_slip_rate_mm_yr": 0.0,
+      "nh02_source": "efsm20_faults",
+      "nh02_quality": "efsm20_no_fault_50km",
+      "nh02_comment": "No EFSM20 seismogenic faults within 50 km search radius — site is on a stable tectonic platform; Source: EFSM20 (EFEHR/INGV, 2022)",
+      "liquefaction_suscept": "high",
+      "soil_type": "clay",
+      "groundwater_depth_m": null,
+      "nh03_source": "zhu_global_1km",
+      "nh03_quality": "medium",
+      "nh03_comment": "Raw raster value: 4; Class: high; Thresholds: 1=very_low, 2=low, 3=moderate, 4=high, 5=very_high; Source: Zorn & Koks (2019) / Zhu et al. (2017)",
+      "slope_angle_deg": 7.49,
+      "slope_stability_class": "moderate",
+      "landslide_inventory_notes": null,
+      "nh04_quality": "low",
+      "nh04_comment": "Elevation: 290.5 m; Range: 0.0–296.5 m (relief 296.5 m); Slope: mean=7.5° max=85.7° p95=77.4°; 8.1% > 15°, 8.1% > 30°; TRI: mean 32.6, class level; Source: Copernicus DEM GLO-30 (30 m, EGM2008); Note: DSM (includes canopy); conservative for slope stability",
+      "nh04_dem_cog_slope_max_deg": 85.74,
+      "nh04_gee_slope_max_deg": null,
+      "nh04_gee_slope_mean_deg": null,
+      "nh04_gee_terrain_class": null,
+      "nh04_slope_discrepancy": null,
+      "nh04_slope_fusion_method": null,
+      "nh04_cross_source_summary": null,
+      "karst_present": false,
+      "karst_severity": null,
+      "karst_formation_type": null,
+      "nh05_quality": "medium",
+      "nh05_comment": null,
+      "mining_void_present": false,
+      "subsidence_risk_class": null,
+      "collapse_mechanism": null,
+      "nh05b_quality": "medium",
+      "nh05b_comment": null,
+      "bearing_capacity_kpa": 67.0,
+      "depth_to_bedrock_m": 28.07,
+      "nh06_quality": "medium",
+      "nh06_comment": "Clay 42.6%, Sand 21.7%, Silt 35.6%; USDA class: clay; Bearing capacity (screening proxy): 67 kPa; Bulk density: 1.34 g/cm³; Source: ISRIC SoilGrids v2.0 (250 m) | BDTICM: DTB: 2807 cm (28.07 m); Source: BDTICM 250 m (Shangguan et al. 2017)",
+      "nearest_holocene_volcano_km": null,
+      "volcano_name": null,
+      "nh07_hazard_class": "negligible",
+      "nh07_quality": "high",
+      "nh07_comment": "hazard_class=negligible; No Holocene volcano within 300 km; Source: smithsonian_gvp_votw (VOTW (1215 features))",
+      "distance_to_coast_km": null,
+      "storm_surge_risk": null,
+      "tsunami_risk": null,
+      "nh08_quality": "insufficient",
+      "nh08_comment": "No coastal APSFR data (JRC/GloFAS covers riverine only); Sources: jrc_glofas_flood_hazard_v2.1.2",
+      "flood_zone_class": "negligible",
+      "nearest_river_km": null,
+      "dam_break_exposure": null,
+      "nh09_quality": "insufficient",
+      "nh09_comment": "Sources: jrc_glofas_flood_hazard_v2.1.2; CEMS flash flood: no_data; Nearest activation: 143.0 km",
+      "max_wind_speed_ms": 6.61,
+      "nh10_quality": "medium",
+      "nh10_comment": "ERA5 wind assessment (ref 1991-2020) | 50yr_gust=6.6m/s | max_gust=6.5m/s | 99p=6.2m/s | prevailing=112deg | tropical_idx=0.0 | gev=ok | grid_dist=6.2km | source=copernicus_era5",
+      "extreme_precip_mm": 0.22,
+      "mean_annual_precip_mm": 24.78,
+      "nh11_quality": "medium",
+      "nh11_comment": "ERA5 precipitation (ref 1991-2020) | annual=25mm | max_daily=0.2mm | snow_days=147/yr | snow_months=0 | SPI12_min=-2.61 | DSI=0.143 | freezing_days=36.5/yr | source=copernicus_era5",
+      "extreme_temp_max_c": 24.82,
+      "extreme_temp_min_c": -9.26,
+      "nh12_quality": "medium",
+      "nh12_comment": "ERA5 temperature (ref 1991-2020) | max=24.8C | min=-9.3C | range=34.1C | hot_days=0/yr | cold_days=0/yr | summer_mean=20.6C | source=copernicus_era5 | CMIP6_2050_ssp245=+1.4C | CMIP6_2080_ssp585=+4.3C",
+      "wildfire_combustible_pct": null,
+      "wildfire_wui_ha": null,
+      "nh13_quality": null,
+      "nh13_comment": null,
+      "nh13_gee_modis_burn_months": null,
+      "nh13_gee_fire_recurrence_class": null,
+      "nh13_gee_burn_fraction_mean": null,
+      "nh13_cross_source_summary": null,
+      "combined_hazard_notes": null,
+      "nh14_quality": null,
+      "nh14_comment": null,
+      "fetched_at": "2026-05-17T14:38:57.730201+03:00",
+      "run_id": "iernut-20260517T1051",
+      "source_db": "api",
+      "merge_run_id": "sync_site_from_api",
+      "mining_void_distance_km": null
+    },
+    "human_hazards": {
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "nearest_airport_km": 17.55,
+      "nearest_airport_name": "Târgu Mureş Transilvania International Airport",
+      "nearest_airport_type": "medium_airport",
+      "nearest_airport_class": "medium_airport",
+      "nearest_airport_runway_length_m": 2000.1,
+      "nearest_airport_scheduled_service": true,
+      "flight_path_distance_km": 8.78,
+      "airport_count": 5,
+      "hi01_quality": "high",
+      "hi01_comment": "Nearest: Târgu Mureş Transilvania International Airport (medium_airport) at 17.6 km; Nearest large: 51.9 km; Nearest medium: 17.6 km; Within 30 km: 5; Source: OurAirports; quality: high",
+      "nearest_seveso_km": null,
+      "nearest_industrial_km": 13.24,
+      "hi02_quality": "high",
+      "hi02_comment": "No chemical/petrochemical facilities within search radius; Source: EEA E-PRTR; quality: high",
+      "nearest_toxic_source_km": 13.24,
+      "hi03_quality": "high",
+      "hi03_comment": "Nearest toxic release source: Site: 117MS0000.SITE at 13.2 km; Within 5 km: 0; Source: EEA E-PRTR; quality: high",
+      "nearest_flammable_storage_km": null,
+      "nearest_pipeline_km": null,
+      "hi04_quality": "high",
+      "hi04_comment": "No flammable storage facilities within search radius; Source: EEA E-PRTR; quality: high",
+      "hazmat_route_distance_km": null,
+      "hi05_quality": null,
+      "hi05_comment": null,
+      "nearest_military_km": null,
+      "nearest_military_name": null,
+      "nearest_military_class": null,
+      "nearest_high_consequence_military_km": null,
+      "nearest_high_consequence_military_class": null,
+      "military_count": null,
+      "hi06_quality": null,
+      "hi06_comment": null,
+      "nearest_transmitter_km": null,
+      "transmitter_type": null,
+      "transmitter_count": null,
+      "hi07_quality": null,
+      "hi07_comment": null,
+      "nearest_nuclear_km": null,
+      "nearest_nuclear_name": null,
+      "hi08_quality": null,
+      "hi08_comment": null,
+      "fetched_at": "2026-05-17T15:43:12.171265+03:00",
+      "run_id": "partial-data-remaining-20260517T1237",
+      "source_db": "api",
+      "merge_run_id": "sync_site_from_api"
+    },
+    "radiological": {
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "pop_density_5km": 95.34,
+      "pop_density_16km": 62.55,
+      "pop_density_25km": 83.83,
+      "pop_density_80km": 95.09,
+      "pop_total_5km": 7487,
+      "pop_total_16km": 50299,
+      "pop_total_25km": 164578,
+      "pop_total_80km": 1911781,
+      "ri04_quality": "ghsl_pop_100m_r2023a",
+      "ri04_comment": "5 km: 7,487 pop, 95 p/km²; 16 km: 50,299 pop, 63 p/km²; 25 km: 164,578 pop, 84 p/km²; 80 km: 1,911,781 pop, 95 p/km²; Epoch: 2020; Source: GHS-POP R2023A 100 m (Mollweide)",
+      "nearest_city_50k_km": 29.68,
+      "nearest_city_name": "Târgu Mureș",
+      "nearest_city_pop": 147674,
+      "ri05_quality": "gisco_urau_2021",
+      "ri05_comment": "Nearest city >50k: Târgu Mureș (147,674 pop) at 29.7 km; Cities >50k within 25 km: 0; Cities >50k within 80 km: 4; Settlement hierarchy: rural; Source: Eurostat GISCO Urban Audit 2021 + urb_cpop1",
+      "pop_growth_rate_pct": null,
+      "projected_pop_25km_60yr": null,
+      "ri06_quality": null,
+      "ri06_comment": null,
+      "prevailing_wind_dir": "ESE",
+      "avg_wind_speed_ms": 0.63,
+      "mixing_height_m": 417.39,
+      "ri01_quality": "medium",
+      "ri01_comment": "ERA5 atmospheric dispersion (ref 1991-2020) | prevailing_wind=ESE(112deg) | mean_speed=0.6m/s | mean_BLH=417m | p5_BLH=167m | stable_frac=0.650 | stability=[A=0.0% B=0.0% C=35.0% D=0.0% E=64.7% F=0.3%] | wind_rose_dominant=ESE | source=copernicus_era5",
+      "nearest_river_flow_m3s": null,
+      "ri02_quality": null,
+      "ri02_comment": null,
+      "aquifer_type": "low permeability",
+      "groundwater_flow_dir": null,
+      "ri03_quality": "medium",
+      "ri03_comment": null,
+      "fetched_at": "2026-05-17T14:38:56.619312+03:00",
+      "run_id": "iernut-20260517T1051",
+      "source_db": "api",
+      "merge_run_id": "sync_site_from_api"
+    },
+    "emergency_planning": {
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "ep01_composite_score": 61.9,
+      "ep01_road_score": 50.6,
+      "ep01_special_pop_score": 20.0,
+      "ep01_geography_score": 10.0,
+      "ep01_population_score": 95.0,
+      "ep01_terrain_score": 80.0,
+      "ep01_evacuation_feasible": true,
+      "ep01_quality": "high",
+      "ep01_comment": "DRV-02 composite: 61.9/100 (FEASIBLE). Sub-scores: ep01_roads=51; ep01_special_pop=20; ep01_geography=10; ep01_terrain=80; ep01_population=95. Sources: osm_overpass, ghsl_pop_100m_r2023a, copernicus_dem_30m.",
+      "road_density_km_per_km2": 0.476,
+      "total_road_km": 933.88,
+      "has_motorway_access": true,
+      "ep02_quality": "medium",
+      "ep02_comment": "Road density 0.476 km/km², 933.9 km total, motorway/trunk: yes",
+      "major_river_barrier": true,
+      "waterway_count_epz": 36,
+      "ep03_quality": "medium",
+      "ep03_comment": "36 waterway(s), major river barrier: yes",
+      "ep03_gee_relief_16km_m": null,
+      "ep03_gee_mountain_barrier_score": null,
+      "ep03_cross_source_summary": null,
+      "hospital_count_epz": 8,
+      "prison_count_epz": 0,
+      "care_home_count_epz": 0,
+      "ep04_quality": "medium",
+      "ep04_comment": "8 hospital/clinic, 0 prison, 0 care home within EPZ",
+      "concurrent_hazard_notes": null,
+      "ep05_quality": null,
+      "ep05_comment": null,
+      "fetched_at": "2026-05-17T14:40:49.555167+03:00",
+      "run_id": "iernut-20260517T1051",
+      "source_db": "api",
+      "merge_run_id": "sync_site_from_api"
+    },
+    "infrastructure": {
+      "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+      "cooling_source_type": "river",
+      "cooling_source_name": "HYRIV-20468553",
+      "cooling_source_hyriv_id": 20468553,
+      "cooling_distance_km": 0.58,
+      "cooling_flow_m3s": 48.23,
+      "water_stress_score": 0.338,
+      "water_stress_label": "Low-Medium",
+      "ns01_source": "hydrorivers",
+      "ns01_quality": "hydrorivers_global",
+      "ns01_comment": "Nearest river: HYRIV-20468553 at 0.6 km; Strahler order: 4; Avg discharge: 48.2 m³/s; Cooling-viable (Strahler ≥ 3); Source: HydroRIVERS v10 (WWF/McGill, 2019); Water stress: Low-Medium (score=0.338); Depletion=0.081; Source: WRI Aqueduct 4.0 (2023); GloFAS mean discharge: 0.1 m³/s; Q10=0.0; Q90=0.1; Source: GloFAS v4 reanalysis (CDS)",
+      "nearest_substation_km": null,
+      "substation_name": null,
+      "nearest_hv_line_km": null,
+      "hv_line_voltage_kv": null,
+      "hv_line_count": null,
+      "substation_count": null,
+      "grid_export_capacity_mw": 800.0,
+      "ns02_quality": "medium",
+      "ns02_comment": "source=manual_verified; grid_export_capacity_mw=800; basis=legacy CTE Iernut 800 MW nameplate on existing site with 110/220/400 kV Transelectrica switchyard; supersedes entsoe/gem 430 MW CCGT-only fallback",
+      "nearest_highway_km": 1.38,
+      "nearest_rail_km": 1.71,
+      "nearest_waterway_km": null,
+      "heavy_haul_capable": true,
+      "ns03_quality": "high",
+      "ns03_comment": "Highway: 1.4 km (primary); Rail: 1.7 km, gauge 1435 mm; Waterway: No navigable waterways found within search radius; Heavy-haul: YES (confidence: high); Source: OSM Overpass API",
+      "dominant_land_class": null,
+      "dominant_class_pct": null,
+      "favourable_land_pct": null,
+      "moderate_land_pct": null,
+      "unfavourable_land_pct": null,
+      "favourable_area_ha": null,
+      "favourable_area_method": null,
+      "ns04_quality": "copernicus_dem_30m",
+      "ns04_comment": "Elevation std: 69.6 m (earthworks proxy); Mean slope: 7.5° (grading effort proxy); TRI: 32.6 (level); Source: Copernicus DEM GLO-30",
+      "ns04_gee_terrain_class": null,
+      "ns04_gee_relief_range_m": null,
+      "ns04_gee_grading_class": null,
+      "ns04_cross_source_summary": null,
+      "buildable_area_ha": 50.0,
+      "largest_contiguous_ha": 50.0,
+      "patch_count": null,
+      "ns05_quality": "medium",
+      "ns05_comment": "source=manual_verified; user_estimate=50 ha (~half Balta Iernut 109 ha + adjacent Romgaz land); supersedes osm_overpass way/592884797 ~21 ha",
+      "reusable_infra_score": null,
+      "ns06_quality": null,
+      "ns06_comment": null,
+      "ns06_gee_built_fraction": null,
+      "ns06_gee_demolition_class": null,
+      "ns06_cross_source_summary": null,
+      "env_impact_tier": null,
+      "env_impact_notes": null,
+      "ns07_quality": null,
+      "ns07_comment": null,
+      "ecological_natural_pct": null,
+      "ecological_patch_count": null,
+      "ecological_largest_patch_ha": null,
+      "n2k_nearest_distance_km": 0.56,
+      "n2k_overlap": false,
+      "n2k_sensitivity_class": "high",
+      "n2k_result_json": {
+        "lat": 46.4677,
+        "lon": 24.1833,
+        "error": null,
+        "source": "natura2000_eea_wfs",
+        "quality": "high",
+        "n2k_overlap": false,
+        "country_code": "RO",
+        "is_eu_member": true,
+        "nearby_sites": [
+          {
+            "area_ha": 323.7782893817272,
+            "overlap": false,
+            "sitecode": "ROSCI0210",
+            "sitename": "Râpa Lechința",
+            "sitetype": "B",
+            "distance_km": 0.56,
+            "direction_deg": 85.8,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 437.1757291168822,
+            "overlap": false,
+            "sitecode": "ROSPA0041",
+            "sitename": "Eleșteiele Iernut - Cipău",
+            "sitetype": "A",
+            "distance_km": 1.212,
+            "direction_deg": 117.7,
+            "conservation_score": null
+          },
+          {
+            "area_ha": 641.0585882862925,
+            "overlap": false,
+            "sitecode": "ROSCI0367",
+            "sitename": "Râul Mureș între Morești și Ogra",
+            "sitetype": "B",
+            "distance_km": 7.887,
+            "direction_deg": 87.2,
+            "conservation_score": null
+          },
+          {
+            "area_ha": 1186.9583542900386,
+            "overlap": false,
+            "sitecode": "ROSPA0050",
+            "sitename": "Iazurile Miheșu de Câmpie - Tăureni",
+            "sitetype": "A",
+            "distance_km": 11.037,
+            "direction_deg": 355.8,
+            "conservation_score": null
+          },
+          {
+            "area_ha": 683.1630938179945,
+            "overlap": false,
+            "sitecode": "ROSCI0040",
+            "sitename": "Coasta Lunii",
+            "sitetype": "B",
+            "distance_km": 14.691,
+            "direction_deg": 286.7,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 857.2798110076736,
+            "overlap": false,
+            "sitecode": "ROSAC0313",
+            "sitename": "Confluența Mureș cu Arieș",
+            "sitetype": "B",
+            "distance_km": 15.313,
+            "direction_deg": 251.6,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 315.64203108951364,
+            "overlap": false,
+            "sitecode": "ROSAC0384",
+            "sitename": "Râul Târnava Mică",
+            "sitetype": "B",
+            "distance_km": 17.687,
+            "direction_deg": 106.8,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 16023.851388439396,
+            "overlap": false,
+            "sitecode": "ROSAC0187",
+            "sitename": "Pajiștile lui Suciu",
+            "sitetype": "B",
+            "distance_km": 18.634,
+            "direction_deg": 222.6,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 202.2957403838763,
+            "overlap": false,
+            "sitecode": "ROSCI0331",
+            "sitename": "Pajiștile Balda - Frata - Miheșu de Câmpie",
+            "sitetype": "B",
+            "distance_km": 21.071,
+            "direction_deg": 357.6,
+            "conservation_score": 1.0
+          },
+          {
+            "area_ha": 9.404827236164676,
+            "overlap": false,
+            "sitecode": "ROSCI0408",
+            "sitename": "Zau de Câmpie",
+            "sitetype": "B",
+            "distance_km": 21.236,
+            "direction_deg": 343.2,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 3664.1236405184045,
+            "overlap": false,
+            "sitecode": "ROSCI0301",
+            "sitename": "Bogata",
+            "sitetype": "B",
+            "distance_km": 21.854,
+            "direction_deg": 269.7,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 475.1909167312337,
+            "overlap": false,
+            "sitecode": "ROSCI0079",
+            "sitename": "Fânațele de pe Dealul Corhan - Săbed",
+            "sitetype": "B",
+            "distance_km": 25.686,
+            "direction_deg": 43.3,
+            "conservation_score": 0.0
+          },
+          {
+            "area_ha": 6202.53561974017,
+            "overlap": false,
+            "sitecode": "ROSPA0113",
+            "sitename": "Cânepiști",
+            "sitetype": "A",
+            "distance_km": 25.856,
+            "direction_deg": 303.0,
+            "conservation_score": null
+          },
+          {
+            "area_ha": 8.623889803442628,
+            "overlap": false,
+            "sitecode": "ROSAC0118",
+            "sitename": "Movilele de la Păucea",
+            "sitetype": "B",
+            "distance_km": 27.778,
+            "direction_deg": 155.3,
+            "conservation_score": 0.0
+          }
+        ],
+        "n2k_sac_count": 11,
+        "n2k_spa_count": 3,
+        "reference_date": "1726012800000",
+        "sensitivity_class": "high",
+        "n2k_combined_count": 0,
+        "n2k_nearest_area_ha": 323.7782893817272,
+        "n2k_nearest_sitecode": "ROSCI0210",
+        "n2k_nearest_sitename": "Râpa Lechința",
+        "n2k_nearest_sitetype": "B",
+        "n2k_sites_within_5km": 2,
+        "n2k_area_fraction_5km": 0.0636,
+        "n2k_overlap_sitecodes": [],
+        "n2k_sites_within_16km": 6,
+        "n2k_sites_within_25km": 11,
+        "n2k_area_fraction_16km": 0.0197,
+        "n2k_area_fraction_25km": 0.043,
+        "n2k_nearest_distance_km": 0.56,
+        "n2k_max_conservation_score": 1.0,
+        "n2k_total_protected_area_ha": 31031.08
+      },
+      "ns08_source": "natura2000_eea_wfs",
+      "ns08_quality": "high",
+      "ns08_comment": "high",
+      "wdpa_nearest_distance_km": null,
+      "wdpa_overlap": false,
+      "wdpa_sensitivity_class": "none",
+      "wdpa_result_json": {
+        "lat": 46.4677,
+        "lon": 24.1833,
+        "error": null,
+        "source": "wdpa_protected_planet",
+        "quality": "low",
+        "country_code": "RO",
+        "country_iso3": "ROU",
+        "is_eu_member": true,
+        "nearby_areas": [],
+        "wdpa_overlap": false,
+        "n2k_deduplicated": true,
+        "wdpa_overlap_ids": [],
+        "sensitivity_class": "none",
+        "wdpa_nearest_name": null,
+        "wdpa_ramsar_count": 0,
+        "wdpa_nearest_area_ha": null,
+        "wdpa_nearest_site_id": null,
+        "wdpa_iucn_ia_ib_count": 0,
+        "wdpa_sites_within_5km": 0,
+        "wdpa_area_fraction_5km": null,
+        "wdpa_iucn_ii_iii_count": 0,
+        "wdpa_ramsar_nearest_km": null,
+        "wdpa_sites_within_16km": 0,
+        "wdpa_sites_within_25km": 0,
+        "wdpa_area_fraction_16km": null,
+        "wdpa_area_fraction_25km": null,
+        "wdpa_iucn_iv_v_vi_count": 0,
+        "wdpa_nearest_designation": null,
+        "wdpa_nearest_distance_km": null,
+        "wdpa_world_heritage_count": 0,
+        "wdpa_nearest_iucn_category": null,
+        "wdpa_biosphere_reserve_count": 0,
+        "wdpa_strictest_iucn_category": null,
+        "wdpa_total_protected_area_ha": 0.0,
+        "wdpa_international_designation_count": 0
+      },
+      "wdpa_source": "wdpa_protected_planet",
+      "wdpa_quality": "low",
+      "wdpa_comment": "none",
+      "ns09_quality": null,
+      "ns09_comment": null,
+      "ns10_quality": null,
+      "ns10_comment": null,
+      "ns11_quality": null,
+      "ns11_comment": null,
+      "ns12_quality": null,
+      "ns12_comment": null,
+      "laydown_suitable_ha": null,
+      "laydown_largest_patch_ha": null,
+      "ns13_quality": null,
+      "ns13_comment": null,
+      "fetched_at": "2026-05-17T13:53:19.572624+03:00",
+      "run_id": "iernut-20260517T1051",
+      "source_db": "api",
+      "merge_run_id": "sync_site_from_api"
+    }
+  },
+  "observations": {
+    "site_observations": [],
+    "llm_observations": [],
+    "llm_verdicts": [],
+    "filter_note": "Site observations include site-wide rows and rows for the requested SMR. Run-specific scoring sections use run_id='score-c2a90942'."
+  },
+  "screening": {
+    "verdicts": [
+      {
+        "verdict_id": "c1fa6c38-3bf3-47cc-a72e-f1becc81d1dc",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-01",
+        "phase": "exclusionary",
+        "prompt_key": "E8",
+        "verdict": "pass",
+        "measured_value": "{\"composite_score\": 61.9, \"ep01_composite_score\": 61.9}",
+        "threshold": "DRV-02 composite < 30: emergency-plan feasibility below the project hard floor.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor.",
+        "confidence": "high",
+        "data_sources": [
+          "site_emergency.ep01_composite_score"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.466737+03:00"
+      },
+      {
+        "verdict_id": "38b76b07-4815-4f24-8df6-411ce4d5faba",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-01",
+        "phase": "avoidance",
+        "prompt_key": "A2",
+        "verdict": "pass",
+        "measured_value": "{\"nearest_major_airport_km\": 17.55}",
+        "threshold": "A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km).",
+        "confidence": "high",
+        "data_sources": [
+          "site_human_induced.nearest_airport_km",
+          "site_human_induced.nearest_airport_type",
+          "site_human_induced.nearest_airport_class",
+          "site_human_induced.nearest_military_airfield_km",
+          "site_human_induced.nearest_military_class",
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.nearest_high_consequence_military_class",
+          "site_human_induced.nearest_high_consequence_military_km",
+          "site_human_induced.hi06_quality",
+          "site_human_induced.flight_path_distance_km",
+          "site_human_induced.hi01_comment"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.471456+03:00"
+      },
+      {
+        "verdict_id": "32f7509c-1e34-49f0-8f82-ac78785a3273",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-01",
+        "phase": "avoidance",
+        "prompt_key": "A3",
+        "verdict": "inconclusive",
+        "measured_value": "{\"hi06_quality\": null, \"nearest_airport_km\": 17.55, \"nearest_airport_type\": \"medium_airport\", \"nearest_military_airfield_km\": null, \"quality\": null}",
+        "threshold": "A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military).",
+        "confidence": "high",
+        "data_sources": [
+          "site_human_induced.nearest_airport_km",
+          "site_human_induced.nearest_airport_type",
+          "site_human_induced.nearest_airport_class",
+          "site_human_induced.nearest_military_airfield_km",
+          "site_human_induced.nearest_military_class",
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.nearest_high_consequence_military_class",
+          "site_human_induced.nearest_high_consequence_military_km",
+          "site_human_induced.hi06_quality",
+          "site_human_induced.flight_path_distance_km",
+          "site_human_induced.hi01_comment"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.471855+03:00"
+      },
+      {
+        "verdict_id": "d9cca838-3b4e-4bae-acce-7e3240beeab2",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-01",
+        "phase": "avoidance",
+        "prompt_key": "A4",
+        "verdict": "pass",
+        "measured_value": "{\"flight_path_distance_km\": 8.78, \"under_flight_path\": false}",
+        "threshold": "A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only).",
+        "confidence": "high",
+        "data_sources": [
+          "site_human_induced.nearest_airport_km",
+          "site_human_induced.nearest_airport_type",
+          "site_human_induced.nearest_airport_class",
+          "site_human_induced.nearest_military_airfield_km",
+          "site_human_induced.nearest_military_class",
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.nearest_high_consequence_military_class",
+          "site_human_induced.nearest_high_consequence_military_km",
+          "site_human_induced.hi06_quality",
+          "site_human_induced.flight_path_distance_km",
+          "site_human_induced.hi01_comment"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.472413+03:00"
+      },
+      {
+        "verdict_id": "c53dde01-ba66-4e7d-a958-9c9a00bb7fbc",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-02",
+        "phase": "avoidance",
+        "prompt_key": "A7",
+        "verdict": "pass",
+        "measured_value": "{\"hi02_search_completed\": true, \"nearest_seveso_km\": null}",
+        "threshold": "Project avoidance: >= 5 km from flammable/toxic/explosive storage.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage.",
+        "confidence": "high",
+        "data_sources": [
+          "site_human_induced.nearest_seveso_km",
+          "site_human_induced.nearest_ied_km",
+          "site_human_induced.hi02_quality"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.473241+03:00"
+      },
+      {
+        "verdict_id": "93560db5-d108-43b8-9ea2-8a9cbe149691",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-03",
+        "phase": "avoidance",
+        "prompt_key": "A8",
+        "verdict": "pass",
+        "measured_value": "{\"hi03_search_completed\": true, \"nearest_toxic_source_km\": 13.24}",
+        "threshold": "Project avoidance: >= 8 km from hazardous-cloud sources.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A8 — Project avoidance: >= 8 km from hazardous-cloud sources.",
+        "confidence": "high",
+        "data_sources": [
+          "site_human_induced.nearest_toxic_source_km",
+          "site_human_induced.toxic_source_type",
+          "site_human_induced.hi03_quality"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.474342+03:00"
+      },
+      {
+        "verdict_id": "7240e1e7-a858-49c4-aa1b-6dc8849597ff",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-06",
+        "phase": "avoidance",
+        "prompt_key": "A5",
+        "verdict": "pass",
+        "measured_value": "{\"military_type\": null, \"nearest_military_km\": null}",
+        "threshold": "Project A5: >= 30 km from practice/bombing/firing ranges.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A5 — Project A5: >= 30 km from practice/bombing/firing ranges.",
+        "confidence": "insufficient",
+        "data_sources": [
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.military_type"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.476846+03:00"
+      },
+      {
+        "verdict_id": "33c869db-3c6e-40d6-84db-f707a141665e",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-06",
+        "phase": "avoidance",
+        "prompt_key": "A6",
+        "verdict": "pass",
+        "measured_value": "{\"military_type\": null, \"nearest_military_km\": null}",
+        "threshold": "Project A6: >= 8 km from ammunition storage.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition storage.",
+        "confidence": "insufficient",
+        "data_sources": [
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.military_type"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.477438+03:00"
+      },
+      {
+        "verdict_id": "63fe6a7e-c90c-4d50-9c2e-1cfb5ea33cd4",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-01",
+        "phase": "avoidance",
+        "prompt_key": "A10",
+        "verdict": "inconclusive",
+        "measured_value": "{\"pga_2475yr_g\": null}",
+        "threshold": "Project screening: PGA(2475 yr) > 0.5 g fails Phase 2.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2.",
+        "confidence": "insufficient",
+        "data_sources": [
+          "site_natural_hazards.nh01_pga_475yr_g",
+          "site_natural_hazards.nh01_pga_2475yr_g",
+          "site_natural_hazards.vs30_ms"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.480685+03:00"
+      },
+      {
+        "verdict_id": "f9ee8999-9d94-4d33-be12-531cccb107be",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-02",
+        "phase": "exclusionary",
+        "prompt_key": "E1",
+        "verdict": "pass",
+        "measured_value": "{\"nearest_fault_km\": 50.0}",
+        "threshold": "Capable fault within score-5 pivot distance.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: E1 — Capable fault within score-5 pivot distance.",
+        "confidence": "medium",
+        "data_sources": [
+          "site_natural_hazards.nearest_fault_km",
+          "site_natural_hazards.fault_name",
+          "site_natural_hazards.fault_slip_rate_mm_yr"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.482136+03:00"
+      },
+      {
+        "verdict_id": "f1db6431-ca67-4036-abc3-a2f1d1849032",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-03",
+        "phase": "exclusionary",
+        "prompt_key": "E2",
+        "verdict": "pass",
+        "measured_value": "{\"has_remedy\": null, \"liquefaction_suscept\": \"high\"}",
+        "threshold": "High or very-high liquefaction susceptibility with no engineering remedy.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy.",
+        "confidence": "medium",
+        "data_sources": [
+          "site_natural_hazards.liquefaction_suscept",
+          "site_natural_hazards.nh03_quality",
+          "site_natural_hazards.nh03_source",
+          "site_natural_hazards.bearing_capacity_kpa",
+          "site_natural_hazards.groundwater_depth_m",
+          "site_natural_hazards.pga_475yr_g",
+          "site_natural_hazards.depth_to_bedrock_m"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.483297+03:00"
+      },
+      {
+        "verdict_id": "c32fd0c4-ff58-4676-be36-07f720cb64af",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-04",
+        "phase": "exclusionary",
+        "prompt_key": "E3",
+        "verdict": "pass",
+        "measured_value": "{\"slope_angle_deg\": 7.49}",
+        "threshold": "Slope above the SSG-9 mitigable envelope (score-5 pivot).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot).",
+        "confidence": "low",
+        "data_sources": [
+          "site_natural_hazards.slope_angle_deg",
+          "site_natural_hazards.slope_stability_class",
+          "site_natural_hazards.nh04_dem_cog_slope_max_deg"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.484432+03:00"
+      },
+      {
+        "verdict_id": "f293bbd8-77bd-4c4e-b6a1-ac84703b83aa",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-07",
+        "phase": "exclusionary",
+        "prompt_key": "E4",
+        "verdict": "inconclusive",
+        "measured_value": "{\"nearest_volcano_km\": null}",
+        "threshold": "Holocene volcano within score-5 pivot distance.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance.",
+        "confidence": "high",
+        "data_sources": [
+          "site_natural_hazards.nearest_volcano_km",
+          "site_natural_hazards.volcano_name",
+          "site_natural_hazards.nh07_hazard_class"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.486055+03:00"
+      },
+      {
+        "verdict_id": "1fa54194-d9d9-493e-a0fc-1f088d360d69",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-08",
+        "phase": "avoidance",
+        "prompt_key": "A9",
+        "verdict": "pass",
+        "measured_value": "{\"coast_distance_km\": null, \"elevation_m\": 290.53, \"storm_surge_class\": null, \"tsunami_zone_flag\": null}",
+        "threshold": "A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3.",
+        "confidence": "insufficient",
+        "data_sources": [
+          "site_natural_hazards.coast_distance_km",
+          "site_natural_hazards.storm_surge_class",
+          "site_natural_hazards.tsunami_zone_flag",
+          "sites.elevation_m"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.487407+03:00"
+      },
+      {
+        "verdict_id": "3e9b1056-da6d-41ff-abd4-3cc7e400f000",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-09",
+        "phase": "avoidance",
+        "prompt_key": "A11",
+        "verdict": "pass",
+        "measured_value": "{\"elevation_above_design_flood_m\": null, \"river_distance_km\": null}",
+        "threshold": "Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft).",
+        "confidence": "insufficient",
+        "data_sources": [
+          "site_natural_hazards.river_distance_km",
+          "site_natural_hazards.elevation_above_design_flood_m",
+          "site_natural_hazards.flood_zone_class_500yr"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.488737+03:00"
+      },
+      {
+        "verdict_id": "4bb87507-d608-4629-8eff-0e67560b83a0",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-01",
+        "phase": "avoidance",
+        "prompt_key": null,
+        "verdict": "pass",
+        "measured_value": "{\"cooling_distance_km\": 0.58, \"water_stress_label\": \"Low-Medium\"}",
+        "threshold": "Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation).",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation).",
+        "confidence": "medium",
+        "data_sources": [
+          "site_infrastructure_v2.cooling_source_type",
+          "site_infrastructure_v2.cooling_source_name",
+          "site_infrastructure_v2.cooling_source_hyriv_id",
+          "site_infrastructure_v2.cooling_distance_km",
+          "site_infrastructure_v2.cooling_flow_m3s",
+          "site_infrastructure_v2.water_stress_score",
+          "site_infrastructure_v2.water_stress_label"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.491527+03:00"
+      },
+      {
+        "verdict_id": "7f5ba6b1-dd82-4d5f-8a50-5918ec2b21eb",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-02",
+        "phase": "avoidance",
+        "prompt_key": "A13",
+        "verdict": "pass",
+        "measured_value": "{\"grid_export_capacity_mw\": 800.0}",
+        "threshold": "Project A13: transmission >= reference SMR net MWe within feasible distance.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance.",
+        "confidence": "medium",
+        "data_sources": [
+          "site_infrastructure_v2.nearest_substation_km",
+          "site_infrastructure_v2.nearest_hv_line_km",
+          "site_infrastructure_v2.hv_line_voltage_kv",
+          "site_infrastructure_v2.grid_export_capacity_mw"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.492584+03:00"
+      },
+      {
+        "verdict_id": "993eb202-c134-4f99-8ce0-9b868a2a1588",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-03",
+        "phase": "avoidance",
+        "prompt_key": "A14",
+        "verdict": "pass",
+        "measured_value": "{\"heavy_haul_capable\": true}",
+        "threshold": "Project A14: heavy-haul access >= 700 t segment capacity.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity.",
+        "confidence": "high",
+        "data_sources": [
+          "site_infrastructure_v2.nearest_highway_km",
+          "site_infrastructure_v2.nearest_rail_km",
+          "site_infrastructure_v2.nearest_waterway_km",
+          "site_infrastructure_v2.heavy_haul_capable"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.493482+03:00"
+      },
+      {
+        "verdict_id": "582b4452-1806-49bf-90c3-b20327679631",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-05",
+        "phase": "avoidance",
+        "prompt_key": "A15",
+        "verdict": "pass",
+        "measured_value": "{\"site_area_ha\": 50.0}",
+        "threshold": "Project A15: >= 14 ha canonical site area.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A15 — Project A15: >= 14 ha canonical site area.",
+        "confidence": "medium",
+        "data_sources": [
+          "sites.site_area_ha",
+          "site_infrastructure_v2.favourable_area_ha",
+          "site_infrastructure_v2.favourable_area_method",
+          "site_infrastructure_v2.patch_count"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.494824+03:00"
+      },
+      {
+        "verdict_id": "ae0c0881-bf62-499a-8f9d-6f200b776f3a",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-08",
+        "phase": "exclusionary",
+        "prompt_key": "E7",
+        "verdict": "pass",
+        "measured_value": "{\"site_within_strict_protected\": false}",
+        "threshold": "Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap.",
+        "confidence": "high",
+        "data_sources": [
+          "site_infrastructure_v2.n2k_nearest_distance_km",
+          "site_infrastructure_v2.wdpa_nearest_distance_km",
+          "site_infrastructure_v2.ecological_natural_pct",
+          "site_infrastructure_v2.n2k_overlap",
+          "site_infrastructure_v2.wdpa_overlap",
+          "site_infrastructure_v2.n2k_sensitivity_class",
+          "site_infrastructure_v2.wdpa_sensitivity_class",
+          "site_infrastructure_v2.n2k_result_json",
+          "site_infrastructure_v2.wdpa_result_json"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.496441+03:00"
+      },
+      {
+        "verdict_id": "d4c19be1-0f8d-4901-95b4-881100e372e2",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-05",
+        "phase": "avoidance",
+        "prompt_key": "A12",
+        "verdict": "pass",
+        "measured_value": "{\"nearest_city_50k_km\": 29.68, \"ri05_required_distance_km\": 16.0}",
+        "threshold": "Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km.",
+        "measured_value_numeric": null,
+        "threshold_numeric": null,
+        "measured_units": null,
+        "justification": "not_triggered: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km.",
+        "confidence": "medium",
+        "data_sources": [
+          "site_radiological.nearest_city_50k_km",
+          "site_radiological.nearest_city_pop",
+          "site_radiological.pop_density_16km",
+          "site_radiological.pop_total_16km"
+        ],
+        "sources_needed": null,
+        "run_id": "score-c2a90942",
+        "screened_at": "2026-05-23T19:53:12.501272+03:00"
+      }
+    ],
+    "failure_explanation": {
+      "outcome": null,
+      "verdicts": [
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A1 — A1 — SSG-35: general-aviation / small / heliport airport < 10 km."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A1 — A1 — SSG-35: general-aviation / small / heliport airport < 10 km."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A1 — A1 — SSG-35: general-aviation / small / heliport airport < 10 km."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A2 — A2 — Project: commercial / large / medium airport < 15 km (SSG-35 ≥ 16 km)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A4 — A4 — SSG-35: flight-path overhead / < 4 km from airway (large + medium classes only)."
+        },
+        {
+          "criterion_id": "HI-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A3 — A3 — Project: military airport < 30 km (SSG-35 ≥ 16 km military)."
+        },
+        {
+          "criterion_id": "HI-02",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage."
+        },
+        {
+          "criterion_id": "HI-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage."
+        },
+        {
+          "criterion_id": "HI-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage."
+        },
+        {
+          "criterion_id": "HI-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage."
+        },
+        {
+          "criterion_id": "HI-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A7 — Project avoidance: >= 5 km from flammable/toxic/explosive storage."
+        },
+        {
+          "criterion_id": "HI-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A8 — Project avoidance: >= 8 km from hazardous-cloud sources."
+        },
+        {
+          "criterion_id": "HI-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A8 — Project avoidance: >= 8 km from hazardous-cloud sources."
+        },
+        {
+          "criterion_id": "HI-03",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A8 — Project avoidance: >= 8 km from hazardous-cloud sources."
+        },
+        {
+          "criterion_id": "HI-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A8 — Project avoidance: >= 8 km from hazardous-cloud sources."
+        },
+        {
+          "criterion_id": "HI-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A8 — Project avoidance: >= 8 km from hazardous-cloud sources."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition storage."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A5 — Project A5: >= 30 km from practice/bombing/firing ranges."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A5 — Project A5: >= 30 km from practice/bombing/firing ranges."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A5 — Project A5: >= 30 km from practice/bombing/firing ranges."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A5 — Project A5: >= 30 km from training-area / practice / bombing / firing range."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition / depot."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition storage."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition storage."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A6 — Project A6: >= 8 km from ammunition storage."
+        },
+        {
+          "criterion_id": "HI-06",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A5 — Project A5: >= 30 km from practice/bombing/firing ranges."
+        },
+        {
+          "criterion_id": "NH-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."
+        },
+        {
+          "criterion_id": "NH-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."
+        },
+        {
+          "criterion_id": "NH-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."
+        },
+        {
+          "criterion_id": "NH-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."
+        },
+        {
+          "criterion_id": "NH-01",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A10 — Project screening: PGA(2475 yr) > 0.5 g fails Phase 2."
+        },
+        {
+          "criterion_id": "NH-08",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."
+        },
+        {
+          "criterion_id": "NH-08",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."
+        },
+        {
+          "criterion_id": "NH-08",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."
+        },
+        {
+          "criterion_id": "NH-08",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."
+        },
+        {
+          "criterion_id": "NH-08",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A9 — A9 caution: measured sea-coast distance is < 10 km at < 50 m AMSL, or positive storm-surge/tsunami proxy evidence exists for a low-elevation site. Missing coast distance alone is a data gap, not coastal exposure; confirm coastal flooding and tsunami exposure in Stage 3."
+        },
+        {
+          "criterion_id": "NH-09",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."
+        },
+        {
+          "criterion_id": "NH-09",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."
+        },
+        {
+          "criterion_id": "NH-09",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."
+        },
+        {
+          "criterion_id": "NH-09",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."
+        },
+        {
+          "criterion_id": "NH-09",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A11 — Project avoidance: >= 4 km OR vertical separation >= 30.5 m (100 ft)."
+        },
+        {
+          "criterion_id": "NS-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."
+        },
+        {
+          "criterion_id": "NS-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."
+        },
+        {
+          "criterion_id": "NS-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."
+        },
+        {
+          "criterion_id": "NS-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."
+        },
+        {
+          "criterion_id": "NS-01",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A16 — Cooling source > 10 km AND WRI Aqueduct water stress High / Extremely High; flag for cooling-tower or dry/hybrid cooling design review (SSG-35 §4.9 ultimate-heat-sink characterisation)."
+        },
+        {
+          "criterion_id": "NS-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance."
+        },
+        {
+          "criterion_id": "NS-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance."
+        },
+        {
+          "criterion_id": "NS-02",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance."
+        },
+        {
+          "criterion_id": "NS-02",
+          "phase": "avoidance",
+          "verdict": "caution",
+          "justification": "AVOIDANCE_FLAGGED: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance."
+        },
+        {
+          "criterion_id": "NS-02",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A13 — Project A13: transmission >= reference SMR net MWe within feasible distance."
+        },
+        {
+          "criterion_id": "NS-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity."
+        },
+        {
+          "criterion_id": "NS-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity."
+        },
+        {
+          "criterion_id": "NS-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity."
+        },
+        {
+          "criterion_id": "NS-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity."
+        },
+        {
+          "criterion_id": "NS-03",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A14 — Project A14: heavy-haul access >= 700 t segment capacity."
+        },
+        {
+          "criterion_id": "NS-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A15 — Project A15: >= 14 ha canonical site area."
+        },
+        {
+          "criterion_id": "NS-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A15 — Project A15: >= 14 ha canonical site area."
+        },
+        {
+          "criterion_id": "NS-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A15 — Project A15: >= 14 ha contiguous industrial land."
+        },
+        {
+          "criterion_id": "NS-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A15 — Project A15: >= 14 ha canonical site area."
+        },
+        {
+          "criterion_id": "NS-05",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A15 — Project A15: >= 14 ha canonical site area."
+        },
+        {
+          "criterion_id": "RI-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."
+        },
+        {
+          "criterion_id": "RI-05",
+          "phase": "avoidance",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."
+        },
+        {
+          "criterion_id": "RI-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."
+        },
+        {
+          "criterion_id": "RI-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."
+        },
+        {
+          "criterion_id": "RI-05",
+          "phase": "avoidance",
+          "verdict": "pass",
+          "justification": "not_triggered: A12 — Nearest >=50k population-centre proxy: 50k/>=8 km, 100k/>=16 km, 500k/>=32 km, 1M/>=48 km."
+        },
+        {
+          "criterion_id": "EP-01",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor."
+        },
+        {
+          "criterion_id": "EP-01",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor."
+        },
+        {
+          "criterion_id": "EP-01",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor."
+        },
+        {
+          "criterion_id": "EP-01",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor."
+        },
+        {
+          "criterion_id": "EP-01",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E8 — DRV-02 composite < 30: emergency-plan feasibility below the project hard floor."
+        },
+        {
+          "criterion_id": "NH-02",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E1 — Capable fault within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-02",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E1 — Capable fault within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-02",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E1 — Capable fault within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-02",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E1 — Capable fault within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-02",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E1 — Capable fault within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-03",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy."
+        },
+        {
+          "criterion_id": "NH-03",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy."
+        },
+        {
+          "criterion_id": "NH-03",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy."
+        },
+        {
+          "criterion_id": "NH-03",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy."
+        },
+        {
+          "criterion_id": "NH-03",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E2 — High or very-high liquefaction susceptibility with no engineering remedy."
+        },
+        {
+          "criterion_id": "NH-04",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot)."
+        },
+        {
+          "criterion_id": "NH-04",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot)."
+        },
+        {
+          "criterion_id": "NH-04",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot)."
+        },
+        {
+          "criterion_id": "NH-04",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot)."
+        },
+        {
+          "criterion_id": "NH-04",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E3 — Slope above the SSG-9 mitigable envelope (score-5 pivot)."
+        },
+        {
+          "criterion_id": "NH-07",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-07",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-07",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-07",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NH-07",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E4 — Holocene volcano within score-5 pivot distance."
+        },
+        {
+          "criterion_id": "NS-08",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap."
+        },
+        {
+          "criterion_id": "NS-08",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap."
+        },
+        {
+          "criterion_id": "NS-08",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap."
+        },
+        {
+          "criterion_id": "NS-08",
+          "phase": "exclusionary",
+          "verdict": "pass",
+          "justification": "not_triggered: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap."
+        },
+        {
+          "criterion_id": "NS-08",
+          "phase": "exclusionary",
+          "verdict": "inconclusive",
+          "justification": "inconclusive: E7 — Natura 2000 polygon overlap OR WDPA IUCN Ia/Ib/II polygon overlap OR international-designation polygon overlap."
+        }
+      ]
+    }
+  },
+  "scoring": {
+    "composite_rankings": [
+      {
+        "ranking_id": "06b12a27-b3c5-436b-9834-b6ded3af192e",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "composite_score": 7.114,
+        "composite_score_low": 5.285,
+        "composite_score_high": 7.555,
+        "weight_profile": "baseline",
+        "rank_position": null,
+        "passed_exclusionary": true,
+        "passed_avoidance": true,
+        "criteria_coverage": 52.94,
+        "avg_confidence": "low",
+        "sensitivity_stable": null,
+        "per_category_scores": {
+          "notes": [
+            "high_unscored_fraction"
+          ],
+          "categories": {
+            "EP": 4.32,
+            "HI": 7.94,
+            "NH": 6.57,
+            "NS": 8.26,
+            "RI": 7.67
+          },
+          "unscored_fraction": 0.4444
+        },
+        "run_id": "score-c2a90942",
+        "ranked_at": "2026-05-23T19:53:27.627970+03:00"
+      }
+    ],
+    "ranking_scores": [
+      {
+        "score_id": "b3085b29-0715-4146-a33b-155dfdeab8a0",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "BF-01",
+        "score_0_10": 1.5,
+        "score_low_0_10": 1.0,
+        "score_high_0_10": 2.0,
+        "weight_factor": 8,
+        "weight_normalised": null,
+        "quality_flag": "low",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Note: no credible substation route.\", \"criterion\": \"BF-01\", \"name\": \"Grid export / connection adequacy (basic-filter note)\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_infrastructure_v2.nearest_substation_km\", \"site_infrastructure_v2.hv_line_voltage_kv\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_infrastructure_v2.nearest_substation_km",
+          "site_infrastructure_v2.hv_line_voltage_kv",
+          "site_infrastructure_v2.grid_export_capacity_mw"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.479260+03:00"
+      },
+      {
+        "score_id": "cc64db10-b574-4518-af05-12f97573cdd0",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "BF-02",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "low",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Contiguous and buildable >= required area (50 ha/module).\", \"criterion\": \"BF-02\", \"name\": \"Land / nuclear-island footprint\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_infrastructure_v2.favourable_area_ha\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_infrastructure_v2.favourable_area_ha",
+          "site_infrastructure_v2.buildable_area_ha",
+          "site_infrastructure_v2.largest_contiguous_ha",
+          "sites.site_area_ha"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.479906+03:00"
+      },
+      {
+        "score_id": "6b29094a-f0ad-4f28-a1fc-563d14fedb90",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-01",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 8,
+        "weight_normalised": null,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"At or above the composite score-5 boundary.\", \"criterion\": \"EP-01\", \"name\": \"Emergency-plan feasibility (composite)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_emergency.ep01_composite_score"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.468579+03:00"
+      },
+      {
+        "score_id": "64841ac6-673a-4229-a149-5faa30f3e6c2",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-02",
+        "score_0_10": 3.5,
+        "score_low_0_10": 3.0,
+        "score_high_0_10": 4.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Significant bottlenecks (0.3-0.5).\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_emergency.road_density_km_per_km2",
+          "site_emergency.has_motorway_access"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.469346+03:00"
+      },
+      {
+        "score_id": "b43e793c-ce35-47f1-a9f4-8f0c7f0561da",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-03",
+        "score_0_10": 1.5,
+        "score_low_0_10": 1.0,
+        "score_high_0_10": 2.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"No measured relief; major river barrier (interim).\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_emergency.relief_m_per_10km\", \"site_emergency.ep03_gee_relief_16km_m\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_emergency.major_river_barrier",
+          "site_emergency.waterway_count_epz",
+          "site_emergency.relief_m_per_10km",
+          "site_emergency.ep03_gee_relief_16km_m"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.469913+03:00"
+      },
+      {
+        "score_id": "d39dea76-0a13-44b8-9dd3-a551f199c7d1",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "EP-04",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"3-8.\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_emergency.hospital_count_epz",
+          "site_emergency.prison_count_epz",
+          "site_emergency.care_home_count_epz"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.470909+03:00"
+      },
+      {
+        "score_id": "81a2c119-bbd8-4728-89df-eb8784d3e14d",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-01",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 7,
+        "weight_normalised": 0.0354,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy.\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_military_airfield_km\", \"site_human_induced.nearest_military_class\", \"site_human_induced.nearest_military_km\", \"site_human_induced.nearest_high_consequence_military_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}",
+        "data_sources": [
+          "site_human_induced.nearest_airport_km",
+          "site_human_induced.nearest_airport_type",
+          "site_human_induced.nearest_airport_class",
+          "site_human_induced.nearest_military_airfield_km",
+          "site_human_induced.nearest_military_class",
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.nearest_high_consequence_military_class",
+          "site_human_induced.nearest_high_consequence_military_km",
+          "site_human_induced.hi06_quality",
+          "site_human_induced.flight_path_distance_km",
+          "site_human_induced.hi01_comment"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.472825+03:00"
+      },
+      {
+        "score_id": "ac147eae-3e35-4f95-8d99-60e94c6b3da7",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-02",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 7,
+        "weight_normalised": 0.0354,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal).\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}",
+        "data_sources": [
+          "site_human_induced.nearest_seveso_km",
+          "site_human_induced.nearest_ied_km",
+          "site_human_induced.hi02_quality"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.473867+03:00"
+      },
+      {
+        "score_id": "5373b6f2-f923-4ae6-b6e2-b94780d7034b",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-03",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 7,
+        "weight_normalised": 0.0354,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"At or above the score-5 boundary.\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.toxic_source_type\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}",
+        "data_sources": [
+          "site_human_induced.nearest_toxic_source_km",
+          "site_human_induced.toxic_source_type",
+          "site_human_induced.hi03_quality"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.474815+03:00"
+      },
+      {
+        "score_id": "d4f09243-11ff-46ca-a89b-f1f4c4570aa7",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-04",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 15 km, or completed flammable-storage search found nothing in radius.\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_human_induced.nearest_flammable_storage_km",
+          "site_human_induced.nearest_pipeline_km",
+          "site_human_induced.hi04_quality"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.475352+03:00"
+      },
+      {
+        "score_id": "3bed12fc-e271-46cb-82c3-c8d47a17f13b",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-06",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"HI-06\", \"name\": \"Military installations\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_human_induced.nearest_military_km\", \"site_human_induced.military_type\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_human_induced.nearest_military_km",
+          "site_human_induced.military_type"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.478063+03:00"
+      },
+      {
+        "score_id": "6d900e6f-22f3-4f55-9fcc-0c569762bdd4",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "HI-07",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 2,
+        "weight_normalised": 0.0101,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"HI-07\", \"name\": \"Electromagnetic interference\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_human_induced.transmitter_count_10km\", \"site_human_induced.nearest_transmitter_km\", \"site_human_induced.transmitter_type\", \"site_human_induced.hi07_quality\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 2}",
+        "data_sources": [
+          "site_human_induced.transmitter_count_10km",
+          "site_human_induced.nearest_transmitter_km",
+          "site_human_induced.transmitter_type",
+          "site_human_induced.hi07_quality",
+          "site_human_induced.hi07_comment",
+          "site_human_induced.run_id",
+          "site_human_induced.fetched_at"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.478875+03:00"
+      },
+      {
+        "score_id": "06d06c09-2bf3-4906-83cc-f45a1e2eb714",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-01",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 9,
+        "weight_normalised": 0.0455,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NH-01\", \"name\": \"Seismic ground motion (PGA)\", \"notes\": [\"unscored\"], \"quality\": \"insufficient\", \"raw_misses\": [\"site_natural_hazards.nh01_pga_475yr_g\", \"site_natural_hazards.nh01_pga_2475yr_g\", \"site_natural_hazards.vs30_ms\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 9}",
+        "data_sources": [
+          "site_natural_hazards.nh01_pga_475yr_g",
+          "site_natural_hazards.nh01_pga_2475yr_g",
+          "site_natural_hazards.vs30_ms"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.481129+03:00"
+      },
+      {
+        "score_id": "c8786cf3-2bb0-4f0c-8cfd-08585015372a",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-02",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 9,
+        "weight_normalised": null,
+        "quality_flag": "low",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Very strong separation from mapped capable faults; surface-rupture concern effectively screened at desk-study level.\", \"criterion\": \"NH-02\", \"name\": \"Seismic surface rupture (capable faults)\", \"notes\": [], \"quality\": \"efsm20_no_fault_50km\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 9}",
+        "data_sources": [
+          "site_natural_hazards.nearest_fault_km",
+          "site_natural_hazards.fault_name",
+          "site_natural_hazards.fault_slip_rate_mm_yr"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.482564+03:00"
+      },
+      {
+        "score_id": "75b329ec-0232-4e0f-a466-f6da443553fd",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-03",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 7,
+        "weight_normalised": null,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Moderate susceptibility, or high/very-high with documented (or pending for `high`) mitigation.\", \"criterion\": \"NH-03\", \"name\": \"Geotechnical - settlement and liquefaction\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\", \"site_natural_hazards.pga_475yr_g\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}",
+        "data_sources": [
+          "site_natural_hazards.liquefaction_suscept",
+          "site_natural_hazards.nh03_quality",
+          "site_natural_hazards.nh03_source",
+          "site_natural_hazards.bearing_capacity_kpa",
+          "site_natural_hazards.groundwater_depth_m",
+          "site_natural_hazards.pga_475yr_g",
+          "site_natural_hazards.depth_to_bedrock_m"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.483565+03:00"
+      },
+      {
+        "score_id": "c1d70285-8610-4d21-aacc-817ea5b4e1a5",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-04",
+        "score_0_10": 7.5,
+        "score_low_0_10": 5.5,
+        "score_high_0_10": 9.5,
+        "weight_factor": 5,
+        "weight_normalised": null,
+        "quality_flag": "low",
+        "confidence": "low",
+        "justification": "{\"band\": \"Low risk relative to the score-5 boundary.\", \"criterion\": \"NH-04\", \"name\": \"Geotechnical - slope stability\", \"notes\": [], \"quality\": \"low\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_natural_hazards.slope_angle_deg",
+          "site_natural_hazards.slope_stability_class",
+          "site_natural_hazards.nh04_dem_cog_slope_max_deg"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.485059+03:00"
+      },
+      {
+        "score_id": "d8bd44f9-805d-4269-aab4-17a6ce367934",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-05",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 7,
+        "weight_normalised": 0.0354,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear mine-distance margin with low geotechnical proxy risk (or unknown).\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_distance_km\", \"site_natural_hazards.subsidence_risk_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}",
+        "data_sources": [
+          "site_natural_hazards.karst_present",
+          "site_natural_hazards.karst_severity",
+          "site_natural_hazards.karst_formation_type",
+          "site_natural_hazards.mining_void_present",
+          "site_natural_hazards.mining_void_distance_km",
+          "site_natural_hazards.subsidence_risk_class"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.485451+03:00"
+      },
+      {
+        "score_id": "b5efe834-be5a-4f31-bea9-70eba70e99ad",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-06",
+        "score_0_10": 3.5,
+        "score_low_0_10": 3.0,
+        "score_high_0_10": 4.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m.\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\"], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_natural_hazards.bearing_capacity_kpa",
+          "site_natural_hazards.depth_to_bedrock_m",
+          "site_natural_hazards.groundwater_depth_m"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.485799+03:00"
+      },
+      {
+        "score_id": "447782ed-a9f2-45bd-94d2-1c8791299d89",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-07",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 10,
+        "weight_normalised": null,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary (or connector confirmed no in-radius signal).\", \"criterion\": \"NH-07\", \"name\": \"Volcanism\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_natural_hazards.nearest_volcano_km\", \"site_natural_hazards.volcano_name\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}",
+        "data_sources": [
+          "site_natural_hazards.nearest_volcano_km",
+          "site_natural_hazards.volcano_name",
+          "site_natural_hazards.nh07_hazard_class"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.486896+03:00"
+      },
+      {
+        "score_id": "77549dec-78c6-47c1-912c-6386b5c3e14d",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-08",
+        "score_0_10": 9.5,
+        "score_low_0_10": 7.5,
+        "score_high_0_10": 10.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "insufficient",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Non-coastal OR elevation >= 50 m AMSL OR landlocked country, with no positive marine-hazard signal.\", \"criterion\": \"NH-08\", \"name\": \"Coastal flooding (storm surge, tsunami)\", \"notes\": [], \"quality\": \"insufficient\", \"raw_misses\": [\"site_natural_hazards.coast_distance_km\", \"site_natural_hazards.storm_surge_class\", \"site_natural_hazards.tsunami_zone_flag\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_natural_hazards.coast_distance_km",
+          "site_natural_hazards.storm_surge_class",
+          "site_natural_hazards.tsunami_zone_flag",
+          "sites.elevation_m"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.488184+03:00"
+      },
+      {
+        "score_id": "a8d18f24-35b1-44aa-ae84-42acebd91984",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-09",
+        "score_0_10": 7.5,
+        "score_low_0_10": 5.5,
+        "score_high_0_10": 9.5,
+        "weight_factor": 8,
+        "weight_normalised": 0.0404,
+        "quality_flag": "insufficient",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Low flood-zone class OR >= 4-6 km river separation; meets project A11.\", \"criterion\": \"NH-09\", \"name\": \"River flooding\", \"notes\": [], \"quality\": \"insufficient\", \"raw_misses\": [\"site_natural_hazards.river_distance_km\", \"site_natural_hazards.elevation_above_design_flood_m\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_natural_hazards.river_distance_km",
+          "site_natural_hazards.elevation_above_design_flood_m",
+          "site_natural_hazards.flood_zone_class_500yr"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.489171+03:00"
+      },
+      {
+        "score_id": "55784ed8-4bec-488d-be2f-5c94e19091d3",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-10",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 3,
+        "weight_normalised": 0.0152,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s).\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}",
+        "data_sources": [
+          "site_natural_hazards.max_wind_speed_ms",
+          "site_natural_hazards.nh10_quality",
+          "site_natural_hazards.nh10_comment",
+          "site_natural_hazards.run_id",
+          "site_natural_hazards.fetched_at"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.489658+03:00"
+      },
+      {
+        "score_id": "553c64db-2298-4f6a-a2e6-287934c694ae",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-11",
+        "score_0_10": 8.0,
+        "score_low_0_10": 8.0,
+        "score_high_0_10": 9.0,
+        "weight_factor": 3,
+        "weight_normalised": 0.0152,
+        "quality_flag": "low",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"partial_unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.freezing_days_per_year\"], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 3}",
+        "data_sources": [
+          "site_natural_hazards.spi12_min",
+          "site_natural_hazards.snow_months_per_year",
+          "site_natural_hazards.mean_annual_precip_mm",
+          "site_natural_hazards.extreme_precip_mm",
+          "site_natural_hazards.freezing_days_per_year"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.490332+03:00"
+      },
+      {
+        "score_id": "4405aef2-eee3-464d-9a02-076505539612",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-12",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 4,
+        "weight_normalised": 0.0202,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 4}",
+        "data_sources": [
+          "site_natural_hazards.extreme_temp_max_c",
+          "site_natural_hazards.extreme_temp_min_c",
+          "site_natural_hazards.nh12_quality",
+          "site_natural_hazards.nh12_comment",
+          "site_natural_hazards.run_id",
+          "site_natural_hazards.fetched_at"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.490681+03:00"
+      },
+      {
+        "score_id": "8ca8906d-c863-4d5a-8007-43a0b36db58e",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NH-14",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 3,
+        "weight_normalised": 0.0152,
+        "quality_flag": "low",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"At least 5 resolved, min >= 5, at most one criterion below 7.\", \"criterion\": \"NH-14\", \"name\": \"Combined hazards\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.nh14_combined_index\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 3}",
+        "data_sources": [
+          "site_natural_hazards.nh14_combined_index"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.491008+03:00"
+      },
+      {
+        "score_id": "454c9a5b-1606-4f96-b60c-868a824b0b8d",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-01",
+        "score_0_10": 8.0,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 8,
+        "weight_normalised": 0.0404,
+        "quality_flag": "low",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [], \"quality\": \"hydrorivers_global\", \"raw_misses\": [], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_infrastructure_v2.cooling_source_type",
+          "site_infrastructure_v2.cooling_source_name",
+          "site_infrastructure_v2.cooling_source_hyriv_id",
+          "site_infrastructure_v2.cooling_distance_km",
+          "site_infrastructure_v2.cooling_flow_m3s",
+          "site_infrastructure_v2.water_stress_score",
+          "site_infrastructure_v2.water_stress_label"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.492064+03:00"
+      },
+      {
+        "score_id": "ebc6282c-988b-40b2-8d49-ea989306fa81",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-02",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 8,
+        "weight_normalised": 0.0404,
+        "quality_flag": "unscored",
+        "confidence": "medium",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-02\", \"name\": \"Grid connection (detailed)\", \"notes\": [\"unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_infrastructure_v2.nearest_substation_km\", \"site_infrastructure_v2.nearest_hv_line_km\", \"site_infrastructure_v2.hv_line_voltage_kv\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_infrastructure_v2.nearest_substation_km",
+          "site_infrastructure_v2.nearest_hv_line_km",
+          "site_infrastructure_v2.hv_line_voltage_kv",
+          "site_infrastructure_v2.grid_export_capacity_mw"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.493022+03:00"
+      },
+      {
+        "score_id": "6fbe5650-1030-49d6-a217-e0650154db17",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-03",
+        "score_0_10": 9.0,
+        "score_low_0_10": 8.0,
+        "score_high_0_10": 9.0,
+        "weight_factor": 8,
+        "weight_normalised": 0.0404,
+        "quality_flag": "low",
+        "confidence": "high",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"partial_unscored\"], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.nearest_waterway_km\"], \"score\": 9.0, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_infrastructure_v2.nearest_highway_km",
+          "site_infrastructure_v2.nearest_rail_km",
+          "site_infrastructure_v2.nearest_waterway_km",
+          "site_infrastructure_v2.heavy_haul_capable"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.493898+03:00"
+      },
+      {
+        "score_id": "dc5582ee-9da9-4881-9a2f-7126237ace67",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-04",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "unscored",
+        "confidence": "medium",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-04\", \"name\": \"Site topography / grading\", \"notes\": [\"unscored\"], \"quality\": \"copernicus_dem_30m\", \"raw_misses\": [\"site_infrastructure_v2.favourable_land_pct\", \"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_infrastructure_v2.favourable_land_pct",
+          "site_infrastructure_v2.favourable_area_ha",
+          "site_infrastructure_v2.favourable_area_method"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.494348+03:00"
+      },
+      {
+        "score_id": "328707a5-3dd2-407a-93f1-b3954d38081e",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-05",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\", \"site_infrastructure_v2.patch_count\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "sites.site_area_ha",
+          "site_infrastructure_v2.favourable_area_ha",
+          "site_infrastructure_v2.favourable_area_method",
+          "site_infrastructure_v2.patch_count"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.495203+03:00"
+      },
+      {
+        "score_id": "47d2602c-00e7-421c-b6e3-5ac189e18586",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-06",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-06\", \"name\": \"Existing infrastructure reuse\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": null,
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.496000+03:00"
+      },
+      {
+        "score_id": "f84f0076-abe8-4d90-a42d-88a67f862675",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-08",
+        "score_0_10": 1.5,
+        "score_low_0_10": 1.0,
+        "score_high_0_10": 2.0,
+        "weight_factor": 6,
+        "weight_normalised": null,
+        "quality_flag": "high",
+        "confidence": "high",
+        "justification": "{\"band\": \"< 2 km of either Natura 2000 or WDPA boundary; severe ecology penalty.\", \"criterion\": \"NS-08\", \"name\": \"Ecological sensitivity (Natura 2000 / WDPA)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.wdpa_nearest_distance_km\", \"site_infrastructure_v2.ecological_natural_pct\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_infrastructure_v2.n2k_nearest_distance_km",
+          "site_infrastructure_v2.wdpa_nearest_distance_km",
+          "site_infrastructure_v2.ecological_natural_pct",
+          "site_infrastructure_v2.n2k_overlap",
+          "site_infrastructure_v2.wdpa_overlap",
+          "site_infrastructure_v2.n2k_sensitivity_class",
+          "site_infrastructure_v2.wdpa_sensitivity_class",
+          "site_infrastructure_v2.n2k_result_json",
+          "site_infrastructure_v2.wdpa_result_json"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.496875+03:00"
+      },
+      {
+        "score_id": "c472b1e8-a30c-4390-83e7-521729ca8fe3",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-10",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 4,
+        "weight_normalised": 0.0202,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-10\", \"name\": \"Workforce availability\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 4}",
+        "data_sources": null,
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.497269+03:00"
+      },
+      {
+        "score_id": "e64e0da7-abc5-46fd-919b-e3375c60d2fe",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-12",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-12\", \"name\": \"Regulatory / political environment\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": null,
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.497855+03:00"
+      },
+      {
+        "score_id": "e6f18d3b-6cd0-47be-bdf5-74e9528bb4ee",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "NS-13",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 4,
+        "weight_normalised": 0.0202,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-13\", \"name\": \"Construction logistics\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 4}",
+        "data_sources": null,
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.498328+03:00"
+      },
+      {
+        "score_id": "81d494ef-54cb-43ad-bcdb-2abb8ec3fb2f",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-01",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 6,
+        "weight_normalised": 0.0303,
+        "quality_flag": "unscored",
+        "confidence": "medium",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-01\", \"name\": \"Atmospheric dispersion (wind, stability, BLH)\", \"notes\": [\"unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.wind_rose_json\", \"site_radiological.pg_class_f_fraction\", \"site_radiological.pg_class_e_fraction\", \"site_radiological.mean_mixing_height_m\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}",
+        "data_sources": [
+          "site_radiological.wind_rose_json",
+          "site_radiological.pg_class_f_fraction",
+          "site_radiological.pg_class_e_fraction",
+          "site_radiological.mean_mixing_height_m"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.498964+03:00"
+      },
+      {
+        "score_id": "696afdca-d479-4562-9648-7ff6d9354910",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-02",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "low",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"30-100 m3/s.\", \"criterion\": \"RI-02\", \"name\": \"Surface water dispersion\", \"notes\": [], \"quality\": null, \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_infrastructure_v2.cooling_flow_m3s"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.499709+03:00"
+      },
+      {
+        "score_id": "869bd559-06c7-415d-960e-636e5a4ff262",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-03",
+        "score_0_10": 7.5,
+        "score_low_0_10": 7.0,
+        "score_high_0_10": 8.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "medium",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Low-permeability aquifer screening proxy.\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.groundwater_vulnerability_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_radiological.aquifer_type",
+          "site_radiological.groundwater_vulnerability_class"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.500182+03:00"
+      },
+      {
+        "score_id": "6461bd56-1e7c-4933-b5cc-dd12f48aee51",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-04",
+        "score_0_10": 5.5,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 6.0,
+        "weight_factor": 8,
+        "weight_normalised": 0.0404,
+        "quality_flag": "low",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}",
+        "data_sources": [
+          "site_radiological.pop_density_5km",
+          "site_radiological.pop_density_16km",
+          "site_radiological.pop_density_25km",
+          "site_radiological.pop_density_80km"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.500610+03:00"
+      },
+      {
+        "score_id": "dc8b9ca1-dcfd-4139-9402-4fc824f30405",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-05",
+        "score_0_10": 9.5,
+        "score_low_0_10": 9.0,
+        "score_high_0_10": 10.0,
+        "weight_factor": 10,
+        "weight_normalised": 0.0505,
+        "quality_flag": "low",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Nearest >=50k population-centre proxy exceeds required distance by >= 50 %.\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [], \"quality\": \"gisco_urau_2021\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}",
+        "data_sources": [
+          "site_radiological.nearest_city_50k_km",
+          "site_radiological.nearest_city_pop",
+          "site_radiological.pop_density_16km",
+          "site_radiological.pop_total_16km"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.502143+03:00"
+      },
+      {
+        "score_id": "73c9d748-3c32-4a61-886d-e8ecb39cde9d",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "nuscale_voygr6",
+        "criterion_id": "RI-06",
+        "score_0_10": 5.0,
+        "score_low_0_10": 5.0,
+        "score_high_0_10": 5.0,
+        "weight_factor": 5,
+        "weight_normalised": 0.0253,
+        "quality_flag": "unscored",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-06\", \"name\": \"Population projections (60-yr design life)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_radiological.pop_growth_rate_pct\", \"site_radiological.projected_pop_25km_60yr\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}",
+        "data_sources": [
+          "site_radiological.pop_growth_rate_pct",
+          "site_radiological.projected_pop_25km_60yr"
+        ],
+        "run_id": "score-c2a90942",
+        "scored_at": "2026-05-23T19:53:12.503245+03:00"
+      }
+    ],
+    "criterion_components": [
+      {
+        "criterion_id": "EP-02",
+        "category": "EP",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.1061",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_emergency.road_density_km_per_km2\", \"site_emergency.has_motorway_access\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-02",
+        "category": "EP",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.1061",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Significant bottlenecks (0.3-0.5).\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-02",
+        "category": "EP",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.1061",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Significant bottlenecks (0.3-0.5).\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-02",
+        "category": "EP",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.1061",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Significant bottlenecks (0.3-0.5).\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-02",
+        "category": "EP",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.1061",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Significant bottlenecks (0.3-0.5).\", \"criterion\": \"EP-02\", \"name\": \"Evacuation routes (road network)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-03",
+        "category": "EP",
+        "score_0_10": "1.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0379",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_emergency.major_river_barrier\", \"site_emergency.waterway_count_epz\", \"site_emergency.relief_m_per_10km\", \"site_emergency.ep03_gee_relief_16km_m\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "EP-03",
+        "category": "EP",
+        "score_0_10": "1.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0379",
+        "confidence": "medium",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [\"unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_emergency.relief_m_per_10km\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "EP-03",
+        "category": "EP",
+        "score_0_10": "1.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0379",
+        "confidence": "medium",
+        "justification": "{\"band\": \"No measured relief; major river barrier (interim).\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_emergency.relief_m_per_10km\", \"site_emergency.ep03_gee_relief_16km_m\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "EP-03",
+        "category": "EP",
+        "score_0_10": "1.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0379",
+        "confidence": "medium",
+        "justification": "{\"band\": \"No measured relief; major river barrier (interim).\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_emergency.relief_m_per_10km\", \"site_emergency.ep03_gee_relief_16km_m\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "EP-03",
+        "category": "EP",
+        "score_0_10": "1.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0379",
+        "confidence": "medium",
+        "justification": "{\"band\": \"No measured relief; major river barrier (interim).\", \"criterion\": \"EP-03\", \"name\": \"Physical-geography constraints\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_emergency.relief_m_per_10km\", \"site_emergency.ep03_gee_relief_16km_m\"], \"score\": 1.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "EP-04",
+        "category": "EP",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2273",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_emergency.hospital_count_epz\", \"site_emergency.prison_count_epz\", \"site_emergency.care_home_count_epz\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-04",
+        "category": "EP",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2273",
+        "confidence": "medium",
+        "justification": "{\"band\": \"3-8.\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-04",
+        "category": "EP",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2273",
+        "confidence": "medium",
+        "justification": "{\"band\": \"3-8.\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-04",
+        "category": "EP",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2273",
+        "confidence": "medium",
+        "justification": "{\"band\": \"3-8.\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "EP-04",
+        "category": "EP",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2273",
+        "confidence": "medium",
+        "justification": "{\"band\": \"3-8.\", \"criterion\": \"EP-04\", \"name\": \"Special populations (hospitals, prisons, care homes)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "HI-01",
+        "category": "HI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"No airport in OurAirports search radius (search completed, nothing in range).\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_human_induced.nearest_airport_km\", \"site_human_induced.nearest_airport_type\", \"site_human_induced.nearest_airport_class\", \"site_human_induced.nearest_military_airfield_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-01",
+        "category": "HI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "high",
+        "justification": "{\"band\": \"Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy.\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_military_airfield_km\", \"site_human_induced.nearest_military_class\", \"site_human_induced.nearest_military_km\", \"site_human_induced.nearest_high_consequence_military_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-01",
+        "category": "HI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "high",
+        "justification": "{\"band\": \"Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy.\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_military_airfield_km\", \"site_human_induced.nearest_military_class\", \"site_human_induced.nearest_military_km\", \"site_human_induced.nearest_high_consequence_military_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-01",
+        "category": "HI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "high",
+        "justification": "{\"band\": \"Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy.\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_military_airfield_km\", \"site_human_induced.nearest_military_class\", \"site_human_induced.nearest_military_km\", \"site_human_induced.nearest_high_consequence_military_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-01",
+        "category": "HI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "high",
+        "justification": "{\"band\": \"Major airport 15-30 km, no overhead flight path or < 4 km flight-path proxy.\", \"criterion\": \"HI-01\", \"name\": \"Aircraft crash hazard\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_military_airfield_km\", \"site_human_induced.nearest_military_class\", \"site_human_induced.nearest_military_km\", \"site_human_induced.nearest_high_consequence_military_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-02",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.3359",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\", \"site_human_induced.hi02_quality\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-02",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.3359",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 20 km, or completed Seveso search found nothing in radius.\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-02",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.3359",
+        "confidence": "high",
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal).\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-02",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.3359",
+        "confidence": "high",
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal).\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-02",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.3359",
+        "confidence": "high",
+        "justification": "{\"band\": \"Very strong margin above the score-5 boundary (or completed search confirmed no in-radius signal).\", \"criterion\": \"HI-02\", \"name\": \"Industrial explosions (Seveso / IED)\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_seveso_km\", \"site_human_induced.nearest_ied_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-03",
+        "category": "HI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.1944",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_human_induced.nearest_toxic_source_km\", \"site_human_induced.toxic_source_type\", \"site_human_induced.hi03_quality\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-03",
+        "category": "HI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.1944",
+        "confidence": "high",
+        "justification": "{\"band\": \"8-15 km (project A8 pass-mark).\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.toxic_source_type\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-03",
+        "category": "HI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.1944",
+        "confidence": "high",
+        "justification": "{\"band\": \"At or above the score-5 boundary.\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.toxic_source_type\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-03",
+        "category": "HI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.1944",
+        "confidence": "high",
+        "justification": "{\"band\": \"At or above the score-5 boundary.\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.toxic_source_type\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-03",
+        "category": "HI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.1944",
+        "confidence": "high",
+        "justification": "{\"band\": \"At or above the score-5 boundary.\", \"criterion\": \"HI-03\", \"name\": \"Toxic / gas releases\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.toxic_source_type\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "HI-04",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2879",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\", \"site_human_induced.hi04_quality\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "HI-04",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2879",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 15 km, or completed flammable-storage search found nothing in radius.\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "HI-04",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2879",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 15 km, or completed flammable-storage search found nothing in radius.\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "HI-04",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2879",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 15 km, or completed flammable-storage search found nothing in radius.\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "HI-04",
+        "category": "HI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0303",
+        "weighted_contribution": "0.2879",
+        "confidence": "high",
+        "justification": "{\"band\": \"> 15 km, or completed flammable-storage search found nothing in radius.\", \"criterion\": \"HI-04\", \"name\": \"External fires\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_human_induced.nearest_flammable_storage_km\", \"site_human_induced.nearest_pipeline_km\"], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 6}"
+      },
+      {
+        "criterion_id": "NH-05",
+        "category": "NH",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Clear mine-distance margin with low geotechnical proxy risk (or unknown).\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.karst_present\", \"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_present\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "NH-05",
+        "category": "NH",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "medium",
+        "justification": "{\"band\": \"No karst on site; mine distance margin or unknown; low/unknown subsidence risk.\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_distance_km\", \"site_natural_hazards.subsidence_risk_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "NH-05",
+        "category": "NH",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear mine-distance margin with low geotechnical proxy risk (or unknown).\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_distance_km\", \"site_natural_hazards.subsidence_risk_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "NH-05",
+        "category": "NH",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear mine-distance margin with low geotechnical proxy risk (or unknown).\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_distance_km\", \"site_natural_hazards.subsidence_risk_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "NH-05",
+        "category": "NH",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0354",
+        "weighted_contribution": "0.2652",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear mine-distance margin with low geotechnical proxy risk (or unknown).\", \"criterion\": \"NH-05\", \"name\": \"Subsidence / karst / mining / oil & gas\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.karst_severity\", \"site_natural_hazards.karst_formation_type\", \"site_natural_hazards.mining_void_distance_km\", \"site_natural_hazards.subsidence_risk_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 7}"
+      },
+      {
+        "criterion_id": "NH-06",
+        "category": "NH",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0884",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"Reserved (cross-link to NH-03/NH-05 exclusions only).\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.bearing_capacity_kpa\", \"site_natural_hazards.depth_to_bedrock_m\", \"site_natural_hazards.groundwater_depth_m\"], \"score\": 0.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NH-06",
+        "category": "NH",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0884",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m.\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\"], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NH-06",
+        "category": "NH",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0884",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m.\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\"], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NH-06",
+        "category": "NH",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0884",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m.\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\"], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NH-06",
+        "category": "NH",
+        "score_0_10": "3.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.0884",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Bearing 50-80 kPa; bedrock > 20 m; GW < 2 m.\", \"criterion\": \"NH-06\", \"name\": \"Foundation conditions (bearing, bedrock, groundwater)\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.groundwater_depth_m\"], \"score\": 3.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "category": "NH",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1439",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.max_wind_speed_ms\", \"site_natural_hazards.nh10_quality\", \"site_natural_hazards.nh10_comment\", \"site_natural_hazards.run_id\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "category": "NH",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1439",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Low wind region; standard EN 1991-1-4.\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "category": "NH",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1439",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s).\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "category": "NH",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1439",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s).\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-10",
+        "category": "NH",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1439",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Lowest relative wind exposure in the current ERA5 monthly-means gust cohort (< 7.5 m/s).\", \"criterion\": \"NH-10\", \"name\": \"Extreme winds\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-11",
+        "category": "NH",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1212",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.mean_annual_precip_mm\", \"site_natural_hazards.extreme_precip_mm\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-11",
+        "category": "NH",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1212",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"partial_unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.freezing_days_per_year\"], \"score\": 4.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-11",
+        "category": "NH",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1212",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"partial_unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.freezing_days_per_year\"], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-11",
+        "category": "NH",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1212",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"partial_unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.freezing_days_per_year\"], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-11",
+        "category": "NH",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0152",
+        "weighted_contribution": "0.1212",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-11\", \"name\": \"Extreme precipitation (rain, snow, drought)\", \"notes\": [\"partial_unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_natural_hazards.spi12_min\", \"site_natural_hazards.snow_months_per_year\", \"site_natural_hazards.freezing_days_per_year\"], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 3}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "category": "NH",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0202",
+        "weighted_contribution": "0.1111",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_natural_hazards.extreme_temp_max_c\", \"site_natural_hazards.extreme_temp_min_c\", \"site_natural_hazards.nh12_quality\", \"site_natural_hazards.nh12_comment\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "category": "NH",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0202",
+        "weighted_contribution": "0.1111",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "category": "NH",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0202",
+        "weighted_contribution": "0.1111",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "category": "NH",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0202",
+        "weighted_contribution": "0.1111",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NH-12",
+        "category": "NH",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0202",
+        "weighted_contribution": "0.1111",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(mean_of_sub_scores)\", \"criterion\": \"NH-12\", \"name\": \"Extreme temperatures\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 4}"
+      },
+      {
+        "criterion_id": "NS-01",
+        "category": "NS",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3232",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [\"partial_unscored\"], \"quality\": null, \"raw_misses\": [\"site_infrastructure_v2.cooling_source_type\", \"site_infrastructure_v2.cooling_source_name\", \"site_infrastructure_v2.cooling_source_hyriv_id\", \"site_infrastructure_v2.cooling_distance_km\"], \"score\": 2.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-01",
+        "category": "NS",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3232",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [], \"quality\": \"hydrorivers_global\", \"raw_misses\": [], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-01",
+        "category": "NS",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3232",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [], \"quality\": \"hydrorivers_global\", \"raw_misses\": [], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-01",
+        "category": "NS",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3232",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [], \"quality\": \"hydrorivers_global\", \"raw_misses\": [], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-01",
+        "category": "NS",
+        "score_0_10": "8.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3232",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-01\", \"name\": \"Cooling water / ultimate heat sink\", \"notes\": [], \"quality\": \"hydrorivers_global\", \"raw_misses\": [], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-03",
+        "category": "NS",
+        "score_0_10": "9.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3636",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_infrastructure_v2.nearest_highway_km\", \"site_infrastructure_v2.nearest_rail_km\", \"site_infrastructure_v2.nearest_waterway_km\", \"site_infrastructure_v2.heavy_haul_capable\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-03",
+        "category": "NS",
+        "score_0_10": "9.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3636",
+        "confidence": "high",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"partial_unscored\"], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.nearest_waterway_km\"], \"score\": 8.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-03",
+        "category": "NS",
+        "score_0_10": "9.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3636",
+        "confidence": "high",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"partial_unscored\"], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.nearest_waterway_km\"], \"score\": 9.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-03",
+        "category": "NS",
+        "score_0_10": "9.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3636",
+        "confidence": "high",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"partial_unscored\"], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.nearest_waterway_km\"], \"score\": 9.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-03",
+        "category": "NS",
+        "score_0_10": "9.0",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.3636",
+        "confidence": "high",
+        "justification": "{\"band\": \"aggregated(weighted_mean_of_sub_scores)\", \"criterion\": \"NS-03\", \"name\": \"Transport access (heavy haul road / rail / port)\", \"notes\": [\"partial_unscored\"], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.nearest_waterway_km\"], \"score\": 9.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "category": "NS",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"sites.site_area_ha\", \"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\", \"site_infrastructure_v2.patch_count\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "category": "NS",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "high",
+        "justification": "{\"band\": \"Buildable >= 14 ha AND contiguous >= 10 ha (project pass mark).\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"high\", \"raw_misses\": [\"site_infrastructure_v2.patch_count\"], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "category": "NS",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\", \"site_infrastructure_v2.patch_count\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "category": "NS",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\", \"site_infrastructure_v2.patch_count\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "NS-05",
+        "category": "NS",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Clear margin above the score-5 boundary.\", \"criterion\": \"NS-05\", \"name\": \"Land availability / ownership / zoning\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_infrastructure_v2.favourable_area_ha\", \"site_infrastructure_v2.favourable_area_method\", \"site_infrastructure_v2.patch_count\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-03",
+        "category": "RI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_radiological.aquifer_type\", \"site_radiological.groundwater_vulnerability_class\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-03",
+        "category": "RI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [\"unscored\"], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.groundwater_vulnerability_class\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-03",
+        "category": "RI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Low-permeability aquifer screening proxy.\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.groundwater_vulnerability_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-03",
+        "category": "RI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Low-permeability aquifer screening proxy.\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.groundwater_vulnerability_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-03",
+        "category": "RI",
+        "score_0_10": "7.5",
+        "weight_normalised": "0.0253",
+        "weighted_contribution": "0.1894",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Low-permeability aquifer screening proxy.\", \"criterion\": \"RI-03\", \"name\": \"Groundwater dispersion\", \"notes\": [], \"quality\": \"medium\", \"raw_misses\": [\"site_radiological.groundwater_vulnerability_class\"], \"score\": 7.5, \"used_llm\": false, \"weight_factor\": 5}"
+      },
+      {
+        "criterion_id": "RI-04",
+        "category": "RI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.2222",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_sub_score_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_radiological.pop_density_5km\", \"site_radiological.pop_density_16km\", \"site_radiological.pop_density_25km\", \"site_radiological.pop_density_80km\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "RI-04",
+        "category": "RI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.2222",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "RI-04",
+        "category": "RI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.2222",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "RI-04",
+        "category": "RI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.2222",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "RI-04",
+        "category": "RI",
+        "score_0_10": "5.5",
+        "weight_normalised": "0.0404",
+        "weighted_contribution": "0.2222",
+        "confidence": "medium",
+        "justification": "{\"band\": \"aggregated(min_of_sub_scores)\", \"criterion\": \"RI-04\", \"name\": \"Population density (EPZ rings)\", \"notes\": [], \"quality\": \"ghsl_pop_100m_r2023a\", \"raw_misses\": [], \"score\": 5.5, \"used_llm\": false, \"weight_factor\": 8}"
+      },
+      {
+        "criterion_id": "RI-05",
+        "category": "RI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0505",
+        "weighted_contribution": "0.4798",
+        "confidence": "insufficient",
+        "justification": "{\"band\": \"no_band_matched \\u2014 pass-mark default (unscored)\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [\"unscored\"], \"quality\": null, \"raw_misses\": [\"site_radiological.nearest_city_50k_km\", \"site_radiological.nearest_city_pop\", \"site_radiological.pop_density_16km\", \"site_radiological.pop_total_16km\"], \"score\": 5.0, \"used_llm\": false, \"weight_factor\": 10}"
+      },
+      {
+        "criterion_id": "RI-05",
+        "category": "RI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0505",
+        "weighted_contribution": "0.4798",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Nearest >=50k population-centre proxy exceeds required distance by >= 50 %.\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [], \"quality\": \"gisco_urau_2021\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}"
+      },
+      {
+        "criterion_id": "RI-05",
+        "category": "RI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0505",
+        "weighted_contribution": "0.4798",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Nearest >=50k population-centre proxy exceeds required distance by >= 50 %.\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [], \"quality\": \"gisco_urau_2021\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}"
+      },
+      {
+        "criterion_id": "RI-05",
+        "category": "RI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0505",
+        "weighted_contribution": "0.4798",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Nearest >=50k population-centre proxy exceeds required distance by >= 50 %.\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [], \"quality\": \"gisco_urau_2021\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}"
+      },
+      {
+        "criterion_id": "RI-05",
+        "category": "RI",
+        "score_0_10": "9.5",
+        "weight_normalised": "0.0505",
+        "weighted_contribution": "0.4798",
+        "confidence": "medium",
+        "justification": "{\"band\": \"Nearest >=50k population-centre proxy exceeds required distance by >= 50 %.\", \"criterion\": \"RI-05\", \"name\": \"Distance to large population centres (>50 k)\", \"notes\": [], \"quality\": \"gisco_urau_2021\", \"raw_misses\": [], \"score\": 9.5, \"used_llm\": false, \"weight_factor\": 10}"
+      }
+    ]
+  },
+  "sensitivity": {
+    "bands": [
+      {
+        "run_id": "nat-sens-b1a62885",
+        "site_id": "af7f107f-71b5-5a33-8125-9ccb7060f895",
+        "smr_key": "_all_",
+        "scope_country_code": "RO",
+        "band": "D",
+        "top5pct_hit_rate": 0.0,
+        "top10pct_hit_rate": 0.0,
+        "top30pct_hit_rate": 1.0,
+        "scenarios_total": 12,
+        "scenarios_scored": 12,
+        "created_at": "2026-05-23T20:09:37.423364+03:00"
+      }
+    ],
+    "country_top_10": [],
+    "stamp": "20260523",
+    "files": {
+      "regional_summary": "report/output/sensitivity/20260523/00_regional_summary.md",
+      "national_dir": "report/output/sensitivity/20260523/national",
+      "country_note": "report/output/sensitivity/20260523/national/RO_*.md"
+    }
+  },
+  "asset_links": {
+    "sensitivity_summary": "report/output/sensitivity/20260523/00_regional_summary.md",
+    "national_sensitivity_dir": "report/output/sensitivity/20260523/national",
+    "country_top_sites_figure": "report/output/sensitivity/20260523/national/figures/RO_top_sites.png"
+  },
+  "limitations_for_llm": [
+    "Use ownership data conservatively; do not infer legal control.",
+    "Treat rankings as frozen-run screening outputs, not licensing findings.",
+    "Flag missing or low-quality criterion fields instead of filling gaps.",
+    "Do not claim U.S. NRC, national regulator, or vendor approval."
+  ]
+}

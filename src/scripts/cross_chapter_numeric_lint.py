@@ -34,7 +34,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-CHAPTERS_DIR = REPO_ROOT / "report" / "output" / "chapters"
+CHAPTERS_DIR = (
+    REPO_ROOT / "report" / "version 1.03" / "output" / "report" / "chapters"
+)
 
 
 @dataclass
@@ -73,7 +75,7 @@ CANONICAL_FACTS: list[CanonicalFact] = [
             "(6 x 77 MWe modules). No '924 MWe' or '12-module' variant."
         ),
         canonical_value="462 MWe (6 x 77 MWe modules)",
-        owner_doc="report/output/chapters/02_methodology.md",
+        owner_doc="report/version 1.03/output/report/chapters/02_methodology.md",
         consumer_patterns=[
             ("VOYGR-12 invented variant", _pat(r"\bVOYGR-12\b")),
             ("924 MWe inflated capacity", _pat(r"\b924\s*MW(?:e)?\b")),
@@ -92,7 +94,7 @@ CANONICAL_FACTS: list[CanonicalFact] = [
         canonical_value=(
             "Table 4.1.1 Romania row must contain 'full-pass sites at country level'"
         ),
-        owner_doc="report/output/chapters/04_results_and_findings.md",
+        owner_doc="report/version 1.03/output/report/chapters/04_results_and_findings.md",
         consumer_patterns=[
             (
                 "Romania row missing reconciliation",
@@ -111,7 +113,7 @@ CANONICAL_FACTS: list[CanonicalFact] = [
             "'including border-buffer countries')."
         ),
         canonical_value="23 countries",
-        owner_doc="report/output/chapters/01_introduction.md",
+        owner_doc="report/version 1.03/output/report/chapters/01_introduction.md",
         consumer_patterns=[
             (
                 "Anomalous country-count claim",
@@ -119,14 +121,108 @@ CANONICAL_FACTS: list[CanonicalFact] = [
             ),
         ],
     ),
+    CanonicalFact(
+        fact_id="V1_3_REGIONAL_FULL_PASS_COUNT",
+        description=(
+            "v1.03 regional full-pass count is 33 across the 16 in-scope "
+            "country ledgers (stamp 20260523, run score-c2a90942). Any "
+            "narrative that prints a different round number (28, 30, 31, "
+            "32, 34, ...) without an explicit qualifier indicates stale "
+            "prose against the regenerated Table 4.3.1."
+        ),
+        canonical_value="33 full-pass sites",
+        owner_doc=(
+            "report/version 1.03/output/report/chapters/04_results_and_findings.md "
+            "(Table 4.3.1 idempotent block)"
+        ),
+        consumer_patterns=[
+            (
+                "Stale full-pass count (28 from v1.02)",
+                _pat(r"\b28\s+full[- ]pass\b", re.IGNORECASE),
+            ),
+            (
+                "Stale full-pass count (14 first-wave from v1.02)",
+                _pat(
+                    r"\b14\s+first[- ]wave\s+full[- ]pass\b",
+                    re.IGNORECASE,
+                ),
+            ),
+        ],
+    ),
+    CanonicalFact(
+        fact_id="V1_3_ROMANIA_FULL_PASS_COUNT",
+        description=(
+            "v1.03 Romania full-pass count is 3 (Turceni / Rovinari / "
+            "Iernut). #50 / #60 are closed only when prose mentions all "
+            "three Romanian full-pass sites consistently."
+        ),
+        canonical_value="3 Romanian full-pass sites (Turceni, Rovinari, Iernut)",
+        owner_doc=(
+            "report/version 1.03/output/report/chapters/05_country_and_site_profiles/data/RO_site_ledger.csv"
+        ),
+        consumer_patterns=[
+            (
+                "Romania full-pass stated as 2 (stale)",
+                _pat(
+                    r"\bRomania\b[^.\n]{0,80}\b2\s+full[- ]pass\b",
+                    re.IGNORECASE,
+                ),
+            ),
+        ],
+    ),
+    CanonicalFact(
+        fact_id="V1_3_IERNUT_COMPOSITE",
+        description=(
+            "Iernut composite score under the frozen v1.03 run "
+            "(score-c2a90942, nat-sens-b1a62885, stamp 20260523) is 7.114 "
+            "(band D, top-tier probability 0%)."
+        ),
+        canonical_value="Iernut composite 7.114",
+        owner_doc=(
+            "report/version 1.03/output/report/chapters/05_country_and_site_profiles/data/RO_iernut_power_station_site_bundle.json"
+        ),
+        consumer_patterns=[
+            (
+                "Iernut composite stale (different 7.x value)",
+                _pat(
+                    r"\bIernut[^|\n]{0,80}\|\s*7\.(?!114)\d{3}\b",
+                    re.IGNORECASE,
+                ),
+            ),
+        ],
+    ),
+    CanonicalFact(
+        fact_id="V1_3_NH02_E1_THRESHOLD",
+        description=(
+            "v1.03 active NH-02 E1 capable-fault threshold is 5 km "
+            "(snapshot scdef-31110148e5f56f16 / run-profile override). "
+            "Site-profile NH-02 verdict lines must read 'E1 verdict "
+            "(radius 5 km): ...'. SSG-9 default of 8 km may still be "
+            "referenced as the norm baseline in methodology prose."
+        ),
+        canonical_value="E1 verdict (radius 5 km)",
+        owner_doc=(
+            "report/version 1.03/output/report/chapters/05_country_and_site_profiles/sites/"
+        ),
+        consumer_patterns=[
+            (
+                "NH-02 E1 verdict still says radius 8 km (stale)",
+                _pat(
+                    r"E1 verdict\s*\(radius\s*8\s*km\)",
+                    re.IGNORECASE,
+                ),
+            ),
+        ],
+    ),
 ]
 
 
-def _scan_chapter_md_files() -> list[Path]:
-    """Return every .md under report/output/chapters/ for scanning."""
-    if not CHAPTERS_DIR.exists():
+def _scan_chapter_md_files(chapters_dir: Path | None = None) -> list[Path]:
+    """Return every .md under ``chapters_dir`` (default: module CHAPTERS_DIR)."""
+    root = chapters_dir if chapters_dir is not None else CHAPTERS_DIR
+    if not root.exists():
         return []
-    return sorted(p for p in CHAPTERS_DIR.rglob("*.md") if p.is_file())
+    return sorted(p for p in root.rglob("*.md") if p.is_file())
 
 
 def _check_fact(fact: CanonicalFact, files: list[Path]) -> list[LintFinding]:
@@ -158,9 +254,9 @@ def _check_fact(fact: CanonicalFact, files: list[Path]) -> list[LintFinding]:
     return findings
 
 
-def run_lint() -> list[LintFinding]:
+def run_lint(chapters_dir: Path | None = None) -> list[LintFinding]:
     """Run all CANONICAL_FACTS checks across chapter markdowns."""
-    files = _scan_chapter_md_files()
+    files = _scan_chapter_md_files(chapters_dir)
     out: list[LintFinding] = []
     for fact in CANONICAL_FACTS:
         out.extend(_check_fact(fact, files))
@@ -190,9 +286,16 @@ def main(argv: list[str] | None = None) -> int:
         "--strict", action="store_true",
         help="Exit 1 when any finding exists (use in pytest / CI).",
     )
+    parser.add_argument(
+        "--chapters-dir", type=Path, default=None,
+        help=(
+            "Override the chapters directory to scan. Defaults to the "
+            "module-level CHAPTERS_DIR (v1.03 chapters)."
+        ),
+    )
     args = parser.parse_args(argv)
 
-    findings = run_lint()
+    findings = run_lint(args.chapters_dir)
     sys.stdout.write(format_report(findings))
 
     if args.strict and findings:

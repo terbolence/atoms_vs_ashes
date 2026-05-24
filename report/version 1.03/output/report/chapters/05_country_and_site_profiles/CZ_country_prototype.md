@@ -1,19 +1,20 @@
 # Czechia Country Profile
 
-Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
+Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
 
-Czechia is an established nuclear-power jurisdiction with a large coal and lignite brownfield estate. The screening result should therefore be read as a practical site-reuse and sequencing problem: the institutional setting is more mature than in a first-time nuclear country, but the candidate coal sites still need site-specific avoidance resolution before they can be treated as Stage 3 characterisation priorities.
+Czechia has 29 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 29 pass the exclusionary screen but retain avoidance flags, and 0 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
-Czechia has 29 thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. No site currently clears both the exclusionary and avoidance screens; all 29 exclusionary-pass sites retain at least one avoidance flag, and no site hard-fails the exclusionary screen. The country is therefore an unlock-led brownfield pool rather than a full-pass leadership case.
+The leading site is **Tusimice power station**, with a composite score of 7.095 and a Monte Carlo interval of 6.144-7.691. Its national stability band is `A` with a national top-10% hit rate of 92%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
-The leading site is **Tusimice power station**, with a composite score of 7.095 and a Monte Carlo interval of 6.144-7.691. Its national stability band is `A`, with a national top-10% hit rate of 92%. The point-estimate lead is narrow, but Tusimice is the only band-A site in the Czechia pool, so it is the strongest starting point for targeted avoidance-resolution work.
-
-Selected sites for full treatment are the top five by national ranking: Tusimice power station, Prunerov power station, Chvaletice power station, Pocerady power station, and Ledvice power station.
+<!-- specialist key=country_exec scope=country country_code=CZ bundle=CZ_country_bundle.json status=pending -->
+> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country CZ --key country_exec` then `... patch --country CZ --key country_exec --text-file <draft.md>`._
+<!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
 
 ![Czechia status map](figures/CZ_site_status_map.png)
 
+Interactive review map with marker tooltips: [CZ_site_status_map.html](figures/CZ_site_status_map.html).
 
 ## Czechia Site Ledger
 
@@ -45,20 +46,20 @@ Selected sites for full treatment are the top five by national ranking: Tusimice
 | 24 | Malesice power station | Exclusion pass with avoidance flag | 5.809 | 5.270 | 6.344 | H | 0% | 76% |
 | 25 | Olomouc power station | Exclusion pass with avoidance flag | 5.740 | 5.104 | 6.257 | H | 0% | 74% |
 | 26 | Kladno power station | Exclusion pass with avoidance flag | 5.703 | 5.184 | 6.319 | H | 0% | 76% |
-| 27 | Trebovice power station | Exclusion pass with avoidance flag | 5.622 | 5.013 | 6.066 | H | 0% | 74% |
-| 28 | Marianske Hory power station | Exclusion pass with avoidance flag | 5.516 | 4.932 | 5.961 | H | 0% | 74% |
+| 27 | Marianske Hory power station | Exclusion pass with avoidance flag | 5.701 | 5.073 | 6.145 | H | 0% | 74% |
+| 28 | Trebovice power station | Exclusion pass with avoidance flag | 5.622 | 5.013 | 6.066 | H | 0% | 74% |
 | 29 | Karvina power station | Exclusion pass with avoidance flag | 5.378 | 4.922 | 5.900 | H | 0% | 76% |
 
 ## Avoidance Flag Pareto
 
-Of the 29 sites that pass the exclusionary screen, the avoidance-phase flags are concentrated in four criteria. Resolving these criteria is the national unlock agenda for Czechia and applies across the site pool.
+Of the 29 sites that pass the exclusionary screen, the avoidance-phase flags concentrate on a small set of criteria. Resolving them is what would move the country from a small leading group to a broader candidate pool.
 
 ![Avoidance flag Pareto](figures/CZ_avoidance_pareto.png)
 
-- **Aircraft Crash (HI-01)** - 28 of 29 exclusionary-pass sites (97%) - this criterion controls how much of the national brownfield pool can move beyond avoidance review.
-- **Grid Connection (NS-02)** - 21 of 29 exclusionary-pass sites (72%) - this criterion controls how much of the national brownfield pool can move beyond avoidance review.
-- **Distance to Population Centres (RI-05)** - 10 of 29 exclusionary-pass sites (34%) - this criterion controls how much of the national brownfield pool can move beyond avoidance review.
-- **Site Footprint Adequacy (NS-05)** - 4 of 29 exclusionary-pass sites (14%) - this criterion controls how much of the national brownfield pool can move beyond avoidance review.
+- **Aircraft Crash (HI-01)** - 27 of 29 exclusionary-pass sites (93%).
+- **Grid Connection (NS-02)** - 21 of 29 exclusionary-pass sites (72%).
+- **Distance to Population Centres (RI-05)** - 10 of 29 exclusionary-pass sites (34%).
+- **Site Footprint Adequacy (NS-05)** - 4 of 29 exclusionary-pass sites (14%).
 
 ## Family Strength and Weakness
 
@@ -68,19 +69,19 @@ Across the country the strongest criterion family is **Natural Hazards** at a me
 - **Electromagnetic Interference (HI-07)** - mean 1.50/10 across 29 scored sites (min 1.5, max 1.5).
 - **Population Density at EPZ Radii (RI-04)** - mean 2.60/10 across 29 scored sites (min 1.5, max 5.5).
 
-## National Sensitivity and Robustness
-
-The national sensitivity analysis separates Tusimice from the rest of the pool more clearly by stability than by point score. The national band distribution is 1 site in band A, 1 in band C, 6 in band D, and 21 in band H. Prunerov records a 67% top-10% hit rate in band C, while Chvaletice records 33% in band D; Pocerady and Ledvice sit in band D with no national top-10 persistence.
-
-The Monte Carlo intervals for the top five overlap materially. That overlap argues against treating the exact rank order from second to fifth as a final preference order. The practical distinction is that Tusimice combines the lead score with band-A persistence, while the next four sites form a close technical tier whose Stage 3 order depends on resolving aircraft, grid, population-distance, land and ecological constraints.
-
 ## Interpretation for Site Selection
 
-Czechia's Stage 3 pathway is a controlled avoidance-resolution programme. It begins with the top-ranked sites because they combine the strongest composite scores with the best national sensitivity evidence, while every selected site still carries at least one avoidance flag.
+The Czechia result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/CZ_avoidance_pareto.png)
 
-Aircraft Crash (HI-01) is the dominant national blocker, affecting nearly the whole exclusionary-pass pool. Grid Connection (NS-02) is the second national lever, and Distance to Population Centres (RI-05) and Site Footprint Adequacy (NS-05) define the narrower siting-envelope questions. A credible sequence starts with Tusimice, then tests Prunerov and Chvaletice as the strongest follow-on cases, with Pocerady and Ledvice retained because their composite scores remain close to the leaders despite weaker national top-tier persistence.
+The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
+
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Tusimice power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+
+The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
+
+The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
 
 ## Status Counts
 

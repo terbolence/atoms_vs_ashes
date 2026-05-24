@@ -13,7 +13,7 @@ The survey stage also protects the reader from false precision. A site with weak
 
 ## 2.2 Study Region and Initial Site Universe
 
-The published version 1.2 analysis covers 16 countries in Central, Eastern and Southern Europe: Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey and Ukraine. No country or site conclusion in this chapter relies on records outside the published roster.
+The published analysis covers 16 countries in Central, Eastern and Southern Europe: Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey and Ukraine. No country or site conclusion in this chapter relies on records outside the published roster.
 
 The published site universe contains 352 site records. Each record has a representative location and enough plant identity information to enter screening. Inclusion is limited to survey relevance; availability, owner support, licensing readiness, construction feasibility and host-community acceptance belong to later technical, regulatory and stakeholder processes.
 
@@ -79,7 +79,7 @@ Avoidance flags are treated differently from exclusions. They identify concerns 
 
 ## 2.5 Candidate Site Identification
 
-A site becomes a Stage 2 candidate when it is inside the published country roster, has a usable representative location, can be evaluated against the NuScale VOYGR-6 reference case, and passes the exclusionary screen. Under the version 1.2 baseline, 289 of the 352 published site records meet that exclusionary-pass condition. Of those, 28 are clear of avoidance flags and 261 remain candidates with one or more cautions to be interpreted in Stage 2.
+A site becomes a Stage 2 candidate when it is inside the published country roster, has a usable representative location, can be evaluated against the NuScale VOYGR-6 reference case, and passes the exclusionary screen. Under the published baseline, 302 of the 352 published site records meet that exclusionary-pass condition. Of those, 33 are clear of avoidance flags and 269 remain candidates with one or more cautions to be interpreted in Stage 2.
 
 Candidate status is therefore a comparison status, not a siting approval. It means that the site can enter the weighted evaluation, national sensitivity analysis and country-level shortlist logic. Sites that fail the exclusionary screen still remain useful to the report because their failure modes show where the published site universe is constrained and which concerns are likely to be difficult to resolve.
 

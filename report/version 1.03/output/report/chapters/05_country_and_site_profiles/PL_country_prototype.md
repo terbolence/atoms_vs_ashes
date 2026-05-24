@@ -1,27 +1,26 @@
 # Poland Country Profile
 
-Analytical basis: the profile uses the frozen NuScale VOYGR-6 scoring baseline and the project's 50,000-iteration national sensitivity analysis.
+Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
 
-Poland has 63 thermal and coal-site records tested against the NuScale VOYGR-6 reference deployment envelope. Three sites pass both the exclusionary and avoidance screens, 58 pass the exclusionary screen but retain avoidance flags, and two fail one or more exclusionary checks. The country is therefore a broad brownfield pool with a small full-pass leadership group, a large avoidance-unlock tier, and a limited hard-fail tail.
+Poland has 63 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 4 sites pass both the exclusionary and avoidance screens, 57 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
-The leading site is **Polaniec power station**, with a composite score of 7.422 and a Monte Carlo interval of 6.573-7.956. Its national stability band is `A` with a national top-10% hit rate of 100%. Polaniec is the current point-estimate leader and a stable national candidate, but it remains an avoidance-flagged site because Aircraft Crash (HI-01) requires Stage 3 resolution.
+The leading site is **Polaniec power station**, with a composite score of 7.684 and a Monte Carlo interval of 6.785-8.219. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
-Poland's 63 ranked thermal records produce three full-pass sites: Pólnoc, Adamow, and Dolna Odra. The top-five national ranking also selects Polaniec, Gubin Power Project, and Kedzierzyn CCS Project because their composite scores and national stability positions place them ahead of several full-pass or lower-risk comparators. That structure supports a staged programme in which the first characterisation tranche combines the highest-ranked avoidance-flagged candidate with the strongest full-pass sites, rather than treating full-pass status alone as the sequencing rule.
-
-The avoidance unlock pool is the main national planning issue. Distance to Population Centres (RI-05) and Aircraft Crash (HI-01) each affect 39 of the 61 exclusionary-pass sites, or 64% of that pool, while Grid Connection (NS-02) affects 34 sites, or 56%. The unlock work is therefore country-wide: EPZ population micro-modelling, airfield and flight-path hazard assessment, and transmission-pathway confirmation would determine whether Poland's large exclusionary-pass pool can become a deeper Stage 3 candidate list.
-
-A credible Stage 3 sequence begins with the top-five national ranking: Polaniec for national-leader characterisation subject to HI-01 resolution; Pólnoc and Adamow as the first full-pass followers; and Gubin and Kedzierzyn as high-scoring avoidance-flagged candidates where land, airfield, military, ecological, and EPZ constraints must be tested early. Dolna Odra remains the next full-pass reserve candidate, but it sits below the top-five rule for this country batch.
+<!-- specialist key=country_exec scope=country country_code=PL bundle=PL_country_bundle.json status=pending -->
+> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country PL --key country_exec` then `... patch --country PL --key country_exec --text-file <draft.md>`._
+<!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
 
 ![Poland status map](figures/PL_site_status_map.png)
 
+Interactive review map with marker tooltips: [PL_site_status_map.html](figures/PL_site_status_map.html).
 
 ## Poland Site Ledger
 
 | Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
 |---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Polaniec power station | Exclusion pass with avoidance flag | 7.422 | 6.573 | 7.956 | A | 100% | 76% |
+| 1 | Polaniec power station | Full pass | 7.684 | 6.785 | 8.219 | A | 100% | 76% |
 | 2 | Pólnoc power station | Full pass | 7.284 | 6.462 | 7.869 | A | 100% | 76% |
 | 3 | Adamow power station | Full pass | 7.227 | 6.245 | 7.822 | B | 92% | 74% |
 | 4 | Gubin Power Project | Exclusion pass with avoidance flag | 7.222 | 6.412 | 7.803 | B | 92% | 76% |
@@ -40,23 +39,23 @@ A credible Stage 3 sequence begins with the top-five national ranking: Polaniec 
 | 17 | Leczna Power Station (Enea) | Exclusion pass with avoidance flag | 6.822 | 6.088 | 7.434 | D | 0% | 76% |
 | 18 | Belchatow power station | Exclusion pass with avoidance flag | 6.806 | 5.922 | 7.349 | D | 0% | 74% |
 | 19 | Kozienice power station | Exclusion pass with avoidance flag | 6.797 | 6.068 | 7.331 | F | 0% | 76% |
-| 20 | Pulawy power station (Grupa Azoty) | Exclusion pass with avoidance flag | 6.753 | 6.033 | 7.366 | H | 0% | 76% |
-| 21 | Stalowa Wola power station | Exclusion pass with avoidance flag | 6.513 | 5.838 | 7.106 | H | 0% | 76% |
-| 22 | Patnow power station | Exclusion pass with avoidance flag | 6.503 | 5.831 | 7.069 | H | 0% | 76% |
-| 23 | Laziska power station | Exclusion pass with avoidance flag | 6.441 | 5.780 | 7.056 | H | 0% | 76% |
-| 24 | Konin power station | Exclusion pass with avoidance flag | 6.428 | 5.770 | 7.044 | H | 0% | 76% |
+| 20 | Stalowa Wola power station | Exclusion pass with avoidance flag | 6.775 | 6.051 | 7.369 | H | 0% | 76% |
+| 21 | Pulawy power station (Grupa Azoty) | Exclusion pass with avoidance flag | 6.753 | 6.033 | 7.366 | H | 0% | 76% |
+| 22 | Konin power station | Exclusion pass with avoidance flag | 6.691 | 5.982 | 7.306 | H | 0% | 76% |
+| 23 | Patnow power station | Exclusion pass with avoidance flag | 6.503 | 5.831 | 7.069 | H | 0% | 76% |
+| 24 | Laziska power station | Exclusion pass with avoidance flag | 6.441 | 5.780 | 7.056 | H | 0% | 76% |
 | 25 | Siekierki power station | Exclusion pass with avoidance flag | 6.384 | 5.735 | 6.969 | H | 0% | 76% |
 | 26 | Czeczott power station | Exclusion pass with avoidance flag | 6.345 | 5.568 | 6.862 | H | 0% | 74% |
 | 27 | Piast Ruch Power Station | Exclusion pass with avoidance flag | 6.297 | 5.664 | 6.931 | H | 0% | 76% |
 | 28 | Rybnik power station | Exclusion pass with avoidance flag | 6.291 | 5.659 | 6.837 | H | 0% | 76% |
-| 29 | Legnica Power Station | Exclusion pass with avoidance flag | 6.266 | 5.639 | 6.881 | H | 0% | 76% |
-| 30 | Poznan Karolin power station | Exclusion pass with avoidance flag | 6.141 | 5.538 | 6.687 | H | 0% | 76% |
-| 31 | Gliwice Works power station | Exclusion pass with avoidance flag | 6.116 | 5.518 | 6.631 | H | 0% | 76% |
-| 32 | Siechnice power station | Exclusion pass with avoidance flag | 6.103 | 5.508 | 6.650 | H | 0% | 76% |
-| 33 | Jaworzno power station | Exclusion pass with avoidance flag | 6.082 | 5.366 | 6.658 | H | 0% | 74% |
-| 34 | Pomorzany power station | Exclusion pass with avoidance flag | 6.053 | 5.467 | 6.619 | H | 0% | 76% |
-| 35 | Halemba power station | Exclusion pass with avoidance flag | 6.030 | 5.326 | 6.572 | H | 0% | 74% |
-| 36 | Tychy power station | Exclusion pass with avoidance flag | 6.028 | 5.447 | 6.594 | H | 0% | 76% |
+| 29 | Tychy power station | Exclusion pass with avoidance flag | 6.291 | 5.659 | 6.856 | H | 0% | 76% |
+| 30 | Legnica Power Station | Exclusion pass with avoidance flag | 6.266 | 5.639 | 6.881 | H | 0% | 76% |
+| 31 | Poznan Karolin power station | Exclusion pass with avoidance flag | 6.141 | 5.538 | 6.687 | H | 0% | 76% |
+| 32 | Gliwice Works power station | Exclusion pass with avoidance flag | 6.116 | 5.518 | 6.631 | H | 0% | 76% |
+| 33 | Siechnice power station | Exclusion pass with avoidance flag | 6.103 | 5.508 | 6.650 | H | 0% | 76% |
+| 34 | Jaworzno power station | Exclusion pass with avoidance flag | 6.082 | 5.366 | 6.658 | H | 0% | 74% |
+| 35 | Pomorzany power station | Exclusion pass with avoidance flag | 6.053 | 5.467 | 6.619 | H | 0% | 76% |
+| 36 | Halemba power station | Exclusion pass with avoidance flag | 6.030 | 5.326 | 6.572 | H | 0% | 74% |
 | 37 | Lublin Power Station | Exclusion pass with avoidance flag | 6.003 | 5.427 | 6.619 | H | 0% | 76% |
 | 38 | Krakow-Leg power station | Exclusion pass with avoidance flag | 5.978 | 5.381 | 6.494 | H | 0% | 76% |
 | 39 | ZW Nowa power station | Exclusion pass with avoidance flag | 5.969 | 5.399 | 6.500 | H | 0% | 76% |
@@ -72,12 +71,12 @@ A credible Stage 3 sequence begins with the top-five national ranking: Polaniec 
 | 49 | Miechowice power station | Exclusion pass with avoidance flag | 5.816 | 5.269 | 6.381 | H | 0% | 76% |
 | 50 | Gdynia-3 power station | Exclusion pass with avoidance flag | 5.753 | 5.114 | 6.329 | H | 0% | 74% |
 | 51 | Siersza power station | Exclusion pass with avoidance flag | 5.753 | 5.225 | 6.350 | H | 0% | 76% |
-| 52 | Lodz-2 power station | Exclusion pass with avoidance flag | 5.678 | 5.131 | 6.244 | H | 0% | 76% |
-| 53 | Lagisza power station | Exclusion pass with avoidance flag | 5.653 | 5.087 | 6.200 | H | 0% | 76% |
-| 54 | Blachownia power station | Exclusion pass with avoidance flag | 5.622 | 5.013 | 6.164 | H | 0% | 74% |
-| 55 | Szczecin power station | Exclusion pass with avoidance flag | 5.603 | 5.056 | 6.169 | H | 0% | 76% |
-| 56 | Katowice PKE power station | Exclusion pass with avoidance flag | 5.500 | 4.919 | 6.020 | H | 0% | 74% |
-| 57 | Chorzow Elcho power station | Exclusion pass with avoidance flag | 5.493 | 4.914 | 6.020 | H | 0% | 74% |
+| 52 | Chorzow Elcho power station | Exclusion pass with avoidance flag | 5.678 | 5.056 | 6.204 | H | 0% | 74% |
+| 53 | Lodz-2 power station | Exclusion pass with avoidance flag | 5.678 | 5.131 | 6.244 | H | 0% | 76% |
+| 54 | Lagisza power station | Exclusion pass with avoidance flag | 5.653 | 5.087 | 6.200 | H | 0% | 76% |
+| 55 | Blachownia power station | Exclusion pass with avoidance flag | 5.622 | 5.013 | 6.164 | H | 0% | 74% |
+| 56 | Szczecin power station | Exclusion pass with avoidance flag | 5.603 | 5.056 | 6.169 | H | 0% | 76% |
+| 57 | Katowice PKE power station | Exclusion pass with avoidance flag | 5.500 | 4.919 | 6.020 | H | 0% | 74% |
 | 58 | Bedzin power station | Exclusion pass with avoidance flag | 5.480 | 4.904 | 6.039 | H | 0% | 74% |
 | 59 | Murcki-Staszic power station | Exclusion pass with avoidance flag | 5.341 | 4.844 | 5.956 | H | 0% | 76% |
 | 60 | Bielsko-Biala power station | Exclusion pass with avoidance flag | 5.332 | 4.790 | 5.849 | H | 0% | 74% |
@@ -92,7 +91,7 @@ Of the 61 sites that pass the exclusionary screen, the avoidance-phase flags con
 ![Avoidance flag Pareto](figures/PL_avoidance_pareto.png)
 
 - **Distance to Population Centres (RI-05)** - 39 of 61 exclusionary-pass sites (64%).
-- **Aircraft Crash (HI-01)** - 39 of 61 exclusionary-pass sites (64%).
+- **Aircraft Crash (HI-01)** - 34 of 61 exclusionary-pass sites (56%).
 - **Grid Connection (NS-02)** - 34 of 61 exclusionary-pass sites (56%).
 - **Toxic/Gas Releases (HI-03)** - 13 of 61 exclusionary-pass sites (21%).
 - **Site Footprint Adequacy (NS-05)** - 9 of 61 exclusionary-pass sites (15%).
@@ -117,18 +116,20 @@ Across the country the strongest criterion family is **Natural Hazards** at a me
 
 ## Interpretation for Site Selection
 
-The Poland result is not a simple full-pass shortlist. The full-pass group, Pólnoc, Adamow, and Dolna Odra, provides the clearest low-friction Stage 3 entry points, but the national ranking places Polaniec first and keeps Gubin and Kedzierzyn in the selected top five. Those three avoidance-flagged sites should progress only with explicit early work on their binding avoidance criteria.
+The Poland result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/PL_avoidance_pareto.png)
 
-The chart shows the national unlock agenda for the 61 exclusionary-pass sites. RI-05 and HI-01 each affect 39 sites, and NS-02 affects 34 sites, so targeted population-centre modelling, aircraft-crash assessment, and grid-pathway confirmation would have programme-wide value rather than site-only value.
+The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
 
-For this Poland tranche, the selected detailed profiles are the top five by national rank under the national sensitivity basis: **Polaniec power station**, **Pólnoc power station**, **Adamow power station**, **Gubin Power Project**, and **Kedzierzyn CCS Project**.
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Polaniec power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
 
-The Monte Carlo intervals are a caution against false precision: the first five sites sit in a tight score range from 7.191 to 7.422, and several bands overlap. The decisive Stage 3 distinction is therefore the type of residual work each site carries: Polaniec is an HI-01 resolution case; Pólnoc and Adamow are full-pass candidates with land, military, EMI, and cooling-water questions; Gubin is an airfield, ecological, land-footprint, and cross-border river case; and Kedzierzyn is a compact industrial-site case with footprint, HI-06, EMI, and RI-04 constraints.
+The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
+
+The main Stage 3 questions are therefore targeted rather than generic: confirm local natural-hazard inputs, verify emergency-planning assumptions, test land and ownership constraints, assess cooling and grid interface conditions, and reconcile environmental constraints with national permitting requirements.
 
 ## Status Counts
 
-- Full pass: 3
-- Exclusion pass with avoidance flag: 58
+- Full pass: 4
+- Exclusion pass with avoidance flag: 57
 - Hard fail: 2

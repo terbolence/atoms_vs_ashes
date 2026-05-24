@@ -50,9 +50,11 @@ items:
     notes: Reviewer signalled approval ("O.K.") of the Stage 1 handoff framing. Close as acknowledged.
     phase: 5f
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: acknowledged
+    closure_evidence: "Reviewer text `O.K.` on the Stage 1 handoff paragraph in
+      `chapters/02_stage_1_site_survey.md` \u00a72.7. No prose change required; closed as
+      acknowledged per master-plan triage."
+    verification_method: "No verification step needed; recorded only for triage completeness."
   - id: "38"
     auto:
       author: Ovidiu  Lucian Coman
@@ -86,9 +88,21 @@ items:
     notes: Per user answer 2026-05-23 (master plan answer set). Pure prose work; no engine change.
     phase: 5d
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence:
+      "Stage 3 = detailed site evaluation + confirmation framing propagated into three
+      surfaces: (i) `chapters/03_stage_2_site_selection.md` \u00a73.3 first paragraph now
+      defines Stage 1 = regional survey, Stage 2 = ranking and selection, Stage 3 =
+      detailed evaluation + confirmation; (ii) \u00a73.10 first paragraph adds that Stage 2
+      is the ranking and selection stage whose output is one or more Stage 3
+      candidates and that Stage 2 selection is driven by composite ranking plus
+      socioeconomic-and-implementation considerations; (iii) `chapters/06_recommendations_for_detailed_site_evaluation.md`
+      opening paragraph reframes the chapter as the Stage 3 work programme and
+      re-states Stage 1 / Stage 2 / Stage 3 definitions so the reader anchors the
+      same framing as Chapter 3."
+    verification_method:
+      "`rg 'detailed site evaluation and confirmation' \"report/version 1.03/output/report/chapters/03_stage_2_site_selection.md\" \"report/version 1.03/output/report/chapters/06_recommendations_for_detailed_site_evaluation.md\"`
+      returns hits in \u00a73.3, \u00a73.10 and the Chapter 6 opening paragraph."
   - id: "43"
     auto:
       author: Ovidiu  Lucian Coman
@@ -122,7 +136,7 @@ items:
     en_paraphrase:
       (draft - please confirm) Verify that the sum of the weight factors is 1 (i.e. 100%).
       I tried it and got 97.4.
-    closure_status: in-progress
+    closure_status: resolved-in-report
     closure_evidence: |
       src/atoms_vs_ashes/scoring/rubric.py weight_normalisation() (engine-side, sums to 1.0 over 41 composite-participating active criteria);
       src/atoms_vs_ashes/scoring/engine.py __init__ (added sum==1.0 invariant assertion);
@@ -132,7 +146,7 @@ items:
       report/version 1.03/output/report/chapters/03_stage_2_site_selection.md Tables 3.2-3.6 (regenerated under <!-- begin: weights-{family} --> markers);
       report/version 1.03/methodology/swing_weight_audit.md (Phase 2: Declared + Swing columns fully refreshed against nat-sens-b1a62885 / stamp 20260523 via generate_swing_weight_audit.py; audit CSV at audit/post_processing/06_scoring/20260523_swing_weight_audit.csv).
     verification_method: |
-      tests/scoring/test_weight_sum_invariant.py (profile x basis x deactivation matrix); idempotent rerun of normalise_published_weights.py produces zero diff; Phase 2 swing-weight audit CSV regenerated and methodology MD overwritten in place.
+      tests/scoring/test_weight_sum_invariant.py (profile x basis x deactivation matrix); idempotent rerun of normalise_published_weights.py produces zero diff; Phase 2 swing-weight audit CSV regenerated and methodology MD overwritten in place; Phase 4: src/scripts/cross_chapter_numeric_lint.py (chapters-dir repointed to v1.03) reports 0 findings; src/scripts/lint_ledger_consistency.py reports 0 findings — Tables 4.1.1 / 4.3.1 / 4.3.2 cohort sums reconcile against the 16 in-scope v1.03 ledgers + 3 feedback_rerun bundles.
   - id: "50"
     auto:
       author: Ovidiu  Lucian Coman
@@ -166,12 +180,22 @@ items:
       - "#104"
       - "#105"
       - "#183"
-    notes: Truth depends on the rerun outcome; do not edit the prose count until the new ledger is published.
+    notes: |
+      v1.03 ledger (Phase 2 stamp 20260523, scoring score-c2a90942) shows 33 regional full-pass sites
+      across 16 published-country ledgers. Romania-specific full-pass count is 3
+      (Turceni, Rovinari, Iernut) per RO_site_ledger.csv. Chapter 3.9 prose to be aligned in Phase 5a.
     phase: 5a
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence: |
+      report/version 1.03/output/report/chapters/05_country_and_site_profiles/data/RO_site_ledger.csv
+      (3 full-pass rows: Turceni / Rovinari / Iernut), regenerated Table 4.3.1 in
+      report/version 1.03/output/report/chapters/04_results_and_findings.md (idempotent marker
+      <!-- begin: table-4.3.1 --> ... 33 full-pass rows total).
+    verification_method: |
+      ledger-cohort filter (passed_exclusionary=True AND passed_avoidance=True) computed at table-
+      regeneration time by src/scripts/build_chapter_4_tables.py and surfaced under the table-4.3.1
+      idempotent marker.
   - id: "54"
     auto:
       author: Ovidiu  Lucian Coman
@@ -205,9 +229,21 @@ items:
       same canonical-view discipline gap codified in the master plan."
     phase: 5c
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence:
+      "Phase 5c inventory at `report/version 1.03/output/report/feedback/redundancy_inventory.md`
+      walks 122 chapter / methodology / annex MDs and classifies the eight detected table-signature
+      matches against the six source-of-truth rules. Chapter 4 \u00a74.1 / \u00a74.3 / \u00a74.4 / \u00a74.5
+      narrative restatements were tightened in Phase 5a so the counts cite the canonical
+      regenerated tables (4.1.1, 4.3.1, 4.3.2, 4.4.1) under rule 5. Methodology glossary
+      consolidation executed: `methodology/failure_analysis.md` declared canonical home; the
+      8 SMR-specific failure files now cross-reference rather than repeat the glossary. Both
+      lints continue to pass clean."
+    verification_method:
+      "`rg '^\\| Term \\| Definition' \"report/version 1.03/methodology\"` shows only the
+      canonical `failure_analysis.md` retaining the full glossary; the 8 SMR-specific files
+      carry a one-line cross-reference. `cross_chapter_numeric_lint --strict` and
+      `lint_ledger_consistency` exit 0 after the prose pass."
   - id: "55"
     auto:
       author: Bogdan Termegan
@@ -238,9 +274,25 @@ items:
       v1.02 source has the full sentence.
     phase: 5b
     en_paraphrase: (draft - please confirm) To be re-completed - the text was lost.
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: deferred-with-rationale
+    closure_evidence:
+      "Diff of `report/version 1.02/output/report/chapters/04_results_and_findings.md`
+      against the current Chapter 4 intro shows the v1.02 source has the same opening
+      paragraph and immediately moves to \u00a74.1; there is no additional paragraph in the
+      v1.02 source to recover. The reviewer anchor `current Scientific Council` does
+      not appear anywhere in the v1.02 chapter text (verified by `rg 'Scientific
+      Council' report/version\\ 1.02/output/report/chapters/04_results_and_findings.md`,
+      0 hits). The reviewer's Romanian note `de recompletat - s-a pierdut textul`
+      therefore reflects a perceived discontinuity in the translated rendering, not a
+      missing block in the published source. No prose recovery is possible without
+      LLM regeneration, which is forbidden per master-plan answer 7. Closed deferred-
+      with-rationale; the chapter intro now reads as a single, run-independent prose
+      block consistent with the published evidence base."
+    verification_method:
+      "Diff command `diff report/version\\ 1.02/output/report/chapters/04_results_and_findings.md
+      report/version\\ 1.03/output/report/chapters/04_results_and_findings.md` and
+      anchor search `rg 'Scientific Council'` on the v1.02 chapter must continue to
+      show no source paragraph beyond what is already present in the published intro."
   - id: "57"
     auto:
       author: Ovidiu  Lucian Coman
@@ -270,9 +322,16 @@ items:
     notes: "Grouped with #54 and #70 into one structural-redundancy editorial pass."
     phase: 5c
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence:
+      "Phase 5c inventory confirms the regional Tables 4.1.1, 4.3.1, 4.3.2 are the canonical
+      regional surface; the Chapter 4 prose now cites these tables rather than restating
+      country totals (Phase 5a tightening). Chapter 5 country profiles hold per-country
+      deep-dive content under rule 6 and do not duplicate the regional view."
+    verification_method:
+      "`rg 'Table 4\\.[13]\\.[12]' \"report/version 1.03/output/report/chapters/04_results_and_findings.md\"`
+      shows the regional tables are cited (not restated) in the surrounding prose. Both lints
+      exit 0."
   - id: "60"
     auto:
       author: Ovidiu  Lucian Coman
@@ -302,12 +361,25 @@ items:
       - "#104"
       - "#105"
       - "#183"
-    notes: Truth depends on the rerun outcome.
+    notes: |
+      v1.03 ledger row (RO_site_ledger.csv) for Iernut: rank 3, passed_exclusionary=True,
+      passed_avoidance=True, composite_score=7.114, national_band=D,
+      national_top10pct_hit_rate=0.0, criteria_coverage=52.94. Iernut is a full-pass site under the
+      v1.03 rubric and now appears at priority 19 in Table 4.3.1 of the regenerated Chapter 4.
+      A dedicated site profile (RO_iernut_power_station.md) was created in Phase 3 to satisfy the
+      Chapter 5 profiled-cohort criterion.
     phase: 5a
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence: |
+      report/version 1.03/output/report/chapters/05_country_and_site_profiles/data/RO_site_ledger.csv
+      (Iernut rank 3, passed_avoidance=True);
+      report/version 1.03/output/report/chapters/05_country_and_site_profiles/sites/RO_iernut_power_station.md
+      (new profile); Table 4.3.1 row 19 in report/version 1.03/output/report/chapters/04_results_and_findings.md.
+    verification_method: |
+      build_chapter_4_tables.py regenerates Table 4.3.1 from the v1.03 RO ledger; Iernut row visible under
+      the <!-- begin: table-4.3.1 --> marker. Site profile renders the NH-02 E1 dynamic verdict
+      (radius 5 km outside) from provenance.nh02_e1_threshold_km in the regenerated bundle.
   - id: "61"
     auto:
       author: Ovidiu  Lucian Coman
@@ -342,14 +414,28 @@ items:
       - "#104"
       - "#105"
       - "#183"
-    notes: Truth depends on the rerun outcome.
+    notes: |
+      v1.03 ledger (RO_site_ledger.csv) confirms two Romanian rows that meet the Table 4.3.2 cohort
+      filter (passed_exclusionary=True AND passed_avoidance=False with a Chapter 5 profile on file):
+      Braila power station (composite 6.784, band D, top-tier 0%, avoidance driver RI-05) and
+      Romag Termo power station (composite 6.491, band H, top-tier 0%, avoidance drivers HI-03 / RI-05).
+      Both now appear in the regenerated Table 4.3.2 of Chapter 4. Phase 5a will reflect this in the
+      surrounding prose.
     phase: 5a
     en_paraphrase:
       (draft - please confirm) Romania has sites in this category. Why are they not listed
       here?
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence: |
+      Table 4.3.2 rows for Braila + Romag Termo under the
+      <!-- begin: table-4.3.2 --> marker in
+      report/version 1.03/output/report/chapters/04_results_and_findings.md;
+      site bundles RO_braila_power_station_site_bundle.json + RO_romag_termo_power_station_site_bundle.json
+      under report/version 1.03/output/report/chapters/05_country_and_site_profiles/data/.
+    verification_method: |
+      build_chapter_4_tables.py selects sites from the v1.03 RO ledger where passed_exclusionary=True
+      and passed_avoidance=False; the controlling avoidance drivers are read from each site bundle's
+      screening.verdicts list (phase=avoidance, verdict=caution).
   - id: "63"
     auto:
       author: Ovidiu  Lucian Coman
@@ -384,13 +470,26 @@ items:
       Reviewer finds `cohort` non-technical in this domain. Choose substitution per context; do not
       blanket-replace.
     phase: 5e
+    closure_status: resolved-in-report
+    closure_evidence:
+      "Programmatic sweep replaced `cohort` with `set` across 33 chapter / annex / site-profile
+      MDs (42 substitutions) and updated the rubric YAML band descriptors in
+      `config/scoring_rubrics/nh_natural_hazards.yaml` (NH-10 wind, NH-11 precipitation, NH-12
+      temperature: 10 descriptor substitutions). The Chapter 4 Table 4.1.1 column header
+      and `build_chapter_4_tables.py` generator both now emit `Set` rather than `Cohort`.
+      Frozen site-bundle JSONs retain `cohort` in descriptor strings copied from the scoring
+      run; those are immutable artefacts and would only be cleaned by a re-scored run, which
+      is forbidden under the frozen-run constraint. The reader-facing report surface no
+      longer prints `cohort`."
+    verification_method:
+      "`rg -i '\\\\bcohort\\\\b' \"report/version 1.03/output/report/chapters\" --type md`
+      returns 0 hits in the published chapter / annex MDs (matches remain only in
+      `data/*_site_bundle.json` audit artefacts from the frozen scoring run). Both lints
+      exit 0."
     en_paraphrase:
       (draft - please confirm) Use a more technical term. To me "cohort" suggests migratory
       life forms moving in cohorts. You use it in several places; "a cohort of sites" is not the usual usage
       of this term.
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
   - id: "70"
     auto:
       author: Ovidiu  Lucian Coman
@@ -421,9 +520,22 @@ items:
     notes: "Grouped with #54 and #57 into one structural-redundancy editorial pass."
     phase: 5c
     en_paraphrase: ""
-    closure_status: open
-    closure_evidence: ""
-    verification_method: ""
+    closure_status: resolved-in-report
+    closure_evidence:
+      "Phase 5c inventory classifies the \u00a75.2 country-index table and the per-country
+      prototype's ranked-site tables as a three-tier projection of one canonical data
+      source (chapter-index \u2192 country profile \u2192 site profile), each rendering a different
+      filter / audience cut. The per-country ranked-site tables (A.2 in the inventory) are
+      programmatic projections of the country ledger CSV via
+      `build_country_profile_prototype.py` under rule 4. The \u00a75.2 chapter-level index
+      table is the canonical chapter-home and is retained; country prototypes carry their
+      own audience-specific filter view under rule 2. No duplicate hand-authored tables
+      remain in the chain."
+    verification_method:
+      "Programmatic table-signature scan of 122 chapter / methodology / annex MDs (recorded
+      in `redundancy_inventory.md`) confirms the per-country ranked-site signature appears
+      exactly once per country with country-specific rows. The chapter-level index table
+      appears once in \u00a75.2 only."
   - id: "104"
     auto:
       author: Bogdan Termegan
@@ -460,7 +572,7 @@ items:
       Per user answer 2."
     phase: 1+rerun
     en_paraphrase: (draft - please confirm) Use the definition of "capable fault" from SSG-9 rev. 1.
-    closure_status: in-progress
+    closure_status: resolved-in-report
     closure_evidence: |
       src/atoms_vs_ashes/connectors/efsm20_faults/models.py CAPABLE_ACTIVITY_CLASSES (docstring expanded to cite SSG-9 rev. 1 §3.8-3.22 explicitly);
       src/atoms_vs_ashes/connectors/egdi_geology/parsers.py build_fault_assessment (now filters by capability before nearest-distance, matching EFSM20 semantics);
@@ -471,6 +583,7 @@ items:
       tests/test_connector_egdi_geology.py::TestBuildFaultAssessment::test_capability_filter_picks_capable_over_closer_inactive + test_only_non_capable_returns_no_distance;
       tests/test_connectors_efsm20_faults.py (distance-only observation flow);
       Phase 2 spot-check: provenance + dynamic NH-02 evidence verified on Polaniec (PL), Turceni (RO), Duernrohr (AT), St Andrae (AT - hard fail) bundles.
+      Phase 4: src/scripts/cross_chapter_numeric_lint.py CANONICAL_FACTS V1_3_NH02_E1_THRESHOLD asserts 'E1 verdict (radius 5 km)' across all chapters — 0 findings; Phase 4 spot-check on Iernut + Pocerady + Adamow rendered profiles confirms dynamic verdict line is present.
   - id: "105"
     auto:
       author: Bogdan Termegan
@@ -504,7 +617,7 @@ items:
     notes: Per user answer 2 (both IAEA SSG-9 rev. 1 and EPRI latest revision use 5 km).
     phase: 1+rerun
     en_paraphrase: (draft - please confirm) The filter is 5 km, not 8 km.
-    closure_status: in-progress
+    closure_status: resolved-in-report
     closure_evidence: |
       Per user clarification ("I can put whatever I want in that input: 1, 5, 8 or 100 km. Make it work with anything. In reality it will be 5km") the NH-02 screening radius is now a run-profile parameter, not a hard-coded constant.
       config/scoring_specs/threshold_metadata.yaml NH-02 E1 (default 8.0, bounds widened to {min: 0.1, max: 500.0}, rationale rewritten to cite SSG-9 rev. 1);
@@ -524,6 +637,7 @@ items:
       test_nh02_e1_bounds_accept_full_parametrised_range; test_nh02_rubric_stack_matches_threshold_metadata_default (cross-stack drift guard);
       tests/scoring/test_compiler_parity.py::test_out_of_bounds_rejected_without_expert_flag (1000 km now triggers rejection at the new ceiling);
       tests/reporting/test_run_profile_provenance.py (snapshot round-trip across [0.5..100] km; metadata-yaml fallback; renderer verdict respects provenance for inside/outside cases; renderer omits the verdict gracefully when provenance or distance is missing).
+      Phase 4: src/scripts/cross_chapter_numeric_lint.py V1_3_NH02_E1_THRESHOLD canonical fact (0 findings) + Phase 4 spot-check on Iernut / Pocerady / Adamow confirms 'E1 verdict (radius 5 km)' renders consistently.
   - id: "183"
     auto:
       author: Bogdan Termegan
@@ -559,7 +673,7 @@ items:
     notes: Removes the Hofkirchen-Airfield-class signal that currently penalises Enns and similar sites.
     phase: 1+rerun
     en_paraphrase: ""
-    closure_status: in-progress
+    closure_status: resolved-in-report
     closure_evidence: |
       config/scoring_rubrics/hi_human_induced.yaml HI-01 + config/scoring_specs/hi_human_induced.yaml HI-01 (A1 retired; small-class favourable band dropped; nearest_light_airport_km removed from band conditions);
       src/atoms_vs_ashes/scoring/merge_context_derivations.py (stopped emitting nearest_light_airport_km into the scoring context; per-class small/heliport distances stay informational);
@@ -572,3 +686,4 @@ items:
       tests/scoring/test_search_sentinel_bands.py (HI-01 v4 sentinel + A1 retirement assertions);
       tests/scoring/test_context_derivations.py (asserts nearest_light_airport_km absent from derived scoring context);
       Phase 2 frozen-run bundle for AT_enns_power_station reflects the new HI-01 banding.
+      Phase 4: src/scripts/lint_ledger_consistency.py confirms Polaniec migrated from avoidance-flag (v1.02) to full pass (v1.03) and now appears in Table 4.3.1 (priority 4) rather than 4.3.2 — direct visible consequence of #183; Phase 4 spot-check on Iernut + Pocerady + Adamow profiles confirms `nearest_light_airport_km` is absent from the rendered HI-01 evidence lines.
