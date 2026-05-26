@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T19:44:02.028104+00:00",
+    "created_at": "2026-05-25T19:00:30.196298+00:00",
     "country_code": "BG",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -449,6 +449,97 @@
       "share_of_country": 0.0667
     }
   ],
+  "per_site_verdicts": {
+    "0e860f58-416b-4116-836d-04edf8ded225": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "2fb27566-cc7b-4530-8ff9-e55e3a1985bd": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "30c9e377-b575-46fa-880f-922c46e6500a": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "33a015dd-51e0-497e-b0d3-4b1b3f070438": {
+      "avoidance": [
+        "HI-03",
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "398cc0f2-25d5-428a-93c9-5e4859680e86": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "3bb6666f-de2f-4c6f-a28e-c3bddb71b54a": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "704ef487-f600-4f23-b06e-a0f81b627597": {
+      "avoidance": [
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "85c56b15-450b-4bb1-b75e-5ea00ee51cb2": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02",
+        "NS-08"
+      ]
+    },
+    "93685558-3355-4da2-9a4a-4cccd89f9269": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "a064c7ae-e699-4a94-a18c-79bdfe42bce3": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "b01fe781-dbc7-40f8-a544-946288020042": {
+      "avoidance": [
+        "HI-01"
+      ],
+      "exclusionary": []
+    },
+    "b1bcb7d3-cd40-40c9-9c59-a01fa71053b3": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d12d7173-8595-4b53-92af-75b44b5a2fb7": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "fee1d5b3-827f-4172-8492-a3e114a3c39e": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 5.704,

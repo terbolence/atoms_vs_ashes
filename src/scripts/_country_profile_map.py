@@ -54,8 +54,8 @@ def _build_png(
 ) -> None:
     import matplotlib.pyplot as plt
 
-    extent = _map_extent(rows, padding_frac=0.30)
-    fig, ax = plt.subplots(figsize=(13.0, 8.6))
+    extent = _map_extent(rows, padding_frac=0.50)
+    fig, ax = plt.subplots(figsize=(16.0, 10.5))
     ax.set_xlim(extent[0], extent[1])
     ax.set_ylim(extent[2], extent[3])
     add_basemap(ax, extent, highlight_iso2=country_code)
@@ -64,11 +64,11 @@ def _build_png(
     plain_country = country_name.split(" (", 1)[0]
     ax.set_title(
         f"{plain_country} site-screening status for {smr_label}",
-        fontsize=12, fontweight="bold",
+        fontsize=14, fontweight="bold",
     )
     ax.set_xlabel("Longitude")
     ax.set_ylabel("Latitude")
-    ax.tick_params(axis="both", labelsize=8)
+    ax.tick_params(axis="both", labelsize=9)
     ax.grid(False)
     handles, labels = _legend_handles(ax)
     fig.legend(
@@ -76,22 +76,29 @@ def _build_png(
         loc="lower center",
         bbox_to_anchor=(0.5, 0.0),
         ncol=len(labels),
-        fontsize=8, frameon=True, facecolor="white", framealpha=0.95,
+        fontsize=9, frameon=True, facecolor="white", framealpha=0.95,
     )
     fig.tight_layout(rect=(0.0, 0.04, 1.0, 1.0))
-    fig.savefig(path, dpi=180)
+    fig.savefig(path, dpi=300)
     plt.close(fig)
 
 
 def _map_extent(
-    rows: list[dict[str, Any]], *, padding_frac: float,
+    rows: list[dict[str, Any]], *, padding_frac: float = 0.50,
 ) -> tuple[float, float, float, float]:
+    """Return ``(lon_min, lon_max, lat_min, lat_max)`` in degrees.
+
+    The default ``padding_frac=0.50`` widens the visible window by 25%
+    relative to the previous ``0.30`` baseline (`1 + 2*0.5 = 2.0` total
+    span versus `1.6`), so each country status map shows more of the
+    surrounding region. Floor pads are scaled in step.
+    """
     lons = [float(row["longitude"]) for row in rows if row.get("longitude") is not None]
     lats = [float(row["latitude"]) for row in rows if row.get("latitude") is not None]
     lon_span = max((max(lons) - min(lons)), 1.0)
     lat_span = max((max(lats) - min(lats)), 0.75)
-    lon_pad = max(lon_span * padding_frac, 1.5)
-    lat_pad = max(lat_span * padding_frac, 1.0)
+    lon_pad = max(lon_span * padding_frac, 1.875)
+    lat_pad = max(lat_span * padding_frac, 1.25)
     return (
         min(lons) - lon_pad, max(lons) + lon_pad,
         min(lats) - lat_pad, max(lats) + lat_pad,
@@ -195,12 +202,44 @@ def _stack_side(
         )
 
 
+CALLOUT_FLAG_LIMIT = 3
+
+
 def _callout_text(row: dict[str, Any]) -> str:
-    score = row.get("composite")
-    score_txt = f"{float(score):.2f}" if score is not None else "n/a"
+    """PNG callout label - one-liner Rank + Name + Flag.
+
+    Layout (rev 2026-05-26 round 3.1)::
+
+        #<rank> <short name> | <flag1>, <flag2>, <flag3>
+
+    Full-pass rows have no avoidance / hard-fail flags, so the trailing
+    segment renders as the status label ``Full pass`` instead. Hard-fail
+    rows whose `national_rank` is unavailable render with ``#-``. The
+    rest of the per-site data (capacity, surface, score, etc.) lives in
+    the markdown table columns directly below the map; the callout
+    intentionally avoids duplicating it. Flags are capped at
+    :data:`CALLOUT_FLAG_LIMIT` for PNG legibility; the HTML popup
+    carries the full list.
+    """
     rank = row.get("national_rank") or "-"
-    name = _short_label(str(row.get("name") or ""))
-    return f"#{rank} {name} | {CALLOUT_STATUS[row['status']]} | {score_txt}"
+    name = _short_label(str(row.get("name") or "")).strip()
+    head = f"#{rank} {name}".strip() if name else f"#{rank}"
+    flags = _callout_flags(row)
+    if flags:
+        return head + " | " + ", ".join(flags[:CALLOUT_FLAG_LIMIT])
+    status_label = CALLOUT_STATUS.get(row.get("status"))
+    if status_label:
+        return head + " | " + status_label
+    return head
+
+
+def _callout_flags(row: dict[str, Any]) -> list[str]:
+    status = row.get("status")
+    if status == "avoidance-flag":
+        return list(row.get("avoidance_named") or [])
+    if status == "hard-fail":
+        return list(row.get("hard_fail_named") or [])
+    return []
 
 
 def _short_label(name: str) -> str:
@@ -291,13 +330,29 @@ def _popup_html(row: dict[str, Any]) -> str:
         f"{float(low):.3f}-{float(high):.3f}"
         if low is not None and high is not None else "N/A"
     )
+    flag_lines = ""
+    avoidance = row.get("avoidance_named") or []
+    hard_fail = row.get("hard_fail_named") or []
+    if avoidance:
+        flag_lines += (
+            "Avoidance flags: "
+            + html.escape(", ".join(avoidance))
+            + "<br>"
+        )
+    if hard_fail:
+        flag_lines += (
+            "Exclusionary flags: "
+            + html.escape(", ".join(hard_fail))
+            + "<br>"
+        )
     return (
         f"<div class='callout'><strong>{html.escape(str(row['name']))}</strong><br>"
         f"Status: {label}<br>"
         f"National rank: {row.get('national_rank') or 'N/A'}<br>"
         f"Composite: {score_text}<br>"
         f"MC band: {band_text}<br>"
-        f"Stability band: {row.get('national_band') or 'N/A'}</div>"
+        f"Stability band: {row.get('national_band') or 'N/A'}<br>"
+        f"{flag_lines}</div>"
     )
 
 

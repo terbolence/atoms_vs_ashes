@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.509227+00:00",
+    "created_at": "2026-05-25T19:00:47.115444+00:00",
     "country_code": "UA",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -545,6 +545,53 @@
     }
   ],
   "exclusionary_failure_pareto": [],
+  "per_site_verdicts": {
+    "02253fcc-4fc6-42d4-a6a8-42365487302f": {
+      "avoidance": [
+        "HI-01"
+      ],
+      "exclusionary": []
+    },
+    "038d42e9-769b-4b22-9513-dccff48b42cd": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "3bd2a957-ff3b-4bfd-9dba-808279edccb9": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "95872473-c476-4ceb-bcf5-54cfdf415e42": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "d3b9e403-7744-44c5-b5c3-999c4c1911d8": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "e4c6a713-99e6-4fdf-afaa-d456779c504c": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "fb7d4d9a-3f27-4b50-9941-6a8fccd25e9a": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 4.781,

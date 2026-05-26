@@ -1,4 +1,5 @@
 <!-- man_hours: 4.6 -->
+
 # Annex E: Assumption Register and Data Limitations
 
 **What this annex adds.** Annex E carries the report-facing assumption register and evidence limitation catalogue. Chapter 2 Section 2.3 describes the evidence base at family level; Chapter 4 Section 4.5 summarises uncertainty in the results; Chapter 5 site profiles carry site-specific residual-risk entries. Annex E gives the stable assumption IDs that tie those discussions together.
@@ -98,7 +99,6 @@ The register is versioned with the rubric. Any rubric change should update or ad
 
 ### A-SENS-02: 50,000 national Monte Carlo iterations
 
-- **Statement:** the national sensitivity analysis (run `nat-sens-b1a62885`, stamp `20260523`, parent scoring run `score-c2a90942`) uses 50,000 Monte Carlo iterations for national rank-probability outputs.
 - **Impact if wrong:** top-rank and top-five probabilities could carry unnecessary sampling noise.
 - **Mitigation:** the fixed seed and deterministic sampling scheme make the analysis reproducible.
 
@@ -138,26 +138,26 @@ The register is versioned with the rubric. Any rubric change should update or ad
 
 The evidence categories below are the sources that shape scoring confidence. The report describes them by data family rather than by source-platform name.
 
-| Evidence category | Domain | Resolution or scope | Screening caveat |
-| --- | --- | --- | --- |
-| Seismic and capable-fault hazard layers | PGA, fault proximity, and geotechnical proxies | Continental or national grid and vector products | Stage 3 requires site-specific PSHA, PFDHA, and geotechnical ground-truthing. |
-| Meteorological and climatological records | Wind, temperature, precipitation, and dispersion proxies | Gridded and national-station reference periods | Screening wind and precipitation values are relative indices for ranking. Implausibly low precipitation or wind values must be reconciled with national meteorological records before design-basis use. |
-| Flood-hazard and hydrological records | River, coastal, surge, and cooling-water context | National and continental hazard layers | Dam-break, combined-event, and design-basis flood studies are Stage 3 tasks. |
-| Land-cover and land-use inventories | Land availability, zoning, industrial context, and buildable-area proxies | Parcel, raster, or national land-use products where available | Industrial classification does not prove permitted, contiguous, or controlled land. |
-| Protected-area and ecological inventories | Non-radiological environmental constraints | National and international protected-area records | Legal significance depends on national practice and project-specific assessment. |
-| Population and settlement grids | EPZ population density, large-centre proximity, and projection proxies | Gridded population surfaces and national statistics where available | Stage 3 requires census, municipal planning, and evacuation-time evidence. |
-| Open infrastructure and transport inventories | Roads, rail, ports, airports, military facilities, and industrial hazards | Public mapping and institutional records | Absence of a mapped feature does not prove absence in reality. |
-| Thermal-plant and grid inventories | Candidate-site identification, plant status, grid context, and reuse potential | Public plant records and TSO disclosures | Retirement status, grid capacity, and ownership require national confirmation. |
-| Conflict and territorial-status records | War-context and control-of-terrain caveats | Dated public evidence | Any site progression depends on updated legal, security, and infrastructure conditions at the time of review. |
+| Evidence category                             | Domain                                                                         | Resolution or scope                                                 | Screening caveat                                                                                                                                                                                        |
+| --------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Seismic and capable-fault hazard layers       | PGA, fault proximity, and geotechnical proxies                                 | Continental or national grid and vector products                    | Stage 3 requires site-specific PSHA, PFDHA, and geotechnical ground-truthing.                                                                                                                           |
+| Meteorological and climatological records     | Wind, temperature, precipitation, and dispersion proxies                       | Gridded and national-station reference periods                      | Screening wind and precipitation values are relative indices for ranking. Implausibly low precipitation or wind values must be reconciled with national meteorological records before design-basis use. |
+| Flood-hazard and hydrological records         | River, coastal, surge, and cooling-water context                               | National and continental hazard layers                              | Dam-break, combined-event, and design-basis flood studies are Stage 3 tasks.                                                                                                                            |
+| Land-cover and land-use inventories           | Land availability, zoning, industrial context, and buildable-area proxies      | Parcel, raster, or national land-use products where available       | Industrial classification does not prove permitted, contiguous, or controlled land.                                                                                                                     |
+| Protected-area and ecological inventories     | Non-radiological environmental constraints                                     | National and international protected-area records                   | Legal significance depends on national practice and project-specific assessment.                                                                                                                        |
+| Population and settlement grids               | EPZ population density, large-centre proximity, and projection proxies         | Gridded population surfaces and national statistics where available | Stage 3 requires census, municipal planning, and evacuation-time evidence.                                                                                                                              |
+| Open infrastructure and transport inventories | Roads, rail, ports, airports, military facilities, and industrial hazards      | Public mapping and institutional records                            | Absence of a mapped feature does not prove absence in reality.                                                                                                                                          |
+| Thermal-plant and grid inventories            | Candidate-site identification, plant status, grid context, and reuse potential | Public plant records and TSO disclosures                            | Retirement status, grid capacity, and ownership require national confirmation.                                                                                                                          |
+| Conflict and territorial-status records       | War-context and control-of-terrain caveats                                     | Dated public evidence                                               | Any site progression depends on updated legal, security, and infrastructure conditions at the time of review.                                                                                           |
 
 ## Country-specific data limitations
 
-| Country | Caveat |
-| --- | --- |
-| Ukraine (UA) | War-context caveat. Any site progression depends on territorial stabilisation, updated infrastructure-condition evidence, and national authority review. |
-| Moldova (MD) | Single-site evidence makes the national narrative sensitive to cross-border cooling-water, grid, and emergency-planning assumptions. |
-| Kosovo (XK) | Political-status and data-availability caveats apply; the local failure artefact shows no surviving NuScale VOYGR-6 candidate. |
-| Turkey (TR) | The site universe is large and geographically varied; national authority engagement is central to validating grid, emergency-planning, and infrastructure proxies. |
+| Country      | Caveat                                                                                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Ukraine (UA) | War-context caveat. Any site progression depends on territorial stabilisation, updated infrastructure-condition evidence, and national authority review.           |
+| Moldova (MD) | Single-site evidence makes the national narrative sensitive to cross-border cooling-water, grid, and emergency-planning assumptions.                               |
+| Kosovo (XK)  | Political-status and data-availability caveats apply; the local failure artefact shows no surviving NuScale VOYGR-6 candidate.                                     |
+| Türkiye (TR) | The site universe is large and geographically varied; national authority engagement is central to validating grid, emergency-planning, and infrastructure proxies. |
 
 ## Evidence basis
 

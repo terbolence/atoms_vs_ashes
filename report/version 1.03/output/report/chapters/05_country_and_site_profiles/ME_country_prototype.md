@@ -1,13 +1,11 @@
 # Montenegro Country Profile
 
-Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
-
 Montenegro has 4 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 2 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
-The leading site is **Bar power station**, with a composite score of 6.023 and a Monte Carlo interval of 5.321-6.467. Its national stability band is `F` with a national top-10% hit rate of 42%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
+No site clears both the exclusionary and avoidance screens, so there is no full-pass national leader. The leading exclusion-pass site at the point estimate is **Bar power station**, with a composite score of 6.023 and a Monte Carlo interval of 5.321-6.467; its national stability band is `F` with a top-10% hit rate of 42%, so the point-estimate lead is not robust under the sensitivity treatment. **Berane power station** is tied at composite 6.023 (interval 5.321-6.559) and sits in the more stable band `C` with a top-10% hit rate of 58%, making it the more stable avoidance-flag candidate under the same sensitivity treatment.
 
 <!-- specialist key=country_exec scope=country country_code=ME bundle=ME_country_bundle.json status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country ME --key country_exec` then `... patch --country ME --key country_exec --text-file <draft.md>`._
+
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
@@ -55,13 +53,13 @@ Across the country the strongest criterion family is **Human-Induced Hazards** a
 
 ## Interpretation for Site Selection
 
-The Montenegro result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+The Montenegro result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. No site clears both the exclusionary and avoidance screens, so there is no full-pass pool to draw from; the leading exclusion-pass sites with avoidance flags are the relevant pool for progression once those specific constraints are resolved.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/ME_avoidance_pareto.png)
 
 The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Bar power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Bar power station** holds the point-estimate national lead but sits in stability band `F`, so its position is sensitive to weighting choices; **Berane power station** is tied on point estimate and sits in the more stable band `C`. Both retain avoidance flags rather than full-pass status, so neither is currently a full-pass candidate. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement on the leading exclusion-pass sites and on resolving the avoidance-flag criteria that currently prevent a full-pass classification before lower-ranked or hard-fail locations.
 
 The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
 

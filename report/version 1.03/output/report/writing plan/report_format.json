@@ -144,7 +144,7 @@
       "color_hex": "000000"
     },
     "cell_alignment": {
-      "numeric": "right",
+      "numeric": "center",
       "text": "left",
       "short_label": "center"
     },
@@ -152,7 +152,7 @@
     "line_spacing": 1.15,
     "column_width": "fit_content",
     "markdown_alignment": {
-      "numeric": "---:",
+      "numeric": ":---:",
       "text": ":---",
       "centered_label": ":---:"
     },

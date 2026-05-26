@@ -35,9 +35,8 @@ The site fails 1 exclusionary criterion(a) below. Exclusionary failures act as g
 
 ## Unlock Analysis
 
-
 <!-- specialist key=unlock_analysis scope=site site_id=7af0e000-3d19-4e5e-b504-f74897f1510c bundle=HR_ploce_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Unlock analysis (deprecate / characterize / escalate). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key unlock_analysis` then `... patch --country <CC> --site-name <name> --key unlock_analysis --text-file <draft.md>`._
+
 <!-- /specialist key=unlock_analysis -->
 
 ## Evidence Limitations

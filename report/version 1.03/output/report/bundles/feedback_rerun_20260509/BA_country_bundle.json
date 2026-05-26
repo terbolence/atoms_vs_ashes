@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.012891+00:00",
+    "created_at": "2026-05-25T19:00:44.531879+00:00",
     "country_code": "BA",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -327,6 +327,75 @@
       "share_of_country": 0.4545
     }
   ],
+  "per_site_verdicts": {
+    "0155b913-765f-4d44-89f5-c176b6867cef": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "0fb50bcc-5616-40d8-9109-8136a958f18d": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "344e0e9a-558e-4749-bb66-cd746be50cbd": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "67e5a20f-e3ab-4c18-9864-cf4591d6e15f": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "82011c29-a3d3-4a81-a27b-019d2649a251": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "85257083-08d1-4560-b198-a9df414da4a9": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "a23d073a-cbbd-469a-b134-380945fd3f4c": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "aa0bdb5e-45aa-4d15-8aee-cb5b0e14f5d9": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "e2d645e3-c829-4aac-8f6f-d6a5507fd5fa": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "e671be33-8b91-40bd-b563-b833293654aa": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "e75c63e5-ef2f-4e08-8f8c-3da41215af9d": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 4.5968,

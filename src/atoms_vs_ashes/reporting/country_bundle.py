@@ -239,6 +239,78 @@ def _exclusionary_failure_pareto(
     return out
 
 
+def _per_site_verdicts(
+    session: Session,
+    *,
+    country_code: str,
+    smr_key: str,
+    run_id: str,
+) -> dict[str, dict[str, list[str]]]:
+    """Return ``{site_id: {"avoidance": [code,...], "exclusionary": [...]}}``.
+
+    Matches the same ``where`` clauses as ``_avoidance_pareto`` and
+    ``_exclusionary_failure_pareto`` so per-site driver lists are
+    consistent with the country-level Pareto aggregates:
+
+    * avoidance: ``phase=avoidance``, ``verdict in (fail, caution)``,
+      and the site itself must have ``passed_exclusionary``.
+    * exclusionary: ``phase=exclusionary``, ``verdict=fail`` for any
+      site in the country (no composite-ranking constraint, mirroring
+      the failure Pareto).
+
+    Code lists are sorted alphabetically so re-emission is byte-stable.
+    """
+    avoidance_stmt = (
+        select(
+            ScreeningVerdict.site_id,
+            ScreeningVerdict.criterion_id,
+        )
+        .join(Site, Site.site_id == ScreeningVerdict.site_id)
+        .join(
+            CompositeRanking, CompositeRanking.site_id == ScreeningVerdict.site_id,
+        )
+        .where(
+            Site.country_code == country_code,
+            ScreeningVerdict.smr_key == smr_key,
+            ScreeningVerdict.run_id == run_id,
+            CompositeRanking.run_id == run_id,
+            CompositeRanking.smr_key == smr_key,
+            CompositeRanking.weight_profile == "baseline",
+            CompositeRanking.passed_exclusionary.is_(True),
+            ScreeningVerdict.phase == "avoidance",
+            ScreeningVerdict.verdict.in_(["fail", "caution"]),
+        )
+    )
+    exclusionary_stmt = (
+        select(
+            ScreeningVerdict.site_id,
+            ScreeningVerdict.criterion_id,
+        )
+        .join(Site, Site.site_id == ScreeningVerdict.site_id)
+        .where(
+            Site.country_code == country_code,
+            ScreeningVerdict.smr_key == smr_key,
+            ScreeningVerdict.run_id == run_id,
+            ScreeningVerdict.phase == "exclusionary",
+            ScreeningVerdict.verdict == "fail",
+        )
+    )
+    out: dict[str, dict[str, set[str]]] = defaultdict(
+        lambda: {"avoidance": set(), "exclusionary": set()},
+    )
+    for sid, cid in session.execute(avoidance_stmt).all():
+        out[str(sid)]["avoidance"].add(str(cid))
+    for sid, cid in session.execute(exclusionary_stmt).all():
+        out[str(sid)]["exclusionary"].add(str(cid))
+    return {
+        sid: {
+            "avoidance": sorted(phases["avoidance"]),
+            "exclusionary": sorted(phases["exclusionary"]),
+        }
+        for sid, phases in sorted(out.items())
+    }
+
+
 def _family_averages(
     session: Session,
     *,
@@ -375,6 +447,10 @@ def build_country_bundle(
         country_code=code, smr_key=smr_key, run_id=run_id,
         n_country=n_country, criteria=criteria,
     )
+    per_site_verdicts = _per_site_verdicts(
+        session,
+        country_code=code, smr_key=smr_key, run_id=run_id,
+    )
     family_avgs = _family_averages(
         session, site_ids=site_ids, smr_key=smr_key, run_id=run_id,
     )
@@ -411,6 +487,7 @@ def build_country_bundle(
         "sites": site_rows,
         "avoidance_pareto": avoidance_pareto,
         "exclusionary_failure_pareto": failure_pareto,
+        "per_site_verdicts": per_site_verdicts,
         "family_normalised_score_means": family_avgs,
         "ranking_score_distribution": score_distribution,
         "criteria_lookup": criteria,
@@ -436,4 +513,4 @@ def build_country_bundle(
     return payload
 
 
-__all__ = ["build_country_bundle"]
+__all__ = ["build_country_bundle", "_per_site_verdicts"]

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.414549+00:00",
+    "created_at": "2026-05-25T19:00:46.108655+00:00",
     "country_code": "SK",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -216,6 +216,36 @@
       "share_of_country": 0.1667
     }
   ],
+  "per_site_verdicts": {
+    "06defca3-9105-437f-afd4-52f5603d9b8e": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "1719d38b-61e8-4b01-844b-3a2f85c8a186": {
+      "avoidance": [
+        "HI-01"
+      ],
+      "exclusionary": []
+    },
+    "66edd8f5-e60a-412d-9b80-56496d1407b1": {
+      "avoidance": [],
+      "exclusionary": [
+        "EP-01"
+      ]
+    },
+    "a2d8261c-3d08-4015-946c-47dbddbd0b98": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 5.2161,

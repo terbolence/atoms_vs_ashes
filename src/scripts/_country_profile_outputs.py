@@ -37,6 +37,7 @@ def write_artifacts(
     smr_label: str,
     site_slug: str | None,
     site_only: bool = False,
+    figures_only: bool = False,
 ) -> None:
     """Write data, figures, and markdown for one country/site profile.
 
@@ -46,16 +47,23 @@ def write_artifacts(
     (bundle JSON, ledger CSV, status maps, Pareto charts, country
     markdown) are skipped (useful when patching one site without
     touching the country profile, which preserves a filled
-    ``country_exec`` placeholder). When called in country-only mode the
-    country artefacts are written without touching anything under
-    ``sites/``.
+    ``country_exec`` placeholder). When ``figures_only`` is true the
+    country status maps and Pareto charts are re-rendered against the
+    current scoring/sensitivity runs but the country bundle JSON,
+    ledger CSV, country markdown, and all site artefacts are left
+    untouched (used by the final reconciliation pass to preserve
+    hand-edited country prototype prose). When called in country-only
+    mode the country artefacts are written without touching anything
+    under ``sites/``.
     """
     write_site = (
         site_bundle is not None
         and selected_row is not None
         and site_slug
+        and not figures_only
     )
-    write_country = not site_only
+    write_country = not site_only and not figures_only
+    write_figures_only = figures_only
     (out / "data").mkdir(parents=True, exist_ok=True)
     (out / "figures").mkdir(parents=True, exist_ok=True)
     if write_site:
@@ -73,8 +81,14 @@ def write_artifacts(
             country_bundle.get("sites", []),
         )
 
+        per_site = country_bundle.get("per_site_verdicts") or {}
+        criteria_lookup = country_bundle.get("criteria_lookup") or {}
         bundle_rows = [
-            _ledger_row(row) for row in country_bundle.get("sites", [])
+            _ledger_row(
+                row, per_site_verdicts=per_site,
+                criteria_lookup=criteria_lookup,
+            )
+            for row in country_bundle.get("sites", [])
         ]
         maps = write_maps(
             out / "figures", bundle_rows, country_name=country_name,
@@ -93,6 +107,25 @@ def write_artifacts(
                 country_bundle_filename=country_bundle_filename,
             ),
             encoding="utf-8",
+        )
+    elif write_figures_only:
+        per_site = country_bundle.get("per_site_verdicts") or {}
+        criteria_lookup = country_bundle.get("criteria_lookup") or {}
+        bundle_rows = [
+            _ledger_row(
+                row, per_site_verdicts=per_site,
+                criteria_lookup=criteria_lookup,
+            )
+            for row in country_bundle.get("sites", [])
+        ]
+        write_maps(
+            out / "figures", bundle_rows, country_name=country_name,
+            country_code=country_code, smr_label=smr_label,
+        )
+        _write_pareto_charts(
+            out / "figures", country_bundle,
+            country_prefix=country_prefix,
+            country_name=country_name.split(" (", 1)[0],
         )
 
     if write_site:
@@ -178,14 +211,31 @@ def _write_pareto_charts(
     return out
 
 
-def _ledger_row(row: dict[str, Any]) -> dict[str, Any]:
+def _ledger_row(
+    row: dict[str, Any],
+    *,
+    per_site_verdicts: dict[str, dict[str, list[str]]] | None = None,
+    criteria_lookup: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     """Translate a country-bundle site row to the row shape the map writer
-    expects (legacy keys composite/status_label/etc.)."""
+    expects (legacy keys composite/status_label/etc.).
+
+    When ``per_site_verdicts`` and ``criteria_lookup`` are supplied
+    (added 2026-05-24 for results-table flag-name enrichment), the row
+    also carries ``avoidance_named`` / ``hard_fail_named`` lists shaped
+    as ``["Grid Connection (NS-02)", ...]`` so the map writer can show
+    actual flag drivers on PNG callouts and HTML popups.
+    """
     status = (
         "pass" if row.get("passed_exclusionary") and row.get("passed_avoidance")
         else "hard-fail" if not row.get("passed_exclusionary")
         else "avoidance-flag"
     )
+    sid = str(row.get("site_id") or "")
+    verdicts = (per_site_verdicts or {}).get(sid) or {}
+    lookup = criteria_lookup or {}
+    avoidance_named = _named_codes(verdicts.get("avoidance") or [], lookup)
+    hard_fail_named = _named_codes(verdicts.get("exclusionary") or [], lookup)
     return {
         "national_rank": row.get("national_rank"),
         "site_id": row.get("site_id"),
@@ -200,7 +250,20 @@ def _ledger_row(row: dict[str, Any]) -> dict[str, Any]:
         "national_band": row.get("national_band"),
         "national_top10_rate": row.get("national_top10pct_hit_rate"),
         "criteria_coverage": row.get("criteria_coverage"),
+        "avoidance_named": avoidance_named,
+        "hard_fail_named": hard_fail_named,
     }
+
+
+def _named_codes(
+    codes: list[str], criteria_lookup: dict[str, dict[str, Any]],
+) -> list[str]:
+    out: list[str] = []
+    for code in codes:
+        meta = criteria_lookup.get(str(code)) or {}
+        name = str(meta.get("name") or "").strip()
+        out.append(f"{name} ({code})" if name else str(code))
+    return out
 
 
 def _write_json(path: Path, payload: Any) -> None:
@@ -236,9 +299,18 @@ _COUNTRY_DISPLAY = {
 }
 
 
+_UNPUBLISHED_COUNTRY_CODES = frozenset({"BY"})
+
+
 def _write_index(out: Path) -> None:
-    country_links = sorted(out.glob("*_country_prototype.md"))
-    site_links = sorted((out / "sites").glob("*.md")) if (out / "sites").exists() else []
+    country_links = sorted(
+        p for p in out.glob("*_country_prototype.md")
+        if p.name.split("_", 1)[0] not in _UNPUBLISHED_COUNTRY_CODES
+    )
+    site_links = sorted(
+        p for p in (out / "sites").glob("*.md")
+        if p.name.split("_", 1)[0] not in _UNPUBLISHED_COUNTRY_CODES
+    ) if (out / "sites").exists() else []
     lines = [
         "# Chapter 5 - Country and Site Profiles",
         "",

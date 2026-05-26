@@ -37,7 +37,7 @@ from atoms_vs_ashes.db.analytics_writers import (  # noqa: E402
     persist_criterion_correlations,
 )
 from atoms_vs_ashes.db.engine import session_scope  # noqa: E402
-from atoms_vs_ashes.db.models import RankingScore  # noqa: E402
+from atoms_vs_ashes.db.models import RankingScore, Site  # noqa: E402
 from atoms_vs_ashes.logging import get_logger  # noqa: E402
 from atoms_vs_ashes.scoring._criterion_correlation import (  # noqa: E402
     CorrelationReport,
@@ -57,6 +57,7 @@ DB_PROFILES = {
     "llm": "atoms_vs_ashes_llm",
     "merged": "atoms_vs_ashes_merged",
 }
+EXCLUDED_PUBLISHED_COUNTRIES = frozenset({"BY"})
 DEFAULT_RUBRIC_DIR = Path("config/scoring_rubrics")
 
 
@@ -77,14 +78,24 @@ def _load_baseline_scores(
     run_id = _resolve_baseline_run_id(
         session, weight_profile_base=baseline_label
     )
+    excluded_site_ids = {
+        sid for sid, code in session.execute(
+            select(Site.site_id, Site.country_code)
+        ).all()
+        if str(code) in EXCLUDED_PUBLISHED_COUNTRIES
+    }
     stmt = select(RankingScore)
     if run_id:
         stmt = stmt.where(RankingScore.run_id == run_id)
+    if excluded_site_ids:
+        stmt = stmt.where(RankingScore.site_id.notin_(excluded_site_ids))
     rows = list(session.execute(stmt).scalars().all())
     log.info(
         "correlation_rows_loaded",
         rows=len(rows),
         baseline_run_id=run_id,
+        excluded_countries=sorted(EXCLUDED_PUBLISHED_COUNTRIES),
+        excluded_site_ids=len(excluded_site_ids),
     )
     return rows
 

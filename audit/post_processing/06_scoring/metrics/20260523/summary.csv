@@ -1,9 +1,9 @@
 key,value
-total_pairs,362
-survived,304
+total_pairs,360
+survived,302
 hard_only,57
 floor_only,0
 both,1
-n_distinct_sites,362
+n_distinct_sites,360
 n_distinct_smrs,1
 qualification_mode,normal

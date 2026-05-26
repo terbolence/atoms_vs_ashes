@@ -51,7 +51,6 @@ def _header_block(
     if smr_banner:
         parts.extend([f"> {smr_banner}", ""])
     parts.extend([
-        f"- Run ID: `{run_id or '(none)'}`",
         f"- Stamp: **{stamp}**",
         f"- Universe: **{breakdown.total_pairs}** site × technology "
         "evaluations.",

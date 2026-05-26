@@ -1,10 +1,14 @@
-"""Refresh the 17 v1.03 country prototypes against the frozen Phase 2 runs.
+"""Refresh the 16 in-region country prototypes against the frozen Phase 2 runs.
 
 Loops the in-scope ISO-2 codes and invokes
 ``build_country_profile_prototype`` in ``--country-only`` mode. The
 country bundle JSON / ledger CSV / Pareto figures / status map / country
 Markdown all get rewritten. Per-site profiles are out of scope here
 (handled by ``regenerate_v1_3_site_profiles.py``).
+
+Belarus (BY) is deactivated from the published roster; the source data
+is preserved in the DB for potential reactivation, but no build artefact
+is regenerated for it.
 """
 
 from __future__ import annotations
@@ -20,7 +24,7 @@ _DEFAULT_OUTPUT = Path(
 )
 
 _DEFAULT_COUNTRIES = (
-    "AT", "BA", "BG", "BY", "CZ", "HR", "HU", "LV", "MD", "ME",
+    "AT", "BA", "BG", "CZ", "HR", "HU", "LV", "MD", "ME",
     "MK", "PL", "RO", "RS", "SK", "TR", "UA",
 )
 

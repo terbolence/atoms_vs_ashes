@@ -97,9 +97,6 @@ def _intro(
     block = [
         f"# {country_plain} Country Profile",
         "",
-        f"Analytical basis: scoring `{meta.get('analytics_run_id', '-')}` and "
-        f"sensitivity `{meta.get('sensitivity_run_id', '-')}`.",
-        "",
         f"{country_plain} has {totals.get('n_sites', 0)} thermal and "
         f"coal-site records that have been tested against the {smr_label} "
         "reference deployment envelope. "

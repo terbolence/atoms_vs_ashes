@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.492827+00:00",
+    "created_at": "2026-05-25T19:00:47.070841+00:00",
     "country_code": "TR",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -3750,6 +3750,935 @@
       "share_of_country": 0.0068
     }
   ],
+  "per_site_verdicts": {
+    "0049a899-af5f-41cd-86ae-2ba729b6365f": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "021d1717-149a-4a32-af7b-5955ff593e45": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "0248611c-b745-404f-ad50-c2870882c7a1": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "0947a4c8-4fc1-492f-9c66-2c9a993c7fb0": {
+      "avoidance": [
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "0ada7b2a-f928-4c21-b082-4c7345094245": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "0ca0b969-c519-48f3-97ab-7173d3aa6085": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "0ca4ff78-4113-4ad9-ac04-0fd541d42338": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "0fec985c-c66e-40af-a123-a9ba4db269bb": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "1289753b-43db-4058-8fe1-6e38b5fb01b5": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "161660e7-3ccf-4704-b452-b126599700a0": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "1624a526-07d8-44a4-8ed7-3b035b748f03": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "17568f0f-91fd-4efe-b4df-2c7cc5d80b7d": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08",
+        "NS-01",
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "1820429d-bd95-4e56-a6db-d9bb57e2ae07": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "1ce7624e-1d72-4293-8ff4-09096b56ddd2": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "1f305180-6bbf-4758-9a98-78bc9e96e195": {
+      "avoidance": [
+        "HI-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "21ccc44f-3244-4e7f-9654-eae424288200": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "225656d9-8709-4c2f-9992-1e4f20a6fce8": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "231565d3-4f56-43ee-a357-1f4451c6fbc3": {
+      "avoidance": [
+        "NH-01",
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "2350bab4-9869-43f1-b62f-a4d5aea77ef5": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "28980273-0ba6-4c8c-b080-7ff9b33cc4c9": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "28baef4d-44e3-4b2e-bbe3-75f736371553": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "28c80d72-dd9e-4fbf-a2c7-d48d49ca61dc": {
+      "avoidance": [],
+      "exclusionary": [
+        "EP-01"
+      ]
+    },
+    "2a3aad60-2bff-4206-8275-f6e2029f9278": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "2b6a65d3-efb0-44d8-b88b-9aad311f4ac4": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "2ec95392-978d-4a43-85b9-af3282c212ba": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "2ed9363f-a9fe-46e5-8b92-c50b47a9077a": {
+      "avoidance": [
+        "HI-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "3819acc8-761d-49ba-89e7-967d3d37ec0e": {
+      "avoidance": [
+        "NH-01",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "3a06636d-c742-4b72-b9cd-21a4537c331b": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "3bc834ed-5c2b-47d6-b555-2e20b9044053": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "3e5f4317-6f40-44fb-bfa2-e21dc4d9922d": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "3f1ad930-cffb-4991-badd-773db74b890c": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "42d5b3fd-7d07-409b-9154-4441695b7901": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "44362378-9c74-44af-8a08-be4877f50e97": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "44698c12-3c50-4602-8104-dafa5fd215b6": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "47c1271c-e2b2-42f5-99ee-f616bbef5b7e": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "48149515-0774-404d-b273-790b660a8d90": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "4b11cac9-4fe0-4a2a-9c09-4fe9a0ac6015": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "4ca3c560-6d90-4bcf-b131-4e39b6b4f0de": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "5067ece3-b204-495e-81c1-90a523252547": {
+      "avoidance": [
+        "HI-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "52028d4f-7796-4463-832e-cff2e439c96a": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "53481b7f-5b85-4bab-be04-4866c2e72c12": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "55cfe45b-6357-40f9-8623-e9916f91f839": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "56b8e2a3-1885-431f-9fd1-4cd3bebfad61": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "57c0c830-725f-46ee-9322-0a4a3ad9efda": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "59f96677-d42b-4ae1-a3e9-32f3dc396a83": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "5a19f424-1a15-44e6-bf1b-c2c5886ac1bf": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "5ed91c1b-0a1b-4a4c-9b2b-f6bdc8ff9770": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "5fa0dfa9-c272-444e-8e70-80ab55b5d36c": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "61b7e396-5c25-4591-9da1-eb54475f1805": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "6c9571c4-5d3b-4f88-a7be-fa8c21425eeb": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "6ddc2960-3d72-4d5f-b358-56d1c54f47e0": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "737b6d06-1d0c-4ae6-9683-ab3fea192b32": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "746fc66e-d31f-4c5d-bf5c-ab5031b04b15": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01",
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "75f807aa-8278-43a3-8654-730713b96001": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "76cd9b7f-7613-4fd4-95ab-bf534a2e2f5e": {
+      "avoidance": [
+        "NH-08",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "772e2484-419b-47de-9739-924ac371ad10": {
+      "avoidance": [
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "778e0750-19f9-426e-a6c7-e0e30645fb97": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "7a805295-0cd2-48be-972e-5282c996549c": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "7b4d3f8f-a644-48a3-93f9-cd3c154dc5c2": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "7cc9cffa-e4e4-4546-902d-c8f4800dbdb2": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "7defe42d-669b-489f-aff5-d1b83436607d": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "80179871-04fa-4806-9385-caf739b8a171": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "80b922cb-9e78-49aa-9d28-1dc84b1affef": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "829f61ff-0ad1-4288-8dd9-e41abbd0b6a7": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "82aac38c-3037-466c-9b37-bff9da707645": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "86996d34-c6e5-4097-ac28-ad2e5467f783": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "8782d6f2-5f9f-4c67-b9f2-6756857bd200": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "8a5dc384-e272-41ed-9868-a0686ac3fc7e": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "8b16dc60-1a2b-4b2c-bcad-1c334d246ae3": {
+      "avoidance": [
+        "HI-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "8dd46a05-6e0c-4009-90ad-bd5909c25622": {
+      "avoidance": [
+        "HI-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "8e7f6abf-e420-4f40-b9da-9ea76ccedfb1": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "9163ca37-1b31-409d-974f-9e7ed5e5f33d": {
+      "avoidance": [
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "91f28dbb-16bd-449b-a20a-dc2b70cf2e66": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "94a5c55f-c499-41b1-81da-deaa36686399": {
+      "avoidance": [
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "96129c93-83a6-4b1c-929b-bfccba86a796": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "9699244b-14c0-4e27-afd1-105494fccd60": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "98019711-a8c3-424a-870e-00d4fea75ed1": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "992a4bf0-3ff0-4f12-bb89-50dc9e8d7d35": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "9a6447f2-2887-4cce-a115-dc773d7f6eb1": {
+      "avoidance": [
+        "NH-01",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "9eb693f6-6994-4937-bc4d-e8213baa5d47": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "a4af3789-2c40-41fc-a3ec-3b8d2fc6c645": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "a6478cb9-5b8c-4d64-bbe6-3d3ed6a3da2c": {
+      "avoidance": [
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "a70bbc9a-1469-4d56-be56-f282ed4130a8": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "a96dc545-41a9-4b0d-a7a3-f40ef711e5e3": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "aa336cdc-f6fe-4b08-b46d-69e852c501bf": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "ad1e8841-e4e4-413b-820a-8c14e09da5a0": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "adeb10a5-aaae-4e2c-b426-3db1c3d9bd5b": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "b588126a-42d6-49dc-b227-9283af5a2578": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "b5a75ec8-a2fe-42ad-b33e-ea32e20ebdfb": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "b5ff798e-e059-4d8b-a903-00a1fefc62ab": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "b8875ff2-9e9d-4520-8879-c71468e9cc50": {
+      "avoidance": [
+        "NH-01",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "b90e80f9-66f3-4290-8aa2-518b8422aba0": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "ba1f1f36-18b4-49ae-9882-f90418dc88ce": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "bac4a081-83dc-4aba-8076-b67bfc55f54c": {
+      "avoidance": [
+        "NH-01",
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "bb2453b0-c76d-40ea-bcc4-870391f05b2f": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "bcb86777-4a54-4891-bb26-35b201bbd57d": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "bddb4fb7-c01d-4b71-bc30-1896b88298bf": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "bfadbe66-971d-4f64-b222-604a7ee6ac6b": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "c13aeeb7-05e5-4f00-9b4b-654e73e5150d": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "c657c5c3-38a2-472d-8962-9e7cefcd2c1e": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "c6b846cb-3a01-4e17-9d51-da4b58fd1827": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "c7afd455-7beb-4d23-8d3b-e9a102782d2b": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NS-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "c8e1cc12-080a-4e01-925d-8fd6e4334856": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "c9c85786-eb26-4e7b-b280-83a54b7e834f": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "ca423571-d2ab-44d4-b5ce-3e649d9cc776": {
+      "avoidance": [
+        "NS-02",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "cb08e7b6-0af3-45d9-95c3-3832e7e2677c": {
+      "avoidance": [
+        "HI-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "cb825b0f-e315-4221-b194-43d5b472382d": {
+      "avoidance": [
+        "HI-01",
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "cc635340-954c-4428-9fa1-14383c7faceb": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "ce39538c-997e-4a7d-bc32-f164f50f9aa0": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "cf9150af-0325-44d8-bbaf-493e742f2e2b": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "cf918ba6-6226-479f-b04c-b3c67885c0ba": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d020ac37-4f23-41b1-8f1e-b425b5769424": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01",
+        "NS-05"
+      ],
+      "exclusionary": []
+    },
+    "d110df11-ad8e-44dc-8a32-af692ca46c6f": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d12e7ffc-4cd3-4ff4-81da-ae360d59409b": {
+      "avoidance": [
+        "HI-01",
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "d1863136-5ff4-4b4d-a9c0-6219e92d637d": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "d19ed873-b20a-43fd-b7e8-62e985c88820": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d21335d4-0a3d-4464-85e0-352745a38db4": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "d3f986d9-a023-4d43-a0fb-03361f310873": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "d48d2f39-d58f-4299-9b2f-56d194d2d13b": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "d5151598-5a1a-4697-8147-592845ffef6c": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-01"
+      ],
+      "exclusionary": []
+    },
+    "d6cb5642-d5ec-4a15-bc6b-8be4cb0a382e": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "db87ce6a-3802-44c5-945f-8a95d3cf111b": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "dd413ee8-a6f2-4e7c-8e6c-6d0ed8637d83": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "ddc8bb9c-bf77-4075-b38c-600fb072acf8": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "e05ff795-8984-4170-9874-5355b70985b1": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-04"
+      ]
+    },
+    "e0e73325-5b32-4fef-b925-f0bb91114450": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "e10aae79-05b7-4ad9-9d69-60ce190b4444": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "e71ec827-7143-48dd-8c8a-8e81705fa971": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "e780e4ac-0506-4186-9b58-0f378f878345": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "e8b6e342-2011-4343-b415-a8bf08501499": {
+      "avoidance": [
+        "NH-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "e9bc02be-cf10-4b27-9b8a-0d4a954720e4": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    },
+    "f2e65fcf-afc4-4443-ac14-f15c8ffe48f3": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "f92bc907-9b9b-4d21-92fd-1705bd71128c": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "fa6b7ac3-c1bf-478f-8d0a-1f357ea480cf": {
+      "avoidance": [
+        "HI-01",
+        "NH-08",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "fc307877-758b-4dbf-afbe-abfc4a778155": {
+      "avoidance": [
+        "NH-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "fd4f7f8c-0d23-450d-9ea0-1b8e52e9a8af": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "fecb62d9-6fb8-4f8d-83e3-78a7c75adb6e": {
+      "avoidance": [
+        "NH-01"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 6.1454,

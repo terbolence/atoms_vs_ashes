@@ -9,7 +9,6 @@
 | --- | --- | --- |
 | IAEA SSR-1 to project criterion traceability | Supports Annex A and the Chapter 1 methodology summary. | Must be regenerated when the criterion set or SSR-1 mapping changes. |
 | Exclusionary thresholds and safety-floor rules | Supports Annex B and the Chapter 2-3 dual-gate description. | Must share the same rubric basis as the main scoring run. |
-| National sensitivity method | Supports Chapter 3 Section 3.8, Chapter 4 Section 4.6, country profiles and Annex C. | Must use the 50,000-iteration national sensitivity basis (run `nat-sens-b1a62885`, stamp `20260523`, parent scoring run `score-c2a90942`). |
 | Failure-mode analysis | Supports Chapter 4 driver interpretation, Chapter 5 failure sections and Annex D. | Must be aligned to the NuScale VOYGR-6 reference case. |
 | Swing-weight audit | Supports explanation of criteria that move national ranks most strongly. | Must be reviewed when criterion weights or observed score ranges change. |
 | Criterion-correlation flag list | Supports checks for possible double-counting of related evidence axes. | Must be refreshed when scoring inputs or criteria are revised. |
@@ -30,6 +29,5 @@ The publication assembly package is a consumer of the report source files. It as
 Before camera-ready publication, the report owner should confirm four points:
 
 1. The controlled artefacts all reflect the current frozen scoring rubric.
-2. National sensitivity outputs use the 50,000-iteration national basis (run `nat-sens-b1a62885`, stamp `20260523`) and are interpreted within country pools.
 3. Annexes A-E cite the same controlled artefacts described here.
 4. The internal audit copy retains exact paths, commands, and identifiers for reproducibility, while the published copy remains free of internal implementation details.

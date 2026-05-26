@@ -26,6 +26,9 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.section import WD_ORIENT
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from docx.shared import Mm
 
 from report_docx_postprocess import postprocess_docx
@@ -91,6 +94,161 @@ def _set_landscape_a3(docx_path: Path, config: ReportFormatConfig) -> None:
     doc.save(docx_path)
 
 
+def _a3_landscape_content_emu(config: ReportFormatConfig) -> tuple[int, int]:
+    """Printable width/height in EMU for a map-only A3 landscape page.
+
+    Reserves ~14 mm below the top margin for the country H2 line so the
+    PNG can use the remaining sheet without clipping.
+    """
+    margins = config.margins_mm()
+    width_mm = 420.0 - margins["inside"] - margins["outside"]
+    height_mm = 297.0 - margins["top"] - margins["bottom"] - 14.0
+    return int(Mm(width_mm).emu), int(Mm(height_mm).emu)
+
+
+def _paragraph_is_site_status_map(paragraph) -> bool:
+    """True when the paragraph embeds a country site-status map figure."""
+    for run in paragraph.runs:
+        for drawing in run._element.findall(".//" + qn("w:drawing")):
+            for descr in drawing.findall(".//" + qn("wp:docPr")):
+                text = (descr.get("descr") or descr.get("title") or "").lower()
+                if "site status map" in text:
+                    return True
+    return False
+
+
+def _resize_inline_images(paragraph, *, max_cx: int, max_cy: int) -> None:
+    """Fit inline pictures to the map page content box (upscale or
+    downscale, preserving aspect ratio).
+
+    The source PNG ships at 4800x3150 px (16x10.5 in at 300 dpi), so
+    upscaling by Pandoc's default 6.48 in width to the full A3
+    landscape printable area does not introduce pixelation.
+
+    Also scales the corresponding ``a:ext`` inside ``wp:inline``
+    (extent of the contained graphicFrame) so Word honors the new
+    size.
+    """
+    for run in paragraph.runs:
+        for drawing in run._element.findall(".//" + qn("w:drawing")):
+            for inline in drawing.findall(".//" + qn("wp:inline")):
+                extent = inline.find(qn("wp:extent"))
+                if extent is None:
+                    continue
+                cx = int(extent.get("cx") or 0)
+                cy = int(extent.get("cy") or 0)
+                if cx <= 0 or cy <= 0:
+                    continue
+                scale = min(max_cx / cx, max_cy / cy)
+                new_cx = int(cx * scale)
+                new_cy = int(cy * scale)
+                extent.set("cx", str(new_cx))
+                extent.set("cy", str(new_cy))
+                a_ns = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+                pic_ns = "{http://schemas.openxmlformats.org/drawingml/2006/picture}"
+                for ext in inline.findall(
+                    f".//{pic_ns}spPr/{a_ns}xfrm/{a_ns}ext"
+                ):
+                    ext.set("cx", str(new_cx))
+                    ext.set("cy", str(new_cy))
+
+
+def _is_pagebreak_only_paragraph(p_elem) -> bool:
+    """True when ``p_elem`` is a Pandoc-style empty page-break paragraph.
+
+    Matches ``<w:p>`` whose only run contents are ``<w:br w:type="page"/>``
+    elements with no ``<w:t>`` text, no ``<w:drawing>`` (image), and no
+    ``<w:tab>`` siblings. ``<w:rPr>`` (run properties) and ``<w:pPr>``
+    (paragraph properties) are ignored.
+    """
+    has_break = False
+    for child in p_elem:
+        tag = child.tag
+        if tag == qn("w:pPr"):
+            continue
+        if tag != qn("w:r"):
+            return False
+        for run_child in child:
+            rtag = run_child.tag
+            if rtag == qn("w:rPr"):
+                continue
+            if rtag == qn("w:br") and run_child.get(qn("w:type")) == "page":
+                has_break = True
+                continue
+            return False
+    return has_break
+
+
+def _set_page_break_before(p_elem) -> None:
+    """Idempotently add ``<w:pageBreakBefore/>`` to the paragraph's ``<w:pPr>``."""
+    pPr = p_elem.find(qn("w:pPr"))
+    if pPr is None:
+        pPr = OxmlElement("w:pPr")
+        p_elem.insert(0, pPr)
+    if pPr.find(qn("w:pageBreakBefore")) is None:
+        pPr.append(OxmlElement("w:pageBreakBefore"))
+
+
+def _strip_pagebreak_only_paragraphs(doc) -> int:
+    """Replace every empty ``<w:br type=page>`` paragraph with a
+    ``<w:pageBreakBefore/>`` on the next paragraph.
+
+    Pandoc emits each results-table page break as its own empty
+    ``<w:p>``. Word renders that empty paragraph as a leading line at
+    the top of the new page, which (combined with the 239 mm A3
+    landscape map image plus ``space_before/after``) overflows the
+    printable area and forces ``keep_together`` to push the entire map
+    onto the next page, leaving a blank page behind. Migrating the
+    break property onto the following paragraph removes the leading
+    line and the orphan-page side effect.
+    """
+    body = doc.element.body
+    nodes = list(body)
+    removed = 0
+    for index, node in enumerate(nodes):
+        if node.tag != qn("w:p"):
+            continue
+        if not _is_pagebreak_only_paragraph(node):
+            continue
+        for follower in nodes[index + 1:]:
+            if follower.tag == qn("w:p"):
+                _set_page_break_before(follower)
+                break
+        body.remove(node)
+        removed += 1
+    return removed
+
+
+def _postprocess_map_pages(
+    docx_path: Path, config: ReportFormatConfig,
+) -> dict[str, int]:
+    """Fit each country status map to the A3 landscape page.
+
+    Round 3 of the layout polish (2026-05-26): also strip every empty
+    Pandoc page-break paragraph and migrate the break onto the next
+    paragraph (`<w:pageBreakBefore/>`). This eliminates the parasitic
+    leading line that was forcing maps onto the next page and leaving
+    empty pages behind.
+    """
+    doc = Document(docx_path)
+    max_cx, max_cy = _a3_landscape_content_emu(config)
+    stripped = _strip_pagebreak_only_paragraphs(doc)
+    map_pages = 0
+    for paragraph in doc.paragraphs:
+        if not _paragraph_is_site_status_map(paragraph):
+            continue
+        map_pages += 1
+        pf = paragraph.paragraph_format
+        pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        pf.space_before = Mm(2)
+        pf.space_after = Mm(2)
+        pf.keep_with_next = False
+        pf.keep_together = False
+        _resize_inline_images(paragraph, max_cx=max_cx, max_cy=max_cy)
+    doc.save(docx_path)
+    return {"map_pages": map_pages, "pagebreaks_stripped": stripped}
+
+
 def build_results_table_deliverable(
     *,
     format_path: Path = DEFAULT_FORMAT_PATH,
@@ -108,6 +266,8 @@ def build_results_table_deliverable(
     _run_pandoc(markdown_path, output_docx, reference_docx)
     postprocess_docx(output_docx, fmt)
     _set_landscape_a3(output_docx, fmt)
+    map_stats = _postprocess_map_pages(output_docx, fmt)
+    stats.update(map_stats)
     stats.update({
         "markdown": str(markdown_path),
         "csv": str(csv_path),

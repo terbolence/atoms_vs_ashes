@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.401986+00:00",
+    "created_at": "2026-05-25T19:00:46.046244+00:00",
     "country_code": "SI",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -117,6 +117,27 @@
       "share_of_country": 0.3333
     }
   ],
+  "per_site_verdicts": {
+    "008a3366-6f56-4c1a-ac5d-6b0c75b7c7fd": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02",
+        "NH-04"
+      ]
+    },
+    "0750b80c-a54b-4ea5-b3e5-9dfb7309eca2": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "4cf7f820-7ad9-411e-bf39-2bbef290aaf6": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    }
+  },
   "family_normalised_score_means": {},
   "ranking_score_distribution": [
     {

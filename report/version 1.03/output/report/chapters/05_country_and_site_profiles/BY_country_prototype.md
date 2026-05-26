@@ -1,13 +1,13 @@
 # Belarus Country Profile
 
-Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
+> **Unpublished — held for audit only.** Belarus is **not** part of the published roster (16 country profiles: Austria through Ukraine, excluding Belarus). This file is retained on disk as an audit artefact alongside the BY ledger CSV and BY country/site bundles, but it is not linked from the Chapter 5 index and is not referenced from any other published surface. Do not cite the numbers below as part of the published deliverable.
 
 Belarus has 2 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 1 sites pass both the exclusionary and avoidance screens, 1 pass the exclusionary screen but retain avoidance flags, and 0 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
 The leading site is **Zelwa power station**, with a composite score of 7.378 and a Monte Carlo interval of 6.538-7.944. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
 <!-- specialist key=country_exec scope=country country_code=BY bundle=BY_country_bundle.json status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country BY --key country_exec` then `... patch --country BY --key country_exec --text-file <draft.md>`._
+
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
@@ -18,10 +18,10 @@ Interactive review map with marker tooltips: [BY_site_status_map.html](figures/B
 
 ## Belarus Site Ledger
 
-| Rank | Site | Status | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
-|---:|---|---|---:|---:|---:|---|---:|---:|
-| 1 | Zelwa power station | Full pass | 7.378 | 6.538 | 7.944 | A | 100% | 76% |
-| 2 | Lelchitsy power station | Exclusion pass with avoidance flag | 6.991 | 6.225 | 7.487 | H | 0% | 76% |
+| Rank | Site                    | Status                             | Composite | MC Low | MC High | Band | Top-10 Hit | Coverage |
+| ---: | ----------------------- | ---------------------------------- | --------: | -----: | ------: | ---- | ---------: | -------: |
+|    1 | Zelwa power station     | Full pass                          |     7.378 |  6.538 |   7.944 | A    |       100% |      76% |
+|    2 | Lelchitsy power station | Exclusion pass with avoidance flag |     6.991 |  6.225 |   7.487 | H    |         0% |      76% |
 
 ## Avoidance Flag Pareto
 

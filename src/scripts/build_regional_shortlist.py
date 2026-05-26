@@ -42,9 +42,10 @@ DB_PROFILES = {
 }
 
 NUSCALE_LABEL = "NuScale VOYGR-6"
-DEFAULT_OUT = Path("report/version 1.02/output/report")
+DEFAULT_OUT = Path("report/version 1.03/output/report")
 FIG_SUBDIR = "figures/regional_shortlist"
-# v1.2 published roster excludes Belarus (see writingDecisions.md).
+# Published roster excludes Belarus; data is preserved in the DB but no
+# build artefact is emitted for BY.
 EXCLUDED_PUBLISHED_COUNTRIES = frozenset({"BY"})
 
 
@@ -306,26 +307,14 @@ def _render_markdown(
     lines = [
         "# Regional Atoms vs Ashes Shortlist",
         "",
-        f"_Reference SMR: {NUSCALE_LABEL}. Analytical basis: national "
-        "sensitivity (50,000-iteration Monte Carlo profile-rank treatment) "
-        "over the current baseline scoring rubric._",
-        "",
-        "## Provenance",
-        "",
-        f"- **Scoring run**: `{scoring_run_id}`",
-        f"- **National sensitivity run**: `{sensitivity_run_id}`",
-        f"- **SMR key**: `{smr_key}`",
-        f"- **Weight profile**: `baseline`",
-        f"- **Git SHA**: `{git_sha or 'unknown'}`",
+        f"_Reference SMR: {NUSCALE_LABEL}. Analytical basis: the project's "
+        "50,000-iteration national Monte Carlo sensitivity analysis over the "
+        "current frozen scoring rubric._",
         "",
         "National ranks are ordered by baseline composite score within each "
-        f"country. Stability bands and top-tier hit rates come from `site_bands` "
-        f"under national sensitivity run `{sensitivity_run_id}`. Composite scores, "
-        "family means, criterion scores, and screening status come from the "
-        "scoring run.",
-        "",
-        "Belarus is excluded from this shortlist under the version 1.2 "
-        "published country roster.",
+        "country. Stability bands and top-tier hit rates come from the "
+        "national sensitivity analysis. Composite scores, family means, "
+        "criterion scores, and screening status come from the scoring stage.",
         "",
         "Each country section lists up to **five** sites by national rank "
         "(normal qualification: avoidance-flagged sites may appear). "

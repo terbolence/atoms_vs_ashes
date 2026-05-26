@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.521776+00:00",
+    "created_at": "2026-05-25T19:00:47.153945+00:00",
     "country_code": "XK",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -135,6 +135,32 @@
       "share_of_country": 1.0
     }
   ],
+  "per_site_verdicts": {
+    "28be296b-6ef5-4c7e-a604-3af01af45d17": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "76eba99c-dade-46dc-9130-478e43aa6202": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d28fa85d-4f6c-4b26-a585-cb0bed226ecb": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "d9f32912-81f1-4b1c-a2b1-f04298217cec": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    }
+  },
   "family_normalised_score_means": {},
   "ranking_score_distribution": [
     {

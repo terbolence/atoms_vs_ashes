@@ -19,6 +19,13 @@ from results_table_model import (
     SiteRow,
 )
 
+# Pandoc raw OpenXML page break (one empty paragraph with w:br type=page).
+_PAGE_BREAK_BLOCK = (
+    "```{=openxml}\n"
+    "<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>\n"
+    "```"
+)
+
 
 def _truthy(value: str) -> bool:
     return value.strip().lower() == "true"
@@ -165,7 +172,7 @@ def _markdown_table(rows: list[SiteRow]) -> str:
         "Top-tier probability",
         "Exclusionary outcome",
         "Avoidance / failure note",
-    ], [":---:", ":---", ":---", ":---", "---:", "---:", "---:", ":---:", ":---:", "---:", ":---:", ":---"]]
+    ], [":---:", ":---", ":---", ":---", ":---:", ":---:", ":---:", ":---:", ":---:", ":---:", ":---:", ":---"]]
     for row in rows:
         table_rows.append([
             row.rank,
@@ -214,12 +221,18 @@ def build_results_markdown(markdown_path: Path, csv_path: Path, output_stem: str
     copied_maps = 0
     for country_code in COUNTRY_ORDER:
         country_name = COUNTRY_NAMES[country_code]
-        parts.extend([f"## {country_name} ({country_code})", ""])
+        # Each country map is rendered on its own A3 landscape page in the
+        # DOCX; the table (if any) follows on the next page. The PNG title
+        # already names the country, so no Markdown H2 is emitted (it
+        # otherwise pinned to the tall map and orphaned the prior page).
+        parts.extend(["", _PAGE_BREAK_BLOCK, ""])
         map_ref = _copy_map(country_code, assets_dir)
         if map_ref:
             copied_maps += 1
             parts.extend([
                 f"![{country_name} site status map]({map_ref})" + "{width=15in}",
+                "",
+                _PAGE_BREAK_BLOCK,
                 "",
             ])
         if country_code in NO_PASS_COUNTRIES:

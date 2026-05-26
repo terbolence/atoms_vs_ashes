@@ -4,7 +4,7 @@ This note defines the source and treatment for Ukraine before any detailed Ukrai
 
 ## Current Project Data
 
-The current NuScale VOYGR-6 screening database contains 20 Ukrainian site records: 11 full-pass records, 6 exclusionary-pass records with avoidance flags, and 3 hard-fail records. This makes Ukraine analytically relevant in the regional screening results, but not automatically profile-ready under current war conditions.
+The current NuScale VOYGR-6 screening database contains 20 Ukrainian site records: 13 full-pass records, 7 exclusionary-pass records with avoidance flags, and 0 hard-fail records. This makes Ukraine analytically relevant in the regional screening results, but not automatically profile-ready under current war conditions.
 
 The leading Ukrainian records in the current database include Zmiivska, Dobrotvir, Ladyzhyn, Kalush, Burshtyn, Starobesheve, Kryvorizka, Vuglegirska, Kurakhov, and Myronivskyi. These should not be converted into detailed site profiles until the occupied-territory comparison and security caveats are complete.
 

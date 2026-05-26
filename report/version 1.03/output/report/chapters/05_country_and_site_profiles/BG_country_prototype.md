@@ -1,13 +1,11 @@
 # Bulgaria Country Profile
 
-Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
-
 Bulgaria has 15 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 1 sites pass both the exclusionary and avoidance screens, 7 pass the exclusionary screen but retain avoidance flags, and 7 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
 The leading site is **Maritsa Iztok-2 power station**, with a composite score of 7.709 and a Monte Carlo interval of 6.806-8.169. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
 <!-- specialist key=country_exec scope=country country_code=BG bundle=BG_country_bundle.json status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country BG --key country_exec` then `... patch --country BG --key country_exec --text-file <draft.md>`._
+
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>

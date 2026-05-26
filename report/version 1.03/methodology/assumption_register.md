@@ -39,7 +39,7 @@ silent change.
 - **Impact-if-wrong:** users mistake a Band A site for an "approved"
   site. Risk reduced by language in every report.
 - **Mitigation:** every per-country MD ends with the screening-only
-  caveat; the SSR-1 traceability matrix (`ssr1_traceability.md`) marks
+  caveat; the SSR-1 traceability matrix (ssr1 traceability) marks
   every Requirement with explicit `coverage` (full / partial /
   screening_only / out_of_scope).
 
@@ -86,7 +86,7 @@ silent change.
   is bounded by the curation gate before promotion to `merged_*`.
 - **Mitigation:** every score row carries a `provenance_source`
   column; the score-provenance hierarchy is documented in
-  [`sensitivity_analysis.md` §9](./sensitivity_analysis.md#9-score-provenance-hierarchy).
+  [sensitivity analysis §9](./sensitivity_analysis.md#9-score-provenance-hierarchy).
 
 ### A-DATA-02 — Merged DB is the single source of truth for scoring
 
@@ -140,7 +140,7 @@ silent change.
 - **Impact-if-wrong:** prior to the floor, ~7 % more pairs survived to
   ranking; the floor tightens but does not contradict the underlying
   E-code condition.
-- **Mitigation:** documented in [`exclusionary_floors.md`](./exclusionary_floors.md);
+- **Mitigation:** documented in [exclusionary floors](./exclusionary_floors.md);
   unit-tested in `tests/scoring/test_safety_floor_pipeline.py`.
 
 ### A-RUBRIC-03 — Failed sites keep their 0–10 scores for transparency
@@ -158,7 +158,7 @@ silent change.
 
 - **Statement:** the published `weight_factor` × `normalised_weight_pct`
   values are interpreted as _importance to the decision_; the
-  swing-weight audit (`swing_weight_audit.md`) re-normalises by
+  swing-weight audit (swing weight audit) re-normalises by
   observed score range so reviewers can verify the declared importance
   matches the discriminating power in the data.
 - **Impact-if-wrong:** the headline ranking is robust to weight
@@ -171,7 +171,7 @@ silent change.
 
 ### A-SENS-01 — Per-category ±20 % weight envelope is the regulatory band
 
-- **Source:** project requirements `06_scoring_matrix.md` §8.4; EPRI
+- **Source:** project requirements 06 scoring matrix §8.4; EPRI
   Siting Guide 3002023910.
 - **Impact-if-wrong:** wider envelopes would expose more borderline
   pairs as unstable; the suite is parameterised so the band can be
@@ -205,7 +205,7 @@ silent change.
   ≥ 0.70 is flagged as potentially double-counting an axis.
 - **Rationale:** rule of thumb from MCDA literature (Tervonen et al.
   2007); reviewers decide whether the redundancy is intentional.
-- **Mitigation:** [`criterion_correlation.md`](./criterion_correlation.md)
+- **Mitigation:** [criterion correlation](./criterion_correlation.md)
   documents the latest flagged pairs.
 
 ---
@@ -247,7 +247,7 @@ silent change.
   `swing_weights`, `criterion_correlations`,
   `country_balance_check`).
 - **Statement:** the headline reference runs `20260423`, `20260425`,
-  and the v1.03 frozen stamp `20260523` were generated **before** any
+  and the current production stamp `20260523` were generated **before** any
   later schema revision is authored; for those stamps the CSV trees
   under `audit/post_processing/06_scoring/` and
   `report/output/sensitivity/<stamp>/` remain authoritative. The new

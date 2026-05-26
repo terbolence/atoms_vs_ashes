@@ -60,6 +60,7 @@ DB_PROFILES = {
     "llm": "atoms_vs_ashes_llm",
     "merged": "atoms_vs_ashes_merged",
 }
+EXCLUDED_PUBLISHED_COUNTRIES = frozenset({"BY"})
 DEFAULT_RUBRIC_DIR = Path("config/scoring_rubrics")
 DEFAULT_SPEC_DIR = Path("config/scoring_specs")
 DEFAULT_AUDIT_DIR = Path("audit/post_processing/06_scoring")
@@ -79,12 +80,15 @@ def _load(
         for sid, code in session.execute(
             select(Site.site_id, Site.country_code)
         ).all()
+        if str(code) not in EXCLUDED_PUBLISHED_COUNTRIES
     }
     stmt = select(ScreeningVerdict)
     if run_id:
         stmt = stmt.where(ScreeningVerdict.run_id == run_id)
     verdicts_by_pair: dict[tuple, list[ScreeningVerdict]] = {}
     for v in session.execute(stmt).scalars().all():
+        if v.site_id not in country_by_site:
+            continue
         verdicts_by_pair.setdefault((v.site_id, v.smr_key), []).append(v)
     return verdicts_by_pair, country_by_site, run_id
 

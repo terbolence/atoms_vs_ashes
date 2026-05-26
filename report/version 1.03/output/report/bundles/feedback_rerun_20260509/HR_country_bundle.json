@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.192857+00:00",
+    "created_at": "2026-05-25T19:00:45.032196+00:00",
     "country_code": "HR",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -94,6 +94,20 @@
       "share_of_country": 0.5
     }
   ],
+  "per_site_verdicts": {
+    "7af0e000-3d19-4e5e-b504-f74897f1510c": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "ab151830-e5bd-46de-8400-01aa4c165366": {
+      "avoidance": [
+        "NH-08"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 6.674,

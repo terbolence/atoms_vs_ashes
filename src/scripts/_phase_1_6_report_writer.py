@@ -64,8 +64,21 @@ def country_slug(country_code: str) -> str:
     return f"{country_code}_{name}"
 
 
+_DISPLAY_OVERRIDES: dict[str, str] = {
+    # Preserve official short-form casing and diacritics that Python's
+    # ``str.title()`` would otherwise damage (e.g. "Bosnia And
+    # Herzegovina") or that the slug lacks entirely ("turkey" -> the
+    # IAEA / project convention "Türkiye").
+    "BA": "Bosnia and Herzegovina",
+    "TR": "Türkiye",
+}
+
+
 def country_display_name(country_code: str) -> str:
     """Return a presentable country name (``Romania`` for ``RO``)."""
+    override = _DISPLAY_OVERRIDES.get(country_code)
+    if override is not None:
+        return override
     return COUNTRY_NAMES.get(country_code, country_code).replace(
         "_", " "
     ).title()

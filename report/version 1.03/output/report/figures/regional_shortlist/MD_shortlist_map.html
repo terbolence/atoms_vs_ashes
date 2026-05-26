@@ -23,6 +23,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 const bounds = [];
 bounds.push([46.629027, 29.939714]);
-L.circleMarker([46.629027, 29.939714], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kuchurgan power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.959<br>MC band: 6.199-7.500<br>Stability band: N/A</div>").bindTooltip("Kuchurgan", {permanent: false, direction: 'top'});
+L.circleMarker([46.629027, 29.939714], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kuchurgan power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.959<br>MC band: 6.199-7.500<br>Stability band: A</div>").bindTooltip("Kuchurgan", {permanent: false, direction: 'top'});
 if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
 </script>

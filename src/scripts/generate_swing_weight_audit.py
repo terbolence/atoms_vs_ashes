@@ -58,6 +58,8 @@ DB_PROFILES = {
     "merged": "atoms_vs_ashes_merged",
 }
 
+EXCLUDED_PUBLISHED_COUNTRIES = frozenset({"BY"})
+
 
 @dataclass
 class _Row:
@@ -241,9 +243,15 @@ def main(argv: list[str] | None = None) -> int:
                 weight_normalisation_profile=args.weight_profile_base,
             ),
         )
-        rows_by_pair, _verdicts, _countries = load_pairs(
+        rows_by_pair, _verdicts, countries = load_pairs(
             session, weight_profile_base=args.weight_profile_base
         )
+        if EXCLUDED_PUBLISHED_COUNTRIES:
+            rows_by_pair = {
+                pair: rs
+                for pair, rs in rows_by_pair.items()
+                if countries.get(pair) not in EXCLUDED_PUBLISHED_COUNTRIES
+            }
         flat = [r for rs in rows_by_pair.values() for r in rs]
         ranges = observed_ranges(flat)
         pair_count = len(rows_by_pair)

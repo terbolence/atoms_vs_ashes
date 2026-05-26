@@ -16,21 +16,21 @@ body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
 <div class="legend"><span><i style="background:#1f9d5a"></i>Full pass</span><span><i style="background:#d4a017"></i>Exclusion pass with avoidance flag</span><span><i style="background:#c0392b"></i>Hard fail</span></div>
 <div id="map"></div>
 <script>
-const map = L.map('map').setView([44.338907, 20.543138], 7);
+const map = L.map('map').setView([44.290172, 20.718880], 7);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 18,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 const bounds = [];
 bounds.push([43.273050, 19.999440]);
-L.circleMarker([43.273050, 19.999440], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>\u0160tavalj Power Station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.753<br>MC band: 5.928-7.175<br>Stability band: N/A</div>").bindTooltip("\u0160tavalj", {permanent: false, direction: 'top'});
+L.circleMarker([43.273050, 19.999440], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>\u0160tavalj Power Station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 1<br>Composite: 6.753<br>MC band: 5.928-7.175<br>Stability band: A</div>").bindTooltip("\u0160tavalj", {permanent: false, direction: 'top'});
+bounds.push([44.223826, 21.163148]);
+L.circleMarker([44.223826, 21.163148], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Morava power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 6.716<br>MC band: 6.003-7.256<br>Stability band: D</div>").bindTooltip("Morava", {permanent: false, direction: 'top'});
 bounds.push([44.723674, 21.171605]);
-L.circleMarker([44.723674, 21.171605], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kostolac power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 2<br>Composite: 6.634<br>MC band: 5.906-7.244<br>Stability band: N/A</div>").bindTooltip("Kostolac", {permanent: false, direction: 'top'});
+L.circleMarker([44.723674, 21.171605], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kostolac power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 6.634<br>MC band: 5.906-7.244<br>Stability band: H</div>").bindTooltip("Kostolac", {permanent: false, direction: 'top'});
 bounds.push([44.480312, 20.293538]);
-L.circleMarker([44.480312, 20.293538], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kolubara A power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 3<br>Composite: 6.559<br>MC band: 5.831-7.069<br>Stability band: N/A</div>").bindTooltip("Kolubara A", {permanent: false, direction: 'top'});
+L.circleMarker([44.480312, 20.293538], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kolubara A power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.559<br>MC band: 5.831-7.069<br>Stability band: H</div>").bindTooltip("Kolubara A", {permanent: false, direction: 'top'});
 bounds.push([44.750000, 20.966667]);
-L.circleMarker([44.750000, 20.966667], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kovin power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 4<br>Composite: 6.503<br>MC band: 5.831-7.094<br>Stability band: N/A</div>").bindTooltip("Kovin", {permanent: false, direction: 'top'});
-bounds.push([44.467500, 20.284440]);
-L.circleMarker([44.467500, 20.284440], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kolubara B power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 6.472<br>MC band: 5.744-6.981<br>Stability band: N/A</div>").bindTooltip("Kolubara B", {permanent: false, direction: 'top'});
+L.circleMarker([44.750000, 20.966667], {radius: 7, color: '#222', weight: 1, fillColor: '#d4a017', fillOpacity: 0.9}).addTo(map).bindPopup("<div class='callout'><strong>Kovin power station</strong><br>Status: Exclusion pass with avoidance flag<br>National rank: 5<br>Composite: 6.503<br>MC band: 5.831-7.094<br>Stability band: H</div>").bindTooltip("Kovin", {permanent: false, direction: 'top'});
 if (bounds.length > 0) { map.fitBounds(bounds, { padding: [30, 30] }); }
 </script>

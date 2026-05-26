@@ -2,7 +2,7 @@
 
 # Business logic — operational scoring rules for `atoms_vs_ashes_merged`
 
-> **Companion to** `report/sites_evaluation.md`. Where _sites_evaluation_
+> **Companion to** sites evaluation. Where _sites_evaluation_
 > states what the engineering team _wants_ to score and why, this
 > document states **how** the deterministic scoring engine actually
 > evaluates each criterion against the columns that exist in
@@ -13,7 +13,7 @@
 >
 > 1. **Anchor columns** — the actual `atoms_vs_ashes_merged` columns the
 >    rule reads from, plus a "missing in DB" note when the planned
->    anchor in `sites_evaluation.md` does not exist.
+>    anchor in sites evaluation does not exist.
 > 2. **Sanity bounds** — the formal version of the Phase 1 anomaly
 >    sweep. Values outside these bounds are quarantined; they do **not**
 >    score the criterion until reviewed.
@@ -28,7 +28,7 @@ insufficient}`.
 >    covers the criterion, and what the engine does when that check
 >    fires for a row.
 >
-> **Last updated:** 2026-04-21 (Phase 3 of `architecture/plans/data_verification_plan_e291b5ef.plan.md`).
+> **Last updated:** 2026-04-21 (Phase 3 of data verification plan e291b5ef.plan).
 
 ---
 
@@ -77,7 +77,7 @@ time **as well as** at curation time. A row that violates a bound:
 ### 0.5 Composite handling of `unscored`
 
 If `Σ wᵢ` of `unscored` criteria > 5 % of the total weight, the engine
-emits a _dual_ composite per `sites_evaluation.md` § 7.4:
+emits a _dual_ composite per sites evaluation § 7.4:
 
 - `S_known` — weighted mean over scored criteria (renormalised).
 - `S_pessimistic` — `unscored` criteria assigned `cᵢ = 3`.
@@ -86,7 +86,7 @@ Top-15 publication always shows both numbers.
 
 ### 0.6 Derived columns referenced below
 
-`sites_evaluation.md` references several derived fields that are not
+sites evaluation references several derived fields that are not
 yet materialised in the API DB. Until the corresponding compute jobs
 are written, the engine computes them on the fly inside the scoring
 SQL and writes the result to `merge_audit.final_value` for traceability.
@@ -134,7 +134,7 @@ pass := grid_export_capacity_mw ≥ 462
      AND hv_line_voltage_kv ≥ 110
 ```
 
-(`462 MW` is the VOYGR-6 reference net MWe per `sites_evaluation.md`
+(`462 MW` is the VOYGR-6 reference net MWe per sites evaluation
 § BF-01.)
 
 **0 – 10 banding** — `min(score_dist, score_voltage, score_headroom)`.
@@ -239,7 +239,7 @@ The 14 ha threshold is project A15 (NuScale baseline).
 | `soil_type`           | `site_natural_hazards` | `vs30` proxy (soft / medium / hard)  |
 | `nh01_quality`        | `site_natural_hazards` | Confidence flag                      |
 
-> _`vs30_ms` from `sites_evaluation.md` does not exist as a column._
+> _`vs30_ms` from sites evaluation does not exist as a column._
 > The engine derives `vs30_proxy_class` from `soil_type` per § 0.6.
 
 **Sanity bounds**
@@ -337,14 +337,14 @@ from the candidate set unless a documented remedy is on file.
 
 **0 – 10 banding** — `nearest_fault_km` (norm-default pivot 8 km).
 
-| Score | km                              |
-| ----: | ------------------------------- |
-|  9-10 | ≥ 5 × pivot (default ≥ 40 km)   |
-|   7-8 | ≥ 2 × pivot (default ≥ 16 km)   |
-|   5-6 | ≥ 1 × pivot (default ≥ 8 km)    |
-|   3-4 | ≥ 0.5 × pivot (default ≥ 4 km)  |
-|   1-2 | ≥ 0.2 × pivot (default ≥ 1.6 km)|
-|     0 | < 0.2 × pivot (E1 triggered)    |
+| Score | km                               |
+| ----: | -------------------------------- |
+|  9-10 | ≥ 5 × pivot (default ≥ 40 km)    |
+|   7-8 | ≥ 2 × pivot (default ≥ 16 km)    |
+|   5-6 | ≥ 1 × pivot (default ≥ 8 km)     |
+|   3-4 | ≥ 0.5 × pivot (default ≥ 4 km)   |
+|   1-2 | ≥ 0.2 × pivot (default ≥ 1.6 km) |
+|     0 | < 0.2 × pivot (E1 triggered)     |
 
 **Fallback ladder**
 
@@ -480,7 +480,7 @@ score_high` band (treats the row as `low` quality regardless of
 | `nh05b_quality`         | `site_natural_hazards` | Confidence (NH-05b — quality split per task NH05b) |
 
 > _`mining_void_distance_km` and `oil_gas_extraction_flag` from
-> `sites_evaluation.md` do not exist._ The engine cannot evaluate
+> sites evaluation do not exist._ The engine cannot evaluate
 > the project's "no mining within 1 km" rule from API alone — LLM
 > evidence is required (Phase 4 promotion candidate
 > `nh05_subsidence_text`).
@@ -681,7 +681,7 @@ pass := distance_to_coast_km ≥ 10
 | `nh09_quality`       | `site_natural_hazards` | Confidence flag                       |
 
 > _`elevation_above_design_flood_m` and `flood_zone_class_500yr` from
-> `sites_evaluation.md` do not exist._ The engine uses
+> sites evaluation do not exist._ The engine uses
 > `flood_zone_class` (which encodes the worst category from EFAS)
 > and falls back to LLM for design-flood vertical separation.
 
@@ -756,7 +756,7 @@ pass := max_wind_speed_ms ≤ 49
 1. API column with `nh10_quality ≥ medium` AND `nh10_source` indicates
    NOAA NCEI station data.
 2. API column with `nh10_quality = low` (ERA5 monthly) → ±1 band per
-   `sites_evaluation.md` § NH-10.
+   sites evaluation § NH-10.
 3. LLM `nh10_winds_text`.
 4. Expert default `7` for inland-CEE sites; otherwise `unscored`.
 
@@ -775,7 +775,7 @@ pass := max_wind_speed_ms ≤ 49
 | `nh11_quality`          | `site_natural_hazards` | Confidence flag                |
 
 > _`spi12_min`, `snow_months_per_year`, `freezing_days_per_year` from
-> `sites_evaluation.md` do not exist as columns._ The engine therefore
+> sites evaluation do not exist as columns._ The engine therefore
 > reduces NH-11 to a **single sub-score** based on
 > `mean_annual_precip_mm` until the climate-extreme connectors land.
 > SPI / snow / drought sub-scores from the LLM (`nh11_precip_text`)
@@ -852,7 +852,7 @@ pass := extreme_temp_max_c ≤ 42 AND extreme_temp_min_c ≥ -30
 
 1. API columns with `nh12_quality ≥ medium` (NOAA NCEI source).
 2. API columns with `nh12_quality = low` (ERA5; under-estimates by
-   3 – 8 °C per `sites_evaluation.md` § NH-12) → engine **adds** 5 °C
+   3 – 8 °C per sites evaluation § NH-12) → engine **adds** 5 °C
    to the API value before scoring.
 3. LLM `nh12_temperature_text`.
 4. Expert default `7` for inland-CEE; else `unscored`.
@@ -927,7 +927,7 @@ pass := wildfire_combustible_pct ≤ 60
 pass := nh14_combined_index ≥ 5
 ```
 
-**0 – 10 banding** — table from `sites_evaluation.md` § NH-14, applied
+**0 – 10 banding** — table from sites evaluation § NH-14, applied
 to the derived index.
 
 **Fallback ladder**
@@ -955,7 +955,7 @@ to the derived index.
 | `airport_count`           | `site_human_hazards` | Cumulative exposure                |
 | `hi01_quality`            | `site_human_hazards` | Confidence flag                    |
 
-> _`nearest_military_airfield_km` from `sites_evaluation.md` does not
+> _`nearest_military_airfield_km` from sites evaluation does not
 > exist as a separate column._ The engine applies the 30 km / 15 km
 > rule by combining `nearest_airport_km` with `nearest_airport_type`
 > (when type starts with `military_`) or `nearest_military_km` from
@@ -970,7 +970,7 @@ to the derived index.
 
 **Pass / fail predicate**
 
-HI-01 v4 (Phase 1C of v1.03 feedback closure, reviewer #183): only large
+HI-01 v4 (latest reviewer revision, #183): only large
 and medium commercial airports and military airfields enter the
 predicate. Helipads, GA strips, seaplane bases and balloonports are
 informational columns; the predicate ignores them. `nearest_airport_km`
@@ -989,14 +989,14 @@ fail := mil OR civ OR flight_path
 
 **0 - 10 banding** — worst-case large + medium + military airport.
 
-| Score | Condition                                                                           |
-| ----: | ----------------------------------------------------------------------------------- |
-|  9-10 | No large / medium airport in scoring scope and no military within 60 km             |
-|   7-8 | Large / medium 15-30 km, military 30-60 km, no overhead path                        |
-|   5-6 | Large / medium 8-15 km OR military 30-60 km (project pass mark)                     |
-|   3-4 | Large / medium < 15 km OR military < 30 km OR flight-path proxy < 4 km              |
-|   1-2 | Large international < 8 km OR military airbase < 16 km                              |
-|     0 | Direct under-flight of major civil / military corridor; no remedy                   |
+| Score | Condition                                                               |
+| ----: | ----------------------------------------------------------------------- |
+|  9-10 | No large / medium airport in scoring scope and no military within 60 km |
+|   7-8 | Large / medium 15-30 km, military 30-60 km, no overhead path            |
+|   5-6 | Large / medium 8-15 km OR military 30-60 km (project pass mark)         |
+|   3-4 | Large / medium < 15 km OR military < 30 km OR flight-path proxy < 4 km  |
+|   1-2 | Large international < 8 km OR military airbase < 16 km                  |
+|     0 | Direct under-flight of major civil / military corridor; no remedy       |
 
 **Fallback ladder**
 
@@ -1018,7 +1018,7 @@ fail := mil OR civ OR flight_path
 | `nearest_industrial_km` | `site_human_hazards` | IED proxy distance            |
 | `hi02_quality`          | `site_human_hazards` | Confidence flag               |
 
-> _`nearest_ied_km` from `sites_evaluation.md` is named
+> _`nearest_ied_km` from sites evaluation is named
 > `nearest_industrial_km` in the actual schema._
 
 **Sanity bounds**
@@ -1236,7 +1236,7 @@ pass := nearest_military_km ≥ 8
 | `transmitter_type`       | `site_human_hazards` | Class                           |
 | `hi07_quality`           | `site_human_hazards` | Confidence flag                 |
 
-> _`transmitter_count_10km` from `sites_evaluation.md` is just
+> _`transmitter_count_10km` from sites evaluation is just
 > `transmitter_count` in the actual schema (the count is implicitly
 > over the connector's default search radius)._
 
@@ -1279,7 +1279,7 @@ pass := nearest_military_km ≥ 8
 | `nearest_nuclear_name` | `site_human_hazards` | Audit                            |
 | `hi08_quality`         | `site_human_hazards` | Confidence flag                  |
 
-> _`sites_evaluation.md` says PRIS connector pending; the merged DB
+> _sites evaluation says PRIS connector pending; the merged DB
 > already carries `nearest_nuclear_km` via the existing
 > `osm_query_industrial` connector chain, so the engine uses it
 > directly._
@@ -1326,7 +1326,7 @@ pass := nearest_military_km ≥ 8
 | `ri01_quality`        | `site_radiological` | Confidence flag                    |
 
 > _`wind_rose_json`, `pg_class_f_fraction`, `pg_class_e_fraction` from
-> `sites_evaluation.md` do not exist._ The engine therefore reduces
+> sites evaluation do not exist._ The engine therefore reduces
 > RI-01 to a **two-sub-score composite**: wind-direction angular offset
 > (40 %) + mixing height (60 %) until the stability connector lands.
 
@@ -1345,7 +1345,7 @@ pass := nearest_military_km ≥ 8
   `prevailing_wind_dir` (8-point compass) and bearing-to-nearest-city
   (computed from `sites.geom` and `nearest_city_*_km`).
 - **C. Mean mixing height (60 %)** — `mixing_height_m` per the table
-  in `sites_evaluation.md` § RI-01.
+  in sites evaluation § RI-01.
 
 **Fallback ladder**
 
@@ -1411,7 +1411,7 @@ pass := nearest_military_km ≥ 8
 | `groundwater_flow_dir` | `site_radiological` | Flow direction  |
 | `ri03_quality`         | `site_radiological` | Confidence flag |
 
-> _`groundwater_vulnerability_class` from `sites_evaluation.md` does
+> _`groundwater_vulnerability_class` from sites evaluation does
 > not exist as a column._ Engine derives a vulnerability proxy from
 > `aquifer_type` ∈ {confined, unconfined, karst, none} (Phase 4
 > promotion candidate to populate the vulnerability column from LLM
@@ -1502,7 +1502,7 @@ pass := pop_density_5km ≤ 250  -- inner ring binds
 
 > _`nearest_city_pop_25k_km`, `nearest_city_pop_100k_km`,
 > `nearest_city_pop_500k_km`, `nearest_city_pop_1M_km` from
-> `sites_evaluation.md` do not exist as columns._ The engine evaluates
+> sites evaluation do not exist as columns._ The engine evaluates
 > the project's four-band distance rule by walking the
 > `nearest_city_50k_km` ladder and using `nearest_city_pop` to decide
 > which band threshold applies; the LLM `ri05_population_centres_text`
@@ -1605,7 +1605,7 @@ back to the LLM.
 | `ep01_quality`             | `site_emergency_planning` | Confidence flag   |
 
 > _`nearest_hospital_km`, `nearest_trauma_center_km` from
-> `sites_evaluation.md` do not exist as columns._ The engine relies
+> sites evaluation do not exist as columns._ The engine relies
 > on `hospital_count_epz` (EP-04) for the hospital signal; trauma
 > centre proximity comes from the LLM `ep01_feasibility_text`.
 
@@ -1707,7 +1707,7 @@ pass := road_density_km_per_km2 ≥ 0.3
 | `ep03_gee_mountain_barrier_score` | `site_emergency_planning` | GEE composite               |
 | `ep03_quality`                    | `site_emergency_planning` | Confidence flag             |
 
-> _`relief_m_per_10km` from `sites_evaluation.md` is named
+> _`relief_m_per_10km` from sites evaluation is named
 > `ep03_gee_relief_16km_m` in the actual schema (radius differs)._
 
 **Sanity bounds**
@@ -1796,7 +1796,7 @@ NH-01, NH-08, NH-09.
 
 **Pass / fail predicate** — rank-only.
 
-**0 – 10 banding** — table from `sites_evaluation.md` § EP-05 applied
+**0 – 10 banding** — table from sites evaluation § EP-05 applied
 to the derived index.
 
 **Fallback ladder**
@@ -1849,7 +1849,7 @@ exclude := cooling_source_type IN ('none', 'unidentified')
 **0 – 10 banding** — composite (A 35 % / B 20 % / C 25 % / D 20 %),
 rebalanced as above when D is missing.
 
-- **A. Source type** — table in `sites_evaluation.md` § NS-01.
+- **A. Source type** — table in sites evaluation § NS-01.
 - **B. Distance** — `cooling_distance_km`.
 - **C. Water stress** — `water_stress_score` ↔ band table.
 - **D. SPI-12** — LLM only (currently); skipped if missing.
@@ -1899,7 +1899,7 @@ pass := nearest_substation_km ≤ 30
 ```
 
 **0 – 10 banding** — `min(score_dist, score_voltage)` per the tables
-in `sites_evaluation.md` § NS-02.
+in sites evaluation § NS-02.
 
 **Fallback ladder**
 
@@ -1943,7 +1943,7 @@ pass := nearest_highway_km ≤ 50
 ```
 
 **0 – 10 banding** — weighted mean (Road 50 % / Rail 30 % / Waterway
-20 %) per `sites_evaluation.md` § NS-03 sub-tables.
+20 %) per sites evaluation § NS-03 sub-tables.
 
 **Fallback ladder**
 
@@ -2031,7 +2031,7 @@ pass := buildable_area_ha ≥ 14
      AND largest_contiguous_ha ≥ 10
 ```
 
-**0 – 10 banding** — table in `sites_evaluation.md` § NS-05.
+**0 – 10 banding** — table in sites evaluation § NS-05.
 
 **Fallback ladder**
 
@@ -2106,7 +2106,7 @@ Cross-source uplift: if `ns06_gee_built_fraction > 0.5` AND
 **Pass / fail predicate** — rank-only.
 
 **0 – 10 banding** — qualitative tier from LLM, mapped per
-`sites_evaluation.md` § NS-07.
+sites evaluation § NS-07.
 
 **Fallback ladder**
 
@@ -2154,7 +2154,7 @@ exclude := n2k_overlap = true
 ```
 
 **0 – 10 banding** — `min(score_n2k_distance, score_wdpa_distance,
-score_natural_pct)` per `sites_evaluation.md` § NS-08.
+score_natural_pct)` per sites evaluation § NS-08.
 
 **Fallback ladder**
 
@@ -2175,7 +2175,7 @@ score_natural_pct)` per `sites_evaluation.md` § NS-08.
 
 **Anchor columns**
 
-> _`site_socioeconomic` table from `sites_evaluation.md` does not
+> _`site_socioeconomic` table from sites evaluation does not
 > exist._ All NS-09 / NS-10 / NS-12 signal is LLM-only at present.
 
 | Column         | Table                    | Role            |
@@ -2188,7 +2188,7 @@ score_natural_pct)` per `sites_evaluation.md` § NS-08.
 **Pass / fail predicate** — rank-only.
 
 **0 – 10 banding** — qualitative tier from LLM, mapped per
-`sites_evaluation.md` § NS-09.
+sites evaluation § NS-09.
 
 **Fallback ladder**
 
@@ -2213,7 +2213,7 @@ score_natural_pct)` per `sites_evaluation.md` § NS-08.
 **Pass / fail predicate** — rank-only.
 
 **0 – 10 banding** — qualitative tier from LLM, per
-`sites_evaluation.md` § NS-10.
+sites evaluation § NS-10.
 
 **Fallback ladder**
 
@@ -2237,7 +2237,7 @@ score_natural_pct)` per `sites_evaluation.md` § NS-08.
 
 **Pass / fail predicate** — rank-only.
 
-**0 – 10 banding** — table from `sites_evaluation.md` § NS-11 applied
+**0 – 10 banding** — table from sites evaluation § NS-11 applied
 to the derived index.
 
 **Fallback ladder**
@@ -2263,7 +2263,7 @@ to the derived index.
 NS-12 is evaluated against an external country-level rubric maintained
 by the engineering team (curated from Eurostat metadata + IAEA PRIS +
 national policy docs). The lookup is held outside the DB
-(`docs/country_policy_table.md`, owned by the engineer team) until a
+(country policy table, owned by the engineer team) until a
 `countries.policy_score` column lands.
 
 **Sanity bounds** — none.
@@ -2271,7 +2271,7 @@ national policy docs). The lookup is held outside the DB
 **Pass / fail predicate** — rank-only.
 
 **0 – 10 banding** — country lookup + LLM uplift / penalty per
-`sites_evaluation.md` § NS-12.
+sites evaluation § NS-12.
 
 **Fallback ladder**
 
@@ -2328,23 +2328,23 @@ national policy docs). The lookup is held outside the DB
 This section captures the **specific data / logic discrepancies** that
 the engineer would otherwise discover at scoring time. The Phase 1
 anomaly sweep already resolved the deterministic ones; the items below
-are _logic_ discrepancies between `sites_evaluation.md` (planned
+are _logic_ discrepancies between sites evaluation (planned
 anchors) and the actual schema.
 
-| ID   | Where              | Discrepancy                                                              | Action taken in this document                                                                          |
-| ---- | ------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| L-1  | NH-01              | `vs30_ms` column does not exist                                          | Engine derives `vs30_proxy_class` from `soil_type` (§ 0.6) and applies a -1 band uplift on soft soils. |
-| L-2  | NH-05 / NH-05b     | `mining_void_distance_km`, `oil_gas_extraction_flag` do not exist        | LLM `nh05_subsidence_text` becomes the primary signal for the project's "1 km mining" rule.            |
-| L-3  | NH-09              | Single `flood_zone_class` column instead of `_500yr` / `_1000yr` columns | Re-baselined banding to interpret the single class against EFAS encoding.                              |
-| L-4  | NH-11              | `spi12_min`, `snow_months_per_year`, `freezing_days_per_year` missing    | Reduced NH-11 to a single sub-score on `mean_annual_precip_mm`; LLM may upgrade.                       |
-| L-5  | RI-01              | `wind_rose_json`, `pg_class_*_fraction` missing                          | Two-sub-score interim composite; renormalised weights.                                                 |
-| L-6  | RI-03              | `groundwater_vulnerability_class` missing                                | Engine derives a vulnerability proxy from `aquifer_type`; LLM is the canonical source pending Phase 5. |
-| L-7  | RI-05              | Per-tier (25k/100k/500k/1M) distance columns missing                     | Engine evaluates only the 50 k tier from API; higher tiers come from LLM.                              |
-| L-8  | EP-01              | `nearest_hospital_km`, `nearest_trauma_center_km` missing                | Hospital signal comes from `hospital_count_epz` (EP-04); trauma centre from LLM.                       |
-| L-9  | NS-01              | `spi12_min` (sub-score D) missing                                        | Composite renormalised to `A 44 % / B 25 % / C 31 %` until SPI connector lands.                        |
-| L-10 | NS-09 / 10 / 12    | `site_socioeconomic` table missing                                       | Entire NS-09 / NS-10 evaluation is LLM-only. NS-12 uses an external country lookup table.              |
-| L-11 | Several `_quality` | Many `*_quality` flags are `'insufficient'` despite scalar populated     | Engine treats `insufficient` as `low` (per § 0.2) so the value is still used with ±1 band uncertainty. |
-| L-12 | `road_density_…`   | Connector-radius drift between scalar and JSON (Phase 1 finding)         | Engine prefers the JSON-extracted value when the scalar is 0 / NULL but JSON has a positive figure.    |
+| ID   | Where              | Discrepancy                                                                                                                         | Action taken in this document                                                                                                                                                                     |
+| ---- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L-1  | NH-01              | `vs30_ms` column does not exist                                                                                                     | Engine derives `vs30_proxy_class` from `soil_type` (§ 0.6) and applies a -1 band uplift on soft soils.                                                                                            |
+| L-2  | NH-05 / NH-05b     | `mining_void_distance_km`, `oil_gas_extraction_flag` do not exist                                                                   | LLM `nh05_subsidence_text` becomes the primary signal for the project's "1 km mining" rule.                                                                                                       |
+| L-3  | NH-09              | Single `flood_zone_class` column instead of `_500yr` / `_1000yr` columns                                                            | Re-baselined banding to interpret the single class against EFAS encoding.                                                                                                                         |
+| L-4  | NH-11              | `spi12_min`, `snow_months_per_year`, `freezing_days_per_year` missing                                                               | Reduced NH-11 to a single sub-score on `mean_annual_precip_mm`; LLM may upgrade.                                                                                                                  |
+| L-5  | RI-01              | `wind_rose_json`, `pg_class_*_fraction` missing                                                                                     | Two-sub-score interim composite; renormalised weights.                                                                                                                                            |
+| L-6  | RI-03              | `groundwater_vulnerability_class` missing                                                                                           | Engine derives a vulnerability proxy from `aquifer_type`; LLM is the canonical source pending Phase 5.                                                                                            |
+| L-7  | RI-05              | Per-tier (25k/100k/500k/1M) distance columns missing                                                                                | Engine evaluates only the 50 k tier from API; higher tiers come from LLM.                                                                                                                         |
+| L-8  | EP-01              | `nearest_hospital_km`, `nearest_trauma_center_km` missing                                                                           | Hospital signal comes from `hospital_count_epz` (EP-04); trauma centre from LLM.                                                                                                                  |
+| L-9  | NS-01              | `spi12_min` (sub-score D) missing                                                                                                   | Composite renormalised to `A 44 % / B 25 % / C 31 %` until SPI connector lands.                                                                                                                   |
+| L-10 | NS-09 / 10 / 12    | `site_socioeconomic` table missing                                                                                                  | Entire NS-09 / NS-10 evaluation is LLM-only. NS-12 uses an external country lookup table.                                                                                                         |
+| L-11 | Several `_quality` | Many `*_quality` flags are `'insufficient'` despite scalar populated                                                                | Engine treats `insufficient` as `low` (per § 0.2) so the value is still used with ±1 band uncertainty.                                                                                            |
+| L-12 | `road_density_…`   | Connector-radius drift between scalar and JSON (Phase 1 finding)                                                                    | Engine prefers the JSON-extracted value when the scalar is 0 / NULL but JSON has a positive figure.                                                                                               |
 | L-13 | NH-01              | GEM Global v2023 fallback can persist `pga_475yr_g = 0` when hazard curve / UHS are absent (e.g. eastern UA outside EFEHR coverage) | Treat as **missing hazard**, not zero g: scoring must ignore 0 or coerce to NULL; connector fix + backfill pending. Anomaly: `NH01::gem_zero_pga_sentinel` in `scripts/scan_api_db_anomalies.py`. |
 
 These thirteen points are the **single source of truth** for the data
@@ -2358,12 +2358,12 @@ to lift into the merged DB.
 
 | Document                                                                            | Role                                                             |
 | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `report/sites_evaluation.md`                                                        | Engineering-facing playbook — narrative, weights, intent.        |
-| `report/business_logic.md` (this file)                                              | Implementation playbook — anchors, predicates, sanity, fallback. |
+| sites evaluation                                                        | Engineering-facing playbook — narrative, weights, intent.        |
+| business logic (this file)                                              | Implementation playbook — anchors, predicates, sanity, fallback. |
 | `scripts/scan_api_db_anomalies.py`                                                  | Phase 1 sanity-bound enforcement (sweeps & auto-fixes).          |
 | `scripts/build_merged_db.py`                                                        | Phase 2 builder for `atoms_vs_ashes_merged`.                     |
 | `audit/post_processing/02_data_verification/<date>_llm_field_promotion_proposal.md` | Phase 4 deliverable (waits for user sign-off).                   |
-| `audit/post_processing/02_data_verification/FUTURE_EXPANSION_TODO.md`               | Backlog: LLM coverage for 28 criteria not yet screened (5b).     |
+| FUTURE EXPANSION TODO               | Backlog: LLM coverage for 28 criteria not yet screened (5b).     |
 | `alembic/versions/031_add_merge_provenance.py`                                      | Adds `source_db`, `merge_run_id`, `merge_audit`.                 |
 
 ---
@@ -2373,4 +2373,4 @@ to lift into the merged DB.
 | Date       | Change                                                                                                                                                                                                                                                                                |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2026-04-21 | Initial issue (Phase 3 of the data-fusion plan). Reconciles 48 criterion sections to the actual `atoms_vs_ashes_merged` schema (alembic head 031), pulls in Phase 1 sanity bounds, and documents 12 logic discrepancies between the engineer-facing playbook and the materialised DB. |
-| 2026-04-21 | Added L-13 (GEM Global PGA zero sentinel when curve/UHS missing). Linked `FUTURE_EXPANSION_TODO.md` (5b — extend LLM screening to 28 uncovered criteria). |
+| 2026-04-21 | Added L-13 (GEM Global PGA zero sentinel when curve/UHS missing). Linked FUTURE EXPANSION TODO (5b — extend LLM screening to 28 uncovered criteria).                                                                                                                             |

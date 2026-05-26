@@ -58,9 +58,8 @@ Earliest unit commissioning: 2008; most recent: 2008.
 
 ### Interpretation - Natural Hazards (NH)
 
-
 <!-- specialist key=family_natural_hazards scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Interpretation - Natural Hazards (NH). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_natural_hazards` then `... patch --country <CC> --site-name <name> --key family_natural_hazards --text-file <draft.md>`._
+
 <!-- /specialist key=family_natural_hazards -->
 
 ## Human-Induced and Security-Relevant Hazards (HI)
@@ -74,9 +73,8 @@ Earliest unit commissioning: 2008; most recent: 2008.
 
 ### Interpretation - Human-Induced and Security-Relevant Hazards (HI)
 
-
 <!-- specialist key=family_human_hazards scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Interpretation - Human-Induced and Security-Relevant Hazards (HI). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_human_hazards` then `... patch --country <CC> --site-name <name> --key family_human_hazards --text-file <draft.md>`._
+
 <!-- /specialist key=family_human_hazards -->
 
 ## Radiological Impact and Emergency Planning (RI / EP)
@@ -94,9 +92,8 @@ Earliest unit commissioning: 2008; most recent: 2008.
 
 ### Interpretation - Radiological Impact and Emergency Planning (RI / EP)
 
-
 <!-- specialist key=family_radiological_emergency scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Interpretation - Radiological Impact and Emergency Planning (RI / EP). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_radiological_emergency` then `... patch --country <CC> --site-name <name> --key family_radiological_emergency --text-file <draft.md>`._
+
 <!-- /specialist key=family_radiological_emergency -->
 
 ## Non-Safety and Implementation Considerations (NS)
@@ -116,9 +113,8 @@ Earliest unit commissioning: 2008; most recent: 2008.
 
 ### Interpretation - Non-Safety and Implementation Considerations (NS)
 
-
 <!-- specialist key=family_infrastructure scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Interpretation - Non-Safety and Implementation Considerations (NS). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key family_infrastructure` then `... patch --country <CC> --site-name <name> --key family_infrastructure --text-file <draft.md>`._
+
 <!-- /specialist key=family_infrastructure -->
 
 ## Composite Score and Stability
@@ -130,14 +126,13 @@ Baseline composite score is 5.691, bracketed by Monte Carlo at 5.174-6.181. Nati
 ![Family contributions](../figures/SK_u_s_steel_kosice_works_power_station_family_contributions.png)
 
 <!-- specialist key=stability scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Composite stability and sensitivity (plain-English read). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key stability` then `... patch --country <CC> --site-name <name> --key stability --text-file <draft.md>`._
+
 <!-- /specialist key=stability -->
 
 ## Residual Risk Register
 
-
 <!-- specialist key=residual_risk scope=site site_id=a2d8261c-3d08-4015-946c-47dbddbd0b98 bundle=SK_u_s_steel_kosice_works_power_station_site_bundle.json status=pending -->
-> _Specialist interpretation pending: Residual risk register (specialist synthesis). Cursor agent fills via `python -m scripts.run_specialist_pass show --country <CC> --site-name <name> --key residual_risk` then `... patch --country <CC> --site-name <name> --key residual_risk --text-file <draft.md>`._
+
 <!-- /specialist key=residual_risk -->
 
 ## Stage 3 Follow-Up Checklist

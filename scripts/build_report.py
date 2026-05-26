@@ -22,20 +22,63 @@ from report_side_deliverables import build_side_deliverables
 REPORT_TITLE = "Atoms vs Ashes: Coal-to-Nuclear Siting Assessment"
 REPORT_SUBTITLE = "Stage 1 and Stage 2 Siting Study for Central, Eastern and Southern Europe"
 
-BANNED_TOKEN_PATTERNS = [
-    re.compile(r"sens-[0-9a-f]{8}"),
+# Tokens whose mere presence on a line means the entire line must be deleted
+# from the merged report source. The user instructed: "The report should not
+# contain any run ids of any kind." The previous substitution-with-placeholder
+# strategy produced ungrammatical sentences (e.g. dangling "nat-" prefixes),
+# so we now remove the whole line outright.
+RUNID_LINE_PATTERNS = [
     re.compile(r"score-[0-9a-f]{8}"),
+    re.compile(r"sens-[0-9a-f]{8}"),
+    re.compile(r"nat-sens-[0-9a-f]{8}"),
+    re.compile(r"swing_20[0-9]{6}_[0-9a-f]{8}"),
+    re.compile(r"corr_20[0-9]{6}_[0-9a-f]{8}"),
+    re.compile(r"fail_20[0-9]{6}_[0-9a-f]{8}"),
+    re.compile(r"p16ext_20[0-9]{8}T[0-9]+_[0-9a-f]{8}"),
+    re.compile(r"\bp16_20260425T[0-9a-zA-Z_]+"),
+    re.compile(r"\b20260425T[0-9a-zA-Z_]+"),
     re.compile(r"7b609bd0"),
     re.compile(r"214bab4e"),
     re.compile(r"20260502_sensitivity_mc_10000"),
     re.compile(r"/sensitivity/20260425b?/"),
-    re.compile(r"\bp16_20260425T[0-9a-zA-Z_]+"),
-    re.compile(r"\b20260425T[0-9a-zA-Z_]+"),
+]
+
+# Tokens we want to strip in-place (without deleting the whole line), because
+# the surrounding sentence is still useful prose. Currently used only for
+# explicit non-NuScale SMR names — the report is restricted to NuScale VOYGR-6
+# by user instruction. If any non-NuScale SMR name slips through into the
+# published source, the build scrubs it inline.
+NONNUSCALE_SMR_PATTERNS = [
+    re.compile(r"\bBWRX[-_ ]?300\b", re.IGNORECASE),
+    re.compile(r"\bHoltec(?:[-_ ]?SMR)?[-_ ]?300\b", re.IGNORECASE),
+    re.compile(r"\bNatrium\b", re.IGNORECASE),
+    re.compile(r"\bOklo(?:[-_ ]?Aurora)?\b", re.IGNORECASE),
+    re.compile(r"\bRolls[-_ ]?Royce(?:[-_ ]?SMR)?\b", re.IGNORECASE),
+    re.compile(r"\bX[-_ ]?energy\b", re.IGNORECASE),
+    re.compile(r"\bXe[-_ ]?100\b", re.IGNORECASE),
 ]
 
 SPECIALIST_BLOCK_OPEN = re.compile(r"<!--\s*specialist\s+[^>]*-->")
 SPECIALIST_BLOCK_CLOSE = re.compile(r"<!--\s*/specialist\s+[^>]*-->")
 
+# Blockquote-italic "Specialist interpretation pending: ..." placeholder
+# lines emitted by the country / site profile generators when the specialist
+# LLM pass has not yet been run. They are drafting notes and must not appear
+# in the published DOCX (format JSON `publication_rules`).
+SPECIALIST_PENDING_LINE = re.compile(
+    r"^\s*>\s*_Specialist interpretation pending:.*$",
+    re.MULTILINE,
+)
+
+# Inline backtick filename references like `sites_evaluation.md` are
+# "internal project file references" which the format JSON `publication_rules`
+# forbid in reader-facing text. The user reinforced this: "Never use any .md
+# references in the report." We strip the backticked token to plain prose
+# (without the `.md` suffix). For example, `sites_evaluation.md` -> sites
+# evaluation. The replacement is conservative — it only affects backticked
+# bare filenames, not Markdown link syntax (already handled by
+# strip_local_markdown_links).
+INLINE_MD_FILENAME = re.compile(r"`([A-Za-z0-9_./-]+)\.md`")
 
 HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 LOCAL_MARKDOWN_LINK = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)")
@@ -108,23 +151,48 @@ def strip_specialist_comments(content: str) -> str:
     return SPECIALIST_BLOCK_CLOSE.sub("", content)
 
 
-def strip_identifier_tokens(content: str) -> str:
-    for pattern in BANNED_TOKEN_PATTERNS:
-        content = pattern.sub(
-            "the project's 50,000-iteration national Monte Carlo sensitivity analysis",
-            content,
-        )
+def strip_runid_lines(content: str) -> str:
+    """Drop every line that contains a project run-ID token."""
+    kept: list[str] = []
+    for line in content.splitlines(keepends=True):
+        if any(pattern.search(line) for pattern in RUNID_LINE_PATTERNS):
+            continue
+        kept.append(line)
+    return "".join(kept)
+
+
+def strip_nonnuscale_smr_names(content: str) -> str:
+    """Remove non-NuScale SMR names from prose (NuScale VOYGR-6 only)."""
+    for pattern in NONNUSCALE_SMR_PATTERNS:
+        content = pattern.sub("", content)
     return content
+
+
+def strip_specialist_pending_blocks(content: str) -> str:
+    """Drop blockquote-italic 'Specialist interpretation pending: ...' notes."""
+    return SPECIALIST_PENDING_LINE.sub("", content)
+
+
+def strip_inline_md_filenames(content: str) -> str:
+    """Replace `<name>.md` backticked references with plain prose `<name>`."""
+    def _replace(match: re.Match[str]) -> str:
+        ref = match.group(1)
+        leaf = ref.rsplit("/", 1)[-1].replace("_", " ")
+        return leaf
+    return INLINE_MD_FILENAME.sub(_replace, content)
 
 
 def prepare_section(section: Section, assets_dir: Path) -> str:
     text = section.path.read_text(encoding="utf-8")
     text = strip_specialist_comments(text)
     text = strip_html_comments(text)
+    text = strip_specialist_pending_blocks(text)
     text = rewrite_image_paths(text, section.path, assets_dir)
     text = strip_local_markdown_links(text)
     text = shift_headings(text, section.heading_shift)
-    return strip_identifier_tokens(text)
+    text = strip_runid_lines(text)
+    text = strip_nonnuscale_smr_names(text)
+    return strip_inline_md_filenames(text)
 
 
 def build_merged_markdown(

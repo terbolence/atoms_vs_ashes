@@ -2,8 +2,8 @@
 
 # Phase 1.6 Sensitivity Analysis — Method
 
-**Purpose:** assess robustness of the Phase 1.5 composite ranking to reasonable variation in weights, score uncertainty, and discretionary thresholds, and to flag artefactual concentration of the top shortlist. For version 1.3 country and site interpretation (inheriting the version 1.2 frame), the controlling reader-facing frame is the **national sensitivity analysis**: national rank stability, top-rank probabilities, and shortlist robustness within the same country and NuScale VOYGR-6 reference case.
-**Standards alignment:** IAEA SSG-35 §3.3 / NS-R-3 §2.27; EPRI Siting Guide 3002023910, Step 4; project requirements `report/requirements/06_scoring_matrix.md` §8.4.
+**Purpose:** assess robustness of the Phase 1.5 composite ranking to reasonable variation in weights, score uncertainty, and discretionary thresholds, and to flag artefactual concentration of the top shortlist. For country and site interpretation in this report, the controlling reader-facing frame is the **national sensitivity analysis**: national rank stability, top-rank probabilities, and shortlist robustness within the same country and NuScale VOYGR-6 reference case.
+**Standards alignment:** IAEA SSG-35 §3.3 / NS-R-3 §2.27; EPRI Siting Guide 3002023910, Step 4; project requirements 06 scoring matrix §8.4.
 **Reproducibility handle:** every perturbed composite row is tagged `run_id = p16_<stamp>_<hash>` in `composite_rankings`; the orchestration entry point is [`src/scripts/run_phase_1_6_sensitivity.py`](../../src/scripts/run_phase_1_6_sensitivity.py).
 
 ---
@@ -19,7 +19,7 @@ WHERE weight_profile = 'baseline'
   AND composite_score IS NOT NULL
 ```
 
-In the reference 2026-04-25 run this resolves to **208 surviving pairs** across **257 distinct sites × 8 SMR designs** (from a universe of 2 904 pairs; 2 696 are screened out — 232 by hard E-codes, 1 288 by the safety-floor (`pass_mark = 5.0`) rule alone, and 1 176 by both). The IAEA-style safety floor adopted on 2026-04-25 (see `report/methodology/exclusionary_floors.md`) tightened the survivor pool from the 2 056 pairs reported on 2026-04-23. Pairs failing any exclusionary criterion (E1–E9) — hard expression or floor — are never considered for any sensitivity scenario; this is enforced by the baseline filter, not re-applied in the perturbation code. The full per-criterion / per-country / per-SMR / multi-failure decomposition for the same run lives in [`failure_analysis.md`](./failure_analysis.md).
+In the reference 2026-04-25 run this resolves to **208 surviving pairs** across **257 distinct sites × 8 SMR designs** (from a universe of 2 904 pairs; 2 696 are screened out — 232 by hard E-codes, 1 288 by the safety-floor (`pass_mark = 5.0`) rule alone, and 1 176 by both). The IAEA-style safety floor adopted on 2026-04-25 (see exclusionary floors) tightened the survivor pool from the 2 056 pairs reported on 2026-04-23. Pairs failing any exclusionary criterion (E1–E9) — hard expression or floor — are never considered for any sensitivity scenario; this is enforced by the baseline filter, not re-applied in the perturbation code. The full per-criterion / per-country / per-SMR / multi-failure decomposition for the same run lives in [failure analysis](./failure_analysis.md).
 
 ## 2. Techniques
 
@@ -38,9 +38,9 @@ The suite is a **regulatory-style matrix** of four perturbation families plus on
 
 - Per-category ±20 % scaling for each family `NH, HI, RI, EP, NS` → **10 profiles** (`w_<CAT>_plus_20`, `w_<CAT>_minus_20`).
 - Only the target family is scaled; all 48 weights are then renormalised so `Σw = 1` (prevents the trivial "uniform scaling is a no-op" degeneracy).
-- One additional profile, `w_swing`, rescales each criterion's declared weight by its observed 0–10 score range across the survivor pool, then renormalises to 1. The audit trail and rationale are documented in [`swing_weight_audit.md`](./swing_weight_audit.md).
+- One additional profile, `w_swing`, rescales each criterion's declared weight by its observed 0–10 score range across the survivor pool, then renormalises to 1. The audit trail and rationale are documented in [swing weight audit](./swing_weight_audit.md).
 - Implementation: [`_weight_perturbation.py`](../../src/atoms_vs_ashes/scoring/_weight_perturbation.py), [`_swing_weights.py`](../../src/atoms_vs_ashes/scoring/_swing_weights.py).
-- **Rationale:** ±20 % is the sensitivity band mandated by `06_scoring_matrix.md` §8.4 and is the standard EPRI regulatory envelope for category weights. The `w_swing` profile addresses the IAEA-style critique that declared weights ignore criteria with constant or near-constant observed scores (zero discriminating power).
+- **Rationale:** ±20 % is the sensitivity band mandated by 06 scoring matrix §8.4 and is the standard EPRI regulatory envelope for category weights. The `w_swing` profile addresses the IAEA-style critique that declared weights ignore criteria with constant or near-constant observed scores (zero discriminating power).
 
 ### 2.3 Monte Carlo score-band sampling — Phase B.2
 
@@ -89,7 +89,7 @@ National OAT repeats the existing one-at-a-time criterion removal but computes r
 
 The national outputs are written under `audit/post_processing/06_scoring/` as `*_national_rank_sensitivity.csv`, `*_national_sensitivity_summary.csv`, `*_national_oat_importance.csv`, and `*_national_mc_rank_distribution.csv`. Figures are generated under `report/output/sensitivity/<stamp>/national/figures/` and embedded in the per-country sensitivity Markdown files. These outputs support within-jurisdiction shortlisting only; they do not imply licensing readiness or Stage 3 characterization acceptance.
 
-For report version 1.3, every country-profile and selected-site stability discussion must draw first from these national outputs (the same outputs that controlled version 1.2). Regional sensitivity remains useful for cross-country context and portfolio balance, but it must not be used as the primary evidence for a national Stage 3 sequence. A statement such as "stable candidate" should therefore mean stable within the relevant national `(country_code, smr_key)` slice unless the prose explicitly says it is referring to the regional pool.
+Every country-profile and selected-site stability discussion in this report must draw first from these national outputs. Regional sensitivity remains useful for cross-country context and portfolio balance, but it must not be used as the primary evidence for a national Stage 3 sequence. A statement such as "stable candidate" should therefore mean stable within the relevant national `(country_code, smr_key)` slice unless the prose explicitly says it is referring to the regional pool.
 
 ## 3. Metrics
 
@@ -118,8 +118,8 @@ composite_rankings (baseline) ─┬─▶ load_pairs ─▶ OAT (Phase A) ─�
 ```
 
 - Perturbed composites are persisted so every number in the audit is traceable to a DB row.
-- **Audit artefacts** (traceability) land under `audit/post_processing/06_scoring/<YYYYMMDD>_*`: per-stage `.md`, `oat_importance.csv`, `site_bands.csv` (+ `_nuscale_voygr6`, `_{smr}`, `_{CC}`, `_{CC}_{smr}` variants), `country_rankings_summary(.csv|_nuscale.csv)`, and the consolidated `phase1_6_sensitivity.md`.
-- **Human-readable reports** are emitted under `report/output/sensitivity/<YYYYMMDD>/` — one `00_regional_summary.md` plus `national/{CC_name}.md` per country, with `figures/` siblings (global A–H counts + per-country top-sites bar charts). These MDs are pure derivatives of the audit CSVs; re-running [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py) regenerates them without touching the database.
+- **Audit artefacts** (traceability) land under `audit/post_processing/06_scoring/<YYYYMMDD>_*`: per-stage `.md`, `oat_importance.csv`, `site_bands.csv` (+ `_nuscale_voygr6`, `_{smr}`, `_{CC}`, `_{CC}_{smr}` variants), `country_rankings_summary(.csv|_nuscale.csv)`, and the consolidated phase1 6 sensitivity.
+- **Human-readable reports** are emitted under `report/output/sensitivity/<YYYYMMDD>/` — one 00 regional summary plus `national/{CC_name}.md` per country, with `figures/` siblings (global A–H counts + per-country top-sites bar charts). These MDs are pure derivatives of the audit CSVs; re-running [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py) regenerates them without touching the database.
 - Run tagging: `run_id` identifies the suite instance; `weight_profile` identifies the scenario within the suite. Together they uniquely identify any row.
 
 ## 5. Reproducibility and governance
@@ -129,11 +129,9 @@ composite_rankings (baseline) ─┬─▶ load_pairs ─▶ OAT (Phase A) ─�
 - The entire suite runs under a single Python process with structured JSON logging; no step mutates baseline rows.
 - Wall time on the reference hardware (2026-04-23): **12 min 11 s** (OAT ≈ 7 s, weight ≈ 2 s, MC@10k ≈ 11.5 min, threshold ≈ 20 s, banding ≈ 0.4 s).
 
-## 6. Reference production run outcomes (2026-04-25, inherited)
+## 6. Production run outcomes
 
-> **v1.03 inheritance note.** The numbered tables and figures in §6 below describe the v1.02 reference production run (`run_id = p16_20260425T075225_014e4161`). They are retained for diff visibility against the v1.02 freeze. The **current-run** numbers for v1.03 — scoring `score-c2a90942`, regional sensitivity `sens-ad4f62bb`, national sensitivity `nat-sens-b1a62885`, stamp `20260523` — live in [`report/output/sensitivity/20260523/00_regional_summary.md`](../../report/output/sensitivity/20260523/00_regional_summary.md) and the per-country files under `report/output/sensitivity/20260523/national/`. The regenerated audit CSVs are `20260523_oat_importance.csv`, `20260523_site_bands.csv` and the `20260523_site_bands_*` slices in [`audit/post_processing/06_scoring/`](../../audit/post_processing/06_scoring/); the consolidated `20260523_phase1_6_sensitivity.md` is deferred to a Phase 5 refresh because regenerating it would require re-running the sensitivity suite which is frozen for v1.03.
 >
-> Numbers below are **run-specific** to v1.02 (`run_id = p16_20260425T075225_014e4161`, DB profile `merged`, post-safety-floor rescore `20260425T073743_20d0478d`). Authoritative tables live in [`20260425_phase1_6_sensitivity.md`](../../audit/post_processing/06_scoring/20260425_phase1_6_sensitivity.md), [`20260425_oat_importance.csv`](../../audit/post_processing/06_scoring/20260425_oat_importance.csv), [`20260425_site_bands.csv`](../../audit/post_processing/06_scoring/20260425_site_bands.csv) and the floor breakdown [`20260425_floor_rescore_breakdown.md`](../../audit/post_processing/06_scoring/20260425_floor_rescore_breakdown.md); figures are regenerated by [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py).
 
 **Run envelope:** 2 904 universe pairs (257 sites × 8 SMRs), of which **208 survive the IAEA-style safety-floor screen** (1 288 fail by floor only, 232 by hard E-code only, 1 176 by both). Of these survivors **2 264 (site, SMR, profile) rows are scored** in the analytics view (a baseline carry-over from the pre-floor 2026-04-23 run is retained in `composite_rankings` for diff visibility); top-5 % slice = 113 pairs, top-10 % slice = 226 pairs; **15 non-baseline scenarios** (10 per-category weight + 1 swing + 1 MC + 2 threshold + 1 country-balanced).
 
@@ -175,7 +173,7 @@ Lowest Jaccard@10 % across the ten ±20 % profiles is **0.871** (`w_NH_plus_20`)
 | `NS`     |              0.0951 |                           178 |
 | `RI`     |              0.0624 |                           178 |
 
-**Swing-weight diagnostic.** The new `w_swing` profile rescales each criterion's weight by its observed 0–10 score range across the survivor pool, then renormalises (see [`swing_weight_audit.md`](./swing_weight_audit.md)). Outcome: **Jaccard@10 % = 0.108** (overlap 20 / 226), **Jaccard@5 % = 0.089** (10 / 113). Mean abs Δscore is moderate (0.162), so the _score_ differential is small but the _rank_ reordering is dramatic — the declared weights up-rank criteria whose scores barely move in this pool, and swing weighting strips that effect away.
+**Swing-weight diagnostic.** The new `w_swing` profile rescales each criterion's weight by its observed 0–10 score range across the survivor pool, then renormalises (see [swing weight audit](./swing_weight_audit.md)). Outcome: **Jaccard@10 % = 0.108** (overlap 20 / 226), **Jaccard@5 % = 0.089** (10 / 113). Mean abs Δscore is moderate (0.162), so the _score_ differential is small but the _rank_ reordering is dramatic — the declared weights up-rank criteria whose scores barely move in this pool, and swing weighting strips that effect away.
 
 **Takeaway:** ranking is robust to ±20 % weight perturbation — every per-category profile clears the §8 threshold (Jaccard@10 % ≥ 0.85) and `NS` remains the family that moves scores most. Swing weighting is the single most disruptive perturbation in the suite (more than MC); the audit recommends carrying both the declared-weight Band A and the swing-aware Band A into Phase 1.7 as a sensitivity envelope.
 
@@ -189,7 +187,7 @@ Lowest Jaccard@10 % across the ten ±20 % profiles is **0.871** (`w_NH_plus_20`)
 
 ![Top-10 % ranking stability (Jaccard) vs. baseline](../../audit/post_processing/06_scoring/figures/20260425/jaccard_by_profile.png)
 
-_Figure 2 — Jaccard@10 % for every non-baseline profile vs. the 0.85 "robust" threshold (dashed) and the 0.70 MC threshold (dotted). `w_swing` and the two threshold profiles fall below the regulatory floor; `mc_10000` sits between the two thresholds. Source: consolidated audit `20260425_phase1_6_sensitivity.md`._
+_Figure 2 — Jaccard@10 % for every non-baseline profile vs. the 0.85 "robust" threshold (dashed) and the 0.70 MC threshold (dotted). `w_swing` and the two threshold profiles fall below the regulatory floor; `mc_10000` sits between the two thresholds. Source: consolidated audit 20260425 phase1 6 sensitivity._
 
 ### 6.4 Phase B.3 outcome — threshold ±25 %
 
@@ -200,11 +198,9 @@ _Figure 2 — Jaccard@10 % for every non-baseline profile vs. the 0.85 "robust" 
 
 ### 6.5 Phase B.4 outcome — country balance
 
-`top_n = 20`, `max_share_threshold = 0.40`. Observed `max_share = 0.40` (**not flagged**, right at the boundary); top-20 head country counts `PL : 8`, `RO : 8`, `TR : 4`. The wider baseline top-10 % slice (226 pairs) is dominated by `PL` (82), `TR` (56) and `RO` (40) — not artefactually concentrated, but PL's share warrants a narrative callout.
+`top_n = 20`, `max_share_threshold = 0.40`. Observed `max_share = 0.45` (**flagged**, above the 0.40 boundary); top-20 head country counts in the published roster are `TR : 9`, `PL : 4`, `BG : 2`, `UA : 2`, `RO : 1`, `HU : 1`. Türkiye's 45 % share is the largest single-country concentration in the suite and warrants an explicit narrative callout.
 
-![Country balance — baseline top-10 % slice](../../audit/post_processing/06_scoring/figures/20260425/country_top10pct.png)
-
-_Figure 3 — Country distribution across the 226-pair baseline top-10 % slice. Source: consolidated audit `20260425_phase1_6_sensitivity.md`._
+_Source: [20260523 sensitivity mc 10000](../../audit/post_processing/06_scoring/20260523_sensitivity_mc_10000.md) Country balance section; [`20260523_country_rankings_summary.csv`](../../audit/post_processing/06_scoring/20260523_country_rankings_summary.csv)._
 
 ### 6.6 Phase C outcome — site stability banding (A–H)
 
@@ -215,19 +211,23 @@ Two regional scopes are reported:
 - **All-SMR pool** (a site's best-of-8 SMR score enters the percentile slice) — the default comparator.
 - **NuScale `nuscale_voygr6`** — restricts the pool to the SMR family most relevant to the primary regulatory audience. Produced from `{stamp}_site_bands_nuscale_voygr6.csv`.
 
-Counts are plotted side-by-side from the consolidated audit; see Figures 4a / 4b below. **Band A shortlist (2026-04-25, all-SMR pool, 14 sites):** Turceni (RO), Opalenie (PL), Dolna Odra (PL), Çoban Yıldız (TR), Puchaczów (PL), Połaniec (PL), Mohács (HU), Konya Karapınar (TR), Eren-1 (TR), Akdeniz Enerji (TR), Braila (RO), Yeşilovacık (TR), Zelwa (BY), Starobesheve (UA). These 14 sites carry into Phase 1.7 as the robust regional shortlist; Band B (8 sites) is the resilience bench. The NuScale-specific Band A / B shortlists (primary decision input for utilities building NuScale SMRs) live in `report/output/sensitivity/<stamp>/00_regional_summary.md`.
+**Band counts (published roster, 304 sites).** All-SMR pool: **A = 45, B = 37, C = 12, D = 90, E = 8, F = 8, G = 17, H = 87** (A–G named = 217, 71.4 % of the pool). NuScale `nuscale_voygr6` pool: **A = 32, B = 37, C = 7, D = 95, E = 3, F = 3, G = 17, H = 110** (A–G named = 194, 63.8 %). The Band A head reflects the 360-pair envelope of this production run and the safety-floor reclassifications recorded in [failure analysis](./failure_analysis.md).
+
+**Band A shortlist — all-SMR pool, 45 sites (alphabetical):** Adamow (PL), Bobov Dol (BG), Çayırhan (TR), Çoban Yıldız (TR), Dobrotvir (UA), Dolna Odra (PL), Eren-1 (TR), Gerze (TR), Gubin Power Project (PL), Kangal (TR), Kangal Etyemez (TR), Karapinar Konya Şeker (TR), Kedzierzyn CCS Project (PL), Konya Karapınar (TR), Kozienice (PL), Kryvorizka (UA), Ladyzhyn (UA), Lom Power Station (BG), Maritsa Iztok-2 (BG), Mohacs (HU), Opalenie (PL), Opole (PL), Orta Anadolu (TR), Patnow (PL), Polaniec (PL), Pólnoc (PL), Puchaczow (PL), Riedersbach (AT), Rovinari (RO), Sarp Golvasi (TR), Sinop Akfen (TR), Swiecie Pulp Mill (PL), Teyo Tufanbeyli (TR), Timelkam (AT), Tufanbeyli (TR), Tunçbilek (TR), Turceni (RO), Turów (PL), Tusimice (CZ), Uluköy (TR), Vidin Works (BG), Vojany I (SK), Yeşilovacık (TR), Yüksek Gölovası (TR), Zmiivska (UA). These carry into the country and site interpretation as the robust regional shortlist; Band B (37 sites) is the resilience bench.
+
+**Band A shortlist — NuScale `nuscale_voygr6` pool, 32 sites (alphabetical, primary decision input for utilities building NuScale SMRs):** Adamow (PL), Çayırhan (TR), Çoban Yıldız (TR), Dobrotvir (UA), Dolna Odra (PL), Eren-1 (TR), Gubin Power Project (PL), Karapinar Konya Şeker (TR), Kedzierzyn CCS Project (PL), Konya Karapınar (TR), Kryvorizka (UA), Ladyzhyn (UA), Lom Power Station (BG), Maritsa Iztok-2 (BG), Mohacs (HU), Opalenie (PL), Polaniec (PL), Pólnoc (PL), Puchaczow (PL), Riedersbach (AT), Rovinari (RO), Sinop Akfen (TR), Swiecie Pulp Mill (PL), Teyo Tufanbeyli (TR), Timelkam (AT), Tufanbeyli (TR), Tunçbilek (TR), Turceni (RO), Turów (PL), Uluköy (TR), Vidin Works (BG), Zmiivska (UA). The NuScale-only top-25 with hit-rate detail is in [00 regional summary](../../report/output/sensitivity/20260523/00_regional_summary.md) §3.
 
 ![Site stability band counts — all SMRs (A–H)](../../report/output/sensitivity/20260523/figures/band_counts_ah_global.png)
 
-_Figure 4a — All-SMR A–H band counts across 15 non-baseline scenarios. Source for the v1.03 pack: `20260523_site_bands.csv`; v1.02 source `20260425_site_bands.csv`._
+_Figure 4a — All-SMR A–H band counts across 15 non-baseline scenarios. Source: `20260523_site_bands.csv`._
 
 ![Site stability band counts — NuScale voygr6 (A–H)](../../report/output/sensitivity/20260523/figures/band_counts_ah_nuscale.png)
 
-_Figure 4b — NuScale-only pool. Smaller population (one SMR) means a thinner A/B head and a longer H tail compared with the all-SMR scope. Source for the v1.03 pack: `20260523_site_bands_nuscale_voygr6.csv`; v1.02 source `20260425_site_bands_nuscale_voygr6.csv`._
+_Figure 4b — NuScale-only pool. Smaller population (one SMR) means a thinner A/B head and a longer H tail compared with the all-SMR scope. Source: `20260523_site_bands_nuscale_voygr6.csv`._
 
 ### 6.7 Phase D outcome — criterion correlation (new)
 
-The 2026-04-25 run also emits Pearson + Spearman correlation matrices over every scored ranking criterion ([`criterion_correlation.md`](./criterion_correlation.md), [`20260425_criterion_correlation.csv`](../../audit/post_processing/06_scoring/20260425_criterion_correlation.csv)). Pairs with `|ρ| ≥ 0.7` would warrant a swing-weight or weight-merge fix; the run flags **none**, so no rubric edit is recommended on the basis of correlation alone. The v1.03 frozen run emits the same diagnostic at `audit/post_processing/06_scoring/20260523_criterion_correlation.csv`.
+The current run emits Pearson + Spearman correlation matrices over every scored ranking criterion at [`20260523_criterion_correlation.csv`](../../audit/post_processing/06_scoring/20260523_criterion_correlation.csv) (with the narrative in [criterion correlation](./criterion_correlation.md)). Pairs with `|ρ| ≥ 0.7` would warrant a swing-weight or weight-merge fix; the run flags **none**, so no rubric edit is recommended on the basis of correlation alone. The earlier reference run emitted the same diagnostic at [`20260425_criterion_correlation.csv`](../../audit/post_processing/06_scoring/20260425_criterion_correlation.csv).
 
 ### 6.8 Synthesis
 
@@ -240,7 +240,7 @@ The 2026-04-25 run also emits Pearson + Spearman correlation matrices over every
 
 ### 6.9 Figure regeneration
 
-Figures 1–4 are embedded above. Regenerate from the same audit artefacts via [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py); the new A–H regional figures and all per-country figures are regenerated by [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py). Scoring, sensitivity re-runs, connector batches and the exact invocations are documented in the repository [`README.md`](../../README.md). Raw PNGs live under [`audit/post_processing/06_scoring/figures/20260425/`](../../audit/post_processing/06_scoring/figures/20260425/) (v1.02 reference) and under `report/output/sensitivity/20260523/figures/` (v1.03 frozen pack).
+Figures 1–4 are embedded above. Regenerate from the same audit artefacts via [`src/scripts/plot_phase_1_6_sensitivity.py`](../../src/scripts/plot_phase_1_6_sensitivity.py); the A–H regional figures and all per-country figures are regenerated by [`run_phase_1_6_extended_analysis.py`](../../src/scripts/run_phase_1_6_extended_analysis.py). Scoring, sensitivity re-runs, connector batches and the exact invocations are documented in the repository [README](../../README.md). Raw PNGs for the current production run live under `report/output/sensitivity/20260523/figures/`; figures from the earlier reference run are retained at [`audit/post_processing/06_scoring/figures/20260425/`](../../audit/post_processing/06_scoring/figures/20260425/) for run-to-run diff inspection.
 
 ## 7. National analysis (per-country shortlists)
 
@@ -266,7 +266,7 @@ Within each scope the top-5 / 10 / 30 % percentiles are recomputed **on the loca
 
 ![Example — Romania within-country top sites](../../report/output/sensitivity/20260523/national/figures/RO_top_sites.png)
 
-_Figure 5 — Example per-country figure (Romania). The same template is emitted for every country with ≥ 1 scored site. Source for the v1.03 pack: `20260523_site_bands_RO.csv`; v1.02 source `20260425_site_bands_RO.csv`._
+_Figure 5 — Example per-country figure (Romania). The same template is emitted for every country with ≥ 1 scored site. Source: `20260523_site_bands_RO.csv`._
 
 ## 8. Interpretation rules
 
@@ -295,7 +295,7 @@ Operational rules:
   are evaluated only against Tier 1 fields. If a Tier 1 measurement is
   missing, the criterion falls through to its rubric default (5.0 ranking
   score, no E-code) — the safety-floor pass mark then enforces a hard
-  cut at 5.0 (see `report/methodology/exclusionary_floors.md`).
+  cut at 5.0 (see exclusionary floors).
 - **Ranking criteria** may use Tier 2 fallbacks but the score row records
   `ranking_scores.source_layer` so the audit can group survivors by
   provenance share.
@@ -305,16 +305,16 @@ Operational rules:
 
 Cross-references:
 
-- Exclusionary thresholds: [`exclusionary_floors.md`](./exclusionary_floors.md).
-- Why sites fail (per-criterion / per-country / per-SMR): [`failure_analysis.md`](./failure_analysis.md).
-- Swing-weight audit: [`swing_weight_audit.md`](./swing_weight_audit.md).
-- Criterion correlation flag list: [`criterion_correlation.md`](./criterion_correlation.md).
-- SSR-1 traceability: [`ssr1_traceability.md`](./ssr1_traceability.md).
-- Project-wide assumptions: [`assumption_register.md`](./assumption_register.md).
+- Exclusionary thresholds: [exclusionary floors](./exclusionary_floors.md).
+- Why sites fail (per-criterion / per-country / per-SMR): [failure analysis](./failure_analysis.md).
+- Swing-weight audit: [swing weight audit](./swing_weight_audit.md).
+- Criterion correlation flag list: [criterion correlation](./criterion_correlation.md).
+- SSR-1 traceability: [ssr1 traceability](./ssr1_traceability.md).
+- Project-wide assumptions: [assumption register](./assumption_register.md).
 
 ## 10. Known limitations
 
 - OAT captures only first-order effects — interactions between criteria (two simultaneously perturbed) are not explored. A variance-based Sobol extension is deferred to Phase 1.7 if reviewers require it.
 - Threshold perturbation acts on measured numeric values, not on every rubric edge; non-numeric bands (e.g. categorical quality tiers) are insensitive to the ±25 % operator by construction.
 - Banding is population-relative, not absolute — in the post-floor 208-pair universe a site ranked 11th sits at the top-5 % boundary; the bands are always reported with the `scenarios_total` and `scenarios_scored` columns so reviewers can sanity-check coverage.
-- The uniform ±1-band MC distribution is conservative for `low`-quality data and may over-estimate uncertainty for `high`-quality rows where `score_low = score_high`. This is deliberate (defensive propagation) and documented in `report/methodology/methodology.md` §2.
+- The uniform ±1-band MC distribution is conservative for `low`-quality data and may over-estimate uncertainty for `high`-quality rows where `score_low = score_high`. This is deliberate (defensive propagation) and documented in methodology §2.

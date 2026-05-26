@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T19:44:15.554763+00:00",
+    "created_at": "2026-05-25T19:00:35.352335+00:00",
     "country_code": "ME",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -173,6 +173,35 @@
       "share_of_country": 0.25
     }
   ],
+  "per_site_verdicts": {
+    "3795824b-cb76-48dd-a65c-764c757ddc76": {
+      "avoidance": [
+        "NH-01",
+        "NH-08"
+      ],
+      "exclusionary": []
+    },
+    "a851b5f3-8392-4766-82b9-379c6c04fe5d": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02"
+      ]
+    },
+    "a9385c82-79b7-4f8d-b609-0a12ed946fe6": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02",
+        "NS-08"
+      ]
+    },
+    "e77a7e7f-11ba-4e61-98da-f44471bc52ab": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 4.44,

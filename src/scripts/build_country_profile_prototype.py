@@ -90,6 +90,18 @@ def _parser() -> argparse.ArgumentParser:
             "placeholder)."
         ),
     )
+    parser.add_argument(
+        "--figures-only", action="store_true",
+        help=(
+            "Refresh only the country status map and Pareto figures "
+            "against the supplied scoring/sensitivity runs. Do not "
+            "rewrite the country bundle JSON, country ledger CSV, "
+            "country markdown, site bundle, site charts, or site "
+            "markdown. Used by the final reconciliation pass when "
+            "hand-edited country prototype prose must be preserved "
+            "while figures are re-rendered."
+        ),
+    )
     parser.add_argument("--smr-key", default="nuscale_voygr6")
     parser.add_argument("--output-dir", type=Path, default=Path(
         "report/output/chapters/05_country_and_site_profiles",
@@ -104,8 +116,12 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
-    if args.country_only and args.site_only:
-        raise SystemExit("--country-only and --site-only are mutually exclusive")
+    mode_flags = [args.country_only, args.site_only, args.figures_only]
+    if sum(1 for f in mode_flags if f) > 1:
+        raise SystemExit(
+            "--country-only, --site-only, and --figures-only are "
+            "mutually exclusive"
+        )
     cc = args.country_code.upper()
     init_engine(Settings())
     with session_scope() as session:
@@ -117,7 +133,7 @@ def main(argv: list[str] | None = None) -> int:
             run_id=scoring, sensitivity_run_id=sensitivity,
             sensitivity_stamp=args.sensitivity_stamp,
         )
-        if args.country_only:
+        if args.country_only or args.figures_only:
             selected = None
             site_bundle = None
             detail = None
@@ -158,11 +174,18 @@ def _write(args, country_code, country_bundle, site_bundle, detail, selected):
         smr_label=smr_label,
         site_slug=site_slug,
         site_only=args.site_only,
+        figures_only=args.figures_only,
     )
     if args.site_only and selected is not None:
         print(
             f"Wrote site profile for {cname} / {selected['name']} "
             f"(site-only mode; "
+            f"scoring={country_bundle['metadata']['analytics_run_id']}, "
+            f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
+        )
+    elif args.figures_only:
+        print(
+            f"Refreshed country figures for {cname} (figures-only mode; "
             f"scoring={country_bundle['metadata']['analytics_run_id']}, "
             f"sensitivity={country_bundle['metadata'].get('sensitivity_run_id')})"
         )

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:50.379274+00:00",
+    "created_at": "2026-05-25T19:00:45.934756+00:00",
     "country_code": "RO",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -651,6 +651,156 @@
       "share_of_country": 0.0435
     }
   ],
+  "per_site_verdicts": {
+    "18ecb024-ee4f-4045-8254-5e95d61dea8c": {
+      "avoidance": [
+        "HI-01"
+      ],
+      "exclusionary": []
+    },
+    "1d8be6d0-f3a5-4b32-9d46-3526289731f8": {
+      "avoidance": [
+        "HI-01",
+        "HI-03",
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "29836b52-a882-4921-95a7-6417e636d9a2": {
+      "avoidance": [
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "3bef37a3-239e-498d-a160-77452a6a9b79": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "52a7babe-313f-493b-86b9-bd0c4aece4c3": {
+      "avoidance": [
+        "HI-03"
+      ],
+      "exclusionary": []
+    },
+    "5a33e5f0-6d86-4eab-adea-6c6bad7f3f45": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "693d9b73-f9fc-4502-9b94-be020c5d21fb": {
+      "avoidance": [
+        "HI-01",
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "6aed2eac-1c97-40c5-b842-fb15fd510f35": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "6c428b2a-ad09-448b-b24c-22465929d69c": {
+      "avoidance": [
+        "HI-01",
+        "HI-03",
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "729f8d17-57c0-4d9a-adab-4b612d4abde5": {
+      "avoidance": [],
+      "exclusionary": [
+        "EP-01"
+      ]
+    },
+    "825dc024-9a53-4237-bf59-cbe0af0cf87d": {
+      "avoidance": [
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "8781d874-5923-4795-9c9f-b2a6c709025a": {
+      "avoidance": [
+        "HI-01",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "9825e28e-fd6e-460d-9caf-0342563f9060": {
+      "avoidance": [
+        "NS-02"
+      ],
+      "exclusionary": []
+    },
+    "a4fa3246-27d6-4740-898c-bdf9dadcb88c": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "aff5ffe6-fe7a-4de7-afad-9d4645a64cd9": {
+      "avoidance": [
+        "HI-03"
+      ],
+      "exclusionary": []
+    },
+    "c3790475-3d3b-4e2b-92ae-24503fe03e6b": {
+      "avoidance": [
+        "HI-03",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "d498ded8-449c-4672-8bb9-0ed6c8fef775": {
+      "avoidance": [
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "dac2a974-a2de-46c5-b581-03985a9ae7d0": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "e073b3f8-4312-4d34-b322-6289a3121af1": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "RI-05"
+      ],
+      "exclusionary": []
+    },
+    "e43af28e-a3d3-4047-a9cf-f3b0990754b4": {
+      "avoidance": [
+        "HI-01",
+        "NS-02",
+        "NS-05",
+        "RI-05"
+      ],
+      "exclusionary": []
+    }
+  },
   "family_normalised_score_means": {
     "EP": {
       "mean_normalised_score": 5.3165,

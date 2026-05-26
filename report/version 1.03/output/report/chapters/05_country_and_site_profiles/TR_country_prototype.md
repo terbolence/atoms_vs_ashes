@@ -1,13 +1,11 @@
 # Türkiye Country Profile
 
-Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
-
 Türkiye has 146 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 9 sites pass both the exclusionary and avoidance screens, 110 pass the exclusionary screen but retain avoidance flags, and 27 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
 
 The leading site is **Konya Karapınar power station**, with a composite score of 7.784 and a Monte Carlo interval of 6.528-8.301. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
 <!-- specialist key=country_exec scope=country country_code=TR bundle=TR_country_bundle.json status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country TR --key country_exec` then `... patch --country TR --key country_exec --text-file <draft.md>`._
+
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>

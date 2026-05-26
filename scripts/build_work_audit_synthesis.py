@@ -1,5 +1,5 @@
 # man_hours: 2.9
-"""Build the v1.2 stakeholder work-audit synthesis deliverable."""
+"""Build the stakeholder work-audit synthesis deliverable."""
 
 from __future__ import annotations
 
@@ -21,10 +21,10 @@ from report_format_config import (
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = (
     REPO_ROOT
-    / "report/version 1.02/output/report/chapters/05_country_and_site_profiles/data"
+    / "report/version 1.03/output/report/chapters/05_country_and_site_profiles/data"
 )
 MAN_HOURS_SUMMARY = REPO_ROOT / "audit/man_hours_summary.md"
-EXECUTIVE_BRIEF = REPO_ROOT / "report/version 1.02/output/report/executive_technical_brief.md"
+EXECUTIVE_BRIEF = REPO_ROOT / "report/version 1.03/output/report/executive_technical_brief.md"
 EXPERT_PROMPTS = (
     REPO_ROOT / "experts/report/stakeholder_nuclear_engineering_expert.md",
     REPO_ROOT / "experts/report/stakeholder_energy_transition_expert.md",
@@ -171,7 +171,7 @@ def _build_markdown(markdown_path: Path) -> dict[str, str | int]:
 
 ## Purpose and Boundaries
 
-This stakeholder synthesis explains what the v1.2 report is, what it is not, what the platform can become, and what level of professional effort is represented by the current project archive. {boundary}
+This stakeholder synthesis explains what the report is, what it is not, what the platform can become, and what level of professional effort is represented by the current project archive. {boundary}
 
 The report is a screening-grade decision-support product. It is strongest as a portfolio triage tool: it identifies which brownfield thermal sites justify detailed Stage 3 characterisation, which sites need an issue-specific unlock review, and which existing thermal portfolios do not contain an exclusionary-pass NuScale VOYGR-6 brownfield candidate. It is not a licence application, construction approval, vendor selection, final investment decision, environmental impact assessment, land-title opinion, grid-connection study, emergency-plan approval, or public-acceptance finding.
 
@@ -189,7 +189,7 @@ The report is a screening-grade decision-support product. It is strongest as a p
 | Supplementary days | 10 | Additional support capacity associated with the delivery. |
 | Cash spent | EUR 4,200 | Direct cash expenditure recorded for stakeholder reporting. |
 
-The v1.2 published country ledgers cover {scope.countries} countries and {scope.published_site_records} site records. Of these, {scope.scored_records} records have composite scores, {scope.full_pass_records} clear both the exclusionary and avoidance screens, {scope.avoidance_records} pass the exclusionary screen but retain an avoidance flag, and {scope.hard_fail_records} are removed at the exclusionary screen. This mix is important for governance: the platform does not simply rank sites; it separates first-wave candidates, conditional unlock candidates, and hard constraints.
+The published country ledgers cover {scope.countries} countries and {scope.published_site_records} site records. Of these, {scope.scored_records} records have composite scores, {scope.full_pass_records} clear both the exclusionary and avoidance screens, {scope.avoidance_records} pass the exclusionary screen but retain an avoidance flag, and {scope.hard_fail_records} are removed at the exclusionary screen. This mix is important for governance: the platform does not simply rank sites; it separates first-wave candidates, conditional unlock candidates, and hard constraints.
 
 The original stakeholder need can be stated simply: identify Central, Eastern and Southern European coal and thermal sites that could become SMR candidates, and show power-export scale and site surface area. A reliable answer required the process above because those two infrastructure indicators are only useful after the site has been passed through exclusionary gates, avoidance checks, national scoring, sensitivity testing and map review. A programmatic workflow was needed because the evidence volume is too large for a dependable manual table: hundreds of sites, repeated country rules, changing ledgers, site bundles, map assets and revision cycles. The programmatic approach makes the list reproducible, allows rapid iteration when evidence changes, and keeps the same screening logic across all countries.
 
@@ -211,7 +211,7 @@ The third direction is institutional decision support. A utility or ministry cou
 
 ## Stakeholder Takeaway
 
-The v1.2 report should be read as a controlled Stage 1-2 screening product backed by a substantial software, data, criteria, and audit system. Its core contribution is clarity: it distinguishes candidates ready for detailed characterisation, candidates that need targeted unlock work, and sites that should not proceed under the current brownfield NuScale VOYGR-6 envelope.
+The report should be read as a controlled Stage 1-2 screening product backed by a substantial software, data, criteria, and audit system. Its core contribution is clarity: it distinguishes candidates ready for detailed characterisation, candidates that need targeted unlock work, and sites that should not proceed under the current brownfield NuScale VOYGR-6 envelope.
 
 The platform's future value is broader than the report. It can become a repeatable decision engine for nuclear siting, industrial-site reuse, and energy-infrastructure portfolio strategy, provided each extension preserves the same discipline: explicit criteria, traceable evidence, uncertainty labelling, conservative claim boundaries, and validation before stakeholder use.
 """

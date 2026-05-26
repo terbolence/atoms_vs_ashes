@@ -101,7 +101,7 @@ COUNTRY_NAMES: dict[str, str] = {
     "RS": "Serbia",
     "SI": "Slovenia",
     "SK": "Slovakia",
-    "TR": "Turkey",
+    "TR": "Türkiye",
     "UA": "Ukraine",
     "XK": "Kosovo",
 }

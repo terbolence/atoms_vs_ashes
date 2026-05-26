@@ -20,8 +20,8 @@ The country profiles are assembled in alphabetical order and linked through the 
 | Country | Current profile | Leading candidate in the national ledger | Screening class |
 | --- | --- | --- | --- |
 | Austria | [Austria country profile](05_country_and_site_profiles/AT_country_prototype.md) | Riedersbach power station | Avoidance flag |
-| Bosnia and Herzegovina | [Bosnia and Herzegovina country profile](05_country_and_site_profiles/BA_country_prototype.md) | Stanari Thermal Power Plant | Avoidance flag |
-| Bulgaria | [Bulgaria country profile](05_country_and_site_profiles/BG_country_prototype.md) | Lom Power Station | Avoidance flag |
+| Bosnia and Herzegovina | [Bosnia and Herzegovina country profile](05_country_and_site_profiles/BA_country_prototype.md) | Gacko Thermal Power Plant | Avoidance flag |
+| Bulgaria | [Bulgaria country profile](05_country_and_site_profiles/BG_country_prototype.md) | Maritsa Iztok-2 power station | Full pass |
 | Czechia | [Czechia country profile](05_country_and_site_profiles/CZ_country_prototype.md) | Tusimice power station | Avoidance flag |
 | Croatia | [Croatia country profile](05_country_and_site_profiles/HR_country_prototype.md) | Plomin power station | Avoidance flag |
 | Hungary | [Hungary country profile](05_country_and_site_profiles/HU_country_prototype.md) | Mohacs power station | Full pass |
@@ -29,7 +29,7 @@ The country profiles are assembled in alphabetical order and linked through the 
 | Moldova | [Moldova country profile](05_country_and_site_profiles/MD_country_prototype.md) | Kuchurgan power station | Avoidance flag |
 | Montenegro | [Montenegro country profile](05_country_and_site_profiles/ME_country_prototype.md) | Bar power station | Avoidance flag |
 | North Macedonia | [North Macedonia country profile](05_country_and_site_profiles/MK_country_prototype.md) | Bitola power station | Avoidance flag |
-| Poland | [Poland country profile](05_country_and_site_profiles/PL_country_prototype.md) | Polaniec power station | Avoidance flag |
+| Poland | [Poland country profile](05_country_and_site_profiles/PL_country_prototype.md) | Polaniec power station | Full pass |
 | Romania | [Romania country profile](05_country_and_site_profiles/RO_country_prototype.md) | Turceni power station | Full pass |
 | Serbia | [Serbia country profile](05_country_and_site_profiles/RS_country_prototype.md) | Štavalj Power Station | Avoidance flag |
 | Slovakia | [Slovakia country profile](05_country_and_site_profiles/SK_country_prototype.md) | Vojany I power station | Full pass |

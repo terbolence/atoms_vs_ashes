@@ -1,7 +1,7 @@
 # Swing-weight audit
 
 - Stamp: `20260523`
-- Pool: 362 (site, SMR) pairs from the latest baseline rescore
+- Pool: 360 (site, SMR) pairs from the latest baseline rescore
 - Source CSV: `audit/post_processing/06_scoring/20260523_swing_weight_audit.csv`
 
 ## What this audit shows

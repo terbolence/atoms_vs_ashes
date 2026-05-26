@@ -1,13 +1,11 @@
 # Austria Country Profile
 
-Analytical basis: scoring `score-c2a90942` and sensitivity `nat-sens-b1a62885`.
-
-Austria has 8 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 6 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. The country is therefore not a single-site case, but only a small subset of the national site population currently clears the full screening pathway without a remediation step.
+Austria has 8 thermal and coal-site records that have been tested against the NuScale VOYGR-6 reference deployment envelope. 0 sites pass both the exclusionary and avoidance screens, 6 pass the exclusionary screen but retain avoidance flags, and 2 fail one or more exclusionary checks. The country therefore has no candidate that currently clears the full screening pathway without a remediation step; the relevant pool is the exclusionary-pass group with one or more avoidance flags still to resolve.
 
 The leading site is **Riedersbach power station**, with a composite score of 7.159 and a Monte Carlo interval of 6.361-7.650. Its national stability band is `A` with a national top-10% hit rate of 100%. The leader is therefore not only the current point-estimate front-runner; it is also a stable national candidate under the sensitivity treatment used for the report.
 
 <!-- specialist key=country_exec scope=country country_code=AT bundle=AT_country_bundle.json status=pending -->
-> _Specialist interpretation pending: Country coal-to-nuclear executive read (full-pass leadership pool, avoidance unlock potential, greenfield lever, and credible programme cadence). Cursor agent fills via `python -m scripts.run_specialist_pass show --country AT --key country_exec` then `... patch --country AT --key country_exec --text-file <draft.md>`._
+
 <!-- /specialist key=country_exec -->
 
 <a id="country-status-map"></a>
@@ -60,13 +58,13 @@ Across the country the strongest criterion family is **Natural Hazards** at a me
 
 ## Interpretation for Site Selection
 
-The Austria result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. The full-pass group is the relevant pool for progression. Avoidance-flag sites are not discarded, but they identify locations where a specific constraint must be resolved before the site can be treated as equivalent to the leading group.
+The Austria result shows a clear separation between sites that can support further Stage 3 consideration and sites that should remain in the evidence base only as comparators. With no full-pass candidate in Austria, the relevant pool for progression is the leading exclusionary-pass group with avoidance flags still to resolve. Avoidance-flag sites are not discarded; they identify locations where a specific constraint must be resolved before the site can be treated as a full-pass equivalent.
 
 ![Avoidance flag Pareto - what unlocks more sites](figures/AT_avoidance_pareto.png)
 
 The chart shows where focused remediation effort would broaden the candidate pool. The criteria at the top of the Pareto are the policy and engineering levers that, if resolved, move avoidance-flag sites into the leading group.
 
-An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Riedersbach power station** is important because it leads nationally, sits inside the strongest stability band, and retains a full-pass status. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on field confirmation, national data review, and stakeholder engagement before lower-ranked or avoidance-flag locations.
+An IAEA-style reading of the table focuses less on the exact rank number and more on screening class, score stability, and the nature of remaining uncertainty. **Riedersbach power station** is important because it leads nationally and sits inside the strongest stability band, even though it remains an avoidance-flag candidate rather than a full-pass site. That does not establish final site suitability. It is a defensible reason to spend Stage 3 effort on resolving the leader's avoidance flag, field confirmation, national data review, and stakeholder engagement before lower-ranked locations.
 
 The Monte Carlo interval is a caution against false precision: several sites have overlapping score bands, so small score differences should not be overinterpreted. The decisive distinction is whether a site combines acceptable exclusionary performance with a stable ranking position and no unresolved avoidance flag.
 

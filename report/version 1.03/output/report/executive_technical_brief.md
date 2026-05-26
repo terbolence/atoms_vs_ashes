@@ -1,9 +1,10 @@
 <!-- man_hours: 2.4 -->
+
 # Executive Technical Brief
 
 **Purpose.** This standalone brief explains how the Atoms vs Ashes assessment system was built, what it produced, and how executives should interpret the outputs. It is a governance and audit summary for programme owners. It does not replace the client-facing technical report.
 
-**Analytical basis.** The brief is aligned with the version 1.2 report basis: NuScale VOYGR-6 as the single reference deployment envelope, a 352-record published site universe across 16 country profiles, and the project's 50,000-iteration national Monte Carlo sensitivity analysis for site-stability interpretation.
+**Analytical basis.** The brief is aligned with the report basis: NuScale VOYGR-6 as the single reference deployment envelope, a 352-record published site universe across 16 country profiles, and the project's 50,000-iteration national Monte Carlo sensitivity analysis for site-stability interpretation.
 
 ## 1. Objective and Scope of the Automated Assessment System
 
@@ -35,25 +36,25 @@ Where structured evidence was unavailable, curated public-evidence collection fi
 
 ## 4. QA, Versioning, and Report Control
 
-The version 1.2 report uses one analytical basis across the main chapters, Chapter 5 profiles, and annexes. The reader-facing report states the sensitivity basis as the project's 50,000-iteration national Monte Carlo sensitivity analysis and does not expose internal run identifiers. The internal audit copy preserves the exact artefact trail for reproducibility.
+The report uses one analytical basis across the main chapters, Chapter 5 profiles, and annexes. The reader-facing report states the sensitivity basis as the project's 50,000-iteration national Monte Carlo sensitivity analysis and does not expose internal run identifiers. The internal audit copy preserves the exact artefact trail for reproducibility.
 
 Quality control is organised around four checks. First, exclusionary gates and safety floors prevent unsuitable sites from entering composite ranking. Second, evidence-quality labels and assumption IDs preserve uncertainty. Third, national sensitivity analysis checks whether rankings are robust inside each country. Fourth, the writing and publication gates remove internal process language, stale sensitivity framing, and unsupported Stage 3 claims before assembly.
 
 ## 5. Operational Metrics
 
-| Metric | Current value | Interpretation |
-| --- | ---: | --- |
-| Published country profiles | 16 | Austria through Ukraine, excluding Belarus from the published country sequence. |
-| Published site records in country ledgers | 352 | Main report site universe used in Chapters 2 and 4. |
-| Scored / ranked records | 285 | Records with composite scores and national sensitivity bands in the published country ledgers. |
-| Full-pass records | 36 | Sites clearing both exclusionary and avoidance screens in the published country ledgers. |
-| Avoidance-flag records | 249 | Exclusionary-pass sites requiring issue-specific unlock work. |
-| Hard-fail records in Chapter 4 evidence base | 75 | Includes published country ledgers plus consolidated no-pass country section. |
-| Sensitivity basis | 50,000 national iterations | National rank stability, not regional rank, controls country and site sequencing. |
-| Reference deployment envelope | 462 MWe | NuScale VOYGR-6 only. |
-| Tracked professional effort | 2,301 person-hours | Registry estimate for the full tracked project archive, not a timesheet. |
-| Written documentation | 153,348 lines | Equivalent to about 3,408 dense pages in the current tracked archive. |
-| Python software | 185,040 lines | Screening, connectors, scoring, GUI, report generation, and supporting scripts. |
+| Metric                                       |              Current value | Interpretation                                                                                                                                         |
+| -------------------------------------------- | -------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Published country profiles                   |                         16 | Austria through Ukraine, alphabetical by ISO 3166-1 alpha-2 code.                                                                                      |
+| Published site records in country ledgers    |                        352 | Main report site universe used in Chapters 2 and 4.                                                                                                    |
+| Scored / ranked records                      |                        302 | Records with composite scores and national sensitivity bands in the published country ledgers (full-pass plus avoidance-flag entries).                 |
+| Full-pass records                            |                         33 | Sites clearing both exclusionary and avoidance screens in the published country ledgers.                                                               |
+| Avoidance-flag records                       |                        269 | Exclusionary-pass sites requiring issue-specific unlock work.                                                                                          |
+| Hard-fail records in Chapter 4 evidence base |                         50 | Sites removed at the exclusionary screen across the 16 published country ledgers (consolidated no-pass countries are tracked separately in Chapter 5). |
+| Sensitivity basis                            | 50,000 national iterations | National rank stability, not regional rank, controls country and site sequencing.                                                                      |
+| Reference deployment envelope                |                    462 MWe | NuScale VOYGR-6 only.                                                                                                                                  |
+| Tracked professional effort                  |         2,301 person-hours | Registry estimate for the full tracked project archive, not a timesheet.                                                                               |
+| Written documentation                        |              153,348 lines | Equivalent to about 3,408 dense pages in the current tracked archive.                                                                                  |
+| Python software                              |              185,040 lines | Screening, connectors, scoring, GUI, report generation, and supporting scripts.                                                                        |
 
 Direct spend, hosted-model token usage, and external compute costs are not finalised in the tracked project artefacts available to this brief. They should be added from billing records before the brief is used for commercial or procurement reporting.
 

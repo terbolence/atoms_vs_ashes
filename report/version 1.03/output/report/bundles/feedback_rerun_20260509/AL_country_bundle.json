@@ -1,7 +1,7 @@
 {
   "metadata": {
     "bundle_schema": "country_bundle.v1",
-    "created_at": "2026-05-23T17:27:49.937196+00:00",
+    "created_at": "2026-05-25T19:00:44.337827+00:00",
     "country_code": "AL",
     "smr_key": "nuscale_voygr6",
     "smr_label": "NuScale VOYGR-6",
@@ -67,6 +67,15 @@
       "share_of_country": 1.0
     }
   ],
+  "per_site_verdicts": {
+    "e6ecead0-54d1-41fe-8268-1253d0d7ef3e": {
+      "avoidance": [],
+      "exclusionary": [
+        "NH-02",
+        "NH-03"
+      ]
+    }
+  },
   "family_normalised_score_means": {},
   "ranking_score_distribution": [
     {

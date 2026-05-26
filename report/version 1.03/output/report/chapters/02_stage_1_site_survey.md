@@ -1,4 +1,5 @@
 <!-- man_hours: 4.9 -->
+
 # 2. Stage 1: Site Survey
 
 Stage 1 establishes the survey population for the report. It converts a broad set of coal, lignite and thermal power plant locations into a screened inventory that can be compared in Stage 2 under one reference deployment envelope: NuScale VOYGR-6. The chapter follows the site survey logic in IAEA SSG-35, where regional review, site identification and initial screening precede comparative site selection (IAEA, 2015).
@@ -13,31 +14,31 @@ The survey stage also protects the reader from false precision. A site with weak
 
 ## 2.2 Study Region and Initial Site Universe
 
-The published analysis covers 16 countries in Central, Eastern and Southern Europe: Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey and Ukraine. No country or site conclusion in this chapter relies on records outside the published roster.
+The published analysis covers 16 countries in Central, Eastern and Southern Europe: Austria, Bosnia and Herzegovina, Bulgaria, Czechia, Croatia, Hungary, Latvia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Türkiye and Ukraine. No country or site conclusion in this chapter relies on records outside the published roster.
 
 The published site universe contains 352 site records. Each record has a representative location and enough plant identity information to enter screening. Inclusion is limited to survey relevance; availability, owner support, licensing readiness, construction feasibility and host-community acceptance belong to later technical, regulatory and stakeholder processes.
 
 Table 2.1. Published Stage 1 site universe by country. NuScale VOYGR-6 reference case. Denominator: 352 published site records.
 
-| Country | Site records | Exclusionary pass | Clear of avoidance flags | Retained with avoidance flags | Exclusionary fail |
-| :--- | ---: | ---: | ---: | ---: | ---: |
-| Austria | 8 | 6 | 0 | 6 | 2 |
-| Bosnia and Herzegovina | 11 | 5 | 0 | 5 | 6 |
-| Bulgaria | 15 | 7 | 0 | 7 | 8 |
-| Czechia | 29 | 29 | 0 | 29 | 0 |
-| Croatia | 2 | 1 | 0 | 1 | 1 |
-| Hungary | 11 | 11 | 1 | 10 | 0 |
-| Latvia | 1 | 1 | 0 | 1 | 0 |
-| Moldova | 1 | 1 | 0 | 1 | 0 |
-| Montenegro | 4 | 1 | 0 | 1 | 3 |
-| North Macedonia | 4 | 3 | 0 | 3 | 1 |
-| Poland | 63 | 61 | 3 | 58 | 2 |
-| Romania | 23 | 22 | 3 | 19 | 1 |
-| Serbia | 8 | 6 | 0 | 6 | 2 |
-| Slovakia | 6 | 5 | 1 | 4 | 1 |
-| Turkey | 146 | 110 | 8 | 102 | 36 |
-| Ukraine | 20 | 20 | 12 | 8 | 0 |
-| **Published total** | **352** | **289** | **28** | **261** | **63** |
+| Country                | Site records | Exclusionary pass | Clear of avoidance flags | Retained with avoidance flags | Exclusionary fail |
+| :--------------------- | -----------: | ----------------: | -----------------------: | ----------------------------: | ----------------: |
+| Austria                |            8 |                 6 |                        0 |                             6 |                 2 |
+| Bosnia and Herzegovina |           11 |                 6 |                        0 |                             6 |                 5 |
+| Bulgaria               |           15 |                 8 |                        1 |                             7 |                 7 |
+| Czechia                |           29 |                29 |                        0 |                            29 |                 0 |
+| Croatia                |            2 |                 1 |                        0 |                             1 |                 1 |
+| Hungary                |           11 |                11 |                        1 |                            10 |                 0 |
+| Latvia                 |            1 |                 1 |                        0 |                             1 |                 0 |
+| Moldova                |            1 |                 1 |                        0 |                             1 |                 0 |
+| Montenegro             |            4 |                 2 |                        0 |                             2 |                 2 |
+| North Macedonia        |            4 |                 3 |                        0 |                             3 |                 1 |
+| Poland                 |           63 |                61 |                        4 |                            57 |                 2 |
+| Romania                |           23 |                22 |                        3 |                            19 |                 1 |
+| Serbia                 |            8 |                 7 |                        0 |                             7 |                 1 |
+| Slovakia               |            6 |                 5 |                        2 |                             3 |                 1 |
+| Türkiye                |          146 |               119 |                        9 |                           110 |                27 |
+| Ukraine                |           20 |                20 |                       13 |                             7 |                 0 |
+| **Published total**    |      **352** |           **302** |                   **33** |                       **269** |            **50** |
 
 The table is a survey-stage inventory, not a shortlist. The large number of sites retained with avoidance flags reflects the character of coal and thermal brownfields: many sit in industrial corridors, populated regions, transport corridors or constrained water and land settings. Stage 2 uses those flags to explain ranking, confidence and Stage 3 follow-up requirements.
 
@@ -49,13 +50,13 @@ The evidence hierarchy is conservative. Authoritative public records and structu
 
 Table 2.2. Stage 1 evidence families. Published site universe. Denominator: all sites entering screening.
 
-| Evidence family | Stage 1 use | Main limitation |
-| :--- | :--- | :--- |
-| Plant identity and status | Confirms plant name, country, fuel or thermal history, operating status, capacity context and representative location. | Records can differ by plant name, unit boundary, retirement status or coordinate precision. |
-| Natural hazards | Screens seismic, geological, hydrological, meteorological, terrain and combined-hazard context. | Desk-scale hazard layers cannot replace site-specific investigations or design-basis studies. |
-| Human-induced hazards | Screens nearby aviation, industrial, military, transport and other external-event sources. | Public evidence can be incomplete for classified, operator-specific or rapidly changing activities. |
-| Radiological and emergency-planning context | Screens population, dispersion pathways, access, geography and special-population indicators. | These indicators support comparison but do not define emergency planning zones or licensed dose outcomes. |
-| Non-safety implementation context | Screens grid, cooling, transport, land, infrastructure reuse, workforce, policy and coal-to-nuclear transition fit. | Public evidence does not prove site control, permits, grid rights, water rights, community acceptance or commercial readiness. |
+| Evidence family                             | Stage 1 use                                                                                                            | Main limitation                                                                                                                |
+| :------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| Plant identity and status                   | Confirms plant name, country, fuel or thermal history, operating status, capacity context and representative location. | Records can differ by plant name, unit boundary, retirement status or coordinate precision.                                    |
+| Natural hazards                             | Screens seismic, geological, hydrological, meteorological, terrain and combined-hazard context.                        | Desk-scale hazard layers cannot replace site-specific investigations or design-basis studies.                                  |
+| Human-induced hazards                       | Screens nearby aviation, industrial, military, transport and other external-event sources.                             | Public evidence can be incomplete for classified, operator-specific or rapidly changing activities.                            |
+| Radiological and emergency-planning context | Screens population, dispersion pathways, access, geography and special-population indicators.                          | These indicators support comparison but do not define emergency planning zones or licensed dose outcomes.                      |
+| Non-safety implementation context           | Screens grid, cooling, transport, land, infrastructure reuse, workforce, policy and coal-to-nuclear transition fit.    | Public evidence does not prove site control, permits, grid rights, water rights, community acceptance or commercial readiness. |
 
 Each evidence item carries a quality interpretation. High-confidence evidence can support a stronger screening conclusion; lower-confidence or incomplete evidence is disclosed as a limitation and passed into Stage 2 uncertainty treatment. Missing evidence is therefore visible to the reader and to the later Stage 3 work programme.
 
@@ -67,13 +68,13 @@ The screening logic has two layers. The first layer is a basic readiness check: 
 
 Table 2.3. Exclusionary floor summary. NuScale VOYGR-6 reference case. Denominator: sites entering Stage 1 screening.
 
-| Gate | Criterion | Screening rule | Stage 1 implication |
-| :---: | :--- | :--- | :--- |
-| E1 | Seismic surface rupture | Mapped capable-fault separation below the score-5 boundary. | Removes sites where surface-rupture concern cannot be screened out at desk-study level. |
-| E2 | Settlement and liquefaction | High or very-high susceptibility without a documented remedy, or a score below the safety floor. | Removes sites where ground-improvement feasibility cannot be assumed. |
-| E3 | Slope stability | Terrain slope above the screening envelope, or a score below the safety floor. | Removes sites where earthworks and slope stability would dominate later evaluation. |
-| E4 | Volcanism | Holocene volcanic proximity inside the screening standoff, or a score below the safety floor. | Removes sites with direct volcanic-hazard concern at survey resolution. |
-| E8 | Emergency-plan feasibility | Emergency-planning composite below the hard floor. | Removes sites where access, geography and population context make emergency planning implausible at screening resolution. |
+| Gate | Criterion                   | Screening rule                                                                                   | Stage 1 implication                                                                                                       |
+| :--: | :-------------------------- | :----------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+|  E1  | Seismic surface rupture     | Mapped capable-fault separation below the score-5 boundary.                                      | Removes sites where surface-rupture concern cannot be screened out at desk-study level.                                   |
+|  E2  | Settlement and liquefaction | High or very-high susceptibility without a documented remedy, or a score below the safety floor. | Removes sites where ground-improvement feasibility cannot be assumed.                                                     |
+|  E3  | Slope stability             | Terrain slope above the screening envelope, or a score below the safety floor.                   | Removes sites where earthworks and slope stability would dominate later evaluation.                                       |
+|  E4  | Volcanism                   | Holocene volcanic proximity inside the screening standoff, or a score below the safety floor.    | Removes sites with direct volcanic-hazard concern at survey resolution.                                                   |
+|  E8  | Emergency-plan feasibility  | Emergency-planning composite below the hard floor.                                               | Removes sites where access, geography and population context make emergency planning implausible at screening resolution. |
 
 Avoidance flags are treated differently from exclusions. They identify concerns that warrant caution, ranking penalty, targeted review or Stage 3 investigation while keeping the site in the candidate population. This distinction is important for brownfield energy sites, where industrial, transport or land-use constraints are common and need transparent treatment rather than silent removal.
 
